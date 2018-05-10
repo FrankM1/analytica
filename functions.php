@@ -84,14 +84,8 @@ class Core extends Core_Base {
      * @uses   apply_filters() calls various filters
      */
     public function setup_globals() {
-
-        // set global counter used in to generate unique id
-        global $analytica_uid;
-        $analytica_uid = 0;
-
         $this->theme            = wp_get_theme();         // Get Theme data (WP 3.4+)
         $this->theme_version    = $this->theme->version;  // Theme version
-        $this->theme_db_version = '1000';                 // database version
 
         // Setup some base path, name and URL information
         $this->theme_title = apply_filters( 'analytica_theme_title',      $this->theme->name );                          // or $this->theme->title
@@ -102,29 +96,10 @@ class Core extends Core_Base {
         // Setup theme Options name - it's not recommended that you change this, if you do you will looses theme option settings and you will need to resave them
         $this->theme_option_name = $this->theme_slug . '_options';  // Theme_options name
 
-        // Define Directory Location Constants (These Constants make moving directories and files around very easy)
-        $this->theme_assets_dir = apply_filters( 'analytica_theme_assets_dir',     $this->theme_dir . '/assets' );
-        $this->lang_dir         = apply_filters( 'analytica_theme_lang_dir',       $this->theme_dir . trailingslashit( '/languages' ) );
-
-        // Define Url Location Constants (These Constants make moving directories and files around very easy)
-        $this->theme_assets_url = apply_filters( 'analytica_theme_assets_url',      $this->theme_url . '/assets' );
-        $this->theme_styles_url = apply_filters( 'analytica_theme_styles_url',      $this->theme_url . '/assets/skins' );
-
-        // Constants for the theme name, folder and remote api url.
-        $this->theme_main_site_url  = apply_filters( 'analytica_theme_site_url',       'https://radiumthemes.com' );
-        $this->theme_api_url        = apply_filters( 'analytica_theme_api_url',        'http://api.qazana.net' );
-        $this->theme_api_id         = apply_filters( 'analytica_theme_api_id',         '21247750' );
-        $this->theme_changelog_url  = apply_filters( 'analytica_theme_changelog_url',  $this->theme_url . '/CHANGELOG.md' );
-        $this->theme_changelog_path = apply_filters( 'analytica_theme_changelog_path', $this->theme_dir . '/CHANGELOG.md' );
-
         // Data placeholders
         $this->errors              = new WP_Error();                          // Feedback
         $this->extend              = new stdClass();                          // Plugins add data here
         $this->options             = get_option( $this->theme_option_name );  // get theme options so we don't run it all the time
-        $this->options_instance    = new stdClass();                          // Redux options instance
-        $this->page_header         = new stdClass();
-        $this->related_posts_query = null;                                    // related query
-        $this->single_post_uid     = null;
     }
 
     /**
@@ -170,8 +145,9 @@ class Core extends Core_Base {
         $this->_include_structure_single_posts();
 
         $this->_include_menus();
-        $this->_include_builder();
-        $this->_include_extensions();
+        $this->_include_builder(); */
+        $this->_include_extensions(); 
+        /*
         $this->_include_woocommerce();
         $this->_include_video_central();*/
     }
@@ -274,7 +250,7 @@ class Core extends Core_Base {
 
     function _include_admin() {
         require_once get_theme_file_path( '/includes/admin/functions.php' );
-        //require_once get_theme_file_path( '/includes/admin/assets.php' );
+        // require_once get_theme_file_path( '/includes/admin/assets.php' );
         require_once get_theme_file_path( '/includes/admin/helper.php' );
 
         // We've separated admin and frontend specific files for the best performance
@@ -316,46 +292,10 @@ class Core extends Core_Base {
     }
 
     function _include_extensions() {
-        require_once get_theme_file_path( '/includes/extensions/header-composer.php' );
-        require_once get_theme_file_path( '/includes/extensions/skins.php' );
-        require_once get_theme_file_path( '/includes/extensions/metaboxes.php' );
-
-        // pace
-        require_once get_theme_file_path( '/includes/extensions/pace.php' );
-
-        // login logo
-        require_once get_theme_file_path( '/includes/extensions/login-logo.php' );
-
-        // Post count
-        require_once get_theme_file_path( '/includes/extensions/views.php' );
-
-        if ( analytica_detect_plugin( [ 'classes' => [ 'Radium_Portfolio' ] ] ) ) {
-            require_once get_theme_file_path( '/includes/extensions/portfolio/config/options.php' );
-            require_once get_theme_file_path( '/includes/extensions/portfolio/config/customizer-config.php' );
-
-            require_once get_theme_file_path( '/includes/extensions/portfolio/overrides.php' );
-            require_once get_theme_file_path( '/includes/extensions/portfolio/widgetize.php' );
-            require_once get_theme_file_path( '/includes/extensions/portfolio/page-title.php' );
-            require_once get_theme_file_path( '/includes/extensions/portfolio/related-portfolios.php' );
-
-            require_once get_theme_file_path( '/includes/extensions/portfolio/single-loop.php' );
-
-            require_once get_theme_file_path( '/includes/extensions/portfolio/single/skins/base.php' );
-            require_once get_theme_file_path( '/includes/extensions/portfolio/single/skins/qazana.php' );
-            require_once get_theme_file_path( '/includes/extensions/portfolio/single/skins/style-1.php' );
-            require_once get_theme_file_path( '/includes/extensions/portfolio/single/skins/style-2.php' );
-            require_once get_theme_file_path( '/includes/extensions/portfolio/single/skins/style-3.php' );
-            require_once get_theme_file_path( '/includes/extensions/portfolio/single/skins/style-4.php' );
-            require_once get_theme_file_path( '/includes/extensions/portfolio/single/skins/style-5.php' );
-            require_once get_theme_file_path( '/includes/extensions/portfolio/single/skins/style-6.php' );
-        }
-
-        if ( analytica_get_option( 'page_loader' ) !== 'none' ) {
-            require_once get_theme_file_path( '/includes/extensions/loader.php' );
-        }
-
-        require_once get_theme_file_path( '/includes/extensions/photo-central/templates.php' );
-
+        // require_once get_theme_file_path( '/includes/extensions/header-composer.php' );
+        // require_once get_theme_file_path( '/includes/extensions/skins.php' );
+        // require_once get_theme_file_path( '/includes/extensions/metaboxes.php' );
+   
         // /**
         //  * Compatibility
         //  */
@@ -476,47 +416,6 @@ class Core extends Core_Base {
         }
     }
 
-    function _include_woocommerce() {
-        // Plugin Integration
-        if ( analytica_detect_plugin( [ 'classes' => [ 'WooCommerce' ] ] ) ) {
-            require_once get_theme_file_path( '/includes/extensions/woocommerce/config.php' ); // setup options
-            require_once get_theme_file_path( '/includes/config/customizer/11-woocommerce.php' ); // theme options
-            require_once get_theme_file_path( '/includes/extensions/woocommerce/options.php' ); // theme options
-            require_once get_theme_file_path( '/includes/extensions/woocommerce/functions.php' );
-            require_once get_theme_file_path( '/includes/extensions/woocommerce/queries.php' );
-            require_once get_theme_file_path( '/includes/extensions/woocommerce/templates.php' ); // template loader
-            require_once get_theme_file_path( '/includes/extensions/woocommerce/product-modules.php' );
-
-            require_once get_theme_file_path( '/includes/extensions/woocommerce/ajax.php' ); // WooCommerce Ajax
-            require_once get_theme_file_path( '/includes/extensions/woocommerce/breadcrumb.php' );
-            require_once get_theme_file_path( '/includes/extensions/woocommerce/page-title.php' );
-
-            require_once get_theme_file_path( '/includes/extensions/woocommerce/qazana/products.php' );
-            require_once get_theme_file_path( '/includes/extensions/woocommerce/qazana/products-grid.php' );
-            require_once get_theme_file_path( '/includes/extensions/woocommerce/class.products-gallery.php' );
-
-            // Plugin Integration
-            if ( analytica_detect_plugin( [ 'classes' => [ 'YITH_WCWL' ] ] ) ) {
-                require_once get_theme_file_path( '/includes/extensions/wishlist/functions.php' );
-                require_once get_theme_file_path( '/includes/extensions/wishlist/page-title.php' );
-            }
-        }
-    }
-
-    function _include_video_central() {
-        if ( analytica_detect_plugin( [ 'classes' => [ 'Video_Central' ] ] ) ) {
-            require_once get_theme_file_path( '/includes/config/customizer/14-video-central.php' ); // setup options
-
-            require_once get_theme_file_path( '/includes/extensions/video-central/options.php' );
-            require_once get_theme_file_path( '/includes/extensions/video-central/queries.php' );
-            require_once get_theme_file_path( '/includes/extensions/video-central/overrides.php' );
-            require_once get_theme_file_path( '/includes/extensions/video-central/widgetize.php' );
-            require_once get_theme_file_path( '/includes/extensions/video-central/templates.php' );
-            require_once get_theme_file_path( '/includes/extensions/video-central/page-title.php' );
-            require_once get_theme_file_path( '/includes/extensions/video-central/ajax.php' ); // WooCommerce Ajax
-            require_once get_theme_file_path( '/includes/extensions/video-central/playlist/ajax.php' );
-        }
-    }
 }
 
 /**
