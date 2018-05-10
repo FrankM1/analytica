@@ -18,13 +18,13 @@
 
 <div class="main-header-bar-wrap">
 	<div class="main-header-bar">
-		<?php analytica_main_header_bar_top(); ?>
+		<?php do_action( 'analytica_main_header_bar_top' ); ?>
 		<div class="ast-container">
 
 			<div class="ast-flex main-header-container">
-				<?php analytica_masthead_content(); ?>
+				<?php do_action( 'analytica_masthead_content' ); ?>
 			</div><!-- Main Header Container -->
 		</div><!-- ast-row -->
-		<?php analytica_main_header_bar_bottom(); ?>
+		<?php do_action( 'analytica_main_header_bar_bottom' ); ?>
 	</div> <!-- Main Header Bar -->
 </div> <!-- Main Header Bar Wrap -->

@@ -1,0 +1,9 @@
+{
+    "extends": "wordpress",
+    "rules": {
+        "vars-on-top" : 0,
+        "key-spacing" : 0,
+        "yoda" : 0,
+        "camelcase" : 0,
+    },
+}

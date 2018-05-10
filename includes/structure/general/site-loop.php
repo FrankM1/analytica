@@ -1,46 +1,18 @@
 <?php
+namespace Analytica\Content;
+
 /**
  * Analytica Loop
  *
  * @package Analytica
- * @since 1.2.7
+ * @since 1.0.0
  */
-
-/**
- * Analytica_Loop
- *
- * @since 1.2.7
- */
-class Analytica_Loop {
-
-    /**
-     * Instance
-     *
-     * @since 1.2.7
-     *
-     * @access private
-     * @var object Class object.
-     */
-    private static $instance;
-
-    /**
-     * Initiator
-     *
-     * @since 1.2.7
-     *
-     * @return object initialized object of class.
-     */
-    public static function get_instance() {
-        if ( ! isset( self::$instance ) ) {
-            self::$instance = new self;
-        }
-        return self::$instance;
-    }
+class Loop {
 
     /**
      * Constructor
      *
-     * @since 1.2.7
+     * @since 1.0.0
      */
     public function __construct() {
         // Loop.
@@ -70,7 +42,7 @@ class Analytica_Loop {
     /**
      * Template part none
      *
-     * @since 1.2.7
+     * @since 1.0.0
      * @return void
      */
     public function template_parts_none() {
@@ -82,7 +54,7 @@ class Analytica_Loop {
     /**
      * Template part 404
      *
-     * @since 1.2.7
+     * @since 1.0.0
      * @return void
      */
     public function template_parts_404() {
@@ -94,7 +66,7 @@ class Analytica_Loop {
     /**
      * Template part page
      *
-     * @since 1.2.7
+     * @since 1.0.0
      * @return void
      */
     public function template_parts_page() {
@@ -104,7 +76,7 @@ class Analytica_Loop {
     /**
      * Template part single
      *
-     * @since 1.2.7
+     * @since 1.0.0
      * @return void
      */
     public function template_parts_post() {
@@ -116,7 +88,7 @@ class Analytica_Loop {
     /**
      * Template part search
      *
-     * @since 1.2.7
+     * @since 1.0.0
      * @return void
      */
     public function template_parts_search() {
@@ -128,7 +100,7 @@ class Analytica_Loop {
     /**
      * Template part comments
      *
-     * @since 1.2.7
+     * @since 1.0.0
      * @return void
      */
     public function template_parts_comments() {
@@ -143,7 +115,7 @@ class Analytica_Loop {
     /**
      * Template part default
      *
-     * @since 1.2.7
+     * @since 1.0.0
      * @return void
      */
     public function template_parts_default() {
@@ -172,7 +144,7 @@ class Analytica_Loop {
      * @param  boolean $is_page Loop outputs different content action for content page and default content.
      *         if is_page is set to true - do_action( 'analytica_page_template_parts_content' ); is added
      *         if is_page is false - do_action( 'analytica_template_parts_content' ); is added.
-     * @since 1.2.7
+     * @since 1.0.0
      * @return void
      */
     public function loop_markup( $is_page = false ) {
@@ -212,31 +184,31 @@ class Analytica_Loop {
     /**
      * Template part content top
      *
-     * @since 1.2.7
+     * @since 1.0.0
      * @return void
      */
     public function template_parts_content_top() {
         if ( is_archive() ) {
-            analytica_content_while_before();
+            do_action( 'analytica_content_while_before' );
         }
     }
 
     /**
      * Template part content bottom
      *
-     * @since 1.2.7
+     * @since 1.0.0
      * @return void
      */
     public function template_parts_content_bottom() {
         if ( is_archive() ) {
-            analytica_content_while_after();
+            do_action( 'analytica_content_while_after' );
         }
     }
 
     /**
      * Add wrapper div 'ast-row' for Analytica template part.
      *
-     * @since  1.2.7
+     * @since  1.0.0
      * @return void
      */
     public function analytica_templat_part_wrap_open() {
@@ -248,7 +220,7 @@ class Analytica_Loop {
     /**
      * Add closing wrapper div for 'ast-row' after Analytica template part.
      *
-     * @since  1.2.7
+     * @since  1.0.0
      * @return void
      */
     public function analytica_templat_part_wrap_close() {
@@ -258,8 +230,3 @@ class Analytica_Loop {
     }
 
 }
-
-/**
- * Initialize class object with 'get_instance()' method
- */
-Analytica_Loop::get_instance();

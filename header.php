@@ -11,34 +11,44 @@
  */
 
 ?><!DOCTYPE html>
-<?php analytica_html_before(); ?>
+<?php do_action( 'analytica_html_before' ); ?>
 <html <?php language_attributes(); ?>>
 <head>
-<?php analytica_head_top(); ?>
+<?php do_action( 'analytica_head_top' );; ?>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 
-<?php analytica_head_bottom(); ?>
+<?php do_action( 'analytica_head_bottom' ); ?>
 <?php wp_head(); ?>
 </head>
 
 <body <?php analytica_schema_body(); ?> <?php body_class(); ?>>
+    <div class="site-container"><?php
 
-<?php analytica_body_top(); ?>
-<div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( analytica_default_strings( 'string-header-skip-link', false ) ); ?></a>
+        do_action( 'analytica_body_top' ); 
 
-	<?php analytica_header_before(); ?>
+        ?><div id="page" class="hfeed site">
 
-	<?php analytica_header(); ?>
+            <a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( analytica_default_strings( 'string-header-skip-link', false ) ); ?></a><?php
 
-	<?php analytica_header_after(); ?>
+            do_action( 'analytica_header_before' );
 
-	<?php analytica_content_before(); ?>
+            do_action( 'analytica_header' );
 
-	<div id="content" class="site-content">
+            do_action( 'analytica_header_after' );
 
-		<div class="ast-container">
+            do_action( 'analytica_content_before' ); 
+            
+            ?><div id="content" class="site-content">
 
-		<?php analytica_content_top(); ?>
+                <div class="ast-container">
+
+                    <?php do_action( 'analytica_content_top' );
+
+                        analytica_markup( array(
+                            'html5' => '<div %s>',
+                            'context' => 'site-inner',
+                        ) );
+
+                        analytica_structural_wrap( 'site-inner', 'open' );

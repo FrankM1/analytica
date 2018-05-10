@@ -18,11 +18,11 @@
 
 		<div class="entry-content clear" itemprop="text">
 
-			<?php analytica_entry_content_before(); ?>
+			<?php do_action( 'analytica_entry_content_before' ); ?>
 
 			<?php analytica_the_excerpt(); ?>
 
-			<?php analytica_entry_content_after(); ?>
+			<?php do_action( 'analytica_entry_content_after' ); ?>
 
 			<?php
 				wp_link_pages(

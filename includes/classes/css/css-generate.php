@@ -7,7 +7,7 @@ namespace Analytica;
  * Please be cautious editing this file.
  * Modifying the contents of this file can be a poor life decision if you don't know what you're doing.
  *
- * NOTE: Theme data (options, global variables etc ) can be accessed anywhere in the theme by calling  <?php $framework = radium_framework(); ?>
+ * NOTE: Theme data (options, global variables etc ) can be accessed anywhere in the theme by calling  <?php $core = analytica(); ?>
  *
  * @category Header Composer
  * @package  Header Composer WP
@@ -35,7 +35,7 @@ class CSS_Generate {
 		}
 
         add_action( 'radium/global-css-file/parse',         [ $this, 'add_css' ] );
-        add_action( 'radium_after_theme_is_activated',      [ $this, 'update_css' ], 90 );
+        add_action( 'analytica_after_theme_is_activated',      [ $this, 'update_css' ], 90 );
         add_action( 'customize_save_after',                 [ $this, 'update_css' ], 100 );
         add_action( 'energia_style_switcher_import_after',  [ $this, 'update_css' ], 100 );
     }
@@ -137,7 +137,7 @@ class CSS_Generate {
          * Check if we're using file mode or inline mode.
          * This simply checks the dynamic_css_compiler options.
          */
-        $dynamic_css = apply_filters( 'radium_dynamic_css_cached', $dynamic_css );
+        $dynamic_css = apply_filters( 'analytica_dynamic_css_cached', $dynamic_css );
 
         // detect if in developer mode and load appropriate files
         if ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ) :
@@ -152,7 +152,7 @@ class CSS_Generate {
 
         endif;
 
-        return apply_filters( 'radium_dynamic_css_cached_after', $dynamic_css );
+        return apply_filters( 'analytica_dynamic_css_cached_after', $dynamic_css );
     }
 }
 

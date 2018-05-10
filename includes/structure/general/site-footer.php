@@ -406,12 +406,33 @@ add_action( 'analytica_after_footer', 'analytica_back_to_top', 99 );
 function analytica_back_to_top() {
 
     // Filter the text strings
-    $backtotop_text = apply_filters( 'analytica_footer_backtotop_text', '<a href="#site-container" rel="nofollow">'. esc_html__( 'Back to top', 'energia' ) .'</a>' );
+    $backtotop_text = apply_filters( 'analytica_footer_backtotop_text', '<a href="#site-container" rel="nofollow">'. esc_html__( 'Back to top', 'analytica' ) .'</a>' );
 
     $backtotop = $backtotop_text && analytica_get_option( 'footer-back-to-top' ) ? sprintf( '<div id="gototop"><div class="cross"><span class="bloc-h"></span><span class="bloc-v"></span></div><span class="ricon-arrow-top"></span>%s</div>', $backtotop_text ) : '';
 
     echo apply_filters( __FUNCTION__, $backtotop );
 
+}
+
+add_action( 'analytica_footer', 'analytica_footer_markup' );
+/**
+ * Site Footer - <footer>
+ *
+ * @since 1.0.0
+ */
+function analytica_footer_markup() {
+    ?>
+
+    <footer itemtype="https://schema.org/WPFooter" itemscope="itemscope" id="colophon" <?php analytica_footer_classes(); ?> role="contentinfo"><?php
+
+	    do_action( 'analytica_footer_content_top' );
+
+	    do_action( 'analytica_footer_content' );
+
+	    do_action( 'analytica_footer_content_bottom' );
+
+    ?></footer><!-- #colophon -->
+    <?php
 }
 
 add_action( 'analytica_do_colophon', 'analytica_colophon_content', 15 );
@@ -422,13 +443,13 @@ add_action( 'analytica_do_colophon', 'analytica_colophon_content', 15 );
  */
 function analytica_colophon_content() {
 
-    $framework = analytica_framework();
+    $core = analytica();
 
     $creds_text = str_replace( '[year]', date( 'Y' ), analytica_get_option( 'footer-copyright-text' ) );
 
     $site_copyright = $creds_text ? sprintf( '<div class="site-copyright">%s</div>', $creds_text ) : '';
 
-    $theme_credits = analytica_get_option( 'show-theme-badge' ) ? '<div class="theme-credits">'. esc_html__( 'Powered by', 'energia' ) .' <a href="'. esc_url( $framework->theme_page_url ) .'" target="_blank">' . $framework->theme_title .'</a> <span>and</span> WordPress.</div>': '';
+    $theme_credits = analytica_get_option( 'show-theme-badge' ) ? '<div class="theme-credits">'. esc_html__( 'Powered by', 'analytica' ) .' <a href="'. esc_url( $core->theme_page_url ) .'" target="_blank">' . $core->theme_title .'</a> <span>and</span> WordPress.</div>': '';
 
     $output = $site_copyright || $theme_credits ? '<div class="site-creds" role="contentinfo">' . $site_copyright . $theme_credits . '</div>' : '';
 
@@ -486,7 +507,7 @@ add_filter( 'admin_footer_text', 'analytica_footer_admin' );
  * @since 1.0.0
  */
 function analytica_footer_admin() {
-    echo esc_html__( 'Thank you for theming with', 'energia' ) . ' <a href="' . esc_url( analytica_framework()->theme_main_site_url ) . '" target="blank">Radium Themes</a>.';
+    echo esc_html__( 'Thank you for theming with', 'analytica' ) . ' <a href="' . esc_url( analytica()->theme_main_site_url ) . '" target="blank">Qazana</a>.';
 }
 
 add_action( 'analytica_after_footer', 'analytica_before_markup_globals', 99 );

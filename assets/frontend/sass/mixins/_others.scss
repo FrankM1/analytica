@@ -1,0 +1,143 @@
+@mixin horizontal-center() {
+    display: flex;
+    /* establish flex container */
+    flex-direction: column;
+    /* center items vertically, in this case */
+    align-items: center;
+    /* make main axis vertical */
+    justify-content: center;
+    /* center items horizontally, in this case */
+}
+@mixin vertical-center($position: relative) {
+    position: $position;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+@mixin opacity($opacity:0.75) {
+    opacity: $opacity;
+    filter:alpha(opacity=( $opacity * 100 ) );
+}
+@mixin box_shadow($shadow_x:3px, $shadow_y:3px, $shadow_rad:3px, $shadow_in:3px, $shadow_color:#888) {
+    box-shadow: $shadow_x $shadow_y $shadow_rad $shadow_in $shadow_color;
+}
+@mixin inset_box_shadow($shadow_x:3px, $shadow_y:3px, $shadow_rad:3px, $shadow_in:3px, $shadow_color:#888) {
+    box-shadow: inset $shadow_x $shadow_y $shadow_rad $shadow_in $shadow_color;
+}
+@mixin text_shadow($shadow_x:3px, $shadow_y:3px, $shadow_rad:3px, $shadow_color:#fff) {
+    text-shadow: $shadow_x $shadow_y $shadow_rad $shadow_color;
+}
+@mixin vertical_gradient($from: #000, $to: #FFF) {
+    background: $from;
+}
+@mixin transition($selector:all, $animation:ease-in-out, $duration:.2s) {
+    transition: $selector $animation $duration;
+}
+@mixin scale($ratio:1.5) {
+    transform: scale($ratio);
+}
+@mixin borderbox() {
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+@mixin darkorlighttextshadow( $a, $opacity: 0.8 ) {
+     @if lightness( $a ) >= 65%{
+        @include text_shadow( 0, -1px, 0, rgba(0, 0, 0, $opacity) );
+    }
+    @else {
+         @include text_shadow( 0, 1px, 0, rgba(255, 255, 255, $opacity) );
+    }
+}
+// We use this to add transitions to elements
+@mixin single-transition($property:all, $speed:300ms, $ease:ease-out) {
+    transition: $property $speed $ease;
+}
+/* Arrows http://codepen.io/kirkas/pen/otqyJ */
+@mixin arrow_helper($arrowSize, $arrowColor, $margin, $side, $align) {
+    @if $side == "top" {
+        top: -2 * $arrowSize;
+        border-bottom-color: $arrowColor;
+    }
+
+    @if $side == "bottom" {
+        bottom: -2 * $arrowSize;
+        border-top-color: $arrowColor;
+    }
+
+    @if $side == "left" {
+        left: -2 * $arrowSize;
+        border-right-color: $arrowColor;
+    }
+
+    @if $side == "right" {
+        right: -2 * $arrowSize;
+        border-left-color: $arrowColor;
+    }
+
+    @if $side == "right" or $side == "left" {
+        @if $align == "center" {
+            top: 50%;
+            margin-top: -$arrowSize;
+        }
+
+        @else if $align == "top" {
+            top: $margin;
+        }
+
+        @else if $align == "bottom" {
+            bottom: $margin;
+        }
+    }
+
+    @if $side == "bottom" or $side == "top" {
+        @if $align == "center" {
+            right: 50%;
+            margin-right: -$arrowSize;
+        }
+
+        @else if $align == "left" {
+            left: $margin;
+        }
+
+        @else if $align == "right" {
+            right: $margin;
+        }
+    }
+}
+@mixin arrow($side: "right", $align: "center", $size: 20px, $color: #f6f6f6, $borderColor: "none", $borderSize: 3px) {
+    $selector: '&:after, &:before';
+
+    @if $borderColor == "none" {
+        $selector: '&:after';
+    }
+
+    @if $borderColor != "none" {
+        &:before {
+            @include arrow_helper($size + $borderSize, $borderColor, $size - $borderSize, $side, $align);
+            border-width: $borderSize + $size;
+        }
+    }
+
+    #{$selector} {
+        position: absolute;
+        visibility: visible;
+        width: 0;
+        height: 0;
+        border: solid transparent;
+        content: '';
+        pointer-events: none;
+    }
+
+    &:after {
+        @include arrow_helper($size, $color, $size, $side, $align);
+        border-width: $size;
+    }
+}
+
+// Calculator
+@mixin calc($property, $value) {
+    #{$property}: calc(#{$value});
+}

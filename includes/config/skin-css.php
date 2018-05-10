@@ -696,7 +696,7 @@ class Dynamic_CSS {
         }
 
         // trim white space for faster page loading.
-        $dynamic_css = Scripts::trim_css( $dynamic_css );
+        $dynamic_css = Frontend::trim_css( $dynamic_css );
 
         return $dynamic_css;
     }

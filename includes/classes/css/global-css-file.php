@@ -9,7 +9,7 @@ class Global_CSS_File extends CSS_File {
 
 	const META_KEY = 'energia_global_css';
 
-	const FILE_HANDLER_ID = 'energia-global';
+	const FILE_HANDLER_ID = 'analytica-global';
 
 	public function get_name() {
 		return 'global';
@@ -51,11 +51,11 @@ class Global_CSS_File extends CSS_File {
     }
 
 	protected function get_enqueue_dependencies() {
-		return [ 'energia-frontend' ];
+		return [ 'analytica-frontend' ];
 	}
 
 	protected function get_inline_dependency() {
-		return 'energia-frontend';
+		return 'analytica-frontend';
 	}
 
 	/**
@@ -64,7 +64,7 @@ class Global_CSS_File extends CSS_File {
 	protected function is_update_required() {
 		$file_last_updated = $this->get_meta( 'time' );
 
-		$energia_settings_last_updated = radium_get_option( 'settings_update_time' );
+		$energia_settings_last_updated = analytica_get_option( 'settings_update_time' );
 
 		if ( $file_last_updated < $energia_settings_last_updated ) {
 			return true;

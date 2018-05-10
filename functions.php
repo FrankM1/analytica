@@ -17,15 +17,33 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-// Load Main framework - very important
-require_once get_theme_file_path( '/includes/classes/framework.php' );
-
 /**
  * Main Theme Framework Class
  *
  * @since 1.0.0
  */
-class Core extends Core_Base {
+class Core {
+
+      /**
+     * framework version, used for cache-busting of style and script file references.
+     *
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    public $version = '1.0.0';
+
+    /**
+     * @var array Overloads get_option()
+     */
+    public $options = array();
+
+    /** Radium *************************************************************/
+
+    /**
+     * @var analytica The one true instance
+     */
+    protected static $instance;
  
     /**
      * Arguments for later use
@@ -39,9 +57,7 @@ class Core extends Core_Base {
     /**
      * [__construct description]
      */
-    private function __construct() {
-        parent::instance();
-    }
+    private function __construct() {}
 
     /**
      * Main radium Instance
@@ -49,7 +65,7 @@ class Core extends Core_Base {
      * Please load it only one time
      * For this, we thank you
      *
-     * Insures that only one instance of the radium framework exists in memory at any one
+     * Insures that only one instance of the analytica exists in memory at any one
      * time. Also prevents needing to define globals all over the place.
      *
      * @since  1.0.0
@@ -59,17 +75,56 @@ class Core extends Core_Base {
      * @uses   analytica::includes() Include the required files
      * @uses   analytica::setup_actions() Setup the hooks and actions
      * @see    analytica()
-     * @return The one true radium framework
+     * @return The one true analytica
      */
     public static function instance() {
         if ( ! isset( self::$instance ) ) {
             self::$instance = new self();
+            self::$instance->pre();
             self::$instance->setup_globals();
             self::$instance->includes();
             self::$instance->init();
         }
 
         return self::$instance;
+    }
+
+   /**
+     * Run the analytica_pre Hook
+     *
+     * @since 1.0.0
+     */
+    public function pre() { do_action( 'analytica_pre_init', array( &$this ) ); }
+
+     /**
+     * Setup the default hooks and actions
+     *
+     * @since 1.0.0
+     * @access private
+     * @todo Not use analytica_is_deactivation()
+     * @uses register_activation_hook() To register the activation hook
+     * @uses register_deactivation_hook() To register the deactivation hook
+     * @uses add_action() To add various actions
+     */
+    private function setup_actions() {
+
+        // Add actions to plugin activation and deactivation hooks
+        add_action( 'activate_'   . $this->theme_slug, 'analytica_activation' );
+        add_action( 'deactivate_' . $this->theme_slug, 'analytica_deactivation' );
+        
+        // If theme is being deactivated, do not add any actions
+        
+        /** Run the analytica_pre_framework Hook */
+        do_action( 'analytica_pre_framework' );
+
+        do_action_ref_array( 'analytica_after_setup_actions', array( &$this ) );
+
+        /** Run the analytica_init hook */
+        do_action( 'analytica_init', array( &$this ) );
+
+        /** Run the analytica_setup hook */
+        do_action( 'analytica_setup', array( &$this ) );
+
     }
 
     /**
@@ -95,10 +150,6 @@ class Core extends Core_Base {
 
         // Setup theme Options name - it's not recommended that you change this, if you do you will looses theme option settings and you will need to resave them
         $this->theme_option_name = $this->theme_slug . '_options';  // Theme_options name
-
-        // Data placeholders
-        $this->errors              = new WP_Error();                          // Feedback
-        $this->extend              = new stdClass();                          // Plugins add data here
         $this->options             = get_option( $this->theme_option_name );  // get theme options so we don't run it all the time
     }
 
@@ -108,9 +159,10 @@ class Core extends Core_Base {
      * @return void
      */
     public function init() {
-        $this->css_generator    = new CSS_Generate();
-        $this->frontend         = new Frontend();
-        $this->scripts          = new Scripts();
+        $this->css_generator = new CSS_Generate();
+        $this->theme         = new Theme();
+        $this->frontend      = new Frontend();
+        $this->loop          = new Content\Loop();
     }
 
     /**
@@ -134,11 +186,10 @@ class Core extends Core_Base {
         $this->_include_profiles();
         $this->_include_options(); */
         $this->_include_admin();
-        /*
         $this->_include_structure_base();
-        $this->_include_base_widgets();
         // End base files
 
+        /*
         $this->_include_structure_pages(); */
         $this->_include_structure_post_archives();
         /*
@@ -147,9 +198,6 @@ class Core extends Core_Base {
         $this->_include_menus();
         $this->_include_builder(); */
         $this->_include_extensions(); 
-        /*
-        $this->_include_woocommerce();
-        $this->_include_video_central();*/
     }
 
     function _include_classes() {
@@ -161,18 +209,17 @@ class Core extends Core_Base {
 
     function _include_config() {
         // First file to load - setup theme environment
-       // require_once get_theme_file_path( '/includes/config/theme.php' );
+        require_once get_theme_file_path( '/includes/config/theme.php' );
         require_once get_theme_file_path( '/includes/config/frontend.php' );
-       // require_once get_theme_file_path( '/includes/config/icons.php' );
-       // require_once get_theme_file_path( '/includes/config/presets.php' );
-       require_once get_theme_file_path( '/includes/config/skin-css.php' );
-       require_once get_theme_file_path( '/includes/config/scripts.php' );
+        // require_once get_theme_file_path( '/includes/config/icons.php' );
+        // require_once get_theme_file_path( '/includes/config/presets.php' );
+        require_once get_theme_file_path( '/includes/config/skin-css.php' );
 
-       require_once get_theme_file_path( '/includes/config/fonts.php' );
-       require_once get_theme_file_path( '/includes/config/fonts/families.php' );
-       require_once get_theme_file_path( '/includes/config/fonts/data.php' );
+        require_once get_theme_file_path( '/includes/config/fonts.php' );
+        require_once get_theme_file_path( '/includes/config/fonts/families.php' );
+        require_once get_theme_file_path( '/includes/config/fonts/data.php' );
 
-       if ( is_admin() ) {
+        if ( is_admin() ) {
             require_once get_theme_file_path( '/includes/config/metabox/meta-boxes.php' );
         }
     
@@ -184,7 +231,9 @@ class Core extends Core_Base {
 
     function _include_function() {
         require_once get_theme_file_path( '/includes/functions/common.php' );
-        require_once get_theme_file_path( '/includes/functions/hooks.php' );
+        require_once get_theme_file_path( '/includes/functions/markup.php' );
+        require_once get_theme_file_path( '/includes/functions/formatting.php' );
+        require_once get_theme_file_path( '/includes/functions/conditionals.php' );
 
         require_once get_theme_file_path( '/includes/structure/general/template-tags.php' );
         require_once get_theme_file_path( '/includes/structure/general/template-parts.php' );
@@ -279,18 +328,6 @@ class Core extends Core_Base {
         require_once get_theme_file_path( '/includes/structure/navigation/menu.php' );
     }
 
-    function _include_base_widgets() {
-        require_once get_theme_file_path( '/includes/classes/galleries/photo-attachments.php' );
-        require_once get_theme_file_path( '/includes/classes/galleries/photo-gallery-list.php' );
-        require_once get_theme_file_path( '/includes/classes/galleries/photo-gallery-slider.php' );
-        require_once get_theme_file_path( '/includes/classes/galleries/photo-gallery-grid.php' );
-        require_once get_theme_file_path( '/includes/classes/galleries/photo-gallery-masonry.php' );
-        require_once get_theme_file_path( '/includes/classes/galleries/photo-gallery-justified.php' );
-        require_once get_theme_file_path( '/includes/classes/galleries/photo-gallery-metro.php' );
-        require_once get_theme_file_path( '/includes/classes/galleries/photo-gallery-carousel.php' );
-        require_once get_theme_file_path( '/includes/classes/galleries/photo-gallery-fullscreen-1.php' );
-    }
-
     function _include_extensions() {
         // require_once get_theme_file_path( '/includes/extensions/header-composer.php' );
         // require_once get_theme_file_path( '/includes/extensions/skins.php' );
@@ -327,31 +364,31 @@ class Core extends Core_Base {
 
     function _include_structure_base() {
 
-        // General
-        require_once get_theme_file_path( '/includes/structure/general/functions.php' );
-        require_once get_theme_file_path( '/includes/structure/general/layout.php' );
-        require_once get_theme_file_path( '/includes/structure/general/header.php' );
-        require_once get_theme_file_path( '/includes/structure/general/loops.php' );
-        require_once get_theme_file_path( '/includes/structure/general/css-classes.php' );
+        // // General
+        // require_once get_theme_file_path( '/includes/structure/general/functions.php' );
+        // require_once get_theme_file_path( '/includes/structure/general/layout.php' );
+        // require_once get_theme_file_path( '/includes/structure/general/header.php' );
+         require_once get_theme_file_path( '/includes/structure/general/site-loop.php' );
+        // require_once get_theme_file_path( '/includes/structure/general/css-classes.php' );
 
-        require_once get_theme_file_path( '/includes/structure/general/site-footer.php' );
-        require_once get_theme_file_path( '/includes/structure/general/sidebar.php' );
-        require_once get_theme_file_path( '/includes/structure/general/comments.php' );
-        require_once get_theme_file_path( '/includes/structure/general/search.php' );
-        require_once get_theme_file_path( '/includes/structure/general/meta.php' );
+        // require_once get_theme_file_path( '/includes/structure/general/site-footer.php' );
+        // require_once get_theme_file_path( '/includes/structure/general/sidebar.php' );
+        // require_once get_theme_file_path( '/includes/structure/general/comments.php' );
+        // require_once get_theme_file_path( '/includes/structure/general/search.php' );
+        // require_once get_theme_file_path( '/includes/structure/general/meta.php' );
 
-        // Load Structure
-        if ( analytica_detect_plugin( [
-                'functions' => [
-                    'header_composer',
-                ],
-            ] ) && header_composer_get_active_header_id()
-        ) {
-            // this is simpler
-            // skip header
-        } else {
-            require_once get_theme_file_path( '/includes/structure/general/site-header.php' );
-        }
+        // // Load Structure
+        // if ( analytica_detect_plugin( [
+        //         'functions' => [
+        //             'header_composer',
+        //         ],
+        //     ] ) && header_composer_get_active_header_id()
+        // ) {
+        //     // this is simpler
+        //     // skip header
+        // } else {
+        //     require_once get_theme_file_path( '/includes/structure/general/site-header.php' );
+        // }
     }
 
     function _include_structure_pages() {
@@ -361,9 +398,9 @@ class Core extends Core_Base {
 
     function _include_structure_post_archives() {
 
-        require_once get_theme_file_path( '/includes/structure/blog/blog-config.php' );
-        require_once get_theme_file_path( '/includes/structure/blog/blog.php' );
-        require_once get_theme_file_path( '/includes/structure/blog/single-blog.php' );
+        require_once get_theme_file_path( '/includes/structure/archives/blog/blog-config.php' );
+        require_once get_theme_file_path( '/includes/structure/archives/blog/blog.php' );
+        require_once get_theme_file_path( '/includes/structure/archives/blog/single-blog.php' );
 
         // require_once get_theme_file_path( '/includes/structure/posts/formats/audio.php' );
         // require_once get_theme_file_path( '/includes/structure/posts/formats/gallery.php' );
@@ -415,11 +452,10 @@ class Core extends Core_Base {
             require_once get_theme_file_path( '/qazana/functions/integration.php' );
         }
     }
-
 }
 
 /**
- * The main function responsible for returning the one true radium framework Instance
+ * The main function responsible for returning the one true analytica Instance
  * to functions everywhere.
  *
  * Use this function like you would a global variable, except without needing
@@ -427,9 +463,9 @@ class Core extends Core_Base {
  *
  * Thanks bbpress :)
  *
- * Example: <?php $framework = analytica(); ?>
+ * Example: <?php $core = analytica(); ?>
  *
- * @return The one true radium framework Instance
+ * @return The one true analytica Instance
  */
 function analytica() {
     return Core::instance();

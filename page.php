@@ -23,11 +23,11 @@ get_header(); ?>
 
 	<div id="primary" <?php analytica_primary_class(); ?>>
 
-		<?php analytica_primary_content_top(); ?>
+		<?php do_action( 'analytica_primary_content_top' ); ?>
 
-		<?php analytica_content_page_loop(); ?>
+		<?php do_action( 'analytica_content_page_loop' ); ?>
 
-		<?php analytica_primary_content_bottom(); ?>
+		<?php do_action( 'analytica_primary_content_bottom' ); ?>
 
 	</div><!-- #primary -->
 

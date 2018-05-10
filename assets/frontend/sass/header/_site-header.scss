@@ -1,0 +1,214 @@
+/**
+ * # Header
+ * -----------------------------------------------------------------------------------------------------
+ */
+
+.site-header {
+	position: relative;
+	@media (max-width: $screen-xs-min) {
+		padding: 0 $grid-gutter-width-half;
+	}
+}
+
+.site-header .header-primary .container {
+	display: flex;
+	flex-direction: row;
+	padding: $grid-gutter-width-half $grid-gutter-width;
+	align-items: center;
+	@media (max-width: $screen-xs-min) {
+        padding: 10px 0;
+	}
+}
+
+.site-id {
+	position: relative;
+	margin-right: auto;
+	min-width: 10em;
+}
+
+.nav.nav-horizontal {
+	@media (min-width: $screen-md-min) {
+		margin: 0 auto;
+		position: relative;
+		ul>li>a {
+			padding: 0 10px;
+			color: #333;
+		}
+	}
+}
+
+.site-description {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.site-title {
+	margin-bottom: 0;
+}
+
+.site-title a {
+	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $dark;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 24px;
+	line-height: 1;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.site-title a.logo {
+	display: block;
+	overflow: hidden;
+	padding: 0;
+	min-width: 300px;
+	background-position: center;
+	background-size: auto auto !important;
+	background-repeat: no-repeat;
+	text-indent: -9999em;
+	line-height: 1;
+}
+
+.header-primary {
+	@include clearfix;
+	position: relative;
+}
+
+button.menu-trigger {
+	display: none;
+}
+
+
+/**
+ * # Header
+ * -----------------------------------------------------------------------------------
+ */
+
+.site-boxed.radium-header-transparent .site-header .container,
+.site-wide.radium-header-transparent .site-header {
+	background: transparent;
+}
+
+.radium-header-overlay .site-header,
+.radium-header-transparent .site-header {
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 9999;
+	width: 100%;
+	border: none;
+	transition: .3s all;
+}
+
+.radium-header-transparent .site-header {
+	@media (min-width: $screen-sm-min) {
+		position: absolute;
+	}
+	&,
+    a,
+    .site-title a,
+	button,
+	.fallback_menu .analytica_mega>li>a,
+	.nav-primary .menu-v2>li>a,
+	.nav.nav-horizontal ul>li>a,
+	.nav-primary>ul>li.current-menu-ancestor>a,
+	.nav-primary>ul>li.current-menu-ancestor>a .menu-title-outer,
+	.nav-primary>ul>li.current-menu-item>a,
+	.nav-primary>ul>li.current-menu-item>a .menu-title-outer {
+        @media (min-width: $screen-sm-min) {
+			color: #fff;
+		}
+	}
+	.nav.nav-horizontal ul.sub-menu a {
+		color: #333;
+	}
+	.page_item_has_children>a:before,
+	.page_item_has_children>a:after,
+	.menu-item-has-children>a:before,
+	.menu-item-has-children>a:after {
+		background-color: white;
+	}
+	ul.sub-menu {
+		.page_item_has_children>a:before,
+		.page_item_has_children>a:after,
+		.menu-item-has-children>a:before,
+		.menu-item-has-children>a:after {
+			background-color: #333;
+		}
+	}
+	.menu-trigger,
+	.nav.nav-horizontal ul>li>a {
+		@media (max-width: $screen-sm-min) {
+			color: #333;
+		}
+	}
+	button.menu-trigger.dl-active,
+	button.menu-trigger:hover {
+		color: white;
+	}
+}
+
+.radium-header-overlay .site-header {
+	@media (min-width: $screen-sm-min) {
+		position: fixed;
+	}
+}
+
+.page-scrolling.radium-header-overlay .site-header {
+	@media (min-width: $screen-sm-min) {
+		background: white;
+		box-shadow: 0 1px 1px rgba(48, 48, 48, 0.12);
+	}
+	&,
+	a,
+	.site-title a,
+	button,
+	.fallback_menu .analytica_mega>li>a,
+	.nav-primary .menu-v2>li>a,
+	.nav-primary>ul>li.current-menu-ancestor>a,
+	.nav-primary>ul>li.current-menu-ancestor>a .menu-title-outer,
+	.nav-primary>ul>li.current-menu-item>a,
+	.nav-primary>ul>li.current-menu-item>a .menu-title-outer {
+		@media (min-width: $screen-sm-min) {
+			color: #333;
+		}
+	}
+	.page_item_has_children>a:before,
+	.page_item_has_children>a:after,
+	.menu-item-has-children>a:before,
+	.menu-item-has-children>a:after {
+		background-color: #333;
+	}
+	.menu-trigger,
+	.nav.nav-horizontal ul>li>a {
+		@media (min-width: $screen-md-min) {
+			color: #333;
+		}
+	}
+	ul.sub-menu {
+		li:hover>a {
+			color: $brand-primary;
+		}
+	}
+}
+
+.admin-bar.radium-header-overlay .site-header,
+.admin-bar.radium-header-transparent .site-header {
+	@media (min-width: $screen-sm-min) {
+		top: 32px;
+	}
+}
+
+.header-site .column {
+	margin-bottom: 0;
+}
+
+@import '../vendor/font-awesome/variables';
+@import 'navigation';
+@import 'nav/nav';
+@import 'nav/nav--megamenu';
+@import 'nav/nav--megamenu-mobile';
+@import 'nav/nav--menu-animations';

@@ -13,23 +13,23 @@
 
 <div <?php analytica_blog_layout_class( 'single-layout-1' ); ?>>
 
-	<?php analytica_single_header_before(); ?>
+	<?php do_action( 'analytica_single_header_before' ); ?>
 
 	<header class="entry-header <?php analytica_entry_header_class(); ?>">
 
-		<?php analytica_single_header_top(); ?>
+		<?php do_action( 'analytica_single_header_top' ); ?>
 
 		<?php analytica_blog_post_thumbnai_and_title_order(); ?>
 
-		<?php analytica_single_header_bottom(); ?>
+		<?php do_action( 'analytica_single_header_bottom' ); ?>
 
 	</header><!-- .entry-header -->
 
-	<?php analytica_single_header_after(); ?>
+	<?php do_action( 'analytica_single_header_after' ); ?>
 
 	<div class="entry-content clear" itemprop="text">
 
-		<?php analytica_entry_content_before(); ?>
+		<?php do_action( 'analytica_entry_content_before' ); ?>
 
 		<?php the_content(); ?>
 
@@ -46,7 +46,7 @@
 			);
 		?>
 
-		<?php analytica_entry_content_after(); ?>
+		<?php do_action( 'analytica_entry_content_after' ); ?>
 
 		<?php
 			wp_link_pages(

@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 abstract class CSS_File {
 
-	const FILE_BASE_DIR = '/energia/css';
+	const FILE_BASE_DIR = '/analytica/css';
 
     // %s: Base folder; %s: file name
 	const FILE_NAME_PATTERN = '%s/%s.css';
@@ -52,7 +52,7 @@ abstract class CSS_File {
 	 * @access protected
 	 */
 	protected function use_external_file() {
-        return 'internal' !== radium_get_option( 'css_print_method' );
+        return 'internal' !== analytica_get_option( 'css_print_method' );
 	}
 
 	public function update() {

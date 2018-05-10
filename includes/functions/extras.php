@@ -396,11 +396,11 @@ function analytica_header_markup() {
 
     <header itemtype="https://schema.org/WPHeader" itemscope="itemscope" id="masthead" <?php analytica_header_classes(); ?> role="banner">
 
-        <?php analytica_masthead_top(); ?>
+        <?php do_action( 'analytica_masthead_top' ); ?>
 
-        <?php analytica_masthead(); ?>
+        <?php do_action( 'analytica_masthead' ); ?>
 
-        <?php analytica_masthead_bottom(); ?>
+        <?php do_action( 'analytica_masthead_bottom' ); ?>
 
     </header><!-- #masthead -->
     <?php
@@ -441,11 +441,11 @@ function analytica_toggle_buttons_markup() {
     ?>
     <div class="ast-mobile-menu-buttons">
 
-        <?php analytica_masthead_toggle_buttons_before(); ?>
+        <?php do_action( 'analytica_masthead_toggle_buttons_before' ); ?>
 
-        <?php analytica_masthead_toggle_buttons(); ?>
+        <?php do_action( 'analytica_masthead_toggle_buttons' ); ?>
 
-        <?php analytica_masthead_toggle_buttons_after(); ?>
+        <?php do_action( 'analytica_masthead_toggle_buttons_after' ); ?>
 
     </div>
     <?php
@@ -520,28 +520,6 @@ function analytica_primary_navigation_markup() {
     }
 
 }
-
-add_action( 'analytica_footer', 'analytica_footer_markup' );
-/**
- * Site Footer - <footer>
- *
- * @since 1.0.0
- */
-function analytica_footer_markup() {
-    ?>
-
-    <footer itemtype="https://schema.org/WPFooter" itemscope="itemscope" id="colophon" <?php analytica_footer_classes(); ?> role="contentinfo">
-
-        <?php analytica_footer_content_top(); ?>
-
-        <?php analytica_footer_content(); ?>
-
-        <?php analytica_footer_content_bottom(); ?>
-
-    </footer><!-- #colophon -->
-    <?php
-}
-
 
 /**
  * Function to get Header Breakpoint
@@ -686,7 +664,7 @@ function analytica_header_breakpoint_style() {
     $dynamic_css = ob_get_clean();
 
     // trim white space for faster page loading.
-    $dynamic_css = Analytica\Scripts::trim_css( $dynamic_css );
+    $dynamic_css = Analytica\Frontend::trim_css( $dynamic_css );
 
     wp_add_inline_style( 'analytica-theme-css', $dynamic_css );
 }
@@ -1178,7 +1156,7 @@ function analytica_get_addon_name() {
  *
  * Provide a default value if you want to return a specific value if the property is not set.
  *
- * @since  1.2.7
+ * @since  1.0.0
  * @access public
  * @author Gravity Forms - Easiest Tool to Create Advanced Forms for Your WordPress-Powered Website.
  * @link  https://www.gravityforms.com/

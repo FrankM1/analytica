@@ -1,0 +1,8 @@
+@mixin box-shadow($top, $inset: false) {
+     @if $inset{
+        box-shadow: inset $top;
+    }
+    @else {
+        box-shadow: $top;
+    }
+}

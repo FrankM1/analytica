@@ -8,7 +8,7 @@ namespace Analytica;
  * Please be cautious editing this file.
  * Modifying the contents of this file can be a poor life decision if you don't know what you're doing.
  *
- * NOTE: Theme data (options, global variables etc ) can be accessed anywhere in the theme by calling  <?php $framework = radium_framework(); ?>
+ * NOTE: Theme data (options, global variables etc ) can be accessed anywhere in the theme by calling  <?php $core = analytica(); ?>
  *
  * @category Radium\Framework
  * @package  Energia WP
@@ -44,7 +44,7 @@ class Breadcrumb
 
         // Default arguments
         $this->args = array(
-            'home'                    => esc_html__( 'Home', 'energia' ),
+            'home'                    => esc_html__( 'Home', 'analytica' ),
             'sep'                     => ' / ',
             'list_sep'                => ', ',
             'prefix'                  => '<div class="breadcrumb">',
@@ -54,15 +54,15 @@ class Breadcrumb
             'max_length'              => 30,                                // Display only the first 30 characters of the post title.
             'trail'                   => '...',
             'labels'                  => array(
-                'prefix'    => esc_html__( 'You are here: ', 'energia' ),
-                'author'    => esc_html__( 'Archives for ', 'energia' ),
-                'category'  => esc_html__( 'Archives for ', 'energia' ),
-                'tag'       => esc_html__( 'Archives for ', 'energia' ),
-                'date'      => esc_html__( 'Archives for ', 'energia' ),
-                'search'    => esc_html__( 'Search for ', 'energia' ),
-                'tax'       => esc_html__( 'Archives for ', 'energia' ),
-                'post_type' => esc_html__( 'Archives for ', 'energia' ),
-                '404'       => esc_html__( 'Not found: ', 'energia' ),
+                'prefix'    => esc_html__( 'You are here: ', 'analytica' ),
+                'author'    => esc_html__( 'Archives for ', 'analytica' ),
+                'category'  => esc_html__( 'Archives for ', 'analytica' ),
+                'tag'       => esc_html__( 'Archives for ', 'analytica' ),
+                'date'      => esc_html__( 'Archives for ', 'analytica' ),
+                'search'    => esc_html__( 'Search for ', 'analytica' ),
+                'tax'       => esc_html__( 'Archives for ', 'analytica' ),
+                'post_type' => esc_html__( 'Archives for ', 'analytica' ),
+                '404'       => esc_html__( 'Not found: ', 'analytica' ),
             ),
         );
     }
@@ -98,7 +98,7 @@ class Breadcrumb
          *                                            'tag', 'date', 'search', 'tax', 'post_type', '404'.
          * }
          */
-        $this->args = apply_filters( 'radium_breadcrumb_args', wp_parse_args( $args, $this->args ) );
+        $this->args = apply_filters( 'analytica_breadcrumb_args', wp_parse_args( $args, $this->args ) );
 
         return $this->args['prefix'] . $this->args['labels']['prefix'] . $this->build_crumbs() . $this->args['suffix'];
     }
@@ -112,7 +112,7 @@ class Breadcrumb
      */
     public function output($args = array())
     {
-        echo radium_get_sanitized_output( $this->get_output($args) ); // WPCS: XSS ok.
+        echo analytica_sanitize_allowed_tag( $this->get_output($args) ); // WPCS: XSS ok.
     }
 
     /**
@@ -151,7 +151,7 @@ class Breadcrumb
          * @param string $crumbs HTML markup for the breadcrumbs.
          * @param array  $args   Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        $crumbs = apply_filters( 'radium_build_crumbs', $crumbs, $this->args );
+        $crumbs = apply_filters( 'analytica_build_crumbs', $crumbs, $this->args );
 
         return join( $this->args['sep'], array_filter( array_unique( $crumbs ) ) );
     }
@@ -191,7 +191,7 @@ class Breadcrumb
          * @param string $crumb HTML markup for the archive breadcrumb.
          * @param array  $args  Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        return apply_filters('radium_archive_crumb', $crumb, $this->args);
+        return apply_filters('analytica_archive_crumb', $crumb, $this->args);
     }
 
     /**
@@ -219,7 +219,7 @@ class Breadcrumb
          * @param string $crumb HTML markup for the single breadcrumb.
          * @param array  $args  Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        return apply_filters('radium_single_crumb', $crumb, $this->args);
+        return apply_filters('analytica_single_crumb', $crumb, $this->args);
     }
 
     /**
@@ -244,7 +244,7 @@ class Breadcrumb
          * @param string $crumb HTML markup for the home breadcrumb.
          * @param array  $args  Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        return apply_filters('radium_home_crumb', $crumb, $this->args);
+        return apply_filters('analytica_home_crumb', $crumb, $this->args);
     }
 
     /**
@@ -272,7 +272,7 @@ class Breadcrumb
          * @param string $crumb HTML markup for the blog posts breadcrumb.
          * @param array  $args  Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        return apply_filters('radium_blog_crumb', $crumb, $this->args);
+        return apply_filters('analytica_blog_crumb', $crumb, $this->args);
     }
 
     /**
@@ -294,7 +294,7 @@ class Breadcrumb
          * @param string $crumb HTML markup for the search page breadcrumb.
          * @param array  $args  Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        return apply_filters('radium_search_crumb', $crumb, $this->args);
+        return apply_filters('analytica_search_crumb', $crumb, $this->args);
     }
 
     /**
@@ -316,7 +316,7 @@ class Breadcrumb
          * @param string $crumb HTML markup for the 404 page breadcrumb.
          * @param array  $args  Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        return apply_filters('radium_404_crumb', $crumb, $this->args);
+        return apply_filters('analytica_404_crumb', $crumb, $this->args);
     }
 
     /**
@@ -379,7 +379,7 @@ class Breadcrumb
          * @param string $crumb HTML markup for the content page breadcrumb.
          * @param array  $args  Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        return apply_filters('radium_page_crumb', $crumb, $this->args);
+        return apply_filters('analytica_page_crumb', $crumb, $this->args);
     }
 
     /**
@@ -493,7 +493,7 @@ class Breadcrumb
     {
         $crumb = $this->get_home_crumb();
 
-        $filters = radium_get_post_query_filters();
+        $filters = analytica_get_post_query_filters();
         $current_filter = get_query_var('filter');
 
         $crumb .= $this->args['sep']. $this->trail_end($filters[$current_filter]);
@@ -520,7 +520,7 @@ class Breadcrumb
          * @param string $crumb HTML markup for the category archive crumb.
          * @param array  $args  Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        return apply_filters('radium_category_crumb', $crumb, $this->args);
+        return apply_filters('analytica_category_crumb', $crumb, $this->args);
     }
 
     /**
@@ -542,7 +542,7 @@ class Breadcrumb
          * @param string $crumb HTML markup for the tag archive crumb.
          * @param array  $args  Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        return apply_filters('radium_tag_crumb', $crumb, $this->args);
+        return apply_filters('analytica_tag_crumb', $crumb, $this->args);
     }
 
     /**
@@ -569,7 +569,7 @@ class Breadcrumb
          * @param string $crumb HTML markup for the taxonomy archive breadcrumb.
          * @param array  $args  Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        return apply_filters('radium_tax_crumb', $crumb, $this->args);
+        return apply_filters('analytica_tax_crumb', $crumb, $this->args);
     }
 
     /**
@@ -593,7 +593,7 @@ class Breadcrumb
          * @param string $crumb HTML markup for the year archive breadcrumb.
          * @param array  $args  Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        return apply_filters('radium_year_crumb', $crumb, $this->args);
+        return apply_filters('analytica_year_crumb', $crumb, $this->args);
     }
 
     /**
@@ -623,7 +623,7 @@ class Breadcrumb
          * @param string $crumb HTML markup for the month archive breadcrumb.
          * @param array  $args  Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        return apply_filters('radium_month_crumb', $crumb, $this->args);
+        return apply_filters('analytica_month_crumb', $crumb, $this->args);
     }
 
     /**
@@ -667,7 +667,7 @@ class Breadcrumb
          * @param string $crumb HTML markup for the day archive breadcrumb.
          * @param array  $args  Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        return apply_filters('radium_day_crumb', $crumb, $this->args);
+        return apply_filters('analytica_day_crumb', $crumb, $this->args);
     }
 
     /**
@@ -693,7 +693,7 @@ class Breadcrumb
          * @param string $crumb HTML markup for the author archive crumb.
          * @param array  $args  Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        return apply_filters('radium_author_crumb', $crumb, $this->args);
+        return apply_filters('analytica_author_crumb', $crumb, $this->args);
     }
 
     /**
@@ -715,7 +715,7 @@ class Breadcrumb
          * @param string $crumb HTML markup for the post type archive breadcrumb.
          * @param array  $args  Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        return apply_filters('radium_post_type_crumb', $crumb, $this->args);
+        return apply_filters('analytica_post_type_crumb', $crumb, $this->args);
     }
 
     /**
@@ -789,10 +789,10 @@ class Breadcrumb
          * @param string $content Link content.
          * @param array  $args    Arguments used to generate the breadcrumbs. Documented in Radium_Breadcrumbs::get_output().
          */
-        $link = apply_filters('radium_breadcrumb_link', $link, $url, $title, $content, $this->args);
+        $link = apply_filters('analytica_breadcrumb_link', $link, $url, $title, $content, $this->args);
 
 
-    $link = sprintf( '<span %s>', radium_attr( 'breadcrumb-link-wrap' ) ) . $link . '</span>';
+    $link = sprintf( '<span %s>', analytica_attr( 'breadcrumb-link-wrap' ) ) . $link . '</span>';
 
         if ($sep) {
             $link .= $sep;

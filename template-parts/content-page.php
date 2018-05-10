@@ -10,11 +10,11 @@
 
 ?>
 
-<?php analytica_entry_before(); ?>
+<?php do_action( 'analytica_entry_before' ); ?>
 
 <article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php analytica_entry_top(); ?>
+	<?php do_action( 'analytica_entry_top' ); ?>
 
 	<header class="entry-header <?php analytica_entry_header_class(); ?>">
 
@@ -25,11 +25,11 @@
 
 	<div class="entry-content clear" itemprop="text">
 
-		<?php analytica_entry_content_before(); ?>
+		<?php do_action( 'analytica_entry_content_before' ); ?>
 
 		<?php the_content(); ?>
 
-		<?php analytica_entry_content_after(); ?>
+		<?php do_action( 'analytica_entry_content_after' ); ?>
 
 		<?php
 			wp_link_pages(
@@ -57,8 +57,8 @@
 		);
 	?>
 
-	<?php analytica_entry_bottom(); ?>
+	<?php do_action( 'analytica_entry_bottom' ); ?>
 
 </article><!-- #post-## -->
 
-<?php analytica_entry_after(); ?>
+<?php do_action( 'analytica_entry_after' ); ?>

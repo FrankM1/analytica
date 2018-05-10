@@ -1,0 +1,33 @@
+$enable-nav--stacked : true !default;
+
+.nav {
+	margin-left: 0;
+	@include clearfix;
+
+	>li {
+
+		&,
+		>a {
+			display: inline-block;
+			*display: inline;
+			zoom: 1;
+		}
+	}
+}
+
+
+// `.nav--stacked` extends `.nav` and throws the list into vertical mode, e.g.:
+@if $enable-nav--stacked==true {
+
+	.nav--stacked {
+
+		>li {
+			display: list-item;
+
+			>a {
+				display: block;
+			}
+		}
+	}
+
+} // endif

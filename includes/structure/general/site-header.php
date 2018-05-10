@@ -96,22 +96,22 @@ function analytica_header_stylesheet() {
          $version    = time();
      else:
          $css_suffix = '.min.css';
-         $version    = $framework->theme_version;
+         $version    = analytica()->theme_version;
      endif;
 
      $direction_suffix = is_rtl() ? '-rtl' : '';
 
      wp_enqueue_style(
-         'energia-site-header',
-         analytica_framework()->theme_url . '/assets/frontend/css/site-header' . $css_suffix,
+         'analytica-site-header',
+         analytica()->theme_url . '/assets/frontend/css/site-header' . $css_suffix,
          false,
          $version,
          'all'
     );
 
     wp_enqueue_script(
-        'energia-megamenu-mobile',
-        analytica_framework()->theme_url . '/assets/frontend/js/vendor/radium-megamenu-mobile.js',
+        'analytica-megamenu-mobile',
+        analytica()->theme_url . '/assets/frontend/js/vendor/radium-megamenu-mobile.js',
         [ 
             'jquery',
             'hoverIntent',

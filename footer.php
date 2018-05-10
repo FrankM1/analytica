@@ -10,26 +10,37 @@
  * @since 1.0.0
  */
 
-?>
-			<?php analytica_content_bottom(); ?>
+            /**
+             * The template for displaying the footer.
+             *
+             * @since 1.0.0
+             */
+            analytica_structural_wrap( 'site-inner', 'close' );
 
-			</div> <!-- ast-container -->
+            echo '</div>'; // end .site-inner or #inner
 
-		</div><!-- #content -->
+            do_action( 'analytica_content_bottom' ); 
+            
+            ?></div> <!-- ast-container -->
+		</div><!-- #content --><?php
 
-		<?php analytica_content_after(); ?>
+        do_action( 'analytica_content_after' );
 
-		<?php analytica_footer_before(); ?>
+        do_action( 'analytica_footer_before' );
 
-		<?php analytica_footer(); ?>
+        do_action( 'analytica_footer' );
 
-		<?php analytica_footer_after(); ?>
+        do_action( 'analytica_footer_after' );
 
-	</div><!-- #page -->
+        echo '</div><!-- #page -->'; // end .site-container or #wrap
 
-	<?php analytica_body_bottom(); ?>
+    do_action( 'analytica_body_bottom' ); 
+    
+    echo '</div>'; // end .site-container or #wrap
 
-	<?php wp_footer(); ?>
+    do_action( 'analytica_after' );
 
-	</body>
+    wp_footer(); 
+    
+    ?></body>
 </html>

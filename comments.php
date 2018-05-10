@@ -23,7 +23,7 @@ if ( post_password_required() ) {
 
 <div id="comments" class="comments-area">
 
-	<?php analytica_comments_before(); ?>
+	<?php do_action( 'analytica_comments_before' ); ?>
 
 	<?php if ( have_comments() ) : ?>
 		<div class="comments-count-wrapper">
@@ -88,6 +88,6 @@ if ( post_password_required() ) {
 
 	<?php comment_form(); ?>
 
-	<?php analytica_comments_after(); ?>
+	<?php do_action( 'analytica_comments_after' ); ?>
 
 </div><!-- #comments -->

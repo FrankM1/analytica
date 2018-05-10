@@ -1,0 +1,313 @@
+/* Mobile Menu */
+
+@media only screen and (max-width: 1023px) {
+	button.menu-trigger {
+		display: block;
+		height: 38px;
+        position: relative;
+        z-index: 9999;
+		cursor: pointer;
+		border: 1px solid #000000;
+		display: inline-block;
+		border-radius: 3px;
+		font-size: 30px;
+		padding: 0 10px;
+		color: #333;
+		background: white;
+		&.dl-active,
+		&:hover {
+			color: white;
+			background: #333;
+			svg path {
+				fill: #fff;
+			}
+		}
+		svg {
+			position: absolute;
+			top: 8px;
+			left: 10px;
+			width: 21px;
+			height: 20px;
+		}
+	}
+	.nav-horizontal {
+		position: relative;
+		perspective: 1000px;
+		perspective-origin: 50% 200%;
+		z-index: 999;
+
+		ul {
+			padding: 0;
+			list-style: none;
+			transform-style: preserve-3d;
+		}
+
+		li {
+			position: relative;
+		}
+
+		li a {
+			display: block;
+			position: relative;
+			padding: 15px 20px;
+			font-size: 16px;
+			line-height: 20px;
+			font-weight: 300;
+			outline: none;
+		}
+
+		.menu-desc {
+			display: none;
+		}
+		li {
+			border-bottom: 1px solid rgba(119, 119, 119, 0.21);
+			&:last-child {
+				border-bottom: none;
+			}
+			.has-icon .icon {
+				margin-right: 5px;
+			}
+			a {
+				display: block;
+				position: relative;
+				line-height: 40px;
+				outline: none;
+				font-size: 14px;
+				text-align: left;
+				*zoom: 1;
+				padding: 0 20px;
+			}
+			a .menu-title-outer {
+				color: #333;
+			}
+			a:after,
+			a:before {
+				content: ' ';
+				display: table;
+			}
+			a:after {
+				clear: both;
+			}
+			a>.menu-title-outer,
+			a>span>.menu-title-outer {
+				color: #333;
+			}
+			>ul>li>a {
+				padding: 0 20px;
+			}
+		}
+		li.current-menu-item {
+			&:before {
+				content: '';
+				position: absolute;
+				z-index: -1;
+				transition: all .3s;
+				width: 260px;
+				height: 1px;
+				bottom: -1px;
+				z-index: 1;
+				left: 0;
+				background-color: $brand-primary;
+			}
+		}
+		li.dl-back {
+			width: 100%;
+			padding: 0;
+			>a {
+				padding-left: 22px;
+				background: #fff;
+				text-transform: capitalize;
+			}
+		}
+		li>a:not(:only-child):after,
+		li.dl-back:after {
+			position: absolute;
+			top: 0;
+			line-height: 40px;
+			font-family: FontAwesome;
+			font-weight: normal;
+			font-style: normal;
+			text-decoration: inherit;
+			content: '\f0da';
+		}
+		li.dl-back:after {
+			left: 10px;
+			color: #333;
+			transform: rotate(180deg);
+		}
+		li>a:after {
+			right: 10px;
+			color: #333;
+		}
+		.has-icon .fa {
+			margin-right: 10px;
+		}
+		.has-icon .menu-title-outer {
+			width: 160px;
+			height: 40px;
+			display: inline-block;
+		}
+		.sub-indicator {
+			width: 40px;
+			height: 40px;
+			display: block;
+			float: right;
+			font-family: FontAwesome;
+			font-weight: normal;
+			font-style: normal;
+			text-decoration: inherit;
+			content: '\f0da';
+			color: #333;
+		}
+
+		.main_menu>.sub-menu,
+		.analytica_mega {
+			&.dl-menuopen {
+				box-shadow: 0 0 35px -1px rgba(0, 0, 0, 0.2);
+				border-radius: 0 0 2px 2px;
+			}
+		}
+		.analytica_mega,
+		>.sub-menu {
+			transition: all .3s ease;
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: -10px;
+				right: 10px;
+				border-left: 8px solid transparent;
+				border-right: 8px solid transparent;
+				border-bottom: 8px solid $brand-primary;
+			}
+
+			ul>li>a .menu-title-outer {
+				color: inherit;
+				max-height: inherit;
+				padding: inherit;
+				line-height: inherit;
+			}
+		}
+	}
+
+	.no-touch .nav-horizontal li a:hover {
+		background: rgba(255, 248, 213, 0.1);
+	}
+
+	.nav-horizontal li.dl-back>a {
+		background: rgba(0, 0, 0, 0.1);
+	}
+
+	.nav-horizontal li.dl-back:after,
+	.nav-horizontal li>a:not(:only-child):after {
+		position: absolute;
+        top: 0;
+        background-color: transparent !important;
+	}
+
+	.nav-horizontal li.dl-back:after {
+        padding-left: 20px;
+		left: 10px;
+		color: rgba(0, 0, 0, 0.6);
+		transform: rotate(180deg);
+	}
+
+	.nav-horizontal li>a:after {
+		right: 10px;
+		color: rgba(0, 0, 0, 0.15);
+	}
+
+	.nav-horizontal .dl-menu {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+		transform: translateY(10px);
+		backface-visibility: hidden;
+	}
+
+	.nav-horizontal .dl-menu.dl-menu-toggle {
+		transition: all 0.3s ease;
+	}
+
+	.nav-horizontal .dl-menu.dl-menuopen {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateY(0px);
+	}
+
+	// Hide the inner submenus 
+	.nav-horizontal li .sub-menu {
+		display: none;
+	}
+
+    // When a submenu is openend, we will hide all li siblings.
+    // For that we give a class to the parent menu called "dl-subview".
+    // We also hide the submenu link. 
+    // The opened submenu will get the class "dl-subviewopen".
+    // All this is done for any sub-level being entered.
+	.dl-menu.dl-subview li,
+	.dl-menu.dl-subview li.dl-subviewopen>a,
+	.dl-menu.dl-subview li.dl-subview>a {
+		display: none;
+	}
+
+	.dl-menu.dl-subview li.dl-subview,
+	.dl-menu.dl-subview li.dl-subview .sub-menu,
+	.dl-menu.dl-subview li.dl-subviewopen,
+	.dl-menu.dl-subview li.dl-subviewopen>.sub-menu,
+	.dl-menu.dl-subview li.dl-subviewopen>.sub-menu>li {
+		display: block;
+	}
+
+	/* Dynamically added submenu outside of the menu context */
+	.nav-horizontal>.main_menu>.sub-menu {
+		position: absolute;
+		right: 0;
+		margin: 0;
+		z-index: 999;
+	}
+
+	.nav-horizontal .dl-menu,
+	.nav-horizontal>.main_menu>.sub-menu {
+		width: 230px;
+		right: 0;
+		top: 52px;
+		background: white;
+		border-top: 3px solid $brand-primary;
+	}
+
+	/* No JS Fallback */
+	.no-js .nav-horizontal .dl-menu {
+		position: relative;
+		opacity: 1;
+		transform: none;
+	}
+
+	.no-js .nav-horizontal li .sub-menu {
+		display: block;
+	}
+
+	.no-js .nav-horizontal li.dl-back {
+		display: none;
+	}
+
+	.no-js .nav-horizontal li>a:not(:only-child) {
+		background: rgba(0, 0, 0, 0.1);
+	}
+
+	.no-js .nav-horizontal li>a:not(:only-child):after {
+		content: '';
+	}
+
+	#menu-overlay {
+		width: 100%;
+		height: 100%;
+		background-color: #000;
+		opacity: .7;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 90;
+	}
+
+}
