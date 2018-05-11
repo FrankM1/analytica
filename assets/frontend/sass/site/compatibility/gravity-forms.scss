@@ -1,0 +1,48 @@
+/**
+ * Astra Theme compatibility with Gravity Form 
+ */
+@import "../variables-site/colors";
+.gform_wrapper {
+
+	form {
+	    	position: relative;
+	}
+
+	select {
+	    height: 2.2em;
+	    border-width: 1px;
+	    border-style: solid;
+	    border-color: $color-border-input;
+	    border-radius: 2px;
+	    background: #fafafa;
+	    padding:0;
+	}
+
+	.ui-datepicker-header select {
+    	padding: inherit;
+	}
+
+	.gform_body .gfield_checkbox li > label {
+    	margin-top: 4px;
+	}
+
+	input:not([type="submit"]):focus, 
+    textarea:focus,
+    select:focus {
+    	background:#fff;
+	    border-color: $color-border-input;
+	    outline: 0;
+	    box-shadow: none;
+	}
+}
+
+.ui-datepicker-header select {
+	padding:0
+}
+
+
+@media (max-width: 768px) {
+	.gform_wrapper.gf_browser_chrome form > .gform_body {
+    	width: 100%;
+    }
+}

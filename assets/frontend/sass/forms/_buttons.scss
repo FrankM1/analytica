@@ -1,0 +1,25 @@
+button,
+.ast-button,
+.button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: 1px solid;
+	border-color: $color-border-button;
+	border-radius: 2px;
+	background: $color-background-button;
+	padding: .6em 1em .4em;
+	color: #fff;
+
+	&:hover,
+	&:focus {
+		color: #fff;
+		border-color: $color-border-button-hover;
+	}
+
+	&:active,
+	&:focus {
+		border-color: $color-border-button-focus;
+		outline:none;
+	}
+}

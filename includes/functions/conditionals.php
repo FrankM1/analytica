@@ -220,7 +220,7 @@ function analytica_is_post_archive_page( $post_id = null ) {
  /**
   * Check that we're targeting a specific Radium admin page.
   *
-  * The `$pagehook` argument is expected to be one of 'energia', 'seo-settings' or 'radium-import-export' although
+  * The `$pagehook` argument is expected to be one of 'analytica', 'seo-settings' or 'analytica-import-export' although
   * others can be accepted.
   *
   * @since 1.0.0

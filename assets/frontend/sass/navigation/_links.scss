@@ -1,0 +1,14 @@
+a {
+	color: $color-link;
+
+	&:hover,
+	&:focus {
+		color: $color-link-hover;
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover {
+		outline: 0;
+	}
+}

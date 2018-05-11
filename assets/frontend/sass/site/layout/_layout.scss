@@ -1,0 +1,352 @@
+// class to hide elements
+.hidden {
+	display: none !important;
+}
+
+body{
+	background-color: $color-background-body;
+}
+// Page alignment
+#page {
+	display: block;
+}
+.site {
+	overflow: hidden;
+}
+#primary,
+#secondary {
+	display: block;
+	position:relative;
+	float: left;
+	width: $width-site-main;
+}
+#primary{
+	margin: 4em 0;
+}
+
+#secondary{
+	margin: 4em 0 2.5em;
+	word-break: break-word;
+	line-height: 2;
+
+	@media (max-width: $mx-col-md) {
+		&.secondary {
+			padding-top: 0;
+		}
+	}
+
+	li {
+		margin-bottom: 0.25em;
+	}
+
+	li:last-child {
+		margin-bottom: 0;
+	}
+}
+
+//separate container content layout
+.ast-separate-container{
+	background-color: $color-background-sep-content-body;
+	#primary{
+		padding: 4em 0;
+		margin: 0;
+		border: 0;
+	}
+	.site-main > .ast-row {
+    	margin-left: 0;
+    	margin-right: 0;
+	}
+	.ast-article-post,
+	.ast-article-single{
+		background-color: $color-background-content;
+		border-bottom: 1px solid $color-border-content;
+		 margin: 0;
+		 padding: 5.34em 6.67em;
+	}
+	.blog-layout-1{
+        padding: 0;
+        /*background-color: $color-background-content;*/
+        border-bottom: 0;
+    }
+	.ast-article-single {
+		border-bottom: 0;
+	}
+
+	@media (max-width: $mx-col-xl) {
+		.ast-article-post,
+		.ast-article-single {
+		    margin: 0;
+		    padding: 3.34em 2.4em;
+		}
+	}
+	@media (max-width: $mx-col-md) {
+		.ast-article-post,
+		.ast-article-single {
+		    padding: 1.5em 2.14em;
+		}
+		#primary,
+		#secondary{
+			padding: 1.5em 0;
+		}
+		&.ast-right-sidebar{
+			#secondary{
+				padding-left: 1em;
+			}
+		}
+		&.ast-right-sidebar{
+			#secondary{
+				padding-right: 1em;
+			}
+		}
+		&.ast-two-container{
+			#secondary {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+	}
+	@media (max-width: $mx-col-sm) {
+		.ast-article-post,
+		.ast-article-single{
+		    padding: 1.5em 1em;
+		}
+		#content .ast-container{
+			padding-left: 0.54em;
+			padding-right: 0.54em;
+		}
+		#secondary{
+			padding-top: 0;
+		}
+	}
+}
+
+
+//page builder content layout
+.ast-page-builder-template {
+
+	.hentry {
+		margin: 0;
+	}
+	.site-content > .ast-container {
+		max-width: 100%;
+	    padding: 0;
+	}
+	.site-content #primary{
+		padding:0;
+		margin:0;
+	}
+	.no-results {
+	    text-align: center;
+		margin: 4em auto;
+	}
+
+	.ast-pagination {
+		padding: 2em;
+	}
+
+	.entry-header {
+		&.ast-no-title.ast-no-thumbnail{
+			margin-top: 0;
+		}
+		margin-top: 4em;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: ($grid-gutter-width / 2);
+		padding-right: ($grid-gutter-width / 2);
+
+		&.ast-header-without-markup {
+ 			margin-top: 0;
+ 			margin-bottom: 0;
+ 		}
+
+ 		&.ast-no-title.ast-no-meta {
+			margin-bottom: 0;
+		}
+
+		@media (max-width: $mx-col-md) { 
+			margin-top: 1.5em;
+		}
+	}
+	
+	@media (max-width: $mx-col-md) {
+		#secondary {
+			margin-top: 1.5em;
+		}
+	}
+
+	&.ast-left-sidebar {
+		#secondary {
+			padding-left: ($grid-gutter-width / 2);
+
+			@media (max-width: $mx-col-md) {
+				padding-right: ($grid-gutter-width / 2);
+			}
+		}
+	}
+
+	&.ast-right-sidebar {
+		#secondary {
+			padding-right: ($grid-gutter-width / 2);
+
+			@media (max-width: $mx-col-md) {
+				padding-left: ($grid-gutter-width / 2);
+			}
+		}
+	}
+	&.single .post-navigation {
+		padding-bottom: 2em;
+	}
+
+	.ast-archive-description {
+		margin-top: 4em;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: ($grid-gutter-width / 2);
+		padding-right: ($grid-gutter-width / 2);
+	}
+}
+
+
+@media (min-width: $col-lg) {
+	// padding of the content
+	.ast-separate-container{
+		&.ast-right-sidebar #primary,
+		&.ast-left-sidebar #primary,
+		#primary {
+		    margin: 4em 0 ;
+		    padding: 0;
+		}
+	}
+	// Right Sidebar - Spacing Between Primary & Secondary
+	.ast-right-sidebar {
+		#primary {
+			padding-right: $space-between-primary-seconday * 2;
+		}
+		#secondary {
+			padding-left: $space-between-primary-seconday * 2;
+		}
+	}
+
+	// Left Sidebar - Spacing Between Primary & Secondary
+	.ast-left-sidebar {
+		#primary {
+			padding-left: $space-between-primary-seconday * 2;
+		}
+		#secondary {
+			padding-right: $space-between-primary-seconday * 2;
+		}
+	}
+}
+
+@media (max-width: $mx-col-lg) {
+	.ast-separate-container{
+		&.ast-right-sidebar #primary,
+		&.ast-left-sidebar #primary,
+		#primary{
+			padding-left:0;
+			padding-right:0;
+		}
+	}
+	// Right Sidebar - Spacing Between Primary & Secondary
+	.ast-right-sidebar {
+		#primary {
+			padding-right: $space-between-primary-seconday;
+		}
+		#secondary {
+			padding-left: $space-between-primary-seconday;
+		}
+	}
+
+	// Left Sidebar - Spacing Between Primary & Secondary
+	.ast-left-sidebar {
+		#primary {
+			padding-left: $space-between-primary-seconday;
+		}
+		#secondary {
+			padding-right: $space-between-primary-seconday;
+		}
+	}
+}
+@media (max-width: $mx-col-md) {
+	// Right Sidebar - Spacing Between Primary & Secondary
+	.ast-right-sidebar {
+		#primary {
+			padding-right: 0;
+		}
+		#secondary {
+			padding-left: 0;
+		}
+	}
+
+	// Left Sidebar - Spacing Between Primary & Secondary
+	.ast-left-sidebar {
+		#primary {
+			padding-left: 0;
+		}
+		#secondary {
+			padding-right: 0;
+		}
+	}
+	#primary,
+	#secondary {
+		padding: 1.5em 0;
+		margin: 0;
+	}
+
+	.ast-left-sidebar {
+		#content > .ast-container {
+			display: flex;
+			flex-direction: column-reverse;
+			width: 100%;
+		}
+	}
+}
+
+//plain layout content side border
+@media (min-width: $col-md) {
+	.ast-right-sidebar {
+		#primary {
+			border-right: 1px solid $color-border-content;
+		}
+		#secondary{
+			border-left: 1px solid $color-border-content;
+			margin-left: -1px;
+		}
+	}
+	.ast-left-sidebar {
+		#primary {
+			border-left: 1px solid $color-border-content;
+		}
+		#secondary{
+			border-right: 1px solid $color-border-content;
+			margin-right: -1px;
+		}
+	}
+	.ast-separate-container{
+		&.ast-right-sidebar,
+		&.ast-left-sidebar {
+			#primary {
+				border: 0;
+			}
+			#secondary{
+				border: 0;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+		&.ast-two-container{
+			&.ast-right-sidebar {
+				#secondary {
+					padding-left: $space-between-primary-seconday;
+					padding-right: 0;
+				}
+			}
+			&.ast-left-sidebar {
+				#secondary {
+					padding-right: $space-between-primary-seconday;
+					padding-left: 0;
+				}
+			}
+		}
+	}
+}

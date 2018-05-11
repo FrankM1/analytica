@@ -1,0 +1,23 @@
+/*
+ * Astra Theme compatibility Site Origin Builder
+ */
+
+.siteorigin-panels {
+	
+	// Reduced page builder z-index for submenu visibility
+	.panel-row-style {
+		z-index: 0;
+		position: relative;
+	}
+
+	.siteorigin-panels-stretch {
+		max-width: 100%;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		
+		&[data-stretch-type="full"] {
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+	}
+}

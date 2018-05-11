@@ -1,0 +1,11 @@
+/*
+ * Astra Theme compatibility with BNR Flyout
+ */
+html.flyout-lock {
+  overflow-y: scroll !important;
+  width: auto;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2l0ZS9jb21wYXRpYmlsaXR5L2JuZS1mbHlvdXQuY3NzIiwic291cmNlcyI6WyJzaXRlL2NvbXBhdGliaWxpdHkvYm5lLWZseW91dC5zY3NzIl0sIm1hcHBpbmdzIjoiQUFBQTs7R0FFRztBQUNILEFBQUksSUFBQSxBQUFBLFlBQVksQ0FBQztFQUNiLFVBQVUsRUFBRSxpQkFBa0I7RUFDOUIsS0FBSyxFQUFFLElBQUs7Q0FDZiIsIm5hbWVzIjpbXX0= */
+
+/*# sourceMappingURL=bne-flyout.css.map */

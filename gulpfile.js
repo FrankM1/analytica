@@ -33,14 +33,14 @@ if(process.argv[2] === "--local") {
 }
 
 // Project related.
-var project = "energia"; // Project Name.
-var projectURL = "energia-live.test"; // Project URL. Could be something like localhost:8888.
+var project = "analytica"; // Project Name.
+var projectURL = "analytica.test"; // Project URL. Could be something like localhost:8888.
 var productURL = "./"; // Theme/Plugin URL. Leave it like it is, since our gulpfile.js lives in the root folder.
 
 // Translation related.
-var textDomain = "energia"; // Your textdomain here.
+var textDomain = "analytica"; // Your textdomain here.
 var translationFile = textDomain + ".pot"; // Name of the transalation file.
-var packageName = "energia"; // Package name.
+var packageName = "analytica"; // Package name.
 var bugReport = "https://radiumthemes.com/contact/"; // Where can users report bugs.
 var lastTranslator = "Franklin Gitonga <frank@radiumthemes.com>"; // Last translator Email ID.
 var team = "RadiumThemes <frank@radiumthemes.com>"; // Team's Email ID.
@@ -54,7 +54,7 @@ var AdmincssRC = "assets/admin/sass/**/*.scss"; // Path to main .scss file.
 var AdminStyleDestination = "assets/admin/css"; // Path to place the compiled CSS file.
 // Defualt set to root folder.
 
-var ExtenstioncssRC = "qazana/extensions/**/*.scss"; // Path to extensions .scss file.
+var ExtenstioncssRC = "analytica/extensions/**/*.scss"; // Path to extensions .scss file.
 
 // Images related.
 var imagesSRC = "assets/frontend/images/raw/**/*.{png,jpg,gif,svg}"; // Source folder of images which should be optimized.
@@ -62,10 +62,10 @@ var imagesDestination = "assets/frontend/images/"; // Destination folder of opti
 
 // Watch files paths.
 var FrontendJSWatchFiles = [
-	"assets/frontend/js/custom/**/*.js",
+	"assets/frontend/js/modules/**/*.js",
 	"assets/extensions/**/*.js",
-	"!assets/frontend/js/ext-qazana-editor.js",
-	"!assets/frontend/js/ext-qazana-frontend.js"
+	"!assets/frontend/js/analytica-editor.js",
+	"!assets/frontend/js/analytica-frontend.js"
 ]; // Path to all vendor JS files.
 var AdminJSWatchFiles = "assets/admin/js/**/*.js"; // Path to all vendor JS files.
 
@@ -110,7 +110,7 @@ var buildInclude = [
     "!style.css.map",
     "!gulpfile.js",
     "!Gruntfile.js",
-	"!assets/frontend/js/custom/*",
+	"!assets/frontend/js/modules/*",
 	"!assets/frontend/sass/*"
 ];
 
@@ -222,7 +222,7 @@ gulp.task("frontendcss", function() {
 		.pipe(
 			sass({
 				errLogToConsole: true,
-				outputStyle: "compressed",
+				outputStyle: "expanded",
 				//outputStyle: 'compressed',
 				// outputStyle: 'nested',
 				// outputStyle: 'expanded',
@@ -270,7 +270,7 @@ gulp.task("extensionscss", function() {
 			sass({
 				includePaths: ["./assets/frontend/sass/"],
 				errLogToConsole: true,
-				outputStyle: "nested",
+				outputStyle: "expanded",
 				//outputStyle: 'compressed',
 				// outputStyle: 'nested',
 				// outputStyle: 'expanded',
@@ -332,7 +332,7 @@ gulp.task("admincss", function() {
 		.pipe(
 			sass({
 				errLogToConsole: true,
-				outputStyle: "nested",
+				outputStyle: "expanded",
 				// outputStyle: 'nested',
 				// outputStyle: 'expanded',
 				precision: 10
@@ -374,7 +374,7 @@ gulp.task("admincss", function() {
 
 gulp.task("lintJs", function() {
 	gulp
-		.src(["assets/frontend/js/custom/**/*.js", "assets/admin/js/**/*.js"])
+		.src(["assets/frontend/js/modules/**/*.js", "assets/admin/js/**/*.js"])
 		.pipe(jshint())
 		.pipe(jshint.reporter("default"));
 });
@@ -391,130 +391,6 @@ gulp.task("lintJs", function() {
  *     4. Uglifes/Minifies the JS file and generates vendors.min.js
  */
 gulp.task("vendorFiles", function() {
-	//frontend js
-	gulp
-		.src("./bower_components/priority-nav/dist/priority-nav.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/FitVids/jquery.fitvids.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/jquery.easing/js/jquery.easing.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src(
-			"./bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"
-		)
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src(
-			"./bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"
-		)
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src(
-			"./bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"
-		)
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src(
-			"./bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"
-		)
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/slick-carousel/slick/slick.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/select2/dist/js/select2.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/scrollreveal/dist/scrollreveal.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/Readmore.js/readmore.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/jquery.validate/dist/jquery.validate.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/PACE/pace.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/clipboard/dist/clipboard.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/rangeslider.js/dist/rangeslider.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/flexibility/flexibility.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/stacktable.js/stacktable.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/twentytwenty/js/jquery.event.move.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/tilt.js/dest/tilt.jquery.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/packery/dist/packery.pkgd.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/justifiedGallery/dist/js/jquery.justifiedGallery.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/parallax-js/deploy/jquery.parallax.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/vivus/dist/vivus.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/magnific-popup/dist/jquery.magnific-popup.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src(
-			"./bower_components/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"
-		)
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/particles.js/particles.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/clappr/dist/clappr.min.js")
-        .pipe(gulp.dest("assets/vendor/js"));
-    gulp
-		.src("./bower_components/clappr/dist/4b76590b32dab62bc95c1b7951efae78.swf")
-        .pipe(gulp.dest("assets/vendor/js"));
-    gulp
-		.src("./bower_components/clappr/dist/8fa12a459188502b9f0d39b8a67d9e6c.swf")
-        .pipe(gulp.dest("assets/vendor/js"));
-    gulp
-		.src("./bower_components/clappr/dist/38861cba61c66739c1452c3a71e39852.ttf")
-        .pipe(gulp.dest("assets/vendor/js"));
-    gulp
-		.src("./bower_components/clappr/dist/a8c874b93b3d848f39a71260c57e3863.cur")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/velocity/velocity.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/velocity/velocity.ui.min.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/jquery.transit/jquery.transit.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-	gulp
-		.src("./bower_components/js-cookie/src/js.cookie.js")
-		.pipe(gulp.dest("assets/vendor/js"));
-
-	// font awesome
-	gulp
-		.src(["./bower_components/fontawesome/css/**/*"])
-		.pipe(gulp.dest("assets/vendor/fontawesome/css"));
-	gulp
-		.src(["./bower_components/fontawesome/fonts/**/*"])
-		.pipe(gulp.dest("assets/vendor/fontawesome/fonts"));
 });
 
 /**
@@ -523,181 +399,18 @@ gulp.task("vendorFiles", function() {
  * Look at src/js and concatenate those files, send them to assets/js where we then minimize the concatenated file.
  */
 gulp.task("FrontendScriptsJs", function() {
-	// Basic usage
-	// Single entry point to browserify
-	gulp
-		.src("assets/extensions/ext-qazana-frontend.js")
-		.pipe(
-			browserify({
-				insertGlobals: true,
-				debug: true
-			}).on("prebundle", function(bundler) {
-                bundler.require(
-					__dirname + "/assets/extensions/general/utils", { expose: "general/utils" }
-                );
-				bundler.require(
-					__dirname + "/assets/extensions/general/animations/loader", { expose: "general/loader" }
-				);
-				bundler.require(
-					__dirname + "/assets/extensions/elements/general/content-popup", { expose: "general/content-popup" }
-				);
-				bundler.require(
-					__dirname +
-					"/assets/extensions/elements/slides/frontend/handlers/add-nav", { expose: "slider/nav" }
-				);
-				bundler.require(
-					__dirname + "/assets/extensions/general/ajax/posts-ajax", { expose: "general/posts-ajax" }
-				);
-			})
-        )
-        .pipe( line_ending_corrector() ) //correct this specific file
-        .pipe(gulp.dest("assets/frontend/js/"))
-		.pipe(
-			rename({
-				basename: "ext-qazana-frontend",
-				suffix: ".min"
-			})
-		)
-        .pipe(uglify().on("error", gutil.log))
-		.pipe(gulp.dest("assets/frontend/js/"));
-
-	gulp
-		.src("assets/extensions/ext-general.js")
-		.pipe(
-			browserify({
-				insertGlobals: true,
-				debug: true
-			}).on("prebundle", function(bundler) {
-
-				bundler.require(
-					__dirname + "/assets/extensions/general/animations/loader", { expose: "general/loader" }
-				);
-
-				bundler.require(
-					__dirname + "/assets/extensions/general/utils", { expose: "general/utils" }
-				);
-
-			})
-		)
-		.pipe(gulp.dest("assets/frontend/js/"))
-		.pipe(
-			rename({
-				basename: "ext-general",
-				suffix: ".min"
-			})
-		)
-		.pipe(uglify().on("error", gutil.log))
-		.pipe(gulp.dest("assets/frontend/js/"));
-
-	gulp
-		.src("assets/extensions/ext-posts.js")
-		.pipe(
-			browserify({
-				insertGlobals: true,
-				debug: true
-			}).on("prebundle", function(bundler) {
-				bundler.require(
-					__dirname + "/assets/extensions/general/animations/loader", { expose: "general/loader" }
-				);
-				bundler.require(
-					__dirname + "/assets/extensions/elements/general/content-popup", { expose: "general/content-popup" }
-				);
-				bundler.require(
-					__dirname +
-					"/assets/extensions/elements/slides/frontend/handlers/add-nav", { expose: "slider/nav" }
-				);
-				bundler.require(
-					__dirname + "/assets/extensions/general/utils", { expose: "general/utils" }
-				);
-			})
-		)
-		.pipe(gulp.dest("assets/frontend/js/"))
-		.pipe(
-			rename({
-				basename: "ext-posts",
-				suffix: ".min"
-			})
-		)
-		.pipe(uglify().on("error", gutil.log))
-		.pipe(gulp.dest("assets/frontend/js/"));
-
-	gulp
-		.src("assets/extensions/ext-woocommerce.js")
-		.pipe(
-			browserify({
-				insertGlobals: true,
-				debug: true
-			}).on("prebundle", function(bundler) {
-				bundler.require(
-					__dirname + "/assets/extensions/general/animations/loader", { expose: "general/loader" }
-				);
-				bundler.require(
-					__dirname + "/assets/extensions/elements/general/content-popup", { expose: "general/content-popup" }
-				);
-				bundler.require(
-					__dirname + "/assets/extensions/general/utils", { expose: "general/utils" }
-				);
-			})
-		)
-		.pipe(gulp.dest("assets/frontend/js/"))
-		.pipe(
-			rename({
-				basename: "ext-woocommerce",
-				suffix: ".min"
-			})
-		)
-		.pipe(uglify().on("error", gutil.log))
-		.pipe(gulp.dest("assets/frontend/js/"));
-
-	gulp
-		.src("assets/extensions/ext-qazana-editor.js")
-		.pipe(
-			browserify({
-				insertGlobals: true,
-				debug: true
-			})
-		)
-		.pipe(gulp.dest("assets/frontend/js/"))
-		.pipe(
-			rename({
-				basename: "ext-qazana-editor",
-				suffix: ".min"
-			})
-		)
-		.pipe(uglify().on("error", gutil.log))
-		.pipe(gulp.dest("assets/frontend/js/"));
-
-	gulp
-		.src("assets/extensions/ext-qazana-admin.js")
-		.pipe(
-			browserify({
-				insertGlobals: true,
-				debug: true
-			})
-		)
-		.pipe(gulp.dest("assets/admin/js/"))
-		.pipe(
-			rename({
-				basename: "ext-qazana-admin",
-				suffix: ".min"
-			})
-		)
-		.pipe(uglify().on("error", gutil.log))
-		.pipe(gulp.dest("assets/admin/js/"));
-
-	return gulp
-		.src("assets/frontend/js/video-central/**/*.js")
-		.pipe(concat("video-central.js"))
-		.pipe(gulp.dest("assets/frontend/js"))
-		.pipe(
-			rename({
-				basename: "video-central",
-				suffix: ".min"
-			})
-		)
-		.pipe(uglify())
-		.pipe(gulp.dest("assets/frontend/js/"));
-
+    return gulp
+    .src("assets/frontend/js/modules/**/*.js")
+    .pipe(concat("main.js").on("error", gutil.log))
+    .pipe(gulp.dest("assets/frontend/js"))
+    .pipe(
+        rename({
+            basename: "main",
+            suffix: ".min"
+        })
+    )
+    .pipe(uglify().on("error", gutil.log))
+    .pipe(gulp.dest("assets/frontend/js/"));
 });
 
 /**
@@ -707,7 +420,7 @@ gulp.task("FrontendScriptsJs", function() {
  */
 gulp.task("AdminScriptsJs", function() {
 	return gulp
-		.src("assets/admin/js/custom/**/*.js")
+		.src("assets/admin/js/modules/**/*.js")
 		.pipe(concat("main.js").on("error", gutil.log))
 		.pipe(gulp.dest("assets/admin/js"))
 		.pipe(

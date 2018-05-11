@@ -1,0 +1,142 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	color: $color-text-main;
+	background: $color-background-body; /* Fallback for when there is no custom background color defined. */
+	font-style: normal;
+}
+
+ul, ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote,
+q {
+	quotes: "" "";
+
+	&:before,
+	&:after {
+		content: "";
+	}
+}
+blockquote {
+	border-left: 5px solid rgba(0, 0, 0, 0.05);
+	padding: 20px;
+	font-size: 1.2em;
+	font-style:italic;
+	margin: 0 0 1.5em;
+	position: relative;
+	p:last-child {
+		margin: 0;
+	}
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted $color-border-abbr;
+	cursor: help;
+}
+
+pre {
+	background: $color-background-pre;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	margin-bottom: 1.6em;
+	overflow: auto;
+	max-width: 100%;
+	padding: 1.6em;
+}
+
+code,
+kbd,
+tt,
+var {
+	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+hr {
+	background-color: $color-background-hr;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+.ast-button,
+.button,
+button,
+input,
+select,
+textarea {
+	color: $color-text-main;
+	font-weight: normal;
+	font-size: 100%; /* Corrects font size not being inherited in all browsers */
+	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
+}
+
+button,
+input {
+	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
+}
+
+big {
+	font-size: 125%;
+}
+
+mark,
+ins {
+	background: $color-background-ins;
+	text-decoration: none;
+}
+
+@import "lists";
+@import "tables";

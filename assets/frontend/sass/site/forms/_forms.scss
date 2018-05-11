@@ -1,0 +1,17 @@
+/**
+ * 	Form Fields
+ *
+ * @import
+ * 1 - All fields common scss
+ * 2 - Field - Range
+ * 3 - Field - Color
+*/
+
+/* 1 - All fields common scss  */
+@import "common";
+
+/* 2 - Field - Range */
+@import "field_range";
+
+/* 3 - Field - Color */
+@import "field_color";

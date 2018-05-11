@@ -1,0 +1,11 @@
+/**
+ * Astra Theme compatibility with Elementor
+ */
+
+.ast-left-sidebar,
+.ast-right-sidebar {
+	.elementor-section.elementor-section-stretched {
+		max-width: 100%;
+		left: 0 !important;
+	}
+}

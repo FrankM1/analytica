@@ -111,7 +111,7 @@ function analytica_header_stylesheet() {
 
     wp_enqueue_script(
         'analytica-megamenu-mobile',
-        analytica()->theme_url . '/assets/frontend/js/vendor/radium-megamenu-mobile.js',
+        analytica()->theme_url . '/assets/frontend/js/vendor/analytica-megamenu-mobile.js',
         [ 
             'jquery',
             'hoverIntent',

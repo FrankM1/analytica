@@ -1,0 +1,22 @@
+@mixin ast-transition( $property: all, $transition-time: 0.2s, $transition-function: linear ) {
+    transition: $property $transition-time $transition-function;
+}
+
+@mixin ast-has-child-menu-item() {
+    content: "\e900";
+    display: inline-block;
+    font-family: 'Astra';
+    font-size: 9px;
+    font-size: .6rem;
+    font-weight: bold;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-left: 10px;
+    vertical-align: middle;
+
+}
+
+@mixin ast-border-radius( $size: 2px ) {
+    border-radius: $size;
+}

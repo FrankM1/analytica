@@ -74,7 +74,6 @@ final class Fonts {
 	 * Get Fonts
 	 */
 	static public function get_fonts() {
-
 		do_action( 'analytica_get_fonts' );
 		return apply_filters( 'analytica_add_fonts', self::$fonts );
 	}

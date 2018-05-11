@@ -1,0 +1,64 @@
+/**
+ * Astra Theme compatibility with Visual Composer
+ */
+/*----------  Mixins  ----------*/
+/*----------  Site Variables  ----------*/
+/*----------  Media Query min-width Structure   ----------*/
+/*----------  Media Query max-width Structure   ----------*/
+/*----------  Break-point min-width Structure   ----------*/
+/*----------  Break-point max-width Structure   ----------*/
+.js_active .vc_row {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.js_active .ast-plain-container.ast-single-post .hentry,
+.js_active .ast-plain-container.ast-single-post #primary {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.js_active .ast-plain-container.ast-single-post .entry-header {
+  margin-top: 4em;
+}
+
+.js_active .ast-plain-container.ast-single-post .entry-header.ast-header-without-markup {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.js_active .ast-plain-container.ast-single-post .entry-header.ast-no-title.ast-no-meta {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .js_active .ast-plain-container.ast-single-post .entry-header {
+    margin-top: 1.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .js_active .ast-plain-container.ast-single-post #secondary {
+    margin-top: 1.5em;
+  }
+}
+
+.js_active .ast-plain-container.ast-left-sidebar .vc_row[data-vc-full-width], .js_active .ast-plain-container.ast-right-sidebar .vc_row[data-vc-full-width],
+.js_active .ast-page-builder-template.ast-left-sidebar .vc_row[data-vc-full-width],
+.js_active .ast-page-builder-template.ast-right-sidebar .vc_row[data-vc-full-width] {
+  max-width: 100%;
+  left: 0 !important;
+}
+
+.js_active .ast-left-sidebar .vc_row[data-vc-full-width],
+.js_active .ast-right-sidebar .vc_row[data-vc-full-width] {
+  max-width: 100%;
+  left: 0 !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2l0ZS9jb21wYXRpYmlsaXR5L3BhZ2UtYnVpbGRlci92Yy1wbHVnaW4uY3NzIiwic291cmNlcyI6WyJzaXRlL2NvbXBhdGliaWxpdHkvcGFnZS1idWlsZGVyL3ZjLXBsdWdpbi5zY3NzIiwic2l0ZS9taXhpbnMvX21peGlucy1tYXN0ZXIuc2NzcyIsInNpdGUvdmFyaWFibGVzLXNpdGUvX2NvbG9ycy5zY3NzIiwic2l0ZS92YXJpYWJsZXMtc2l0ZS9fc3RydWN0dXJlLnNjc3MiLCJzaXRlL3ZhcmlhYmxlcy1zaXRlL190eXBvZ3JhcGh5LnNjc3MiXSwibWFwcGluZ3MiOiJBQUFBOztHQUVHO0FBQ0gsa0NBQWtDO0FBR2xDLDBDQUEwQztBR04xQyw0REFBNEQ7QUFRNUQsNERBQTREO0FBUTVELDREQUE0RDtBQUc1RCw0REFBNEQ7QUhSNUQsQUFFRSxVQUZRLENBRVIsT0FBTyxDQUFDO0VBQ1IsV0FBVyxFQUFFLElBQUs7RUFDbEIsWUFBWSxFQUFFLElBQUs7Q0FDbkI7O0FBTEYsQUFXRyxVQVhPLENBT1Isb0JBQW9CLEFBR25CLGdCQUFnQixDQUNoQixPQUFPO0FBWFYsQUFZRyxVQVpPLENBT1Isb0JBQW9CLEFBR25CLGdCQUFnQixDQUVoQixRQUFRLENBQUM7RUFDUixNQUFNLEVBQUUsQ0FBRTtFQUNWLFdBQVcsRUFBRSxDQUFFO0VBQ2YsY0FBYyxFQUFFLENBQUU7Q0FDbEI7O0FBaEJKLEFBa0JHLFVBbEJPLENBT1Isb0JBQW9CLEFBR25CLGdCQUFnQixDQVFoQixhQUFhLENBQUM7RUFDYixVQUFVLEVBQUUsR0FBSTtDQWNoQjs7QUFqQ0osQUFrQkcsVUFsQk8sQ0FPUixvQkFBb0IsQUFHbkIsZ0JBQWdCLENBUWhCLGFBQWEsQUFHWCwwQkFBMEIsQ0FBQztFQUMzQixVQUFVLEVBQUUsQ0FBRTtFQUNkLGFBQWEsRUFBRSxDQUFFO0NBQ2pCOztBQXhCTCxBQWtCRyxVQWxCTyxDQU9SLG9CQUFvQixBQUduQixnQkFBZ0IsQ0FRaEIsYUFBYSxBQVFYLGFBQWEsQUFBQSxZQUFZLENBQUM7RUFDMUIsYUFBYSxFQUFFLENBQUU7Q0FDakI7O0FBRUQsTUFBTSxFQUFMLFNBQVMsRUFBRSxLQUFLO0VBOUJyQixBQWtCRyxVQWxCTyxDQU9SLG9CQUFvQixBQUduQixnQkFBZ0IsQ0FRaEIsYUFBYSxDQUFDO0lBYVosVUFBVSxFQUFFLEtBQU07R0FFbkI7OztBQUVELE1BQU0sRUFBTCxTQUFTLEVBQUUsS0FBSztFQW5DcEIsQUFvQ0ksVUFwQ00sQ0FPUixvQkFBb0IsQUFHbkIsZ0JBQWdCLENBMEJmLFVBQVUsQ0FBQztJQUNWLFVBQVUsRUFBRSxLQUFNO0dBQ2xCOzs7QUF0Q0wsQUFnRDZCLFVBaERuQixDQTRDVCxvQkFBb0IsQUFFbEIsaUJBQWlCLENBRWpCLE9BQU8sQ0FBQSxBQUFBLGtCQUFDLEFBQUEsR0FoRFgsQUFnRDZCLFVBaERuQixDQTRDVCxvQkFBb0IsQUFHbEIsa0JBQWtCLENBQ2xCLE9BQU8sQ0FBQSxBQUFBLGtCQUFDLEFBQUE7QUFoRFgsQUFnRDZCLFVBaERuQixDQTZDUiwwQkFBMEIsQUFDekIsaUJBQWlCLENBRWpCLE9BQU8sQ0FBQSxBQUFBLGtCQUFDLEFBQUE7QUFoRFgsQUFnRDZCLFVBaERuQixDQTZDUiwwQkFBMEIsQUFFekIsa0JBQWtCLENBQ2xCLE9BQU8sQ0FBQSxBQUFBLGtCQUFDLEFBQUEsRUFBb0I7RUFDM0IsU0FBUyxFQUFFLElBQUs7RUFDaEIsSUFBSSxFQUFFLFlBQWE7Q0FDbkI7O0FBbkRKLEFBeUQ0QixVQXpEbEIsQ0F1RFQsaUJBQWlCLENBRWhCLE9BQU8sQ0FBQSxBQUFBLGtCQUFDLEFBQUE7QUF6RFYsQUF5RDRCLFVBekRsQixDQXdEVCxrQkFBa0IsQ0FDakIsT0FBTyxDQUFBLEFBQUEsa0JBQUMsQUFBQSxFQUFvQjtFQUMzQixTQUFTLEVBQUUsSUFBSztFQUNoQixJQUFJLEVBQUUsWUFBYTtFQUNuQixhQUFhLEVBQUUsWUFBYTtFQUM1QixZQUFZLEVBQUUsWUFBYTtDQUMxQiIsIm5hbWVzIjpbXX0= */
+
+/*# sourceMappingURL=vc-plugin.css.map */

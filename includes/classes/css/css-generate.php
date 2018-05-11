@@ -12,7 +12,7 @@ namespace Analytica;
  * @category Header Composer
  * @package  Header Composer WP
  * @author   Franklin Gitonga
- * @link     http://radiumthemes.com/
+ * @link     http://analyticathemes.com/
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -34,10 +34,11 @@ class CSS_Generate {
 			wp_mkdir_p( $css_path );
 		}
 
-        add_action( 'radium/global-css-file/parse',         [ $this, 'add_css' ] );
-        add_action( 'analytica_after_theme_is_activated',      [ $this, 'update_css' ], 90 );
+        add_action( 'analytica/global-css-file/parse',      [ $this, 'add_css' ] );
+
+        add_action( 'analytica_after_theme_is_activated',   [ $this, 'update_css' ], 90 );
         add_action( 'customize_save_after',                 [ $this, 'update_css' ], 100 );
-        add_action( 'energia_style_switcher_import_after',  [ $this, 'update_css' ], 100 );
+        add_action( 'analytica_style_switcher_import_after',  [ $this, 'update_css' ], 100 );
     }
 
     public function add_css( $global_css_file ) {
@@ -71,7 +72,7 @@ class CSS_Generate {
 			$deleted = unlink( $file );
 
 			if ( ! $deleted ) {
-				$errors['files'] = 'Cannot delete files cache';
+				$errors['files'] = esc_html__( 'Cannot delete files cache', 'analytica' );
 			}
 		}
 
@@ -139,20 +140,7 @@ class CSS_Generate {
          */
         $dynamic_css = apply_filters( 'analytica_dynamic_css_cached', $dynamic_css );
 
-        // detect if in developer mode and load appropriate files
-        if ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ) :
-
-        else :
-            
-            $dynamic_css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $dynamic_css); // Remove comments
-            $dynamic_css = str_replace(': ', ':', $dynamic_css);  // Remove space after colons
-            $dynamic_css = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $dynamic_css); // Remove whitespace
-            $dynamic_css = preg_replace( "/\s*([\{\}>~:;,])\s*/", "$1", $dynamic_css ); // Remove spaces that might still be left where we know they aren't needed
-            $dynamic_css = preg_replace( "/;\}/", "}", $dynamic_css ); // Remove last semi-colon in a block
-
-        endif;
-
-        return apply_filters( 'analytica_dynamic_css_cached_after', $dynamic_css );
+        return $dynamic_css;
     }
 }
 

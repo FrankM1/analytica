@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Global_CSS_File extends CSS_File {
 
-	const META_KEY = 'energia_global_css';
+	const META_KEY = 'analytica_global_css';
 
 	const FILE_HANDLER_ID = 'analytica-global';
 
@@ -64,9 +64,9 @@ class Global_CSS_File extends CSS_File {
 	protected function is_update_required() {
 		$file_last_updated = $this->get_meta( 'time' );
 
-		$energia_settings_last_updated = analytica_get_option( 'settings_update_time' );
+		$analytica_settings_last_updated = analytica_get_option( 'settings_update_time' );
 
-		if ( $file_last_updated < $energia_settings_last_updated ) {
+		if ( $file_last_updated < $analytica_settings_last_updated ) {
 			return true;
 		}
 

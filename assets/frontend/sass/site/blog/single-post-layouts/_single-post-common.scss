@@ -1,0 +1,146 @@
+/**
+ *	Common Stylesheet of Single Post
+ *
+ *	Content
+ *	1 - Single Post Navigation Styles
+ *	2 - Single Post Article Header
+*/
+
+.single {
+
+	.entry-header {
+		margin-bottom: 2em;
+	}
+
+	/* 1 - Single Post Navigation Styles */
+	.post-navigation {
+		
+		margin: 0;
+		padding: 2em 0 0;
+		border-top: 1px solid $color-border-content;
+		@media(max-width: $mx-col-md) {
+	        padding-top: 1.5em;
+	    }
+		
+		a {
+			margin: 2px;
+			display: inline-block;
+			text-align: center;
+			color: #000;
+		}
+		
+		@media ( min-width: $col-xs ) {
+			
+			.nav-links {
+				display: flex;
+			}
+			
+			.nav-previous,
+			.nav-next {
+				flex: auto;
+			}
+		}
+
+		@media ( max-width: $mx-col-xs ) { 
+			.ast-left-arrow,
+			.ast-right-arrow {
+				display: none;
+			}
+
+			.nav-previous,
+			.nav-next {
+				width: 100%;
+				
+				a {
+					width: 100%;
+				}				
+			}
+
+			.nav-previous {
+				margin-bottom: 1em;
+			}
+		}
+	}
+
+	/*Page builder single post meta*/
+	&.ast-page-builder-template{
+		.entry-header {
+	  		padding-left: 20px;
+			padding-right: 20px;
+	  	}
+	}
+}
+/* 2 - Single Post Article Header */
+.single {
+	.entry-header {
+		.ast-single-post-order {
+			+ .post-thumb {
+				img {
+					margin-top: 2em;
+					margin-bottom: 0;
+				}
+			}
+		}
+		&.ast-no-title{
+			.post-thumb {
+				+ .ast-single-post-order{
+					margin-top: 0;
+				}
+			}
+		}
+		.post-thumb {
+			+ .ast-single-post-order{
+				margin-top: 2em;
+			}
+		}
+		.post-thumb {
+			img {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+		}
+
+	}
+}
+.page {
+	.has-post-thumbnail {
+		.post-thumb {
+			img {
+				margin-bottom: 1.5em;
+			}
+		}
+	}
+}
+
+.post-password-form {
+    text-align: center;
+    @media ( max-width: $mx-col-xs ) {
+	    input[type="password"]{
+	    	display:block;
+	    	margin: 10px auto;
+	    }
+	}
+	input[type="submit"] {
+	    padding: 10px 20px;
+	    border-radius: 2px;
+	}
+}
+
+//Separate container
+.ast-separate-container{
+	.post-navigation {
+		border-top: 0;
+		padding-left: 3.33333em;
+		padding-right: 3.33333em;
+		@media ( max-width: $mx-col-xs ) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	@media(max-width: $mx-col-md) {
+		.entry-header {
+			margin-bottom: 1em;
+		}
+	}
+}

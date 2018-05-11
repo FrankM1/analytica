@@ -1,0 +1,21 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+textarea {
+	color: $color-text-input;
+	border: 1px solid $color-border-input;
+	border-radius: 2px;
+	-webkit-appearance: none;
+
+	&:focus {
+		color: $color-text-input-focus;
+	}
+}
+
+textarea {
+	padding-left: 3px;
+	width: 100%;
+}

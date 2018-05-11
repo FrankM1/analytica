@@ -86,7 +86,7 @@ function analytica_wp_title( $title, $sep ) {
 
     // Add a page number if necessary.
     if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-        $title = "$title $sep " . sprintf( esc_html__( 'Page %s', 'energia' ), max( $paged, $page ) );
+        $title = "$title $sep " . sprintf( esc_html__( 'Page %s', 'analytica' ), max( $paged, $page ) );
     }
 
     return $title;
@@ -96,7 +96,7 @@ add_action( 'analytica_meta', 'analytica_responsive_viewport' );
 /**
  * Optionally output the responsive CSS viewport tag.
  *
- * Child theme needs to support 'radium-responsive-viewport'.
+ * Child theme needs to support 'analytica-responsive-viewport'.
  *
  * Applies `analytica_viewport_value` filter on content attribute.
  *
@@ -106,7 +106,7 @@ add_action( 'analytica_meta', 'analytica_responsive_viewport' );
  */
 function analytica_responsive_viewport() {
 
-    if ( ! current_theme_supports( 'radium-responsive-viewport' ) ) { return; }
+    if ( ! current_theme_supports( 'analytica-responsive-viewport' ) ) { return; }
 
     /**
      * Filter the viewport meta tag value.
@@ -152,7 +152,7 @@ function analytica_rel_author() {
 
     $post = get_post();
 
-    if ( is_singular() && post_type_supports( $post->post_type, 'radium-rel-author' ) && isset( $post->post_author ) && $gplus_url = get_user_option( 'googleplus', $post->post_author ) ) {
+    if ( is_singular() && post_type_supports( $post->post_type, 'analytica-rel-author' ) && isset( $post->post_author ) && $gplus_url = get_user_option( 'googleplus', $post->post_author ) ) {
         printf( '<link rel="author" href="%s" />' . "\n", esc_url( $gplus_url ) );
         return;
     }

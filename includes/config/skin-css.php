@@ -21,14 +21,130 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Dynamic_CSS {
 
+    public function __construct() {
+        add_filter( 'analytica_dynamic_css_cached', array( $this, 'return_output' ));
+        add_filter( 'analytica_dynamic_css_cached', array( $this, 'return_meta_output' ));
+        add_filter( 'analytica_dynamic_css_cached', array( $this, 'header_breakpoint_style' ));
+    }
+
+    /**
+     * Function to Add Header Breakpoint Style
+     *
+     * @since 1.0.0
+     */
+    function header_breakpoint_style( $original_css ) {
+
+        // Header Break Point.
+        $header_break_point = analytica_header_break_point();
+
+        ob_start();
+        ?>
+        .main-header-bar-wrap {
+            content: '<?php echo esc_html( $header_break_point ); ?>';
+        }
+
+        @media all and ( min-width: <?php echo esc_html( $header_break_point ); ?>px ) {
+            .main-header-bar-wrap {
+                content: '';
+            }
+        }
+        <?php
+
+        $analytica_header_width = analytica_get_option( 'header-main-layout-width' );
+
+        /* Width for Header */
+        if ( 'content' != $analytica_header_width ) {
+            $genral_global_responsive = array(
+                '#masthead .ast-container' => array(
+                    'max-width'     => '100%',
+                    'padding-left'  => '35px',
+                    'padding-right' => '35px',
+                ),
+            );
+
+            /* Parse CSS from array()*/
+            echo $this->parse_css( $genral_global_responsive, $header_break_point );
+        }
+
+        $css = ob_get_clean();
+
+        // trim white space for faster page loading.
+        $css = $this->trim_css( $css );
+
+        return $original_css . $css;
+    }
+
+	/**
+	 * Parse CSS
+	 *
+	 * @param  array  $css_output Array of CSS.
+	 * @param  string $min_media  Min Media breakpoint.
+	 * @param  string $max_media  Max Media breakpoint.
+	 * @return string             Generated CSS.
+	 */
+	public function parse_css( $css_output = array(), $min_media = '', $max_media = '' ) {
+
+		$parse_css = '';
+		if ( is_array( $css_output ) && count( $css_output ) > 0 ) {
+
+			foreach ( $css_output as $selector => $properties ) {
+
+				if ( ! count( $properties ) ) {
+					continue; }
+
+				$temp_parse_css   = $selector . '{';
+				$properties_added = 0;
+
+				foreach ( $properties as $property => $value ) {
+
+					if ( '' === $value ) {
+						continue; }
+
+					$properties_added++;
+					$temp_parse_css .= $property . ':' . $value . ';';
+				}
+
+				$temp_parse_css .= '}';
+
+				if ( $properties_added > 0 ) {
+					$parse_css .= $temp_parse_css;
+				}
+			}
+
+			if ( '' != $parse_css && ( '' !== $min_media || '' !== $max_media ) ) {
+
+				$media_css       = '@media ';
+				$min_media_css   = '';
+				$max_media_css   = '';
+				$media_separator = '';
+
+				if ( '' !== $min_media ) {
+					$min_media_css = '(min-width:' . $min_media . 'px)';
+				}
+				if ( '' !== $max_media ) {
+					$max_media_css = '(max-width:' . $max_media . 'px)';
+				}
+				if ( '' !== $min_media && '' !== $max_media ) {
+					$media_separator = ' and ';
+				}
+
+				$media_css .= $min_media_css . $media_separator . $max_media_css . '{' . $parse_css . '}';
+
+				return $media_css;
+			}
+		}
+
+		return $parse_css;
+	}
+
     /**
      * Return CSS Output
      *
      * @return string Generated CSS.
      */
-    static public function return_output() {
+    public function return_output( $css ) {
 
-        $dynamic_css = '';
+        $css = '';
 
         /**
          *
@@ -397,7 +513,7 @@ class Dynamic_CSS {
         );
 
         /* Parse CSS from array() */
-        $parse_css = analytica_parse_css( $css_output );
+        $parse_css = $this->parse_css( $css_output );
 
         // Foreground color.
         if ( ! empty( $footer_adv_link_color ) ) {
@@ -409,7 +525,7 @@ class Dynamic_CSS {
                     'color' => analytica_get_foreground_color( $footer_adv_link_color ),
                 ),
             );
-            $parse_css          .= analytica_parse_css( $footer_adv_tagcloud );
+            $parse_css          .= $this->parse_css( $footer_adv_tagcloud );
         }
 
         /* Width for Footer */
@@ -423,7 +539,7 @@ class Dynamic_CSS {
             );
 
             /* Parse CSS from array()*/
-            $parse_css .= analytica_parse_css( $genral_global_responsive, '769' );
+            $parse_css .= $this->parse_css( $genral_global_responsive, '769' );
         }
 
         /* Width for Comments for Full Width / Stretched Template */
@@ -436,12 +552,12 @@ class Dynamic_CSS {
         );
 
         /* Parse CSS from array()*/
-        $parse_css .= analytica_parse_css( $page_builder_comment, '545' );
+        $parse_css .= $this->parse_css( $page_builder_comment, '545' );
 
         $separate_container_css = array(
             'body, .ast-separate-container' => analytica_get_background_obj( $box_bg_obj ),
         );
-        $parse_css             .= analytica_parse_css( $separate_container_css );
+        $parse_css             .= $this->parse_css( $separate_container_css );
 
         $tablet_typo = array();
 
@@ -515,7 +631,7 @@ class Dynamic_CSS {
         );
 
         /* Parse CSS from array()*/
-        $parse_css .= analytica_parse_css( array_merge( $tablet_typo, $tablet_typography ), '', '768' );
+        $parse_css .= $this->parse_css( array_merge( $tablet_typo, $tablet_typography ), '', '768' );
 
         $mobile_typo = array();
         if ( isset( $body_font_size['mobile'] ) && '' != $body_font_size['mobile'] ) {
@@ -587,11 +703,7 @@ class Dynamic_CSS {
         );
 
         /* Parse CSS from array()*/
-        $parse_css .= analytica_parse_css( array_merge( $mobile_typo, $mobile_typography ), '', '544' );
-
-        /*
-            *  Responsive Font Size for Tablet & Mobile to the root HTML element
-            */
+        $parse_css .= $this->parse_css( array_merge( $mobile_typo, $mobile_typography ), '', '544' );
 
         // Tablet Font Size for HTML tag.
         if ( '' == $body_font_size['tablet'] ) {
@@ -600,7 +712,7 @@ class Dynamic_CSS {
                     'font-size' => analytica_get_font_css_value( (int) $body_font_size_desktop * 5.7, '%' ),
                 ),
             );
-            $parse_css             .= analytica_parse_css( $html_tablet_typography, '', '768' );
+            $parse_css             .= $this->parse_css( $html_tablet_typography, '', '768' );
         }
         // Mobile Font Size for HTML tag.
         if ( '' == $body_font_size['mobile'] ) {
@@ -616,8 +728,9 @@ class Dynamic_CSS {
                 ),
             );
         }
+
         /* Parse CSS from array()*/
-        $parse_css .= analytica_parse_css( $html_mobile_typography, '', '544' );
+        $parse_css .= $this->parse_css( $html_mobile_typography, '', '544' );
 
         /* Site width Responsive */
         $site_width = array(
@@ -627,7 +740,7 @@ class Dynamic_CSS {
         );
 
         /* Parse CSS from array()*/
-        $parse_css .= analytica_parse_css( $site_width, '769' );
+        $parse_css .= $this->parse_css( $site_width, '769' );
 
         /**
          * Analytica Fonts
@@ -680,7 +793,7 @@ class Dynamic_CSS {
         endif;
 
         /* 404 Page */
-        $parse_css .= analytica_parse_css(
+        $parse_css .= $this->parse_css(
             array(
                 '.ast-404-layout-1 .ast-404-text' => array(
                     'font-size' => analytica_get_font_css_value( 100 ),
@@ -688,17 +801,17 @@ class Dynamic_CSS {
             ), '', '920'
         );
 
-        $dynamic_css = $parse_css;
+        $css = $parse_css;
         $custom_css  = analytica_get_option( 'custom-css' );
 
         if ( '' != $custom_css ) {
-            $dynamic_css .= $custom_css;
+            $css .= $custom_css;
         }
 
         // trim white space for faster page loading.
-        $dynamic_css = Frontend::trim_css( $dynamic_css );
+        $css = $this->trim_css( $css );
 
-        return $dynamic_css;
+        return $css . $css;
     }
 
     /**
@@ -707,7 +820,7 @@ class Dynamic_CSS {
      * @param  boolean $return_css Return the CSS.
      * @return mixed              Return on print the CSS.
      */
-    static public function return_meta_output( $return_css = false ) {
+    public function return_meta_output( $css ) {
 
         /**
          * - Page Layout
@@ -744,10 +857,27 @@ class Dynamic_CSS {
             $meta_style .= '}';
         endif;
 
-        if ( false != $return_css ) {
-            return $meta_style;
+        return $css . $meta_style;
+    }
+
+    /**
+     * Trim CSS
+     *
+     * @since 1.0.0
+     * @param string $css CSS content to trim.
+     * @return string
+     */
+    public function trim_css( $css = '' ) {
+
+        // Trim white space for faster page loading.
+        if ( ! empty( $css ) ) {
+            $css = preg_replace( '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css );
+            $css = str_replace( array( "\r\n", "\r", "\n", "\t", '  ', '    ', '    ' ), '', $css ); // Remove whitespace
+            $css = str_replace( ', ', ',', $css );
+            $css = str_replace(': ', ':', $css);  // Remove space after colons
+            $css = preg_replace( "/\s*([\{\}>~:;,])\s*/", "$1", $css ); // Remove spaces that might still be left where we know they aren't needed
         }
 
-        wp_add_inline_style( 'analytica-theme-css', $meta_style );
+        return $css;
     }
 }

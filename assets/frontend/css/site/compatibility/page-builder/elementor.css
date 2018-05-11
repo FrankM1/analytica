@@ -1,0 +1,12 @@
+/**
+ * Astra Theme compatibility with Elementor
+ */
+.ast-left-sidebar .elementor-section.elementor-section-stretched,
+.ast-right-sidebar .elementor-section.elementor-section-stretched {
+  max-width: 100%;
+  left: 0 !important;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2l0ZS9jb21wYXRpYmlsaXR5L3BhZ2UtYnVpbGRlci9lbGVtZW50b3IuY3NzIiwic291cmNlcyI6WyJzaXRlL2NvbXBhdGliaWxpdHkvcGFnZS1idWlsZGVyL2VsZW1lbnRvci5zY3NzIl0sIm1hcHBpbmdzIjoiQUFBQTs7R0FFRztBQUVILEFBRW1CLGlCQUZGLENBRWhCLGtCQUFrQixBQUFBLDRCQUE0QjtBQUQvQyxBQUNtQixrQkFERCxDQUNqQixrQkFBa0IsQUFBQSw0QkFBNEIsQ0FBQztFQUM5QyxTQUFTLEVBQUUsSUFBSztFQUNoQixJQUFJLEVBQUUsWUFBYTtDQUNuQiIsIm5hbWVzIjpbXX0= */
+
+/*# sourceMappingURL=elementor.css.map */

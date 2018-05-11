@@ -1,0 +1,32 @@
+/* 2 - Small Footer */
+@import "small-footer-layouts";
+@import "footer-sml-layout-1";
+@import "footer-sml-layout-2";
+
+.site-footer {
+	color: $footer-text-color;
+
+	.widget-title {
+		color: $footer-link-color;
+	}
+
+	a {
+		color: $footer-link-color;
+		&:hover,
+		&:focus {
+	    	color: $footer-link-hover-color;
+	    }
+	}
+
+	ul {
+	    margin: 0;
+	    list-style-type: none;
+	}
+
+	.nav-menu li {
+	    display: inline-block;
+	}
+}
+
+@import "footer-adv";
+@import "footer-adv-layout-4";

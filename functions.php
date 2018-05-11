@@ -160,6 +160,7 @@ class Core {
      */
     public function init() {
         $this->css_generator = new CSS_Generate();
+        $this->dynamic_css   = new Dynamic_CSS();
         $this->theme         = new Theme();
         $this->frontend      = new Frontend();
         $this->loop          = new Content\Loop();

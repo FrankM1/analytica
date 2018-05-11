@@ -1,0 +1,58 @@
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.byline,
+.updated:not(.published){
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-links {
+	clear: both;
+	margin-top: 1em;
+    a {
+        display: inline-block;
+        .page-link {
+            border-color: $color-border-pagination;
+            background: transparent;
+        }
+    }
+    .page-link {
+        padding: 0;
+        margin: 0 0 .3em .3em;
+        border: 2px solid $color-border-pagination;
+        color: $color-text-pagination;
+        background: $color-background-pagination;
+        font-size: 0.8em;
+        width: 2.5em;
+        height: 2.5em;
+        line-height: calc( 2.5em - 4px );
+        display: inline-block;
+        text-align: center;
+        @include ast-transition();
+        &:hover,
+        &:focus {
+            color: $color-text-pagination;
+        }
+
+        @media( max-width: $mx-col-md) {
+            margin-bottom: 6px;
+        }
+    }    
+}
+
+
+.page-content > :last-child,
+.entry-content > :last-child,
+.entry-summary > :last-child {
+    margin-bottom: 0;
+}

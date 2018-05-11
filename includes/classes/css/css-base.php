@@ -92,8 +92,8 @@ abstract class CSS_File {
 				$meta['status'] = self::CSS_STATUS_INLINE;
 				$meta['css'] = $this->css;
 			}
-		}
-
+        }
+        
 		$this->update_meta( $meta );
 	}
 
@@ -224,6 +224,6 @@ abstract class CSS_File {
 
 	private function parse_css() {
 		$this->render_css();
-		do_action( 'radium/' . $this->get_name() . '-css-file/parse', $this );
+		do_action( 'analytica/' . $this->get_name() . '-css-file/parse', $this );
 	}
 }

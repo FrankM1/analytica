@@ -1,0 +1,81 @@
+/**
+ * Astra Theme compatibility with Contact Form 7
+ */
+.wpcf7 {
+  /* Button */
+  /* Validation Fix */
+}
+
+.wpcf7 form {
+  position: relative;
+}
+
+.wpcf7 form > p,
+.wpcf7 form > div {
+  margin-bottom: 1.2em;
+}
+
+.wpcf7 .wpcf7-form-control-wrap {
+  width: 100%;
+  display: block;
+}
+
+.wpcf7 input:not([type="submit"]):focus,
+.wpcf7 textarea:focus,
+.wpcf7 select:focus {
+  background: #fff;
+  border-color: #eaeaea;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.wpcf7 input:not([type="submit"]), .wpcf7 textarea, .wpcf7 select {
+  width: 100%;
+  padding: 0.75em;
+}
+
+.wpcf7 input[type="file"] {
+  color: #666;
+  height: auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #eaeaea;
+  border-radius: 2px;
+  background: #fafafa;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.wpcf7 input[type="radio"],
+.wpcf7 input[type="checkbox"] {
+  display: inline-block;
+  background: #E9EEF2;
+  color: #555;
+  clear: none;
+  cursor: pointer;
+  line-height: 0;
+  height: 1.2em;
+  margin: -3px 4px 0 0;
+  outline: 0;
+  padding: 0;
+  border-radius: 0.2em;
+  text-align: center;
+  vertical-align: middle;
+  width: 1.4em;
+  min-width: 1.4em;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.wpcf7 .wpcf7-validation-errors {
+  border-color: #f00;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2l0ZS9jb21wYXRpYmlsaXR5L2NvbnRhY3QtZm9ybS03LmNzcyIsInNvdXJjZXMiOlsic2l0ZS9jb21wYXRpYmlsaXR5L2NvbnRhY3QtZm9ybS03LnNjc3MiLCJzaXRlL3ZhcmlhYmxlcy1zaXRlL19jb2xvcnMuc2NzcyIsInNpdGUvbWl4aW5zL19taXhpbnMtbWFzdGVyLnNjc3MiXSwibWFwcGluZ3MiOiJBQUFBOztHQUVHO0FBSUgsQUFBQSxNQUFNLENBQUM7RUEyQ0gsWUFBWTtFQXVCZixvQkFBb0I7Q0FNcEI7O0FBeEVELEFBRUMsTUFGSyxDQUVMLElBQUksQ0FBQztFQUNBLFFBQVEsRUFBRSxRQUFTO0NBTXZCOztBQVRGLEFBS0ksTUFMRSxDQUVMLElBQUksR0FHRCxDQUFDO0FBTEwsQUFNSSxNQU5FLENBRUwsSUFBSSxHQUlELEdBQUcsQ0FBQztFQUNMLGFBQWEsRUFBRSxLQUFNO0NBQ3JCOztBQVJILEFBV0ksTUFYRSxDQVdGLHdCQUF3QixDQUFDO0VBQ3hCLEtBQUssRUFBRSxJQUFLO0VBQ1osT0FBTyxFQUFFLEtBQU07Q0FDZjs7QUFkTCxBQWdCOEIsTUFoQnhCLENBZ0JGLEtBQUssQUFBQSxJQUFLLEVBQUEsQUFBQSxBQUFjLElBQWIsQ0FBSyxRQUFRLEFBQWIsRUFBZSxNQUFNO0FBaEJwQyxBQWlCWSxNQWpCTixDQWlCRixRQUFRLEFBQUEsTUFBTTtBQWpCbEIsQUFrQlUsTUFsQkosQ0FrQkYsTUFBTSxBQUFBLE1BQU0sQ0FBQztFQUNaLFVBQVUsRUFBRSxJQUFLO0VBQ2pCLFlBQVksRUNjbUIsT0FBTztFRGJ0QyxPQUFPLEVBQUUsQ0FBRTtFQUNYLFVBQVUsRUFBRSxJQUFLO0NBQ3BCOztBQXZCRixBQXlCNkIsTUF6QnZCLENBeUJGLEtBQUssQUFBQSxJQUFLLEVBQUEsQUFBQSxBQUFjLElBQWIsQ0FBSyxRQUFRLEFBQWIsSUF6QmYsQUF5QmdDLE1BekIxQixDQXlCMEIsUUFBUSxFQXpCeEMsQUF5QjBDLE1BekJwQyxDQXlCb0MsTUFBTSxDQUFDO0VBQy9DLEtBQUssRUFBRSxJQUFLO0VBQ1QsT0FBTyxFQUFFLE1BQU87Q0FDbkI7O0FBNUJGLEFBOEJxQixNQTlCZixDQThCRixLQUFLLENBQUEsQUFBQSxJQUFDLENBQUssTUFBTSxBQUFYLEVBQWE7RUFDckIsS0FBSyxFQ1o2QixJQUFJO0VEYW5DLE1BQU0sRUFBRSxJQUFLO0VBQ2IsWUFBWSxFQUFFLEdBQUk7RUFDbEIsWUFBWSxFQUFFLEtBQU07RUFDcEIsWUFBWSxFQ0RtQixPQUFPO0VERXRDLGFBQWEsRUFBRSxHQUFJO0VBQ25CLFVBQVUsRUFBRSxPQUFRO0VBQ3BCLFVBQVUsRUFBRSxJQUFLO0VBQ2pCLFVBQVUsRUFBRSxVQUFXO0VFNUN4QixVQUFVLEVBRG9CLEdBQUcsQ0FBb0IsSUFBSSxDQUF3QixNQUFNO0NGK0N6Rjs7QUF6Q0YsQUE2Q3NCLE1BN0NoQixDQTZDRixLQUFLLENBQUEsQUFBQSxJQUFDLENBQUssT0FBTyxBQUFaO0FBN0NWLEFBOEN5QixNQTlDbkIsQ0E4Q0YsS0FBSyxDQUFBLEFBQUEsSUFBQyxDQUFLLFVBQVUsQUFBZixFQUNMO0VBQ0EsT0FBTyxFQUFFLFlBQWE7RUFDdEIsVUFBVSxFQUFFLE9BQVE7RUFDcEIsS0FBSyxFQUFFLElBQUs7RUFDWixLQUFLLEVBQUUsSUFBSztFQUNaLE1BQU0sRUFBRSxPQUFRO0VBQ2hCLFdBQVcsRUFBRSxDQUFFO0VBQ2YsTUFBTSxFQUFFLEtBQU07RUFDZCxNQUFNLEVBQUUsWUFBYTtFQUNyQixPQUFPLEVBQUUsQ0FBRTtFQUNYLE9BQU8sRUFBRSxDQUFFO0VBQ1gsYUFBYSxFQUFFLEtBQU07RUFDckIsVUFBVSxFQUFFLE1BQU87RUFDbkIsY0FBYyxFQUFFLE1BQU87RUFDdkIsS0FBSyxFQUFFLEtBQU07RUFDYixTQUFTLEVBQUUsS0FBTTtFRW5FbEIsVUFBVSxFQURvQixHQUFHLENBQW9CLElBQUksQ0FBd0IsTUFBTTtDRnNFdEY7O0FBaEVMLEFBb0VDLE1BcEVLLENBb0VMLHdCQUF3QixDQUFDO0VBQ3JCLFlBQVksRUFBRSxJQUFLO0NBQ25CIiwibmFtZXMiOltdfQ== */
+
+/*# sourceMappingURL=contact-form-7.css.map */

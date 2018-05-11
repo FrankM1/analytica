@@ -87,13 +87,13 @@ button.menu-trigger {
  * -----------------------------------------------------------------------------------
  */
 
-.site-boxed.radium-header-transparent .site-header .container,
-.site-wide.radium-header-transparent .site-header {
+.site-boxed.analytica-header-transparent .site-header .container,
+.site-wide.analytica-header-transparent .site-header {
 	background: transparent;
 }
 
-.radium-header-overlay .site-header,
-.radium-header-transparent .site-header {
+.analytica-header-overlay .site-header,
+.analytica-header-transparent .site-header {
 	top: 0;
 	right: 0;
 	left: 0;
@@ -103,7 +103,7 @@ button.menu-trigger {
 	transition: .3s all;
 }
 
-.radium-header-transparent .site-header {
+.analytica-header-transparent .site-header {
 	@media (min-width: $screen-sm-min) {
 		position: absolute;
 	}
@@ -151,13 +151,13 @@ button.menu-trigger {
 	}
 }
 
-.radium-header-overlay .site-header {
+.analytica-header-overlay .site-header {
 	@media (min-width: $screen-sm-min) {
 		position: fixed;
 	}
 }
 
-.page-scrolling.radium-header-overlay .site-header {
+.page-scrolling.analytica-header-overlay .site-header {
 	@media (min-width: $screen-sm-min) {
 		background: white;
 		box-shadow: 0 1px 1px rgba(48, 48, 48, 0.12);
@@ -195,8 +195,8 @@ button.menu-trigger {
 	}
 }
 
-.admin-bar.radium-header-overlay .site-header,
-.admin-bar.radium-header-transparent .site-header {
+.admin-bar.analytica-header-overlay .site-header,
+.admin-bar.analytica-header-transparent .site-header {
 	@media (min-width: $screen-sm-min) {
 		top: 32px;
 	}

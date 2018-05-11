@@ -621,55 +621,6 @@ function analytica_footer_classes() {
     echo 'class="' . esc_attr( join( ' ', $classes ) ) . '"';
 }
 
-add_action( 'wp_enqueue_scripts', 'analytica_header_breakpoint_style' );
-/**
- * Function to Add Header Breakpoint Style
- *
- * @since 1.0.0
- */
-function analytica_header_breakpoint_style() {
-
-    // Header Break Point.
-    $header_break_point = analytica_header_break_point();
-
-    ob_start();
-    ?>
-    .main-header-bar-wrap {
-        content: '<?php echo esc_html( $header_break_point ); ?>';
-    }
-
-    @media all and ( min-width: <?php echo esc_html( $header_break_point ); ?>px ) {
-        .main-header-bar-wrap {
-            content: '';
-        }
-    }
-    <?php
-
-    $analytica_header_width = analytica_get_option( 'header-main-layout-width' );
-
-    /* Width for Header */
-    if ( 'content' != $analytica_header_width ) {
-        $genral_global_responsive = array(
-            '#masthead .ast-container' => array(
-                'max-width'     => '100%',
-                'padding-left'  => '35px',
-                'padding-right' => '35px',
-            ),
-        );
-
-        /* Parse CSS from array()*/
-        echo analytica_parse_css( $genral_global_responsive, $header_break_point );
-    }
-
-    $dynamic_css = ob_get_clean();
-
-    // trim white space for faster page loading.
-    $dynamic_css = Analytica\Frontend::trim_css( $dynamic_css );
-
-    wp_add_inline_style( 'analytica-theme-css', $dynamic_css );
-}
-
-
 add_filter( 'comment_form_default_fields', 'analytica_comment_form_default_fields_markup' );
 /**
  * Function filter comment form's default fields

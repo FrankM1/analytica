@@ -1,0 +1,15 @@
+/* Color */
+input[type="color"] {
+    border: none;
+    width: 100px;
+    padding: 0;
+    height: 30px;
+    cursor: pointer;
+	&::-webkit-color-swatch-wrapper{
+	    padding: 0;
+	    border: none;
+	}
+	&::-webkit-color-swatch {
+	    border: none;
+	}
+}
