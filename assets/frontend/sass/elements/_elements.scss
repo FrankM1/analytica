@@ -1,5 +1,10 @@
 html {
-	box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    font-kerning: auto;
+    text-rendering: optimizeLegibility;
 }
 
 *,

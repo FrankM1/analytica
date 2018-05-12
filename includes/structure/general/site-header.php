@@ -41,7 +41,7 @@ add_action( 'analytica_header', 'analytica_header_markup_open', 5 );
  */
 function analytica_header_markup_open() {
      analytica_markup( array(
-         'html5'   => '<div %s>',
+         'element'   => '<div %s>',
          'context' => 'site-header',
      ) );
 }
@@ -57,7 +57,7 @@ add_action( 'analytica_header', 'analytica_header_markup_close', 15 );
  */
 function analytica_header_markup_close() {
     analytica_markup( array(
-         'html5' => '</div>',
+         'element' => '</div>',
      ) );
 }
 

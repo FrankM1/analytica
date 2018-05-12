@@ -159,11 +159,13 @@ class Core {
      * @return void
      */
     public function init() {
-        $this->css_generator = new CSS_Generate();
-        $this->dynamic_css   = new Dynamic_CSS();
-        $this->theme         = new Theme();
-        $this->frontend      = new Frontend();
-        $this->loop          = new Content\Loop();
+        $this->css_generator    = new CSS_Generate();
+        $this->dynamic_css      = new Dynamic_CSS();
+        $this->theme            = new Theme();
+        $this->frontend         = new Frontend();
+        $this->loop             = new Content\Loop();
+        $this->options_instance = new Options();
+        $this->customizer       = new Customizer();
     }
 
     /**
@@ -182,41 +184,26 @@ class Core {
         $this->_include_config();
         $this->_include_classes();
         $this->_include_function();
-
-        /* 
         $this->_include_profiles();
-        $this->_include_options(); */
+        
+        $this->_include_options();
         $this->_include_admin();
         $this->_include_structure_base();
         // End base files
 
-        /*
-        $this->_include_structure_pages(); */
         $this->_include_structure_post_archives();
-        /*
-        $this->_include_structure_single_posts();
-
-        $this->_include_menus();
-        $this->_include_builder(); */
+        // $this->_include_menus();
         $this->_include_extensions(); 
-    }
-
-    function _include_classes() {
-        require_once get_theme_file_path( '/includes/classes/nav/breadcrumb.php' );
-        require_once get_theme_file_path( '/includes/classes/css/css-base.php' );
-        require_once get_theme_file_path( '/includes/classes/css/global-css-file.php' );
-        require_once get_theme_file_path( '/includes/classes/css/css-generate.php' );
     }
 
     function _include_config() {
         // First file to load - setup theme environment
+        require_once get_theme_file_path( '/includes/config/options.php' );
         require_once get_theme_file_path( '/includes/config/theme.php' );
         require_once get_theme_file_path( '/includes/config/frontend.php' );
-        // require_once get_theme_file_path( '/includes/config/icons.php' );
-        // require_once get_theme_file_path( '/includes/config/presets.php' );
         require_once get_theme_file_path( '/includes/config/skin-css.php' );
-
         require_once get_theme_file_path( '/includes/config/fonts.php' );
+
         require_once get_theme_file_path( '/includes/config/fonts/families.php' );
         require_once get_theme_file_path( '/includes/config/fonts/data.php' );
 
@@ -226,8 +213,14 @@ class Core {
     
         require_once get_theme_file_path( '/includes/config/metabox/meta-box-operations.php' );
 
-        require_once get_theme_file_path( '/includes/config/options.php' );
         require_once get_theme_file_path( '/includes/config/strings.php' );
+    }
+    
+    function _include_classes() {
+        require_once get_theme_file_path( '/includes/classes/nav/breadcrumb.php' );
+        require_once get_theme_file_path( '/includes/classes/css/css-base.php' );
+        require_once get_theme_file_path( '/includes/classes/css/global-css-file.php' );
+        require_once get_theme_file_path( '/includes/classes/css/css-generate.php' );
     }
 
     function _include_function() {
@@ -243,59 +236,29 @@ class Core {
         require_once get_theme_file_path( '/includes/functions/widgets.php' );
         require_once get_theme_file_path( '/includes/functions/extras.php' );
 
-        /*
         // Used by both front and admin
-        require_once get_theme_file_path( '/includes/functions/options.php' );
         require_once get_theme_file_path( '/includes/functions/conditionals.php' );
-        require_once get_theme_file_path( '/includes/functions/queries.php' );
-        require_once get_theme_file_path( '/includes/functions/layout-page.php' );
-        require_once get_theme_file_path( '/includes/functions/common.php' ); // loaded early
-        require_once get_theme_file_path( '/includes/functions/slider.php' );
 
         // Not crucial for the admin
-        require_once get_theme_file_path( '/includes/functions/breadcrumb.php' );
-        require_once get_theme_file_path( '/includes/functions/colors.php' );
-        require_once get_theme_file_path( '/includes/functions/formatting.php' );
-        require_once get_theme_file_path( '/includes/functions/images.php' );
-        require_once get_theme_file_path( '/includes/functions/markup.php' );
-        require_once get_theme_file_path( '/includes/functions/mobile.php' );
-        require_once get_theme_file_path( '/includes/functions/upgrade.php' );
-
-        // Load Widgets
-        require_once get_theme_file_path( '/includes/functions/widgetize.php' ); // Load Default Widget Areas
-        require_once get_theme_file_path( '/includes/functions/qazana.php' ); */
+       // require_once get_theme_file_path( '/includes/functions/breadcrumb.php' );
     }
 
     function _include_profiles() {
-        require_once get_theme_file_path( '/includes/config/profiles/customizer/default.php' );
-        require_once get_theme_file_path( '/includes/config/profiles/plugins/default.php' );
+        require_once get_theme_file_path( '/includes/config/profiles/default.php' );
     }
 
     function _include_options() {
-        if ( ! analytica_detect_plugin( [ 'classes' => [ 'Kirki' ] ] ) ) {
-            require_once get_theme_file_path( '/vendor/kirki/kirki.php' );
-        }
-
         require_once get_theme_file_path( '/includes/extensions/customizer/kirki-integration.php' );
         require_once get_theme_file_path( '/includes/extensions/customizer/kirki-custom.php' );
 
-        // Fields
-        require_once get_theme_file_path( '/includes/extensions/customizer/fields/html.php' );
-
         require_once get_theme_file_path( '/includes/config/customizer/01-general.php' );
         require_once get_theme_file_path( '/includes/config/customizer/02-site-header.php' );
-        require_once get_theme_file_path( '/includes/config/customizer/03-page-header.php' );
         require_once get_theme_file_path( '/includes/config/customizer/04-site-footer.php' );
+        // require_once get_theme_file_path( '/includes/config/customizer/08-breadcrumbs.php' );
         require_once get_theme_file_path( '/includes/config/customizer/05-typography.php' );
-        require_once get_theme_file_path( '/includes/config/customizer/06-posts-layout.php' );
-        require_once get_theme_file_path( '/includes/config/customizer/07-customizer.php' );
-        require_once get_theme_file_path( '/includes/config/customizer/09-comments.php' );
-        require_once get_theme_file_path( '/includes/config/customizer/08-breadcrumbs.php' );
-        require_once get_theme_file_path( '/includes/config/customizer/04-social-accounts.php' );
-        require_once get_theme_file_path( '/includes/config/customizer/10-404.php' );
-        require_once get_theme_file_path( '/includes/config/customizer/90-utilities.php' );
 
-        require_once get_theme_file_path( '/includes/extensions/customizer/assets.php' );
+        // require_once get_theme_file_path( '/includes/config/customizer/03-page-header.php' );
+        require_once get_theme_file_path( '/includes/config/customizer/90-utilities.php' );
     }
 
     function _include_admin() {
@@ -307,18 +270,26 @@ class Core {
         if ( is_admin() ) {
             require_once get_template_directory() . '/includes/admin/about-page.php';
         }
+    }
 
-        /*require_once get_theme_file_path( '/includes/config/page/layout.php' );
-        require_once get_theme_file_path( '/includes/config/page/header.php' );
-        require_once get_theme_file_path( '/includes/config/page/footer.php' );
-        require_once get_theme_file_path( '/includes/config/page/one-page.php' );
+    function _include_structure_base() {
 
-        require_once get_theme_file_path( '/includes/config/posts/audio.php' );
-        require_once get_theme_file_path( '/includes/config/posts/gallery.php' );
-        require_once get_theme_file_path( '/includes/config/posts/general.php' );
-        require_once get_theme_file_path( '/includes/config/posts/layout.php' );
-        require_once get_theme_file_path( '/includes/config/posts/video.php' );*/
+        // General
+        require_once get_theme_file_path( '/includes/structure/general/site-loop.php' );
+        require_once get_theme_file_path( '/includes/structure/general/site-footer.php' );
 
+        // Load Structure
+        if ( analytica_detect_plugin( [
+                'functions' => [
+                    'header_composer',
+                ],
+            ] ) && header_composer_get_active_header_id()
+        ) {
+            // this is simpler
+            // skip header
+        } else {
+            require_once get_theme_file_path( '/includes/structure/general/site-header.php' );
+        }
     }
 
     function _include_menus() {
@@ -329,14 +300,13 @@ class Core {
         require_once get_theme_file_path( '/includes/structure/navigation/menu.php' );
     }
 
+    function _include_structure_post_archives() {
+        require_once get_theme_file_path( '/includes/structure/archives/blog/blog-config.php' );
+        require_once get_theme_file_path( '/includes/structure/archives/blog/blog.php' );
+        require_once get_theme_file_path( '/includes/structure/archives/blog/single-blog.php' );
+     }
+
     function _include_extensions() {
-        // require_once get_theme_file_path( '/includes/extensions/header-composer.php' );
-        // require_once get_theme_file_path( '/includes/extensions/skins.php' );
-        // require_once get_theme_file_path( '/includes/extensions/metaboxes.php' );
-   
-        // /**
-        //  * Compatibility
-        //  */
         // require_once get_theme_file_path( '/includes/extensions/class-analytica-jetpack.php' );
         // require_once get_theme_file_path( '/includes/extensions/woocommerce/class-analytica-woocommerce.php' );
         // require_once get_theme_file_path( '/includes/extensions/lifterlms/class-analytica-lifterlms.php' );
@@ -360,99 +330,8 @@ class Core {
         // if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
         // 	require_once get_theme_file_path( '/includes/extensions/class-analytica-beaver-themer.php' );
         // }
-
     }
 
-    function _include_structure_base() {
-
-        // // General
-        // require_once get_theme_file_path( '/includes/structure/general/functions.php' );
-        // require_once get_theme_file_path( '/includes/structure/general/layout.php' );
-        // require_once get_theme_file_path( '/includes/structure/general/header.php' );
-         require_once get_theme_file_path( '/includes/structure/general/site-loop.php' );
-        // require_once get_theme_file_path( '/includes/structure/general/css-classes.php' );
-
-        // require_once get_theme_file_path( '/includes/structure/general/site-footer.php' );
-        // require_once get_theme_file_path( '/includes/structure/general/sidebar.php' );
-        // require_once get_theme_file_path( '/includes/structure/general/comments.php' );
-        // require_once get_theme_file_path( '/includes/structure/general/search.php' );
-        // require_once get_theme_file_path( '/includes/structure/general/meta.php' );
-
-        // // Load Structure
-        // if ( analytica_detect_plugin( [
-        //         'functions' => [
-        //             'header_composer',
-        //         ],
-        //     ] ) && header_composer_get_active_header_id()
-        // ) {
-        //     // this is simpler
-        //     // skip header
-        // } else {
-        //     require_once get_theme_file_path( '/includes/structure/general/site-header.php' );
-        // }
-    }
-
-    function _include_structure_pages() {
-        require_once get_theme_file_path( '/includes/structure/pages/header.php' );
-        require_once get_theme_file_path( '/includes/structure/pages/layout.php' );
-    }
-
-    function _include_structure_post_archives() {
-
-        require_once get_theme_file_path( '/includes/structure/archives/blog/blog-config.php' );
-        require_once get_theme_file_path( '/includes/structure/archives/blog/blog.php' );
-        require_once get_theme_file_path( '/includes/structure/archives/blog/single-blog.php' );
-
-        // require_once get_theme_file_path( '/includes/structure/posts/formats/audio.php' );
-        // require_once get_theme_file_path( '/includes/structure/posts/formats/gallery.php' );
-
-        // // Post archives - search, taxonomies etc
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/layout-loops.php' );
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/actions.php' );
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/modules.php' );
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/schemer.php' );
-
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/inbuilt-posts-loop.php' );
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/loops/card-1.php' );
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/loops/card-2.php' );
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/loops/card-3.php' );
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/loops/card-4.php' );
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/loops/card-5.php' );
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/loops/card-6.php' );
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/loops/card-7.php' );
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/loops/card-8.php' );
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/loops/box-1.php' );
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/loops/list-1.php' );
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/loops/list-2.php' );
-        // require_once get_theme_file_path( '/includes/structure/posts/archives/ajax/ajax-handler.php' );
-     }
-
-    function _include_structure_single_posts() {
-
-        require_once get_theme_file_path( '/includes/structure/posts/single/functions.php' );
-        require_once get_theme_file_path( '/includes/structure/posts/single/header.php' );
-
-        require_once get_theme_file_path( '/includes/structure/posts/single/classes/base.php' );
-        require_once get_theme_file_path( '/includes/structure/posts/single/classes/amp.php' );
-
-        require_once get_theme_file_path( '/includes/structure/posts/single/skins/default.php' );
-        require_once get_theme_file_path( '/includes/structure/posts/single/skins/qazana.php' );
-        require_once get_theme_file_path( '/includes/structure/posts/single/skins/wide-overlay.php' );
-        require_once get_theme_file_path( '/includes/structure/posts/single/skins/wide-boxed.php' );
-        require_once get_theme_file_path( '/includes/structure/posts/single/skins/classic.php' );
-
-        require_once get_theme_file_path( '/includes/structure/posts/single/actions.php' );
-        require_once get_theme_file_path( '/includes/structure/posts/single/next-post.php' );
-        require_once get_theme_file_path( '/includes/structure/posts/single/related-posts.php' );
-    }
-
-    function _include_builder() {
-        if ( analytica_detect_plugin( [ 'classes' => [ 'Qazana\Plugin' ] ] ) ) {
-            require_once get_theme_file_path( '/qazana/functions/conditionals.php' );
-            require_once get_theme_file_path( '/qazana/functions/layout.php' );
-            require_once get_theme_file_path( '/qazana/functions/integration.php' );
-        }
-    }
 }
 
 /**

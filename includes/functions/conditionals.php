@@ -9,6 +9,21 @@
  * @link    https://radiumthemes.com/
  */
 
+  /**
+  * Helper method to determine if an attribute is true or false.
+  *
+  * @since 1.0.0
+  *
+  * @param string|int|bool $var Attribute value.
+  *
+  * @return bool
+  */
+function analytica_is_bool( $var ) {
+    $falsey = [ 'false', '0', 'no', 'n', 'off' ];
+
+    return ( ! $var || in_array( strtolower( $var ), $falsey ) ) ? false : true;
+}
+
  /**
   * Check if header is enabled on the page
   *

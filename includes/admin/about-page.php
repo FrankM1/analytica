@@ -28,7 +28,7 @@ function analytica_admin_setup() {
 		// Main welcome title
 		'welcome_title' => sprintf( esc_html__( 'Welcome to %s! - Version ', 'analytica' ), 'Analytica' ),
 		// Main welcome content
-		'welcome_content' => esc_html__( ' Analytica is a free magazine-style theme with clean type, smart layouts and a design flexibility that makes it perfect for publishers of all kinds.', 'analytica' ),
+		'welcome_content' => wp_get_theme()->get( 'Description' ),
 		/**
 		 * Tabs array.
 		 *

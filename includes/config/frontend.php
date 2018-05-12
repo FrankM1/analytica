@@ -6,7 +6,7 @@
  * @category Radium\Framework
  * @package  Energia
  * @author   Franklin Gitonga
- * @link     http://radiumthemes.com/
+ * @link     http://qazana.net/
  */
 namespace Analytica;
 
@@ -80,14 +80,8 @@ class Frontend {
 
         // The analytica_globals object contains information and settings about the framework
         $json_data = [
-            'ajaxurl'     => admin_url( 'admin-ajax.php' ),
-            'js_dir'      => $this->framework->theme_url . '/assets/frontend/js/',
-            'rtl'         => false,
-            'theme_url'   => get_stylesheet_directory_uri(),
             'break_point' => analytica_header_break_point(),                         // Header Break Point.
             'i18n'        => [
-                'no_more_posts'         => esc_html__( 'No more posts', 'analytica' ),
-                'ajax_error_quick_view' => esc_html__( 'Sorry, unable to load this product. Redirecting...', 'analytica' ),
             ],
         ]; // create globals for front-end AJAX calls;
 

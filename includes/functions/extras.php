@@ -11,41 +11,6 @@
  * @since       Analytica 1.0.0
  */
 
-add_action( 'wp_head', 'analytica_pingback_header' );
-/**
- * Add a pingback url auto-discovery header for singularly identifiable articles.
- */
-function analytica_pingback_header() {
-	if ( is_singular() && pings_open() ) {
-		printf( '<link rel="pingback" href="%s">' . "\n", esc_url( get_bloginfo( 'pingback_url' ) ) );
-	}
-}
-
-/**
- * Adds schema tags to the body classes.
- *
- * @since 1.0.0
- */
-function analytica_schema_body() {
-
-    // Check conditions.
-    $is_blog = ( is_home() || is_archive() || is_attachment() || is_tax() || is_single() ) ? true : false;
-
-    // Set up default itemtype.
-    $itemtype = 'WebPage';
-
-    // Get itemtype for the blog.
-    $itemtype = ( $is_blog ) ? 'Blog' : $itemtype;
-
-    // Get itemtype for search results.
-    $itemtype = ( is_search() ) ? 'SearchResultsPage' : $itemtype;
-    // Get the result.
-    $result = apply_filters( 'analytica_schema_body_itemtype', $itemtype );
-
-    // Return our HTML.
-    echo apply_filters( 'analytica_schema_body', "itemtype='https://schema.org/" . esc_html( $result ) . "' itemscope='itemscope'" );
-}
-
 add_filter( 'body_class', 'analytica_body_classes' );
 /**
  * Adds custom classes to the array of body classes.
@@ -891,7 +856,7 @@ function analytica_get_post_thumbnail( $before = '', $after = '', $echo = true )
 
             $post_thumb = get_the_post_thumbnail(
                 get_the_ID(),
-                apply_filters( 'analytica_post_thumbnail_default_size', 'full' ),
+                apply_filters( 'analytica_post_thumbnail_default_size', 'blog-featured' ),
                 array(
                     'itemprop' => 'image',
                 )
@@ -1048,87 +1013,5 @@ function analytica_color_palette() {
  * @return string Theme Name.
  */
 function analytica_get_theme_name() {
-
-    $theme_name = __( 'Analytica', 'analytica' );
-
-    return apply_filters( 'analytica_theme_name', $theme_name );
-}
-
-/**
- * Strpos over an array.
- *
- * @since  1.2.4
- * @param  String  $haystack The string to search in.
- * @param  Array   $needles  Array of needles to be passed to strpos().
- * @param  integer $offset   If specified, search will start this number of characters counted from the beginning of the string. If the offset is negative, the search will start this number of characters counted from the end of the string.
- *
- * @return bool            True if haystack if part of any of the $needles.
- */
-function analytica_strposa( $haystack, $needles, $offset = 0 ) {
-
-    if ( ! is_array( $needles ) ) {
-        $needles = array( $needles );
-    }
-
-    foreach ( $needles as $query ) {
-
-        if ( strpos( $haystack, $query, $offset ) !== false ) {
-            // stop on first true result.
-            return true;
-        }
-    }
-
-    return false;
-}
-
-/**
- * Get Addon name.
- *
- * @return string Addon Name.
- */
-function analytica_get_addon_name() {
-
-    $pro_name = __( 'Analytica Pro', 'analytica' );
-    // If addon is not updated & White Label added for Addon then show the updated addon name.
-    if ( class_exists( 'Analytica_Ext_White_Label_Markup' ) ) {
-
-        $plugin_data = Analytica_Ext_White_Label_Markup::$branding;
-
-        if ( '' != $plugin_data['analytica-pro']['name'] ) {
-            $pro_name = $plugin_data['analytica-pro']['name'];
-        }
-    }
-
-    return apply_filters( 'analytica_addon_name', $pro_name );
-}
-
-/**
- * Get a specific property of an array without needing to check if that property exists.
- *
- * Provide a default value if you want to return a specific value if the property is not set.
- *
- * @since  1.0.0
- * @access public
- * @author Gravity Forms - Easiest Tool to Create Advanced Forms for Your WordPress-Powered Website.
- * @link  https://www.gravityforms.com/
- *
- * @param array  $array   Array from which the property's value should be retrieved.
- * @param string $prop    Name of the property to be retrieved.
- * @param string $default Optional. Value that should be returned if the property is not set or empty. Defaults to null.
- *
- * @return null|string|mixed The value
- */
-function astar( $array, $prop, $default = null ) {
-
-    if ( ! is_array( $array ) && ! ( is_object( $array ) && $array instanceof ArrayAccess ) ) {
-        return $default;
-    }
-
-    if ( isset( $array[ $prop ] ) ) {
-        $value = $array[ $prop ];
-    } else {
-        $value = '';
-    }
-
-    return empty( $value ) && null !== $default ? $default : $value;
+    return apply_filters( 'analytica_theme_name', __( 'Analytica', 'analytica' ) );
 }

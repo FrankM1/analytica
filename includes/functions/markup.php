@@ -35,18 +35,18 @@
  */
 function analytica_markup( $args = [] ) {
     $defaults = [
-        'html5' => '',
+        'element' => '',
         'context' => '',
         'echo' => true,
     ];
 
     $args = wp_parse_args( $args, $defaults );
 
-    if ( ! $args['html5'] ) {
+    if ( ! $args['element'] ) {
         return '';
     }
 
-    $tag = $args['context'] ? sprintf( $args['html5'], analytica_attr( $args['context'] ) ) : $args['html5'];
+    $tag = $args['context'] ? sprintf( $args['element'], analytica_attr( $args['context'] ) ) : $args['element'];
 
     // Contextual filter
     $tag = $args['context'] ? apply_filters( "analytica_markup_{$args['context']}_output", $tag, $args ) : $tag;
@@ -184,6 +184,8 @@ function analytica_attributes_body( $attributes ) {
     if ( is_singular( 'post' ) || is_archive() || is_home() || is_page_template( 'blog.php' ) ) {
         $attributes['itemtype'] = 'https://schema.org/Blog';
     }
+
+    $attributes['itemscope'] = 'itemscope';
 
     return $attributes;
 }

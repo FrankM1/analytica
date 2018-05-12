@@ -557,6 +557,7 @@ class Dynamic_CSS {
         $separate_container_css = array(
             'body, .ast-separate-container' => analytica_get_background_obj( $box_bg_obj ),
         );
+        
         $parse_css             .= $this->parse_css( $separate_container_css );
 
         $tablet_typo = array();

@@ -174,7 +174,7 @@ function analytica_get_blog_post_thumbnail( $type = 'archive' ) {
 
     if ( 'archive' === $type ) {
         // Blog Post Featured Image.
-        analytica_get_post_thumbnail( '<div class="ast-blog-featured-section post-thumb ast-col-md-12">', '</div>' );
+        analytica_get_post_thumbnail( '<div class="ast-blog-featured-section post-thumb">', '</div>' );
     } elseif ( 'single' === $type ) {
         // Single Post Featured Image.
         analytica_get_post_thumbnail();
