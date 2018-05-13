@@ -1,77 +1,80 @@
 // # Site Footer
 .site-footer {
-    background-attachment: inherit !important;
-    background-repeat: no-repeat;
-    background-color: #000;
-    border-width: none;
-    a {
-        color: inherit;
-    }
-    .nav--toolbar {
-        display: table;
-        margin: 0 auto;
-    }
-    &.footer-parallax {
-        position: fixed;
-        bottom: 0;
-        opacity: 1;
-    }
+	background-attachment: inherit !important;
+	background-repeat: no-repeat;
+	background-color: #000;
+	border-width: none;
+	a {
+		color: inherit;
+	}
+	.nav--toolbar {
+		display: table;
+		margin: 0 auto;
+	}
+	&.footer-parallax {
+		position: fixed;
+		bottom: 0;
+		opacity: 1;
+	}
 }
 
 // # Footer Widgets
 .footer-widgets {
-    @include clearfix;
-    position: relative;
-    padding: $grid-gutter-width 0;
-    &.has-container {
-        @extend %container;
-        margin-right: auto;
-        margin-left: auto;
-    }
-    .col-lg-12.column,
-    >.row {
-        padding: 0;
-    }
-    p:last-child,
-    table {
-        margin-bottom: 0;
-    }
-    ul {
-        padding: 0;
-        li {
-            @include clearfix;
-            display: block;
-        }
-    }
-    .menu,
-    .widget-area ul {
-        margin-bottom: 0;
-        li {
-            padding-top: 5px;
-            padding-bottom: 5px;
-        }
-    }
-    .widget-area .widget .section-title {
-        margin-top: 0;
-    }
+	&:before,
+	&:after {
+		@include clearfix;
+	}
+	position: relative;
+	padding: $grid-gutter-width 0;
+	&.has-container {
+		@extend %container;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	.col-lg-12.column,
+	>.row {
+		padding: 0;
+	}
+	p:last-child,
+	table {
+		margin-bottom: 0;
+	}
+	ul {
+		padding: 0;
+		li {
+			@include clearfix;
+			display: block;
+		}
+	}
+	.menu,
+	.widget-area ul {
+		margin-bottom: 0;
+		li {
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+	}
+	.widget-area .widget .section-title {
+		margin-top: 0;
+	}
 }
 
 // # Site Footer Menu
 .footer-menu {
-    padding: $grid-gutter-width-half /2;
+	padding: $grid-gutter-width-half /2;
 }
 
 .site-colophon {
-    padding: $grid-gutter-width-half 0;
-    &.has-container {
-        @extend %container;
-        margin-right: auto;
-        margin-left: auto;
-    }
+	padding: $grid-gutter-width-half 0;
+	&.has-container {
+		@extend %container;
+		margin-right: auto;
+		margin-left: auto;
+	}
 }
 
 .site-creds {
-    span {
-        text-transform: none;
-    }
+	span {
+		text-transform: none;
+	}
 }

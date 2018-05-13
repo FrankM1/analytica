@@ -252,6 +252,7 @@ class Core {
         require_once get_theme_file_path( '/includes/functions/conditionals.php' );
         require_once get_theme_file_path( '/includes/functions/menu.php' );
 
+        require_once get_theme_file_path( '/includes/structure/general/header.php' );
         require_once get_theme_file_path( '/includes/structure/general/css-classes.php' );
         require_once get_theme_file_path( '/includes/structure/general/template-tags.php' );
         require_once get_theme_file_path( '/includes/structure/general/template-parts.php' );

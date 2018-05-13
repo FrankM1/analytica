@@ -47,7 +47,7 @@ class Options {
         ];
     
         $secondary = [
-            'font-family' => 'Rubik',
+            'font-family' => 'Poppins',
             'color'       => '#000',
         ];
 
@@ -143,7 +143,7 @@ class Options {
                 'font-size'      => '52px',
                 'font-weight'    => 'bold',
                 'line-height'    => '1.3',
-                'letter-spacing' => '0',
+                'letter-spacing' => '-.05em',
                 'color'          => $secondary['color'],
                 'text-transform' => 'none',
             ],

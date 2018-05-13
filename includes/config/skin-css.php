@@ -50,8 +50,8 @@ class Dynamic_CSS {
     
         $css .= '@media (min-width: 1200px) {';
             if ( $site_container_width > 0 ) {
-                $css .= '.site-container, .site-footer, .ast-container, .site-inner, .footer-widgets.has-container, .site-colophon.has-container { max-width: ' . esc_attr( $site_container_width ) . 'px; }';
-                $css .= '.ast-container { width: ' . esc_attr( $site_container_width ) . 'px; }';
+                $css .= '.ast-container { width:' . esc_attr( $site_container_width ) . 'px;}';
+                $css .= '.site-boxed .site-container, .site-boxed .site-footer, .site-boxed .container, .site-boxed .site-inner, .site-boxed .site-colophon.has-container { max-width: ' . esc_attr( $site_container_width ) . 'px; }';
             }
 
             if ( $single_post_site_container_width > 0 ) {

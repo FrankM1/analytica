@@ -10,7 +10,7 @@
 	}
 }
 
-.site-header .header-primary .container {
+.site-header .header-primary .ast-container {
 	display: flex;
 	flex-direction: row;
 	padding: $grid-gutter-width-half $grid-gutter-width;
@@ -87,7 +87,7 @@ button.menu-trigger {
  * -----------------------------------------------------------------------------------
  */
 
-.site-boxed.analytica-header-transparent .site-header .container,
+.site-boxed.analytica-header-transparent .site-header .ast-container,
 .site-wide.analytica-header-transparent .site-header {
 	background: transparent;
 }

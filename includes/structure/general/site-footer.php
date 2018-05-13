@@ -102,7 +102,7 @@ function analytica_footer_widget_areas() {
 
     // Get footer layout
     $layout = analytica_get_option( 'site_footer_layout' );
-    $container_class = analytica_get_option( 'footer-width' ) ? 'full-width' : 'container';
+    $container_class = analytica_get_option( 'footer-width' ) ? 'full-width' : 'ast-container';
 
     $inside = '';
     $output = '';
@@ -351,7 +351,7 @@ function analytica_footer_widget_areas() {
 						endswitch;
 
                         $inside .= '</div><!-- .row -->';
-				$inside .= '</div><!-- .container -->';
+				$inside .= '</div><!-- .ast-container -->';
 			$inside .= '</div><!-- .top-inner -->';
 		$inside .= '</div>';
 	endif;
