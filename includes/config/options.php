@@ -94,6 +94,7 @@ class Options {
             ],
 
             // Header
+            'header'       => true,
             'header-sticky'       => true,
             'header-overlay'      => true,
             'header-transparent'  => true,

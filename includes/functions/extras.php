@@ -10,53 +10,7 @@
  * @link        https://qazana.net/
  * @since       Analytica 1.0.0
  */
-
-add_filter( 'body_class', 'analytica_body_classes' );
-/**
- * Adds custom classes to the array of body classes.
- *
- * @since 1.0.0
- * @param array $classes Classes for the body element.
- * @return array
- */
-function analytica_body_classes( $classes ) {
-
-    if ( wp_is_mobile() ) {
-        $classes[] = 'ast-header-break-point';
-    }
-
-    // Apply separate container class to the body.
-    $content_layout = analytica_get_content_layout();
-    if ( 'content-boxed-container' == $content_layout ) {
-        $classes[] = 'ast-separate-container';
-    } elseif ( 'boxed-container' == $content_layout ) {
-        $classes[] = 'ast-separate-container ast-two-container';
-    } elseif ( 'page-builder' == $content_layout ) {
-        $classes[] = 'ast-page-builder-template';
-    } elseif ( 'plain-container' == $content_layout ) {
-        $classes[] = 'ast-plain-container';
-    }
-    // Sidebar location.
-    $page_layout = 'ast-' . analytica_page_layout();
-    $classes[]   = esc_attr( $page_layout );
-
-    $theme            = wp_get_theme();         // Get Theme data (WP 3.4+)
-    $theme_version    = $theme->version;  // Theme version
-
-    // Current Analytica verion.
-    $classes[] = esc_attr( 'analytica-' . $theme_version );
-
-    $outside_menu = analytica_get_option( 'header-display-outside-menu' );
-
-    if ( $outside_menu ) {
-        $classes[] = 'ast-header-custom-item-outside';
-    } else {
-        $classes[] = 'ast-header-custom-item-inside';
-    }
-
-    return $classes;
-}
-
+ 
 add_action( 'analytica_pagination', 'analytica_number_pagination' );
 /**
  * Analytica Pagination
@@ -117,7 +71,7 @@ function analytica_get_custom_html( $option_name = '' ) {
     if ( ! empty( $custom_html_content ) ) {
         $custom_html = '<div class="ast-custom-html">' . do_shortcode( $custom_html_content ) . '</div>';
     } elseif ( current_user_can( 'edit_theme_options' ) ) {
-        $custom_html = '<a href="' . esc_url( admin_url( 'customize.php?autofocus[control]=' . analytica()->theme_option_name . '[' . $option_name . ']' ) ) . '">' . __( 'Add Custom HTML', 'analytica' ) . '</a>';
+        $custom_html = '<a href="' . esc_url( admin_url( 'customize.php?autofocus[control]=' . analytica()->option_name . '[' . $option_name . ']' ) ) . '">' . __( 'Add Custom HTML', 'analytica' ) . '</a>';
     }
 
     return $custom_html;

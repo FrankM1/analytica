@@ -22,7 +22,8 @@ function analytica_filter_wp_kses_allowed_theme_attributes( $allowed_html ) {
 
     $tags_seen = [
         'body',
-        'div'
+        'div',
+        'a'
     ];
 
     foreach ( array_keys( $tags_seen ) as $tag_name ) {
@@ -39,7 +40,8 @@ function analytica_filter_wp_kses_allowed_theme_attributes( $allowed_html ) {
                 'aria-label',
                 'action',
                 'datetime',
-                'rel'
+                'rel',
+                'title'
             ), true )
         );
     }

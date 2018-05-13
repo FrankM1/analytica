@@ -38,7 +38,7 @@ class Dynamic_CSS {
         $footer_border                      = analytica_get_option( 'site-footer-border' );
         $footer_colophon_border             = analytica_get_option( 'footer-colophon-border' );
         $offset                             = intval( analytica_get_option( 'site_layout_offset' ) );
-        $site_container_width               = intval( analytica_get_option( 'site_container_width' ) );
+        $site_container_width               = intval( analytica_get_option( 'site-content-width' ) );
         $site_sidebar_width                 = intval( analytica_get_option( 'site_sidebar_width' ) );
         $single_post_site_container_width   = intval( analytica_get_option( 'single_post_site_container_width' ) );
         $single_post_site_sidebar_width     = intval( analytica_get_option( 'single_post_site_sidebar_width' ) );
@@ -50,8 +50,8 @@ class Dynamic_CSS {
     
         $css .= '@media (min-width: 1200px) {';
             if ( $site_container_width > 0 ) {
-                $css .= '.site-boxed .site-container, .site-boxed .site-footer, .site-boxed .ast-container, .site-boxed .site-inner, .site-boxed .site-colophon.has-container { max-width: ' . esc_attr( $site_container_width ) . 'px; }';
-                $css .= '.site-boxed .ast-container, .ast-container { width: ' . esc_attr( $site_container_width ) . 'px; }';
+                $css .= '.site-container, .site-footer, .ast-container, .site-inner, .footer-widgets.has-container, .site-colophon.has-container { max-width: ' . esc_attr( $site_container_width ) . 'px; }';
+                $css .= '.ast-container { width: ' . esc_attr( $site_container_width ) . 'px; }';
             }
 
             if ( $single_post_site_container_width > 0 ) {
@@ -105,10 +105,12 @@ class Dynamic_CSS {
             $css .= '}';
         }
 
+        $css .= '#quickpop #close-quickpop:hover { color: ' . $accent_color . '}';
         $css .= '.site-widgets-style-4 .section-title .widget-title:after, .site-widgets-style-8 .section-title .widget-title span:after { background-color: ' . $accent_color . '; }';
         $css .= '.site-widgets-style-5 .section-title .widget-title, .site-widgets-style-6 .section-title .widget-title { border-left-color: ' . $accent_color . '; }';
-        $css .= '#quickpop #close-quickpop:hover { color: ' . $accent_color . '}';
         $css .= '.archive-pagination .active a { border-color: ' . $accent_color . '; color: ' . $accent_color . '; }';
+
+        analytica_write_log( $css );
 
         return $css;
     }
@@ -552,21 +554,6 @@ class Dynamic_CSS {
         $secondary_width = analytica_get_option( 'site-sidebar-width' );
         $primary_width   = absint( 100 - $secondary_width );
         $meta_style      = '';
-
-        // Header Separator.
-        $header_separator       = analytica_get_option( 'header-main-sep' );
-        $header_separator_color = analytica_get_option( 'header-main-sep-color' );
-
-        $meta_style .= '.ast-header-break-point .site-header {';
-        $meta_style .= 'border-bottom-width:' . analytica_get_css_value( $header_separator, 'px' ) . ';';
-        $meta_style .= 'border-bottom-color:' . esc_attr( $header_separator_color ) . ';';
-        $meta_style .= '}';
-        $meta_style .= '@media (min-width: 769px) {';
-        $meta_style .= '.main-header-bar {';
-        $meta_style .= 'border-bottom-width:' . analytica_get_css_value( $header_separator, 'px' ) . ';';
-        $meta_style .= 'border-bottom-color:' . esc_attr( $header_separator_color ) . ';';
-        $meta_style .= '}';
-        $meta_style .= '}';
 
         if ( 'no-sidebar' !== analytica_page_layout() ) :
             $meta_style .= '@media (min-width: 769px) {';

@@ -25,6 +25,26 @@ add_filter( 'body_class', 'analytica_site_layout_body_class' );
  */
 function analytica_site_layout_body_class( $classes ) {
 
+    $classes[] = 'ast-separate-container';
+
+    // Apply separate container class to the body.
+    $content_layout = analytica_get_content_layout();
+    if ( 'content-boxed-container' == $content_layout ) {
+        $classes[] = 'ast-separate-container';
+    } elseif ( 'boxed-container' == $content_layout ) {
+        $classes[] = 'ast-separate-container ast-two-container';
+    } elseif ( 'page-builder' == $content_layout ) {
+        $classes[] = 'ast-page-builder-template';
+    } elseif ( 'plain-container' == $content_layout ) {
+        $classes[] = 'ast-plain-container';
+    }
+
+    // Sidebar location.
+    $classes[]   = esc_attr( 'ast-' . analytica_page_layout() );
+
+    // Current Analytica verion.
+    $classes[] = esc_attr( 'analytica-' . wp_get_theme()->version );
+
     $header_overlay_option     = analytica_get_option( 'header-overlay' );
     $header_sticky_option      = analytica_get_option( 'header-sticky' );
     $header_transparent_option = analytica_get_option( 'header-transparent' );

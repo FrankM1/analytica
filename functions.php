@@ -17,79 +17,27 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-// $functions = array();
-// $path = get_template_directory();
-// define_dir($path, $functions);
-// reference_dir($path, $functions);
-// echo
-//     "<table>" .
-//         "<tr>" .
-//             "<th>Name</th>" .
-//             "<th>Defined</th>" .
-//             "<th>Referenced</th>" .
-//         "</tr>";
-// foreach ($functions as $name => $value) {
-//     echo
-//         "<tr>" . 
-//             "<td>" . htmlentities($name) . "</td>" .
-//             "<td>" . (isset($value[0]) ? count($value[0]) : "-") . "</td>" .
-//             "<td>" . (isset($value[1]) ? count($value[1]) : "-") . "</td>" .
-//         "</tr>";
-// }
-// echo "</table>";
-// function define_dir($path, &$functions) {
-//     if ($dir = opendir($path)) {
-//         while (($file = readdir($dir)) !== false) {
-//             if (substr($file, 0, 1) == ".") continue;
-//             if (is_dir($path . "/" . $file)) {
-//                 define_dir($path . "/" . $file, $functions);
-//             } else {
-//                 if (substr($file, - 4, 4) != ".php") continue;
-//                 define_file($path . "/" . $file, $functions);
-//             }
-//         }
-//     }       
-// }
-// function define_file($path, &$functions) {
-//     $tokens = token_get_all(file_get_contents($path));
-//     for ($i = 0; $i < count($tokens); $i++) {
-//         $token = $tokens[$i];
-//         if (is_array($token)) {
-//             if ($token[0] != T_FUNCTION) continue;
-//             $i++;
-//             $token = $tokens[$i];
-//             if ($token[0] != T_WHITESPACE) die("T_WHITESPACE");
-//             $i++;
-//             $token = $tokens[$i];
-//             if ($token[0] != T_STRING) die("T_STRING");
-//             $functions[$token[1]][0][] = array($path, $token[2]);
-//         }
-//     }
-// }
-// function reference_dir($path, &$functions) {
-//     if ($dir = opendir($path)) {
-//         while (($file = readdir($dir)) !== false) {
-//             if (substr($file, 0, 1) == ".") continue;
-//             if (is_dir($path . "/" . $file)) {
-//                 reference_dir($path . "/" . $file, $functions);
-//             } else {
-//                 if (substr($file, - 4, 4) != ".php") continue;
-//                 reference_file($path . "/" . $file, $functions);
-//             }
-//         }
-//     }       
-// }
-// function reference_file($path, &$functions) {
-//     $tokens = token_get_all(file_get_contents($path));
-//     for ($i = 0; $i < count($tokens); $i++) {
-//         $token = $tokens[$i];
-//         if (is_array($token)) {
-//             if ($token[0] != T_STRING) continue;
-//             if ($tokens[$i + 1] != "(") continue;
-//             $functions[$token[1]][1][] = array($path, $token[2]);
-//         }
-//     }
-// }
+/**
+ * Helper function for writing to log file.
+ *
+ * @since 1.0.0
+ *
+ * @param log data to log
+ * @param type log or export
+ */
+function analytica_write_log( $log, $type = '1' ) {
+    if ( true === WP_DEBUG ) {
+        if ( is_array( $log ) || is_object( $log ) ) {
+            if ( $type === '1' ) {
+                error_log( print_r( $log, true ) );
+            } else {
+                error_log( var_export( $log, true ) );
+            }
+        } else {
+            error_log( $log );
+        }
+    }
+}
 
 /**
  * Main Theme Framework Class
@@ -223,8 +171,8 @@ class Core {
         $this->theme_url   = apply_filters( 'analytica_theme_dir_url',    strtolower( get_template_directory_uri() ) );
 
         // Setup theme Options name - it's not recommended that you change this, if you do you will looses theme option settings and you will need to resave them
-        $this->theme_option_name = $this->theme_slug . '_options';  // Theme_options name
-        $this->options             = get_option( $this->theme_option_name );  // get theme options so we don't run it all the time
+        $this->option_name = $this->theme_slug . '_options';  // Theme_options name
+        $this->options = get_option( $this->option_name );  // get theme options so we don't run it all the time
     }
 
     /**
@@ -329,10 +277,9 @@ class Core {
         require_once get_theme_file_path( '/includes/config/customizer/02-site-header.php' );
         require_once get_theme_file_path( '/includes/config/customizer/04-site-footer.php' );
         require_once get_theme_file_path( '/includes/config/customizer/05-typography.php' );
+        require_once get_theme_file_path( '/includes/config/customizer/06-blog.php' );
+        // require_once get_theme_file_path( '/includes/config/customizer/07-blog-single.php' );
         require_once get_theme_file_path( '/includes/config/customizer/90-utilities.php' );
-
-       // require_once get_theme_file_path( '/includes/config/customizer/blog.php' );
-        // require_once get_theme_file_path( '/includes/config/customizer/blog-single.php' );
 
         // require_once get_theme_file_path( '/includes/config/customizer/03-page-header.php' );
         // require_once get_theme_file_path( '/includes/config/customizer/08-breadcrumbs.php' );

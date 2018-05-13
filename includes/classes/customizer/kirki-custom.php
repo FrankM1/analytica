@@ -33,37 +33,6 @@ function analytica_kirki_configuration_styling( $config ) {
     return wp_parse_args( array( 'description'  => wp_get_theme()->get( 'Description' ) ), $config );
 }
 
-/**
- * Helper function to initialize default values for settings as customizer api doesn't do so.
- *
- * @param WP_Customize_Manager $wp_customize
- * @param $analytica_customizer_settings_ids
- */
-function analytica_customizer_initialize_defaults( \WP_Customize_Manager $wp_customize, $analytica_customizer_settings_ids ) {
-	if ( is_array( $analytica_customizer_settings_ids ) && ! empty( $analytica_customizer_settings_ids ) ) {
-
-		$mods = get_theme_mods();
-
-		foreach ( $analytica_customizer_settings_ids as $settings ) {
-
-			foreach ( $settings as $created_setting ) {
-				$setting = $wp_customize->get_setting( $created_setting['id'] );
-
-                if (
-                    ! is_object( $setting )
-                    || empty( $setting->id )
-                    || empty( $setting->default )
-                    || ! empty( $mods[ $setting->id ] )
-                    || $created_setting['type'] === 'checkbox' || $created_setting['type'] === 'switch' ) {
-                    continue;
-                }
-
-                set_theme_mod( $setting->id, $setting->default );
-			}
-		}
-	}
-}
-
 add_action( 'customize_save_after', 'analytica_customizer_single_post_defaults' );
 /**
  * Set default values for single post settings
@@ -71,7 +40,25 @@ add_action( 'customize_save_after', 'analytica_customizer_single_post_defaults' 
  * @param WP_Customize_Manager $wp_customize
  */
 function analytica_customizer_single_post_defaults( \WP_Customize_Manager $wp_customize ) {
-    analytica_customizer_initialize_defaults( $wp_customize, \Analytica\Options::defaults() );
+    $controls = \Analytica\Options::controls();
+
+    if ( is_array( $controls ) && ! empty( $controls ) ) {
+		$mods = get_theme_mods();
+
+        foreach ( $controls as $control ) {
+            $setting = $wp_customize->get_setting( $control['id'] );
+            if (
+                ! is_object( $setting )
+                || empty( $setting->id )
+                || empty( $setting->default )
+                || ! empty( $mods[ $setting->id ] )
+                || $control['type'] === 'checkbox' || $control['type'] === 'switch' ) {
+                    continue;
+            }
+
+            set_theme_mod( $setting->id, $setting->default );
+        }
+	}
 }
 
 add_action( 'after_setup_theme', 'analytica_theme_defaults' );
