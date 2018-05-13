@@ -27,3 +27,18 @@ $sidebar = apply_filters( 'analytica_get_sidebar', 'sidebar-1' );
 
 	</div><!-- .sidebar-main -->
 </div><!-- #secondary -->
+<?php
+
+//* Output primary sidebar structure
+analytica_markup( array(
+    'element'   => '<aside %s><div class="widget-area-inner">',
+    'context' => 'sidebar-primary',
+) );
+
+do_action( 'analytica_before_sidebar_widget_area' );
+do_action( 'analytica_sidebar' );
+do_action( 'analytica_after_sidebar_widget_area' );
+
+analytica_markup( array(
+    'element' => '</div></aside>', //* end .sidebar-primary
+) );

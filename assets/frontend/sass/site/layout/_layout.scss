@@ -66,14 +66,17 @@ body {
 		padding: 0 0 2.2em 0;
 		margin: 0 0 5.34em 0;
 		.entry-header {
-            padding-top: 2em;
-            margin-bottom: 1.5em;
+			padding-top: 2em;
+			margin-bottom: 1.5em;
 		}
 		.entry-content,
 		.entry-header {
 			padding-left: 2em;
 			padding-right: 2em;
-			@include clearfix();
+			&:after,
+			&:before {
+				@include clearfix();
+			}
 		}
 	}
 	.blog-layout-1 {

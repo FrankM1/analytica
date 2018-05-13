@@ -7,7 +7,7 @@
  * @package     Analytica
  * @author      Analytica
  * @copyright   Copyright (c) 2018, Analytica
- * @link        http://wpanalytica.com/
+ * @link        https://qazana.net/
  * @since       Analytica 1.0.0
  */
 
@@ -84,117 +84,7 @@ function analytica_number_pagination() {
         echo apply_filters( 'analytica_pagination_markup', $output ); // WPCS: XSS OK.
     }
 }
-
-/**
- * Return or echo site logo markup.
- *
- * @since 1.0.0
- * @param  boolean $echo Echo markup.
- * @return mixed echo or return markup.
- */
-function analytica_logo( $echo = true ) {
-
-    $display_site_tagline = analytica_get_option( 'display-site-tagline' );
-    $display_site_title   = analytica_get_option( 'display-site-title' );
-    $html                 = '';
-
-    $has_custom_logo = apply_filters( 'analytica_has_custom_logo', has_custom_logo() );
-
-    // Site logo.
-    if ( $has_custom_logo ) {
-
-        if ( apply_filters( 'analytica_replace_logo_width', true ) ) {
-            add_filter( 'wp_get_attachment_image_src', 'analytica_replace_header_logo', 10, 4 );
-        }
-
-        $html .= '<span class="site-logo-img">';
-        $html .= get_custom_logo();
-        $html .= '</span>';
-
-        if ( apply_filters( 'analytica_replace_logo_width', true ) ) {
-            remove_filter( 'wp_get_attachment_image_src', 'analytica_replace_header_logo', 10 );
-        }
-    }
-
-    if ( ! apply_filters( 'analytica_disable_site_identity', false ) ) {
-
-        // Site Title.
-        $tag = 'span';
-        if ( is_home() || is_front_page() ) {
-            $tag = 'h1';
-        }
-
-        /**
-         * Filters the tags for site title.
-         *
-         * @since 1.3.1
-         *
-         * @param string $tags string containing the HTML tags for Site Title.
-         */
-        $tag               = apply_filters( 'analytica_site_title_tag', $tag );
-        $site_title_markup = '<' . $tag . ' itemprop="name" class="site-title"> <a href="' . esc_url( home_url( '/' ) ) . '" itemprop="url" rel="home">' . get_bloginfo( 'name' ) . '</a> </' . $tag . '>';
-
-        // Site Description.
-        $site_tagline_markup = '<p class="site-description" itemprop="description">' . get_bloginfo( 'description' ) . '</p>';
-
-        if ( $display_site_title || $display_site_tagline ) {
-            /* translators: 1: Site Title Markup, 2: Site Tagline Markup */
-            $html .= sprintf(
-                '<div class="ast-site-title-wrap">
-                        %1$s
-                        %2$s
-                    </div>',
-                ( $display_site_title ) ? $site_title_markup : '',
-                ( $display_site_tagline ) ? $site_tagline_markup : ''
-            );
-        }
-    }
-    $html = apply_filters( 'analytica_logo', $html, $display_site_title, $display_site_tagline );
-
-    /**
-     * Echo or Return the Logo Markup
-     */
-    if ( $echo ) {
-        echo $html;
-    } else {
-        return $html;
-    }
-}
-
-/**
- * Return the selected sections
- *
- * @since 1.0.0
- * @param  string $option Custom content type. E.g. search, text-html etc.
- * @return array         Array of Custom contents.
- */
-function analytica_get_dynamic_header_content( $option ) {
-
-    $output  = array();
-    $section = analytica_get_option( $option );
-
-    switch ( $section ) {
-
-        case 'search':
-                $output[] = analytica_get_search( $option );
-            break;
-
-        case 'text-html':
-                $output[] = analytica_get_custom_html( $option . '-html' );
-            break;
-
-        case 'widget':
-                $output[] = analytica_get_custom_widget( $option );
-            break;
-
-        default:
-                $output[] = apply_filters( 'analytica_get_dynamic_header_content', '', $option, $section );
-            break;
-    }
-
-    return $output;
-}
-
+ 
 /**
  * Adding Wrapper for Search Form.
  *
@@ -231,269 +121,6 @@ function analytica_get_custom_html( $option_name = '' ) {
     }
 
     return $custom_html;
-}
-
-/**
- * Get custom widget added by user.
- *
- * @since  1.0.1.1
- * @param  string $option_name Option name.
- * @return Widget added by user in options panel.
- */
-function analytica_get_custom_widget( $option_name = '' ) {
-
-    ob_start();
-
-    if ( 'header-main-rt-section' == $option_name ) {
-        $widget_id = 'header-widget';
-    }
-    if ( 'footer-sml-section-1' == $option_name ) {
-        $widget_id = 'footer-widget-1';
-    } elseif ( 'footer-sml-section-2' == $option_name ) {
-        $widget_id = 'footer-widget-2';
-    }
-
-    echo '<div class="ast-' . esc_attr( $widget_id ) . '-area">';
-            analytica_get_sidebar( $widget_id );
-    echo '</div>';
-
-    return ob_get_clean();
-}
-
-/**
- * Function to get Small Left/Right Footer
- *
- * @since 1.0.0
- * @param string $section   Sections of Small Footer.
- * @return mixed            Markup of sections.
- */
-function analytica_get_small_footer( $section = '' ) {
-
-    $small_footer_type = analytica_get_option( $section );
-    $output            = null;
-
-    switch ( $small_footer_type ) {
-        case 'menu':
-                $output = analytica_get_small_footer_menu();
-            break;
-
-        case 'custom':
-                $output = analytica_get_small_footer_custom_text( $section . '-credit' );
-            break;
-
-        case 'widget':
-                $output = analytica_get_custom_widget( $section );
-            break;
-    }
-
-    return $output;
-}
-
-/**
- * Function to get Small Footer Custom Text
- *
- * @since 1.0.14
- * @param string $option Custom text option name.
- * @return mixed         Markup of custom text option.
- */
-function analytica_get_small_footer_custom_text( $option = '' ) {
-
-    $output = $option;
-
-    if ( '' != $option ) {
-        $output = analytica_get_option( $option );
-        $output = str_replace( '[current_year]', date_i18n( 'Y' ), $output );
-        $output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
-
-        $theme_author = apply_filters(
-            'analytica_theme_author', array(
-                'theme_name'       => __( 'Analytica', 'analytica' ),
-                'theme_author_url' => 'http://wpanalytica.com/',
-            )
-        );
-
-        $output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . $theme_author['theme_name'] . '</a>', $output );
-    }
-
-    return do_shortcode( $output );
-}
-
-/**
- * Function to get Footer Menu
- *
- * @since 1.0.0
- * @return html
- */
-function analytica_get_small_footer_menu() {
-
-    ob_start();
-
-    if ( has_nav_menu( 'footer_menu' ) ) {
-        wp_nav_menu(
-            array(
-                'container'       => 'div',
-                'container_class' => 'footer-primary-navigation',
-                'theme_location'  => 'footer_menu',
-                'menu_class'      => 'nav-menu',
-                'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                'depth'           => 1,
-            )
-        );
-    } else {
-        if ( is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) {
-            ?>
-                <a href="<?php echo esc_url( admin_url( '/nav-menus.php?action=locations' ) ); ?>"><?php esc_html_e( 'Assign Footer Menu', 'analytica' ); ?></a>
-            <?php
-        }
-    }
-
-    return ob_get_clean();
-}
-
-add_action( 'analytica_header', 'analytica_header_markup' );
-/**
- * Site Header - <header>
- *
- * @since 1.0.0
- */
-function analytica_header_markup() {
-    ?>
-
-    <header itemtype="https://schema.org/WPHeader" itemscope="itemscope" id="masthead" <?php analytica_header_classes(); ?> role="banner">
-
-        <?php do_action( 'analytica_masthead_top' ); ?>
-
-        <?php do_action( 'analytica_masthead' ); ?>
-
-        <?php do_action( 'analytica_masthead_bottom' ); ?>
-
-    </header><!-- #masthead -->
-    <?php
-}
-
-add_action( 'analytica_masthead_content', 'analytica_site_branding_markup', 8 );
-/**
- * Site Title / Logo
- *
- * @since 1.0.0
- */
-function analytica_site_branding_markup() {
-    ?>
-
-    <div class="site-branding">
-        <div class="ast-site-identity" itemscope="itemscope" itemtype="https://schema.org/Organization">
-            <?php analytica_logo(); ?>
-        </div>
-    </div>
-    <!-- .site-branding -->
-    <?php
-}
-
-add_action( 'analytica_masthead_content', 'analytica_toggle_buttons_markup', 9 );
-/**
- * Toggle Button Markup
- *
- * @since 1.0.0
- */
-function analytica_toggle_buttons_markup() {
-    $disable_primary_navigation = analytica_get_option( 'disable-primary-nav' );
-    $custom_header_section      = analytica_get_option( 'header-main-rt-section' );
-    $menu_bottons               = true;
-    if ( $disable_primary_navigation && 'none' == $custom_header_section ) {
-        $menu_bottons = false;
-    }
-    if ( apply_filters( 'analytica_enable_mobile_menu_buttons', $menu_bottons ) ) {
-    ?>
-    <div class="ast-mobile-menu-buttons">
-
-        <?php do_action( 'analytica_masthead_toggle_buttons_before' ); ?>
-
-        <?php do_action( 'analytica_masthead_toggle_buttons' ); ?>
-
-        <?php do_action( 'analytica_masthead_toggle_buttons_after' ); ?>
-
-    </div>
-    <?php
-    }
-}
-
-add_action( 'analytica_masthead_content', 'analytica_primary_navigation_markup', 10 );
-/**
- * Site Title / Logo
- *
- * @since 1.0.0
- */
-function analytica_primary_navigation_markup() {
-
-    $disable_primary_navigation = analytica_get_option( 'disable-primary-nav' );
-    $custom_header_section      = analytica_get_option( 'header-main-rt-section' );
-
-    if ( $disable_primary_navigation ) {
-
-        $display_outside = analytica_get_option( 'header-display-outside-menu' );
-
-        if ( 'none' != $custom_header_section && ! $display_outside ) {
-            echo '<div class="main-header-bar-navigation ast-header-custom-item ast-flex ast-justify-content-flex-end">';
-            echo analytica_masthead_get_menu_items();
-            echo '</div>';
-        }
-    } else {
-
-        $submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
-
-        // Fallback Menu if primary menu not set.
-        $fallback_menu_args = array(
-            'theme_location' => 'primary',
-            'menu_id'        => 'primary-menu',
-            'menu_class'     => 'main-navigation',
-            'container'      => 'div',
-
-            'before'         => '<ul class="main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class . '">',
-            'after'          => '</ul>',
-        );
-
-        $items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'analytica' ) . '">';
-        $items_wrap .= '<div class="main-navigation">';
-        $items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
-        $items_wrap .= '</div>';
-        $items_wrap .= '</nav>';
-
-        // Primary Menu.
-        $primary_menu_args = array(
-            'theme_location'  => 'primary',
-            'menu_id'         => 'primary-menu',
-            'menu_class'      => 'main-header-menu ast-flex ast-justify-content-flex-end' . $submenu_class,
-            'container'       => 'div',
-            'container_class' => 'main-header-bar-navigation',
-            'items_wrap'      => $items_wrap,
-        );
-
-        if ( has_nav_menu( 'primary' ) ) {
-            // To add default alignment for navigation which can be added through any third party plugin.
-            // Do not add any CSS from theme except header alignment.
-            echo '<div class="ast-main-header-bar-alignment">';
-                wp_nav_menu( $primary_menu_args );
-            echo  '</div>';
-        } else {
-
-            echo '<div class="main-header-bar-navigation">';
-                echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'analytica' ) . '">';
-                    wp_page_menu( $fallback_menu_args );
-                echo  '</nav>';
-            echo  '</div>';
-        }
-    }
-
-}
-
-/**
- * Function to get Header Breakpoint
- *
- * @since 1.0.0
- * @return number
- */
-function analytica_header_break_point() {
-    return absint( apply_filters( 'analytica_header_break_point', 921 ) );
 }
 
 /**
@@ -572,20 +199,6 @@ function analytica_header_classes() {
     echo 'class="' . esc_attr( join( ' ', $classes ) ) . '"';
 }
 
-/**
- * Function to get Footer Classes
- *
- * @since 1.0.0
- */
-function analytica_footer_classes() {
-
-    $classes = array_unique( apply_filters( 'analytica_footer_class', array( 'site-footer' ) ) );
-
-    $classes = array_map( 'sanitize_html_class', $classes );
-
-    echo 'class="' . esc_attr( join( ' ', $classes ) ) . '"';
-}
-
 add_filter( 'comment_form_default_fields', 'analytica_comment_form_default_fields_markup' );
 /**
  * Function filter comment form's default fields
@@ -631,9 +244,7 @@ function analytica_comment_form_default_markup( $args ) {
     $args['comment_field']     = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( analytica_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( analytica_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
 
     return apply_filters( 'analytica_comment_form_default_markup', $args );
-
 }
-
 
 /**
  * Function filter comment form arguments
@@ -667,7 +278,7 @@ function analytica_get_content_layout() {
 
         // If post meta value is empty,
         // Then get the POST_TYPE content layout.
-        $content_layout = analytica_get_option_meta( 'site-content-layout', '', true );
+        $content_layout = analytica_get_custom_field( 'site-content-layout' );
 
         if ( empty( $content_layout ) ) {
 
@@ -729,60 +340,6 @@ function analytica_the_excerpt() {
 }
 
 /**
- * Get Sidebar
- *
- * @since 1.0.1.1
- * @param  string $sidebar_id   Sidebar Id.
- * @return void
- */
-function analytica_get_sidebar( $sidebar_id ) {
-    if ( is_active_sidebar( $sidebar_id ) ) {
-        dynamic_sidebar( $sidebar_id );
-    } elseif ( current_user_can( 'edit_theme_options' ) ) {
-    ?>
-        <div class="widget ast-no-widget-row">
-            <p class='no-widget-text'>
-                <a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
-                    <?php esc_html_e( 'Add Widget', 'analytica' ); ?>
-                </a>
-            </p>
-        </div>
-        <?php
-    }
-}
-
-/**
- * Get Footer Default Sidebar
- *
- * @param  string $sidebar_id   Sidebar Id..
- * @return void
- */
-function analytica_get_footer_widget( $sidebar_id ) {
-
-    if ( is_active_sidebar( $sidebar_id ) ) {
-        dynamic_sidebar( $sidebar_id );
-    } elseif ( current_user_can( 'edit_theme_options' ) ) {
-
-        global $wp_registered_sidebars;
-        $sidebar_name = '';
-        if ( isset( $wp_registered_sidebars[ $sidebar_id ] ) ) {
-            $sidebar_name = $wp_registered_sidebars[ $sidebar_id ]['name'];
-        }
-        ?>
-        <div class="widget ast-no-widget-row">
-            <h2 class='widget-title'><?php echo esc_html( $sidebar_name ); ?></h2>
-
-            <p class='no-widget-text'>
-                <a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
-                    <?php esc_html_e( 'Click here to assign a widget for this area.', 'analytica' ); ?>
-                </a>
-            </p>
-        </div>
-        <?php
-    }
-}
-
-/**
  * Analytica entry header class
  *
  * @since 1.0.15
@@ -835,11 +392,7 @@ function analytica_get_post_thumbnail( $before = '', $after = '', $echo = true )
 
     $featured_image = true;
 
-    if ( $check_is_singular ) {
-        $is_featured_image = analytica_get_option_meta( 'ast-featured-img' );
-    } else {
-        $is_featured_image = analytica_get_option( 'ast-featured-img' );
-    }
+    $is_featured_image = analytica_get_option( 'ast-featured-img' );
 
     if ( 'disabled' === $is_featured_image ) {
         $featured_image = false;
@@ -847,8 +400,8 @@ function analytica_get_post_thumbnail( $before = '', $after = '', $echo = true )
 
     $featured_image = apply_filters( 'analytica_featured_image_enabled', $featured_image );
 
-    $blog_post_thumb   = analytica_get_option( 'blog-post-structure' );
-    $single_post_thumb = analytica_get_option( 'blog-single-post-structure' );
+    $blog_post_thumb   = analytica_get_option( 'blog-post-structure', [] );
+    $single_post_thumb = analytica_get_option( 'blog-single-post-structure', [] );
 
     if ( ( ( ! $check_is_singular && in_array( 'image', $blog_post_thumb ) ) || ( is_single() && in_array( 'single-image', $single_post_thumb ) ) || is_page() ) && has_post_thumbnail() ) {
 
@@ -888,103 +441,6 @@ function analytica_get_post_thumbnail( $before = '', $after = '', $echo = true )
         return $before . $output . $after;
     }
 }
-
-/**
- * Function to check if it is Internet Explorer.
- *
- * @return true | false boolean
- */
-function analytica_check_is_ie() {
-
-    $is_ie = false;
-
-    $ua = htmlentities( $_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8' );
-    if ( strpos( $ua, 'Trident/7.0' ) !== false ) {
-        $is_ie = true;
-    }
-
-    return apply_filters( 'analytica_check_is_ie', $is_ie );
-}
-
-/**
- * Replace header logo.
- *
- * @param array  $image Size.
- * @param int    $attachment_id Image id.
- * @param sting  $size Size name.
- * @param string $icon Icon.
- *
- * @return array Size of image
- */
-function analytica_replace_header_logo( $image, $attachment_id, $size, $icon ) {
-
-    $custom_logo_id = get_theme_mod( 'custom_logo' );
-
-    if ( ! is_customize_preview() && $custom_logo_id == $attachment_id && 'full' == $size ) {
-
-        $data = wp_get_attachment_image_src( $attachment_id, 'ast-logo-size' );
-
-        if ( false != $data ) {
-            $image = $data;
-        }
-    }
-
-    return apply_filters( 'analytica_replace_header_logo', $image );
-}
-
-/**
- * Replace header logo.
- *
- * @param array  $attr Image.
- * @param object $attachment Image obj.
- * @param sting  $size Size name.
- *
- * @return array Image attr.
- */
-function analytica_replace_header_attr( $attr, $attachment, $size ) {
-
-    $custom_logo_id = get_theme_mod( 'custom_logo' );
-
-    if ( $custom_logo_id == $attachment->ID ) {
-
-        $attach_data = array();
-        if ( ! is_customize_preview() ) {
-            $attach_data = wp_get_attachment_image_src( $attachment->ID, 'ast-logo-size' );
-
-            if ( isset( $attach_data[0] ) ) {
-                $attr['src'] = $attach_data[0];
-            }
-        }
-
-        $file_type      = wp_check_filetype( $attr['src'] );
-        $file_extension = $file_type['ext'];
-
-        if ( 'svg' == $file_extension ) {
-            $attr['class'] = 'analytica-logo-svg';
-        }
-
-        $retina_logo = analytica_get_option( 'ast-header-retina-logo' );
-
-        $attr['srcset'] = '';
-
-        if ( apply_filters( 'analytica_main_header_retina', true ) && '' !== $retina_logo ) {
-            $cutom_logo     = wp_get_attachment_image_src( $custom_logo_id, 'full' );
-            $cutom_logo_url = $cutom_logo[0];
-
-            if ( analytica_check_is_ie() ) {
-                // Replace header logo url to retina logo url.
-                $attr['src'] = $retina_logo;
-            }
-
-            $attr['srcset'] = $cutom_logo_url . ' 1x, ' . $retina_logo . ' 2x';
-
-        }
-    }
-
-    return apply_filters( 'analytica_replace_header_attr', $attr );
-}
-
-add_filter( 'wp_get_attachment_image_attributes', 'analytica_replace_header_attr', 10, 3 );
 
 /**
  * Analytica Color Palletes.

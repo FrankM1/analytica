@@ -9,7 +9,7 @@ namespace Analytica\Admin;
  * @package     Analytica
  * @author      Analytica
  * @copyright   Copyright (c) 2018, Analytica
- * @link        http://wpanalytica.com/
+ * @link        https://qazana.net/
  * @since       Analytica 1.0
  */
 

@@ -3,7 +3,7 @@
  * This file is a part of the Radium Framework core.
  * Please be cautious editing this file,
  *
- * @category Radium\Framework
+ * @category Analytica
  * @package  Energia
  * @author   Franklin Gitonga
  * @link     http://radiumthemes.com/

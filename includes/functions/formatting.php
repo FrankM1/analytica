@@ -3,11 +3,48 @@
  * This file is a part of the Radium Framework core.
  * Please be cautious editing this file,
  *
- * @category Radium\Framework
+ * @category Analytica
  * @package  Energia
  * @author   Franklin Gitonga
- * @link     https://radiumthemes.com/
+ * @link     https://qazana.net/
  */
+
+add_filter( 'wp_kses_allowed_html', 'analytica_filter_wp_kses_allowed_theme_attributes' );
+/**
+ * Ensures the HTML data-* attributes for selective refresh are allowed by kses.
+ *
+ * @since 1.0.0
+ *
+ * @param array $allowed_html Allowed HTML.
+ * @return array (Maybe) modified allowed HTML.
+ */
+function analytica_filter_wp_kses_allowed_theme_attributes( $allowed_html ) {
+
+    $tags_seen = [
+        'body',
+        'div'
+    ];
+
+    foreach ( array_keys( $tags_seen ) as $tag_name ) {
+        if ( ! isset( $allowed_html[ $tag_name ] ) ) {
+            $allowed_html[ $tag_name ] = array();
+        }
+        $allowed_html[ $tag_name ] = array_merge(
+            $allowed_html[ $tag_name ],
+            array_fill_keys( array(
+                'itemscope',
+                'itemtype',
+                'role',
+                'itemprop',
+                'aria-label',
+                'action',
+                'datetime',
+                'rel'
+            ), true )
+        );
+    }
+    return $allowed_html;
+}
 
 /**
  * Sanitize multiple HTML classes in one pass.
@@ -45,17 +82,6 @@ function analytica_sanitize_html_classes( $classes, $return_format = 'input' ) {
  * @param $value
  * @return string
  */
-function analytica_sanitize_allowed_tag( $value ) {
-    return wp_kses($value, wp_kses_allowed_html());
+function analytica_sanitize_html( $value ) {
+    return wp_kses( $value, wp_kses_allowed_html('post') );
 }
- 
- /**
-  * Sanitize output with allowed html
-  *
-  * @param $value
-  * @return string
-  */
-function analytica_get_sanitized_output( $value ) {
-    return $value;
-}
- 

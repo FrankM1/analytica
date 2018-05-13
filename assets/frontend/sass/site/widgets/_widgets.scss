@@ -1,0 +1,224 @@
+// # Sidebars
+@import 'tags';
+
+.widget-area-inner {
+    transition: all 0.1s ease-in-out;
+   
+    &.affix {
+        @media (min-width: $screen-md-min) {
+            position: fixed !important;
+            top: 0;
+        }
+    }
+
+}
+
+.sidebar,
+.widget-area {
+    select {
+        max-width: 100%;
+        width: 100%;
+        text-overflow: ellipsis;
+        background-color: transparent;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        padding-top: rem(5px);
+        padding-bottom: rem(2px);
+
+        &:first-child {
+            padding-top: 0;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .count {
+            opacity: 0.5;
+        }
+
+        ul {
+            margin: 0;
+
+            a:hover {
+                color: $dark;
+
+                &::before {
+                    margin-right: 13px;
+                    width: 13px;
+                    background-color: $brand-primary;
+                }
+            }
+
+            a::before {
+                display: inline-block;
+                margin-right: 12px;
+                width: 8px;
+                height: 2px;
+                background: #e1e1e1;
+                content: '';
+                vertical-align: middle;
+                transition: all 0.15s ease-out;
+            }
+        }
+    }
+
+    ul > li:last-child {
+        margin-bottom: 0;
+    }
+
+    .widget {
+        padding: 23px;
+
+        &.radium-qazana-widget {
+            padding: 0;
+
+            .section-title {
+                margin-top: ceil(($grid-gutter-width / 2));
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+// # Widgets
+
+.widget-wrap {
+    word-wrap: break-word;
+    @include clearfix;
+}
+
+.widget ol > li {
+    padding-left: ceil(($grid-gutter-width / 2));
+    list-style-position: inside;
+    list-style-type: decimal;
+    text-indent: ($grid-gutter-width / -2);
+}
+
+.widget li li {
+    margin: 0 0 0 10px;
+    padding: 0;
+    border: none;
+}
+//widget calender
+
+.widget_calendar table {
+    width: 100%;
+}
+
+.widget_calendar td,
+.widget_calendar th {
+    text-align: center;
+}
+// # Calender Widget
+
+#wp-calendar {
+    font-size: 1.2rem;
+}
+
+#wp-calendar caption {
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+#wp-calendar td,
+#wp-calendar th {
+    padding: 5px;
+}
+
+// # Search
+
+.widget_product_search,
+.widget_search,
+.widget_video_search {
+    margin-top: $grid-gutter-width;
+
+    form {
+        margin-bottom: 0;
+    }
+
+    .searchform,
+    .woocommerce-product-search {
+        input[type="submit"] {
+            display: none!important;
+        }
+    }
+
+    .button,
+    .screen-reader-text,
+    .section-title {
+        display: none;
+    }
+
+    input[type="search"],
+    input[type="text"] {
+        padding-left: 10px;
+        width: 100%;
+
+        &:focus {
+            padding-left: 10px;
+        }
+
+        &:before {
+            content: '\e8b6';
+            text-transform: none;
+            font-weight: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-family: 'energia-icons' !important;
+            line-height: 1;
+            speak: none;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+    }
+}
+
+// Widget lists
+
+// # Tag Clouds
+.tagcloud {
+    a {
+        float: left;
+        font: normal 11px $font-family-base !important;
+        @extend %entry-tags;
+        
+        &:hover {
+            border-color: $brand-primary;
+            color: $brand-primary;
+            cursor: pointer;
+        }
+    }
+
+    span {
+        display: inline-block;
+        padding: 0 8px;
+        background-color: rgba(255, 255, 255, 0.32);
+        color: $text-color;
+        text-align: center;
+        line-height: 21px;
+    }
+
+    s {
+        display: inline-block;
+        padding: 0 6px;
+        background: $text-color;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        line-height: 21px;
+    }
+
+    &.tag-1 a {
+        padding: 0;
+    }
+}

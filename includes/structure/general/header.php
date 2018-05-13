@@ -3,10 +3,10 @@
  * This file is a part of the Radium Framework core.
  * Please be cautious editing this file,
  *
- * @category Radium\Framework
+ * @category Analytica
  * @package  Energia
  * @author   Franklin Gitonga
- * @link     https://radiumthemes.com/
+ * @link     https://qazana.net/
  */
 
 add_action( 'analytica_doctype', 'analytica_do_doctype' );
@@ -246,7 +246,7 @@ function analytica_site_header_title() {
 
     $output .= '</div>';
 
-    echo analytica_get_sanitized_output( $output ); // WPCS: XSS ok.
+    echo analytica_sanitize_html( $output ); // WPCS: XSS ok.
 }
 
 add_action( 'analytica_site_description', 'analytica_site_header_description' );
@@ -273,7 +273,7 @@ function analytica_site_header_description() {
     // Output (filtered)
     $output = $inside ? $description : '';
 
-    echo analytica_get_sanitized_output( $output ); // WPCS: XSS ok.
+    echo analytica_sanitize_html( $output ); // WPCS: XSS ok.
 }
 
 add_action( 'template_redirect', 'analytica_page_header_support' );

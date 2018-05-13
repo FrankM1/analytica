@@ -8,7 +8,7 @@ namespace Analytica;
  * @subpackage  Class
  * @author      Analytica
  * @copyright   Copyright (c) 2018, Analytica
- * @link        http://wpanalytica.com/
+ * @link        https://qazana.net/
  * @since       Analytica 1.0.0
  */
 
@@ -22,58 +22,97 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Dynamic_CSS {
 
     public function __construct() {
-        add_filter( 'analytica_dynamic_css_cached', array( $this, 'return_output' ));
-        add_filter( 'analytica_dynamic_css_cached', array( $this, 'return_meta_output' ));
-        add_filter( 'analytica_dynamic_css_cached', array( $this, 'header_breakpoint_style' ));
+        // add_filter( 'analytica_dynamic_css_cached', array( $this, 'return_output' ));
+        // add_filter( 'analytica_dynamic_css_cached', array( $this, 'return_meta_output' ));
+        add_filter( 'analytica_dynamic_css_cached', array( $this, 'add_container_css' ));
+
     }
 
     /**
-     * Function to Add Header Breakpoint Style
+     * Css customization helper for more complex styling that can't be generated using kirki.
      *
      * @since 1.0.0
      */
-    function header_breakpoint_style( $original_css ) {
+    function add_container_css( $css ) {
+        $accent_color                       = analytica_get_option( 'accent_color' );
+        $footer_border                      = analytica_get_option( 'site-footer-border' );
+        $footer_colophon_border             = analytica_get_option( 'footer-colophon-border' );
+        $offset                             = intval( analytica_get_option( 'site_layout_offset' ) );
+        $site_container_width               = intval( analytica_get_option( 'site_container_width' ) );
+        $site_sidebar_width                 = intval( analytica_get_option( 'site_sidebar_width' ) );
+        $single_post_site_container_width   = intval( analytica_get_option( 'single_post_site_container_width' ) );
+        $single_post_site_sidebar_width     = intval( analytica_get_option( 'single_post_site_sidebar_width' ) );
 
-        // Header Break Point.
-        $header_break_point = analytica_header_break_point();
-
-        ob_start();
-        ?>
-        .main-header-bar-wrap {
-            content: '<?php echo esc_html( $header_break_point ); ?>';
-        }
-
-        @media all and ( min-width: <?php echo esc_html( $header_break_point ); ?>px ) {
-            .main-header-bar-wrap {
-                content: '';
+        $content_archive_image_size           = analytica_get_option( 'content_archive_image_size' );
+        $content_archive_image_size_full_width = analytica_get_option( 'content_archive_image_size_full_width' );
+        $single_post_image_size             = analytica_get_option( 'single_post_image_size' );
+        $single_post_image_size_full_width  = analytica_get_option( 'single_post_image_size_full_width' );
+    
+        $css .= '@media (min-width: 1200px) {';
+            if ( $site_container_width > 0 ) {
+                $css .= '.site-boxed .site-container, .site-boxed .site-footer, .site-boxed .ast-container, .site-boxed .site-inner, .site-boxed .site-colophon.has-container { max-width: ' . esc_attr( $site_container_width ) . 'px; }';
+                $css .= '.site-boxed .ast-container, .ast-container { width: ' . esc_attr( $site_container_width ) . 'px; }';
             }
-        }
-        <?php
 
-        $analytica_header_width = analytica_get_option( 'header-main-layout-width' );
+            if ( $single_post_site_container_width > 0 ) {
+                $css .= '.site-boxed.single-post.full-width-content .site-inner .ast-container, .single-post.full-width-content .site-inner .ast-container, .single-attachment .site-inner .ast-container { width: ' . esc_attr( $single_post_site_container_width ) . 'px; }';
+            }
 
-        /* Width for Header */
-        if ( 'content' != $analytica_header_width ) {
-            $genral_global_responsive = array(
-                '#masthead .ast-container' => array(
-                    'max-width'     => '100%',
-                    'padding-left'  => '35px',
-                    'padding-right' => '35px',
-                ),
-            );
+            if ( $offset && $offset > 0) {
+                $css .= '.site-boxed .site-container { margin-top: ' . esc_attr( $offset ) . 'px; margin-bottom: ' . esc_attr( $offset ) . 'px; }';
+            }
 
-            /* Parse CSS from array()*/
-            echo $this->parse_css( $genral_global_responsive, $header_break_point );
+        $css .= '}';
+
+        // Section
+        if ( $site_container_width > 0 ) {
+            $css .= '.qazana-section.qazana-section-boxed  > .qazana-container, .page-content .qazana-section.qazana-section-boxed > .qazana-container, .content-sidebar-wrap, .content-sidebar-wrap .row, .full-width-content .single-post-classic .content-sidebar-wrap, .post-title-featured, .site-fullwidth .single-post-overlay .content-sidebar-wrap>.content>.entry-post-wrapper { max-width: ' . esc_attr( $site_container_width ) . 'px; }';
         }
 
-        $css = ob_get_clean();
+        $css .= '@media (min-width: 992px) {';
+            
+            $css .= '.content-sidebar-sidebar .content-sidebar-wrap .content, .content-sidebar .content-sidebar-wrap .content, .sidebar-content-sidebar .content-sidebar-wrap .content, .sidebar-content .content-sidebar-wrap .content, .sidebar-sidebar-content .content-sidebar-wrap .content,
+            .content-sidebar-sidebar .content-sidebar-wrap .next_post_infinite, .content-sidebar .content-sidebar-wrap .next_post_infinite, .sidebar-content-sidebar .content-sidebar-wrap .next_post_infinite, .sidebar-content .content-sidebar-wrap .next_post_infinite, .sidebar-sidebar-content .content-sidebar-wrap .next_post_infinite { width: calc(100% - ' . $site_sidebar_width . 'px) }';
+            
+            $css .= '.sidebar-primary {
+                width: ' . $site_sidebar_width . 'px;
+            }';
+            
+            $css .= '.single-post .sidebar-primary {
+                width: ' . $single_post_site_sidebar_width . 'px;
+            }';
 
-        // trim white space for faster page loading.
-        $css = $this->trim_css( $css );
+        $css .= '}';
+  
 
-        return $original_css . $css;
+        $css .= '@media (min-width: 768px) {';
+
+        if ( ! empty( $footer_colophon_border ) ) {
+            $css .= '.site-colophon {';
+                $css .= 'border-top-width: ' . esc_attr( $footer_colophon_border['top'] ) . ';';
+                $css .= 'border-left-width: ' . esc_attr( $footer_colophon_border['left'] ) . ';';
+                $css .= 'border-bottom-width: ' . esc_attr( $footer_colophon_border['bottom'] ) . ';';
+                $css .= 'border-right-width: ' . esc_attr( $footer_colophon_border['right'] ) . ';';
+            $css .= '}';
+        }
+
+        if ( ! empty( $footer_border ) ) {
+            $css .= '.site-footer {';
+                $css .= 'border-top-width: ' . esc_attr( $footer_border['top'] ) . ';';
+                $css .= 'border-left-width: ' . esc_attr( $footer_border['left'] ) . ';';
+                $css .= 'border-bottom-width: ' . esc_attr( $footer_border['bottom'] ) . ';';
+                $css .= 'border-right-width: ' . esc_attr( $footer_border['right'] ) . ';';
+            $css .= '}';
+        }
+
+        $css .= '.site-widgets-style-4 .section-title .widget-title:after, .site-widgets-style-8 .section-title .widget-title span:after { background-color: ' . $accent_color . '; }';
+        $css .= '.site-widgets-style-5 .section-title .widget-title, .site-widgets-style-6 .section-title .widget-title { border-left-color: ' . $accent_color . '; }';
+        $css .= '#quickpop #close-quickpop:hover { color: ' . $accent_color . '}';
+        $css .= '.archive-pagination .active a { border-color: ' . $accent_color . '; color: ' . $accent_color . '; }';
+
+        return $css;
     }
-
+ 
 	/**
 	 * Parse CSS
 	 *
@@ -176,9 +215,7 @@ class Dynamic_CSS {
         $site_content_width = analytica_get_option( 'site-content-width', 1200 );
         $header_logo_width  = analytica_get_option( 'ast-header-responsive-logo-width' );
 
-        // Site Background Color.
-        $box_bg_obj = analytica_get_option( 'site-layout-outside-bg-obj' );
-
+     
         // Color Options.
         $text_color       = analytica_get_option( 'text-color' );
         $theme_color      = analytica_get_option( 'theme-color' );
@@ -198,32 +235,13 @@ class Dynamic_CSS {
         $single_post_title_font_size     = analytica_get_option( 'font-size-entry-title' );
         $archive_summary_title_font_size = analytica_get_option( 'font-size-archive-summary-title' );
         $archive_post_title_font_size    = analytica_get_option( 'font-size-page-title' );
-        $heading_h1_font_size            = analytica_get_option( 'font-size-h1' );
-        $heading_h2_font_size            = analytica_get_option( 'font-size-h2' );
-        $heading_h3_font_size            = analytica_get_option( 'font-size-h3' );
-        $heading_h4_font_size            = analytica_get_option( 'font-size-h4' );
-        $heading_h5_font_size            = analytica_get_option( 'font-size-h5' );
-        $heading_h6_font_size            = analytica_get_option( 'font-size-h6' );
-
+ 
         // Button Styling.
         $btn_border_radius      = analytica_get_option( 'button-radius' );
         $btn_vertical_padding   = analytica_get_option( 'button-v-padding' );
         $btn_horizontal_padding = analytica_get_option( 'button-h-padding' );
         $highlight_link_color   = analytica_get_foreground_color( $link_color );
         $highlight_theme_color  = analytica_get_foreground_color( $theme_color );
-
-        // Footer Bar Colors.
-        $footer_bg_obj       = analytica_get_option( 'footer-bg-obj' );
-        $footer_color        = analytica_get_option( 'footer-color' );
-        $footer_link_color   = analytica_get_option( 'footer-link-color' );
-        $footer_link_h_color = analytica_get_option( 'footer-link-h-color' );
-
-        // Color.
-        $footer_adv_bg_obj             = analytica_get_option( 'footer-adv-bg-obj' );
-        $footer_adv_text_color         = analytica_get_option( 'footer-adv-text-color' );
-        $footer_adv_widget_title_color = analytica_get_option( 'footer-adv-wgt-title-color' );
-        $footer_adv_link_color         = analytica_get_option( 'footer-adv-link-color' );
-        $footer_adv_link_h_color       = analytica_get_option( 'footer-adv-link-h-color' );
 
         /**
          * Apply text color depends on link color
@@ -242,16 +260,6 @@ class Dynamic_CSS {
         }
         $btn_bg_color       = analytica_get_option( 'button-bg-color', $theme_color );
         $btn_bg_hover_color = analytica_get_option( 'button-bg-h-color', $link_hover_color );
-
-        // Spacing of Big Footer.
-        $small_footer_divider_color = analytica_get_option( 'footer-sml-divider-color' );
-        $small_footer_divider       = analytica_get_option( 'footer-sml-divider' );
-
-        /**
-         * Small Footer Styling
-         */
-        $small_footer_layout = analytica_get_option( 'footer-sml-layout', 'footer-sml-layout-1' );
-        $analytica_footer_width  = analytica_get_option( 'footer-layout-width' );
 
         // Blog Post Title Typography Options.
         $single_post_max       = analytica_get_option( 'blog-single-width' );
@@ -272,22 +280,11 @@ class Dynamic_CSS {
 
         $css_output = array(
 
-            // HTML.
-            'html'                                    => array(
-                'font-size' => analytica_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
-            ),
             'a, .page-title'                          => array(
                 'color' => esc_attr( $link_color ),
             ),
             'a:hover, a:focus'                        => array(
                 'color' => esc_attr( $link_hover_color ),
-            ),
-            'body, button, input, select, textarea'   => array(
-                'font-family'    => analytica_get_font_family( $body_font_family ),
-                'font-weight'    => esc_attr( $body_font_weight ),
-                'font-size'      => analytica_responsive_font( $body_font_size, 'desktop' ),
-                'line-height'    => esc_attr( $body_line_height ),
-                'text-transform' => esc_attr( $body_text_transform ),
             ),
             'blockquote'                              => array(
                 'border-color' => analytica_hex_to_rgba( $link_color, 0.05 ),
@@ -324,24 +321,6 @@ class Dynamic_CSS {
             '.ast-comment-list #cancel-comment-reply-link' => array(
                 'font-size' => analytica_responsive_font( $body_font_size, 'desktop' ),
             ),
-            'h1, .entry-content h1, .entry-content h1 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h1_font_size, 'desktop' ),
-            ),
-            'h2, .entry-content h2, .entry-content h2 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h2_font_size, 'desktop' ),
-            ),
-            'h3, .entry-content h3, .entry-content h3 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h3_font_size, 'desktop' ),
-            ),
-            'h4, .entry-content h4, .entry-content h4 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h4_font_size, 'desktop' ),
-            ),
-            'h5, .entry-content h5, .entry-content h5 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h5_font_size, 'desktop' ),
-            ),
-            'h6, .entry-content h6, .entry-content h6 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h6_font_size, 'desktop' ),
-            ),
             '.ast-single-post .entry-title, .page-title' => array(
                 'font-size' => analytica_responsive_font( $single_post_title_font_size, 'desktop' ),
             ),
@@ -365,16 +344,6 @@ class Dynamic_CSS {
                 'background-color' => esc_attr( $link_color ),
             ),
 
-            // Header - Main Header CSS.
-            '.main-header-menu a, .ast-header-custom-item a' => array(
-                'color' => esc_attr( $text_color ),
-            ),
-
-            // Main - Menu Items.
-            '.main-header-menu li:hover > a, .main-header-menu li:hover > .ast-menu-toggle, .main-header-menu .ast-masthead-custom-menu-items a:hover, .main-header-menu li.focus > a, .main-header-menu li.focus > .ast-menu-toggle, .main-header-menu .current-menu-item > a, .main-header-menu .current-menu-ancestor > a, .main-header-menu .current_page_item > a, .main-header-menu .current-menu-item > .ast-menu-toggle, .main-header-menu .current-menu-ancestor > .ast-menu-toggle, .main-header-menu .current_page_item > .ast-menu-toggle' => array(
-                'color' => esc_attr( $link_color ),
-            ),
-
             // Input tags.
             'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, textarea:focus' => array(
                 'border-color' => esc_attr( $link_color ),
@@ -384,52 +353,6 @@ class Dynamic_CSS {
                 'background-color' => esc_attr( $link_color ),
                 'box-shadow'       => 'none',
             ),
-
-            // Small Footer.
-            '.site-footer a:hover + .post-count, .site-footer a:focus + .post-count' => array(
-                'background'   => esc_attr( $link_color ),
-                'border-color' => esc_attr( $link_color ),
-            ),
-
-            '.ast-small-footer'                       => array(
-                'color' => esc_attr( $footer_color ),
-            ),
-            '.ast-small-footer > .ast-footer-overlay' => analytica_get_background_obj( $footer_bg_obj ),
-
-            '.ast-small-footer a'                     => array(
-                'color' => esc_attr( $footer_link_color ),
-            ),
-            '.ast-small-footer a:hover'               => array(
-                'color' => esc_attr( $footer_link_h_color ),
-            ),
-
-            // Advanced Fotter colors/fonts.
-            '.footer-adv .widget-title,.footer-adv .widget-title a' => array(
-                'color' => esc_attr( $footer_adv_widget_title_color ),
-            ),
-
-            '.footer-adv'                             => array(
-                'color' => esc_attr( $footer_adv_text_color ),
-            ),
-
-            '.footer-adv a'                           => array(
-                'color' => esc_attr( $footer_adv_link_color ),
-            ),
-
-            '.footer-adv .tagcloud a:hover, .footer-adv .tagcloud a.current-item' => array(
-                'border-color'     => esc_attr( $footer_adv_link_color ),
-                'background-color' => esc_attr( $footer_adv_link_color ),
-            ),
-
-            '.footer-adv a:hover, .footer-adv .no-widget-text a:hover, .footer-adv a:focus, .footer-adv .no-widget-text a:focus' => array(
-                'color' => esc_attr( $footer_adv_link_h_color ),
-            ),
-
-            '.footer-adv .calendar_wrap #today, .footer-adv a:hover + .post-count' => array(
-                'background-color' => esc_attr( $footer_adv_link_color ),
-            ),
-
-            '.footer-adv-overlay'                     => analytica_get_background_obj( $footer_adv_bg_obj ),
 
             // Single Post Meta.
             '.ast-comment-meta'                       => array(
@@ -515,33 +438,6 @@ class Dynamic_CSS {
         /* Parse CSS from array() */
         $parse_css = $this->parse_css( $css_output );
 
-        // Foreground color.
-        if ( ! empty( $footer_adv_link_color ) ) {
-            $footer_adv_tagcloud = array(
-                '.footer-adv .tagcloud a:hover, .footer-adv .tagcloud a.current-item' => array(
-                    'color' => analytica_get_foreground_color( $footer_adv_link_color ),
-                ),
-                '.footer-adv .calendar_wrap #today' => array(
-                    'color' => analytica_get_foreground_color( $footer_adv_link_color ),
-                ),
-            );
-            $parse_css          .= $this->parse_css( $footer_adv_tagcloud );
-        }
-
-        /* Width for Footer */
-        if ( 'content' != $analytica_footer_width ) {
-            $genral_global_responsive = array(
-                '.ast-small-footer .ast-container' => array(
-                    'max-width'     => '100%',
-                    'padding-left'  => '35px',
-                    'padding-right' => '35px',
-                ),
-            );
-
-            /* Parse CSS from array()*/
-            $parse_css .= $this->parse_css( $genral_global_responsive, '769' );
-        }
-
         /* Width for Comments for Full Width / Stretched Template */
         $page_builder_comment = array(
             '.ast-page-builder-template .comments-area, .single.ast-page-builder-template .entry-header, .single.ast-page-builder-template .post-navigation' => array(
@@ -553,13 +449,7 @@ class Dynamic_CSS {
 
         /* Parse CSS from array()*/
         $parse_css .= $this->parse_css( $page_builder_comment, '545' );
-
-        $separate_container_css = array(
-            'body, .ast-separate-container' => analytica_get_background_obj( $box_bg_obj ),
-        );
-        
-        $parse_css             .= $this->parse_css( $separate_container_css );
-
+      
         $tablet_typo = array();
 
         if ( isset( $body_font_size['tablet'] ) && '' != $body_font_size['tablet'] ) {
@@ -578,160 +468,6 @@ class Dynamic_CSS {
                     ),
                 );
         }
-
-        /* Tablet Typography */
-        $tablet_typography = array(
-            'body, button, input, select, textarea' => array(
-                'font-size' => analytica_responsive_font( $body_font_size, 'tablet' ),
-            ),
-            '.ast-comment-list #cancel-comment-reply-link' => array(
-                'font-size' => analytica_responsive_font( $body_font_size, 'tablet' ),
-            ),
-            '#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
-                'font-size' => analytica_responsive_font( $body_font_size, 'tablet' ),
-            ),
-            '.site-title'                           => array(
-                'font-size' => analytica_responsive_font( $site_title_font_size, 'tablet' ),
-            ),
-            '.ast-archive-description .ast-archive-title' => array(
-                'font-size' => analytica_responsive_font( $archive_summary_title_font_size, 'tablet', 40 ),
-            ),
-            '.site-header .site-description'        => array(
-                'font-size' => analytica_responsive_font( $site_tagline_font_size, 'tablet' ),
-            ),
-            '.entry-title'                          => array(
-                'font-size' => analytica_responsive_font( $archive_post_title_font_size, 'tablet', 30 ),
-            ),
-            'h1, .entry-content h1, .entry-content h1 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h1_font_size, 'tablet', 30 ),
-            ),
-            'h2, .entry-content h2, .entry-content h2 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h2_font_size, 'tablet', 25 ),
-            ),
-            'h3, .entry-content h3, .entry-content h3 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h3_font_size, 'tablet', 20 ),
-            ),
-            'h4, .entry-content h4, .entry-content h4 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h4_font_size, 'tablet' ),
-            ),
-            'h5, .entry-content h5, .entry-content h5 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h5_font_size, 'tablet' ),
-            ),
-            'h6, .entry-content h6, .entry-content h6 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h6_font_size, 'tablet' ),
-            ),
-            '.ast-single-post .entry-title, .page-title' => array(
-                'font-size' => analytica_responsive_font( $single_post_title_font_size, 'tablet', 30 ),
-            ),
-            '#masthead .site-logo-img .custom-logo-link img' => array(
-                'max-width' => analytica_get_css_value( $header_logo_width['tablet'], 'px' ),
-            ),
-            '.analytica-logo-svg'                       => array(
-                'width' => analytica_get_css_value( $header_logo_width['tablet'], 'px' ),
-            ),
-        );
-
-        /* Parse CSS from array()*/
-        $parse_css .= $this->parse_css( array_merge( $tablet_typo, $tablet_typography ), '', '768' );
-
-        $mobile_typo = array();
-        if ( isset( $body_font_size['mobile'] ) && '' != $body_font_size['mobile'] ) {
-            $mobile_typo = array(
-                '.comment-reply-title' => array(
-                    'font-size' => analytica_get_font_css_value( (int) $body_font_size['mobile'] * 1.66666, 'px', 'mobile' ),
-                ),
-                // Single Post Meta.
-                '.ast-comment-meta'    => array(
-                    'font-size' => analytica_get_font_css_value( (int) $body_font_size['mobile'] * 0.8571428571, 'px', 'mobile' ),
-                ),
-                // Widget Title.
-                '.widget-title'        => array(
-                    'font-size' => analytica_get_font_css_value( (int) $body_font_size['mobile'] * 1.428571429, 'px', 'mobile' ),
-                ),
-            );
-        }
-
-        /* Mobile Typography */
-        $mobile_typography = array(
-            'body, button, input, select, textarea' => array(
-                'font-size' => analytica_responsive_font( $body_font_size, 'mobile' ),
-            ),
-            '.ast-comment-list #cancel-comment-reply-link' => array(
-                'font-size' => analytica_responsive_font( $body_font_size, 'mobile' ),
-            ),
-            '#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
-                'font-size' => analytica_responsive_font( $body_font_size, 'mobile' ),
-            ),
-            '.site-title'                           => array(
-                'font-size' => analytica_responsive_font( $site_title_font_size, 'mobile' ),
-            ),
-            '.ast-archive-description .ast-archive-title' => array(
-                'font-size' => analytica_responsive_font( $archive_summary_title_font_size, 'mobile', 40 ),
-            ),
-            '.site-header .site-description'        => array(
-                'font-size' => analytica_responsive_font( $site_tagline_font_size, 'mobile' ),
-            ),
-            '.entry-title'                          => array(
-                'font-size' => analytica_responsive_font( $archive_post_title_font_size, 'mobile', 30 ),
-            ),
-            'h1, .entry-content h1, .entry-content h1 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h1_font_size, 'mobile', 30 ),
-            ),
-            'h2, .entry-content h2, .entry-content h2 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h2_font_size, 'mobile', 25 ),
-            ),
-            'h3, .entry-content h3, .entry-content h3 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h3_font_size, 'mobile', 20 ),
-            ),
-            'h4, .entry-content h4, .entry-content h4 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h4_font_size, 'mobile' ),
-            ),
-            'h5, .entry-content h5, .entry-content h5 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h5_font_size, 'mobile' ),
-            ),
-            'h6, .entry-content h6, .entry-content h6 a' => array(
-                'font-size' => analytica_responsive_font( $heading_h6_font_size, 'mobile' ),
-            ),
-            '.ast-single-post .entry-title, .page-title' => array(
-                'font-size' => analytica_responsive_font( $single_post_title_font_size, 'mobile', 30 ),
-            ),
-            '.ast-header-break-point .site-branding img, .ast-header-break-point #masthead .site-logo-img .custom-logo-link img' => array(
-                'max-width' => analytica_get_css_value( $header_logo_width['mobile'], 'px' ),
-            ),
-            '.analytica-logo-svg'                       => array(
-                'width' => analytica_get_css_value( $header_logo_width['mobile'], 'px' ),
-            ),
-        );
-
-        /* Parse CSS from array()*/
-        $parse_css .= $this->parse_css( array_merge( $mobile_typo, $mobile_typography ), '', '544' );
-
-        // Tablet Font Size for HTML tag.
-        if ( '' == $body_font_size['tablet'] ) {
-            $html_tablet_typography = array(
-                'html' => array(
-                    'font-size' => analytica_get_font_css_value( (int) $body_font_size_desktop * 5.7, '%' ),
-                ),
-            );
-            $parse_css             .= $this->parse_css( $html_tablet_typography, '', '768' );
-        }
-        // Mobile Font Size for HTML tag.
-        if ( '' == $body_font_size['mobile'] ) {
-            $html_mobile_typography = array(
-                'html' => array(
-                    'font-size' => analytica_get_font_css_value( (int) $body_font_size_desktop * 5.7, '%' ),
-                ),
-            );
-        } else {
-            $html_mobile_typography = array(
-                'html' => array(
-                    'font-size' => analytica_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
-                ),
-            );
-        }
-
-        /* Parse CSS from array()*/
-        $parse_css .= $this->parse_css( $html_mobile_typography, '', '544' );
 
         /* Site width Responsive */
         $site_width = array(
@@ -776,21 +512,6 @@ class Dynamic_CSS {
                 $single_blog_css .= '}';
                 $single_blog_css .= '}';
                 $parse_css       .= $single_blog_css;
-        endif;
-
-        /* Small Footer CSS */
-        if ( 'disabled' != $small_footer_layout ) :
-            $sml_footer_css      = '.ast-small-footer {';
-                $sml_footer_css .= 'border-top-style:solid;';
-                $sml_footer_css .= 'border-top-width:' . esc_attr( $small_footer_divider ) . 'px;';
-                $sml_footer_css .= 'border-top-color:' . esc_attr( $small_footer_divider_color );
-            $sml_footer_css     .= '}';
-            if ( 'footer-sml-layout-2' != $small_footer_layout ) {
-                $sml_footer_css     .= '.ast-small-footer-wrap{';
-                    $sml_footer_css .= 'text-align: center;';
-                $sml_footer_css     .= '}';
-            }
-            $parse_css .= $sml_footer_css;
         endif;
 
         /* 404 Page */

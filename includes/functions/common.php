@@ -5,7 +5,7 @@
  * @package     Analytica
  * @author      Analytica
  * @copyright   Copyright (c) 2018, Analytica
- * @link        http://wpanalytica.com/
+ * @link        https://qazana.net/
  * @since       Analytica 1.0.0
  */
 
@@ -42,6 +42,28 @@ function analytica_get_foreground_color( $hex ) {
         return 128 <= $hex ? '#000000' : '#ffffff';
     }
 }
+
+/**
+ * Detect if we should use a light or dark colour on a background colour.
+ *
+ * @param mixed  $color
+ * @param string $dark  (default: '#000000')
+ * @param string $light (default: '#FFFFFF')
+ *
+ * @return string
+ */
+function analytica_light_or_dark( $color, $dark = '#000000', $light = '#FFFFFF' ) {
+    $hex = str_replace( '#', '', $color );
+
+    $c_r = hexdec( substr( $hex, 0, 2 ) );
+    $c_g = hexdec( substr( $hex, 2, 2 ) );
+    $c_b = hexdec( substr( $hex, 4, 2 ) );
+
+    $brightness = (($c_r * 299) + ($c_g * 587) + ($c_b * 114) ) / 1000;
+
+    return $brightness > 155 ? $dark : $light;
+}
+
 
 /**
  * Generate CSS
@@ -298,111 +320,6 @@ function analytica_get_background_obj( $bg_obj ) {
 }
 
 /**
- * Return Theme options.
- *
- * @param  string $option       Option key.
- * @param  string $default      Option default value.
- * @param  string $deprecated   Option default value.
- * @return Mixed               Return option value.
- */
-function analytica_get_option( $option, $default = '', $deprecated = '' ) {
-
-    if ( '' != $deprecated ) {
-        $default = $deprecated;
-    }
-
-    $theme_options = Analytica\Options::get_options();
-
-    /**
-     * Filter the options array for Analytica Settings.
-     *
-     * @since  1.0.20
-     * @var Array
-     */
-    $theme_options = apply_filters( 'analytica_get_option_array', $theme_options, $option, $default );
-
-    $value = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
-
-    /**
-     * Dynamic filter analytica_get_option_$option.
-     * $option is the name of the Analytica Setting, Refer Analytica\Options::defaults() for option names from the theme.
-     *
-     * @since  1.0.20
-     * @var Mixed.
-     */
-    return apply_filters( "analytica_get_option_{$option}", $value, $option, $default );
-}
-
-/**
- * Return Theme options from postmeta.
- *
- * @param  string  $option_id Option ID.
- * @param  string  $default   Option default value.
- * @param  boolean $only_meta Get only meta value.
- * @param  string  $extension Is value from extension.
- * @param  string  $post_id   Get value from specific post by post ID.
- * @return Mixed             Return option value.
- */
-function analytica_get_option_meta( $option_id, $default = '', $only_meta = false, $extension = '', $post_id = '' ) {
-
-    $post_id = ( '' != $post_id ) ? $post_id : analytica_get_post_id();
-
-    $value = analytica_get_option( $option_id, $default );
-
-    // Get value from option 'post-meta'.
-    if ( is_singular() || ( is_home() && ! is_front_page() ) ) {
-
-        $value = get_post_meta( $post_id, $option_id, true );
-
-        if ( empty( $value ) || 'default' == $value ) {
-
-            if ( true == $only_meta ) {
-                return false;
-            }
-
-            $value = analytica_get_option( $option_id, $default );
-        }
-    }
-
-    /**
-     * Dynamic filter analytica_get_option_meta_$option.
-     * $option_id is the name of the Analytica Meta Setting.
-     *
-     * @since  1.0.20
-     * @var Mixed.
-     */
-    return apply_filters( "analytica_get_option_meta_{$option_id}", $value, $default, $default );
-}
-
-/**
- * Get post ID.
- *
- * @param  string $post_id_override Get override post ID.
- * @return number                   Post ID.
- */
-function analytica_get_post_id( $post_id_override = '' ) {
-
-    if ( null == Analytica\Options::$post_id ) {
-        global $post;
-
-        $post_id = 0;
-
-        if ( is_home() ) {
-            $post_id = get_option( 'page_for_posts' );
-        } elseif ( is_archive() ) {
-            global $wp_query;
-            $post_id = $wp_query->get_queried_object_id();
-        } elseif ( isset( $post->ID ) && ! is_search() && ! is_category() ) {
-            $post_id = $post->ID;
-        }
-
-        Analytica\Options::$post_id = $post_id;
-    }
-
-    return apply_filters( 'analytica_get_post_id', Analytica\Options::$post_id, $post_id_override );
-}
-
-/**
  * Display classes for primary div
  *
  * @param string|array $class One or more classes to add to the class list.
@@ -559,8 +476,8 @@ function analytica_the_post_title( $before = '', $after = '', $post_id = 0, $ech
 function analytica_the_title( $before = '', $after = '', $post_id = 0, $echo = true ) {
 
     $title             = '';
-    $blog_post_title   = analytica_get_option( 'blog-post-structure' );
-    $single_post_title = analytica_get_option( 'blog-single-post-structure' );
+    $blog_post_title   = analytica_get_option( 'blog-post-structure', [] );
+    $single_post_title = analytica_get_option( 'blog-single-post-structure', [] );
 
     if ( ( ( ! is_singular() && in_array( 'title-meta', $blog_post_title ) ) || ( is_single() && in_array( 'single-title-meta', $single_post_title ) ) || is_page() ) ) {
         if ( apply_filters( 'analytica_the_title_enabled', true ) ) {

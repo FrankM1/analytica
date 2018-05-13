@@ -3,10 +3,10 @@
  * This file is a part of the Radium Framework core.
  * Please be cautious editing this file,
  *
- * @category Radium\Framework
+ * @category Analytica
  * @package  Energia
  * @author   Franklin Gitonga
- * @link     https://radiumthemes.com/
+ * @link     https://qazana.net/
  */
 
 add_filter( 'analytica_customizer_controls', 'analytica_admin_add_customizer_general_control' );
@@ -15,6 +15,42 @@ add_filter( 'analytica_customizer_controls', 'analytica_admin_add_customizer_gen
  */
 function analytica_admin_add_customizer_general_control( array $controls ) {
     $default = Analytica\Options::defaults();
+
+    $controls[] = [
+        'id'      => 'site-layout',
+        'section' => 'general_settings',
+        'type'    => 'radio-buttonset',
+        'label'   => esc_html__( 'Site layout' , 'energia' ),
+        'default' => $default['site-layout'],
+        'options' => [
+            'site-boxed'     => esc_html__( 'Boxed' , 'energia' ),
+            'site-wide'      => esc_html__( 'Wide' , 'energia' ),
+            'site-fullwidth' => esc_html__( 'Fullwidth' , 'energia' ),
+        ],
+    ];
+
+    $controls[] = [
+        'id'      => 'site-content-width',
+        'section' => 'general_settings',
+        'label'   => esc_html__( 'Site container width', 'energia' ),
+        'type'    => 'number',
+        'default' => $default['site-content-width'],
+     ];
+
+    $controls[] = [
+        'id'      => 'site_sidebar_width',
+        'section' => 'general_settings',
+        'label'   => esc_html__( 'Site sidebar width', 'energia' ),
+        'type'    => 'number',
+        'default' => $default['site_sidebar_width'],
+        'conditions' => [
+            [
+                'setting'  => 'site_sidebar_enable',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
+    ];
 
     $controls[] = [
         'label'     => esc_html__( 'Body Background', 'analytica' ),
@@ -33,6 +69,27 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'output'    => [
             array(
                 'element' => 'body',
+            ),
+        ],
+    ];
+
+    $controls[] = [
+        'label'     => esc_html__( 'Body Background', 'analytica' ),
+        'id'        => 'body_background',
+        'type'      => 'background',
+        'section'   => 'container_style',
+        'transport' => 'auto',
+        'default'     => array(
+            'background-color'      => '',
+            'background-image'      => '',
+            'background-repeat'     => '',
+            'background-position'   => '',
+            'background-size'       => '',
+            'background-attachment' => '',
+        ),
+        'output'    => [
+            array(
+                'element' => 'site-container-background',
             ),
         ],
     ];
@@ -59,7 +116,7 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         ],
         'conditions' => [
             [
-                'setting'  => 'site_layout',
+                'setting'  => 'site-layout',
                 'operator' => '==',
                 'value'    => 'site-boxed',
             ],
@@ -76,15 +133,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
             1 => esc_attr__( 'Enable', 'analytica' ),
             0 => esc_attr__( 'Disable', 'analytica' ),
         ],
-    ];
-
-    $controls[] = [
-        'id'      => 'login_logo',
-        'section' => 'logo_favicon',
-        'type'    => 'image',
-        'default' => $default['login_logo'],
-        'label'   => esc_html__( 'Upload Login Logo', 'analytica' ),
-        'desc'    => esc_html__( 'Upload a custom logo for the login page.', 'analytica' ),
     ];
 
     return $controls;

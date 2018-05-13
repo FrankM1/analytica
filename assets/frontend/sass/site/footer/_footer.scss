@@ -1,32 +1,77 @@
-/* 2 - Small Footer */
-@import "small-footer-layouts";
-@import "footer-sml-layout-1";
-@import "footer-sml-layout-2";
-
+// # Site Footer
 .site-footer {
-	color: $footer-text-color;
-
-	.widget-title {
-		color: $footer-link-color;
-	}
-
-	a {
-		color: $footer-link-color;
-		&:hover,
-		&:focus {
-	    	color: $footer-link-hover-color;
-	    }
-	}
-
-	ul {
-	    margin: 0;
-	    list-style-type: none;
-	}
-
-	.nav-menu li {
-	    display: inline-block;
-	}
+    background-attachment: inherit !important;
+    background-repeat: no-repeat;
+    background-color: #000;
+    border-width: none;
+    a {
+        color: inherit;
+    }
+    .nav--toolbar {
+        display: table;
+        margin: 0 auto;
+    }
+    &.footer-parallax {
+        position: fixed;
+        bottom: 0;
+        opacity: 1;
+    }
 }
 
-@import "footer-adv";
-@import "footer-adv-layout-4";
+// # Footer Widgets
+.footer-widgets {
+    @include clearfix;
+    position: relative;
+    padding: $grid-gutter-width 0;
+    &.has-container {
+        @extend %container;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .col-lg-12.column,
+    >.row {
+        padding: 0;
+    }
+    p:last-child,
+    table {
+        margin-bottom: 0;
+    }
+    ul {
+        padding: 0;
+        li {
+            @include clearfix;
+            display: block;
+        }
+    }
+    .menu,
+    .widget-area ul {
+        margin-bottom: 0;
+        li {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    }
+    .widget-area .widget .section-title {
+        margin-top: 0;
+    }
+}
+
+// # Site Footer Menu
+.footer-menu {
+    padding: $grid-gutter-width-half /2;
+}
+
+.site-colophon {
+    padding: $grid-gutter-width-half 0;
+    &.has-container {
+        @extend %container;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+.site-creds {
+    span {
+        text-transform: none;
+    }
+}

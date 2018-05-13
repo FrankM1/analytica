@@ -40,6 +40,23 @@ class Loop {
     }
 
     /**
+	 * Get post format
+	 *
+	 * @param  string $post_format_override Override post formate.
+	 * @return string                       Return post format.
+	 */
+	function get_post_format( $post_format_override = '' ) {
+
+		if ( ( is_home() ) || is_archive() ) {
+			$post_format = 'blog';
+		} else {
+			$post_format = get_post_format();
+		}
+
+		return apply_filters( 'analytica_get_post_format', $post_format, $post_format_override );
+	}
+
+    /**
      * Template part none
      *
      * @since 1.0.0
@@ -125,7 +142,7 @@ class Loop {
                 * If you want to override this in a child theme, then include a file
                 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
                 */
-            get_template_part( 'template-parts/content', analytica_get_post_format() );
+            get_template_part( 'template-parts/content', $this->get_post_format() );
         }
     }
 

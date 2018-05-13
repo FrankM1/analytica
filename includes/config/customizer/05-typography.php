@@ -3,7 +3,7 @@
  * This file is a part of the Radium Framework core.
  * Please be cautious editing this file,
  *
- * @category Radium\Framework
+ * @category Analytica
  * @package  Energia
  * @author   Franklin Gitonga
  * @link     https: //radiumthemes.com/
@@ -37,7 +37,7 @@ function analytica_add_typography_controls( $controls ) {
         ],
         'output'    => [
     		[
-                'element' => 'body, p',
+                'element' => 'body, p, button, input, select, textarea',
     		],
     	],
     ];
@@ -296,7 +296,7 @@ function analytica_add_typography_panels_and_sections( $wp_customize ) {
     ] );
 
     $wp_customize->add_section( 'site_footer_typography', [
-        'title' => esc_html__( 'Site footer', 'energia' ),
+        'title' => esc_html__( 'Footer', 'energia' ),
         'panel' => 'typography',
         'priority' => 36,
     ] );

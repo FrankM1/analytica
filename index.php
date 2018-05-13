@@ -15,28 +15,20 @@
 
 get_header(); ?>
 
-<?php if ( analytica_page_layout() == 'left-sidebar' ) : ?>
+<?php do_action( 'analytica_left_sidebar' ); ?>
 
-	<?php get_sidebar(); ?>
+<div id="primary" <?php analytica_primary_class(); ?>>
 
-<?php endif ?>
+    <?php do_action( 'analytica_primary_content_top' ); ?>
 
-	<div id="primary" <?php analytica_primary_class(); ?>>
+    <?php do_action( 'analytica_content_loop' ); ?>
 
-		<?php do_action( 'analytica_primary_content_top' ); ?>
+    <?php do_action( 'analytica_pagination' ); ?>
 
-		<?php do_action( 'analytica_content_loop' ); ?>
+    <?php do_action( 'analytica_primary_content_bottom' ); ?>
 
-		<?php do_action( 'analytica_pagination' ); ?>
+</div><!-- #primary -->
 
-		<?php do_action( 'analytica_primary_content_bottom' ); ?>
-
-	</div><!-- #primary -->
-
-<?php if ( analytica_page_layout() == 'right-sidebar' ) : ?>
-
-	<?php get_sidebar(); ?>
-
-<?php endif ?>
+<?php do_action( 'analytica_right_sidebar' ); ?>
 
 <?php get_footer(); ?>

@@ -1,8 +1,8 @@
 -------------------------------------------------------
 Welcome to ASTRA!
 -------------------------------------------------------
-Website: http://wpanalytica.com/
-Email: support@bsf.io
+Website: https://qazana.net/
+Email: support@qazana.net
 
 -------------------------------------------------------
 Features:
@@ -26,7 +26,7 @@ ASTRA Child Theme
 
 There are multiple ways you can use a child theme with the Analytica Theme, Use any one method mentoned below to create a child theme or use a child theme we have created.
 
-1. Download the child theme from Github - https://github.com/brainstormforce/analytica-child/releases/latest/
+1. Download the child theme from Github - https://github.com/qazana/analytica-child/releases/latest/
 2. Using Plugin One click Child theme - https://wordpress.org/plugins/one-click-child-theme/
 3. More information on creating child theme. - https://codex.wordpress.org/Child_Themes
 

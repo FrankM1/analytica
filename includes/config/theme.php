@@ -7,7 +7,7 @@ namespace Analytica;
  *
  * @package Radium Framework
  * @author   Franklin Gitonga
- * @link     https://radiumthemes.com/
+ * @link     https://qazana.net/
  */
 
 /**
@@ -42,6 +42,34 @@ class Theme {
          * Add support for widgets inside the customizer
          */
         add_theme_support( 'widget-customizer' );
+
+        // Maybe add support for sidebars
+        if ( ! current_theme_supports( 'analytica-sidebars' ) ) {
+
+            $sidebars = array(
+                'sidebar'       => array(
+                    'name'          => esc_html__( 'Primary Widget Area', 'energia' ),
+                    'description'   => esc_html__( 'This is the primary sidebar.', 'energia' ),
+                ),
+                'secondary-alt'       => array(
+                    'name'          => esc_html__( 'Secondary Widget Area', 'energia' ),
+                    'description'   => esc_html__( 'This is the secondary sidebar if you are using a two or three column page layout option.', 'energia' ),
+                ),
+                'after-entry'   => array(
+                    'name'          => esc_html__( 'After Entry', 'energia' ),
+                    'description'   => esc_html__( 'This is the content widget area. Displayed after the post content', 'energia' ),
+                ),
+            );
+
+            add_theme_support( 'analytica-sidebars', $sidebars );
+        }
+
+         // Maybe add support for menus
+        if ( ! current_theme_supports( 'analytica-menus' ) ) {
+            add_theme_support( 'analytica-menus', array(
+                'primary'   		=> esc_html__( 'Primary Navigation', 'energia' ),
+            ) );
+        }
     
         /**
          * Enable support for Post Formats

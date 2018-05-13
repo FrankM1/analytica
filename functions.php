@@ -17,6 +17,80 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+// $functions = array();
+// $path = get_template_directory();
+// define_dir($path, $functions);
+// reference_dir($path, $functions);
+// echo
+//     "<table>" .
+//         "<tr>" .
+//             "<th>Name</th>" .
+//             "<th>Defined</th>" .
+//             "<th>Referenced</th>" .
+//         "</tr>";
+// foreach ($functions as $name => $value) {
+//     echo
+//         "<tr>" . 
+//             "<td>" . htmlentities($name) . "</td>" .
+//             "<td>" . (isset($value[0]) ? count($value[0]) : "-") . "</td>" .
+//             "<td>" . (isset($value[1]) ? count($value[1]) : "-") . "</td>" .
+//         "</tr>";
+// }
+// echo "</table>";
+// function define_dir($path, &$functions) {
+//     if ($dir = opendir($path)) {
+//         while (($file = readdir($dir)) !== false) {
+//             if (substr($file, 0, 1) == ".") continue;
+//             if (is_dir($path . "/" . $file)) {
+//                 define_dir($path . "/" . $file, $functions);
+//             } else {
+//                 if (substr($file, - 4, 4) != ".php") continue;
+//                 define_file($path . "/" . $file, $functions);
+//             }
+//         }
+//     }       
+// }
+// function define_file($path, &$functions) {
+//     $tokens = token_get_all(file_get_contents($path));
+//     for ($i = 0; $i < count($tokens); $i++) {
+//         $token = $tokens[$i];
+//         if (is_array($token)) {
+//             if ($token[0] != T_FUNCTION) continue;
+//             $i++;
+//             $token = $tokens[$i];
+//             if ($token[0] != T_WHITESPACE) die("T_WHITESPACE");
+//             $i++;
+//             $token = $tokens[$i];
+//             if ($token[0] != T_STRING) die("T_STRING");
+//             $functions[$token[1]][0][] = array($path, $token[2]);
+//         }
+//     }
+// }
+// function reference_dir($path, &$functions) {
+//     if ($dir = opendir($path)) {
+//         while (($file = readdir($dir)) !== false) {
+//             if (substr($file, 0, 1) == ".") continue;
+//             if (is_dir($path . "/" . $file)) {
+//                 reference_dir($path . "/" . $file, $functions);
+//             } else {
+//                 if (substr($file, - 4, 4) != ".php") continue;
+//                 reference_file($path . "/" . $file, $functions);
+//             }
+//         }
+//     }       
+// }
+// function reference_file($path, &$functions) {
+//     $tokens = token_get_all(file_get_contents($path));
+//     for ($i = 0; $i < count($tokens); $i++) {
+//         $token = $tokens[$i];
+//         if (is_array($token)) {
+//             if ($token[0] != T_STRING) continue;
+//             if ($tokens[$i + 1] != "(") continue;
+//             $functions[$token[1]][1][] = array($path, $token[2]);
+//         }
+//     }
+// }
+
 /**
  * Main Theme Framework Class
  *
@@ -192,7 +266,7 @@ class Core {
         // End base files
 
         $this->_include_structure_post_archives();
-        // $this->_include_menus();
+        $this->_include_menus();
         $this->_include_extensions(); 
     }
 
@@ -202,10 +276,7 @@ class Core {
         require_once get_theme_file_path( '/includes/config/theme.php' );
         require_once get_theme_file_path( '/includes/config/frontend.php' );
         require_once get_theme_file_path( '/includes/config/skin-css.php' );
-        require_once get_theme_file_path( '/includes/config/fonts.php' );
-
-        require_once get_theme_file_path( '/includes/config/fonts/families.php' );
-        require_once get_theme_file_path( '/includes/config/fonts/data.php' );
+        require_once get_theme_file_path( '/includes/config/icons.php' );
 
         if ( is_admin() ) {
             require_once get_theme_file_path( '/includes/config/metabox/meta-boxes.php' );
@@ -221,14 +292,19 @@ class Core {
         require_once get_theme_file_path( '/includes/classes/css/css-base.php' );
         require_once get_theme_file_path( '/includes/classes/css/global-css-file.php' );
         require_once get_theme_file_path( '/includes/classes/css/css-generate.php' );
+        require_once get_theme_file_path( '/includes/classes/customizer/kirki-integration.php' );
+        require_once get_theme_file_path( '/includes/classes/customizer/kirki-custom.php' );
     }
 
     function _include_function() {
         require_once get_theme_file_path( '/includes/functions/common.php' );
+        require_once get_theme_file_path( '/includes/functions/options.php' );
         require_once get_theme_file_path( '/includes/functions/markup.php' );
         require_once get_theme_file_path( '/includes/functions/formatting.php' );
         require_once get_theme_file_path( '/includes/functions/conditionals.php' );
+        require_once get_theme_file_path( '/includes/functions/menu.php' );
 
+        require_once get_theme_file_path( '/includes/structure/general/css-classes.php' );
         require_once get_theme_file_path( '/includes/structure/general/template-tags.php' );
         require_once get_theme_file_path( '/includes/structure/general/template-parts.php' );
 
@@ -248,17 +324,18 @@ class Core {
     }
 
     function _include_options() {
-        require_once get_theme_file_path( '/includes/extensions/customizer/kirki-integration.php' );
-        require_once get_theme_file_path( '/includes/extensions/customizer/kirki-custom.php' );
 
         require_once get_theme_file_path( '/includes/config/customizer/01-general.php' );
         require_once get_theme_file_path( '/includes/config/customizer/02-site-header.php' );
         require_once get_theme_file_path( '/includes/config/customizer/04-site-footer.php' );
-        // require_once get_theme_file_path( '/includes/config/customizer/08-breadcrumbs.php' );
         require_once get_theme_file_path( '/includes/config/customizer/05-typography.php' );
+        require_once get_theme_file_path( '/includes/config/customizer/90-utilities.php' );
+
+       // require_once get_theme_file_path( '/includes/config/customizer/blog.php' );
+        // require_once get_theme_file_path( '/includes/config/customizer/blog-single.php' );
 
         // require_once get_theme_file_path( '/includes/config/customizer/03-page-header.php' );
-        require_once get_theme_file_path( '/includes/config/customizer/90-utilities.php' );
+        // require_once get_theme_file_path( '/includes/config/customizer/08-breadcrumbs.php' );
     }
 
     function _include_admin() {

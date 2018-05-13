@@ -3,10 +3,10 @@
  * This file is a part of the Radium Framework core.
  * Please be cautious editing this file,
  *
- * @category Radium\Framework
+ * @category Analytica
  * @package  Energia
  * @author   Franklin Gitonga
- * @link    https://radiumthemes.com/
+ * @link    https://qazana.net/
  */
 
   /**
@@ -19,9 +19,7 @@
   * @return bool
   */
 function analytica_is_bool( $var ) {
-    $falsey = [ 'false', '0', 'no', 'n', 'off' ];
-
-    return ( ! $var || in_array( strtolower( $var ), $falsey ) ) ? false : true;
+    return ( ! $var || in_array( strtolower( $var ), [ 'false', '0', 'no', 'n', 'off' ] ) ) ? false : true;
 }
 
  /**
@@ -272,7 +270,6 @@ function analytica_is_post_archive_page( $post_id = null ) {
   */
  function analytica_is_customizer() {
      global $wp_customize;
-
      return is_a( $wp_customize, 'WP_Customize_Manager' ) && $wp_customize->is_preview();
  }
 

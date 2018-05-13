@@ -5,7 +5,7 @@
  * @package     Analytica
  * @author      Analytica
  * @copyright   Copyright (c) 2018, Analytica
- * @link        http://wpanalytica.com/
+ * @link        https://qazana.net/
  * @since       Analytica 1.0.0
  */
 
@@ -20,7 +20,7 @@ function analytica_page_layout() {
 
         // If post meta value is empty,
         // Then get the POST_TYPE sidebar.
-        $layout = analytica_get_option_meta( 'site-sidebar-layout', '', true );
+        $layout = analytica_get_option( 'site-sidebar-layout' );
 
         if ( empty( $layout ) ) {
 

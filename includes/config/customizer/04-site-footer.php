@@ -3,7 +3,7 @@
  * This file is a part of the Radium Framework core.
  * Please be cautious editing this file,
  *
- * @category Radium\Framework
+ * @category Analytica
  * @package  Energia
  * @author   Franklin Gitonga
  * @link     https: //radiumthemes.com/
@@ -66,7 +66,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
                     'value'    => true,
                 ],
                 [
-                    'setting'  => 'site_container_width',
+                    'setting'  => 'site-layout',
                     'operator' => '!=',
                     'value'    => 'boxed',
                 ],
@@ -466,7 +466,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
                     'value'    => true,
                 ],
                 [
-                    'setting'  => 'site_container_width',
+                    'setting'  => 'site-layout',
                     'operator' => '!=',
                     'value'    => 'boxed',
                 ],

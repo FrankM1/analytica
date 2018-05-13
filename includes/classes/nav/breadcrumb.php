@@ -10,10 +10,10 @@ namespace Analytica;
  *
  * NOTE: Theme data (options, global variables etc ) can be accessed anywhere in the theme by calling  <?php $core = analytica(); ?>
  *
- * @category Radium\Framework
- * @package  Energia WP
+ * @category Analytica
+ * @package  Analytica
  * @author   Franklin Gitonga
- * @link     https://radiumthemes.com/
+ * @link     https://qazana.net/
  */
 /**
  * Class to control breadcrumbs display.
@@ -112,7 +112,7 @@ class Breadcrumb
      */
     public function output($args = array())
     {
-        echo analytica_sanitize_allowed_tag( $this->get_output($args) ); // WPCS: XSS ok.
+        echo analytica_sanitize_html( $this->get_output($args) ); // WPCS: XSS ok.
     }
 
     /**

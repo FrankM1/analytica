@@ -3,7 +3,7 @@
  * This file is a part of the Radium Framework core.
  * Please be cautious editing this file,
  *
- * @category Radium\Framework
+ * @category Analytica
  * @package  Energia
  * @author   Franklin Gitonga
  */
@@ -43,9 +43,9 @@ add_action( 'analytica_before_footer', 'analytica_footer_markup_open', 5 );
   */
  function analytica_footer_markup_close() {
 
-     if ( ! analytica_is_footer_available() ) {
-         return;
-     }
+    if ( ! analytica_is_footer_available() ) {
+        return;
+    }
 
     analytica_markup( array(
         'element' => '</div>',
@@ -154,7 +154,7 @@ function analytica_footer_widget_areas() {
 								$inside .= '<div class="ast-col-md-4 ast-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                 $inside .= '</div>';
-                                if ( analytica_is_mobile() ) {
+                                if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
 								$inside .= '<div class="ast-col-md-4 ast-col-xs-6">';
@@ -169,7 +169,7 @@ function analytica_footer_widget_areas() {
 								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                 $inside .= '</div>';
-                                if ( analytica_is_mobile() ) {
+                                if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
 								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
@@ -197,7 +197,7 @@ function analytica_footer_widget_areas() {
 								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                 $inside .= '</div>';
-                                if ( analytica_is_mobile() ) {
+                                if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
 								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
@@ -212,7 +212,7 @@ function analytica_footer_widget_areas() {
                                 $inside .= '<div class="ast-col-md-6 ast-col-xs-6">';
                                     $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                 $inside .= '</div>';
-                                if ( analytica_is_mobile() ) {
+                                if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
                                 $inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
@@ -236,7 +236,7 @@ function analytica_footer_widget_areas() {
 								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                 $inside .= '</div>';
-                                if ( analytica_is_mobile() ) {
+                                if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
 								$inside .= '<div class="ast-col-md-6 ast-col-xs-6">';
@@ -251,7 +251,7 @@ function analytica_footer_widget_areas() {
 								$inside .= '<div class="ast-col-md-2-4 ast-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                 $inside .= '</div>';
-                                if ( analytica_is_mobile() ) {
+                                if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
 								$inside .= '<div class="ast-col-md-2-4 ast-col-xs-6">';
@@ -260,7 +260,7 @@ function analytica_footer_widget_areas() {
                                 $inside .= '<div class="ast-col-md-2-4 ast-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_4, $layout );
                                 $inside .= '</div>';
-                                if ( analytica_is_mobile() ) {
+                                if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
 								$inside .= '<div class="ast-col-md-2-4 ast-col-xs-6">';
@@ -274,7 +274,7 @@ function analytica_footer_widget_areas() {
                                         $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_1, $layout );
                                     $inside .= '</div>';
 
-                                    if ( ! analytica_is_mobile() ) {
+                                    if ( ! wp_is_mobile() ) {
                                         $inside .= '<div class="ast-col-md-8 ast-col-xs-6">';
                                         $inside .= '<div class="row">';
                                     }
@@ -282,7 +282,7 @@ function analytica_footer_widget_areas() {
                                                 $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                             $inside .= '</div>';
 
-                                            if ( analytica_is_mobile() ) {
+                                            if ( wp_is_mobile() ) {
                                                 $inside .= '<div class="clearfix visible-xs"></div>';
                                             }
 
@@ -293,7 +293,7 @@ function analytica_footer_widget_areas() {
                                                 $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_4, $layout );
                                             $inside .= '</div>';
 
-                                    if ( ! analytica_is_mobile() ) {
+                                    if ( ! wp_is_mobile() ) {
                                         $inside .= '</div>';
                                         $inside .= '</div>';
                                     }
@@ -301,7 +301,7 @@ function analytica_footer_widget_areas() {
 
                             case 'layout-12' :
 
-                                if ( analytica_is_mobile() ) {
+                                if ( wp_is_mobile() ) {
                                     $inside .= '<div class="ast-col-md-8 ast-col-xs-6">';
                                     $inside .= '<div class="row">';
                                 }
@@ -313,7 +313,7 @@ function analytica_footer_widget_areas() {
                                     $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                 $inside .= '</div>';
 
-                                if ( analytica_is_mobile() ) {
+                                if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
 
@@ -321,7 +321,7 @@ function analytica_footer_widget_areas() {
                                     $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_3, $layout );
                                 $inside .= '</div>';
 
-                                if ( ! analytica_is_mobile() ) {
+                                if ( ! wp_is_mobile() ) {
                                         $inside .= '</div>';
                                     $inside .= '</div>';
                                 }
@@ -338,7 +338,7 @@ function analytica_footer_widget_areas() {
 								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                 $inside .= '</div>';
-                                if ( analytica_is_mobile() ) {
+                                if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
 								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
@@ -414,27 +414,6 @@ function analytica_back_to_top() {
 
 }
 
-add_action( 'analytica_footer', 'analytica_footer_markup' );
-/**
- * Site Footer - <footer>
- *
- * @since 1.0.0
- */
-function analytica_footer_markup() {
-    ?>
-
-    <footer itemtype="https://schema.org/WPFooter" itemscope="itemscope" id="colophon" <?php analytica_footer_classes(); ?> role="contentinfo"><?php
-
-	    do_action( 'analytica_footer_content_top' );
-
-	    do_action( 'analytica_footer_content' );
-
-	    do_action( 'analytica_footer_content_bottom' );
-
-    ?></footer><!-- #colophon -->
-    <?php
-}
-
 add_action( 'analytica_do_colophon', 'analytica_colophon_content', 15 );
 /**
  * Get colophon content
@@ -443,13 +422,13 @@ add_action( 'analytica_do_colophon', 'analytica_colophon_content', 15 );
  */
 function analytica_colophon_content() {
 
-    $core = analytica();
+    $core = \Analytica\Core::instance();
 
     $creds_text = str_replace( '[year]', date( 'Y' ), analytica_get_option( 'footer-copyright-text' ) );
 
     $site_copyright = $creds_text ? sprintf( '<div class="site-copyright">%s</div>', $creds_text ) : '';
 
-    $theme_credits = analytica_get_option( 'show-theme-badge' ) ? '<div class="theme-credits">'. esc_html__( 'Powered by', 'analytica' ) .' <a href="'. esc_url( $core->theme_page_url ) .'" target="_blank">' . $core->theme_title .'</a> <span>and</span> WordPress.</div>': '';
+    $theme_credits = analytica_get_option( 'show-theme-badge' ) ? '<div class="theme-credits">'. esc_html__( 'Powered by', 'analytica' ) .' <a href="https://qazana.net/" target="_blank">' . $core->theme_title .'</a> <span>and</span> WordPress.</div>': '';
 
     $output = $site_copyright || $theme_credits ? '<div class="site-creds" role="contentinfo">' . $site_copyright . $theme_credits . '</div>' : '';
 

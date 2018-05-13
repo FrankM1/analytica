@@ -3,10 +3,10 @@
  * This file is a part of the Radium Framework core.
  * Please be cautious editing this file,
  *
- * @category Radium\Framework
+ * @category Analytica
  * @package  Energia
  * @author   Franklin Gitonga
- * @link     https://radiumthemes.com/
+ * @link     https://qazana.net/
  */
 
 /**
@@ -52,7 +52,7 @@ function analytica_markup( $args = [] ) {
     $tag = $args['context'] ? apply_filters( "analytica_markup_{$args['context']}_output", $tag, $args ) : $tag;
 
     if ( $args['echo'] ) {
-        echo analytica_sanitize_allowed_tag( $tag ); // WPCS: XSS ok.
+        echo $tag; // WPCS: XSS ok.
     } else {
         return $tag;
     }
@@ -100,7 +100,7 @@ function analytica_structural_wrap( $context = '', $output = 'open', $echo = tru
     $output = apply_filters( "analytica_structural_wrap-{$context}", $output, $original_output );
 
     if ( $echo ) {
-        echo analytica_sanitize_allowed_tag( $output );  // WPCS: XSS ok.
+        echo analytica_sanitize_html( $output );  // WPCS: XSS ok.
     } else {
         return $output;
     }
@@ -172,6 +172,7 @@ add_filter( 'analytica_attr_body', 'analytica_attributes_body' );
  * @return array Amended attributes.
  */
 function analytica_attributes_body( $attributes ) {
+    
     $attributes['class'] = implode( ' ', get_body_class() );
     $attributes['itemscope'] = 'itemscope';
     $attributes['itemtype'] = 'https://schema.org/WebPage';
@@ -186,7 +187,7 @@ function analytica_attributes_body( $attributes ) {
     }
 
     $attributes['itemscope'] = 'itemscope';
-
+    
     return $attributes;
 }
 
@@ -262,7 +263,7 @@ add_filter( 'analytica_attr_structural-wrap', 'analytica_attributes_structural_w
  * @return array Amended attributes.
  */
 function analytica_attributes_structural_wrap( $attributes ) {
-    $attributes['class'] = 'container';
+    $attributes['class'] = 'ast-container';
 
     return $attributes;
 }
@@ -296,8 +297,8 @@ add_filter( 'analytica_attr_content-sidebar-wrap', 'analytica_attributes_content
  * @return array Amended attributes.
  */
 function analytica_attributes_content_sidebar_wrap( $attributes ) {
-    if ( !analytica_is_builder_page()  ) {
-        $attributes['class'] .= ' container';
+    if ( ! analytica_is_builder_page()  ) {
+        $attributes['class'] .= ' ast-container';
     }
 
     return $attributes;

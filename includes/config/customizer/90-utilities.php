@@ -3,10 +3,10 @@
  * This file is a part of the Radium Framework core.
  * Please be cautious editing this file,
  *
- * @category Radium\Framework
+ * @category Analytica
  * @package  Energia
  * @author   Franklin Gitonga
- * @link     https://radiumthemes.com/
+ * @link     https://qazana.net/
  */
 
  add_filter( 'analytica_customizer_controls', 'analytica_get_customizer_utilities', 99 );

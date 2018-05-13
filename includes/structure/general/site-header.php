@@ -3,10 +3,10 @@
  * This file is a part of the Radium Framework core.
  * Please be cautious editing this file,
  *
- * @category Radium\Framework
+ * @category Analytica
  * @package  Energia
  * @author   Franklin Gitonga
- * @link     https://radiumthemes.com/
+ * @link     https://qazana.net/
  */
 
 if ( ! analytica_is_bool( analytica_get_option( 'header' ) ) && analytica_get_option( 'header' ) !== null ) {
@@ -73,7 +73,7 @@ function analytica_do_header() {
 
      do_action( 'analytica_before_header_inner' );
 
-     get_template_part( 'includes/partials/header/header' , 'standard' );
+     get_template_part( 'template-parts/header/header' , 'standard' );
 
      do_action( 'analytica_after_header_inner' );
 
@@ -96,14 +96,14 @@ function analytica_header_stylesheet() {
          $version    = time();
      else:
          $css_suffix = '.min.css';
-         $version    = analytica()->theme_version;
+         $version    = \Analytica\Core::instance()->theme_version;
      endif;
 
      $direction_suffix = is_rtl() ? '-rtl' : '';
 
      wp_enqueue_style(
          'analytica-site-header',
-         analytica()->theme_url . '/assets/frontend/css/site-header' . $css_suffix,
+         \Analytica\Core::instance()->theme_url . '/assets/frontend/css/site-header' . $css_suffix,
          false,
          $version,
          'all'
@@ -111,7 +111,7 @@ function analytica_header_stylesheet() {
 
     wp_enqueue_script(
         'analytica-megamenu-mobile',
-        analytica()->theme_url . '/assets/frontend/js/vendor/analytica-megamenu-mobile.js',
+        \Analytica\Core::instance()->theme_url . '/assets/frontend/js/vendor/mobile-menu.js',
         [ 
             'jquery',
             'hoverIntent',

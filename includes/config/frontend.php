@@ -3,7 +3,7 @@
  * This file is a part of the Radium Framework core.
  * Please be cautious editing this file,
  *
- * @category Radium\Framework
+ * @category Analytica
  * @package  Energia
  * @author   Franklin Gitonga
  * @link     http://qazana.net/
@@ -37,7 +37,6 @@ class Frontend {
         add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ], 5 );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-        add_action( 'analytica_get_fonts', array( $this, 'add_fonts' ), 1 );
     }
 
     /**
@@ -80,7 +79,6 @@ class Frontend {
 
         // The analytica_globals object contains information and settings about the framework
         $json_data = [
-            'break_point' => analytica_header_break_point(),                         // Header Break Point.
             'i18n'        => [
             ],
         ]; // create globals for front-end AJAX calls;
@@ -130,22 +128,11 @@ class Frontend {
         wp_enqueue_style( 'analytica-frontend', $this->framework->theme_url . '/assets/frontend/css/style' . $css_suffix, '', $version, 'all' );
 
         $this->parse_global_css_code();
-
-        // Fonts - Render Fonts.
-        Fonts::render_fonts();
     }
 
     protected function parse_global_css_code() {
         $global_css_file = new Global_CSS_File();
         $global_css_file->enqueue();
-    }
-
-    /**
-     * Add Fonts
-     */
-    public function add_fonts() {
-        Fonts::add_font( analytica_get_option( 'body-font-family' ), analytica_get_option( 'body-font-weight' ) );
-        Fonts::add_font( analytica_get_option( 'headings-font-family' ), analytica_get_option( 'headings-font-weight' ) );
     }
 
 }
