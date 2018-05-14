@@ -22,6 +22,27 @@ function analytica_is_bool( $var ) {
     return ( ! $var || in_array( strtolower( $var ), [ 'false', '0', 'no', 'n', 'off' ] ) ) ? false : true;
 }
 
+/**
+  * Detect if header is active
+  *
+  * @since 1.0.0
+  *
+  * @return boolean
+  */
+function analytica_header_is_active() {
+    $retval = false;
+
+    if ( analytica_get_option( 'header' ) ) {
+        $retval = true;
+    }
+
+    if ( analytica_detect_plugin( ['functions' => [ 'header_composer' ] ] ) ) {
+        $retval = false;
+    }
+
+    return apply_filters( __FUNCTION__, $retval );
+}
+
  /**
   * Check if header is enabled on the page
   *

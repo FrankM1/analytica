@@ -21,7 +21,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'section' => 'header_composer',
         'type'    => 'switch',
         'label'   => esc_html__( 'Enable Header' , 'analytica' ),
-        'default' => '1',
+        'default' => $default['header'],
         'options' => [
             '1' => esc_attr__( 'Enable', 'analytica' ),
             '0' => esc_attr__( 'Disable', 'analytica' ),
@@ -29,11 +29,11 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
     ];
 
     $controls[] = [
-        'id'              => 'site-header-background-color',
+        'id'              => 'header-background-color',
         'section'         => 'header_composer',
         'type'            => 'color',
         'title'           => esc_html__( 'Background color' , 'analytica' ),
-        'default'         => '#fff',
+        'default' => $default['header-background-color'],
         'conditions' => [
             [
                 'setting'  => 'header',
@@ -46,6 +46,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
     $controls[] = [
         'id'      => 'header-overlay',
         'section' => 'header_composer',
+        'default' => $default['header-overlay'],
         'type'    => 'switch',
         'label'   => esc_html__( 'Header Overlay' , 'analytica' ),
         'options' => [
@@ -57,6 +58,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
     $controls[] = [
         'id'      => 'header-sticky',
         'section' => 'header_composer',
+        'default' => $default['header-sticky'],
         'type'    => 'switch',
         'label'   => esc_html__( 'Header Sticky' , 'analytica' ),
         'options' => [
@@ -68,6 +70,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
     $controls[] = [
         'id'      => 'header-transparent',
         'section' => 'header_composer',
+        'default' => $default['header-transparent'],
         'type'    => 'switch',
         'label'   => esc_html__( 'Header Transparent' , 'analytica' ),
         'options' => [

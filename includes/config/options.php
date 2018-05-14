@@ -95,9 +95,13 @@ class Options {
 
             // Header
             'header'       => true,
-            'header-sticky'       => true,
-            'header-overlay'      => true,
-            'header-transparent'  => true,
+            'header-background-color' => '#fff',
+            'header-sticky'       => false,
+            'header-overlay'      => false,
+            'header-transparent'  => false,
+            'header-overlay'    => false,
+            'header-sticky'    => false,
+            'header-transparent'    => false,
             'default_style'       => 'default',
             'site_sidebar_style'  => 'default',
             'main_bg'             => array(

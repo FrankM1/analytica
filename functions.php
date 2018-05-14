@@ -298,30 +298,14 @@ class Core {
     }
 
     function _include_structure_base() {
-
-        // General
         require_once get_theme_file_path( '/includes/structure/general/site-loop.php' );
         require_once get_theme_file_path( '/includes/structure/general/site-footer.php' );
-
-        // Load Structure
-        if ( analytica_detect_plugin( [
-                'functions' => [
-                    'header_composer',
-                ],
-            ] ) && header_composer_get_active_header_id()
-        ) {
-            // this is simpler
-            // skip header
-        } else {
-            require_once get_theme_file_path( '/includes/structure/general/site-header.php' );
-        }
+        require_once get_theme_file_path( '/includes/structure/general/site-header.php' );
     }
 
     function _include_menus() {
-        // Load Navigation Tools
         require_once get_theme_file_path( '/includes/classes/nav/megamenu.php' );
         require_once get_theme_file_path( '/includes/functions/menu.php' );
-
         require_once get_theme_file_path( '/includes/structure/navigation/menu.php' );
     }
 

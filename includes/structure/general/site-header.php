@@ -8,8 +8,8 @@
  * @author   Franklin Gitonga
  * @link     https://qazana.net/
  */
-
-if ( ! analytica_is_bool( analytica_get_option( 'header' ) ) && analytica_get_option( 'header' ) !== null ) {
+ 
+if ( ! analytica_header_is_active() ) {
     return;
 }
 
