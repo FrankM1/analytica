@@ -14,6 +14,71 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Retrieve Post Thumbnail ID.
+ *
+ * @since 1.0.0
+ *
+ * @param int|null $post_id Optional. Post ID.
+ * @return mixed
+ */
+function analytica_get_post_thumbnail_id( $post_id = null ) {
+
+    $post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
+    $post_thumbnail_id = get_post_meta( $post_id, '_thumbnail_id', true );
+
+    /**
+     * Filter the image id result.
+     *
+     * @since 1.0.0
+     *
+     * @param int  $post_thumbnail_id     The featured image id
+     * @param int  $post_id         the parent id
+     */
+    return apply_filters( __FUNCTION__, $post_thumbnail_id, $post_id );
+}
+
+/**
+ * Get an attachment ID given a URL.
+ *
+ * @param string $url
+ *
+ * @return int Attachment ID on success, 0 on failure
+ */
+function analytica_get_attachment_id_from_url( $url ) {
+	$attachment_id = 0;
+	$dir = wp_upload_dir();
+	if ( false !== strpos( $url, $dir['baseurl'] . '/' ) ) { // Is URL in uploads directory?
+		$file = basename( $url );
+		$query_args = array(
+			'post_type'   => 'attachment',
+			'post_status' => 'inherit',
+			'fields'      => 'ids',
+			'meta_query'  => array(
+				array(
+					'value'   => $file,
+					'compare' => 'LIKE',
+					'key'     => '_wp_attachment_metadata',
+				),
+			)
+		);
+		$query = new WP_Query( $query_args );
+		if ( $query->have_posts() ) {
+			foreach ( $query->posts as $post_id ) {
+				$meta = wp_get_attachment_metadata( $post_id );
+				$original_file       = basename( $meta['file'] );
+				$cropped_image_files = wp_list_pluck( $meta['sizes'], 'file' );
+				if ( $original_file === $file || in_array( $file, $cropped_image_files ) ) {
+					$attachment_id = $post_id;
+					break;
+				}
+			}
+		}
+	}
+	return $attachment_id;
+}
+
+
+/**
  * Foreground Color
  *
  * @param  string $hex Color code in HEX format.

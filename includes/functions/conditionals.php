@@ -48,10 +48,10 @@ function analytica_header_is_active() {
   *
   * @return boolean
   */
- function analytica_is_page_header_available() {
+ function analytica_is_hero_available() {
      $retval = true;
 
-     $option = analytica_get_option( 'page_header_enable', 'on' );
+     $option = analytica_get_option( 'hero_enable', 'on' );
 
      if ( ! analytica_is_bool( $option ) ) {
          $retval = false;
@@ -62,11 +62,11 @@ function analytica_header_is_active() {
          $retval = true;
      }
 
-     if ( is_singular( 'post' ) && ! analytica_get_option( 'show_page_header_on_posts' ) ) {
+     if ( is_singular( 'post' ) && ! analytica_get_option( 'show_hero_on_posts' ) ) {
          $retval = false;
      }
 
-     if ( is_archive() && ! analytica_get_option( 'show_page_header_on_post_archives' ) ) {
+     if ( is_archive() && ! analytica_get_option( 'show_hero_on_post_archives' ) ) {
          $retval = false;
      }
 

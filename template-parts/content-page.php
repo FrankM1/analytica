@@ -16,13 +16,6 @@
 
 	<?php do_action( 'analytica_entry_top' ); ?>
 
-	<header class="entry-header <?php analytica_entry_header_class(); ?>">
-
-		<?php analytica_get_post_thumbnail(); ?>
-
-		<?php analytica_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
-
 	<div class="entry-content clear" itemprop="text">
 
 		<?php do_action( 'analytica_entry_content_before' ); ?>

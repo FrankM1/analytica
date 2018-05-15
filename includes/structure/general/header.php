@@ -276,21 +276,26 @@ function analytica_site_header_description() {
     echo analytica_sanitize_html( $output ); // WPCS: XSS ok.
 }
 
-//add_action( 'template_redirect', 'analytica_page_header_support' );
+add_action( 'template_redirect', 'analytica_hero_support' );
 /**
  * Page header support.
  *
  * @since 1.0.0
  */
-function analytica_page_header_support() {
-    if ( ! is_singular( 'page' ) ) {
-        \Analytica\Core::instance()->page_header = new \Analytica\Post_Header();
-    } else {
-        \Analytica\Core::instance()->page_header = new \Analytica\Page_Header();
+function analytica_hero_support() {
+    if ( ! analytica_is_hero_available() ) {
+        return;
     }
+
+    if ( ! is_singular( 'page' ) || is_home() ) {
+       // return Analytica\Core::instance()->hero = new \Analytica\Post_Header();
+        return;
+    }
+
+    \Analytica\Core::instance()->hero = new \Analytica\Page_Hero();
 }
 
-//add_action( 'analytica_before_content_sidebar_wrap', 'analytica_do_page_header', 2 );
+add_action( 'analytica_primary_content_top', 'analytica_do_hero', 2 );
 /**
  * Echo the default header, including the #title-area div, along with #title and #description, as well as the .widget-area.
  *
@@ -298,8 +303,10 @@ function analytica_page_header_support() {
  *
  * @since 1.0.0
  */
-function analytica_do_page_header() {
-    if ( analytica_is_page_header_available() ) {
-        \Analytica\Core::instance()->page_header->do_header();
+function analytica_do_hero() {
+    if ( ! analytica_is_hero_available() ) {
+        return;
     }
+
+    \Analytica\Core::instance()->hero->do_header();
 }

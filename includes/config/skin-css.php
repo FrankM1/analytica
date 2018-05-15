@@ -37,9 +37,7 @@ class Dynamic_CSS {
         $accent_color                       = analytica_get_option( 'accent-color' );
         $footer_border                      = analytica_get_option( 'site-footer-border' );
         $footer_colophon_border             = analytica_get_option( 'footer-colophon-border' );
-        $offset                             = intval( analytica_get_option( 'site_layout_offset' ) );
-        $single_post_image_size             = analytica_get_option( 'single_post_image_size' );
-        $single_post_image_size_full_width  = analytica_get_option( 'single_post_image_size_full_width' );
+        $offset                             = intval( analytica_get_option( 'site-layout-offset' ) );
         $single_post_site_container_width   = intval( analytica_get_option( 'single-post-site-container-width' ) );
         $single_post_site_sidebar_width     = intval( analytica_get_option( 'single-post-site-sidebar-width' ) );
         $site_container_width               = intval( analytica_get_option( 'site-content-width' ) );
@@ -106,8 +104,6 @@ class Dynamic_CSS {
         $css .= '.site-widgets-style-4 .section-title .widget-title:after, .site-widgets-style-8 .section-title .widget-title span:after { background-color: ' . $accent_color . '; }';
         $css .= '.site-widgets-style-5 .section-title .widget-title, .site-widgets-style-6 .section-title .widget-title { border-left-color: ' . $accent_color . '; }';
         $css .= '.archive-pagination .active a { border-color: ' . $accent_color . '; color: ' . $accent_color . '; }';
-
-        analytica_write_log( $css );
 
         return $css;
     }

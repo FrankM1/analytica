@@ -114,9 +114,51 @@ class Options
             'header-scripts' => '',
 
             // General
-            'site_layout_offset' => '0',
+            'site-layout-offset' => '0',
             'site-description' => 0,
-            'accent-color' => '#3452ff',
+            'accent-color' => '#4f02b3',
+
+            // Page Header
+            'hero_enable'               => 'on',
+            'hero_custom_height'        => 350,
+            'hero_custom_mobile_height' => 200,
+            'hero_text_alignment'       => 'text-center',
+            'hero_breadcrumbs'  => 'on',
+            'hero_title'  => 'on',
+            'hero_enable_subtitle'  => 'on',
+            'hero_bg_color'             => '',
+            'hero_bg_color_base'        => 'light',
+            'hero_bg_overlay_color'     => 'rgba(10, 10, 10, 1)',
+            'hero_bg_img'               => analytica()->theme_url . '/assets/frontend/images/defaults/page-header-bg-purple.jpg',
+            'hero_bg_img_enable'        => 'on',
+            'hero_bg_img_inherit'       => true,
+            'hero_bg_img_position'      => 'center center',
+            'hero_background_size'      => 'cover',
+            'hero_bg_fixed'             => '',
+            'hero_bg_repeat'            => 'no-repeat',
+            'hero_font_h1'              => [
+                'font-family'    => $secondary['font-family'],
+                'variant'        => 'regular',
+                'font-size'      => '52px',
+                'line-height'    => '1.5',
+                'letter-spacing' => '0',
+                'color'          => '#ffffff',
+                'text-transform' => 'none',
+                'variant'        => 'regular',
+            ],
+
+            'hero_font_h3' => [
+                'font-family'    => $secondary['font-family'],
+                'variant'        => 'regular',
+                'font-size'      => '24px',
+                'line-height'    => '1.5',
+                'letter-spacing' => '0',
+                'color'          => '#ffffff',
+                'text-transform' => 'none',
+            ],
+
+            'show_hero_on_posts'         => true,
+            'show_hero_on_post_archives' => true,
 
             // Typography
             'font-base' => [
@@ -266,6 +308,7 @@ class Options
                 'category',
                 'author',
             ),
+            
             // Blog.
             'blog-post-structure' => array(
                 'image',
@@ -293,8 +336,13 @@ class Options
             'button-radius' => 2,
             'button-v-padding' => 10,
             'button-h-padding' => 40,
-        )
-        );
+
+            //// REMOVE
+            'footer-sml-layout' => 40,
+            'site-sidebar-layout' => '',
+            'single-page-sidebar-layout' => '',
+            'archive-post-sidebar-layout' => '',
+        ));
     }
 
     /**

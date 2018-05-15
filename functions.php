@@ -173,6 +173,7 @@ class Core {
         // Setup theme Options name - it's not recommended that you change this, if you do you will looses theme option settings and you will need to resave them
         $this->option_name = $this->theme_slug . '_options';  // Theme_options name
         $this->options = get_option( $this->option_name );  // get theme options so we don't run it all the time
+        $this->hero = new stdClass();  // get theme options so we don't run it all the time
     }
 
     /**
@@ -276,13 +277,13 @@ class Core {
 
         require_once get_theme_file_path( '/includes/config/customizer/01-general.php' );
         require_once get_theme_file_path( '/includes/config/customizer/02-site-header.php' );
+        require_once get_theme_file_path( '/includes/config/customizer/03-site-hero.php' );
         require_once get_theme_file_path( '/includes/config/customizer/04-site-footer.php' );
         require_once get_theme_file_path( '/includes/config/customizer/05-typography.php' );
         require_once get_theme_file_path( '/includes/config/customizer/06-blog.php' );
         // require_once get_theme_file_path( '/includes/config/customizer/07-blog-single.php' );
         require_once get_theme_file_path( '/includes/config/customizer/90-utilities.php' );
 
-        // require_once get_theme_file_path( '/includes/config/customizer/03-page-header.php' );
         // require_once get_theme_file_path( '/includes/config/customizer/08-breadcrumbs.php' );
     }
 
@@ -301,6 +302,7 @@ class Core {
         require_once get_theme_file_path( '/includes/structure/general/site-loop.php' );
         require_once get_theme_file_path( '/includes/structure/general/site-footer.php' );
         require_once get_theme_file_path( '/includes/structure/general/site-header.php' );
+        require_once get_theme_file_path( '/includes/structure/pages/hero.php' );
     }
 
     function _include_menus() {

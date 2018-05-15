@@ -15,8 +15,10 @@ add_filter( 'analytica_customizer_controls', 'analytica_add_typography_controls'
  * @param [type] $controls [description]
  */
 function analytica_add_typography_controls( $controls ) {
+    
     $base = analytica_get_option( 'font-base' );
     $secondary = analytica_get_option( 'font-secondary-base' );
+    
     $default    = Analytica\Options::defaults();
 
     $controls[] = [
@@ -243,8 +245,8 @@ function analytica_add_typography_controls( $controls ) {
     $controls[] = [
         'label'     => esc_html__( 'Form Legend', 'energia' ),
         'desc'      => esc_html__( 'The font for form legend.', 'energia' ),
-        'id'        => 'font_form_legend',
-        'default'   => $default['font_form_legend'],
+        'id'        => 'font-form-legend',
+        'default'   => $default['font-form-legend'],
         'type'      => 'typography',
         'section'   => 'forms_typography',
         'transport' => 'auto',
