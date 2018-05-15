@@ -21,7 +21,7 @@
 
      $new_controls = [
         [
-            'id'      => 'css_print_method',
+            'id'      => 'css-print-method',
             'section' => 'utilities',
             'type'    => 'radio-buttonset',
             'title'   => esc_html__( 'CSS Print Method' , 'energia' ),
@@ -33,7 +33,7 @@
         ],
 
         [
-            'id' => 'settings_update_time',
+            'id' => 'settings-update-time',
             'title'   => 'Time',
             'type' => 'hidden',
             'sanitize_callback' => 'time',

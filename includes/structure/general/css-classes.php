@@ -80,12 +80,12 @@ function analytica_site_layout_body_class( $classes ) {
  */
 function analytica_get_header_class( $class = '' ) {
 
-    $header_align_option = analytica_get_option( 'header-menu-layout', 'header-logo-left' );
-    $header_sticky_option = analytica_get_option( 'header-sticky' );
-    $header_overlay_option = analytica_get_option( 'header-overlay' );
-    $header_transparent_option = analytica_get_option( 'header-transparent' );
-    $header_full_width_option = analytica_get_option( 'header-width' );
+    $header_align_option = analytica_get_option( 'header-menu-layout' );
     $header_background_color_option = analytica_get_option( 'header-background-color' );
+    $header_full_width_option = analytica_get_option( 'header-width' );
+    $header_overlay_option = analytica_get_option( 'header-overlay' );
+    $header_sticky_option = analytica_get_option( 'header-sticky' );
+    $header_transparent_option = analytica_get_option( 'header-transparent' );
 
     $classes = array();
 

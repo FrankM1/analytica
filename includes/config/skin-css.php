@@ -34,20 +34,17 @@ class Dynamic_CSS {
      * @since 1.0.0
      */
     function add_container_css( $css ) {
-        $accent_color                       = analytica_get_option( 'accent_color' );
+        $accent_color                       = analytica_get_option( 'accent-color' );
         $footer_border                      = analytica_get_option( 'site-footer-border' );
         $footer_colophon_border             = analytica_get_option( 'footer-colophon-border' );
         $offset                             = intval( analytica_get_option( 'site_layout_offset' ) );
-        $site_container_width               = intval( analytica_get_option( 'site-content-width' ) );
-        $site_sidebar_width                 = intval( analytica_get_option( 'site_sidebar_width' ) );
-        $single_post_site_container_width   = intval( analytica_get_option( 'single_post_site_container_width' ) );
-        $single_post_site_sidebar_width     = intval( analytica_get_option( 'single_post_site_sidebar_width' ) );
-
-        $content_archive_image_size           = analytica_get_option( 'content_archive_image_size' );
-        $content_archive_image_size_full_width = analytica_get_option( 'content_archive_image_size_full_width' );
         $single_post_image_size             = analytica_get_option( 'single_post_image_size' );
         $single_post_image_size_full_width  = analytica_get_option( 'single_post_image_size_full_width' );
-    
+        $single_post_site_container_width   = intval( analytica_get_option( 'single-post-site-container-width' ) );
+        $single_post_site_sidebar_width     = intval( analytica_get_option( 'single-post-site-sidebar-width' ) );
+        $site_container_width               = intval( analytica_get_option( 'site-content-width' ) );
+        $site_sidebar_width                 = intval( analytica_get_option( 'site-sidebar-width' ) );
+
         $css .= '@media (min-width: 1200px) {';
             if ( $site_container_width > 0 ) {
                 $css .= '.ast-container { width:' . esc_attr( $site_container_width ) . 'px;}';

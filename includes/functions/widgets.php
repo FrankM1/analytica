@@ -193,7 +193,7 @@ add_action( 'after_setup_theme', 'analytica_register_footer_widget_areas' );
  */
 function analytica_register_footer_widget_areas() {
 
-    $layout = analytica_get_option( 'site_footer_layout' );
+    $layout = analytica_get_option( 'site-footer-layout' );
 
     switch ( $layout ) {
 

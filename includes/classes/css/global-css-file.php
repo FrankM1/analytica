@@ -64,7 +64,7 @@ class Global_CSS_File extends CSS_File {
 	protected function is_update_required() {
 		$file_last_updated = $this->get_meta( 'time' );
 
-		$analytica_settings_last_updated = analytica_get_option( 'settings_update_time' );
+		$analytica_settings_last_updated = analytica_get_option( 'settings-update-time' );
 
 		if ( $file_last_updated < $analytica_settings_last_updated ) {
 			return true;

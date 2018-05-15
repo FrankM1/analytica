@@ -38,11 +38,11 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
      ];
 
     $controls[] = [
-        'id'      => 'site_sidebar_width',
+        'id'      => 'site-sidebar-width',
         'section' => 'general_settings',
         'label'   => esc_html__( 'Site sidebar width', 'energia' ),
         'type'    => 'number',
-        'default' => $default['site_sidebar_width'],
+        'default' => $default['site-sidebar-width'],
         'conditions' => [
             [
                 'setting'  => 'site_sidebar_enable',
@@ -124,11 +124,11 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
     ];
 
     $controls[] = [
-        'id'      => 'site_description',
+        'id'      => 'site-description',
         'type'    => 'switch',
         'section' => 'logo_favicon',
         'label'   => esc_html__( 'Enable Site description', 'analytica' ),
-        'default' => $default['site_description'],
+        'default' => $default['site-description'],
         'options' => [
             1 => esc_attr__( 'Enable', 'analytica' ),
             0 => esc_attr__( 'Disable', 'analytica' ),

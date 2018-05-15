@@ -346,7 +346,7 @@ function analytica_get_post_thumbnail( $before = '', $after = '', $echo = true )
 
     $featured_image = true;
 
-    $is_featured_image = analytica_get_option( 'ast-featured-img' );
+    $is_featured_image = analytica_get_option( 'featured-image' );
 
     if ( 'disabled' === $is_featured_image ) {
         $featured_image = false;

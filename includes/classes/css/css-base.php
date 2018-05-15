@@ -52,7 +52,7 @@ abstract class CSS_File {
 	 * @access protected
 	 */
 	protected function use_external_file() {
-        return 'internal' !== analytica_get_option( 'css_print_method' );
+        return 'internal' !== analytica_get_option( 'css-print-method' );
 	}
 
 	public function update() {

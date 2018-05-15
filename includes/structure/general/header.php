@@ -186,7 +186,7 @@ add_action( 'wp_head', 'analytica_rel_publisher' );
  */
 function analytica_rel_publisher() {
 
-    if ( is_front_page() && $publisher_url = analytica_get_option( 'publisher_uri', false ) ) {
+    if ( is_front_page() && $publisher_url = analytica_get_option( 'publisher-uri' ) ) {
         printf( '<link rel="publisher" href="%s" />', esc_url( $publisher_url ) );
     }
 
@@ -261,7 +261,7 @@ add_action( 'analytica_site_description', 'analytica_site_header_description' );
  */
 function analytica_site_header_description() {
 
-    if ( ! analytica_get_option( 'site_description', false ) ) {
+    if ( ! analytica_get_option( 'site-description' ) ) {
         return;
     }
 

@@ -120,7 +120,7 @@ class Analytica_Meta_Boxes {
                     'default'  => 'default',
                     'sanitize' => 'FILTER_DEFAULT',
                 ),
-                'ast-featured-img'        => array(
+                'featured-image'        => array(
                     'sanitize' => 'FILTER_DEFAULT',
                 ),
             )
@@ -193,7 +193,7 @@ class Analytica_Meta_Boxes {
         $footer_bar          = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
         $footer_widgets      = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
         $primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
-        $ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
+        $ast_featured_img    = ( isset( $meta['featured-image']['default'] ) ) ? $meta['featured-image']['default'] : '';
 
         $show_meta_field = ! Analytica_Meta_Boxes::is_bb_themer_layout();
         do_action( 'analytica_meta_box_markup_before', $meta );

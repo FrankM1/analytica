@@ -101,7 +101,7 @@ function analytica_footer_widget_areas() {
     }
 
     // Get footer layout
-    $layout = analytica_get_option( 'site_footer_layout' );
+    $layout = analytica_get_option( 'site-footer-layout' );
     $container_class = analytica_get_option( 'footer-width' ) ? 'full-width' : 'ast-container';
 
     $inside = '';

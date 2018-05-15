@@ -91,7 +91,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'      => 'site_footer_layout',
+            'id'      => 'site-footer-layout',
             'section' => 'footer_general',
             'type'    => 'radio-image',
             'label'   => esc_html__( 'Footer Layout', 'analytica' ),
