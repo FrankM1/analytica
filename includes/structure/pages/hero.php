@@ -34,7 +34,7 @@ class Page_Hero {
         $this->color_base      = analytica_get_option( 'hero_bg_color_base', 'light' );
         $this->hero_title    = analytica_get_option( 'hero_title' );
         $this->hero_subtitle = analytica_get_option( 'hero_enable_subtitle' );
-        $this->height          = is_singular( 'portfolio' ) ? analytica_get_option( 'hero_portfolio_custom_height' ) : analytica_get_option( 'hero_custom_height', 300 );
+        $this->height          = analytica_get_option( 'hero_custom_height', 300 );
         $this->height          = wp_is_mobile() ? 110 : $this->height;
         $this->full_height     = analytica_get_option( 'hero_full_height', '' );
         $this->full_height     = wp_is_mobile() ? 500 : $this->full_height;
