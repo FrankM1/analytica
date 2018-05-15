@@ -240,8 +240,8 @@ class Core {
         require_once get_theme_file_path( '/includes/classes/css/css-base.php' );
         require_once get_theme_file_path( '/includes/classes/css/global-css-file.php' );
         require_once get_theme_file_path( '/includes/classes/css/css-generate.php' );
-        require_once get_theme_file_path( '/includes/classes/customizer/kirki-integration.php' );
-        require_once get_theme_file_path( '/includes/classes/customizer/kirki-custom.php' );
+        require_once get_theme_file_path( '/includes/classes/customizer/customizer.php' );
+        require_once get_theme_file_path( '/includes/classes/customizer/functions.php' );
     }
 
     function _include_function() {

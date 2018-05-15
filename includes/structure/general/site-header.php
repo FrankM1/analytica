@@ -8,8 +8,8 @@
  * @author   Franklin Gitonga
  * @link     https://qazana.net/
  */
- 
-if ( ! analytica_header_is_active() ) {
+
+if ( ! analytica_header_is_active() && empty( get_theme_mod('header') ) ) {
     return;
 }
 
