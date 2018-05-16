@@ -35,6 +35,7 @@ class Dynamic_CSS {
      */
     function add_container_css( $css ) {
         $accent_color                       = analytica_get_option( 'accent-color' );
+        $site_header_color                  = analytica_get_option( 'header-background-color' );
         $footer_border                      = analytica_get_option( 'site-footer-border' );
         $footer_colophon_border             = analytica_get_option( 'footer-colophon-border' );
         $offset                             = intval( analytica_get_option( 'site-layout-offset' ) );
@@ -55,6 +56,10 @@ class Dynamic_CSS {
 
             if ( $offset && $offset > 0) {
                 $css .= '.site-boxed .site-container { margin-top: ' . esc_attr( $offset ) . 'px; margin-bottom: ' . esc_attr( $offset ) . 'px; }';
+            }
+
+            if ( $offset && $offset > 0) {
+                $css .= '.site-header .site-container { background-color: ' . esc_attr( $site_header_color ) . '; }';
             }
 
         $css .= '}';

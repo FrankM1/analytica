@@ -1,7 +1,10 @@
 // Page header
 // -------------------------
 .hero {
-    @include clearfix;
+    &:before,
+    &:after {
+        @include clearfix;
+    }
     position: relative;
     margin: 0;
     min-height: ( $grid-gutter-width * 2);
@@ -44,6 +47,7 @@
         display: flex;
         align-items: center;
         height: 100%;
+        padding: 2em;
         .page-title-inner {
             position: relative;
             width: 100%;

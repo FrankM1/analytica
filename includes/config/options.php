@@ -55,10 +55,15 @@ class Options
         ];
 
         return apply_filters('analytica_theme_defaults', array(
+            
             // General
             'css-print-method' => 'external',
             'settings-update-time' => '',
             'site-layout' => 'site-wide',
+            'site-layout-offset' => '0',
+            'site-description' => 0,
+            'accent-color' => '#4f02b3',
+
             // Site Layout.
             'site-layout' => 'analytica-full-width-layout',
             'site-content-width' => 1200,
@@ -71,6 +76,7 @@ class Options
                 'background-attachment' => 'scroll',
             ),
             // Container.
+            'site-detach-containers' => 'off',
             'site-content-layout' => 'content-boxed-container',
             'single-page-content-layout' => 'default',
             'single-post-content-layout' => 'default',
@@ -112,24 +118,20 @@ class Options
             'header-width' => 'layout-boxed',
             'header-menu-layout' => 'header-logo-left',
             'header-scripts' => '',
-
-            // General
-            'site-layout-offset' => '0',
-            'site-description' => 0,
-            'accent-color' => '#4f02b3',
-
+          
             // Page Header
             'hero_enable'               => 'on',
             'hero_custom_height'        => 350,
             'hero_custom_mobile_height' => 200,
             'hero_text_alignment'       => 'text-center',
             'hero_breadcrumbs'  => 'on',
-            'hero_title'  => 'on',
-            'hero_enable_subtitle'  => 'on',
+            'hero_show_title' => 'on',
+            'hero_show_subtitle' => 'on',
+            'hero_subtitle' => '',
             'hero_bg_color'             => '',
             'hero_bg_color_base'        => 'light',
             'hero_bg_overlay_color'     => 'rgba(10, 10, 10, 1)',
-            'hero_bg_img'               => analytica()->theme_url . '/assets/frontend/images/defaults/page-header-bg-purple.jpg',
+            'hero_bg_img'               => analytica()->theme_url . '/assets/frontend/images/defaults/hero-background.jpg',
             'hero_bg_img_enable'        => 'on',
             'hero_bg_img_inherit'       => true,
             'hero_bg_img_position'      => 'center center',
@@ -270,6 +272,7 @@ class Options
             'publisher-uri' => get_site_url(),
             'single-post-site-container-width' => '',
             'single-post-site-sidebar-width' => '',
+            'content_archive_all_posts_title' => esc_html__( 'Latest posts', 'energia' ),
 
             // Footer
             'footer' => 1,

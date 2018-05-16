@@ -25,19 +25,23 @@ add_filter( 'body_class', 'analytica_site_layout_body_class' );
  */
 function analytica_site_layout_body_class( $classes ) {
 
-    $classes[] = 'analytica-separate-container';
-
-    // Apply separate container class to the body.
-    $content_layout = analytica_get_content_layout();
-    if ( 'content-boxed-container' == $content_layout ) {
+    if ( analytica_is_bool( analytica_get_option( 'site-detach-containers' ) ) ) {
         $classes[] = 'analytica-separate-container';
-    } elseif ( 'boxed-container' == $content_layout ) {
-        $classes[] = 'analytica-separate-container analytica-two-container';
-    } elseif ( 'page-builder' == $content_layout ) {
-        $classes[] = 'analytica-page-builder-template';
-    } elseif ( 'plain-container' == $content_layout ) {
+    } else {
         $classes[] = 'analytica-plain-container';
     }
+
+    // // Apply separate container class to the body.
+    // $content_layout = analytica_get_content_layout();
+    // if ( 'content-boxed-container' == $content_layout ) {
+    //     $classes[] = 'analytica-separate-container';
+    // } elseif ( 'boxed-container' == $content_layout ) {
+    //     $classes[] = 'analytica-separate-container analytica-two-container';
+    // } elseif ( 'page-builder' == $content_layout ) {
+    //     $classes[] = 'analytica-page-builder-template';
+    // } elseif ( 'plain-container' == $content_layout ) {
+    //     $classes[] = 'analytica-plain-container';
+    // }
 
     // Sidebar location.
     $classes[]   = esc_attr( 'analytica-' . analytica_page_layout() );

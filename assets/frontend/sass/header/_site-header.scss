@@ -13,7 +13,7 @@
 .site-header .header-primary .analytica-container {
 	display: flex;
 	flex-direction: row;
-	padding: $grid-gutter-width-half $grid-gutter-width;
+	padding: $grid-gutter-width-half;
 	align-items: center;
 	@media (max-width: $screen-xs-min) {
         padding: 10px 0;

@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is a part of the Radium Framework core.
+ * This file is a part of the analytica Framework core.
  * Please be cautious editing this file,
  *
  * @category Analytica
@@ -32,8 +32,8 @@ class Page_Hero {
         $this->align           = analytica_get_option( 'hero_text_alignment', 'text-center' );
         $this->breadcrumbs     = analytica_get_option( 'hero_breadcrumbs' );
         $this->color_base      = analytica_get_option( 'hero_bg_color_base', 'light' );
-        $this->hero_title    = analytica_get_option( 'hero_title' );
-        $this->hero_subtitle = analytica_get_option( 'hero_enable_subtitle' );
+        $this->hero_show_title    = analytica_get_option( 'hero_show_title' );
+        $this->hero_show_subtitle = analytica_get_option( 'hero_show_subtitle' );
         $this->height          = analytica_get_option( 'hero_custom_height', 300 );
         $this->height          = wp_is_mobile() ? 110 : $this->height;
         $this->full_height     = analytica_get_option( 'hero_full_height', '' );
@@ -48,7 +48,7 @@ class Page_Hero {
         ];
         $this->image_active   = analytica_is_bool( analytica_get_option( 'hero_bg_img_enable', 'on' ) );
         $this->image_inherit  = analytica_get_option( 'hero_bg_img_inherit', true );
-        $this->hero_content = apply_filters( 'analytica_hero_content', array() );
+        $this->content = $this->content();
     }
 
     public function add_action() {
@@ -58,6 +58,95 @@ class Page_Hero {
         add_action( 'analytica_do_hero_content',            [ $this, 'do_breadcrumbs' ] );
         add_filter( 'analytica_style_inline',               [ $this, 'do_hero_css' ] );
         add_filter( 'analytica_attr_hero',                  [ $this, 'attributes_hero' ] );
+    }
+ 
+    /**
+     * get hero content.
+     *
+     * @since  1.0.0
+     */
+    function content() {
+        global $post;
+
+        $post_id = $post ? $post->ID : 0;
+
+        if ( is_archive() ) { // A few checks for archives
+
+            if ( is_tag() ) {
+
+                $header_title = sprintf( esc_html__( 'Tag: %s', 'energia' ), '<span>' . single_tag_title( '', false ) . '</span>' );
+
+                $tag_description = tag_description();
+
+                if ( ! empty( $tag_description ) ) {
+                    $header_subtitle = apply_filters( 'tag_archive_meta', '<div class="tag-archive-meta">' . $tag_description . '</div>' );
+                }
+
+            } elseif ( is_category() ) {
+
+                $header_title = '<span>' . single_cat_title( '', false ) . '</span>';
+
+                $category_description = category_description();
+
+                if ( ! empty( $category_description ) ) {
+                    $header_subtitle = apply_filters( 'category_archive_meta', '<div class="category-archive-meta">' . $category_description . '</div>' );
+                }
+            } elseif ( is_day() ) {
+                $header_title = sprintf( esc_html__( 'Daily: %s', 'energia' ), '<span>' . get_the_date() . '</span>' );
+            } elseif ( is_month() ) {
+                $header_title = sprintf( esc_html__( 'Monthly: %s', 'energia' ), '<span>' . get_the_date( esc_html_x( 'F Y', 'monthly archives date format', 'energia' ) ) .'</span>' );
+            } elseif ( is_year() ) {
+                $header_title = sprintf( esc_html__( 'Yearly: %s', 'energia' ), '<span>' . get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'energia' ) ) . '</span>' );
+            } elseif ( is_author() ) {
+                $header_title = esc_html__( 'Author: ', 'energia' ) . get_the_author();
+            } else {
+                $header_title = sprintf( esc_html__( 'Archive', 'energia' ) );
+            }
+
+        } elseif ( is_search() ) {
+
+            global $wp_query;
+            $number_of_results = $wp_query->found_posts;
+
+            $header_title = '<span class="search-results-icon">' . analytica_get_ui_icons( 'search' ) . '</span>' . sprintf( esc_html__( 'Found %s results for: &ldquo;%s&rdquo;', 'energia' ), $number_of_results, get_search_query() );
+
+        } elseif ( 'post' == get_post_type() && (is_front_page() || ( get_option( 'show_on_front' ) == 'posts' && is_singular( 'post' ) ) ) ) {
+            
+            $header_title = analytica_get_option( 'content_archive_all_posts_title' );
+        
+        } elseif ( 'post' == get_post_type() ) {
+
+            // Get Blog Post Page ID, extract and show the title
+            $blog = get_post( get_option( 'page_for_posts' ) );
+
+            $header_title = $blog->post_title;
+
+        } elseif ( 'page' == get_post_type() && is_front_page() ) {
+
+            // Get Frontpage Page ID, extract and show the title
+            $frontpage = get_post( get_option( 'page_on_front' ) );
+
+            $header_title = $frontpage->post_title;
+
+        } else {
+
+            $header_title = get_the_title( $post_id );
+
+        }
+
+        if ( 'post' == get_post_type() && is_single() ) {
+            $header_title = esc_html__( 'Post', 'energia' );
+        }
+
+        $title = apply_filters( 'analytica_hero_title', $header_title );
+        $subtitle = apply_filters( 'analytica_hero_subtitle', analytica_get_option( 'hero_subtitle' ) );
+
+        $header = array(
+            'title' => $title,
+            'subtitle' => $subtitle,
+        );
+
+        return $header;
     }
 
     public function get_post_image_data( $image_id ) {
@@ -205,14 +294,14 @@ class Page_Hero {
     }
 
     public function do_title() {
-        if ( $this->hero_title !== 'off' && ! empty( $this->hero_content['title'] ) ) {
-            ?><h1 class = "header"><?php echo $this->hero_content['title'];  // WPCS: XSS ok. ?></h1><?php
+        if ( $this->hero_show_title !== 'off' && ! empty( $this->content['title'] ) ) {
+            ?><h1 class = "header"><?php echo $this->content['title'];  // WPCS: XSS ok. ?></h1><?php
         }
     }
 
     public function do_subtitle() {
-        if ( ! empty( $this->hero_content['subtitle'] ) && $this->hero_subtitle !== 'off' ) {
-            ?><h3 class = "subheader"><?php echo $this->hero_content['subtitle'];  // WPCS: XSS ok. ?></h3><?php
+        if ( ! empty( $this->content['subtitle'] ) && $this->hero_show_subtitle !== 'off' ) {
+            ?><h3 class = "subheader"><?php echo $this->content['subtitle'];  // WPCS: XSS ok. ?></h3><?php
         }
     }
 
@@ -291,7 +380,7 @@ class Page_Hero {
 
         if ( $this->height ) {
             $css_rules .= '@media only screen and (min-width: 768px) {';
-            $css_rules .= '.hero, .hero .hero-wrapper { min-height: ' . esc_attr( preg_replace( '/[^0-9,.-]/', '', $this->height ) ) . 'px; }';
+                $css_rules .= '.hero, .hero .hero-wrapper { min-height: ' . esc_attr( preg_replace( '/[^0-9,.-]/', '', $this->height ) ) . 'px; }';
             $css_rules .= '}';
         }
 

@@ -283,19 +283,10 @@ add_action( 'template_redirect', 'analytica_hero_support' );
  * @since 1.0.0
  */
 function analytica_hero_support() {
-    if ( ! analytica_is_hero_available() ) {
-        return;
-    }
-
-    if ( ! is_singular( 'page' ) || is_home() ) {
-       // return Analytica\Core::instance()->hero = new \Analytica\Post_Header();
-        return;
-    }
-
     \Analytica\Core::instance()->hero = new \Analytica\Page_Hero();
 }
 
-add_action( 'analytica_primary_content_top', 'analytica_do_hero', 2 );
+add_action( 'analytica_content_top', 'analytica_do_hero', 2 );
 /**
  * Echo the default header, including the #title-area div, along with #title and #description, as well as the .widget-area.
  *
