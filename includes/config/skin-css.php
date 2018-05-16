@@ -45,12 +45,12 @@ class Dynamic_CSS {
 
         $css .= '@media (min-width: 1200px) {';
             if ( $site_container_width > 0 ) {
-                $css .= '.ast-container { width:' . esc_attr( $site_container_width ) . 'px;}';
+                $css .= '.analytica-container { width:' . esc_attr( $site_container_width ) . 'px;}';
                 $css .= '.site-boxed .site-container, .site-boxed .site-footer, .site-boxed .container, .site-boxed .site-inner, .site-boxed .site-colophon.has-container { max-width: ' . esc_attr( $site_container_width ) . 'px; }';
             }
 
             if ( $single_post_site_container_width > 0 ) {
-                $css .= '.site-boxed.single-post.full-width-content .site-inner .ast-container, .single-post.full-width-content .site-inner .ast-container, .single-attachment .site-inner .ast-container { width: ' . esc_attr( $single_post_site_container_width ) . 'px; }';
+                $css .= '.site-boxed.single-post.full-width-content .site-inner .analytica-container, .single-post.full-width-content .site-inner .analytica-container, .single-attachment .site-inner .analytica-container { width: ' . esc_attr( $single_post_site_container_width ) . 'px; }';
             }
 
             if ( $offset && $offset > 0) {
@@ -208,7 +208,7 @@ class Dynamic_CSS {
          * - Variable Declaration
          */
         $site_content_width = analytica_get_option( 'site-content-width', 1200 );
-        $header_logo_width  = analytica_get_option( 'ast-header-responsive-logo-width' );
+        $header_logo_width  = analytica_get_option( 'analytica-header-responsive-logo-width' );
 
      
         // Color Options.
@@ -301,7 +301,7 @@ class Dynamic_CSS {
             '.analytica-logo-svg'                         => array(
                 'width' => analytica_get_css_value( $header_logo_width['desktop'], 'px' ),
             ),
-            '.ast-archive-description .ast-archive-title' => array(
+            '.analytica-archive-description .analytica-archive-title' => array(
                 'font-size' => analytica_responsive_font( $archive_summary_title_font_size, 'desktop' ),
             ),
             '.site-header .site-description'          => array(
@@ -313,10 +313,10 @@ class Dynamic_CSS {
             '.comment-reply-title'                    => array(
                 'font-size' => analytica_get_font_css_value( (int) $body_font_size_desktop * 1.66666 ),
             ),
-            '.ast-comment-list #cancel-comment-reply-link' => array(
+            '.analytica-comment-list #cancel-comment-reply-link' => array(
                 'font-size' => analytica_responsive_font( $body_font_size, 'desktop' ),
             ),
-            '.ast-single-post .entry-title, .page-title' => array(
+            '.analytica-single-post .entry-title, .page-title' => array(
                 'font-size' => analytica_responsive_font( $single_post_title_font_size, 'desktop' ),
             ),
             '#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
@@ -350,30 +350,30 @@ class Dynamic_CSS {
             ),
 
             // Single Post Meta.
-            '.ast-comment-meta'                       => array(
+            '.analytica-comment-meta'                       => array(
                 'line-height' => '1.666666667',
                 'font-size'   => analytica_get_font_css_value( (int) $body_font_size_desktop * 0.8571428571 ),
             ),
-            '.single .nav-links .nav-previous, .single .nav-links .nav-next, .single .ast-author-details .author-title, .ast-comment-meta' => array(
+            '.single .nav-links .nav-previous, .single .nav-links .nav-next, .single .analytica-author-details .author-title, .analytica-comment-meta' => array(
                 'color' => esc_attr( $link_color ),
             ),
 
             // Button Typography.
-            '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+            '.menu-toggle, button, .analytica-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
                 'border-radius'    => analytica_get_css_value( $btn_border_radius, 'px' ),
                 'padding'          => analytica_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . analytica_get_css_value( $btn_horizontal_padding, 'px' ),
                 'color'            => esc_attr( $btn_text_color ),
                 'border-color'     => esc_attr( $btn_bg_color ),
                 'background-color' => esc_attr( $btn_bg_color ),
             ),
-            '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+            '.menu-toggle, button, .analytica-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
                 'border-radius'    => analytica_get_css_value( $btn_border_radius, 'px' ),
                 'padding'          => analytica_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . analytica_get_css_value( $btn_horizontal_padding, 'px' ),
                 'color'            => esc_attr( $btn_text_color ),
                 'border-color'     => esc_attr( $btn_bg_color ),
                 'background-color' => esc_attr( $btn_bg_color ),
             ),
-            'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
+            'button:focus, .menu-toggle:hover, button:hover, .analytica-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
                 'color'            => esc_attr( $btn_text_hover_color ),
                 'border-color'     => esc_attr( $btn_bg_hover_color ),
                 'background-color' => esc_attr( $btn_bg_hover_color ),
@@ -398,7 +398,7 @@ class Dynamic_CSS {
             ),
 
             // 404 Page.
-            '.ast-404-layout-1 .ast-404-text'         => array(
+            '.analytica-404-layout-1 .analytica-404-text'         => array(
                 'font-size' => analytica_get_font_css_value( '200' ),
             ),
 
@@ -410,7 +410,7 @@ class Dynamic_CSS {
             '#cat option, .secondary .calendar_wrap thead a, .secondary .calendar_wrap thead a:visited' => array(
                 'color' => esc_attr( $link_color ),
             ),
-            '.secondary .calendar_wrap #today, .ast-progress-val span' => array(
+            '.secondary .calendar_wrap #today, .analytica-progress-val span' => array(
                 'background' => esc_attr( $link_color ),
             ),
             '.secondary a:hover + .post-count, .secondary a:focus + .post-count' => array(
@@ -422,10 +422,10 @@ class Dynamic_CSS {
             ),
 
             // Pagination.
-            '.ast-pagination a, .page-links .page-link, .single .post-navigation a' => array(
+            '.analytica-pagination a, .page-links .page-link, .single .post-navigation a' => array(
                 'color' => esc_attr( $link_color ),
             ),
-            '.ast-pagination a:hover, .ast-pagination a:focus, .ast-pagination > span:hover:not(.dots), .ast-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
+            '.analytica-pagination a:hover, .analytica-pagination a:focus, .analytica-pagination > span:hover:not(.dots), .analytica-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
                 'color' => esc_attr( $link_hover_color ),
             ),
         );
@@ -435,7 +435,7 @@ class Dynamic_CSS {
 
         /* Width for Comments for Full Width / Stretched Template */
         $page_builder_comment = array(
-            '.ast-page-builder-template .comments-area, .single.ast-page-builder-template .entry-header, .single.ast-page-builder-template .post-navigation' => array(
+            '.analytica-page-builder-template .comments-area, .single.analytica-page-builder-template .entry-header, .single.analytica-page-builder-template .post-navigation' => array(
                 'max-width'    => analytica_get_css_value( $site_content_width + 40, 'px' ),
                 'margin-left'  => 'auto',
                 'margin-right' => 'auto',
@@ -454,7 +454,7 @@ class Dynamic_CSS {
                         'font-size' => analytica_get_font_css_value( (int) $body_font_size['tablet'] * 1.66666, 'px', 'tablet' ),
                     ),
                     // Single Post Meta.
-                    '.ast-comment-meta'    => array(
+                    '.analytica-comment-meta'    => array(
                         'font-size' => analytica_get_font_css_value( (int) $body_font_size['tablet'] * 0.8571428571, 'px', 'tablet' ),
                     ),
                     // Widget Title.
@@ -466,7 +466,7 @@ class Dynamic_CSS {
 
         /* Site width Responsive */
         $site_width = array(
-            '.ast-container' => array(
+            '.analytica-container' => array(
                 'max-width' => analytica_get_css_value( $site_content_width + 40, 'px' ),
             ),
         );
@@ -492,7 +492,7 @@ class Dynamic_CSS {
         /* Blog */
         if ( 'custom' === $blog_width ) :
             $blog_css          = '@media (min-width:769px) {';
-                $blog_css     .= '.blog .site-content > .ast-container, .archive .site-content > .ast-container, .search .site-content > .ast-container{';
+                $blog_css     .= '.blog .site-content > .analytica-container, .archive .site-content > .analytica-container, .search .site-content > .analytica-container{';
                     $blog_css .= 'max-width:' . esc_attr( $blog_max_width ) . 'px;';
                 $blog_css     .= '}';
             $blog_css         .= '}';
@@ -502,7 +502,7 @@ class Dynamic_CSS {
         /* Single Blog */
         if ( 'custom' === $single_post_max ) :
                 $single_blog_css  = '@media (min-width:769px) {';
-                $single_blog_css .= '.single-post .site-content > .ast-container{';
+                $single_blog_css .= '.single-post .site-content > .analytica-container{';
                 $single_blog_css .= 'max-width:' . esc_attr( $single_post_max_width ) . 'px;';
                 $single_blog_css .= '}';
                 $single_blog_css .= '}';
@@ -512,7 +512,7 @@ class Dynamic_CSS {
         /* 404 Page */
         $parse_css .= $this->parse_css(
             array(
-                '.ast-404-layout-1 .ast-404-text' => array(
+                '.analytica-404-layout-1 .analytica-404-text' => array(
                     'font-size' => analytica_get_font_css_value( 100 ),
                 ),
             ), '', '920'

@@ -28,7 +28,7 @@ global $wp_customize;
 	// $wp_customize->add_control(
 	// 	new Kirki_Sortable(
 	// 		$wp_customize, \Analytica\Core::instance()->theme_slug . '[blog-single-post-structure]', array(
-	// 			'type'     => 'ast-sortable',
+	// 			'type'     => 'analytica-sortable',
 	// 			'section'  => 'section-blog-single',
 	// 			'priority' => 5,
 	// 			'label'    => __( 'Single Post Structure', 'astra' ),
@@ -53,7 +53,7 @@ global $wp_customize;
 	// $wp_customize->add_control(
 	// 	new Kirki_Sortable(
 	// 		$wp_customize, \Analytica\Core::instance()->theme_slug . '[blog-single-meta]', array(
-	// 			'type'     => 'ast-sortable',
+	// 			'type'     => 'analytica-sortable',
 	// 			'section'  => 'section-blog-single',
 	// 			'priority' => 5,
 	// 			'label'    => __( 'Single Post Meta', 'astra' ),
@@ -73,8 +73,8 @@ global $wp_customize;
 	//  */
 	// $wp_customize->add_control(
 	// 	new Kirki_Divider(
-	// 		$wp_customize, \Analytica\Core::instance()->theme_slug . '[ast-styling-section-single-blog-layouts]', array(
-	// 			'type'     => 'ast-divider',
+	// 		$wp_customize, \Analytica\Core::instance()->theme_slug . '[analytica-styling-section-single-blog-layouts]', array(
+	// 			'type'     => 'analytica-divider',
 	// 			'section'  => 'section-blog-single',
 	// 			'priority' => 10,
 	// 			'settings' => array(),
@@ -119,7 +119,7 @@ global $wp_customize;
 	// $wp_customize->add_control(
 	// 	new Kirki_Slider(
 	// 		$wp_customize, \Analytica\Core::instance()->theme_slug . '[blog-single-max-width]', array(
-	// 			'type'        => 'ast-slider',
+	// 			'type'        => 'analytica-slider',
 	// 			'section'     => 'section-blog-single',
 	// 			'priority'    => 20,
 	// 			'label'       => __( 'Enter Width', 'astra' ),
@@ -141,8 +141,8 @@ global $wp_customize;
 		//  */
 		// $wp_customize->add_control(
 		// 	new Kirki_Divider(
-		// 		$wp_customize, \Analytica\Core::instance()->theme_slug . '[ast-blog-single-more-feature-divider]', array(
-		// 			'type'     => 'ast-divider',
+		// 		$wp_customize, \Analytica\Core::instance()->theme_slug . '[analytica-blog-single-more-feature-divider]', array(
+		// 			'type'     => 'analytica-divider',
 		// 			'section'  => 'section-blog-single',
 		// 			'priority' => 25,
 		// 			'settings' => array(),
@@ -154,8 +154,8 @@ global $wp_customize;
 		 */
 		$wp_customize->add_control(
 			new Kirki_Description(
-				$wp_customize, \Analytica\Core::instance()->theme_slug . '[ast-blog-single-more-feature-description]', array(
-					'type'     => 'ast-description',
+				$wp_customize, \Analytica\Core::instance()->theme_slug . '[analytica-blog-single-more-feature-description]', array(
+					'type'     => 'analytica-description',
 					'section'  => 'section-blog-single',
 					'priority' => 25,
 					'label'    => '',

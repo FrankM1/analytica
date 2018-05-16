@@ -2,7 +2,7 @@
 //
 // Set the container width, and override it for fixed navbars in media queries.
 
-.ast-container {
+.analytica-container {
   @include make-container();
   @include make-container-max-widths();
 
@@ -14,7 +14,7 @@
 // Utilizes the mixin meant for fixed width containers, but without any defined
 // width for fluid, full width layouts.
 
-.ast-container-fluid {
+.analytica-container-fluid {
   @include make-container();
 }
 
@@ -24,7 +24,7 @@
 // Rows contain and clear the floats of your columns.
 
 @if $enable-grid-classes {
-  .ast-row {
+  .analytica-row {
     @include make-row();
   }
 }
@@ -49,8 +49,8 @@
 
   @each $breakpoint in map-keys($grid-breakpoints) {
     @include media-breakpoint-up($breakpoint) {
-      .ast-col-#{$breakpoint}-first { order: -1; }
-      .ast-col-#{$breakpoint}-last  { order: 1; }
+      .analytica-col-#{$breakpoint}-first { order: -1; }
+      .analytica-col-#{$breakpoint}-last  { order: 1; }
     }
   }
 
@@ -58,9 +58,9 @@
 
   @each $breakpoint in map-keys($grid-breakpoints) {
     @include media-breakpoint-up($breakpoint) {
-      .ast-row-#{$breakpoint}-top    { align-items: flex-start; }
-      .ast-row-#{$breakpoint}-center { align-items: center; }
-      .ast-row-#{$breakpoint}-bottom { align-items: flex-end; }
+      .analytica-row-#{$breakpoint}-top    { align-items: flex-start; }
+      .analytica-row-#{$breakpoint}-center { align-items: center; }
+      .analytica-row-#{$breakpoint}-bottom { align-items: flex-end; }
     }
   }
 
@@ -68,9 +68,9 @@
 
   @each $breakpoint in map-keys($grid-breakpoints) {
     @include media-breakpoint-up($breakpoint) {
-      .ast-col-#{$breakpoint}-top    { align-self: flex-start; }
-      .ast-col-#{$breakpoint}-center { align-self: center; }
-      .ast-col-#{$breakpoint}-bottom { align-self: flex-end; }
+      .analytica-col-#{$breakpoint}-top    { align-self: flex-start; }
+      .analytica-col-#{$breakpoint}-center { align-self: center; }
+      .analytica-col-#{$breakpoint}-bottom { align-self: flex-end; }
     }
   }
 }

@@ -43,7 +43,7 @@
 	}
 
 	li {
-		@include ast-transition();
+		@include analytica-transition();
 	}
 }
 
@@ -135,7 +135,7 @@
 		    font-size: 14px;
 		    margin-right: 4px;
 		    line-height: 1.5;
-		    @include ast-transition();    
+		    @include analytica-transition();    
 		}
 	}
 }
@@ -199,9 +199,9 @@
 }
 
 //separate container content layout
-.ast-separate-container{
+.analytica-separate-container{
 	//two container content layout
-	&.ast-two-container{
+	&.analytica-two-container{
 		#secondary{
 			.widget{
 				background-color: $color-background-content;

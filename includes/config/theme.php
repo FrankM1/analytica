@@ -176,7 +176,7 @@ class Theme {
 
         if ( $this->analytica_strposa( $url, $allowed_providers ) ) {
             if ( $add_analytica_oembed_wrapper ) {
-                $html = ( '' !== $html ) ? '<div class="ast-oembed-container">' . $html . '</div>' : '';
+                $html = ( '' !== $html ) ? '<div class="analytica-oembed-container">' . $html . '</div>' : '';
             }
         }
 

@@ -50,7 +50,7 @@ do_action( 'analytica_body_top' );
     do_action( 'analytica_content_before' ); 
     
     ?><div id="content" class="site-content">
-        <div class="ast-container"><?php
+        <div class="analytica-container"><?php
             
             do_action( 'analytica_content_top' );
 

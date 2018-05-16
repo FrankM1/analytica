@@ -72,7 +72,7 @@ blockquote {
   position: relative;
 }
 
-.ast-button,
+.analytica-button,
 .button,
 input[type="button"],
 input[type="submit"] {
@@ -84,7 +84,7 @@ input[type="submit"] {
   text-shadow: none;
 }
 
-.ast-button:hover,
+.analytica-button:hover,
 .button:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover {
@@ -92,7 +92,7 @@ input[type="submit"]:hover {
           box-shadow: none;
 }
 
-.ast-button:active, .ast-button:focus,
+.analytica-button:active, .analytica-button:focus,
 .button:active,
 .button:focus,
 input[type="button"]:active,
@@ -140,17 +140,17 @@ input[type="submit"]:focus {
   color: #999;
 }
 
-.ast-header-break-point .main-header-bar .main-header-bar-navigation .ast-search-icon {
+.analytica-header-break-point .main-header-bar .main-header-bar-navigation .analytica-search-icon {
   display: none;
 }
 
-.ast-header-break-point .ast-search-menu-icon .search-field,
-.ast-header-break-point .ast-search-menu-icon.ast-inline-search .search-field {
+.analytica-header-break-point .analytica-search-menu-icon .search-field,
+.analytica-header-break-point .analytica-search-menu-icon.analytica-inline-search .search-field {
   width: 100%;
   padding-right: 5.5em;
 }
 
-.ast-header-break-point .ast-search-menu-icon .search-submit {
+.analytica-header-break-point .analytica-search-menu-icon .search-submit {
   display: block;
   position: absolute;
   height: 100%;
@@ -160,7 +160,7 @@ input[type="submit"]:focus {
   border-radius: 0;
 }
 
-.ast-header-break-point .ast-search-menu-icon .search-form {
+.analytica-header-break-point .analytica-search-menu-icon .search-form {
   padding: 0;
   display: block;
   overflow: hidden;

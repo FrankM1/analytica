@@ -15,7 +15,7 @@
   }
   @each $breakpoint in map-keys($breakpoints) {
     @for $i from 1 through $columns {
-      .ast-col-#{$breakpoint}-#{$i} {
+      .analytica-col-#{$breakpoint}-#{$i} {
         @extend %grid-column;
       }
     }
@@ -25,7 +25,7 @@
         float: left;
       }
       @for $i from 1 through $columns {
-        .ast-col-#{$breakpoint}-#{$i} {
+        .analytica-col-#{$breakpoint}-#{$i} {
           @if not $enable-flex {
             @extend %grid-column-float-#{$breakpoint};
           }
@@ -34,7 +34,7 @@
       }
       @each $modifier in (pull, push, offset) {
         @for $i from 0 through $columns {
-          .ast-col-#{$breakpoint}-#{$modifier}-#{$i} {
+          .analytica-col-#{$breakpoint}-#{$modifier}-#{$i} {
             @include make-col-modifier($modifier, $i, $columns)
           }
         }

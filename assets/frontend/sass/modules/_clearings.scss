@@ -14,10 +14,10 @@
 .sidebar-main:after,
 .site-footer:before,
 .site-footer:after,
-.ast-row:before,
-.ast-row:after,
-.ast-container:before,
-.ast-container:after {
+.analytica-row:before,
+.analytica-row:after,
+.analytica-container:before,
+.analytica-container:after {
 	@include clearfix;
 }
 
@@ -29,7 +29,7 @@
 #secondary:after,
 .sidebar-main:after,
 .site-footer:after,
-.ast-row:after,
-.ast-container:after {
+.analytica-row:after,
+.analytica-container:after {
 	@include clearfix-after;
 }

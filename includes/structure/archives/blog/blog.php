@@ -34,8 +34,8 @@ add_filter( 'post_class', 'analytica_post_class_blog_grid' );
 function analytica_post_class_blog_grid( $classes ) {
 
     if ( is_archive() || is_home() || is_search() ) {
-        $classes[] = 'ast-col-sm-12';
-        $classes[] = 'ast-article-post';
+        $classes[] = 'analytica-col-sm-12';
+        $classes[] = 'analytica-article-post';
     }
 
     return $classes;
@@ -174,7 +174,7 @@ function analytica_get_blog_post_thumbnail( $type = 'archive' ) {
 
     if ( 'archive' === $type ) {
         // Blog Post Featured Image.
-        analytica_get_post_thumbnail( '<div class="ast-blog-featured-section post-thumb">', '</div>' );
+        analytica_get_post_thumbnail( '<div class="analytica-blog-featured-section post-thumb">', '</div>' );
     } elseif ( 'single' === $type ) {
         // Single Post Featured Image.
         analytica_get_post_thumbnail();
@@ -228,7 +228,7 @@ function analytica_get_single_post_title_meta() {
     do_action( 'analytica_single_post_order_before' );
 
     ?>
-    <div class="ast-single-post-order">
+    <div class="analytica-single-post-order">
         <?php
 
         do_action( 'analytica_single_post_title_before' );
@@ -270,7 +270,7 @@ function analytica_get_audios_from_post( $post_id ) {
     // check what is the first embed containg video tag, youtube or vimeo.
     foreach ( $embeds as $embed ) {
         if ( strpos( $embed, 'audio' ) ) {
-            return '<span class="ast-post-audio-wrapper">' . $embed . '</span>';
+            return '<span class="analytica-post-audio-wrapper">' . $embed . '</span>';
         }
     }
 }

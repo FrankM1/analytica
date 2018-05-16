@@ -321,57 +321,57 @@ if ( ! function_exists( 'analytica_get_blog_layout_class' ) ) {
 			$post_format = 'standard';
 		}
 
-		$classes[] = 'ast-post-format-' . $post_format;
+		$classes[] = 'analytica-post-format-' . $post_format;
 
 		if ( ! has_post_thumbnail() || ! wp_get_attachment_image_src( get_post_thumbnail_id() ) ) {
 			switch ( $post_format ) {
 
 				case 'aside':
-								$classes[] = 'ast-no-thumb';
+								$classes[] = 'analytica-no-thumb';
 					break;
 
 				case 'image':
 								$has_image = analytica_get_first_image_from_post();
 					if ( empty( $has_image ) || is_single() ) {
-						$classes[] = 'ast-no-thumb';
+						$classes[] = 'analytica-no-thumb';
 					}
 					break;
 
 				case 'video':
 								$post_featured_data = analytica_get_video_from_post( get_the_ID() );
 					if ( empty( $post_featured_data ) ) {
-						$classes[] = 'ast-no-thumb';
+						$classes[] = 'analytica-no-thumb';
 					}
 					break;
 
 				case 'quote':
-								$classes[] = 'ast-no-thumb';
+								$classes[] = 'analytica-no-thumb';
 					break;
 
 				case 'link':
-								$classes[] = 'ast-no-thumb';
+								$classes[] = 'analytica-no-thumb';
 					break;
 
 				case 'gallery':
 								$post_featured_data = get_post_gallery();
 					if ( empty( $post_featured_data ) || is_single() ) {
-						$classes[] = 'ast-no-thumb';
+						$classes[] = 'analytica-no-thumb';
 					}
 					break;
 
 				case 'audio':
 								$has_audio = analytica_get_audios_from_post( get_the_ID() );
 					if ( empty( $has_audio ) || is_single() ) {
-						$classes[] = 'ast-no-thumb';
+						$classes[] = 'analytica-no-thumb';
 					} else {
-						$classes[] = 'ast-embeded-audio';
+						$classes[] = 'analytica-embeded-audio';
 					}
 					break;
 
 				case 'standard':
 				default:
 					if ( ! has_post_thumbnail() || ! wp_get_attachment_image_src( get_post_thumbnail_id() ) ) {
-						$classes[] = 'ast-no-thumb';
+						$classes[] = 'analytica-no-thumb';
 					}
 					break;
 			}
@@ -428,7 +428,7 @@ if ( ! function_exists( 'analytica_the_content_more_link' ) ) {
 			'<a class="' . implode( ' ', $read_more_classes ) . '" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . $more_link_text . '</a>'
 		);
 
-		$more_link_element = ' &hellip;<p class="ast-the-content-more-link"> ' . $post_link . '</p>';
+		$more_link_element = ' &hellip;<p class="analytica-the-content-more-link"> ' . $post_link . '</p>';
 
 		return apply_filters( 'analytica_the_content_more_link', $more_link_element, $more_link_text );
 	}

@@ -38,7 +38,7 @@
         line-height: calc( 2.5em - 4px );
         display: inline-block;
         text-align: center;
-        @include ast-transition();
+        @include analytica-transition();
         &:hover,
         &:focus {
             color: $color-text-pagination;

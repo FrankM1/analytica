@@ -1,8 +1,8 @@
 /**
  * Astra Theme compatibility with Elementor
  */
-.ast-left-sidebar .elementor-section.elementor-section-stretched,
-.ast-right-sidebar .elementor-section.elementor-section-stretched {
+.analytica-left-sidebar .elementor-section.elementor-section-stretched,
+.analytica-right-sidebar .elementor-section.elementor-section-stretched {
   max-width: 100%;
   left: 0 !important;
 }

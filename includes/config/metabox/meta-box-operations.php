@@ -55,7 +55,7 @@ class Analytica_Meta_Box_Operations {
      */
     function primary_header() {
 
-        $display_header = get_post_meta( get_the_ID(), 'ast-main-header-display', true );
+        $display_header = get_post_meta( get_the_ID(), 'analytica-main-header-display', true );
 
         $display_header = apply_filters( 'ast_main_header_display', $display_header );
 
@@ -91,7 +91,7 @@ class Analytica_Meta_Box_Operations {
         $title = get_post_meta( get_the_ID(), 'site-post-title', true );
 
         if ( 'disabled' != $title ) {
-            $classes[] = 'ast-normal-title-enabled';
+            $classes[] = 'analytica-normal-title-enabled';
         }
 
         return $classes;

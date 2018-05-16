@@ -63,15 +63,15 @@ if ( ! function_exists( 'analytica_default_strings' ) ) {
 				'string-blog-meta-leave-a-comment'       => __( 'Leave a Comment', 'analytica' ),
 				'string-blog-meta-one-comment'           => __( '1 Comment', 'analytica' ),
 				'string-blog-meta-multiple-comment'      => __( '% Comments', 'analytica' ),
-				'string-blog-navigation-next'            => __( 'Next Page', 'analytica' ) . ' <span class="ast-right-arrow">&rarr;</span>',
-				'string-blog-navigation-previous'        => '<span class="ast-left-arrow">&larr;</span> ' . __( 'Previous Page', 'analytica' ),
+				'string-blog-navigation-next'            => __( 'Next Page', 'analytica' ) . ' <span class="analytica-right-arrow">&rarr;</span>',
+				'string-blog-navigation-previous'        => '<span class="analytica-left-arrow">&larr;</span> ' . __( 'Previous Page', 'analytica' ),
 
 				// Single Post Default Strings.
 				'string-single-page-links-before'        => __( 'Pages:', 'analytica' ),
 				/* translators: 1: Post type label */
-				'string-single-navigation-next'          => __( 'Next %s', 'analytica' ) . ' <span class="ast-right-arrow">&rarr;</span>',
+				'string-single-navigation-next'          => __( 'Next %s', 'analytica' ) . ' <span class="analytica-right-arrow">&rarr;</span>',
 				/* translators: 1: Post type label */
-				'string-single-navigation-previous'      => '<span class="ast-left-arrow">&larr;</span> ' . __( 'Previous %s', 'analytica' ),
+				'string-single-navigation-previous'      => '<span class="analytica-left-arrow">&larr;</span> ' . __( 'Previous %s', 'analytica' ),
 
 				// Content None.
 				'string-content-nothing-found-message'   => __( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'analytica' ),
@@ -80,13 +80,13 @@ if ( ! function_exists( 'analytica_default_strings' ) ) {
 		);
 
 		if ( is_rtl() ) {
-			$defaults['string-blog-navigation-next']     = __( 'Next Page', 'analytica' ) . ' <span class="ast-left-arrow">&larr;</span>';
-			$defaults['string-blog-navigation-previous'] = '<span class="ast-right-arrow">&rarr;</span> ' . __( 'Previous Page', 'analytica' );
+			$defaults['string-blog-navigation-next']     = __( 'Next Page', 'analytica' ) . ' <span class="analytica-left-arrow">&larr;</span>';
+			$defaults['string-blog-navigation-previous'] = '<span class="analytica-right-arrow">&rarr;</span> ' . __( 'Previous Page', 'analytica' );
 
 			/* translators: 1: Post type label */
-			$defaults['string-single-navigation-next'] = __( 'Next %s', 'analytica' ) . ' <span class="ast-left-arrow">&larr;</span>';
+			$defaults['string-single-navigation-next'] = __( 'Next %s', 'analytica' ) . ' <span class="analytica-left-arrow">&larr;</span>';
 			/* translators: 1: Post type label */
-			$defaults['string-single-navigation-previous'] = '<span class="ast-right-arrow">&rarr;</span> ' . __( 'Previous %s', 'analytica' );
+			$defaults['string-single-navigation-previous'] = '<span class="analytica-right-arrow">&rarr;</span> ' . __( 'Previous %s', 'analytica' );
 		}
 
 		$output = isset( $defaults[ $key ] ) ? $defaults[ $key ] : '';

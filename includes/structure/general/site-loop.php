@@ -34,7 +34,7 @@ class Loop {
         add_action( 'analytica_template_parts_content_top', array( $this, 'template_parts_content_top' ) );
         add_action( 'analytica_template_parts_content_bottom', array( $this, 'template_parts_content_bottom' ) );
 
-        // Add closing and ending div 'ast-row'.
+        // Add closing and ending div 'analytica-row'.
         add_action( 'analytica_template_parts_content_top', array( $this, 'analytica_templat_part_wrap_open' ), 25 );
         add_action( 'analytica_template_parts_content_bottom', array( $this, 'analytica_templat_part_wrap_close' ), 5 );
     }
@@ -223,19 +223,19 @@ class Loop {
     }
 
     /**
-     * Add wrapper div 'ast-row' for Analytica template part.
+     * Add wrapper div 'analytica-row' for Analytica template part.
      *
      * @since  1.0.0
      * @return void
      */
     public function analytica_templat_part_wrap_open() {
         if ( is_archive() || is_search() || is_home() ) {
-            echo '<div class="ast-row">';
+            echo '<div class="analytica-row">';
         }
     }
 
     /**
-     * Add closing wrapper div for 'ast-row' after Analytica template part.
+     * Add closing wrapper div for 'analytica-row' after Analytica template part.
      *
      * @since  1.0.0
      * @return void

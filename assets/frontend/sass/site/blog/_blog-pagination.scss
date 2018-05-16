@@ -2,8 +2,8 @@
   NEXT PAGINATION
 ============================================================ */
 .post-navigation a,
-.ast-pagination .prev.page-numbers,
-.ast-pagination .next.page-numbers {
+.analytica-pagination .prev.page-numbers,
+.analytica-pagination .next.page-numbers {
     padding: 0 1.5em;
     height: 2.33333em;
     line-height: calc(2.33333em - 3px);
@@ -15,7 +15,7 @@
     font-size: 1.06666rem;
 }
 
-.ast-pagination {
+.analytica-pagination {
     display: inline-block;
     width: 100%;
     padding-top: 2em;
@@ -91,8 +91,8 @@
             display: inline-block;
             width: 100%;
         }
-        .next .ast-right-arrow,
-        .prev .ast-left-arrow {
+        .next .analytica-right-arrow,
+        .prev .analytica-left-arrow {
             font-size: 1em;
             line-height: 1em;
         }

@@ -16,15 +16,15 @@ function analytica_single_body_class( $classes ) {
 
     // Blog layout.
     if ( is_single() ) {
-        $classes[] = 'ast-blog-single-style-1';
+        $classes[] = 'analytica-blog-single-style-1';
 
         if ( 'post' != get_post_type() ) {
-            $classes[] = 'ast-custom-post-type';
+            $classes[] = 'analytica-custom-post-type';
         }
     }
 
     if ( is_singular() ) {
-        $classes[] = 'ast-single-post';
+        $classes[] = 'analytica-single-post';
     }
 
     return $classes;
@@ -42,7 +42,7 @@ function analytica_single_post_class( $classes ) {
 
     // Blog layout.
     if ( is_singular() ) {
-        $classes[] = 'ast-article-single';
+        $classes[] = 'analytica-article-single';
 
         // Remove hentry from page.
         if ( 'page' == get_post_type() ) {
@@ -114,23 +114,23 @@ function analytica_theme_comment( $comment, $args, $depth ) {
             ?>
             <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 
-                <article id="comment-<?php comment_ID(); ?>" class="ast-comment">
-                    <div class='ast-comment-avatar-wrap'><?php echo get_avatar( $comment, 50 ); ?></div><!-- Remove 1px Space
-                    --><div class="ast-comment-data-wrap">
-                        <div class="ast-comment-meta-wrap">
-                            <header class="ast-comment-meta ast-row ast-comment-author vcard capitalize">
+                <article id="comment-<?php comment_ID(); ?>" class="analytica-comment">
+                    <div class='analytica-comment-avatar-wrap'><?php echo get_avatar( $comment, 50 ); ?></div><!-- Remove 1px Space
+                    --><div class="analytica-comment-data-wrap">
+                        <div class="analytica-comment-meta-wrap">
+                            <header class="analytica-comment-meta analytica-row analytica-comment-author vcard capitalize">
 
                                 <?php
 
                                 printf(
-                                    '<div class="ast-comment-cite-wrap ast-col-lg-12"><cite><b class="fn">%1$s</b> %2$s</cite></div>',
+                                    '<div class="analytica-comment-cite-wrap analytica-col-lg-12"><cite><b class="fn">%1$s</b> %2$s</cite></div>',
                                     get_comment_author_link(),
                                     // If current post author is also comment author, make it known visually.
-                                    ( $comment->user_id === $post->post_author ) ? '<span class="ast-highlight-text ast-cmt-post-author"></span>' : ''
+                                    ( $comment->user_id === $post->post_author ) ? '<span class="analytica-highlight-text analytica-cmt-post-author"></span>' : ''
                                 );
 
                                 printf(
-                                    '<div class="ast-comment-time ast-col-lg-12"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
+                                    '<div class="analytica-comment-time analytica-col-lg-12"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
                                     esc_url( get_comment_link( $comment->comment_ID ) ),
                                     get_comment_time( 'c' ),
                                     /* translators: 1: date, 2: time */
@@ -139,12 +139,12 @@ function analytica_theme_comment( $comment, $args, $depth ) {
 
                                 ?>
 
-                            </header> <!-- .ast-comment-meta -->
+                            </header> <!-- .analytica-comment-meta -->
                         </div>
-                        <section class="ast-comment-content comment">
+                        <section class="analytica-comment-content comment">
                             <?php comment_text(); ?>
-                            <div class="ast-comment-edit-reply-wrap">
-                                <?php edit_comment_link( analytica_default_strings( 'string-comment-edit-link', false ), '<span class="ast-edit-link">', '</span>' ); ?>
+                            <div class="analytica-comment-edit-reply-wrap">
+                                <?php edit_comment_link( analytica_default_strings( 'string-comment-edit-link', false ), '<span class="analytica-edit-link">', '</span>' ); ?>
                                 <?php
                                 comment_reply_link(
                                     array_merge(
@@ -153,7 +153,7 @@ function analytica_theme_comment( $comment, $args, $depth ) {
                                             'add_below' => 'comment',
                                             'depth'  => $depth,
                                             'max_depth' => $args['max_depth'],
-                                            'before' => '<span class="ast-reply-link">',
+                                            'before' => '<span class="analytica-reply-link">',
                                             'after'  => '</span>',
                                         )
                                     )
@@ -161,9 +161,9 @@ function analytica_theme_comment( $comment, $args, $depth ) {
                                 ?>
                             </div>
                             <?php if ( '0' == $comment->comment_approved ) : ?>
-                                <p class="ast-highlight-text comment-awaiting-moderation"><?php echo esc_html( analytica_default_strings( 'string-comment-awaiting-moderation', false ) ); ?></p>
+                                <p class="analytica-highlight-text comment-awaiting-moderation"><?php echo esc_html( analytica_default_strings( 'string-comment-awaiting-moderation', false ) ); ?></p>
                             <?php endif; ?>
-                        </section> <!-- .ast-comment-content -->
+                        </section> <!-- .analytica-comment-content -->
                     </div>
                 </article><!-- #comment-## -->
             <!-- </li> -->

@@ -626,12 +626,12 @@ function analytica_archive_page_info() {
         // Author.
         if ( is_author() ) { ?>
 
-            <section class="ast-author-box ast-archive-description">
-                <div class="ast-author-bio">
-                    <h1 class='page-title ast-archive-title'><?php echo get_the_author(); ?></h1>
+            <section class="analytica-author-box analytica-archive-description">
+                <div class="analytica-author-bio">
+                    <h1 class='page-title analytica-archive-title'><?php echo get_the_author(); ?></h1>
                     <p><?php echo wp_kses_post( get_the_author_meta( 'description' ) ); ?></p>
                 </div>
-                <div class="ast-author-avatar">
+                <div class="analytica-author-avatar">
                     <?php echo get_avatar( get_the_author_meta( 'email' ), 120 ); ?>
                 </div>
             </section>
@@ -642,8 +642,8 @@ function analytica_archive_page_info() {
         } elseif ( is_category() ) {
         ?>
 
-            <section class="ast-archive-description">
-                <h1 class="page-title ast-archive-title"><?php echo single_cat_title(); ?></h1>
+            <section class="analytica-archive-description">
+                <h1 class="page-title analytica-archive-title"><?php echo single_cat_title(); ?></h1>
                 <?php the_archive_description(); ?>
             </section>
 
@@ -653,8 +653,8 @@ function analytica_archive_page_info() {
         } elseif ( is_tag() ) {
         ?>
 
-            <section class="ast-archive-description">
-                <h1 class="page-title ast-archive-title"><?php echo single_tag_title(); ?></h1>
+            <section class="analytica-archive-description">
+                <h1 class="page-title analytica-archive-title"><?php echo single_tag_title(); ?></h1>
                 <?php the_archive_description(); ?>
             </section>
 
@@ -664,12 +664,12 @@ function analytica_archive_page_info() {
         } elseif ( is_search() ) {
         ?>
 
-            <section class="ast-archive-description">
+            <section class="analytica-archive-description">
                 <?php
                     /* translators: 1: search string */
                     $title = apply_filters( 'analytica_the_search_page_title', sprintf( __( 'Search Results for: %s', 'analytica' ), '<span>' . get_search_query() . '</span>' ) );
                 ?>
-                <h1 class="page-title ast-archive-title"> <?php echo $title; ?> </h1>
+                <h1 class="page-title analytica-archive-title"> <?php echo $title; ?> </h1>
             </section>
 
         <?php
@@ -678,8 +678,8 @@ function analytica_archive_page_info() {
         } else {
         ?>
 
-            <section class="ast-archive-description">
-                <?php the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' ); ?>
+            <section class="analytica-archive-description">
+                <?php the_archive_title( '<h1 class="page-title analytica-archive-title">', '</h1>' ); ?>
                 <?php the_archive_description(); ?>
             </section>
 

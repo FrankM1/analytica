@@ -100,7 +100,7 @@ class Analytica_Meta_Boxes {
          */
         self::$meta_option = apply_filters(
             'analytica_meta_box_options', array(
-                'ast-main-header-display' => array(
+                'analytica-main-header-display' => array(
                     'sanitize' => 'FILTER_DEFAULT',
                 ),
                 'footer-sml-layout'       => array(
@@ -192,7 +192,7 @@ class Analytica_Meta_Boxes {
         $site_post_title     = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
         $footer_bar          = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
         $footer_widgets      = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
-        $primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
+        $primary_header      = ( isset( $meta['analytica-main-header-display']['default'] ) ) ? $meta['analytica-main-header-display']['default'] : '';
         $ast_featured_img    = ( isset( $meta['featured-image']['default'] ) ) ? $meta['featured-image']['default'] : '';
 
         $show_meta_field = ! Analytica_Meta_Boxes::is_bb_themer_layout();
@@ -242,9 +242,9 @@ class Analytica_Meta_Boxes {
             <div class="disable-section-meta">
                 <?php do_action( 'analytica_meta_box_markup_disable_sections_before', $meta ); ?>
 
-                <div class="ast-main-header-display-option-wrap">
-                    <label for="ast-main-header-display">
-                        <input type="checkbox" id="ast-main-header-display" name="ast-main-header-display" value="disabled" <?php checked( $primary_header, 'disabled' ); ?> />
+                <div class="analytica-main-header-display-option-wrap">
+                    <label for="analytica-main-header-display">
+                        <input type="checkbox" id="analytica-main-header-display" name="analytica-main-header-display" value="disabled" <?php checked( $primary_header, 'disabled' ); ?> />
                         <?php esc_html_e( 'Disable Primary Header', 'analytica' ); ?>
                     </label>
                 </div>
@@ -257,9 +257,9 @@ class Analytica_Meta_Boxes {
                         </label>
                     </div>
 
-                    <div class="ast-featured-img-option-wrap">
-                        <label for="ast-featured-img">
-                            <input type="checkbox" id="ast-featured-img" name="ast-featured-img" value="disabled" <?php checked( $ast_featured_img, 'disabled' ); ?> />
+                    <div class="analytica-featured-img-option-wrap">
+                        <label for="analytica-featured-img">
+                            <input type="checkbox" id="analytica-featured-img" name="analytica-featured-img" value="disabled" <?php checked( $ast_featured_img, 'disabled' ); ?> />
                             <?php esc_html_e( 'Disable Featured Image', 'analytica' ); ?>
                         </label>
                     </div>

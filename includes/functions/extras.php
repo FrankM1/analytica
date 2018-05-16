@@ -24,7 +24,7 @@ function analytica_number_pagination() {
 
     if ( isset( $numpages ) && $enabled ) {
         ob_start();
-        echo "<div class='ast-pagination'>";
+        echo "<div class='analytica-pagination'>";
         the_posts_pagination(
             array(
                 'prev_text'    => analytica_default_strings( 'string-blog-navigation-previous', false ),
@@ -48,8 +48,8 @@ function analytica_number_pagination() {
  */
 function analytica_get_search( $option = '' ) {
 
-    $search_html  = '<div class="ast-search-icon"><a class="slide-search analytica-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'analytica' ) . '</span></a></div>
-                    <div class="ast-search-menu-icon slide-search" id="ast-search-form" >';
+    $search_html  = '<div class="analytica-search-icon"><a class="slide-search analytica-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'analytica' ) . '</span></a></div>
+                    <div class="analytica-search-menu-icon slide-search" id="analytica-search-form" >';
     $search_html .= get_search_form( false );
     $search_html .= '</div>';
 
@@ -69,7 +69,7 @@ function analytica_get_custom_html( $option_name = '' ) {
     $custom_html_content = analytica_get_option( $option_name );
 
     if ( ! empty( $custom_html_content ) ) {
-        $custom_html = '<div class="ast-custom-html">' . do_shortcode( $custom_html_content ) . '</div>';
+        $custom_html = '<div class="analytica-custom-html">' . do_shortcode( $custom_html_content ) . '</div>';
     } elseif ( current_user_can( 'edit_theme_options' ) ) {
         $custom_html = '<a href="' . esc_url( admin_url( 'customize.php?autofocus[control]=' . analytica()->option_name . '[' . $option_name . ']' ) ) . '">' . __( 'Add Custom HTML', 'analytica' ) . '</a>';
     }
@@ -133,18 +133,18 @@ function analytica_header_classes() {
 
     if ( $primary_menu_disable ) {
 
-        $classes[] = 'ast-primary-menu-disabled';
+        $classes[] = 'analytica-primary-menu-disabled';
 
         if ( 'none' == $primary_menu_custom_item ) {
-            $classes[] = 'ast-no-menu-items';
+            $classes[] = 'analytica-no-menu-items';
         }
     }
     // Add class if Inline Logo & Site Title.
     if ( $logo_title_inline ) {
-        $classes[] = 'ast-logo-title-inline';
+        $classes[] = 'analytica-logo-title-inline';
     }
 
-    $classes[] = 'ast-mobile-header-' . $mobile_header_alignment;
+    $classes[] = 'analytica-mobile-header-' . $mobile_header_alignment;
 
     $classes = array_unique( apply_filters( 'analytica_header_class', $classes ) );
 
@@ -167,13 +167,13 @@ function analytica_comment_form_default_fields_markup( $fields ) {
     $req       = get_option( 'require_name_email' );
     $aria_req  = ( $req ? " aria-required='true'" : '' );
 
-    $fields['author'] = '<div class="ast-comment-formwrap ast-row"><p class="comment-form-author ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4">' .
+    $fields['author'] = '<div class="analytica-comment-formwrap analytica-row"><p class="comment-form-author analytica-col-xs-12 analytica-col-sm-12 analytica-col-md-4 analytica-col-lg-4">' .
                 '<label for="author" class="screen-reader-text">' . esc_html( analytica_default_strings( 'string-comment-label-name', false ) ) . '</label><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
                 '" placeholder="' . esc_attr( analytica_default_strings( 'string-comment-label-name', false ) ) . '" size="30"' . $aria_req . ' /></p>';
-    $fields['email']  = '<p class="comment-form-email ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4">' .
+    $fields['email']  = '<p class="comment-form-email analytica-col-xs-12 analytica-col-sm-12 analytica-col-md-4 analytica-col-lg-4">' .
                 '<label for="email" class="screen-reader-text">' . esc_html( analytica_default_strings( 'string-comment-label-email', false ) ) . '</label><input id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) .
                 '" placeholder="' . esc_attr( analytica_default_strings( 'string-comment-label-email', false ) ) . '" size="30"' . $aria_req . ' /></p>';
-    $fields['url']    = '<p class="comment-form-url ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4"><label for="url">' .
+    $fields['url']    = '<p class="comment-form-url analytica-col-xs-12 analytica-col-sm-12 analytica-col-md-4 analytica-col-lg-4"><label for="url">' .
                 '<label for="url" class="screen-reader-text">' . esc_html( analytica_default_strings( 'string-comment-label-website', false ) ) . '</label><input id="url" name="url" type="text" value="' . esc_url( $commenter['comment_author_url'] ) .
                 '" placeholder="' . esc_attr( analytica_default_strings( 'string-comment-label-website', false ) ) . '" size="30" /></label></p></div>';
 
@@ -191,11 +191,11 @@ add_filter( 'comment_form_defaults', 'analytica_comment_form_default_markup' );
  */
 function analytica_comment_form_default_markup( $args ) {
 
-    $args['id_form']           = 'ast-commentform';
+    $args['id_form']           = 'analytica-commentform';
     $args['title_reply']       = analytica_default_strings( 'string-comment-title-reply', false );
     $args['cancel_reply_link'] = analytica_default_strings( 'string-comment-cancel-reply-link', false );
     $args['label_submit']      = analytica_default_strings( 'string-comment-label-submit', false );
-    $args['comment_field']     = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( analytica_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( analytica_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
+    $args['comment_field']     = '<div class="analytica-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea analytica-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( analytica_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( analytica_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
 
     return apply_filters( 'analytica_comment_form_default_markup', $args );
 }
@@ -307,19 +307,19 @@ function analytica_entry_header_class() {
     $post_meta_markup = analytica_single_get_post_meta( '', '', false );
 
     if ( empty( $title_markup ) && empty( $thumb_markup ) && ( is_page() || empty( $post_meta_markup ) ) ) {
-        $classes[] = 'ast-header-without-markup';
+        $classes[] = 'analytica-header-without-markup';
     } else {
 
         if ( empty( $title_markup ) ) {
-            $classes[] = 'ast-no-title';
+            $classes[] = 'analytica-no-title';
         }
 
         if ( empty( $thumb_markup ) ) {
-            $classes[] = 'ast-no-thumbnail';
+            $classes[] = 'analytica-no-thumbnail';
         }
 
         if ( is_page() || empty( $post_meta_markup ) ) {
-            $classes[] = 'ast-no-meta';
+            $classes[] = 'analytica-no-meta';
         }
     }
 

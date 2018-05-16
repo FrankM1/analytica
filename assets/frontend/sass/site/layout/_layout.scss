@@ -49,19 +49,19 @@ body {
 }
 
 //separate container content layout
-.ast-separate-container {
+.analytica-separate-container {
 	background-color: $color-background-sep-content-body;
 	#primary {
 		padding: 4em 0;
 		margin: 0;
 		border: 0;
 	}
-	.site-main>.ast-row {
+	.site-main>.analytica-row {
 		margin-left: 0;
 		margin-right: 0;
 	}
-	.ast-article-post,
-	.ast-article-single {
+	.analytica-article-post,
+	.analytica-article-single {
 		background-color: $color-background-content;
 		margin: 0 0 5.34em 0;
 		.entry-content {
@@ -88,37 +88,37 @@ body {
 		/*background-color: $color-background-content;*/
 		border-bottom: 0;
 	}
-	.ast-article-single {
+	.analytica-article-single {
 		border-bottom: 0;
 	}
 
 	@media (max-width: $mx-col-xl) {
-		.ast-article-post,
-		.ast-article-single {
+		.analytica-article-post,
+		.analytica-article-single {
 			margin: 0;
 			padding: 3.34em 2.4em;
 		}
 	}
 	@media (max-width: $mx-col-md) {
-		.ast-article-post,
-		.ast-article-single {
+		.analytica-article-post,
+		.analytica-article-single {
 			padding: 0 0 1.5em 0;
 		}
 		#primary,
 		#secondary {
 			padding: 1.5em 0;
 		}
-		&.ast-right-sidebar {
+		&.analytica-right-sidebar {
 			#secondary {
 				padding-left: 1em;
 			}
 		}
-		&.ast-right-sidebar {
+		&.analytica-right-sidebar {
 			#secondary {
 				padding-right: 1em;
 			}
 		}
-		&.ast-two-container {
+		&.analytica-two-container {
 			#secondary {
 				padding-left: 0;
 				padding-right: 0;
@@ -126,11 +126,11 @@ body {
 		}
 	}
 	@media (max-width: $mx-col-sm) {
-		.ast-article-post,
-		.ast-article-single {
+		.analytica-article-post,
+		.analytica-article-single {
 			padding: 0 0 1.5em 0;
 		}
-		#content .ast-container {
+		#content .analytica-container {
 			padding-left: 0.54em;
 			padding-right: 0.54em;
 		}
@@ -142,12 +142,12 @@ body {
 
 
 //page builder content layout
-.ast-page-builder-template {
+.analytica-page-builder-template {
 
 	.hentry {
 		margin: 0;
 	}
-	.site-content>.ast-container {
+	.site-content>.analytica-container {
 		max-width: 100%;
 		padding: 0;
 	}
@@ -160,12 +160,12 @@ body {
 		margin: 4em auto;
 	}
 
-	.ast-pagination {
+	.analytica-pagination {
 		padding: 2em;
 	}
 
 	.entry-header {
-		&.ast-no-title.ast-no-thumbnail {
+		&.analytica-no-title.analytica-no-thumbnail {
 			margin-top: 0;
 		}
 		margin-top: 4em;
@@ -174,12 +174,12 @@ body {
 		padding-left: ($grid-gutter-width / 2);
 		padding-right: ($grid-gutter-width / 2);
 
-		&.ast-header-without-markup {
+		&.analytica-header-without-markup {
 			margin-top: 0;
 			margin-bottom: 0;
 		}
 
-		&.ast-no-title.ast-no-meta {
+		&.analytica-no-title.analytica-no-meta {
 			margin-bottom: 0;
 		}
 
@@ -194,7 +194,7 @@ body {
 		}
 	}
 
-	&.ast-left-sidebar {
+	&.analytica-left-sidebar {
 		#secondary {
 			padding-left: ($grid-gutter-width / 2);
 
@@ -204,7 +204,7 @@ body {
 		}
 	}
 
-	&.ast-right-sidebar {
+	&.analytica-right-sidebar {
 		#secondary {
 			padding-right: ($grid-gutter-width / 2);
 
@@ -217,7 +217,7 @@ body {
 		padding-bottom: 2em;
 	}
 
-	.ast-archive-description {
+	.analytica-archive-description {
 		margin-top: 4em;
 		margin-left: auto;
 		margin-right: auto;
@@ -229,15 +229,15 @@ body {
 
 @media (min-width: $col-lg) {
 	// padding of the content
-	.ast-separate-container {
-		&.ast-right-sidebar #primary,
-		&.ast-left-sidebar #primary,
+	.analytica-separate-container {
+		&.analytica-right-sidebar #primary,
+		&.analytica-left-sidebar #primary,
 		#primary {
 			margin: 4em 0;
 			padding: 0;
 		}
 	} // Right Sidebar - Spacing Between Primary & Secondary
-	.ast-right-sidebar {
+	.analytica-right-sidebar {
 		#primary {
 			padding-right: $space-between-primary-seconday * 2;
 		}
@@ -245,7 +245,7 @@ body {
 			padding-left: $space-between-primary-seconday * 2;
 		}
 	} // Left Sidebar - Spacing Between Primary & Secondary
-	.ast-left-sidebar {
+	.analytica-left-sidebar {
 		#primary {
 			padding-left: $space-between-primary-seconday * 2;
 		}
@@ -256,15 +256,15 @@ body {
 }
 
 @media (max-width: $mx-col-lg) {
-	.ast-separate-container {
-		&.ast-right-sidebar #primary,
-		&.ast-left-sidebar #primary,
+	.analytica-separate-container {
+		&.analytica-right-sidebar #primary,
+		&.analytica-left-sidebar #primary,
 		#primary {
 			padding-left: 0;
 			padding-right: 0;
 		}
 	} // Right Sidebar - Spacing Between Primary & Secondary
-	.ast-right-sidebar {
+	.analytica-right-sidebar {
 		#primary {
 			padding-right: $space-between-primary-seconday;
 		}
@@ -272,7 +272,7 @@ body {
 			padding-left: $space-between-primary-seconday;
 		}
 	} // Left Sidebar - Spacing Between Primary & Secondary
-	.ast-left-sidebar {
+	.analytica-left-sidebar {
 		#primary {
 			padding-left: $space-between-primary-seconday;
 		}
@@ -284,7 +284,7 @@ body {
 
 @media (max-width: $mx-col-md) {
 	// Right Sidebar - Spacing Between Primary & Secondary
-	.ast-right-sidebar {
+	.analytica-right-sidebar {
 		#primary {
 			padding-right: 0;
 		}
@@ -292,7 +292,7 @@ body {
 			padding-left: 0;
 		}
 	} // Left Sidebar - Spacing Between Primary & Secondary
-	.ast-left-sidebar {
+	.analytica-left-sidebar {
 		#primary {
 			padding-left: 0;
 		}
@@ -306,8 +306,8 @@ body {
 		margin: 0;
 	}
 
-	.ast-left-sidebar {
-		#content>.ast-container {
+	.analytica-left-sidebar {
+		#content>.analytica-container {
 			display: flex;
 			flex-direction: column-reverse;
 			width: 100%;
@@ -317,7 +317,7 @@ body {
 
 //plain layout content side border
 @media (min-width: $col-md) {
-	.ast-right-sidebar {
+	.analytica-right-sidebar {
 		#primary {
 			border-right: 1px solid $color-border-content;
 		}
@@ -326,7 +326,7 @@ body {
 			margin-left: -1px;
 		}
 	}
-	.ast-left-sidebar {
+	.analytica-left-sidebar {
 		#primary {
 			border-left: 1px solid $color-border-content;
 		}
@@ -335,9 +335,9 @@ body {
 			margin-right: -1px;
 		}
 	}
-	.ast-separate-container {
-		&.ast-right-sidebar,
-		&.ast-left-sidebar {
+	.analytica-separate-container {
+		&.analytica-right-sidebar,
+		&.analytica-left-sidebar {
 			#primary {
 				border: 0;
 			}
@@ -347,14 +347,14 @@ body {
 				margin-right: auto;
 			}
 		}
-		&.ast-two-container {
-			&.ast-right-sidebar {
+		&.analytica-two-container {
+			&.analytica-right-sidebar {
 				#secondary {
 					padding-left: $space-between-primary-seconday;
 					padding-right: 0;
 				}
 			}
-			&.ast-left-sidebar {
+			&.analytica-left-sidebar {
 				#secondary {
 					padding-right: $space-between-primary-seconday;
 					padding-left: 0;

@@ -71,8 +71,8 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 }
 
 //Seperate container layout
-.ast-separate-container {
-	.ast-lifterlms-container {
+.analytica-separate-container {
+	.analytica-lifterlms-container {
 		background-color: $color-background-content;
 
 		@media (max-width: $mx-col-xl) {
@@ -93,8 +93,8 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 
 // Course Catalog
 .llms-student-dashboard,
-.ast-container,
-.ast-lifterlms-container {
+.analytica-container,
+.analytica-lifterlms-container {
 	ul.llms-loop-list {
 		li.llms-loop-item {
 			padding: 0;
@@ -166,7 +166,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 // Single Lesson
 .single-lesson {
 
-	&.ast-separate-container {
+	&.analytica-separate-container {
 		.llms-lesson-preview .llms-lesson-link {
 			background: #fff;
 
@@ -176,7 +176,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 		}
 	}
 
-	.ast-article-single .llms-lesson-button-wrapper {
+	.analytica-article-single .llms-lesson-button-wrapper {
 		font-weight: 600;
 
 		.llms-complete-lesson-form {
@@ -954,7 +954,7 @@ body {
 }
 
 // Notices
-.ast-container {
+.analytica-container {
 	
 	.lifterlms .llms-notice {
 		margin: 0 0 2em;

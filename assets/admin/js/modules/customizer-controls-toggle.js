@@ -85,7 +85,7 @@
 
 					var site_tagline = api( 'analytica-settings[display-site-tagline]' ).get();
 					var has_custom_logo = api( 'custom_logo' ).get();
-					var has_retina_logo = api( 'analytica-settings[ast-header-retina-logo]' ).get();
+					var has_retina_logo = api( 'analytica-settings[analytica-header-retina-logo]' ).get();
 
 					if ( ( value || site_tagline ) && ( has_custom_logo || has_retina_logo ) ) {
 						return true;
@@ -118,7 +118,7 @@
 
 					var site_title = api( 'analytica-settings[display-site-title]' ).get();
 					var has_custom_logo = api( 'custom_logo' ).get();
-					var has_retina_logo = api( 'analytica-settings[ast-header-retina-logo]' ).get();
+					var has_retina_logo = api( 'analytica-settings[analytica-header-retina-logo]' ).get();
 
 					if ( ( value || site_title ) && ( has_custom_logo || has_retina_logo ) ) {
 						return true;
@@ -128,7 +128,7 @@
 			},
 		],
 
-		'analytica-settings[ast-header-retina-logo]' :
+		'analytica-settings[analytica-header-retina-logo]' :
 		[
 			{
 				controls: [
@@ -156,7 +156,7 @@
 				],
 				callback: function( value ) {
 
-					var has_retina_logo = api( 'analytica-settings[ast-header-retina-logo]' ).get();
+					var has_retina_logo = api( 'analytica-settings[analytica-header-retina-logo]' ).get();
 					var site_tagline = api( 'analytica-settings[display-site-tagline]' ).get();
 					var site_title = api( 'analytica-settings[display-site-title]' ).get();
 
@@ -315,15 +315,15 @@
 				controls: [
 					'analytica-settings[footer-sml-section-1]',
 					'analytica-settings[footer-sml-section-2]',
-					'analytica-settings[section-ast-small-footer-background-styling]',
-					'analytica-settings[ast-small-footer-color]',
-					'analytica-settings[ast-small-footer-link-color]',
-					'analytica-settings[ast-small-footer-link-hover-color]',
-					'analytica-settings[ast-small-footer-bg-img]',
-					'analytica-settings[section-ast-small-footer-typography]',
-					'analytica-settings[ast-small-footer-text-font]',
+					'analytica-settings[section-analytica-small-footer-background-styling]',
+					'analytica-settings[analytica-small-footer-color]',
+					'analytica-settings[analytica-small-footer-link-color]',
+					'analytica-settings[analytica-small-footer-link-hover-color]',
+					'analytica-settings[analytica-small-footer-bg-img]',
+					'analytica-settings[section-analytica-small-footer-typography]',
+					'analytica-settings[analytica-small-footer-text-font]',
 					'analytica-settings[footer-sml-divider]',
-					'analytica-settings[section-ast-small-footer-layout-info]',
+					'analytica-settings[section-analytica-small-footer-layout-info]',
 					'analytica-settings[footer-layout-width]',
 					'analytica-settings[footer-color]',
 					'analytica-settings[footer-link-color]',

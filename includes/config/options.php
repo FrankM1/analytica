@@ -60,7 +60,7 @@ class Options
             'settings-update-time' => '',
             'site-layout' => 'site-wide',
             // Site Layout.
-            'site-layout' => 'ast-full-width-layout',
+            'site-layout' => 'analytica-full-width-layout',
             'site-content-width' => 1200,
             'site-layout-outside-bg-obj' => array(
                 'background-color' => '',

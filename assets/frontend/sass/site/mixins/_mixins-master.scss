@@ -1,8 +1,8 @@
-@mixin ast-transition( $property: all, $transition-time: 0.2s, $transition-function: linear ) {
+@mixin analytica-transition( $property: all, $transition-time: 0.2s, $transition-function: linear ) {
     transition: $property $transition-time $transition-function;
 }
 
-@mixin ast-has-child-menu-item() {
+@mixin analytica-has-child-menu-item() {
     content: "\e900";
     display: inline-block;
     font-family: 'Astra';
@@ -17,6 +17,6 @@
 
 }
 
-@mixin ast-border-radius( $size: 2px ) {
+@mixin analytica-border-radius( $size: 2px ) {
     border-radius: $size;
 }

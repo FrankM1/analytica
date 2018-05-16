@@ -50,7 +50,7 @@ add_action( 'analytica_entry_content_404_page', 'analytica_entry_content_404_pag
  */
 function analytica_entry_content_404_page_template() {
 
-    $layout_404 = analytica_get_option( 'ast-404-layout' );
+    $layout_404 = analytica_get_option( 'analytica-404-layout' );
     $layout_404 = str_replace( '404-layout-', '', $layout_404 );
 
     // Default 404 is nothing but the 404 layout 1.

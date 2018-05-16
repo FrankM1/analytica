@@ -1,4 +1,4 @@
-.ast-404-layout-1 {
+.analytica-404-layout-1 {
 	text-align: center;
 	margin: 4em auto;
 
@@ -12,7 +12,7 @@
 	}
 }
 
-.ast-404-search {
+.analytica-404-search {
     margin-top: 1.5em;
 
     .widget_search {
@@ -21,28 +21,28 @@
     }
 }
 
-.ast-separate-container {
+.analytica-separate-container {
 	.error-404,
 	.no-results{
 		background-color: $color-background-content;
 	}
 }
-.ast-separate-container{
+.analytica-separate-container{
 	@media (max-width: $mx-col-xl) {
-		.ast-404-layout-1,
+		.analytica-404-layout-1,
 		.no-results{
 		    margin: 0;
 		    padding: 3.34em 2.4em;
 		}
 	}
 	@media (max-width: $mx-col-md) {
-		.ast-404-layout-1,
+		.analytica-404-layout-1,
 		.no-results{
 		    padding: 1.5em 2.14em;
 		}
 	}
 	@media (max-width: $mx-col-sm) {
-		.ast-404-layout-1,
+		.analytica-404-layout-1,
 		.no-results{
 		    padding: 1.5em 1em;
 		}
@@ -50,8 +50,8 @@
 }
 
 @media (min-width: $col-xl) {
-	.ast-separate-container{
-		.ast-404-layout-1,
+	.analytica-separate-container{
+		.analytica-404-layout-1,
 		.no-results{
 		    margin: 0;
 		    padding: 5.34em 6.67em;
@@ -61,7 +61,7 @@
 
 .error404,
 .search-no-results{
-	&.ast-separate-container{
+	&.analytica-separate-container{
 		#primary{
 			@media (min-width: $col-md) {
 				margin-bottom: 4em;

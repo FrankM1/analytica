@@ -1,31 +1,31 @@
 /**
  * 2 - Social Follow
  */
-.ast-social-icons {
+.analytica-social-icons {
   list-style-type: none;
   margin: 0;
 }
 
-.ast-social-icons li {
+.analytica-social-icons li {
   display: inline-block;
   padding-right: 15px;
 }
 
-.ast-social-icons li:last-child {
+.analytica-social-icons li:last-child {
   padding-right: 0;
 }
 
-.ast-social-icons a {
+.analytica-social-icons a {
   display: block;
 }
 
-.ast-social-icons i {
+.analytica-social-icons i {
   font-style: normal;
   font-family: fontawesome;
   font-weight: normal;
 }
 
-.ast-social-icons i:before {
+.analytica-social-icons i:before {
   font-weight: normal;
 }
 

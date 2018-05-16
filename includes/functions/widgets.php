@@ -185,7 +185,7 @@ function analytica_register_default_widget_areas() {
 
 add_action( 'after_setup_theme', 'analytica_register_footer_widget_areas' );
 /**
- * Register ast-small-footer footer-sml-layout-1 widget areas based on the number of widget areas the user wishes to create with `add_theme_support()`.
+ * Register analytica-small-footer footer-sml-layout-1 widget areas based on the number of widget areas the user wishes to create with `add_theme_support()`.
  *
  * @since 1.0.0
  *

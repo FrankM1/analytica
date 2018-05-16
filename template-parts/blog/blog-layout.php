@@ -12,7 +12,7 @@
 ?>
 <div <?php analytica_blog_layout_class( 'blog-layout-1' ); ?>>
 
-	<div class="post-content ast-col-md-12">
+	<div class="post-content analytica-col-md-12">
 
 		<?php analytica_blog_post_thumbnai_and_title_order(); ?>
 

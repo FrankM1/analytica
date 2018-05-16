@@ -263,7 +263,7 @@ add_filter( 'analytica_attr_structural-wrap', 'analytica_attributes_structural_w
  * @return array Amended attributes.
  */
 function analytica_attributes_structural_wrap( $attributes ) {
-    $attributes['class'] = 'ast-container';
+    $attributes['class'] = 'analytica-container';
 
     return $attributes;
 }
@@ -298,7 +298,7 @@ add_filter( 'analytica_attr_content-sidebar-wrap', 'analytica_attributes_content
  */
 function analytica_attributes_content_sidebar_wrap( $attributes ) {
     if ( ! analytica_is_builder_page()  ) {
-        $attributes['class'] .= ' ast-container';
+        $attributes['class'] .= ' analytica-container';
     }
 
     return $attributes;

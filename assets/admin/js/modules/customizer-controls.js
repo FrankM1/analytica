@@ -95,9 +95,9 @@
 									});
 
 									if ( ! visibleIt ) {
-										$( '.control-section[aria-owns="' + parentId + '"]' ).addClass( 'ast-hide' );
+										$( '.control-section[aria-owns="' + parentId + '"]' ).addClass( 'analytica-hide' );
 									} else {
-										$( '.control-section[aria-owns="' + parentId + '"]' ).removeClass( 'ast-hide' );
+										$( '.control-section[aria-owns="' + parentId + '"]' ).removeClass( 'analytica-hide' );
 									}
 								}
 							});
@@ -124,9 +124,9 @@
 							});
 
 							if ( ! visibleIt ) {
-								$( '.control-section[aria-owns="' + parentId + '"]' ).addClass( 'ast-hide' );
+								$( '.control-section[aria-owns="' + parentId + '"]' ).addClass( 'analytica-hide' );
 							} else {
-								$( '.control-section[aria-owns="' + parentId + '"]' ).removeClass( 'ast-hide' );
+								$( '.control-section[aria-owns="' + parentId + '"]' ).removeClass( 'analytica-hide' );
 							}
 						}
 					});

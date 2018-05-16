@@ -102,7 +102,7 @@ function analytica_footer_widget_areas() {
 
     // Get footer layout
     $layout = analytica_get_option( 'site-footer-layout' );
-    $container_class = analytica_get_option( 'footer-width' ) ? 'full-width' : 'ast-container';
+    $container_class = analytica_get_option( 'footer-width' ) ? 'full-width' : 'analytica-container';
 
     $inside = '';
     $output = '';
@@ -133,152 +133,152 @@ function analytica_footer_widget_areas() {
 
 						switch( $layout ) :
 							case 'layout-1' :
-								$inside .= '<div class="ast-col-md-12">';
+								$inside .= '<div class="analytica-col-md-12">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_1, $layout );
 								$inside .= '</div>';
 								break;
 
 							case 'layout-2' :
-								$inside .= '<div class="ast-col-md-6 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-6 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_1, $layout );
 								$inside .= '</div>';
-								$inside .= '<div class="ast-col-md-6 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-6 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
 								$inside .= '</div>';
 								break;
 
 							case 'layout-3' :
-								$inside .= '<div class="ast-col-md-4 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-4 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_1, $layout );
 								$inside .= '</div>';
-								$inside .= '<div class="ast-col-md-4 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-4 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                 $inside .= '</div>';
                                 if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
-								$inside .= '<div class="ast-col-md-4 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-4 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_3, $layout );
 								$inside .= '</div>';
 								break;
 
 							case 'layout-4' :
-								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-3 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_1, $layout );
 								$inside .= '</div>';
-								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-3 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                 $inside .= '</div>';
                                 if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
-								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-3 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_3, $layout );
 								$inside .= '</div>';
-                                $inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
+                                $inside .= '<div class="analytica-col-md-3 analytica-col-xs-6">';
                                     $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_4, $layout );
                                 $inside .= '</div>';
 
 								break;
 
 							case 'layout-5' :
-								$inside .= '<div class="ast-col-md-9 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-9 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_1, $layout );
 								$inside .= '</div>';
-								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-3 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
 								$inside .= '</div>';
 								break;
 
 							case 'layout-6' :
-								$inside .= '<div class="ast-col-md-6 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-6 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_1, $layout );
 								$inside .= '</div>';
-								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-3 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                 $inside .= '</div>';
                                 if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
-								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-3 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_3, $layout );
 								$inside .= '</div>';
 								break;
 
                             case 'layout-7' :
-                                $inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
+                                $inside .= '<div class="analytica-col-md-3 analytica-col-xs-6">';
                                     $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_1, $layout );
                                 $inside .= '</div>';
-                                $inside .= '<div class="ast-col-md-6 ast-col-xs-6">';
+                                $inside .= '<div class="analytica-col-md-6 analytica-col-xs-6">';
                                     $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                 $inside .= '</div>';
                                 if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
-                                $inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
+                                $inside .= '<div class="analytica-col-md-3 analytica-col-xs-6">';
                                     $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_3, $layout );
                                 $inside .= '</div>';
                                 break;
 
 							case 'layout-8' :
-								$inside .= '<div class="ast-col-md-4 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-4 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_1, $layout );
 								$inside .= '</div>';
-								$inside .= '<div class="ast-col-md-8 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-8 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
 								$inside .= '</div>';
 								break;
 
 							case 'layout-9' :
-								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-3 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_1, $layout );
 								$inside .= '</div>';
-								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-3 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                 $inside .= '</div>';
                                 if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
-								$inside .= '<div class="ast-col-md-6 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-6 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_3, $layout );
 								$inside .= '</div>';
 								break;
 
                             case 'layout-10' :
-								$inside .= '<div class="ast-col-md-2-4 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-2-4 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_1, $layout );
 								$inside .= '</div>';
-								$inside .= '<div class="ast-col-md-2-4 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-2-4 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                 $inside .= '</div>';
                                 if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
-								$inside .= '<div class="ast-col-md-2-4 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-2-4 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_3, $layout );
 								$inside .= '</div>';
-                                $inside .= '<div class="ast-col-md-2-4 ast-col-xs-6">';
+                                $inside .= '<div class="analytica-col-md-2-4 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_4, $layout );
                                 $inside .= '</div>';
                                 if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
-								$inside .= '<div class="ast-col-md-2-4 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-2-4 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_5, $layout );
 								$inside .= '</div>';
 								break;
 
                             case 'layout-11' :
 
-                                    $inside .= '<div class="ast-col-md-4 ast-col-xs-6">';
+                                    $inside .= '<div class="analytica-col-md-4 analytica-col-xs-6">';
                                         $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_1, $layout );
                                     $inside .= '</div>';
 
                                     if ( ! wp_is_mobile() ) {
-                                        $inside .= '<div class="ast-col-md-8 ast-col-xs-6">';
+                                        $inside .= '<div class="analytica-col-md-8 analytica-col-xs-6">';
                                         $inside .= '<div class="row">';
                                     }
-                                            $inside .= '<div class="ast-col-md-4 ast-col-xs-6">';
+                                            $inside .= '<div class="analytica-col-md-4 analytica-col-xs-6">';
                                                 $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                             $inside .= '</div>';
 
@@ -286,10 +286,10 @@ function analytica_footer_widget_areas() {
                                                 $inside .= '<div class="clearfix visible-xs"></div>';
                                             }
 
-                                            $inside .= '<div class="ast-col-md-4 ast-col-xs-6">';
+                                            $inside .= '<div class="analytica-col-md-4 analytica-col-xs-6">';
                                                 $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_3, $layout );
                                             $inside .= '</div>';
-                                            $inside .= '<div class="ast-col-md-4 ast-col-xs-6">';
+                                            $inside .= '<div class="analytica-col-md-4 analytica-col-xs-6">';
                                                 $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_4, $layout );
                                             $inside .= '</div>';
 
@@ -302,14 +302,14 @@ function analytica_footer_widget_areas() {
                             case 'layout-12' :
 
                                 if ( wp_is_mobile() ) {
-                                    $inside .= '<div class="ast-col-md-8 ast-col-xs-6">';
+                                    $inside .= '<div class="analytica-col-md-8 analytica-col-xs-6">';
                                     $inside .= '<div class="row">';
                                 }
 
-                                $inside .= '<div class="ast-col-md-4 ast-col-xs-6">';
+                                $inside .= '<div class="analytica-col-md-4 analytica-col-xs-6">';
                                     $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_1, $layout );
                                 $inside .= '</div>';
-                                $inside .= '<div class="ast-col-md-4 ast-col-xs-6">';
+                                $inside .= '<div class="analytica-col-md-4 analytica-col-xs-6">';
                                     $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                 $inside .= '</div>';
 
@@ -317,7 +317,7 @@ function analytica_footer_widget_areas() {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
 
-                                $inside .= '<div class="ast-col-md-4 ast-col-xs-6">';
+                                $inside .= '<div class="analytica-col-md-4 analytica-col-xs-6">';
                                     $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_3, $layout );
                                 $inside .= '</div>';
 
@@ -326,32 +326,32 @@ function analytica_footer_widget_areas() {
                                     $inside .= '</div>';
                                 }
 
-                                $inside .= '<div class="ast-col-md-4 ast-col-xs-6">';
+                                $inside .= '<div class="analytica-col-md-4 analytica-col-xs-6">';
                                     $inside .= analytica_get_dynamic_footer_sidebar( $sidebar_4, $layout );
                                 $inside .= '</div>';
 
 								break;
 							default :
-								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-3 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_1, $layout );
 								$inside .= '</div>';
-								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-3 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_2, $layout );
                                 $inside .= '</div>';
                                 if ( wp_is_mobile() ) {
                                     $inside .= '<div class="clearfix visible-xs"></div>';
                                 }
-								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-3 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_3, $layout );
 								$inside .= '</div>';
-								$inside .= '<div class="ast-col-md-3 ast-col-xs-6">';
+								$inside .= '<div class="analytica-col-md-3 analytica-col-xs-6">';
 									$inside .= analytica_get_dynamic_footer_sidebar( $sidebar_4, $layout );
 								$inside .= '</div>';
 								break;
 						endswitch;
 
                         $inside .= '</div><!-- .row -->';
-				$inside .= '</div><!-- .ast-container -->';
+				$inside .= '</div><!-- .analytica-container -->';
 			$inside .= '</div><!-- .top-inner -->';
 		$inside .= '</div>';
 	endif;

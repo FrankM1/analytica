@@ -8,16 +8,16 @@
 /*----------  Media Query max-width Structure   ----------*/
 /*----------  Break-point min-width Structure   ----------*/
 /*----------  Break-point max-width Structure   ----------*/
-.ast-page-builder-template .sfwd-courses .entry-header,
-.ast-page-builder-template .sfwd-lessons .entry-header,
-.ast-page-builder-template .sfwd-topic .entry-header,
-.ast-page-builder-template .sfwd-quiz .entry-header,
-.ast-page-builder-template .sfwd-certificates .entry-header,
-.ast-page-builder-template.single .sfwd-courses .entry-header,
-.ast-page-builder-template.single .sfwd-lessons .entry-header,
-.ast-page-builder-template.single .sfwd-topic .entry-header,
-.ast-page-builder-template.single .sfwd-quiz .entry-header,
-.ast-page-builder-template.single .sfwd-certificates .entry-header {
+.analytica-page-builder-template .sfwd-courses .entry-header,
+.analytica-page-builder-template .sfwd-lessons .entry-header,
+.analytica-page-builder-template .sfwd-topic .entry-header,
+.analytica-page-builder-template .sfwd-quiz .entry-header,
+.analytica-page-builder-template .sfwd-certificates .entry-header,
+.analytica-page-builder-template.single .sfwd-courses .entry-header,
+.analytica-page-builder-template.single .sfwd-lessons .entry-header,
+.analytica-page-builder-template.single .sfwd-topic .entry-header,
+.analytica-page-builder-template.single .sfwd-quiz .entry-header,
+.analytica-page-builder-template.single .sfwd-certificates .entry-header {
   margin-bottom: 0;
 }
 
@@ -29,16 +29,16 @@
   margin-bottom: .5em;
 }
 
-.single .sfwd-courses .entry-header .ast-single-post-order + .post-thumb img,
-.single .sfwd-lessons .entry-header .ast-single-post-order + .post-thumb img,
-.single .sfwd-topic .entry-header .ast-single-post-order + .post-thumb img,
-.single .sfwd-quiz .entry-header .ast-single-post-order + .post-thumb img,
-.single .sfwd-certificates .entry-header .ast-single-post-order + .post-thumb img {
+.single .sfwd-courses .entry-header .analytica-single-post-order + .post-thumb img,
+.single .sfwd-lessons .entry-header .analytica-single-post-order + .post-thumb img,
+.single .sfwd-topic .entry-header .analytica-single-post-order + .post-thumb img,
+.single .sfwd-quiz .entry-header .analytica-single-post-order + .post-thumb img,
+.single .sfwd-certificates .entry-header .analytica-single-post-order + .post-thumb img {
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
-.single .sfwd-lessons .learndash_content .ast-oembed-container {
+.single .sfwd-lessons .learndash_content .analytica-oembed-container {
   margin-bottom: 1.6em;
 }
 

@@ -11,8 +11,8 @@
 @import "../variables-site/colors";
 
 
-.ast-page-builder-template,
-.ast-page-builder-template.single{
+.analytica-page-builder-template,
+.analytica-page-builder-template.single{
 	.sfwd-courses,
 	.sfwd-lessons,
 	.sfwd-topic,
@@ -31,7 +31,7 @@
 	.sfwd-certificates{
 		.entry-header{
 			margin-bottom: .5em;
-			.ast-single-post-order + .post-thumb img {
+			.analytica-single-post-order + .post-thumb img {
 				margin-top: 1em;
 				margin-bottom: 1em;	
 			}
@@ -39,7 +39,7 @@
 	}
 	.sfwd-lessons{
 		.learndash_content{
-			.ast-oembed-container{
+			.analytica-oembed-container{
 				margin-bottom: 1.6em
 			}
 		}

@@ -17,15 +17,15 @@
 }
 
 
-.ast-comment-list {
+.analytica-comment-list {
     margin: 0;
     word-wrap: break-word;
     padding-bottom: 0.5em;
     list-style: none;
     li {
         list-style: none;
-        &.depth-1 .ast-comment,
-        &.depth-2 .ast-comment{
+        &.depth-1 .analytica-comment,
+        &.depth-2 .analytica-comment{
             border-bottom: 1px solid $color-border-content;
         }
     }
@@ -56,11 +56,11 @@
         margin-left: 1em;
     }
 
-    .ast-comment-edit-reply-wrap{
+    .analytica-comment-edit-reply-wrap{
         display:flex;
         justify-content: flex-end;
     }
-    .ast-edit-link{
+    .analytica-edit-link{
         flex: 1;
     }
     .comment-awaiting-moderation{
@@ -68,11 +68,11 @@
     }
 }
 
-.ast-comment {
+.analytica-comment {
     padding: 1em 0;
 }
 
-.ast-comment-avatar-wrap {
+.analytica-comment-avatar-wrap {
     float: left;
     clear: right;
     margin-right: 1.33333em;
@@ -87,17 +87,17 @@
         }
     }
 }
-.ast-comment-meta-wrap{
+.analytica-comment-meta-wrap{
     float: left;
     clear: right;
     padding: 0 0 1.33333em;
 }
 
-.ast-comment-content{
+.analytica-comment-content{
     clear: both;
 }
 
-.ast-comment-cite-wrap {
+.analytica-comment-cite-wrap {
     text-align: left;
     cite {
         font-style: normal;
@@ -110,12 +110,12 @@
     line-height: 1.65;
 }
 
-.ast-comment-meta {
+.analytica-comment-meta {
     margin-bottom: 0.5em;
 
 }
 
-.ast-comment-time {
+.analytica-comment-time {
 
     .timendate,
     .reply {
@@ -150,7 +150,7 @@
 
     /*  2 - Input Fields Styles */
     textarea#comment,
-    .ast-comment-formwrap input[type="text"] {
+    .analytica-comment-formwrap input[type="text"] {
         width: 100%;
         border-radius: 0;
         vertical-align: middle;
@@ -170,7 +170,7 @@
     }
 }
 
-.ast-separate-container{
+.analytica-separate-container{
     .comments-count-wrapper{
         background-color: $color-background-content;
         padding: 2em 6.67em 0;
@@ -187,7 +187,7 @@
     .comments-area {
         border-top: 0;
     }
-    .ast-comment-list{
+    .analytica-comment-list{
         padding-bottom: 0;
         li{
             background-color: $color-background-content;
@@ -207,7 +207,7 @@
                     padding: 1.5em 1em;
                     margin-bottom: 1.5em;
                 }
-                .ast-comment{
+                .analytica-comment{
                     border-bottom: 0;
                 }
                 .children li {
@@ -216,8 +216,8 @@
                     margin-bottom: 0;
                 }
             }
-            &.depth-1 .ast-comment,
-            &.depth-2 .ast-comment{
+            &.depth-1 .analytica-comment,
+            &.depth-2 .analytica-comment{
                 border-bottom: 0;
             }
         }
@@ -279,7 +279,7 @@
     }
 }
 
-.ast-page-builder-template{
+.analytica-page-builder-template{
   .comments-area{
     padding-left: 20px;
     padding-right: 20px;

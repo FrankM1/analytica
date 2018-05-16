@@ -44,7 +44,7 @@
 	    background: #fafafa;
 	    box-shadow: none;
 	    box-sizing: border-box;
-	    @include ast-transition();
+	    @include analytica-transition();
 	}
 
     /* Button */
@@ -67,7 +67,7 @@
 	    vertical-align: middle;
 	    width: 1.4em;
 	    min-width: 1.4em;
-	    @include ast-transition();
+	    @include analytica-transition();
     }
 
 	/* Validation Fix */

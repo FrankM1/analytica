@@ -10,7 +10,7 @@
  */
 
 ?>
-<div class="ast-404-layout-1">
+<div class="analytica-404-layout-1">
 
 	<?php analytica_the_title( '<header class="page-header"><h1 class="page-title">', '</h1></header><!-- .page-header -->' ); ?>
 
@@ -20,7 +20,7 @@
 			<?php echo esc_html( analytica_default_strings( 'string-404-sub-title', false ) ); ?>
 		</div>
 
-		<div class="ast-404-search">
+		<div class="analytica-404-search">
 			<?php the_widget( 'WP_Widget_Search' ); ?>
 		</div>
 

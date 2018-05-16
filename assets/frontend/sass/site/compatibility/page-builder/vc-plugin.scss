@@ -16,10 +16,10 @@
 		margin-right: auto;
 	}
 
- 	.ast-plain-container {
+ 	.analytica-plain-container {
 
 		// Removed article margin
-		&.ast-single-post {
+		&.analytica-single-post {
 			.hentry,
 			#primary {
 				margin: 0;
@@ -30,12 +30,12 @@
 			.entry-header {
 				margin-top: 4em;
 				
-				&.ast-header-without-markup {
+				&.analytica-header-without-markup {
 					margin-top: 0;
 					margin-bottom: 0;
 				}
 
-				&.ast-no-title.ast-no-meta {
+				&.analytica-no-title.analytica-no-meta {
 					margin-bottom: 0;
 				}
 
@@ -53,10 +53,10 @@
 
 	}
 
-	.ast-plain-container,
- 	.ast-page-builder-template {
-		&.ast-left-sidebar,
-		&.ast-right-sidebar {
+	.analytica-plain-container,
+ 	.analytica-page-builder-template {
+		&.analytica-left-sidebar,
+		&.analytica-right-sidebar {
 			.vc_row[data-vc-full-width] {
 				max-width: 100%;
 				left: 0 !important;
@@ -64,8 +64,8 @@
 		}
 	}
 	
-	.ast-left-sidebar,
-	.ast-right-sidebar {
+	.analytica-left-sidebar,
+	.analytica-right-sidebar {
 		.vc_row[data-vc-full-width] {
 			max-width: 100%;
 			left: 0 !important;

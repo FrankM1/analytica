@@ -18,7 +18,7 @@ textarea {
     background: #fafafa;
     box-shadow: none;
     box-sizing: border-box;
-    @include ast-transition();
+    @include analytica-transition();
 }
 
 input[type="text"]:focus, 
