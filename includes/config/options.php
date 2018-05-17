@@ -32,7 +32,7 @@ class Options
      */
     public static function controls()
     {
-        return apply_filters('analytica_customizer_controls', []);
+        return apply_filters( 'analytica_customizer_controls', [] );
     }
 
     /**
@@ -54,7 +54,7 @@ class Options
             'color' => '#000',
         ];
 
-        return apply_filters('analytica_theme_defaults', array(
+        return apply_filters( 'analytica_theme_defaults', array(
             
             // General
             'css-print-method' => 'external',
@@ -121,7 +121,7 @@ class Options
             'header-scripts' => '',
           
             // Page Header
-            'hero_enable'               => 'on',
+            'hero_enable'               => true,
             'hero_custom_height'        => 350,
             'hero_custom_mobile_height' => 200,
             'hero_text_alignment'       => 'text-center',

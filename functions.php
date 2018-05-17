@@ -317,6 +317,11 @@ class Core {
         // 	require_once get_theme_file_path( '/includes/extensions/class-analytica-elementor-pro.php' );
         // }
 
+        if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
+        	require_once get_theme_file_path( '/includes/extensions/qazana/qazana.php' );
+            require_once get_theme_file_path( '/includes/extensions/qazana/conditionals.php' );
+        }
+
         // // Beaver Themer compatibility requires PHP 5.3 for anonymus functions.
         // if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
         // 	require_once get_theme_file_path( '/includes/extensions/class-analytica-beaver-themer.php' );

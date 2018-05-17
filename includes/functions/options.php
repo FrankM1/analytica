@@ -137,6 +137,6 @@ function analytica_get_post_id( $post_id_override = '' ) {
         Analytica\Options::$post_id = $post_id;
     }
 
-    return apply_filters( 'analytica_get_post_id', Analytica\Options::$post_id, $post_id_override );
+    return apply_filters( __FUNCTION__, Analytica\Options::$post_id, $post_id_override );
 }
  

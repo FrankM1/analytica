@@ -1,149 +1,126 @@
 // ## Structure and Layout
-
 // ### Site Containers
-
 .site-boxed .site-inner {
-    @extend            %container;
-  }
-  
-  .site-boxed .site-container {
-    @extend      %container;
-    box-shadow : 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .site-wide .container {
-      padding: 0;
-  }
-  
-  .site-inner.has-parallax-footer {
-    position       : relative;
-    z-index        : 10;
-    padding-bottom : 0;
-    box-shadow     : rgba(0,0,0,0.7) 0 105px 90px -90px;
-  }
-  
-  .qazana-active .content-sidebar-wrap,
-  .qazana-page .content-sidebar-wrap,
-  .site-fullwidth .content-sidebar-wrap {
-    @media (min-width: $screen-sm-min) {
-      max-width : none;
-    }
-    @media (min-width: $screen-md-min) {
-      max-width : none;
-    }
-    @media (min-width: $screen-lg-min) {
-      max-width : none;
-    }
-  }
-  
-  .site-container {
-    @include     clearfix;
-    margin     : 0 auto;
-    transition : all 0.5s ease-in-out;
-  }
-  
-  // ## Column Widths and Positions
-  
-  // ### Wrapping div for .content and .sidebar-primary */
-  
-  .content-sidebar-wrap {
-    @include         clearfix;
-    @extend          %container;
-    display        : flex;
-    flex-direction : column;
-    padding: 0;
-  
-    @media (min-width: $screen-md-min) {
-        flex-direction : row;
-    }
-  
-  }
-  
-  .content-sidebar-wrap .row {
-      @extend          %container;
-  }
-  
-  .content-sidebar-sidebar .content-sidebar-wrap,
-  .content-sidebar .content-sidebar-wrap,
-  .sidebar-content-sidebar .content-sidebar-wrap,
-  .sidebar-content .content-sidebar-wrap,
-  .sidebar-sidebar-content .content-sidebar-wrap {
-    .content {
-        width : 100%;
-      @media (min-width: $screen-md-min) {
-          width : calc(100% - 360px);
-      }
-    }
-  
-      .next_post_infinite {
-          @media (min-width: $screen-md-min) {
-              width : calc(100% - 360px);
-          }
-      }
-  }
-  
-  // ### Content
-  
-  .qazana-content,
-  .content {
-    width : 100%;
-  }
-  
-  .content-sidebar-wrap > .content {
-    flex-direction : column;
-    padding        : 0 floor($grid-gutter-width-half / 2 );
-    @media (min-width: $screen-md-min) {
-      padding : 0 $grid-gutter-width-half;
-    }
-  }
-  
-  .page .content-sidebar-wrap > .content {
-    padding : $grid-gutter-width-half;
-    @media (min-width: $screen-md-min) {
-      padding : $grid-gutter-width;
-    }
-  }
-  
-  .site-fullwidth:not(.page-template-blog) .content-sidebar-wrap {
-    width : 100%;
-  
-    > .content {
-      padding : 0;
-    }
-  }
-  
-  .entry-page .entry-content {
-    padding : 0;
-    @media (min-width: $screen-md-min) {
-      padding : $grid-gutter-width-half;
-    }
-  }
-  
-  // ### Primary Sidebar
-  
-  .sidebar-primary {
-    flex-direction : column;
-    @media (min-width: $screen-md-min) {
-      flex : 0 0 360px;
-    }
-  }
-  
-  // ### Secondary Sidebar
-  
-  .sidebar-secondary {
-    flex-direction : column;
-    @media (min-width: $screen-md-min) {
-      flex : 0 0 360px;
-    }
-  }
-  
-  .content-sidebar-sidebar .sidebar-primary,
-  .content-sidebar .sidebar-primary,
-  .sidebar-content .sidebar-primary,
-  .sidebar-sidebar-content .sidebar-primary {
-    .widget-area-inner {
-      padding-right : $grid-gutter-width-half;
-      padding-left  : $grid-gutter-width-half;
-    }
-  }
-  
+	@extend %container;
+}
+
+.site-boxed .site-container {
+	@extend %container;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.site-wide .container {
+	padding: 0;
+}
+
+.site-inner.has-parallax-footer {
+	position: relative;
+	z-index: 10;
+	padding-bottom: 0;
+	box-shadow: rgba(0, 0, 0, 0.7) 0 105px 90px -90px;
+}
+
+.qazana-active .content-sidebar-wrap,
+.qazana-page .content-sidebar-wrap,
+.site-fullwidth .content-sidebar-wrap {
+	@media (min-width: $screen-sm-min) {
+		max-width: none;
+	}
+	@media (min-width: $screen-md-min) {
+		max-width: none;
+	}
+	@media (min-width: $screen-lg-min) {
+		max-width: none;
+	}
+}
+
+.site-container {
+	margin: 0 auto;
+	transition: all 0.5s ease-in-out;
+} // ## Column Widths and Positions
+
+
+// ### Wrapping div for .content and .sidebar-primary */
+.content-sidebar-wrap {
+	@extend %container;
+	display: flex;
+	flex-direction: column;
+
+	@media (min-width: $screen-md-min) {
+		flex-direction: row;
+	}
+
+}
+
+.content-sidebar-wrap .row {
+	@extend %container;
+}
+
+.content-sidebar-sidebar .content-sidebar-wrap,
+.content-sidebar .content-sidebar-wrap,
+.sidebar-content-sidebar .content-sidebar-wrap,
+.sidebar-content .content-sidebar-wrap,
+.sidebar-sidebar-content .content-sidebar-wrap {
+	.content {
+		width: 100%;
+		@media (min-width: $screen-md-min) {
+			width: calc(100% - 360px);
+		}
+	}
+
+	.next_post_infinite {
+		@media (min-width: $screen-md-min) {
+			width: calc(100% - 360px);
+		}
+	}
+} // ### Content
+.qazana-content,
+.content {
+	width: 100%;
+}
+
+.content-sidebar-wrap>.content {
+	flex-direction: column;
+	padding: 0 floor($grid-gutter-width-half / 2);
+	@media (min-width: $screen-md-min) {
+		padding: 0 $grid-gutter-width-half;
+	}
+}
+
+
+.site-fullwidth:not(.page-template-blog) .content-sidebar-wrap {
+	width: 100%;
+
+	>.content {
+		padding: 0;
+	}
+}
+
+.entry-page .entry-content {
+	padding: 0;
+	@media (min-width: $screen-md-min) {
+		padding: $grid-gutter-width-half;
+	}
+} // ### Primary Sidebar
+.sidebar-primary {
+	flex-direction: column;
+	@media (min-width: $screen-md-min) {
+		flex: 0 0 360px;
+	}
+} // ### Secondary Sidebar
+.sidebar-secondary {
+	flex-direction: column;
+	@media (min-width: $screen-md-min) {
+		flex: 0 0 360px;
+	}
+}
+
+.content-sidebar-sidebar .sidebar-primary,
+.content-sidebar .sidebar-primary,
+.sidebar-content .sidebar-primary,
+.sidebar-sidebar-content .sidebar-primary {
+	.widget-area-inner {
+		padding-right: $grid-gutter-width-half;
+		padding-left: $grid-gutter-width-half;
+	}
+}

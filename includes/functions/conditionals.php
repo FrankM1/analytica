@@ -51,7 +51,7 @@ function analytica_header_is_active() {
  function analytica_is_hero_available() {
      $retval = true;
 
-     $option = analytica_get_option( 'hero_enable', 'on' );
+     $option = analytica_get_option( 'hero_enable' );
 
      if ( ! analytica_is_bool( $option ) ) {
          $retval = false;

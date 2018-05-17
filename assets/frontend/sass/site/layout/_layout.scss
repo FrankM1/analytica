@@ -26,11 +26,11 @@ body {
 }
 
 .site-inner {
-	margin: 4em;
+	margin: $grid-gutter-width;
 }
 
 #secondary {
-	margin: 4em 0 2.5em;
+	margin: $grid-gutter-width 0 $grid-gutter-width-half;
 	word-break: break-word;
 	line-height: 2;
 
