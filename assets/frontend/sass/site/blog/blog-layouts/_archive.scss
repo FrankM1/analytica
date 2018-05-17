@@ -8,24 +8,6 @@
 	}
 }
 
-.analytica-archive-description{
-	margin-bottom: 2.5em;
-	padding-bottom: 1.3333em;
-	border-bottom: 1px solid $color-border-content;
-	.analytica-archive-title{
-    	margin-bottom: 4px;
-    	font-size: 40px;
-    	font-size: 2.85714rem;
-    	font-weight: 300;
-	}
-	p{
-		margin-bottom:0;
-		font-size: 20px;
-    	font-size: 1.42857rem;
-		line-height: 1.65;
-		font-weight: 300;
-	}
-}
 @media (min-width: $col-md) {
 	.analytica-author-box{
 		display: flex;
@@ -44,36 +26,17 @@
 }
 
 .analytica-separate-container {
-	.analytica-author-box,
-	.analytica-archive-description{
+	.analytica-author-box{
 		background-color: $color-background-page-header;
 		padding-bottom: 0;
 		border-bottom: 0;
 	}
 }
-.analytica-separate-container{
-	@media (max-width: $mx-col-xl) {
-		.analytica-archive-description{
-		    margin: 0;
-		    padding: 3.34em 2.4em;
-		}
-	}
-	@media (max-width: $mx-col-lg) {
-		.analytica-archive-description{
-		    padding: 2.14em;
-		}
-	}
-	@media (max-width: $mx-col-sm) {
-		.analytica-archive-description{
-		    padding: 1.5em 1em;
-		}
-	}
-}
+
 
 @media (min-width: $col-xl) {
 	.analytica-separate-container{
-		.analytica-author-box,
-		.analytica-archive-description{
+		.analytica-author-box{
 		    margin: 0;
 		    padding: 5em 6.67em 3.33333em;
 		}

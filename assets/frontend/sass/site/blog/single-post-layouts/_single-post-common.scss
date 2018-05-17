@@ -39,6 +39,10 @@
 			.nav-next {
 				flex: auto;
 			}
+
+			.nav-next {
+				text-align: right;
+			}
 		}
 
 		@media ( max-width: $mx-col-xs ) { 

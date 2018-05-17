@@ -59,13 +59,12 @@ class Options
             // General
             'css-print-method' => 'external',
             'settings-update-time' => '',
-            'site-layout' => 'site-wide',
-            'site-layout-offset' => '0',
             'site-description' => 0,
             'accent-color' => '#4f02b3',
 
             // Site Layout.
-            'site-layout' => 'analytica-full-width-layout',
+            'site-layout' => 'site-boxed',
+            'site-layout-offset' => '0',
             'site-content-width' => 1200,
             'site-layout-outside-bg-obj' => array(
                 'background-color' => '',
@@ -75,6 +74,8 @@ class Options
                 'background-size' => 'auto',
                 'background-attachment' => 'scroll',
             ),
+            'content-sidebar-layout' => 'content-sidebar',
+            
             // Container.
             'site-detach-containers' => 'off',
             'site-content-layout' => 'content-boxed-container',
@@ -84,14 +85,14 @@ class Options
 
             // Sidebars
             'site-sidebar-width' => 360,
-            'site_sidebar_enable' => true,
-            'site_sidebar_enable_tablet' => true,
-            'site_sidebar_enable_mobile' => false,
-            'site_sidebar_supported' => [
+            'site-sidebar-enable' => true,
+            'site-sidebar-enable-tablet' => true,
+            'site-sidebar-enable-mobile' => false,
+            'site-sidebar-supported' => [
                 'post',
                 'page',
             ],
-            'site_sidebar_archives_supported' => [
+            'site-sidebar-archives-supported' => [
                 'categories',
                 'tags',
             ],
@@ -272,6 +273,7 @@ class Options
             'publisher-uri' => get_site_url(),
             'single-post-site-container-width' => '',
             'single-post-site-sidebar-width' => '',
+            'single-post-layout' => 'content-sidebar',
             'content_archive_all_posts_title' => esc_html__( 'Latest posts', 'energia' ),
 
             // Footer
@@ -345,6 +347,7 @@ class Options
             'site-sidebar-layout' => '',
             'single-page-sidebar-layout' => '',
             'archive-post-sidebar-layout' => '',
+            'single-post-sidebar-layout' => '',
         ));
     }
 

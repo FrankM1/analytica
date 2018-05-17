@@ -48,26 +48,6 @@ function analytica_filter_widget_tag_cloud( $tags_data ) {
     return apply_filters( 'analytica_filter_widget_tag_cloud', $tags_data );
 }
 
-add_action( 'analytica_left_sidebar', 'analytica_left_sidebar' );
-/**
- * Add left sidebar.
- */
-function analytica_left_sidebar() {
-    if ( analytica_page_layout() == 'left-sidebar' ) :
-	    get_sidebar();
-    endif;
-}
-
-add_action( 'analytica_right_sidebar', 'analytica_right_sidebar' );
-/**
- * Add right sidebar.
- */
-function analytica_right_sidebar() {
-    if ( analytica_page_layout() == 'right-sidebar' ) :
-	    get_sidebar();
-    endif;
-}
-
 /**
  * Expedites the widget area registration process by taking common things, before / after_widget, before / after_title,
  * and doing them automatically.
@@ -98,14 +78,14 @@ function analytica_register_widget_area( $args ) {
 
     $defaults = array(
         'before_widget' => analytica_markup( array(
-            'html5' => '<div id="%1$s" class="analytica-qazana-widget clearfix widget %2$s"><div class="widget-wrap">',
+            'element' => '<div id="%1$s" class="analytica-widget widget %2$s"><div class="widget-wrap">',
             'echo'  => false,
         ) ),
         'after_widget'  => analytica_markup( array(
-            'html5' => '</div></div>' . "\n",
+            'element' => '</div></div>' . "\n",
             'echo'  => false,
         ) ),
-        'before_title'  => '<div class="section-title clearfix"><h5 class="widget-title"><span>',
+        'before_title'  => '<div class="widget-title-wrap"><h5 class="widget-title"><span>',
         'after_title'   => "</span></h5></div>\n",
     );
 

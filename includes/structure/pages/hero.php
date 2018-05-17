@@ -56,8 +56,9 @@ class Page_Hero {
         add_action( 'analytica_do_hero_content',            [ $this, 'do_title' ] );
         add_action( 'analytica_do_hero_content',            [ $this, 'do_subtitle' ] );
         add_action( 'analytica_do_hero_content',            [ $this, 'do_breadcrumbs' ] );
-        add_filter( 'analytica_style_inline',               [ $this, 'do_hero_css' ] );
         add_filter( 'analytica_attr_hero',                  [ $this, 'attributes_hero' ] );
+
+        add_filter( 'wp_enqueue_scripts',                  [ $this, 'do_hero_css' ] );
     }
  
     /**
@@ -149,55 +150,17 @@ class Page_Hero {
         return $header;
     }
 
-    public function get_post_image_data( $image_id ) {
-        $image_args = [
-            'src' => true,
-            'options' => [
-                'w' => 'auto',
-                'h' => ( $this->height * 2 ),
-            ],
-        ];
-
-        $image_args['img_id'] = $image_id;
-
-        $image = wp_get_attachment_image_src( $image_args['img_id'], 'full' );
-
-        $image_args['options']['w'] = $image[1];
+    public function get_post_image_data() {
 
         $hero = [
-            'url'  => analytica_get_thumb_img( $image_args ),
+            'url'  => get_header_image(),
             'size' => [
-                $image[1],
-                $this->height,
+                get_custom_header()->width,
+                get_custom_header()->height,
             ],
         ];
 
         return $hero;
-    }
-
-    /**
-     * Get default image as fallback
-     *
-     * @return void
-     */
-    public function get_default_background() {
-        $image_id = analytica_get_option( 'hero_bg_img' );
-
-        if ( ! is_numeric( $image_id ) ) {
-            $image_id = analytica_get_attachment_id_from_url( $image_id );
-        }
-
-        if ( $image_id && is_numeric( $image_id ) ) {
-            return $this->get_post_image_data( $image_id );
-        } else {
-            return [
-                'url'  => \Analytica\Options::defaults()['hero_bg_img'],
-                'size' => [
-                    1000,
-                    $this->height,
-                ],
-            ];
-        }
     }
 
     /**
@@ -206,14 +169,7 @@ class Page_Hero {
      * @return void
      */
     public function get_background_url() {
-        if ( $this->image_inherit && $image_id = get_post_meta( get_the_ID(), '_analytica_hero_bg_img', true ) ) {
-            return $this->get_post_image_data( $image_id );
-        } elseif ( $this->image_inherit && $image_id = analytica_get_post_thumbnail_id() ) {
-            return $this->get_post_image_data( $image_id );
-        } else {
-            return $this->get_default_background();
-        }
-
+        return $this->get_post_image_data();
     }
 
     /**
@@ -333,7 +289,11 @@ class Page_Hero {
         echo '</div>';
     }
 
-    public function do_hero_css( $css ) {
+    function do_hero_css() {
+        wp_add_inline_style( 'analytica-frontend', $this->generate_hero_css() );
+    }
+
+    public function generate_hero_css() {
         $css_rules = $extra_css = null;
 
         if ( $this->image_active ) {
@@ -384,7 +344,7 @@ class Page_Hero {
             $css_rules .= '}';
         }
 
-        $css .= $css_rules . $extra_css;
+        $css = $css_rules . $extra_css;
 
         return esc_js( $css );
     }

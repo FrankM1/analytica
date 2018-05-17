@@ -21,8 +21,7 @@
 
             do_action( 'analytica_content_bottom' ); 
             
-            ?></div> <!-- analytica-container -->
-		</div><!-- #content --><?php
+        ?></div><!-- #content --><?php
 
         do_action( 'analytica_content_after' );
 

@@ -76,10 +76,10 @@
     .widget {
         padding: 23px;
 
-        &.radium-qazana-widget {
+        &.analytica-widget {
             padding: 0;
 
-            .section-title {
+            .widget-title-wrap {
                 margin-top: ceil(($grid-gutter-width / 2));
                 margin-bottom: 0;
             }

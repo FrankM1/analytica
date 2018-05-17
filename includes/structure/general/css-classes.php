@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is a part of the Radium Framework core.
+ * This file is a part of the analytica Framework core.
  * Please be cautious editing this file,
  *
  * @category Analytica
@@ -43,16 +43,13 @@ function analytica_site_layout_body_class( $classes ) {
     //     $classes[] = 'analytica-plain-container';
     // }
 
-    // Sidebar location.
-    $classes[]   = esc_attr( 'analytica-' . analytica_page_layout() );
-
     // Current Analytica verion.
     $classes[] = esc_attr( 'analytica-' . wp_get_theme()->version );
 
     $header_overlay_option     = analytica_get_option( 'header-overlay' );
     $header_sticky_option      = analytica_get_option( 'header-sticky' );
     $header_transparent_option = analytica_get_option( 'header-transparent' );
-    $site_layout               = analytica_get_option( 'site-layout', 'site-wide' );
+    $site_layout               = analytica_get_option( 'site-layout' );
 
     $classes[] = $site_layout;
 
@@ -69,6 +66,31 @@ function analytica_site_layout_body_class( $classes ) {
     // Handle transparent / not transparent
     if ( ! wp_is_mobile() && $header_transparent_option ) {
         $classes[] = 'analytica-header-transparent';
+    }
+
+    return $classes;
+}
+
+add_filter( 'body_class', 'analytica_layout_body_classes' );
+/**
+ * Add site layout classes to the body classes.
+ *
+ * We can use pseudo-variables in our CSS file, which helps us achieve multiple site layouts with minimal code.
+ *
+ * @since 1.0.0
+ *
+ * @uses analytica_site_layout() Return the site layout for different contexts.
+ *
+ * @param array $classes Existing classes.
+ *
+ * @return array Amended classes.
+ */
+function analytica_layout_body_classes( array $classes ) {
+
+    $site_layout = analytica_site_layout();
+
+    if ( $site_layout && ! is_404() ) {
+        $classes[] = $site_layout;
     }
 
     return $classes;
@@ -95,6 +117,9 @@ function analytica_get_header_class( $class = '' ) {
 
     // Add the general site header class
     $classes[] = 'site-header';
+
+    // Primary header class
+    $classes[] = 'header-primary';
 
     // Handle sticky / not sticky
     if ( true == $header_sticky_option ) {

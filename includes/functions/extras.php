@@ -11,7 +11,7 @@
  * @since       Analytica 1.0.0
  */
  
-add_action( 'analytica_pagination', 'analytica_number_pagination' );
+add_action( 'analytica_template_parts_content_bottom', 'analytica_number_pagination' );
 /**
  * Analytica Pagination
  *
@@ -199,24 +199,6 @@ function analytica_comment_form_default_markup( $args ) {
 
     return apply_filters( 'analytica_comment_form_default_markup', $args );
 }
-
-/**
- * Function filter comment form arguments
- *
- * @since 1.0.0
- * @param array $layout     Comment form arguments.
- * @return array
- */
-function analytica_404_page_layout( $layout ) {
-
-    if ( is_404() ) {
-        $layout = 'no-sidebar';
-    }
-
-    return apply_filters( 'analytica_404_page_layout', $layout );
-}
-
-add_filter( 'analytica_page_layout', 'analytica_404_page_layout', 10, 1 );
 
 /**
  * Return current content layout

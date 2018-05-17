@@ -2,10 +2,10 @@
 namespace Analytica;
 
 /**
- * This file is a part of the Radium Framework core.
+ * This file is a part of the analytica Framework core.
  * Please be cautious editing this file,
  *
- * @package Radium Framework
+ * @package analytica Framework
  * @author   Franklin Gitonga
  * @link     https://qazana.net/
  */
@@ -30,7 +30,10 @@ class Theme {
      * support post thumbnails.
      */
     function setup_theme() {
-    
+        
+        /**
+         * Customize image sizes
+         */
         set_post_thumbnail_size( 140, 140, true );
 
         /**
@@ -43,7 +46,29 @@ class Theme {
          */
         add_theme_support( 'widget-customizer' );
 
-        // Maybe add support for sidebars
+        /**
+         * Add custom headers
+         */
+        $defaults = array(
+            'default-image'          =>analytica()->theme_url . '/assets/frontend/images/defaults/hero-background.jpg',
+            'width'                  => 1200,
+            'height'                 => 400,
+            'flex-height'            => false,
+            'flex-width'             => false,
+            'uploads'                => true,
+            'random-default'         => false,
+            'header-text'            => true,
+            'default-text-color'     => '',
+            'wp-head-callback'       => '',
+            'admin-head-callback'    => '',
+            'admin-preview-callback' => '',
+        );
+
+        add_theme_support( 'custom-header', $defaults );
+
+        /**
+         * Maybe add support for sidebars
+         */
         if ( ! current_theme_supports( 'analytica-sidebars' ) ) {
 
             $sidebars = array(
@@ -99,6 +124,30 @@ class Theme {
         ) );
     
         do_action( 'analytica_class_loaded' );
+
+        /**
+         * Post type support for features.
+         *
+         * @since 1.0.0
+         */
+        $post_types = [
+            'post',
+            'page',
+        ];
+
+        $supported['page'] = [ 'analytica-page-header' ];
+        $supported['post'] = [ 'analytica-page-header', 'auto-load-next-post' ];
+
+        $site_sidebars = analytica_get_option( 'site-sidebar-supported' ) ? analytica_get_option( 'site-sidebar-supported' ) : [];
+
+        foreach ( $post_types as $post_type ) {
+
+            if ( in_array( $post_type, $site_sidebars ) ) {
+                $supported[$post_type][] = 'analytica-layouts';
+            }
+
+            add_post_type_support( $post_type, $supported[$post_type] );
+        }
     
         /**
          * Content Width

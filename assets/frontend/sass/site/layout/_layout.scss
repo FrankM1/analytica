@@ -8,24 +8,25 @@ body {
 }
 
 // Page alignment
-#page {
-	display: block;
-}
-
 .site {
 	overflow: hidden;
 }
 
-#primary,
+.site-inner {
+	&:before,
+	&:after {
+		@include clearfix;
+	}
+}
+
 #secondary {
 	display: block;
 	position: relative;
-	float: left;
 	width: $width-site-main;
 }
 
-#primary {
-	margin: 4em 0;
+.site-inner {
+	margin: 4em;
 }
 
 #secondary {
@@ -56,10 +57,12 @@ body {
 		margin: 0;
 		border: 0;
 	}
-	.site-main>.analytica-row {
+	
+	main>.analytica-row {
 		margin-left: 0;
 		margin-right: 0;
 	}
+	
 	.analytica-article-post,
 	.analytica-article-single {
 		background-color: $color-background-content;
@@ -140,6 +143,13 @@ body {
 	}
 }
 
+.site-content {
+	&.has-container {
+		@extend %container;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
 
 //page builder content layout
 .analytica-page-builder-template {
@@ -147,10 +157,7 @@ body {
 	.hentry {
 		margin: 0;
 	}
-	.site-content>.analytica-container {
-		max-width: 100%;
-		padding: 0;
-	}
+	.site-inner,
 	.site-content #primary {
 		padding: 0;
 		margin: 0;
@@ -215,14 +222,6 @@ body {
 	}
 	&.single .post-navigation {
 		padding-bottom: 2em;
-	}
-
-	.analytica-archive-description {
-		margin-top: 4em;
-		margin-left: auto;
-		margin-right: auto;
-		padding-left: ($grid-gutter-width / 2);
-		padding-right: ($grid-gutter-width / 2);
 	}
 }
 

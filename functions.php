@@ -18,28 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Helper function for writing to log file.
- *
- * @since 1.0.0
- *
- * @param log data to log
- * @param type log or export
- */
-function analytica_write_log( $log, $type = '1' ) {
-    if ( true === WP_DEBUG ) {
-        if ( is_array( $log ) || is_object( $log ) ) {
-            if ( $type === '1' ) {
-                error_log( print_r( $log, true ) );
-            } else {
-                error_log( var_export( $log, true ) );
-            }
-        } else {
-            error_log( $log );
-        }
-    }
-}
-
-/**
  * Main Theme Framework Class
  *
  * @since 1.0.0
@@ -252,13 +230,13 @@ class Core {
         require_once get_theme_file_path( '/includes/functions/formatting.php' );
         require_once get_theme_file_path( '/includes/functions/conditionals.php' );
         require_once get_theme_file_path( '/includes/functions/menu.php' );
+        require_once get_theme_file_path( '/includes/functions/layout.php' );
 
         require_once get_theme_file_path( '/includes/structure/general/header.php' );
         require_once get_theme_file_path( '/includes/structure/general/css-classes.php' );
         require_once get_theme_file_path( '/includes/structure/general/template-tags.php' );
         require_once get_theme_file_path( '/includes/structure/general/template-parts.php' );
 
-        require_once get_theme_file_path( '/includes/functions/sidebar-manager.php' );
         require_once get_theme_file_path( '/includes/functions/widgets.php' );
         require_once get_theme_file_path( '/includes/functions/extras.php' );
 
@@ -302,6 +280,8 @@ class Core {
         require_once get_theme_file_path( '/includes/structure/general/site-loop.php' );
         require_once get_theme_file_path( '/includes/structure/general/site-footer.php' );
         require_once get_theme_file_path( '/includes/structure/general/site-header.php' );
+        require_once get_theme_file_path( '/includes/structure/general/site-layout.php' );
+        require_once get_theme_file_path( '/includes/structure/general/site-sidebar.php' );
         require_once get_theme_file_path( '/includes/structure/pages/hero.php' );
     }
 

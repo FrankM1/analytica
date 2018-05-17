@@ -5,19 +5,21 @@
 
 .site-header {
 	position: relative;
-	@media (max-width: $screen-xs-min) {
-		padding: 0 $grid-gutter-width-half;
+	background-color: #993ed2;
+	@include clearfix;
+	padding: $grid-gutter-width-half;
+
+	&.has-container {
+		@extend %container;
+		margin-right: auto;
+		margin-left: auto;
 	}
 }
 
-.site-header .header-primary .analytica-container {
+.site-header .analytica-container {
 	display: flex;
 	flex-direction: row;
-	padding: $grid-gutter-width-half;
 	align-items: center;
-	@media (max-width: $screen-xs-min) {
-        padding: 10px 0;
-	}
 }
 
 .site-id {
@@ -72,15 +74,9 @@
 	line-height: 1;
 }
 
-.header-primary {
-	@include clearfix;
-	position: relative;
-}
-
 button.menu-trigger {
 	display: none;
 }
-
 
 /**
  * # Header
@@ -108,8 +104,8 @@ button.menu-trigger {
 		position: absolute;
 	}
 	&,
-    a,
-    .site-title a,
+	a,
+	.site-title a,
 	button,
 	.fallback_menu .analytica_mega>li>a,
 	.nav-primary .menu-v2>li>a,
@@ -118,7 +114,7 @@ button.menu-trigger {
 	.nav-primary>ul>li.current-menu-ancestor>a .menu-title-outer,
 	.nav-primary>ul>li.current-menu-item>a,
 	.nav-primary>ul>li.current-menu-item>a .menu-title-outer {
-        @media (min-width: $screen-sm-min) {
+		@media (min-width: $screen-sm-min) {
 			color: #fff;
 		}
 	}

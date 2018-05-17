@@ -551,7 +551,6 @@ function analytica_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) 
 	analytica_responsive_font_size( 'analytica-settings[font-size-site-tagline]', '.site-header .site-description' );
 	analytica_responsive_font_size( 'analytica-settings[font-size-site-title]', '.site-title' );
 	analytica_responsive_font_size( 'analytica-settings[font-size-entry-title]', '.analytica-single-post .entry-title, .page-title' );
-	analytica_responsive_font_size( 'analytica-settings[font-size-archive-summary-title]', '.analytica-archive-description .analytica-archive-title' );
 	analytica_responsive_font_size( 'analytica-settings[font-size-page-title]', 'body:not(.analytica-single-post) .entry-title' );
 	analytica_responsive_font_size( 'analytica-settings[font-size-h1]', 'h1, .entry-content h1, .entry-content h1 a' );
 	analytica_responsive_font_size( 'analytica-settings[font-size-h2]', 'h2, .entry-content h2, .entry-content h2 a' );

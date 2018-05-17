@@ -14,6 +14,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Helper function for writing to log file.
+ *
+ * @since 1.0.0
+ *
+ * @param log data to log
+ * @param type log or export
+ */
+function analytica_write_log( $log, $type = '1' ) {
+    if ( true === WP_DEBUG ) {
+        if ( is_array( $log ) || is_object( $log ) ) {
+            if ( $type === '1' ) {
+                error_log( print_r( $log, true ) );
+            } else {
+                error_log( var_export( $log, true ) );
+            }
+        } else {
+            error_log( $log );
+        }
+    }
+}
+
+/**
  * Retrieve Post Thumbnail ID.
  *
  * @since 1.0.0
@@ -385,18 +407,6 @@ function analytica_get_background_obj( $bg_obj ) {
 }
 
 /**
- * Display classes for primary div
- *
- * @param string|array $class One or more classes to add to the class list.
- * @return void        Echo classes.
- */
-function analytica_primary_class( $class = '' ) {
-
-    // Separates classes with a single space, collates classes for body element.
-    echo 'class="' . esc_attr( join( ' ', analytica_get_primary_class( $class ) ) ) . '"';
-}
-
-/**
  * Retrieve the classes for the primary element as an array.
  *
  * @param string|array $class One or more classes to add to the class list.
@@ -406,9 +416,6 @@ function analytica_get_primary_class( $class = '' ) {
 
     // array of class names.
     $classes = array();
-
-    // default class for content area.
-    $classes[] = 'content-area';
 
     // primary base class.
     $classes[] = 'primary';
@@ -423,9 +430,6 @@ function analytica_get_primary_class( $class = '' ) {
         // Ensure that we always coerce class to being an array.
         $class = array();
     }
-
-    // Filter primary div class names.
-    $classes = apply_filters( 'analytica_primary_class', $classes, $class );
 
     $classes = array_map( 'sanitize_html_class', $classes );
 
@@ -610,81 +614,6 @@ function analytica_get_the_title( $post_id = 0, $echo = false ) {
         echo $title;
     } else {
         return $title;
-    }
-}
-
-add_action( 'analytica_archive_header', 'analytica_archive_page_info' );
-/**
- * Wrapper function for the_title()
- *
- * Displays title only if the page title bar is disabled.
- */
-function analytica_archive_page_info() {
-
-    if ( apply_filters( 'analytica_the_title_enabled', true ) ) {
-
-        // Author.
-        if ( is_author() ) { ?>
-
-            <section class="analytica-author-box analytica-archive-description">
-                <div class="analytica-author-bio">
-                    <h1 class='page-title analytica-archive-title'><?php echo get_the_author(); ?></h1>
-                    <p><?php echo wp_kses_post( get_the_author_meta( 'description' ) ); ?></p>
-                </div>
-                <div class="analytica-author-avatar">
-                    <?php echo get_avatar( get_the_author_meta( 'email' ), 120 ); ?>
-                </div>
-            </section>
-
-        <?php
-
-        // Category.
-        } elseif ( is_category() ) {
-        ?>
-
-            <section class="analytica-archive-description">
-                <h1 class="page-title analytica-archive-title"><?php echo single_cat_title(); ?></h1>
-                <?php the_archive_description(); ?>
-            </section>
-
-        <?php
-
-        // Tag.
-        } elseif ( is_tag() ) {
-        ?>
-
-            <section class="analytica-archive-description">
-                <h1 class="page-title analytica-archive-title"><?php echo single_tag_title(); ?></h1>
-                <?php the_archive_description(); ?>
-            </section>
-
-        <?php
-
-        // Search.
-        } elseif ( is_search() ) {
-        ?>
-
-            <section class="analytica-archive-description">
-                <?php
-                    /* translators: 1: search string */
-                    $title = apply_filters( 'analytica_the_search_page_title', sprintf( __( 'Search Results for: %s', 'analytica' ), '<span>' . get_search_query() . '</span>' ) );
-                ?>
-                <h1 class="page-title analytica-archive-title"> <?php echo $title; ?> </h1>
-            </section>
-
-        <?php
-
-        // Other.
-        } else {
-        ?>
-
-            <section class="analytica-archive-description">
-                <?php the_archive_title( '<h1 class="page-title analytica-archive-title">', '</h1>' ); ?>
-                <?php the_archive_description(); ?>
-            </section>
-
-    <?php
-        }
     }
 }
 

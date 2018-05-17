@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is a part of the Radium Framework core.
+ * This file is a part of the analytica Framework core.
  * Please be cautious editing this file,
  *
  * @category Analytica
@@ -9,16 +9,130 @@
  * @link     https://qazana.net/
  */
 
+ /**
+ * Register new layouts in the theme.
+ *
+ * Modifies the global `$_analytica_layouts` variable.
+ *
+ * The support `$args` keys are:
+ *
+ *  - label (Internationalized name of the layout),
+ *  - img   (URL path to layout image),
+ *  - type  (Layout type).
+ *
+ * Although the 'default' key is also supported, the correct way to change the default is via the
+ * `analytica_set_default_layout()` function to ensure only one layout is set as the default at one time.
+ *
+ * @since 1.0.0
+ * @see analytica_set_default_layout() Set a default layout.
+ *
+ * @uses  \Analytica\Core::instance() to determine URL path to admin images.
+ *
+ * @global array $_analytica_layouts Holds all layouts data.
+ *
+ * @param string $id   ID of layout.
+ * @param array  $args Layout data.
+ *
+ * @return bool|array Return false if ID is missing or is already set. Return merged $args otherwise.
+ */
+function analytica_register_layout( $id = '', $args = [] ) {
+    global $_analytica_layouts;
+
+    if ( ! is_array( $_analytica_layouts ) ) {
+        $_analytica_layouts = [];
+    }
+
+    // Don't allow empty $id, or double registrations
+    if ( !$id || isset( $_analytica_layouts[ $id ] ) ) {
+        return false;
+    }
+
+    $framework =  \Analytica\Core::instance();
+    $defaults = [
+        'label' => esc_html__( 'No Label Selected', 'energia' ),
+        'img' => $framework->theme_url . '/assets/admin/images/layouts/none.gif',
+        'type' => 'site',
+    ];
+
+    $args = wp_parse_args( $args, $defaults );
+
+    $_analytica_layouts[ $id ] = $args;
+
+    return $args;
+}
+
+/**
+ * Set a default layout.
+ *
+ * Allow a user to identify a layout as being the default layout on a new install, as well as serve as the fallback layout.
+ *
+ * @since 1.0.0
+ *
+ * @global array $_analytica_layouts Holds all layouts data.
+ *
+ * @param string $id ID of layout to set as default.
+ *
+ * @return bool|string Return false if ID is empty or layout is not registered. Return ID otherwise.
+ */
+function analytica_set_default_layout( $id = '' ) {
+    global $_analytica_layouts;
+
+    if ( ! is_array( $_analytica_layouts ) ) {
+        $_analytica_layouts = [];
+    }
+
+    // Don't allow empty $id, or unregistered layouts
+    if ( ! $id || ! isset( $_analytica_layouts[ $id ] ) ) {
+        return false;
+    }
+
+    // Remove default flag for all other layouts
+    foreach ( (array) $_analytica_layouts as $key ) {
+        if ( isset( $_analytica_layouts[ $key ]['default'] ) ) {
+            unset( $_analytica_layouts[ $key ]['default'] );
+        }
+    }
+
+    $_analytica_layouts[ $id ]['default'] = true;
+
+    return $id;
+}
+
+/**
+ * Unregister a layout in.
+ *
+ * Modifies the global $_analytica_layouts variable.
+ *
+ * @since 1.0.0
+ *
+ * @global array $_analytica_layouts Holds all layout data.
+ *
+ * @param string $id ID of the layout to unregister.
+ *
+ * @return bool Returns false if ID is empty, or layout is not registered.
+ */
+function analytica_unregister_layout( $id = '' ) {
+    global $_analytica_layouts;
+
+    if ( ! $id || ! isset( $_analytica_layouts[ $id ] ) ) {
+        return false;
+    }
+
+    unset( $_analytica_layouts[ $id ] );
+
+    return true;
+}
+
 /**
  * Output markup conditionally.
  *
  * Supported keys for `$args` are:
  *
- *  - `html5` (`sprintf()` pattern markup),
+ *  - `element` (`sprintf()` pattern markup),
  *  - `context` (name of context),
  *  - `echo` (default is true).
  *
- * This function will output the `html5` value, with a call to `analytica_attr()`
+ * This function will output the `element` value, with a call to `analytica_attr()`
  * with the same context added in.
  *
  * Applies a `analytica_markup_{context}` filter early to allow shortcutting the function.
@@ -715,6 +829,37 @@ function analytica_attributes_author_box( $attributes ) {
     $attributes['itemscope'] = true;
     $attributes['itemtype'] = 'https://schema.org/Person';
 
+    return $attributes;
+}
+
+add_filter( 'analytica_attr_site-inner', 'analytica_attributes_site_inner' );
+/**
+ * Add attributes for site inner element.
+ *
+ * @since 1.0.0
+ *
+ * @param array $attributes Existing attributes.
+ *
+ * @return array Amended attributes.
+ */
+function analytica_attributes_site_inner( $attributes ) {
+    $attributes['class'] = 'site-inner content-sidebar-wrap';
+    return $attributes;
+}
+
+add_filter( 'analytica_attr_site-primary', 'analytica_attributes_site_primary' );
+/**
+ * Add attributes for site primary element.
+ *
+ * @since 1.0.0
+ *
+ * @param array $attributes Existing attributes.
+ *
+ * @return array Amended attributes.
+ */
+function analytica_attributes_site_primary( $attributes ) {
+    $attributes['id'] = 'primary';
+    $attributes['class'] = esc_attr( join( ' ', analytica_get_primary_class() ) );
     return $attributes;
 }
 

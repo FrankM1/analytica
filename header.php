@@ -49,8 +49,7 @@ do_action( 'analytica_body_top' );
 
     do_action( 'analytica_content_before' ); 
     
-    ?><div id="content" class="site-content">
-        <div class="analytica-container"><?php
+    ?><div id="content" class="site-content has-container"><?php
             
             do_action( 'analytica_content_top' );
 
