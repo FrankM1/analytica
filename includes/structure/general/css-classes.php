@@ -68,6 +68,11 @@ function analytica_site_layout_body_class( $classes ) {
         $classes[] = 'analytica-header-transparent';
     }
 
+    // Page builder class
+    if ( analytica_is_builder_page() ) {
+        $classes[] = 'analytica-page-builder';
+    }
+
     return $classes;
 }
 

@@ -26,11 +26,7 @@
 	}
 	position: relative;
 	padding: $grid-gutter-width 0;
-	&.has-container {
-		@extend %container;
-		margin-right: auto;
-		margin-left: auto;
-	}
+
 	.col-lg-12.column,
 	>.row {
 		padding: 0;
@@ -66,11 +62,6 @@
 
 .site-colophon {
 	padding: $grid-gutter-width-half 0;
-	&.has-container {
-		@extend %container;
-		margin-right: auto;
-		margin-left: auto;
-	}
 }
 
 .site-creds {

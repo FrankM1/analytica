@@ -29,6 +29,10 @@ body {
 	margin: $grid-gutter-width;
 }
 
+.site-inner {
+	margin: $grid-gutter-width;
+}
+
 #secondary {
 	margin: $grid-gutter-width 0 $grid-gutter-width-half;
 	word-break: break-word;
@@ -57,12 +61,12 @@ body {
 		margin: 0;
 		border: 0;
 	}
-	
+
 	main>.analytica-row {
 		margin-left: 0;
 		margin-right: 0;
 	}
-	
+
 	.analytica-article-post,
 	.analytica-article-single {
 		background-color: $color-background-content;
@@ -143,12 +147,10 @@ body {
 	}
 }
 
-.site-content {
-	&.has-container {
-		@extend %container;
-		margin-right: auto;
-		margin-left: auto;
-	}
+.has-container>.analytica-container {
+	@extend %container;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 //page builder content layout

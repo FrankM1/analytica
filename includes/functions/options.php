@@ -33,17 +33,16 @@ function analytica_get_option( $option_id, $default_value = null, $post_id = nul
     }
 
     if ( $post_meta ) {
-        $custom_field = analytica_get_custom_field( $prefix . $option_id, $post_id );
+        $value = analytica_get_custom_field( $prefix . $option_id, $post_id );
 
-        if ( ! $custom_field ) {
-            $custom_field = \Analytica\Options::get_option( $option_id, $default_value );
+        if ( ! $value ) {
+            $value = \Analytica\Options::get_option( $option_id, $default_value );
         }
-
     } else {
-        $custom_field = \Analytica\Options::get_option( $option_id, $default_value );
+        $value = \Analytica\Options::get_option( $option_id, $default_value );
     }
 
-    return apply_filters( __FUNCTION__, $custom_field, $option_id, $post_id ); // make meta fields filterable
+    return apply_filters( __FUNCTION__, $value, $option_id, $default_value, $post_id ); // make meta fields filterable
 }
 
 /**
@@ -100,16 +99,16 @@ function analytica_get_custom_field( $field, $post_id = null ) {
         return '';
    }
 
-    $custom_field = get_post_meta( $post_id, $field, true );
+    $value = get_post_meta( $post_id, $field, true );
 
-    if ( ! $custom_field ) {
+    if ( ! $value ) {
         return '';
     }
 
     // Return custom field, slashes stripped, sanitized if string
-    $custom_field = is_array( $custom_field ) ? stripslashes_deep( $custom_field ) : stripslashes( wp_kses_decode_entities( $custom_field ) );
+    $value = is_array( $value ) ? stripslashes_deep( $value ) : stripslashes( wp_kses_decode_entities( $value ) );
 
-    return apply_filters( __FUNCTION__, $custom_field, $field, $post_id ); // make meta fields filterable
+    return apply_filters( __FUNCTION__, $value, $field, $post_id ); // make meta fields filterable
 }
 
 /**

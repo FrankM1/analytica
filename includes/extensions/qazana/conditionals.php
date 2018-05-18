@@ -62,7 +62,7 @@ function qazana_analytica_is_hero_available( $retval ) {
     return $retval;
 }
 
-add_filter( 'analytica_theme_defaults', 'qazana_analytica_site_layout' );
+add_filter( 'analytica_get_option', 'qazana_analytica_site_layout', 10, 4 );
 /**
  * Detect qazana page
  *
@@ -70,11 +70,11 @@ add_filter( 'analytica_theme_defaults', 'qazana_analytica_site_layout' );
  *
  * @return boolean
  */
-function qazana_analytica_site_layout( $options ) {
-
-    if ( analytica_is_builder_page() ) {
-        $options['site-layout'] = 'site-fullwidth';
+function qazana_analytica_site_layout( $value, $option_id, $default_value, $post_id ) {
+    
+    if ( analytica_is_builder_page() && $option_id === 'site-layout' ) {
+       return 'site-fullwidth';
     }
 
-    return $options;
+    return $value;
 }
