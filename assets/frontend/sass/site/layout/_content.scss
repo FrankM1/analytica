@@ -15,8 +15,8 @@
 
 .site-container {
 	margin-left: auto;
-    margin-right: auto;
-    position: relative;
+	margin-right: auto;
+	position: relative;
 }
 
 .site-inner {
@@ -27,13 +27,13 @@
 
 	@media (min-width: $screen-md-min) {
 		flex-direction: row;
-    }
- 
+	}
+
 	.site-sidebar,
 	.site-main {
 		padding-right: $grid-gutter-width-half;
 		padding-left: $grid-gutter-width-half;
-    }
+	}
 
 	.sidebar-primary {
 		flex-direction: column;
@@ -43,21 +43,31 @@
 		flex-direction: column;
 	}
 }
- 
+
 .content-sidebar-sidebar .site-inner,
 .content-sidebar .site-inner,
 .sidebar-content-sidebar .site-inner,
 .sidebar-content .site-inner,
 .sidebar-sidebar-content .site-inner {
-    .site-main {
-        width: 100%;
-        @media (min-width: $screen-md-min) {
-            width: calc(100% - 360px);
-        }
-    }
+	.site-main {
+		width: 100%;
+		@media (min-width: $screen-md-min) {
+			width: calc(100% - 360px);
+		}
+	}
 }
 
 .content-sidebar .site-inner,
 .content-sidebar-sidebar .site-inner {
-    flex-direction: row-reverse;
+	flex-direction: row-reverse;
+}
+
+.site-content {
+	content: "768";
+}
+
+@media all and ( max-width: 768px) {
+	.site-content {
+		content: "";
+	}
 }

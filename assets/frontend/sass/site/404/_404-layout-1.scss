@@ -21,13 +21,13 @@
     }
 }
 
-.analytica-detach-container {
+.site-container-detach {
 	.error-404,
 	.no-results{
 		background-color: $color-background-content;
 	}
 }
-.analytica-detach-container{
+.site-container-detach{
 	@media (max-width: $mx-col-xl) {
 		.analytica-404-layout-1,
 		.no-results{
@@ -50,7 +50,7 @@
 }
 
 @media (min-width: $col-xl) {
-	.analytica-detach-container{
+	.site-container-detach{
 		.analytica-404-layout-1,
 		.no-results{
 		    margin: 0;
@@ -61,7 +61,7 @@
 
 .error404,
 .search-no-results{
-	&.analytica-detach-container{
+	&.site-container-detach{
 		.site-main {
 			@media (min-width: $col-md) {
 				margin-bottom: 4em;

@@ -241,7 +241,7 @@ function analytica_site_layout( $use_cache = false ) {
         // If viewing a taxonomy archive
         $term_id = get_queried_object()->term_id;
         $custom_field = get_term_meta( $term_id, 'layout', true );
-        $site_layout = $custom_field ? $custom_field : analytica_get_option( 'archive-site-sidebar-layout' );
+        $site_layout = $custom_field ? $custom_field : analytica_get_option( 'archive-sidebar-layout' );
     } elseif ( is_post_type_archive() && analytica_has_post_type_archive_support() ) {
     } elseif ( is_author() ) {
         // If viewing an author archive

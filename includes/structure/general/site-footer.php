@@ -102,7 +102,7 @@ function analytica_footer_widget_areas() {
 
     // Get footer layout
     $layout = analytica_get_option( 'site-footer-layout' );
-    $container_class = analytica_get_option( 'footer-width' ) ? 'site-footer-fullwidth' : 'analytica-container';
+    $container_class = analytica_get_option( 'site-footer-width' ) ? 'site-footer-fullwidth' : 'analytica-container';
 
     $inside = '';
     $output = '';
@@ -114,8 +114,8 @@ function analytica_footer_widget_areas() {
     $sidebar_4 = 'footer-4';
     $sidebar_5 = 'footer-5';
 
-    $sidebar_before_footer_widget   = analytica_get_option( 'sidebar_before_footer_widget' );
-    $sidebar_after_footer_widget    = analytica_get_option( 'sidebar_after_footer_widget' );
+    $sidebar_before_footer_widget   = analytica_get_option( 'sidebar-before-footer-widget' );
+    $sidebar_after_footer_widget    = analytica_get_option( 'sidebar-after-footer-widget' );
 
     if ( ! empty( $sidebar_before_footer_widget ) && is_active_sidebar( $sidebar_before_footer_widget ) ) :
         $inside .= '<div class="sidebar-before-footer">';
@@ -352,7 +352,7 @@ function analytica_footer_widget_areas() {
 
                         $inside .= '</div><!-- .row -->';
 				$inside .= '</div><!-- .analytica-container -->';
-			$inside .= '</div><!-- .top-inner -->';
+			$inside .= '</div><!-- .site-footer-top-inner -->';
 		$inside .= '</div>';
 	endif;
 
@@ -408,7 +408,7 @@ function analytica_back_to_top() {
     // Filter the text strings
     $backtotop_text = apply_filters( 'analytica_footer_backtotop_text', '<a href="#site-container" rel="nofollow">'. esc_html__( 'Back to top', 'analytica' ) .'</a>' );
 
-    $backtotop = $backtotop_text && analytica_get_option( 'footer-back-to-top' ) ? sprintf( '<div id="gototop"><div class="cross"><span class="bloc-h"></span><span class="bloc-v"></span></div><span class="ricon-arrow-top"></span>%s</div>', $backtotop_text ) : '';
+    $backtotop = $backtotop_text && analytica_get_option( 'site-back-to-top' ) ? sprintf( '<div id="gototop"><div class="cross"><span class="bloc-h"></span><span class="bloc-v"></span></div><span class="ricon-arrow-top"></span>%s</div>', $backtotop_text ) : '';
 
     echo apply_filters( __FUNCTION__, $backtotop );
 
@@ -424,11 +424,11 @@ function analytica_colophon_content() {
 
     $core = \Analytica\Core::instance();
 
-    $creds_text = str_replace( '[year]', date( 'Y' ), analytica_get_option( 'footer-copyright-text' ) );
+    $creds_text = str_replace( '[year]', date( 'Y' ), analytica_get_option( 'site-footer-copyright-text' ) );
 
     $site_copyright = $creds_text ? sprintf( '<div class="site-copyright">%s</div>', $creds_text ) : '';
 
-    $theme_credits = analytica_get_option( 'show-theme-badge' ) ? '<div class="theme-credits">'. esc_html__( 'Powered by', 'analytica' ) .' <a href="https://qazana.net/" target="_blank">' . $core->theme_title .'</a> <span>and</span> WordPress.</div>': '';
+    $theme_credits = analytica_get_option( 'site-theme-badge' ) ? '<div class="theme-credits">'. esc_html__( 'Powered by', 'analytica' ) .' <a href="https://qazana.net/" target="_blank">' . $core->theme_title .'</a> <span>and</span> WordPress.</div>': '';
 
     $output = $site_copyright || $theme_credits ? '<div class="site-creds" role="contentinfo">' . $site_copyright . $theme_credits . '</div>' : '';
 
@@ -462,19 +462,4 @@ function analytica_do_colophon() {
     analytica_markup( array(
         'element' => '</footer>',
     ) );
-}
-
-add_filter( 'analytica_footer_scripts', 'do_shortcode' );
-add_action( 'wp_footer', 'analytica_footer_scripts' );
-/**
- * Echo the footer scripts, defined in Theme Settings.
- *
- * Applies the 'analytica_footer_scripts' filter to the value returns from the footer_scripts option.
- *
- * @since 1.0.0
- *
- * @uses analytica_get_option() Get theme setting value.
- */
-function analytica_footer_scripts() {
-    echo apply_filters( 'analytica_footer_scripts', analytica_get_option( 'footer-custom-scripts' ) );
 }

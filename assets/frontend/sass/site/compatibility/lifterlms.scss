@@ -71,7 +71,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 }
 
 //Seperate container layout
-.analytica-detach-container {
+.site-container-detach {
 	.analytica-lifterlms-container {
 		background-color: $color-background-content;
 
@@ -166,7 +166,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 // Single Lesson
 .single-lesson {
 
-	&.analytica-detach-container {
+	&.site-container-detach {
 		.llms-lesson-preview .llms-lesson-link {
 			background: #fff;
 

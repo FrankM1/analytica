@@ -235,14 +235,16 @@ function analytica_get_font_css_value( $value, $unit = 'px', $device = 'desktop'
     switch ( $unit ) {
         case 'em':
         case '%':
-                    $css_val = esc_attr( $value ) . $unit;
+                $css_val = esc_attr( $value ) . $unit;
             break;
 
         case 'px':
             if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
                 $value            = intval( $value );
                 $fonts            = array();
-                $body_font_size   = analytica_get_option( 'font-size-body' );
+                $body_font   = analytica_get_option( 'font-base' );
+                $body_font_size = intval( $body_font['font-size'] );
+
                 $fonts['desktop'] = ( isset( $body_font_size['desktop'] ) && '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
                 $fonts['tablet']  = ( isset( $body_font_size['tablet'] ) && '' != $body_font_size['tablet'] ) ? $body_font_size['tablet'] : $fonts['desktop'];
                 $fonts['mobile']  = ( isset( $body_font_size['mobile'] ) && '' != $body_font_size['mobile'] ) ? $body_font_size['mobile'] : $fonts['tablet'];
@@ -356,52 +358,6 @@ function analytica_get_css_value( $value = '', $unit = 'px', $default = '' ) {
     }
 
     return $css_val;
-}
-
-/**
- * Adjust Brightness
- *
- * @param  array $bg_obj   Color code in HEX.
- *
- * @return array         Color code in HEX.
- */
-function analytica_get_background_obj( $bg_obj ) {
-
-    $gen_bg_css = array();
-
-    $bg_img   = isset( $bg_obj['background-image'] ) ? $bg_obj['background-image'] : '';
-    $bg_color = isset( $bg_obj['background-color'] ) ? $bg_obj['background-color'] : '';
-
-    if ( '' !== $bg_img && '' !== $bg_color ) {
-        $gen_bg_css = array(
-            'background-color' => 'unset',
-            'background-image' => 'linear-gradient(to right, ' . esc_attr( $bg_color ) . ', ' . esc_attr( $bg_color ) . '), url(' . esc_url( $bg_img ) . ')',
-        );
-    } elseif ( '' !== $bg_img ) {
-        $gen_bg_css = array( 'background-image' => 'url(' . esc_url( $bg_img ) . ')' );
-    } elseif ( '' !== $bg_color ) {
-        $gen_bg_css = array( 'background-color' => esc_attr( $bg_color ) );
-    }
-
-    if ( '' !== $bg_img ) {
-        if ( isset( $bg_obj['background-repeat'] ) ) {
-            $gen_bg_css['background-repeat'] = esc_attr( $bg_obj['background-repeat'] );
-        }
-
-        if ( isset( $bg_obj['background-position'] ) ) {
-            $gen_bg_css['background-position'] = esc_attr( $bg_obj['background-position'] );
-        }
-
-        if ( isset( $bg_obj['background-size'] ) ) {
-            $gen_bg_css['background-size'] = esc_attr( $bg_obj['background-size'] );
-        }
-
-        if ( isset( $bg_obj['background-attachment'] ) ) {
-            $gen_bg_css['background-attachment'] = esc_attr( $bg_obj['background-attachment'] );
-        }
-    }
-
-    return $gen_bg_css;
 }
 
 /**

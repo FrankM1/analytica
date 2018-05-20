@@ -29,25 +29,23 @@ class Page_Hero {
     }
 
     protected function get_config() {
-        $this->align           = analytica_get_option( 'hero_text_alignment', 'text-center' );
-        $this->breadcrumbs     = analytica_get_option( 'hero_breadcrumbs' );
-        $this->color_base      = analytica_get_option( 'hero_bg_color_base', 'light' );
-        $this->hero_show_title    = analytica_get_option( 'hero_show_title' );
-        $this->hero_show_subtitle = analytica_get_option( 'hero_show_subtitle' );
-        $this->height          = analytica_get_option( 'hero_custom_height', 300 );
-        $this->height          = wp_is_mobile() ? 110 : $this->height;
-        $this->full_height     = analytica_get_option( 'hero_full_height', '' );
-        $this->full_height     = wp_is_mobile() ? 500 : $this->full_height;
-        $this->parallax        = analytica_is_bool( analytica_get_option( 'hero_parallax', 'on' ) );
+        $this->align           = analytica_get_option( 'hero-text-alignment' );
+        $this->breadcrumbs     = analytica_get_option( 'hero-breadcrumbs' );
+        $this->color_base      = analytica_get_option( 'hero-background-color-base' );
+        $this->hero_show_title    = analytica_get_option( 'hero-show-title' );
+        $this->hero_show_subtitle = analytica_get_option( 'hero-show-subtitle' );
+        $this->height          = wp_is_mobile() ? analytica_get_option( 'hero-height-mobile' ) : analytica_get_option( 'hero-height' );
+        $this->full_height     = wp_is_mobile() ? 500 : analytica_get_option( 'hero-fullheight' );
+        $this->parallax        = analytica_get_option( 'hero-parallax' );
         $this->background      = [
-            'color'    => analytica_get_option( 'hero_bg_color' ),
-            'fixed'    => analytica_get_option( 'hero_bg_fixed' ),
-            'position' => analytica_get_option( 'hero_bg_img_position' ),
-            'repeat'   => analytica_get_option( 'hero_bg_repeat' ),
-            'size'     => analytica_get_option( 'hero_background_size', 'cover' ),
+            'color'    => analytica_get_option( 'hero-background-color' ),
+            'fixed'    => analytica_get_option( 'hero-background-fixed' ),
+            'position' => analytica_get_option( 'hero-background-position' ),
+            'repeat'   => analytica_get_option( 'hero-background-repeat' ),
+            'size'     => analytica_get_option( 'hero-background-size' ),
         ];
-        $this->image_active   = analytica_is_bool( analytica_get_option( 'hero_bg_img_enable', 'on' ) );
-        $this->image_inherit  = analytica_get_option( 'hero_bg_img_inherit', true );
+        $this->image_active   = analytica_get_option( 'hero-background' ) ;
+        $this->image_inherit  = analytica_get_option( 'hero-background-inherit', true );
         $this->content = $this->content();
     }
 
@@ -114,38 +112,29 @@ class Page_Hero {
 
         } elseif ( 'post' == get_post_type() && (is_front_page() || ( get_option( 'show_on_front' ) == 'posts' && is_singular( 'post' ) ) ) ) {
             
-            $header_title = analytica_get_option( 'content_archive_all_posts_title' );
+            $header_title = analytica_get_option( 'archive-frontpage-title' );
         
         } elseif ( 'post' == get_post_type() ) {
 
             // Get Blog Post Page ID, extract and show the title
             $blog = get_post( get_option( 'page_for_posts' ) );
-
             $header_title = $blog->post_title;
-
         } elseif ( 'page' == get_post_type() && is_front_page() ) {
-
+            
             // Get Frontpage Page ID, extract and show the title
             $frontpage = get_post( get_option( 'page_on_front' ) );
-
             $header_title = $frontpage->post_title;
-
         } else {
-
             $header_title = get_the_title( $post_id );
-
         }
 
         if ( 'post' == get_post_type() && is_single() ) {
             $header_title = esc_html__( 'Post', 'analytica' );
         }
 
-        $title = apply_filters( 'analytica_hero_title', $header_title );
-        $subtitle = apply_filters( 'analytica_hero_subtitle', analytica_get_option( 'hero_subtitle' ) );
-
         $header = array(
-            'title' => $title,
-            'subtitle' => $subtitle,
+            'title' => apply_filters( 'analytica_hero_title', $header_title ),
+            'subtitle' => apply_filters( 'analytica_hero_subtitle', analytica_get_option( 'hero-subtitle' ) ),
         );
 
         return $header;
@@ -284,7 +273,7 @@ class Page_Hero {
             $data_atts .= " data-parallax-options='" . json_encode( $options ) . "'";
         }
 
-        echo '<div class="hero-bg-container' . esc_attr( $classes ) . '" ' . $data_atts . '>';
+        echo '<div class="hero-background-container' . esc_attr( $classes ) . '" ' . $data_atts . '>';
             echo '<div class="hero-overlay-color"></div>';
             do_action( 'analytica_do_hero_do_background' );
         echo '</div>';
@@ -320,7 +309,7 @@ class Page_Hero {
             if ( $this->background['fixed'] ) {
                 $css_rules .= 'background-attachment: ' . $this->background['fixed'] . ';';
                 if ( $this->background['fixed'] === 'fixed') {
-                    $extra_css .= '.hero-bg-container.hero-vertical-parallax {'
+                    $extra_css .= '.hero-background-container.hero-vertical-parallax {'
                         . '-webkit-transform: -webkit-translate3d(0,0,0);'
                         . '-moz-transform: -moz-translate3d(0,0,0);'
                         . '-ms-transform: -ms-translate3d(0,0,0);'
@@ -335,7 +324,7 @@ class Page_Hero {
             }
 
             if ( $css_rules != '' ) {
-                $css_rules = '.hero .hero-bg-container {' . $css_rules . '}';
+                $css_rules = '.hero .hero-background-container {' . $css_rules . '}';
             }
         }
 

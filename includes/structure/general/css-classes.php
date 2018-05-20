@@ -13,8 +13,6 @@ add_filter( 'body_class', 'analytica_site_layout_body_class' );
 /**
  * Add site layout classes to the body classes.
  *
- * We can use pseudo-variables in our CSS file, which helps us achieve multiple site layouts with minimal code.
- *
  * @since 1.0.0
  *
  * @uses analytica_site_layout() Return the site layout for different contexts.
@@ -26,42 +24,17 @@ add_filter( 'body_class', 'analytica_site_layout_body_class' );
 function analytica_site_layout_body_class( $classes ) {
 
     if ( analytica_get_option( 'site-detach-containers' ) ) {
-        $classes[] = 'analytica-detach-container';
-    }
-
-    if ( analytica_get_option( 'site-detach-containers' ) ) {
-        $classes[] = 'analytica-dual-container';
+        if ( analytica_get_option( 'site-dual-containers' ) ) {
+            $classes[] = 'site-dual-containers';
+        } else {
+            $classes[] = 'site-container-detach';
+        }
     }
 
     // Current Analytica verion.
     $classes[] = esc_attr( 'analytica-' . wp_get_theme()->version );
 
-    $header_overlay_option     = analytica_get_option( 'header-overlay' );
-    $header_sticky_option      = analytica_get_option( 'header-sticky' );
-    $header_transparent_option = analytica_get_option( 'header-transparent' );
-    $site_layout               = analytica_get_option( 'site-layout' );
-
-    $classes[] = $site_layout;
-
-    // Handle sticky / not sticky
-    if ( ! wp_is_mobile() && $header_sticky_option ) {
-        $classes[] = 'analytica-header-sticky';
-    }
-
-    // Handle overlay / not overlay
-    if ( ! wp_is_mobile() && $header_overlay_option ) {
-        $classes[] = 'analytica-header-overlay';
-    }
-
-    // Handle transparent / not transparent
-    if ( ! wp_is_mobile() && $header_transparent_option ) {
-        $classes[] = 'analytica-header-transparent';
-    }
-
-    // Page builder class
-    if ( analytica_is_builder_page() ) {
-        $classes[] = 'analytica-page-builder';
-    }
+    $classes[] = esc_attr( analytica_get_option( 'site-layout' ) );
 
     return $classes;
 }
@@ -142,7 +115,7 @@ function analytica_get_header_class( $class = '' ) {
     if ( 'layout-fullwidth' != $header_full_width_option ) {
         $classes[] = 'has-container';
     } else {
-        $classes[] = 'full-width';
+        $classes[] = 'fullwidth';
     }
 
     // Add alignment classes
@@ -177,8 +150,5 @@ function analytica_get_header_class( $class = '' ) {
        $classes[] = 'header-left';
     }
 
-    $classes = apply_filters( 'analytica_header_class', $classes, $class );
-
-    return $classes;
-
+    return apply_filters( 'analytica_header_class', $classes, $class );
 }

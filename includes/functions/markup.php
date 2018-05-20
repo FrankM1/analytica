@@ -933,10 +933,10 @@ add_filter( 'analytica_attr_site-footer', 'analytica_attributes_site_footer' );
  * @return array Amended attributes.
  */
 function analytica_attributes_site_footer( $attributes ) {
-    if ( 'layout-fullwidth' != analytica_get_option( 'footer-width' ) ) {
+    if ( 'layout-fullwidth' != analytica_get_option( 'site-footer-width' ) ) {
         $attributes['class'] = 'site-footer has-container';
     } else {
-        $attributes['class'] = 'site-footer full-width';
+        $attributes['class'] = 'site-footer fullwidth';
     }
 
     if ( analytica_footer_is_parallax() && !analytica_is_fullpage_scroll() ) {
@@ -958,10 +958,10 @@ add_filter( 'analytica_attr_footer-widgets', 'analytica_attributes_site_footer_w
  */
 function analytica_attributes_site_footer_widgets( $attributes ) {
 
-    if ( 'layout-fullwidth' != analytica_get_option( 'footer-width' ) ) {
+    if ( 'layout-fullwidth' != analytica_get_option( 'site-footer-width' ) ) {
         $attributes['class'] .= ' has-container';
     } else {
-        $attributes['class'] .= ' full-width';
+        $attributes['class'] .= ' fullwidth';
     }
 
     return $attributes;
@@ -984,7 +984,7 @@ function analytica_attributes_site_colophon( $attributes ) {
     if ( 'layout-fullwidth' != analytica_get_option( 'footer-colophon-width' ) ) {
         $attributes['class'] = 'site-colophon has-container';
     } else {
-        $attributes['class'] = 'site-colophon full-width';
+        $attributes['class'] = 'site-colophon fullwidth';
     }
 
     return $attributes;

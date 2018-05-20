@@ -12,6 +12,7 @@ textarea {
 
 	&:focus {
 		color: $color-text-input-focus;
+		outline: none;
 	}
 }
 

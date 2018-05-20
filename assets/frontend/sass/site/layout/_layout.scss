@@ -10,7 +10,7 @@
 	@extend %container;
 }
 
-.analytica-detach-container {
+.site-container-detach {
 	background-color: $color-background-sep-content-body;
 
     .hero {
@@ -27,25 +27,20 @@
 		background-color: $color-background-content;
 		margin: 0 0 5.34em 0;
 		.entry-content {
-			padding-top: 2em;
 			padding-bottom: 2em;
 		}
 
-		.entry-header {
-			padding-top: 2em;
-			margin-bottom: 1.5em;
-		}
+        .entry-title {
+			margin-bottom: .2em;
+        }
+
 		.entry-content,
 		.entry-header {
 			padding-left: 2em;
 			padding-right: 2em;
-			@include clearfix();
 		}
 	}
-	.blog-layout-1 {
-		padding: 0;
-		border-bottom: 0;
-	}
+	
 	.analytica-article-single {
 		border-bottom: 0;
 	}

@@ -209,40 +209,6 @@ function analytica_live_qazana_reset_schemes( $locations ) {
 
 }
 
-add_filter( 'qazana/extensions/location', 'analytica_live_qazana_extensions_locations' );
- /**
-  * Detect qazana page
-  *
-  * @since 1.0.0
-  *
-  * @return boolean
-  */
- function analytica_live_qazana_extensions_locations( $locations ) {
-
-    $locations[] = apply_filters( 'qazana/extensions/paths', 'includes/extensions/qazana/extensions' );
-
-    return $locations;
-}
-
-add_filter( 'analytica_site_layout_pre', 'analytica_live_qazana_page_sidebar' );
-/**
- * Manage page layout for the Qazana page
- *
- * Set the layout in the Radium layouts metabox in the Page Editor
- *
- * @since 1.0.0
- *
- * @param str $layout Radium layout, eg 'content-sidebar', etc.
- */
-function analytica_live_qazana_page_sidebar( $layout ) {
-
-    if ( analytica_is_builder_page() ) {
-        return 'full-width-content';
-    }
-
-    return $layout;
-}
-
 /**
  * [qazana_inline_button_control_blackist description]
  * @return bool

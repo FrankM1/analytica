@@ -20,11 +20,11 @@ function analytica_admin_add_customizer_blog_controls( $controls) {
     $new_controls = [
 
         [
-            'id'      => 'blog-post-structure',
+            'id'      => 'archive-content-structure'            ,
             'section' => 'archive_settings',
             'label'   => esc_html__( 'Blog post structure', 'analytica' ),
             'type'    => 'multicheck',
-            'default' => $default['blog-post-structure'],
+            'default' => $default['archive-content-structure'            ],
             'options'  => array(
                 'image'      => __( 'Featured Image', 'analytica' ),
                 'title-meta' => __( 'Title & Blog Meta', 'analytica' ),
@@ -32,11 +32,11 @@ function analytica_admin_add_customizer_blog_controls( $controls) {
         ],
 
         [
-            'id'      => 'blog-post-content',
+            'id'      => 'archive-post-content'            ,
             'section' => 'archive_settings',
             'label'   => esc_html__( 'Blog post content', 'analytica' ),
             'type'    => 'select',
-            'default' => $default['blog-post-content'],
+            'default' => $default['archive-post-content'            ],
             'options'  => array(
                 'full-content' => __( 'Full Content', 'analytica' ),
                 'excerpt'      => __( 'Excerpt', 'analytica' ),
@@ -44,11 +44,11 @@ function analytica_admin_add_customizer_blog_controls( $controls) {
         ],
 
         [
-            'id'      => 'blog-meta',
+            'id'      => 'archive-post-meta'            ,
             'section' => 'archive_settings',
             'label'   => esc_html__( 'Blog meta', 'analytica' ),
             'type'    => 'multicheck',
-            'default' => $default['blog-meta'],
+            'default' => $default['archive-post-meta'            ],
             'options'  => array(
                 'comments' => __( 'Comments', 'analytica' ),
                 'category' => __( 'Category', 'analytica' ),
@@ -56,39 +56,6 @@ function analytica_admin_add_customizer_blog_controls( $controls) {
                 'date'     => __( 'Publish Date', 'analytica' ),
                 'tag'      => __( 'Tag', 'analytica' ),
             ),
-        ],
-
-        [
-            'id'      => 'blog-width',
-            'section' => 'archive_settings',
-            'label'   => esc_html__( 'Blog content width', 'analytica' ),
-            'type'    => 'select',
-            'default' => $default['blog-meta'],
-            'options'  => array(
-                'default' => __( 'Default', 'analytica' ),
-                'custom'  => __( 'Custom', 'analytica' ),
-            ),
-        ],
-
-        [
-            'id'      => 'blog-max-width',
-            'section' => 'archive_settings',
-            'label'   => esc_html__( 'Enter Width', 'analytica' ),
-            'type'    => 'slider',
-            'default' => $default['blog-max-width'],
-            'suffix'      => '',
-            'input_attrs' => array(
-                'min'  => 768,
-                'step' => 1,
-                'max'  => 1920,
-            ),
-            'conditions' => [
-                [
-                    'setting'  => 'blog-width',
-                    'operator' => '==',
-                    'value'    => 'custom',
-                ],
-            ],
         ],
 
     ];

@@ -18,7 +18,7 @@ add_filter( 'widget_tag_cloud_args', 'analytica_widget_tag_cloud_args', 90 );
  */
 function analytica_widget_tag_cloud_args( $args = array() ) {
 
-    $sidebar_link_font_size            = analytica_get_option( 'font-size-body' );
+    $sidebar_link_font_size            = analytica_get_option( 'font-base' );
     $sidebar_link_font_size['desktop'] = ( '' != $sidebar_link_font_size['desktop'] ) ? $sidebar_link_font_size['desktop'] : 15;
 
     $args['smallest'] = intval( $sidebar_link_font_size['desktop'] ) - 2;

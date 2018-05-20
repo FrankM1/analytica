@@ -64,7 +64,7 @@ add_filter( 'post_class', 'analytica_single_post_class' );
 function analytica_single_get_post_meta( $echo = true ) {
 
     $enable_meta = apply_filters( 'analytica_single_post_meta_enabled', '__return_true' );
-    $post_meta   = analytica_get_option( 'blog-single-meta' );
+    $post_meta   = analytica_get_option( 'single-post-meta' );
 
     $output = '';
     if ( is_array( $post_meta ) && 'post' == get_post_type() && $enable_meta ) {

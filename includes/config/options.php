@@ -59,8 +59,7 @@ class Options
             // General
             'site-settings-update-time' => '',
             'site-css-print-method'     => 'external',
-            'site-accent-color'         => '#4f02b3',
-            'site-background-color'     => '#fff',
+            'site-publisher-uri'        => get_site_url(),
 
             // Site Layout.
             'site-description'    => 0,
@@ -68,10 +67,18 @@ class Options
             'site-layout-offset'  => '0',
             'site-content-width'  => 1200,
             'site-sidebar-layout' => 'content-sidebar',
-            
+
+            // Colors
+            'site-text-color'   => '#3a3a3a',
+            'site-accent-color' => '#4f02b3',
+            'site-background-color' => '#fff',
+            'site-accent-color'  => '#0274be',
+            'site-link-color'   => '#0274be',
+            'site-link-highlight-color' => '#3a3a3a',
+
             // Container.
             'site-detach-containers' => true,
-            'site-dual-containers' => true,
+            'site-dual-containers'   => false,
 
             // Sidebars
             'site-sidebar-width'         => 360,
@@ -94,42 +101,45 @@ class Options
             ],
 
             ////// IMPLEMENT
-            'sidebar_before_footer_widget' => false,
-            'sidebar_after_footer_widget'  => false,
+            'sidebar-before-footer-widget' => false,
+            'sidebar-after-footer-widget'  => false,
             ////// IMPLEMENT
 
             // Header
             'header'                  => true,
             'header-background-color' => '#fff',
-            'header-sticky'           => false,
-            'header-overlay'          => false,
-            'header-transparent'      => false,
-            'header-overlay'          => false,
-            'header-sticky'           => false,
-            'header-width'            => 'layout-boxed',
             'header-menu-layout'      => 'header-logo-left',
+            'header-overlay'          => false,
+            'header-overlay'          => false,
             'header-scripts'          => '',
-        
-            // Page Header
-            'hero_enable'               => true,
-            'hero_custom_height'        => 350,
-            'hero_custom_mobile_height' => 200,
-            'hero_text_alignment'       => 'text-center',
-            'hero_breadcrumbs'          => 'on',
-            'hero_show_title'           => 'on',
-            'hero_show_subtitle'        => 'on',
-            'hero_subtitle'             => '',
-            'hero_bg_color'             => '',
-            'hero_bg_color_base'        => 'light',
-            'hero_bg_overlay_color'     => 'rgba(10, 10, 10, 1)',
-            'hero_bg_img'               => analytica()->theme_url . '/assets/frontend/images/defaults/hero-background.jpg',
-            'hero_bg_img_enable'        => 'on',
-            'hero_bg_img_inherit'       => true,
-            'hero_bg_img_position'      => 'center center',
-            'hero_background_size'      => 'cover',
-            'hero_bg_fixed'             => '',
-            'hero_bg_repeat'            => 'no-repeat',
-            'hero_font_h1'              => [
+            'header-sticky'           => false,
+            'header-sticky'           => false,
+            'header-transparent'      => false,
+            'header-width'            => 'layout-boxed',
+
+            // Hero Section
+            'hero'                   => true,
+            'hero-background-size'          => 'cover',
+            'hero-background-color-base'    => 'light',
+            'hero-background-color'         => '',
+            'hero-background-fixed'         => '',
+            'hero-background'               => true,
+            'hero-background-inherit'       => true,
+            'hero-background-position'      => 'center center',
+            'hero-background-image'         => analytica()->theme_url . '/assets/frontend/images/defaults/hero-background.jpg',
+            'hero-background-overlay-color' => 'rgba(10, 10, 10, 1)',
+            'hero-background-repeat'        => 'no-repeat',
+            'hero-height'                   => 350,
+            'hero-height-mobile'            => 200,
+            'hero-fullheight'               => false,
+            'hero-show-subtitle'            => true,
+            'hero-show-title'               => true,
+            'hero-subtitle'                 => '',
+            'hero-parallax'                 => false,
+            'hero-breadcrumbs'              => true,
+
+            'hero-text-alignment'           => 'text-center',
+            'hero-header-font'              => [
                 'font-family'    => $secondary['font-family'],
                 'variant'        => 'regular',
                 'font-size'      => '52px',
@@ -139,8 +149,7 @@ class Options
                 'text-transform' => 'none',
                 'variant'        => 'regular',
             ],
-
-            'hero_font_h3' => [
+            'hero-subheader-font' => [
                 'font-family'    => $secondary['font-family'],
                 'variant'        => 'regular',
                 'font-size'      => '24px',
@@ -149,9 +158,12 @@ class Options
                 'color'          => '#ffffff',
                 'text-transform' => 'none',
             ],
-
-            'show_hero_on_posts'         => true,
-            'show_hero_on_post_archives' => true,
+            'hero-header-padding' => [
+                'top'    => '',
+                'bottom' => '',
+                'left'   => '',
+                'right'  => '',
+            ],
 
             // Typography
             'font-base' => [
@@ -260,23 +272,50 @@ class Options
 
             // Blog
             'featured-image'                   => true,
-            'publisher-uri'                    => get_site_url(),
             'single-post-site-container-width' => '',
             'single-post-site-sidebar-width'   => '',
             'single-post-layout'               => 'content-sidebar',
-            'content_archive_all_posts_title'  => esc_html__( 'Latest posts', 'analytica' ),
+            'single-post-hero'                 => true,
+            'single-post-structure'            => array(
+                'single-image',
+                'single-title-meta',
+            ),
+            'single-post-meta'      => array(
+                'comments',
+                'category',
+                'author',
+            ),
+
+            // Archives
+            'archives-hero'             => true,
+            'archive-frontpage-title'   => esc_html__( 'Latest posts', 'analytica' ),
+            'archive-sidebar-layout'    => '',
+            'archive-content-structure' => array(
+                'image',
+                'title-meta',
+            ),
+            'archive-post-content' => 'excerpt',
+            'archive-post-meta'    => array(
+                'comments',
+                'category',
+                'author',
+            ),
 
             // Footer
-            'footer'                => 1,
-            'footer-width'          => 1,
-            'site-footer-layout'    => '4',
-            'footer-copyright-text' => esc_html__('Copyright &copy; [year] Radium Themes. All rights reserved.', 'analytica'),
-            'show-theme-badge'      => 1,
-            'footer-back-to-top'    => 1,
-            'footer-accent-color'   => '',
-            'footer-body-color'     => '',
-            'footer-link-color'     => '',
-            'footer-background'     => [
+            'site-footer'                => true,
+            'site-footer-width'          => true,
+            'site-footer-layout'         => '4',
+            'site-footer-copyright-text' => esc_html__('Copyright &copy; [year] Radium Themes. All rights reserved.', 'analytica'),
+            'site-theme-badge'           => true,
+            'site-back-to-top'           => true,
+
+            'footer-accent-color'          => '',
+            'footer-body-color'            => '',
+            'footer-link-color'            => '',
+            'footer-headers-color'         => '',
+            'footer-border-color'          => '',
+            'footer-colophon-border-color' => 'rgba(255,255,255,0.09)',
+            'footer-background'            => [
                 'color'    => 'rgba(0,0,0,1)',
                 'image'    => '',
                 'repeat'   => 'no-repeat',
@@ -284,45 +323,8 @@ class Options
                 'attach'   => 'fixed',
                 'position' => 'left-top',
             ],
-            'footer-headers-color'         => '',
-            'site-footer-border-color'     => '',
-            'footer-colophon-border-color' => 'rgba(255,255,255,0.09)',
-            'footer-custom-scripts'        => '',
-
             /////////////////////////////////////////////////////////
-            // Blog Single.
-            'blog-single-post-structure' => array(
-                'single-image',
-                'single-title-meta',
-            ),
-
-            'blog-single-width'     => 'default',
-            'blog-single-max-width' => 1200,
-            'blog-single-meta'      => array(
-                'comments',
-                'category',
-                'author',
-            ),
-            
-            // Blog.
-            'blog-post-structure' => array(
-                'image',
-                'title-meta',
-            ),
-            'blog-width'        => 'default',
-            'blog-max-width'    => 1200,
-            'blog-post-content' => 'excerpt',
-            'blog-meta'         => array(
-                'comments',
-                'category',
-                'author',
-            ),
-            // Colors.
-            'text-color'   => '#3a3a3a',
-            'link-color'   => '#0274be',
-            'theme-color'  => '#0274be',
-            'link-h-color' => '#3a3a3a',
-
+          
             // Buttons.
             'button-color'      => '',
             'button-h-color'    => '',
@@ -331,12 +333,6 @@ class Options
             'button-radius'     => 2,
             'button-v-padding'  => 10,
             'button-h-padding'  => 40,
-
-            //// REMOVE
-            'archive-site-sidebar-layout' => '',
-            'single-page-sidebar-layout'  => '',
-            'archive-post-sidebar-layout' => '',
-            'single-post-sidebar-layout'  => '',
         ));
     }
 

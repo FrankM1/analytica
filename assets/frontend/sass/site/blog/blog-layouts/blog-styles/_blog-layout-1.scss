@@ -11,7 +11,12 @@
 	.post-thumb,
 	.post-content {
 		position: relative;
-		padding: 0;
 		@include clearfix();
+	}
+}
+
+.site-container-detach {
+    .blog-layout-1 {
+		border-bottom: 0;
 	}
 }

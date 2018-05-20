@@ -207,7 +207,7 @@ function analytica_comment_form_default_markup( $args ) {
  */
 function analytica_the_excerpt() {
 
-    $excerpt_type = analytica_get_option( 'blog-post-content' );
+    $excerpt_type = analytica_get_option( 'archive-post-content'             );
 
     do_action( 'analytica_the_excerpt_before', $excerpt_type );
 
@@ -280,9 +280,8 @@ function analytica_get_post_thumbnail( $before = '', $after = '', $echo = true )
     }
 
     $featured_image = apply_filters( 'analytica_featured_image_enabled', $featured_image );
-
-    $blog_post_thumb   = analytica_get_option( 'blog-post-structure', [] );
-    $single_post_thumb = analytica_get_option( 'blog-single-post-structure', [] );
+    $blog_post_thumb   = analytica_get_option( 'archive-content-structure'            , [] );
+    $single_post_thumb = analytica_get_option( 'single-post-structure', [] );
 
     if ( ( ( ! $check_is_singular && in_array( 'image', $blog_post_thumb ) ) || ( is_single() && in_array( 'single-image', $single_post_thumb ) ) || is_page() ) && has_post_thumbnail() ) {
 

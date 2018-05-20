@@ -72,7 +72,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
                 ],
             ],
             'partial_refresh' => [
-                'footer' => [
+                'site-footer' => [
                     'selector'        => '.site-footer',
                     'render_callback' => function() {
                         ob_start();
@@ -124,7 +124,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
                 ],
             ],
             'partial_refresh' => [
-                'footer' => [
+                'site-footer' => [
                     'selector'        => '.site-footer',
                     'render_callback' => function() {
                         ob_start();
@@ -143,7 +143,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'              => 'show-theme-badge',
+            'id'              => 'site-theme-badge',
             'section'         => 'footer_general',
             'transport'       => 'postMessage',
             'label'           => esc_html__( 'Support', 'analytica' ) . ' ' . Analytica\Core::instance()->theme_title,
@@ -165,7 +165,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'              => 'footer-back-to-top',
+            'id'              => 'site-back-to-top',
             'section'         => 'footer_general',
             'type'            => 'switch',
             'transport'       => 'postMessage',
@@ -258,7 +258,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'        => 'site-footer-border-color',
+            'id'        => 'footer-border-color',
             'section'   => 'footer_general',
             'type'      => 'color',
             'transport' => 'auto',
@@ -473,7 +473,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
                 ],
             ],
             'partial_refresh' => [
-                'footer' => [
+                'site-footer' => [
                     'selector'        => '.site-colophon',
                     'render_callback' => function() {
                         ob_start();
@@ -490,7 +490,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'              => 'footer-copyright-text',
+            'id'              => 'site-footer-copyright-text',
             'section'         => 'footer_copyright',
             'transport'       => 'postMessage',
             'type'            => 'textarea',

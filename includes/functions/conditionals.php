@@ -51,7 +51,7 @@ function analytica_header_is_active() {
  function analytica_is_hero_available() {
      $retval = true;
 
-     $option = analytica_get_option( 'hero_enable' );
+     $option = analytica_get_option( 'hero' );
 
      if ( ! analytica_is_bool( $option ) ) {
          $retval = false;
@@ -62,11 +62,11 @@ function analytica_header_is_active() {
          $retval = true;
      }
 
-     if ( is_singular( 'post' ) && ! analytica_get_option( 'show_hero_on_posts' ) ) {
+     if ( is_singular( 'post' ) && ! analytica_get_option( 'single-post-hero' ) ) {
          $retval = false;
      }
 
-     if ( is_archive() && ! analytica_get_option( 'show_hero_on_post_archives' ) ) {
+     if ( is_archive() && ! analytica_get_option( 'archives-hero' ) ) {
          $retval = false;
      }
 
@@ -302,7 +302,7 @@ function analytica_is_post_archive_page( $post_id = null ) {
 function analytica_is_footer_available() {
     $retval = true;
 
-    $option = analytica_get_option( 'footer' );
+    $option = analytica_get_option( 'site-footer' );
 
     if ( ! analytica_is_bool( $option ) ) {
         $retval = false;

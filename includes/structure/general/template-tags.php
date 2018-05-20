@@ -51,8 +51,8 @@ function analytica_the_post_title( $before = '', $after = '', $post_id = 0, $ech
 function analytica_the_title( $before = '', $after = '', $post_id = 0, $echo = true ) {
 
     $title             = '';
-    $blog_post_title   = analytica_get_option( 'blog-post-structure', [] );
-    $single_post_title = analytica_get_option( 'blog-single-post-structure', [] );
+    $blog_post_title   = analytica_get_option( 'archive-content-structure'            , [] );
+    $single_post_title = analytica_get_option( 'single-post-structure', [] );
 
     if ( ( ( ! is_singular() && in_array( 'title-meta', $blog_post_title ) ) || ( is_single() && in_array( 'single-title-meta', $single_post_title ) ) || is_page() ) ) {
         if ( apply_filters( 'analytica_the_title_enabled', true ) ) {

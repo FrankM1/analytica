@@ -257,11 +257,11 @@
 		/**
 		 * Blog Single
 		 */
-		 'analytica-settings[blog-single-post-structure]' :
+		 'analytica-settings[single-post-structure]' :
 		[
 			{
 				controls: [
-					'analytica-settings[blog-single-meta]',
+					'analytica-settings[single-post-meta]',
 				],
 				callback: function( blog_structure ) {
 					if ( jQuery.inArray ( "single-title-meta", blog_structure ) !== -1 ) {
@@ -271,11 +271,11 @@
 				}
 			}
 		],
-		'analytica-settings[blog-single-width]' :
+		'analytica-settings[single-post-width]' :
 		[
 			{
 				controls: [
-					'analytica-settings[blog-single-max-width]'
+					'analytica-settings[single-post-max-width]'
 				],
 				callback: function( blog_width ) {
 
@@ -286,15 +286,15 @@
 				}
 		}
 		],
-		'analytica-settings[blog-single-meta]' :
+		'analytica-settings[single-post-meta]' :
 		[
 			{
 				controls: [
-					'analytica-settings[blog-single-meta-comments]',
-					'analytica-settings[blog-single-meta-cat]',
-					'analytica-settings[blog-single-meta-author]',
-					'analytica-settings[blog-single-meta-date]',
-					'analytica-settings[blog-single-meta-tag]',
+					'analytica-settings[single-post-meta-comments]',
+					'analytica-settings[single-post-meta-cat]',
+					'analytica-settings[single-post-meta-author]',
+					'analytica-settings[single-post-meta-date]',
+					'analytica-settings[single-post-meta-tag]',
 				],
 				callback: function( enable_postmeta ) {
 

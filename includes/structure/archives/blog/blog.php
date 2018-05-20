@@ -50,7 +50,7 @@ function analytica_post_class_blog_grid( $classes ) {
 function analytica_blog_get_post_meta() {
 
     $enable_meta = apply_filters( 'analytica_blog_post_meta_enabled', '__return_true' );
-    $post_meta   = analytica_get_option( 'blog-meta' );
+    $post_meta   = analytica_get_option( 'archive-post-meta'             );
 
     if ( 'post' == get_post_type() && is_array( $post_meta ) && $enable_meta ) {
 
@@ -122,9 +122,9 @@ function analytica_blog_post_get_featured_item() {
  */
 function analytica_blog_post_thumbnai_and_title_order() {
 
-    $blog_post_thumb_title_order = analytica_get_option( 'blog-post-structure' );
+    $blog_post_thumb_title_order = analytica_get_option( 'archive-content-structure'             );
     if ( is_single() ) {
-        $blog_post_thumb_title_order = analytica_get_option( 'blog-single-post-structure' );
+        $blog_post_thumb_title_order = analytica_get_option( 'single-post-structure' );
     }
     if ( is_array( $blog_post_thumb_title_order ) ) {
         // Append the custom class for second element for single post.

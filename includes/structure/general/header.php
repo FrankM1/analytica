@@ -186,7 +186,7 @@ add_action( 'wp_head', 'analytica_rel_publisher' );
  */
 function analytica_rel_publisher() {
 
-    if ( is_front_page() && $publisher_url = analytica_get_option( 'publisher-uri' ) ) {
+    if ( is_front_page() && $publisher_url = analytica_get_option( 'site-publisher-uri' ) ) {
         printf( '<link rel="publisher" href="%s" />', esc_url( $publisher_url ) );
     }
 

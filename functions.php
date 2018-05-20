@@ -298,6 +298,8 @@ class Core {
      }
 
     function _include_extensions() {
+        require_once get_theme_file_path( '/includes/extensions/page-builders/functions.php' );
+
         // require_once get_theme_file_path( '/includes/extensions/class-analytica-jetpack.php' );
         // require_once get_theme_file_path( '/includes/extensions/woocommerce/class-analytica-woocommerce.php' );
         // require_once get_theme_file_path( '/includes/extensions/lifterlms/class-analytica-lifterlms.php' );
