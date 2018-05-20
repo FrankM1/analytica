@@ -63,7 +63,7 @@ class Options
             'accent-color' => '#4f02b3',
 
             // Site Layout.
-            'site-layout' => 'site-boxed',
+            'site-layout' => 'site-fullwidth',
             'site-layout-offset' => '0',
             'site-content-width' => 1200,
             'site-layout-outside-bg-obj' => array(
@@ -343,10 +343,10 @@ class Options
             'button-h-padding' => 40,
 
             //// REMOVE
-            'footer-sml-layout' => 40,
             'site-sidebar-layout' => '',
             'single-page-sidebar-layout' => '',
             'archive-post-sidebar-layout' => '',
+            'archive-content-sidebar-layout' => '',
             'single-post-sidebar-layout' => '',
         ));
     }

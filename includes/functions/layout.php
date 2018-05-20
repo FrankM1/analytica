@@ -240,11 +240,9 @@ function analytica_site_layout( $use_cache = false ) {
     } elseif ( is_category() || is_tag() || is_tax() ) {
         // If viewing a taxonomy archive
         $term_id = get_queried_object()->term_id;
-        $custom_field = analytica_get_term_meta( $term_id, 'layout', true );
+        $custom_field = get_term_meta( $term_id, 'layout', true );
         $site_layout = $custom_field ? $custom_field : analytica_get_option( 'archive-content-sidebar-layout' );
     } elseif ( is_post_type_archive() && analytica_has_post_type_archive_support() ) {
-        // If viewing a supported post type
-        $site_layout = analytica_get_cpt_option( 'layout' ) ? analytica_get_cpt_option( 'layout' ) : $site_layout;
     } elseif ( is_author() ) {
         // If viewing an author archive
         $site_layout = get_the_author_meta( 'layout', (int) get_query_var( 'author' ) ) ? get_the_author_meta( 'layout', (int) get_query_var( 'author' ) ) : $site_layout;

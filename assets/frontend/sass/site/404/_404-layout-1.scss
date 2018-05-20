@@ -62,7 +62,7 @@
 .error404,
 .search-no-results{
 	&.analytica-separate-container{
-		#primary {
+		.site-main {
 			@media (min-width: $col-md) {
 				margin-bottom: 4em;
 			}

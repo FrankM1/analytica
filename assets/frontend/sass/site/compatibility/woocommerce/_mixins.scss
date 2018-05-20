@@ -1,22 +1,6 @@
-/**
- * Deprecated
- * Fallback for bourbon equivalent
- */
-@mixin clearfix() {
-	*zoom: 1;
-
-	&::before,
-	&::after {
-		content: ' ';
-		display: table;
-	}
-
-	&::after {
-		clear: both;
-	}
-}
-
-/**
+ @import "../../../mixins";
+ 
+ /**
  * Deprecated
  * Vendor prefix no longer required.
  */

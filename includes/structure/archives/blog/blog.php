@@ -9,7 +9,7 @@ add_filter( 'body_class', 'analytica_blog_body_classes' );
 /**
  * Adds custom classes to the array of body classes.
  *
- * @since 1.0
+ * @since 1.0.0
  * @param array $classes Classes for the body element.
  * @return array
  */
@@ -27,7 +27,7 @@ add_filter( 'post_class', 'analytica_post_class_blog_grid' );
 /**
  * Adds custom classes to the array of post grid classes.
  *
- * @since 1.0
+ * @since 1.0.0
  * @param array $classes Classes for the post element.
  * @return array
  */
@@ -44,7 +44,7 @@ function analytica_post_class_blog_grid( $classes ) {
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  *
- * @since 1.0
+ * @since 1.0.0
  * @return mixed            Markup.
  */
 function analytica_blog_get_post_meta() {
@@ -66,7 +66,7 @@ add_action( 'analytica_blog_post_featured_format', 'analytica_blog_post_get_feat
 /**
  * To featured image / gallery / audio / video etc. As per the post format.
  *
- * @since 1.0
+ * @since 1.0.0
  * @return mixed
  */
 function analytica_blog_post_get_featured_item() {
@@ -118,7 +118,7 @@ function analytica_blog_post_get_featured_item() {
 /**
  * Blog post Thubmnail, Title & Blog Meta order
  *
- * @since  1.0.8
+ * @since  1.0.0
  */
 function analytica_blog_post_thumbnai_and_title_order() {
 
@@ -168,13 +168,13 @@ function analytica_blog_post_thumbnai_and_title_order() {
  * Blog post Thumbnail
  *
  * @param string $type Type of post.
- * @since  1.0.8
+ * @since  1.0.0
  */
 function analytica_get_blog_post_thumbnail( $type = 'archive' ) {
 
     if ( 'archive' === $type ) {
         // Blog Post Featured Image.
-        analytica_get_post_thumbnail( '<div class="analytica-blog-featured-section post-thumb">', '</div>' );
+        analytica_get_post_thumbnail( '<div class="analytica-blog-featured-section">', '</div>' );
     } elseif ( 'single' === $type ) {
         // Single Post Featured Image.
         analytica_get_post_thumbnail();
@@ -184,7 +184,7 @@ function analytica_get_blog_post_thumbnail( $type = 'archive' ) {
 /**
  * Blog post Thumbnail
  *
- * @since  1.0.8
+ * @since  1.0.0
  */
 function analytica_get_blog_post_title_meta() {
 
@@ -220,16 +220,14 @@ function analytica_get_blog_post_title_meta() {
 /**
  * Blog post Thumbnail
  *
- * @since  1.0.8
+ * @since  1.0.0
  */
 function analytica_get_single_post_title_meta() {
 
     // Single Post Title and Single Post Meta.
     do_action( 'analytica_single_post_order_before' );
 
-    ?>
-    <div class="analytica-single-post-order">
-        <?php
+    ?><div class="analytica-single-post-order"><?php
 
         do_action( 'analytica_single_post_title_before' );
 
@@ -243,9 +241,7 @@ function analytica_get_single_post_title_meta() {
 
         do_action( 'analytica_single_post_meta_after' );
 
-        ?>
-    </div>
-    <?php
+    ?></div><?php
 
     do_action( 'analytica_single_post_order_after' );
 }
@@ -278,7 +274,7 @@ function analytica_get_audios_from_post( $post_id ) {
 /**
  * Get first image from post content
  *
- * @since 1.0
+ * @since 1.0.0
  * @param  number $post_id Post id.
  * @return mixed
  */

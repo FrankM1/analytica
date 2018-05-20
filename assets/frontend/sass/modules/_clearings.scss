@@ -1,26 +1,9 @@
-.clear:before,
-.clear:after,
-.site-header:before,
-.site-header:after,
-.site-content:before,
-.site-content:after,
-#secondary:before,
-#secondary:after,
-.site-footer:before,
-.site-footer:after,
-.analytica-row:before,
-.analytica-row:after,
-.analytica-container:before,
-.analytica-container:after {
+.clear,
+.site-header,
+.site-content,
+#secondary,
+.site-footer,
+.analytica-row,
+.analytica-container {
 	@include clearfix;
-}
-
-.clear:after,
-.site-header:after,
-.site-content:after,
-#secondary:after,
-.site-footer:after,
-.analytica-row:after,
-.analytica-container:after {
-	@include clearfix-after;
 }

@@ -12,7 +12,7 @@
 @import "mixins/hide-text";
 @import "mixins/reset-text";
 @import "mixins/gradients";
-@import "mixins/animations";
+@import "mixins/font-size";
 
 // Skins
 @import "mixins/border-radius";
@@ -22,7 +22,3 @@
 // Layout
 @import "mixins/clearfix";
 @import "mixins/position";
-
-//grid
-@import "mixins/grid";
-@import "mixins/grid-framework";

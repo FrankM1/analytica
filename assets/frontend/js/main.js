@@ -795,7 +795,7 @@ var toggleClass = function ( el, className ) {
 		};
 	};
 
-	AstraToggleMenu = function( analytica_menu_toggle ) {
+	AnalyticaToggleMenu = function( analytica_menu_toggle ) {
 		
 		/* Submenu button click */
 		for (var i = 0; i < analytica_menu_toggle.length; i++) {
@@ -886,7 +886,7 @@ var toggleClass = function ( el, className ) {
 				AstraNavigationMenu( parentList );
 			 	
 			 	var analytica_menu_toggle = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .analytica-menu-toggle' );
-				AstraToggleMenu( analytica_menu_toggle );
+				AnalyticaToggleMenu( analytica_menu_toggle );
 			}
 		};
 	}
@@ -1947,7 +1947,7 @@ var toggleClass = function ( el, className ) {
 		};
 	};
 
-	AstraToggleMenu = function( analytica_menu_toggle ) {
+	AnalyticaToggleMenu = function( analytica_menu_toggle ) {
 		
 		/* Submenu button click */
 		for (var i = 0; i < analytica_menu_toggle.length; i++) {
@@ -2038,7 +2038,7 @@ var toggleClass = function ( el, className ) {
 				AstraNavigationMenu( parentList );
 			 	
 			 	var analytica_menu_toggle = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .analytica-menu-toggle' );
-				AstraToggleMenu( analytica_menu_toggle );
+				AnalyticaToggleMenu( analytica_menu_toggle );
 			}
 		};
 	}

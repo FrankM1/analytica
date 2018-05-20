@@ -5,11 +5,6 @@
   clear: both;
 }
 
-.fl-theme-builder-archive .fl-post-gallery-post.hentry,
-.fl-theme-builder-archive .fl-post-column > .hentry {
-  margin: 0;
-}
-
 .fl-theme-builder-archive h2.fl-post-feed-title {
   clear: initial;
 }
@@ -18,7 +13,3 @@
   padding-left: 0;
   padding-right: 0;
 }
-
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2l0ZS9jb21wYXRpYmlsaXR5L3BhZ2UtYnVpbGRlci9iYi1wbHVnaW4uY3NzIiwic291cmNlcyI6WyJzaXRlL2NvbXBhdGliaWxpdHkvcGFnZS1idWlsZGVyL2JiLXBsdWdpbi5zY3NzIl0sIm1hcHBpbmdzIjoiQUFBQTs7R0FFRztBQUVILEFBQUEsbUJBQW1CLENBQUM7RUFDbkIsS0FBSyxFQUFFLElBQUs7Q0FDWjs7QUFFRCxBQUNzQix5QkFERyxDQUN4QixxQkFBcUIsQUFBQSxPQUFPO0FBRDdCLEFBRW1CLHlCQUZNLENBRXhCLGVBQWUsR0FBRyxPQUFPLENBQUM7RUFDekIsTUFBTSxFQUFFLENBQUU7Q0FDVjs7QUFKRixBQU1HLHlCQU5zQixDQU14QixFQUFFLEFBQUEsbUJBQW1CLENBQUM7RUFDckIsS0FBSyxFQUFFLE9BQVE7Q0FDZjs7QUFJRixBQUFtRCw2QkFBdEIsQ0FBQyxtQkFBbUIsQ0FBRSxtQkFBbUIsQ0FBQztFQUN0RSxZQUFZLEVBQUUsQ0FBRTtFQUNoQixhQUFhLEVBQUUsQ0FBRTtDQUNqQiIsIm5hbWVzIjpbXX0= */
-
-/*# sourceMappingURL=bb-plugin.css.map */

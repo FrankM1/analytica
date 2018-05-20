@@ -55,9 +55,9 @@ class Analytica_Meta_Box_Operations {
      */
     function primary_header() {
 
-        $display_header = get_post_meta( get_the_ID(), 'analytica-main-header-display', true );
+        $display_header = get_post_meta( get_the_ID(), '_analytica_header', true );
 
-        $display_header = apply_filters( 'ast_main_header_display', $display_header );
+        $display_header = apply_filters( 'analytica_main_header_display', $display_header );
 
         if ( 'disabled' == $display_header ) {
             remove_action( 'analytica_masthead', 'analytica_masthead_primary_template' );

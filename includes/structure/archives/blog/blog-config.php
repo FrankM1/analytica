@@ -316,10 +316,7 @@ if ( ! function_exists( 'analytica_get_blog_layout_class' ) ) {
 		// array of class names.
 		$classes = array();
 
-		$post_format = get_post_format();
-		if ( $post_format ) {
-			$post_format = 'standard';
-		}
+        $post_format = get_post_format() ? get_post_format() : 'standard';
 
 		$classes[] = 'analytica-post-format-' . $post_format;
 
@@ -327,40 +324,40 @@ if ( ! function_exists( 'analytica_get_blog_layout_class' ) ) {
 			switch ( $post_format ) {
 
 				case 'aside':
-								$classes[] = 'analytica-no-thumb';
+					$classes[] = 'analytica-no-thumb';
 					break;
 
 				case 'image':
-								$has_image = analytica_get_first_image_from_post();
+					$has_image = analytica_get_first_image_from_post();
 					if ( empty( $has_image ) || is_single() ) {
 						$classes[] = 'analytica-no-thumb';
 					}
 					break;
 
 				case 'video':
-								$post_featured_data = analytica_get_video_from_post( get_the_ID() );
+					$post_featured_data = analytica_get_video_from_post( get_the_ID() );
 					if ( empty( $post_featured_data ) ) {
 						$classes[] = 'analytica-no-thumb';
 					}
 					break;
 
 				case 'quote':
-								$classes[] = 'analytica-no-thumb';
+					$classes[] = 'analytica-no-thumb';
 					break;
 
 				case 'link':
-								$classes[] = 'analytica-no-thumb';
+					$classes[] = 'analytica-no-thumb';
 					break;
 
 				case 'gallery':
-								$post_featured_data = get_post_gallery();
+					$post_featured_data = get_post_gallery();
 					if ( empty( $post_featured_data ) || is_single() ) {
 						$classes[] = 'analytica-no-thumb';
 					}
 					break;
 
 				case 'audio':
-								$has_audio = analytica_get_audios_from_post( get_the_ID() );
+					$has_audio = analytica_get_audios_from_post( get_the_ID() );
 					if ( empty( $has_audio ) || is_single() ) {
 						$classes[] = 'analytica-no-thumb';
 					} else {
@@ -383,8 +380,7 @@ if ( ! function_exists( 'analytica_get_blog_layout_class' ) ) {
 			}
 			$classes = array_merge( $classes, $class );
 		} else {
-			// Ensure that we always coerce class to being an array.
-			$class = array();
+			$class = array(); // Ensure that we always coerce class to being an array.
 		}
 
 		/**

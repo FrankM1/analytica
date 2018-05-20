@@ -1,66 +1,24 @@
-// class to hide elements
 .hidden {
 	display: none !important;
 }
 
-body {
-	background-color: $color-background-body;
-}
-
-// Page alignment
 .site {
 	overflow: hidden;
 }
 
 .site-inner {
-	&:before,
-	&:after {
-		@include clearfix;
-	}
-}
-
-#secondary {
-	display: block;
-	position: relative;
-	width: $width-site-main;
-}
-
-.site-inner {
+	@include clearfix;
 	margin: $grid-gutter-width;
 }
 
-.site-inner {
-	margin: $grid-gutter-width;
+.has-container {
+	@extend %container;
+	margin-right: auto;
+	margin-left: auto;
 }
 
-#secondary {
-	margin: $grid-gutter-width 0 $grid-gutter-width-half;
-	word-break: break-word;
-	line-height: 2;
-
-	@media (max-width: $mx-col-md) {
-		&.secondary {
-			padding-top: 0;
-		}
-	}
-
-	li {
-		margin-bottom: 0.25em;
-	}
-
-	li:last-child {
-		margin-bottom: 0;
-	}
-}
-
-//separate container content layout
 .analytica-separate-container {
 	background-color: $color-background-sep-content-body;
-	#primary {
-		padding: 4em 0;
-		margin: 0;
-		border: 0;
-	}
 
 	main>.analytica-row {
 		margin-left: 0;
@@ -84,15 +42,11 @@ body {
 		.entry-header {
 			padding-left: 2em;
 			padding-right: 2em;
-			&:after,
-			&:before {
-				@include clearfix();
-			}
+			@include clearfix();
 		}
 	}
 	.blog-layout-1 {
 		padding: 0;
-		/*background-color: $color-background-content;*/
 		border-bottom: 0;
 	}
 	.analytica-article-single {
@@ -111,256 +65,12 @@ body {
 		.analytica-article-single {
 			padding: 0 0 1.5em 0;
 		}
-		#primary,
-		#secondary {
-			padding: 1.5em 0;
-		}
-		&.analytica-right-sidebar {
-			#secondary {
-				padding-left: 1em;
-			}
-		}
-		&.analytica-right-sidebar {
-			#secondary {
-				padding-right: 1em;
-			}
-		}
-		&.analytica-two-container {
-			#secondary {
-				padding-left: 0;
-				padding-right: 0;
-			}
-		}
 	}
 	@media (max-width: $mx-col-sm) {
 		.analytica-article-post,
 		.analytica-article-single {
 			padding: 0 0 1.5em 0;
 		}
-		#content .analytica-container {
-			padding-left: 0.54em;
-			padding-right: 0.54em;
-		}
-		#secondary {
-			padding-top: 0;
-		}
 	}
 }
 
-.has-container>.analytica-container {
-	@extend %container;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-//page builder content layout
-.analytica-page-builder-template {
-
-	.hentry {
-		margin: 0;
-	}
-	.site-inner,
-	.site-content #primary {
-		padding: 0;
-		margin: 0;
-	}
-	.no-results {
-		text-align: center;
-		margin: 4em auto;
-	}
-
-	.analytica-pagination {
-		padding: 2em;
-	}
-
-	.entry-header {
-		&.analytica-no-title.analytica-no-thumbnail {
-			margin-top: 0;
-		}
-		margin-top: 4em;
-		margin-left: auto;
-		margin-right: auto;
-		padding-left: ($grid-gutter-width / 2);
-		padding-right: ($grid-gutter-width / 2);
-
-		&.analytica-header-without-markup {
-			margin-top: 0;
-			margin-bottom: 0;
-		}
-
-		&.analytica-no-title.analytica-no-meta {
-			margin-bottom: 0;
-		}
-
-		@media (max-width: $mx-col-md) {
-			margin-top: 1.5em;
-		}
-	}
-
-	@media (max-width: $mx-col-md) {
-		#secondary {
-			margin-top: 1.5em;
-		}
-	}
-
-	&.analytica-left-sidebar {
-		#secondary {
-			padding-left: ($grid-gutter-width / 2);
-
-			@media (max-width: $mx-col-md) {
-				padding-right: ($grid-gutter-width / 2);
-			}
-		}
-	}
-
-	&.analytica-right-sidebar {
-		#secondary {
-			padding-right: ($grid-gutter-width / 2);
-
-			@media (max-width: $mx-col-md) {
-				padding-left: ($grid-gutter-width / 2);
-			}
-		}
-	}
-	&.single .post-navigation {
-		padding-bottom: 2em;
-	}
-}
-
-
-@media (min-width: $col-lg) {
-	// padding of the content
-	.analytica-separate-container {
-		&.analytica-right-sidebar #primary,
-		&.analytica-left-sidebar #primary,
-		#primary {
-			margin: 4em 0;
-			padding: 0;
-		}
-	} // Right Sidebar - Spacing Between Primary & Secondary
-	.analytica-right-sidebar {
-		#primary {
-			padding-right: $space-between-primary-seconday * 2;
-		}
-		#secondary {
-			padding-left: $space-between-primary-seconday * 2;
-		}
-	} // Left Sidebar - Spacing Between Primary & Secondary
-	.analytica-left-sidebar {
-		#primary {
-			padding-left: $space-between-primary-seconday * 2;
-		}
-		#secondary {
-			padding-right: $space-between-primary-seconday * 2;
-		}
-	}
-}
-
-@media (max-width: $mx-col-lg) {
-	.analytica-separate-container {
-		&.analytica-right-sidebar #primary,
-		&.analytica-left-sidebar #primary,
-		#primary {
-			padding-left: 0;
-			padding-right: 0;
-		}
-	} // Right Sidebar - Spacing Between Primary & Secondary
-	.analytica-right-sidebar {
-		#primary {
-			padding-right: $space-between-primary-seconday;
-		}
-		#secondary {
-			padding-left: $space-between-primary-seconday;
-		}
-	} // Left Sidebar - Spacing Between Primary & Secondary
-	.analytica-left-sidebar {
-		#primary {
-			padding-left: $space-between-primary-seconday;
-		}
-		#secondary {
-			padding-right: $space-between-primary-seconday;
-		}
-	}
-}
-
-@media (max-width: $mx-col-md) {
-	// Right Sidebar - Spacing Between Primary & Secondary
-	.analytica-right-sidebar {
-		#primary {
-			padding-right: 0;
-		}
-		#secondary {
-			padding-left: 0;
-		}
-	} // Left Sidebar - Spacing Between Primary & Secondary
-	.analytica-left-sidebar {
-		#primary {
-			padding-left: 0;
-		}
-		#secondary {
-			padding-right: 0;
-		}
-	}
-	#primary,
-	#secondary {
-		padding: 1.5em 0;
-		margin: 0;
-	}
-
-	.analytica-left-sidebar {
-		#content>.analytica-container {
-			display: flex;
-			flex-direction: column-reverse;
-			width: 100%;
-		}
-	}
-}
-
-//plain layout content side border
-@media (min-width: $col-md) {
-	.analytica-right-sidebar {
-		#primary {
-			border-right: 1px solid $color-border-content;
-		}
-		#secondary {
-			border-left: 1px solid $color-border-content;
-			margin-left: -1px;
-		}
-	}
-	.analytica-left-sidebar {
-		#primary {
-			border-left: 1px solid $color-border-content;
-		}
-		#secondary {
-			border-right: 1px solid $color-border-content;
-			margin-right: -1px;
-		}
-	}
-	.analytica-separate-container {
-		&.analytica-right-sidebar,
-		&.analytica-left-sidebar {
-			#primary {
-				border: 0;
-			}
-			#secondary {
-				border: 0;
-				margin-left: auto;
-				margin-right: auto;
-			}
-		}
-		&.analytica-two-container {
-			&.analytica-right-sidebar {
-				#secondary {
-					padding-left: $space-between-primary-seconday;
-					padding-right: 0;
-				}
-			}
-			&.analytica-left-sidebar {
-				#secondary {
-					padding-right: $space-between-primary-seconday;
-					padding-left: 0;
-				}
-			}
-		}
-	}
-}

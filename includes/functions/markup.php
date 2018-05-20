@@ -859,7 +859,28 @@ add_filter( 'analytica_attr_site-primary', 'analytica_attributes_site_primary' )
  */
 function analytica_attributes_site_primary( $attributes ) {
     $attributes['id'] = 'primary';
-    $attributes['class'] = esc_attr( join( ' ', analytica_get_primary_class() ) );
+
+     // array of class names.
+     $classes = array();
+
+     // primary base class.
+     $classes[] = 'primary';
+ 
+     if ( ! empty( $class ) ) {
+         if ( ! is_array( $class ) ) {
+             $class = preg_split( '#\s+#', $class );
+         }
+         $classes = array_merge( $classes, $class );
+     } else {
+ 
+         // Ensure that we always coerce class to being an array.
+         $class = array();
+     }
+ 
+     $classes = array_map( 'sanitize_html_class', $classes );
+ 
+    $attributes['class'] = esc_attr( join( ' ', array_unique( $classes ) ) );
+    
     return $attributes;
 }
 

@@ -1,10 +1,7 @@
 // Page header
 // -------------------------
 .hero {
-    &:before,
-    &:after {
-        @include clearfix;
-    }
+    @include clearfix;
     position: relative;
     margin: 0;
     min-height: ( $grid-gutter-width * 2);

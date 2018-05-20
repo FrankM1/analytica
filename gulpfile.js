@@ -34,7 +34,7 @@ if(process.argv[2] === "--local") {
 
 // Project related.
 var project = "analytica"; // Project Name.
-var projectURL = "analytica.test"; // Project URL. Could be something like localhost:8888.
+var projectURL = "analytica.local"; // Project URL. Could be something like localhost:8888.
 var productURL = "./"; // Theme/Plugin URL. Leave it like it is, since our gulpfile.js lives in the root folder.
 
 // Translation related.
@@ -137,7 +137,7 @@ const AUTOPREFIXER_BROWSERS = [
  *
  * Load gulp plugins and assing them semantic names.
  */
-var gulp                  = require("gulp");                        // Gulp of-course
+var gulp                  = require("gulp");                        // Gulp of-coursesourcemaps
 var autoprefixer          = require("gulp-autoprefixer");           // Autoprefixing magic.
 var banner                = require("gulp-banner");
 var browserSync           = require("browser-sync").create();       // Reloads browser and injects CSS. Time-saving synchronised browser testing.
@@ -168,6 +168,7 @@ var zip                   = require("gulp-zip");                    // Using to 
 var log                   = require('fancy-log');
 var initReleaseIt         = require('gulp-release-it');
 var line_ending_corrector = require('gulp-line-ending-corrector');
+var standard = require('gulp-standard');
 
 /**
  * Task: `browser-sync`.
@@ -231,7 +232,7 @@ gulp.task("frontendcss", function() {
 		)
 		.on("error", gutil.log)
 		.pipe(sourcemaps.write({ includeContent: false }))
-		.pipe(sourcemaps.init({ loadMaps: true }))
+		pipe(sourcemaps.init({ loadMaps: true }))
 		.pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
 		.pipe(sourcemaps.write("./"))
 		.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
@@ -278,10 +279,10 @@ gulp.task("extensionscss", function() {
 			})
 		)
 		.on("error", gutil.log)
-		.pipe(sourcemaps.write({ includeContent: false }))
-		.pipe(sourcemaps.init({ loadMaps: true }))
+		//.pipe(sourcemaps.write({ includeContent: false }))
+		//.pipe(sourcemaps.init({ loadMaps: true }))
 		.pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
-		.pipe(sourcemaps.write("./"))
+		//.pipe(sourcemaps.write("./"))
 		.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
 		.pipe(gulp.dest("./"))
 		.pipe(filter("**/*.css")) // Filtering stream to only css files
@@ -328,7 +329,7 @@ gulp.task("extensionscss", function() {
 gulp.task("admincss", function() {
 	gulp
 		.src(AdmincssRC)
-		.pipe(sourcemaps.init())
+		//.pipe(sourcemaps.init())
 		.pipe(
 			sass({
 				errLogToConsole: true,
@@ -339,10 +340,10 @@ gulp.task("admincss", function() {
 			})
 		)
 		.on("error", gutil.log)
-		.pipe(sourcemaps.write({ includeContent: false }))
-		.pipe(sourcemaps.init({ loadMaps: true }))
+		//.pipe(sourcemaps.write({ includeContent: false }))
+		//.pipe(sourcemaps.init({ loadMaps: true }))
 		.pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
-		.pipe(sourcemaps.write("./"))
+		//.pipe(sourcemaps.write("./"))
 		.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
 		.pipe(gulp.dest(AdminStyleDestination))
 		.pipe(filter("**/*.css")) // Filtering stream to only css files
@@ -371,6 +372,16 @@ gulp.task("admincss", function() {
 		.pipe(filter("**/*.css")) // Filtering stream to only css files
 		.pipe(browserSync.stream()); // Reloads style.min.css if that is enqueued.
 });
+
+ 
+gulp.task('standard', function () {
+  return gulp.src(["assets/frontend/js/modules/**/*.js", "assets/admin/js/**/*.js"])
+    .pipe(standard())
+    .pipe(standard.reporter('default', {
+      breakOnError: true,
+      quiet: true
+    }))
+})
 
 gulp.task("lintJs", function() {
 	gulp

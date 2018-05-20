@@ -10,11 +10,6 @@
  * @since 1.0.0
  */
 
-            /**
-             * The template for displaying the footer.
-             *
-             * @since 1.0.0
-             */
             analytica_structural_wrap( 'site-inner', 'close' );
 
             echo '</div>'; // end .site-inner or #inner
@@ -31,11 +26,11 @@
 
         do_action( 'analytica_footer_after' );
 
-        echo '</div><!-- #page -->'; // end .site-container or #wrap
+        ?></div><!-- #page --><?php
 
     do_action( 'analytica_body_bottom' ); 
     
-    echo '</div>'; // end .site-container or #wrap
+    ?></div><!-- .site-container --><?php
 
     do_action( 'analytica_after' );
 

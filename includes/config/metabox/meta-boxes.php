@@ -100,15 +100,6 @@ class Analytica_Meta_Boxes {
          */
         self::$meta_option = apply_filters(
             'analytica_meta_box_options', array(
-                'analytica-main-header-display' => array(
-                    'sanitize' => 'FILTER_DEFAULT',
-                ),
-                'footer-sml-layout'       => array(
-                    'sanitize' => 'FILTER_DEFAULT',
-                ),
-                'footer-adv-display'      => array(
-                    'sanitize' => 'FILTER_DEFAULT',
-                ),
                 'site-post-title'         => array(
                     'sanitize' => 'FILTER_DEFAULT',
                 ),
@@ -133,27 +124,15 @@ class Analytica_Meta_Boxes {
     function setup_meta_box() {
 
         // Get all public posts.
-        $post_types = get_post_types(
-            array(
-                'public' => true,
-            )
-        );
+        $post_types = get_post_types( array( 'public' => true, ) );
 
         $post_types['fl-theme-layout'] = 'fl-theme-layout';
 
         $metabox_name = analytica_get_theme_name() . __( ' Settings', 'analytica' );
         // Enable for all posts.
         foreach ( $post_types as $type ) {
-
             if ( 'attachment' !== $type ) {
-                add_meta_box(
-                    'analytica_settings_meta_box',              // Id.
-                    $metabox_name,                          // Title.
-                    array( $this, 'markup_meta_box' ),      // Callback.
-                    $type,                                  // Post_type.
-                    'side',                                 // Context.
-                    'default'                               // Priority.
-                );
+                add_meta_box( 'analytica_settings_meta_box', $metabox_name, array( $this, 'markup_meta_box' ), $type, 'side', 'default' );
             }
         }
     }
@@ -190,12 +169,10 @@ class Analytica_Meta_Boxes {
         $site_sidebar        = ( isset( $meta['site-sidebar-layout']['default'] ) ) ? $meta['site-sidebar-layout']['default'] : 'default';
         $site_content_layout = ( isset( $meta['site-content-layout']['default'] ) ) ? $meta['site-content-layout']['default'] : 'default';
         $site_post_title     = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
-        $footer_bar          = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
-        $footer_widgets      = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
-        $primary_header      = ( isset( $meta['analytica-main-header-display']['default'] ) ) ? $meta['analytica-main-header-display']['default'] : '';
         $ast_featured_img    = ( isset( $meta['featured-image']['default'] ) ) ? $meta['featured-image']['default'] : '';
 
         $show_meta_field = ! Analytica_Meta_Boxes::is_bb_themer_layout();
+
         do_action( 'analytica_meta_box_markup_before', $meta );
 
         /**
@@ -242,13 +219,6 @@ class Analytica_Meta_Boxes {
             <div class="disable-section-meta">
                 <?php do_action( 'analytica_meta_box_markup_disable_sections_before', $meta ); ?>
 
-                <div class="analytica-main-header-display-option-wrap">
-                    <label for="analytica-main-header-display">
-                        <input type="checkbox" id="analytica-main-header-display" name="analytica-main-header-display" value="disabled" <?php checked( $primary_header, 'disabled' ); ?> />
-                        <?php esc_html_e( 'Disable Primary Header', 'analytica' ); ?>
-                    </label>
-                </div>
-
                 <?php if ( $show_meta_field ) { ?>
                     <div class="site-post-title-option-wrap">
                         <label for="site-post-title">
@@ -263,31 +233,6 @@ class Analytica_Meta_Boxes {
                             <?php esc_html_e( 'Disable Featured Image', 'analytica' ); ?>
                         </label>
                     </div>
-                <?php } ?>
-
-                <?php
-                $footer_adv_layout = analytica_get_option( 'footer-adv' );
-
-                if ( $show_meta_field && 'disabled' != $footer_adv_layout ) {
-                ?>
-                <div class="footer-adv-display-option-wrap">
-                    <label for="footer-adv-display">
-                        <input type="checkbox" id="footer-adv-display" name="footer-adv-display" value="disabled" <?php checked( $footer_widgets, 'disabled' ); ?> />
-                        <?php esc_html_e( 'Disable Footer Widgets', 'analytica' ); ?>
-                    </label>
-                </div>
-
-                <?php
-                }
-                $footer_sml_layout = analytica_get_option( 'footer-sml-layout' );
-                if ( 'disabled' != $footer_sml_layout ) {
-                ?>
-                <div class="footer-sml-layout-option-wrap">
-                    <label for="footer-sml-layout">
-                        <input type="checkbox" id="footer-sml-layout" name="footer-sml-layout" value="disabled" <?php checked( $footer_bar, 'disabled' ); ?> />
-                        <?php esc_html_e( 'Disable Footer Bar', 'analytica' ); ?>
-                    </label>
-                </div>
                 <?php } ?>
 
                 <?php do_action( 'analytica_meta_box_markup_disable_sections_after', $meta ); ?>
