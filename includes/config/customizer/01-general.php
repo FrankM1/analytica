@@ -20,19 +20,19 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'id'      => 'site-layout',
         'section' => 'general_settings',
         'type'    => 'radio-buttonset',
-        'label'   => esc_html__( 'Site layout' , 'energia' ),
+        'label'   => esc_html__( 'Site layout' , 'analytica' ),
         'default' => $default['site-layout'],
         'options' => [
-            'site-boxed'     => esc_html__( 'Boxed' , 'energia' ),
-            'site-wide'      => esc_html__( 'Wide' , 'energia' ),
-            'site-fullwidth' => esc_html__( 'Fullwidth' , 'energia' ),
+            'site-boxed'     => esc_html__( 'Boxed' , 'analytica' ),
+            'site-wide'      => esc_html__( 'Wide' , 'analytica' ),
+            'site-fullwidth' => esc_html__( 'Fullwidth' , 'analytica' ),
         ],
     ];
 
     $controls[] = [
         'id'      => 'site-content-width',
         'section' => 'general_settings',
-        'label'   => esc_html__( 'Site container width', 'energia' ),
+        'label'   => esc_html__( 'Site container width', 'analytica' ),
         'type'    => 'number',
         'default' => $default['site-content-width'],
      ];
@@ -40,7 +40,7 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
     $controls[] = [
         'id'      => 'site-sidebar-width',
         'section' => 'general_settings',
-        'label'   => esc_html__( 'Site sidebar width', 'energia' ),
+        'label'   => esc_html__( 'Site sidebar width', 'analytica' ),
         'type'    => 'number',
         'default' => $default['site-sidebar-width'],
         'conditions' => [
@@ -111,7 +111,7 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'output' => [
             [
                 'property' => 'background-color',
-                'element' => '.site-boxed .site-inner, .site-inner, .content-sidebar-wrap',
+                'element' => '.site-inner',
             ],
         ],
         'conditions' => [

@@ -22,58 +22,58 @@ function analytica_admin_add_customizer_blog_controls( $controls) {
         [
             'id'      => 'blog-post-structure',
             'section' => 'archive_settings',
-            'label'   => esc_html__( 'Blog post structure', 'energia' ),
+            'label'   => esc_html__( 'Blog post structure', 'analytica' ),
             'type'    => 'multicheck',
             'default' => $default['blog-post-structure'],
             'options'  => array(
-                'image'      => __( 'Featured Image', 'astra' ),
-                'title-meta' => __( 'Title & Blog Meta', 'astra' ),
+                'image'      => __( 'Featured Image', 'analytica' ),
+                'title-meta' => __( 'Title & Blog Meta', 'analytica' ),
             ),
         ],
 
         [
             'id'      => 'blog-post-content',
             'section' => 'archive_settings',
-            'label'   => esc_html__( 'Blog post content', 'energia' ),
+            'label'   => esc_html__( 'Blog post content', 'analytica' ),
             'type'    => 'select',
             'default' => $default['blog-post-content'],
             'options'  => array(
-                'full-content' => __( 'Full Content', 'astra' ),
-                'excerpt'      => __( 'Excerpt', 'astra' ),
+                'full-content' => __( 'Full Content', 'analytica' ),
+                'excerpt'      => __( 'Excerpt', 'analytica' ),
             ),
         ],
 
         [
             'id'      => 'blog-meta',
             'section' => 'archive_settings',
-            'label'   => esc_html__( 'Blog meta', 'energia' ),
+            'label'   => esc_html__( 'Blog meta', 'analytica' ),
             'type'    => 'multicheck',
             'default' => $default['blog-meta'],
             'options'  => array(
-                'comments' => __( 'Comments', 'astra' ),
-                'category' => __( 'Category', 'astra' ),
-                'author'   => __( 'Author', 'astra' ),
-                'date'     => __( 'Publish Date', 'astra' ),
-                'tag'      => __( 'Tag', 'astra' ),
+                'comments' => __( 'Comments', 'analytica' ),
+                'category' => __( 'Category', 'analytica' ),
+                'author'   => __( 'Author', 'analytica' ),
+                'date'     => __( 'Publish Date', 'analytica' ),
+                'tag'      => __( 'Tag', 'analytica' ),
             ),
         ],
 
         [
             'id'      => 'blog-width',
             'section' => 'archive_settings',
-            'label'   => esc_html__( 'Blog content width', 'energia' ),
+            'label'   => esc_html__( 'Blog content width', 'analytica' ),
             'type'    => 'select',
             'default' => $default['blog-meta'],
             'options'  => array(
-                'default' => __( 'Default', 'astra' ),
-                'custom'  => __( 'Custom', 'astra' ),
+                'default' => __( 'Default', 'analytica' ),
+                'custom'  => __( 'Custom', 'analytica' ),
             ),
         ],
 
         [
             'id'      => 'blog-max-width',
             'section' => 'archive_settings',
-            'label'   => esc_html__( 'Enter Width', 'energia' ),
+            'label'   => esc_html__( 'Enter Width', 'analytica' ),
             'type'    => 'slider',
             'default' => $default['blog-max-width'],
             'suffix'      => '',
@@ -106,17 +106,17 @@ function analytica_add_blog_panels_and_sections( $wp_customize ) {
 
     $wp_customize->add_panel( 'blog', array(
         'priority' => 39,
-        'title'    => esc_html__( 'Blog Layout', 'energia' ),
+        'title'    => esc_html__( 'Blog Layout', 'analytica' ),
     ));
 
     $wp_customize->add_section( 'archive_settings', array(
-        'title'    => esc_html__( 'Post Archive', 'energia' ),
+        'title'    => esc_html__( 'Post Archive', 'analytica' ),
         'panel'    => 'blog',
         'priority' => 40,
     ));
 
     $wp_customize->add_section( 'single_post_settings', array(
-        'title'    => esc_html__( 'Single post settings', 'energia' ),
+        'title'    => esc_html__( 'Single post settings', 'analytica' ),
         'panel'    => 'blog',
         'priority' => 41,
     ));

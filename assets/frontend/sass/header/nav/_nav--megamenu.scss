@@ -130,14 +130,7 @@
         } //End .nav-horizontal > ul //First Level
         // Second level
         ul {
-            &:after,
-            &:before {
-                content: '';
-                display: table;
-            }
-            &:after {
-                clear: both;
-            }
+            @include clearfix();
             >li {
                 .menu-desc {
                     font-size: 12px;

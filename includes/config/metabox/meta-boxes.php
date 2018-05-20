@@ -107,10 +107,6 @@ class Analytica_Meta_Boxes {
                     'default'  => 'default',
                     'sanitize' => 'FILTER_DEFAULT',
                 ),
-                'site-content-layout'     => array(
-                    'default'  => 'default',
-                    'sanitize' => 'FILTER_DEFAULT',
-                ),
                 'featured-image'        => array(
                     'sanitize' => 'FILTER_DEFAULT',
                 ),
@@ -185,9 +181,9 @@ class Analytica_Meta_Boxes {
             </p>
             <select name="site-sidebar-layout" id="site-sidebar-layout">
                 <option value="default" <?php selected( $site_sidebar, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'analytica' ); ?></option>
-                <option value="left-sidebar" <?php selected( $site_sidebar, 'left-sidebar' ); ?> > <?php esc_html_e( 'Left Sidebar', 'analytica' ); ?></option>
-                <option value="right-sidebar" <?php selected( $site_sidebar, 'right-sidebar' ); ?> > <?php esc_html_e( 'Right Sidebar', 'analytica' ); ?></option>
-                <option value="no-sidebar" <?php selected( $site_sidebar, 'no-sidebar' ); ?> > <?php esc_html_e( 'No Sidebar', 'analytica' ); ?></option>
+                <option value="sidebar-content" <?php selected( $site_sidebar, 'sidebar-content' ); ?> > <?php esc_html_e( 'Left Sidebar', 'analytica' ); ?></option>
+                <option value="content-sidebar" <?php selected( $site_sidebar, 'content-sidebar' ); ?> > <?php esc_html_e( 'Right Sidebar', 'analytica' ); ?></option>
+                <option value="fullwidth" <?php selected( $site_sidebar, 'fullwidth' ); ?> > <?php esc_html_e( 'No Sidebar', 'analytica' ); ?></option>
             </select>
         </div>
         <?php
@@ -254,7 +250,7 @@ class Analytica_Meta_Boxes {
         // Checks save status.
         $is_autosave    = wp_is_post_autosave( $post_id );
         $is_revision    = wp_is_post_revision( $post_id );
-        $is_valid_nonce = ( isset( $_POST['analytica_settings_meta_box'] ) && wp_verify_nonce( $_POST['analytica_settings_meta_box'], basename( __FILE__ ) ) ) ? true : false;
+        $is_valid_nonce = ( isset( $_POST['analytica_settings_meta_box'] ) && wp_verify_nonce( sanitize_key( $_POST['analytica_settings_meta_box'] ), basename( __FILE__ ) ) ) ? true : false;
 
         // Exits script depending on save status.
         if ( $is_autosave || $is_revision || ! $is_valid_nonce ) {

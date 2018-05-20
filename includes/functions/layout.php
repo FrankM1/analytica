@@ -35,18 +35,18 @@ function analytica_create_initial_layouts() {
 
     $layouts = apply_filters( 'analytica_initial_layouts', [
         __analytica_return_content_sidebar() => [
-            'label' => esc_html__( 'Content, Primary Sidebar', 'energia' ),
+            'label' => esc_html__( 'Content, Primary Sidebar', 'analytica' ),
             'img' => $url . 'cs.gif',
             'default' => is_rtl() ? false : true,
         ],
         __analytica_return_sidebar_content() => [
-            'label' => esc_html__( 'Primary Sidebar, Content', 'energia' ),
+            'label' => esc_html__( 'Primary Sidebar, Content', 'analytica' ),
             'img' => $url . 'sc.gif',
             'default' => is_rtl() ? true : false,
         ],
 
         __analytica_return_full_width_content() => [
-            'label' => esc_html__( 'Full Width Content', 'energia' ),
+            'label' => esc_html__( 'Full Width Content', 'analytica' ),
             'img' => $url . 'c.gif',
         ],
     ], $url );
@@ -209,7 +209,7 @@ function analytica_site_layout( $use_cache = false ) {
     }
 
     // Else pull the theme option
-    $site_layout = analytica_get_option( 'content-sidebar-layout' );
+    $site_layout = analytica_get_option( 'site-sidebar-layout' );
 
     // Exit early if all sidebars disabled on mobile
     if ( wp_is_mobile() && ! analytica_get_option( 'site-sidebar-enable-mobile' ) ) {
@@ -241,7 +241,7 @@ function analytica_site_layout( $use_cache = false ) {
         // If viewing a taxonomy archive
         $term_id = get_queried_object()->term_id;
         $custom_field = get_term_meta( $term_id, 'layout', true );
-        $site_layout = $custom_field ? $custom_field : analytica_get_option( 'archive-content-sidebar-layout' );
+        $site_layout = $custom_field ? $custom_field : analytica_get_option( 'archive-site-sidebar-layout' );
     } elseif ( is_post_type_archive() && analytica_has_post_type_archive_support() ) {
     } elseif ( is_author() ) {
         // If viewing an author archive

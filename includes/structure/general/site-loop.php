@@ -34,7 +34,7 @@ class Loop {
         add_action( 'analytica_template_parts_content_top', array( $this, 'template_parts_content_top' ) );
         add_action( 'analytica_template_parts_content_bottom', array( $this, 'template_parts_content_bottom' ) );
 
-        // Add closing and ending div 'analytica-row'.
+        // Add closing and ending div 'entry-page'.
         add_action( 'analytica_template_parts_content_top', array( $this, 'analytica_templat_part_wrap_open' ), 25 );
         add_action( 'analytica_template_parts_content_bottom', array( $this, 'analytica_templat_part_wrap_close' ), 5 );
     }
@@ -165,14 +165,13 @@ class Loop {
      * @return void
      */
     public function loop_markup( $is_page = false ) {
-        ?>
-        <main id="main" class="site-main content" role="main">
+        
+        ?><main class="site-main" role="main"><?php
+        
+            if ( have_posts() ) :
+                
+                do_action( 'analytica_template_parts_content_top' );
 
-            <?php if ( have_posts() ) : ?>
-
-                <?php do_action( 'analytica_template_parts_content_top' ); ?>
-
-                <?php
                 while ( have_posts() ) :
                     the_post();
 
@@ -182,20 +181,17 @@ class Loop {
                         do_action( 'analytica_template_parts_content' );
                     }
 
-                    ?>
+                   endwhile;
 
-                <?php endwhile; ?>
+                do_action( 'analytica_template_parts_content_bottom' );
 
-                <?php do_action( 'analytica_template_parts_content_bottom' ); ?>
+            else :
 
-            <?php else : ?>
+            do_action( 'analytica_template_parts_content_none' );
 
-                <?php do_action( 'analytica_template_parts_content_none' ); ?>
-
-            <?php endif; ?>
-
-        </main><!-- #main -->
-        <?php
+           endif; 
+            
+        ?></main><!-- #main --><?php
     }
 
     /**
@@ -223,19 +219,19 @@ class Loop {
     }
 
     /**
-     * Add wrapper div 'analytica-row' for Analytica template part.
+     * Add wrapper div 'entry-page' for Analytica template part.
      *
      * @since  1.0.0
      * @return void
      */
     public function analytica_templat_part_wrap_open() {
         if ( is_archive() || is_search() || is_home() ) {
-            echo '<div class="analytica-row">';
+            echo '<div class="entry-page">';
         }
     }
 
     /**
-     * Add closing wrapper div for 'analytica-row' after Analytica template part.
+     * Add closing wrapper div for 'entry-page' after Analytica template part.
      *
      * @since  1.0.0
      * @return void

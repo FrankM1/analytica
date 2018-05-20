@@ -21,19 +21,19 @@
 
      $new_controls = [
         [
-            'id'      => 'css-print-method',
+            'id'      => 'site-css-print-method',
             'section' => 'utilities',
             'type'    => 'radio-buttonset',
-            'title'   => esc_html__( 'CSS Print Method' , 'energia' ),
+            'title'   => esc_html__( 'CSS Print Method' , 'analytica' ),
             'default' => 'external',
             'options' => [
-                'external' => esc_html__( 'External File', 'energia' ),
-                'internal' => esc_html__( 'Internal Embedding', 'energia' ),
+                'external' => esc_html__( 'External File', 'analytica' ),
+                'internal' => esc_html__( 'Internal Embedding', 'analytica' ),
             ],
         ],
 
         [
-            'id' => 'settings-update-time',
+            'id' => 'site-settings-update-time',
             'title'   => 'Time',
             'type' => 'hidden',
             'sanitize_callback' => 'time',
@@ -49,7 +49,7 @@ add_action( 'customize_register', 'analytica_add_utilities_panels_and_sections' 
  */
 function analytica_add_utilities_panels_and_sections( $wp_customize ) {
     $wp_customize->add_section( 'utilities', [
-        'title'    => esc_html__( 'Theme Utilities', 'energia' ),
+        'title'    => esc_html__( 'Theme Utilities', 'analytica' ),
         'priority' => 90,
     ] );
 }

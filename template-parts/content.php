@@ -17,12 +17,10 @@
 	<?php do_action( 'analytica_entry_top' ); ?>
 
 	<header class="entry-header <?php analytica_entry_header_class(); ?>">
-
 		<?php analytica_the_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-
 	</header><!-- .entry-header -->
 
-	<div class="entry-content clear" itemprop="text">
+	<div class="entry-content" itemprop="text">
 
 		<?php do_action( 'analytica_entry_content_before' ); ?>
 
@@ -54,7 +52,7 @@
 				)
 			);
 		?>
-	</div><!-- .entry-content .clear -->
+	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
 		<?php analytica_entry_footer(); ?>

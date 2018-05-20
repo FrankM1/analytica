@@ -118,7 +118,7 @@ function analytica_theme_comment( $comment, $args, $depth ) {
                     <div class='analytica-comment-avatar-wrap'><?php echo get_avatar( $comment, 50 ); ?></div><!-- Remove 1px Space
                     --><div class="analytica-comment-data-wrap">
                         <div class="analytica-comment-meta-wrap">
-                            <header class="analytica-comment-meta analytica-row analytica-comment-author vcard capitalize">
+                            <header class="analytica-comment-meta analytica-comment-author vcard capitalize">
 
                                 <?php
 

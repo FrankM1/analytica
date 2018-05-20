@@ -22,11 +22,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
-#page {
-    position: relative;
-}
-
+ 
 a,
 a:focus {
 	text-decoration: none;
@@ -35,7 +31,7 @@ a:focus {
 a,
 .site-header a *,
 .site-footer a *,
-.secondary a * {
+.site-sidebar a * {
     @include analytica-transition();
 }
 
@@ -117,37 +113,6 @@ input[type="submit"] {
 .site-description a:hover,
 .site-description a:visited {
     color: $color-site-tagline;
-}
-
-.analytica-header-break-point {
-    .main-header-bar {
-        .main-header-bar-navigation {
-            .analytica-search-icon {
-                display: none;
-            }
-        }
-    }
-    
-    .analytica-search-menu-icon .search-field,
-    .analytica-search-menu-icon.analytica-inline-search .search-field {
-        width: 100%;
-        padding-right: 5.5em;
-    }
-
-    .analytica-search-menu-icon .search-submit {
-        display: block;
-        position: absolute;
-        height: 100%;
-        top: 0;
-        right: 0;
-        padding: 0 1em;
-        border-radius: 0;
-    }
-    .analytica-search-menu-icon .search-form {
-        padding: 0;
-        display: block;
-        overflow: hidden;
-    }
 }
 
 /* must have higher specificity than alternative color schemes inline styles */

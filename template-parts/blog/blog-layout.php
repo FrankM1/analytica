@@ -16,7 +16,7 @@
 
 		<?php analytica_blog_post_thumbnai_and_title_order(); ?>
 
-		<div class="entry-content clear" itemprop="text">
+		<div class="entry-content" itemprop="text">
 
 			<?php do_action( 'analytica_entry_content_before' ); ?>
 
@@ -34,7 +34,7 @@
 					)
 				);
 			?>
-		</div><!-- .entry-content .clear -->
+		</div><!-- .entry-content -->
 	</div><!-- .post-content -->
 
 </div> <!-- .blog-layout-1 -->

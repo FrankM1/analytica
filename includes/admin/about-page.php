@@ -115,7 +115,7 @@ function analytica_admin_setup() {
 			'content'          => array(
 				'kirki' => array(
 					'title'       => 'Kirki',
-					'description' => __( 'It is highly recommended that you install Kirki so you can access more customizer options.', 'hive-lite' ),
+					'description' => __( 'It is highly recommended that you install Kirki so you can access more customizer options.', 'analytica' ),
 					'check'       => class_exists( 'Kirki' ),
 					'plugin_slug' => 'kirki',
 					'id'          => 'kirki'

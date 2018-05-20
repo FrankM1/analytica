@@ -1,26 +1,23 @@
-.hidden {
-	display: none !important;
-}
+@import "flex";
+@import "content";
 
-.site {
-	overflow: hidden;
-}
-
-.site-inner {
-	@include clearfix;
-	margin: $grid-gutter-width;
-}
-
-.has-container {
-	@extend %container;
+.analytica-container {
 	margin-right: auto;
 	margin-left: auto;
 }
 
-.analytica-separate-container {
+.has-container>.analytica-container {
+	@extend %container;
+}
+
+.analytica-detach-container {
 	background-color: $color-background-sep-content-body;
 
-	main>.analytica-row {
+    .hero {
+        margin-top: $grid-gutter-width;
+    }
+
+	main > .entry-page {
 		margin-left: 0;
 		margin-right: 0;
 	}
@@ -73,4 +70,3 @@
 		}
 	}
 }
-

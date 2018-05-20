@@ -1,7 +1,6 @@
 $enable-nav--stacked : true !default;
 
 .nav {
-	margin-left: 0;
 	@include clearfix;
 
 	>li {

@@ -804,7 +804,7 @@ class Breadcrumb
     public function trail_end($old_title)
     {
 
-        /* $new_title = false;
+        $new_title = false;
 
         $count = strlen($old_title);
         $max_length = $this->args['max_length'];
@@ -817,9 +817,9 @@ class Breadcrumb
 
         }
 
-        $new_title = is_string($new_title) && !empty( $new_title ) ? $new_title : $old_title; */
+        $new_title = is_string($new_title) && !empty( $new_title ) ? $new_title : $old_title;
 
-        return '<span class="trail-end">'. $old_title . '</span>';
+        return '<span class="trail-end">'. $new_title . '</span>';
     }
 
     /**

@@ -25,7 +25,7 @@
 	}
 }
 
-.analytica-separate-container {
+.analytica-detach-container {
 	.analytica-author-box{
 		background-color: $color-background-page-header;
 		padding-bottom: 0;
@@ -35,7 +35,7 @@
 
 
 @media (min-width: $col-xl) {
-	.analytica-separate-container{
+	.analytica-detach-container{
 		.analytica-author-box{
 		    margin: 0;
 		    padding: 5em 6.67em 3.33333em;

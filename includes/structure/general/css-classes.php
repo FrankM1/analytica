@@ -25,23 +25,13 @@ add_filter( 'body_class', 'analytica_site_layout_body_class' );
  */
 function analytica_site_layout_body_class( $classes ) {
 
-    if ( analytica_is_bool( analytica_get_option( 'site-detach-containers' ) ) ) {
-        $classes[] = 'analytica-separate-container';
-    } else {
-        $classes[] = 'analytica-plain-container';
+    if ( analytica_get_option( 'site-detach-containers' ) ) {
+        $classes[] = 'analytica-detach-container';
     }
 
-    // // Apply separate container class to the body.
-    // $content_layout = analytica_get_content_layout();
-    // if ( 'content-boxed-container' == $content_layout ) {
-    //     $classes[] = 'analytica-separate-container';
-    // } elseif ( 'boxed-container' == $content_layout ) {
-    //     $classes[] = 'analytica-separate-container analytica-two-container';
-    // } elseif ( 'page-builder' == $content_layout ) {
-    //     $classes[] = 'analytica-page-builder-template';
-    // } elseif ( 'plain-container' == $content_layout ) {
-    //     $classes[] = 'analytica-plain-container';
-    // }
+    if ( analytica_get_option( 'site-detach-containers' ) ) {
+        $classes[] = 'analytica-dual-container';
+    }
 
     // Current Analytica verion.
     $classes[] = esc_attr( 'analytica-' . wp_get_theme()->version );

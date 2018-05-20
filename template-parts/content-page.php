@@ -16,7 +16,7 @@
 
 	<?php do_action( 'analytica_entry_top' ); ?>
 
-	<div class="entry-content clear" itemprop="text">
+	<div class="entry-content" itemprop="text">
 
 		<?php do_action( 'analytica_entry_content_before' ); ?>
 
@@ -35,7 +35,7 @@
 			);
 		?>
 
-	</div><!-- .entry-content .clear -->
+	</div><!-- .entry-content -->
 
 	<?php
 		analytica_edit_post_link(

@@ -1,4 +1,6 @@
 <?php
+namespace Analytica\Metabox;
+
 /**
  * Analytica Meta Box Operations
  *
@@ -12,24 +14,7 @@
 /**
  * Meta Box
  */
-class Analytica_Meta_Box_Operations {
-
-    /**
-     * Instance
-     *
-     * @var $instance
-     */
-    private static $instance;
-
-    /**
-     * Initiator
-     */
-    public static function get_instance() {
-        if ( ! isset( self::$instance ) ) {
-            self::$instance = new self;
-        }
-        return self::$instance;
-    }
+class Actions {
 
     /**
      * Constructor
@@ -97,8 +82,3 @@ class Analytica_Meta_Box_Operations {
         return $classes;
     }
 }
-
-/**
- * Kicking this off by calling 'get_instance()' method
- */
-Analytica_Meta_Box_Operations::get_instance();

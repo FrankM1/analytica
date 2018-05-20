@@ -14,7 +14,7 @@
   *
   * @since 1.0.0
   *
-  * @param string $name Name of the widget area e.g. `esc_html__( 'Secondary Widget Area', 'energia' )`.
+  * @param string $name Name of the widget area e.g. `esc_html__( 'Secondary Widget Area', 'analytica' )`.
   */
  function analytica_default_widget_area_content( $name ) {
 
@@ -24,7 +24,7 @@
          printf( '<div class="section-title"><h5 class="widget-title"><span>%s</span></h5></div>', esc_html( $name ) );
          echo '<div class="textwidget"><p>';
 
-            echo esc_html__( 'This is the', 'energia' ) . ' ' . $name . '. ' . esc_html__( 'You can add content to this area by visiting your', 'energia' ) . ' <a href="' . esc_url( admin_url( 'widgets.php' ) ) . '">' . esc_html__( 'Widgets Panel', 'energia' ) . ' </a> ' . esc_html__( 'and adding new widgets to this area.', 'energia' );
+            echo esc_html__( 'This is the', 'analytica' ) . ' ' . $name . '. ' . esc_html__( 'You can add content to this area by visiting your', 'analytica' ) . ' <a href="' . esc_url( admin_url( 'widgets.php' ) ) . '">' . esc_html__( 'Widgets Panel', 'analytica' ) . ' </a> ' . esc_html__( 'and adding new widgets to this area.', 'analytica' );
 
          echo '</p></div>';
 
@@ -46,7 +46,7 @@
  function analytica_do_sidebar() {
 
      if ( ! dynamic_sidebar( 'sidebar' ) && current_user_can( 'edit_theme_options' ) ) {
-         analytica_default_widget_area_content( esc_html__( 'Primary Widget Area', 'energia' ) );
+         analytica_default_widget_area_content( esc_html__( 'Primary Widget Area', 'analytica' ) );
      }
 
  }
@@ -64,7 +64,7 @@
  function analytica_do_sidebar_alt() {
 
      if ( ! dynamic_sidebar( 'sidebar-alt' ) && current_user_can( 'edit_theme_options' ) ) {
-         analytica_default_widget_area_content( esc_html__( 'Secondary Widget Area', 'energia' ) );
+         analytica_default_widget_area_content( esc_html__( 'Secondary Widget Area', 'analytica' ) );
      }
 
  }

@@ -60,8 +60,8 @@ function analytica_filter_widget_tag_cloud( $tags_data ) {
  * analytica_register_widget_area(
  *     array(
  *         'id'          => 'my-sidebar',
- *         'name'        => esc_html__( 'My Sidebar', 'energia' ),
- *         'description' => esc_html__( 'A description of the intended purpose or location', 'energia' ),
+ *         'name'        => esc_html__( 'My Sidebar', 'analytica' ),
+ *         'description' => esc_html__( 'A description of the intended purpose or location', 'analytica' ),
  *     )
  * );
  * ~~~
@@ -101,34 +101,7 @@ function analytica_register_widget_area( $args ) {
     return register_sidebar( $args );
 }
 
-add_action( 'after_setup_theme', '_analytica_builtin_sidebar_params' );
-/**
- * Alters the widget area params array for HTML5 compatibility.
- *
- * @since 1.0.0
- *
- * @uses analytica_html5() Check if HTML5 is supported.
- *
- * @global $wp_registered_sidebars Holds all of the registered sidebars.
- */
-function _analytica_builtin_sidebar_params() {
-
-    global $wp_registered_sidebars;
-
-    foreach ( $wp_registered_sidebars as $id => $params ) {
-
-        if ( ! isset( $params['_analytica_builtin'] ) ) {
-            continue;
-        }
-
-        $wp_registered_sidebars[ $id ]['before_widget'] = '<div id="%1$s" class="widget %2$s"><div class="widget-wrap">';
-        $wp_registered_sidebars[ $id ]['after_widget']  = '</div></div>';
-
-    }
-
-}
-
-add_action( 'after_setup_theme', 'analytica_register_default_widget_areas' );
+add_action( 'widgets_init', 'analytica_register_default_widget_areas' );
 /**
  * Register the default analytica widget areas.
  *
@@ -152,7 +125,6 @@ function analytica_register_default_widget_areas() {
                     'id'               => $menu,
                     'name'             => $data['name'],
                     'description'      => $data['description'],
-                    '_analytica_builtin'  => isset( $data['builtin'] ) ? $data['builtin'] : true,
                 )
             );
         }
@@ -163,7 +135,7 @@ function analytica_register_default_widget_areas() {
 
 }
 
-add_action( 'after_setup_theme', 'analytica_register_footer_widget_areas' );
+add_action( 'widgets_init', 'analytica_register_footer_widget_areas' );
 /**
  * Register analytica-small-footer footer-sml-layout-1 widget areas based on the number of widget areas the user wishes to create with `add_theme_support()`.
  *
@@ -209,9 +181,8 @@ function analytica_register_footer_widget_areas() {
         analytica_register_widget_area(
             array(
                 'id'                => sprintf( 'footer-%d', $counter ),
-                'name'              => sprintf( esc_html__( 'Footer %d', 'energia' ), $counter ),
-                'description'       => sprintf( esc_html__( 'Footer %d widget area.', 'energia' ), $counter ),
-                '_analytica_builtin'   => true,
+                'name'              => sprintf( esc_html__( 'Footer %d', 'analytica' ), $counter ),
+                'description'       => sprintf( esc_html__( 'Footer %d widget area.', 'analytica' ), $counter ),
             )
         );
 
@@ -220,7 +191,7 @@ function analytica_register_footer_widget_areas() {
 
 }
 
-add_action( 'after_setup_theme', 'analytica_register_after_entry_widget_area' );
+add_action( 'widgets_init', 'analytica_register_after_entry_widget_area' );
 /**
  * Register after-entry widget area if user specifies in the child theme.
  *
@@ -239,8 +210,8 @@ function analytica_register_after_entry_widget_area() {
     analytica_register_widget_area(
         array(
             'id'          => 'after-entry',
-            'name'        => esc_html__( 'After Entry', 'energia' ),
-            'description' => esc_html__( 'Widgets in this widget area will display after single entries.', 'energia' ),
+            'name'        => esc_html__( 'After Entry', 'analytica' ),
+            'description' => esc_html__( 'Widgets in this widget area will display after single entries.', 'analytica' ),
             '_builtin'    => true,
         )
     );

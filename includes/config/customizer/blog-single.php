@@ -31,10 +31,10 @@ global $wp_customize;
 	// 			'type'     => 'analytica-sortable',
 	// 			'section'  => 'section-blog-single',
 	// 			'priority' => 5,
-	// 			'label'    => __( 'Single Post Structure', 'astra' ),
+	// 			'label'    => __( 'Single Post Structure', 'analytica' ),
 	// 			'choices'  => array(
-	// 				'single-image'      => __( 'Featured Image', 'astra' ),
-	// 				'single-title-meta' => __( 'Title & Blog Meta', 'astra' ),
+	// 				'single-image'      => __( 'Featured Image', 'analytica' ),
+	// 				'single-title-meta' => __( 'Title & Blog Meta', 'analytica' ),
 	// 			),
 	// 		)
 	// 	)
@@ -56,13 +56,13 @@ global $wp_customize;
 	// 			'type'     => 'analytica-sortable',
 	// 			'section'  => 'section-blog-single',
 	// 			'priority' => 5,
-	// 			'label'    => __( 'Single Post Meta', 'astra' ),
+	// 			'label'    => __( 'Single Post Meta', 'analytica' ),
 	// 			'choices'  => array(
-	// 				'comments' => __( 'Comments', 'astra' ),
-	// 				'category' => __( 'Category', 'astra' ),
-	// 				'author'   => __( 'Author', 'astra' ),
-	// 				'date'     => __( 'Publish Date', 'astra' ),
-	// 				'tag'      => __( 'Tag', 'astra' ),
+	// 				'comments' => __( 'Comments', 'analytica' ),
+	// 				'category' => __( 'Category', 'analytica' ),
+	// 				'author'   => __( 'Author', 'analytica' ),
+	// 				'date'     => __( 'Publish Date', 'analytica' ),
+	// 				'tag'      => __( 'Tag', 'analytica' ),
 	// 			),
 	// 		)
 	// 	)
@@ -97,10 +97,10 @@ global $wp_customize;
 			'type'     => 'select',
 			'section'  => 'section-blog-single',
 			'priority' => 15,
-			'label'    => __( 'Single Post Content Width', 'astra' ),
+			'label'    => __( 'Single Post Content Width', 'analytica' ),
 			'choices'  => array(
-				'default' => __( 'Default', 'astra' ),
-				'custom'  => __( 'Custom', 'astra' ),
+				'default' => __( 'Default', 'analytica' ),
+				'custom'  => __( 'Custom', 'analytica' ),
 			),
 		)
 	);
@@ -122,7 +122,7 @@ global $wp_customize;
 	// 			'type'        => 'analytica-slider',
 	// 			'section'     => 'section-blog-single',
 	// 			'priority'    => 20,
-	// 			'label'       => __( 'Enter Width', 'astra' ),
+	// 			'label'       => __( 'Enter Width', 'analytica' ),
 	// 			'suffix'      => '',
 	// 			'input_attrs' => array(
 	// 				'min'  => 768,
@@ -159,7 +159,7 @@ global $wp_customize;
 					'section'  => 'section-blog-single',
 					'priority' => 25,
 					'label'    => '',
-					'help'     => '<p>' . __( 'More Options Available for Single Post in Astra Pro!', 'astra' ) . '</p><a href="' . analytica_get_pro_url( 'https://wpastra.com/docs/single-post-blog-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+					'help'     => '<p>' . __( 'More Options Available for Single Post in Astra Pro!', 'analytica' ) . '</p><a href="' . analytica_get_pro_url( 'https://wpastra.com/docs/single-post-blog-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'analytica' ) . '</a>',
 					'settings' => array(),
 				)
 			)

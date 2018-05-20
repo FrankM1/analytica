@@ -75,7 +75,7 @@ class Page_Hero {
 
             if ( is_tag() ) {
 
-                $header_title = sprintf( esc_html__( 'Tag: %s', 'energia' ), '<span>' . single_tag_title( '', false ) . '</span>' );
+                $header_title = sprintf( esc_html__( 'Tag: %s', 'analytica' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 
                 $tag_description = tag_description();
 
@@ -93,15 +93,15 @@ class Page_Hero {
                     $header_subtitle = apply_filters( 'category_archive_meta', '<div class="category-archive-meta">' . $category_description . '</div>' );
                 }
             } elseif ( is_day() ) {
-                $header_title = sprintf( esc_html__( 'Daily: %s', 'energia' ), '<span>' . get_the_date() . '</span>' );
+                $header_title = sprintf( esc_html__( 'Daily: %s', 'analytica' ), '<span>' . get_the_date() . '</span>' );
             } elseif ( is_month() ) {
-                $header_title = sprintf( esc_html__( 'Monthly: %s', 'energia' ), '<span>' . get_the_date( esc_html_x( 'F Y', 'monthly archives date format', 'energia' ) ) .'</span>' );
+                $header_title = sprintf( esc_html__( 'Monthly: %s', 'analytica' ), '<span>' . get_the_date( esc_html_x( 'F Y', 'monthly archives date format', 'analytica' ) ) .'</span>' );
             } elseif ( is_year() ) {
-                $header_title = sprintf( esc_html__( 'Yearly: %s', 'energia' ), '<span>' . get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'energia' ) ) . '</span>' );
+                $header_title = sprintf( esc_html__( 'Yearly: %s', 'analytica' ), '<span>' . get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'analytica' ) ) . '</span>' );
             } elseif ( is_author() ) {
-                $header_title = esc_html__( 'Author: ', 'energia' ) . get_the_author();
+                $header_title = esc_html__( 'Author: ', 'analytica' ) . get_the_author();
             } else {
-                $header_title = sprintf( esc_html__( 'Archive', 'energia' ) );
+                $header_title = sprintf( esc_html__( 'Archive', 'analytica' ) );
             }
 
         } elseif ( is_search() ) {
@@ -109,7 +109,8 @@ class Page_Hero {
             global $wp_query;
             $number_of_results = $wp_query->found_posts;
 
-            $header_title = '<span class="search-results-icon">' . analytica_get_ui_icons( 'search' ) . '</span>' . sprintf( esc_html__( 'Found %s results for: &ldquo;%s&rdquo;', 'energia' ), $number_of_results, get_search_query() );
+            /* translators: %1$s: Search results count, %2$s: Search query  */
+            $header_title = '<span class="search-results-icon">' . analytica_get_ui_icons( 'search' ) . '</span>' . sprintf( esc_html__( 'Found %1$s results for: &ldquo;%2$s&rdquo;', 'analytica' ), $number_of_results, get_search_query() );
 
         } elseif ( 'post' == get_post_type() && (is_front_page() || ( get_option( 'show_on_front' ) == 'posts' && is_singular( 'post' ) ) ) ) {
             
@@ -136,7 +137,7 @@ class Page_Hero {
         }
 
         if ( 'post' == get_post_type() && is_single() ) {
-            $header_title = esc_html__( 'Post', 'energia' );
+            $header_title = esc_html__( 'Post', 'analytica' );
         }
 
         $title = apply_filters( 'analytica_hero_title', $header_title );

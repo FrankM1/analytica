@@ -49,7 +49,7 @@ function analytica_register_layout( $id = '', $args = [] ) {
 
     $framework =  \Analytica\Core::instance();
     $defaults = [
-        'label' => esc_html__( 'No Label Selected', 'energia' ),
+        'label' => esc_html__( 'No Label Selected', 'analytica' ),
         'img' => $framework->theme_url . '/assets/admin/images/layouts/none.gif',
         'type' => 'site',
     ];
@@ -843,7 +843,7 @@ add_filter( 'analytica_attr_site-inner', 'analytica_attributes_site_inner' );
  * @return array Amended attributes.
  */
 function analytica_attributes_site_inner( $attributes ) {
-    $attributes['class'] = 'site-inner content-sidebar-wrap';
+    $attributes['class'] = 'site-inner';
     return $attributes;
 }
 
@@ -895,7 +895,7 @@ add_filter( 'analytica_attr_sidebar-primary', 'analytica_attributes_sidebar_prim
  * @return array Amended attributes.
  */
 function analytica_attributes_sidebar_primary( $attributes ) {
-    $attributes['class'] = 'sidebar sidebar-primary widget-area';
+    $attributes['class'] = 'site-sidebar sidebar-primary widget-area';
     $attributes['aria-label'] = esc_html__( 'Primary Sidebar', 'analytica' );
     $attributes['itemscope'] = 'itemscope';
     $attributes['itemtype'] = 'https://schema.org/WPSideBar';
@@ -914,7 +914,7 @@ add_filter( 'analytica_attr_sidebar-secondary', 'analytica_attributes_sidebar_se
  * @return array Amended attributes.
  */
 function analytica_attributes_sidebar_secondary( $attributes ) {
-    $attributes['class'] = 'sidebar sidebar-secondary widget-area';
+    $attributes['class'] = 'site-sidebar sidebar-secondary widget-area';
     $attributes['aria-label'] = esc_html__( 'Secondary Sidebar', 'analytica' );
     $attributes['itemscope'] = 'itemscope';
     $attributes['itemtype'] = 'https://schema.org/WPSideBar';

@@ -36,6 +36,33 @@ function analytica_write_log( $log, $type = '1' ) {
 }
 
 /**
+ * Custom callback for custom backgrounds
+ *
+ * @since 1.0.0
+ */
+function analytica_custom_background_callback() {
+    // $background is the saved custom image, or the default image.
+    $background = set_url_scheme( get_background_image() );
+ 
+    // $color is the saved custom color.
+    // A default has to be specified in style.css. It will not be printed here.
+    $color = get_background_color();
+ 
+    if ( $color === get_theme_support( 'custom-background', 'default-color' ) ) {
+        $color = false;
+    }
+ 
+    if ( ! $background && ! $color ) {
+        if ( is_customize_preview() ) {
+            echo '<style type="text/css" id="custom-background-css"></style>';
+        }
+        return;
+    }
+
+    return; // The background will be compile into the theme's global css file
+}
+
+/**
  * Retrieve Post Thumbnail ID.
  *
  * @since 1.0.0

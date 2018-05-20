@@ -1,224 +1,321 @@
 // # Sidebars
 @import 'tags';
 
+.widget-title {
+	font-weight: normal;
+	margin-bottom: 1em;
+	line-height: 1.5;
+}
+
 .widget-area-inner {
-    transition: all 0.1s ease-in-out;
-   
-    &.affix {
-        @media (min-width: $screen-md-min) {
-            position: fixed !important;
-            top: 0;
-        }
-    }
+	transition: all 0.1s ease-in-out;
+
+	&.affix {
+		@media (min-width: $screen-md-min) {
+			position: fixed !important;
+			top: 0;
+		}
+	}
 
 }
 
 .sidebar,
 .widget-area {
-    select {
-        max-width: 100%;
-        width: 100%;
-        text-overflow: ellipsis;
-        background-color: transparent;
-    }
+    
+	select {
+		max-width: 100%;
+		width: 100%;
+		text-overflow: ellipsis;
+		background-color: transparent;
+	}
 
-    ul {
-        padding: 0;
-        margin: 0;
-    }
+	ul {
+		padding: 0;
+	}
 
-    li {
-        padding-top: rem(5px);
-        padding-bottom: rem(2px);
+	li {
+		padding-top: rem(5px);
+		padding-bottom: rem(2px);
 
-        &:first-child {
-            padding-top: 0;
-        }
+		&:first-child {
+			padding-top: 0;
+		}
 
-        a {
-            color: inherit;
-        }
+		a {
+			color: inherit;
+		}
 
-        .count {
-            opacity: 0.5;
-        }
+		.count {
+			opacity: 0.5;
+		}
 
-        ul {
-            margin: 0;
+		ul {
+			margin: 0;
 
-            a:hover {
-                color: $dark;
+			a:hover {
+				color: $dark;
 
-                &::before {
-                    margin-right: 13px;
-                    width: 13px;
-                    background-color: $brand-primary;
-                }
-            }
+				&::before {
+					margin-right: 13px;
+					width: 13px;
+					background-color: $brand-primary;
+				}
+			}
 
-            a::before {
-                display: inline-block;
-                margin-right: 12px;
-                width: 8px;
-                height: 2px;
-                background: #e1e1e1;
-                content: '';
-                vertical-align: middle;
-                transition: all 0.15s ease-out;
-            }
-        }
-    }
+			a::before {
+				display: inline-block;
+				margin-right: 12px;
+				width: 8px;
+				height: 2px;
+				background: #e1e1e1;
+				content: '';
+				vertical-align: middle;
+				transition: all 0.15s ease-out;
+			}
+		}
+	}
 
-    ul > li:last-child {
-        margin-bottom: 0;
-    }
+	ul>li:last-child {
+		margin-bottom: 0;
+	}
 
-    .widget {
-        padding: 23px;
-
-        &.analytica-widget {
-            padding: 0;
-
-            .widget-title-wrap {
-                margin-top: ceil(($grid-gutter-width / 2));
-                margin-bottom: 0;
-            }
-        }
-    }
+	.widget.analytica-widget .widget-title-wrap {
+		margin-top: ceil(($grid-gutter-width / 2));
+		margin-bottom: 0;
+	}
 }
 
 // # Widgets
-
 .widget-wrap {
-    word-wrap: break-word;
-    @include clearfix;
+	word-wrap: break-word;
+	@include clearfix;
 }
 
-.widget ol > li {
-    padding-left: ceil(($grid-gutter-width / 2));
-    list-style-position: inside;
-    list-style-type: decimal;
-    text-indent: ($grid-gutter-width / -2);
+.widget ol>li {
+	padding-left: ceil(($grid-gutter-width / 2));
+	list-style-position: inside;
+	list-style-type: decimal;
+	text-indent: ($grid-gutter-width / -2);
 }
 
 .widget li li {
-    margin: 0 0 0 10px;
-    padding: 0;
-    border: none;
-}
-//widget calender
-
-.widget_calendar table {
-    width: 100%;
-}
-
-.widget_calendar td,
-.widget_calendar th {
-    text-align: center;
-}
-// # Calender Widget
-
-#wp-calendar {
-    font-size: 1.2rem;
-}
-
-#wp-calendar caption {
-    text-align: left;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 1rem;
-}
-
-#wp-calendar td,
-#wp-calendar th {
-    padding: 5px;
-}
-
-// # Search
-
-.widget_product_search,
-.widget_search,
-.widget_video_search {
-    margin-top: $grid-gutter-width;
-
-    form {
-        margin-bottom: 0;
-    }
-
-    .searchform,
-    .woocommerce-product-search {
-        input[type="submit"] {
-            display: none!important;
-        }
-    }
-
-    .button,
-    .screen-reader-text,
-    .section-title {
-        display: none;
-    }
-
-    input[type="search"],
-    input[type="text"] {
-        padding-left: 10px;
-        width: 100%;
-
-        &:focus {
-            padding-left: 10px;
-        }
-
-        &:before {
-            content: '\e8b6';
-            text-transform: none;
-            font-weight: normal;
-            font-style: normal;
-            font-variant: normal;
-            font-family: 'energia-icons' !important;
-            line-height: 1;
-            speak: none;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-    }
+	margin: 0 0 0 10px;
+	padding: 0;
+	border: none;
 }
 
 // Widget lists
-
 // # Tag Clouds
 .tagcloud {
-    a {
-        float: left;
-        font: normal 11px $font-family-base !important;
-        @extend %entry-tags;
-        
-        &:hover {
-            border-color: $brand-primary;
-            color: $brand-primary;
-            cursor: pointer;
-        }
-    }
+	a {
+		float: left;
+		font: normal 11px $font-family-base !important;
+		@extend %entry-tags;
 
-    span {
-        display: inline-block;
-        padding: 0 8px;
-        background-color: rgba(255, 255, 255, 0.32);
-        color: $text-color;
-        text-align: center;
-        line-height: 21px;
-    }
+		&:hover {
+			border-color: $brand-primary;
+			color: $brand-primary;
+			cursor: pointer;
+		}
+	}
 
-    s {
-        display: inline-block;
-        padding: 0 6px;
-        background: $text-color;
-        color: #fff;
-        text-align: center;
-        text-decoration: none;
-        line-height: 21px;
-    }
+	span {
+		display: inline-block;
+		padding: 0 8px;
+		background-color: rgba(255, 255, 255, 0.32);
+		color: $text-color;
+		text-align: center;
+		line-height: 21px;
+	}
 
-    &.tag-1 a {
-        padding: 0;
+	s {
+		display: inline-block;
+		padding: 0 6px;
+		background: $text-color;
+		color: #fff;
+		text-align: center;
+		text-decoration: none;
+		line-height: 21px;
+	}
+
+	&.tag-1 a {
+		padding: 0;
+	}
+}
+
+.widget_nav_menu {
+
+	ul {
+		ul.sub-menu {
+			margin-top: 0.25em;
+		}
+		ul.sub-menu li {
+		    padding-left: 20px;
+		}
+		ul.sub-menu a:after {
+		    left: -20px;
+		}
+		ul.sub-menu ul a:after {
+		    left: -40px;
+		}
+		ul.sub-menu ul ul a:after {
+		    left: -60px;
+		}
+	}
+
+	li {
+		@include analytica-transition();
+	}
+}
+
+/* Search widget. */
+.widget_search {
+	.search-form {
+		position: relative;
+		padding: 0;
+		background: initial;
+		color: inherit;
+
+		&:after {
+			font-family: $font-family-analytica;
+			font-size: 1.2em;
+			font-weight: normal;
+			content: "\e8b6";
+		    position: absolute;
+		    top: 50%;
+		    right: 15px;
+		    transform: translate(0,-50%);
+		}
+
+		> label {
+		    position: relative;
+		}
+
+		input[type="submit"],
+		input[type="submit"]:hover,
+		input[type="submit"]:focus {
+		    padding: 13px 20px;
+		    border-radius: 2px;
+		    border: none;
+		    top: 0px;
+	    	right: 0px;
+		    position: absolute;
+		    color: transparent;
+		    background: transparent;
+		    max-width: 45px;
+		    z-index: 2;
+		}
+	}
+	.search-field,
+	.search-field:focus {
+	    width: 100%;
+	    padding: 16px 45px 16px 15px;
+	}
+}
+
+/* Widget - Archive */
+/* Widget - Categories */
+.widget_pages,
+.widget_archive,
+.widget_categories {
+	ul.children {
+		position: relative;
+		margin-top: 5px;
+	    width: 100%;
+	    li {
+		    padding-left: 20px;
+		}
+	}
+	li {
+		ul.children a:after {
+		    left: -20px;
+		}
+		ul.children ul a:after {
+		    left: -40px;
+		}
+	}
+}
+
+/* Tag Cloud */
+.widget_tag_cloud {
+	.tagcloud {
+	    margin-top: 10px;
+	    display: inline-block;
+		a {
+			border: 1px solid $color-border-dotted-widget;
+		    padding: 0.5em 0.9em;
+		    display: inline-block;
+		    margin-bottom: 4px;
+		    font-size: 14px;
+		    margin-right: 4px;
+		    line-height: 1.5;
+		    @include analytica-transition();    
+		}
+	}
+}
+
+/* Calender */
+.widget_calendar {
+
+	table,
+	th,
+	td {
+		padding: 0;
+		text-align: center;
+	}
+
+	table,
+	th {
+		border: none;
+	}
+
+	td {
+		border-right: none;
+		border-left: none;
+	}
+
+	caption {
+	    line-height: 2.7em;
+	}
+
+	thead {
+	    line-height: 2.5em;
+		a {
+			color: $color-background-active;
+		    font-size: 1rem;
+		    vertical-align: middle;
+		}
+		td {
+		    vertical-align: middle;
+		    font-weight: bold;
+		}
+		> tr > th {
+			line-height: 2.5em;
+		    border-bottom: 2px solid $color-border-widget;
+		    border-top: 2px solid $color-border-widget;
+		}
+	}
+	tbody {
+	    line-height: 2.10em;
+	    text-align: center;
+		> tr {
+			> td {
+			    width: 14.2857%;
+			}
+		    &:first-child > td {
+			    padding-top: 3px;
+			}
+		}
+	}
+	#today {
+	    background: $color-background-active;
+	}
+}
+
+.analytica-detach-container .site-sidebar {
+    .widget {
+        background-color: $color-background-sep-content-body;
+        padding: $grid-gutter-width-half;
+        margin-bottom: $grid-gutter-width-half;
     }
 }

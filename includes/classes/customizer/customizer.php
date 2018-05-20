@@ -73,8 +73,8 @@ class Customizer {
         wp_enqueue_script( 'analytica_customizer_preview', Core::instance()->theme_url . '/assets/admin/js/custom/customizer/preview.js', array( 'jquery' ), '1.0.0', false );
 
         wp_localize_script( 'analytica_customizer', 'RadiumCustomizerReset', array(
-            'reset'   => esc_attr__( 'Reset', 'energia' ),
-            'confirm' => esc_attr__( "Attention! This will remove all customizations ever made via customizer to this theme!\n\nThis action is irreversible!", 'energia' ),
+            'reset'   => esc_attr__( 'Reset', 'analytica' ),
+            'confirm' => esc_attr__( "Attention! This will remove all customizations ever made via customizer to this theme!\n\nThis action is irreversible!", 'analytica' ),
             'nonce'   => array(
                 'reset' => wp_create_nonce( 'customizer-reset' ),
             ),

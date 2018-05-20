@@ -99,11 +99,11 @@ function analytica_get_custom_password_form( $output ) {
 
     $output = '<form class="protected-post-form" action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '/wp-pass.php" method="post">';
         $output .= '<div class="ricon ricon-lock"></div>';
-        $output .= '<p>' . esc_html__( 'This content is password protected. To view it please enter your password below.', 'energia' ) . '</p>';
-        $output .= '<label class="pass-label" for="' . $label . '">' . esc_html__( 'Password:', 'energia' ) . ' </label>';
+        $output .= '<p>' . esc_html__( 'This content is password protected. To view it please enter your password below.', 'analytica' ) . '</p>';
+        $output .= '<label class="pass-label" for="' . $label . '">' . esc_html__( 'Password:', 'analytica' ) . ' </label>';
         $output .= '<div class="password-form-group">';
             $output .= '<input name="post_password" id="' . $label . '" type="password" size="20" />';
-            $output .= '<input type="submit" name="Submit" class="button" value="' . esc_attr__( 'Submit', 'energia' ) . '" />';
+            $output .= '<input type="submit" name="Submit" class="button" value="' . esc_attr__( 'Submit', 'analytica' ) . '" />';
         $output .= '</div>';
 
     $output .= '</form>';

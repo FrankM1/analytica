@@ -24,6 +24,82 @@ class Dynamic_CSS {
     public function __construct() {
         // add_filter( 'analytica_dynamic_css_cached', array( $this, 'return_output' ));
         add_filter( 'analytica_dynamic_css_cached', array( $this, 'add_container_css' ));
+        add_filter( 'analytica_dynamic_css_cached', array( $this, 'custom_background' ));
+    }
+
+    /**
+     * Site backgrounds
+     *
+     * @since 1.0.0
+     */
+    function custom_background( $css ) {
+        // $background is the saved custom image, or the default image.
+        $background = set_url_scheme( get_background_image() );
+    
+        // $color is the saved custom color.
+        // A default has to be specified in style.css. It will not be printed here.
+        $color = get_background_color();
+    
+        if ( $color === get_theme_support( 'custom-background', 'default-color' ) ) {
+            $color = false;
+        }
+    
+        if ( ! $background && ! $color ) {
+            return $css;
+        }
+
+        $style = $color ? "background-color: #$color;" : '';
+    
+        if ( $background ) {
+            $image = ' background-image: url("' . esc_url_raw( $background ) . '");';
+    
+            // Background Position.
+            $position_x = get_theme_mod( 'background_position_x', get_theme_support( 'custom-background', 'default-position-x' ) );
+            $position_y = get_theme_mod( 'background_position_y', get_theme_support( 'custom-background', 'default-position-y' ) );
+    
+            if ( ! in_array( $position_x, array( 'left', 'center', 'right' ), true ) ) {
+                $position_x = 'left';
+            }
+    
+            if ( ! in_array( $position_y, array( 'top', 'center', 'bottom' ), true ) ) {
+                $position_y = 'top';
+            }
+    
+            $position = " background-position: $position_x $position_y;";
+    
+            // Background Size.
+            $size = get_theme_mod( 'background_size', get_theme_support( 'custom-background', 'default-size' ) );
+    
+            if ( ! in_array( $size, array( 'auto', 'contain', 'cover' ), true ) ) {
+                $size = 'auto';
+            }
+    
+            $size = " background-size: $size;";
+    
+            // Background Repeat.
+            $repeat = get_theme_mod( 'background_repeat', get_theme_support( 'custom-background', 'default-repeat' ) );
+    
+            if ( ! in_array( $repeat, array( 'repeat-x', 'repeat-y', 'repeat', 'no-repeat' ), true ) ) {
+                $repeat = 'repeat';
+            }
+    
+            $repeat = " background-repeat: $repeat;";
+    
+            // Background Scroll.
+            $attachment = get_theme_mod( 'background_attachment', get_theme_support( 'custom-background', 'default-attachment' ) );
+    
+            if ( 'fixed' !== $attachment ) {
+                $attachment = 'scroll';
+            }
+    
+            $attachment = " background-attachment: $attachment;";
+    
+            $style .= $image . $position . $size . $repeat . $attachment;
+        }
+
+        $css .= 'body.custom-background {'. $style . '}';
+
+        return $css;
     }
 
     /**
@@ -33,7 +109,7 @@ class Dynamic_CSS {
      */
     function add_container_css( $css ) {
         $site_layout                        = analytica_get_option( 'site-layout' );
-        $accent_color                       = analytica_get_option( 'accent-color' );
+        $accent_color                       = analytica_get_option( 'site-accent-color' );
         $site_header_color                  = analytica_get_option( 'header-background-color' );
         $footer_border                      = analytica_get_option( 'site-footer-border' );
         $footer_colophon_border             = analytica_get_option( 'footer-colophon-border' );
@@ -43,21 +119,14 @@ class Dynamic_CSS {
         $site_container_width               = intval( analytica_get_option( 'site-content-width' ) );
         $site_sidebar_width                 = intval( analytica_get_option( 'site-sidebar-width' ) );
 
-        analytica_write_log( $site_sidebar_width );
-
         if ( 'site-boxed' === $site_layout ) {
             $css .= '@media (min-width: 1200px) {';
                 if ( $site_container_width > 0 ) {
-                    $css .= '.site-boxed .site-container, 
-                        .site-boxed .site-footer, 
-                        .site-boxed .container, 
-                        .site-boxed .site-content,
-                        .site-boxed .site-colophon.has-container, 
-                        .site-boxed .site-header.has-container { max-width: ' . esc_attr( $site_container_width ) . 'px; margin: 0 auto; }';
+                    $css .= '.site-boxed .site-container { max-width: ' . esc_attr( $site_container_width ) . 'px; margin: 0 auto; }';
                 }
 
                 if ( $single_post_site_container_width > 0 ) {
-                    $css .= '.site-boxed.single-post.full-width-content .site-inner .analytica-container, .single-post.full-width-content .site-inner .analytica-container, .single-attachment .site-inner .analytica-container { width: ' . esc_attr( $single_post_site_container_width ) . 'px; }';
+                    $css .= '.single-attachment .site-inner .analytica-container { width: ' . esc_attr( $single_post_site_container_width ) . 'px; }';
                 }
 
                 if ( $offset && $offset > 0) {
@@ -69,7 +138,7 @@ class Dynamic_CSS {
 
         $css .= '@media (min-width: 1200px) {';
             if ( $site_container_width > 0 ) {
-                $css .= '.analytica-container { width:' . esc_attr( $site_container_width ) . 'px;}';
+                $css .= '.analytica-container { max-width:' . esc_attr( $site_container_width ) . 'px;}';
             }
 
             if ( $offset && $offset > 0) {
@@ -80,34 +149,28 @@ class Dynamic_CSS {
 
         // Section
         if ( $site_container_width > 0 ) {
-            $css .= '.qazana-section.qazana-section-boxed  > .qazana-container, 
-            .page-content .qazana-section.qazana-section-boxed > .qazana-container, 
-            .content-sidebar-wrap, .content-sidebar-wrap .row, 
-            .full-width-content .single-post-classic .content-sidebar-wrap, 
-            .post-title-featured, 
-            .site-fullwidth .single-post-overlay .content-sidebar-wrap>.content>.entry-post-wrapper { max-width: ' . esc_attr( $site_container_width ) . 'px; }';
+            $css .= '.site-inner { max-width: ' . esc_attr( $site_container_width ) . 'px; }';
         }
 
         $css .= '@media (min-width: 992px) {';
-            
-            $css .= '.content-sidebar-sidebar .content-sidebar-wrap .content,
-             .content-sidebar .content-sidebar-wrap .content,
-              .sidebar-content-sidebar .content-sidebar-wrap .content, 
-              .sidebar-content .content-sidebar-wrap .content, 
-              .sidebar-sidebar-content .content-sidebar-wrap .content,
-            .content-sidebar-sidebar .content-sidebar-wrap .next_post_infinite, 
-            .content-sidebar .content-sidebar-wrap .next_post_infinite, 
-            .sidebar-content-sidebar .content-sidebar-wrap .next_post_infinite, 
-            .sidebar-content .content-sidebar-wrap .next_post_infinite, 
-            .sidebar-sidebar-content .content-sidebar-wrap .next_post_infinite { width: calc(100% - ' . $site_sidebar_width . 'px) }';
-            
-            $css .= '.sidebar-primary {
-                width: ' . $site_sidebar_width . 'px;
-            }';
-            
-            $css .= '.single-post .sidebar-primary {
-                width: ' . $single_post_site_sidebar_width . 'px;
-            }';
+
+            if ( $site_sidebar_width > 100 ) {
+                $css .= '.site-main-sidebar-sidebar .site-main,
+                .site-main-sidebar .site-main,
+                .sidebar-content-sidebar .site-main, 
+                .sidebar-content .site-main, 
+                .sidebar-sidebar-content .site-main { width: calc(100% - ' . $site_sidebar_width . 'px) }';
+                
+                $css .= '.sidebar-primary {
+                    width: ' . $site_sidebar_width . 'px;
+                }';
+            }
+
+            if ( $single_post_site_sidebar_width > 100 ) {
+                $css .= '.single-post .sidebar-primary {
+                    width: ' . $single_post_site_sidebar_width . 'px;
+                }';
+            }
 
         $css .= '}';
   
@@ -129,12 +192,6 @@ class Dynamic_CSS {
                     $css .= 'border-right-width: ' . esc_attr( $footer_border['right'] ) . ';';
                 $css .= '}';
             }
-
-            $css .= '#quickpop #close-quickpop:hover { color: ' . $accent_color . '}';
-
-            $css .= '.site-widgets-style-4 .section-title .widget-title:after, .site-widgets-style-8 .section-title .widget-title span:after { background-color: ' . $accent_color . '; }';
-            $css .= '.site-widgets-style-5 .section-title .widget-title, .site-widgets-style-6 .section-title .widget-title { border-left-color: ' . $accent_color . '; }';
-            $css .= '.archive-pagination .active a { border-color: ' . $accent_color . '; color: ' . $accent_color . '; }';
         
         $css .= '}';
 

@@ -1,70 +1,47 @@
 /**
  * Astra Theme compatibility with Visual Composer
  */
+
 /*----------  Mixins  ----------*/
+
 @import "../../mixins/mixins-master";
 
 /*----------  Site Variables  ----------*/
+
 @import "../../variables-site/colors";
 @import "../../variables-site/structure";
 @import "../../variables-site/typography";
 
 .js_active {
 
- 	.vc_row {
+	.vc_row {
 		margin-left: auto;
 		margin-right: auto;
-	}
+	} // Removed article margin
+	.analytica-single-post {
 
- 	.analytica-plain-container {
+		.entry-header {
+			margin-top: 4em;
 
-		// Removed article margin
-		&.analytica-single-post {
+			&.analytica-header-without-markup {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
 
-			.entry-header {
-				margin-top: 4em;
-				
-				&.analytica-header-without-markup {
-					margin-top: 0;
-					margin-bottom: 0;
-				}
-
-				&.analytica-no-title.analytica-no-meta {
-					margin-bottom: 0;
-				}
-
-				@media (max-width: $mx-col-md) { 
-					margin-top: 1.5em;
-				}
+			&.analytica-no-title.analytica-no-meta {
+				margin-bottom: 0;
 			}
 
 			@media (max-width: $mx-col-md) {
-				#secondary {
-					margin-top: 1.5em;
-				}
+				margin-top: 1.5em;
 			}
 		}
 
-	}
-
-	.analytica-plain-container,
- 	.analytica-page-builder-template {
-		&.analytica-left-sidebar,
-		&.analytica-right-sidebar {
-			.vc_row[data-vc-full-width] {
-				max-width: 100%;
-				left: 0 !important;
+		@media (max-width: $mx-col-md) {
+			#secondary {
+				margin-top: 1.5em;
 			}
 		}
 	}
-	
-	.analytica-left-sidebar,
-	.analytica-right-sidebar {
-		.vc_row[data-vc-full-width] {
-			max-width: 100%;
-			left: 0 !important;
-			padding-right: 0 !important;
-			padding-left: 0 !important;
- 		}
- 	}
+
 }

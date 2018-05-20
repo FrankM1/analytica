@@ -22,8 +22,8 @@ function analytica_add_typography_controls( $controls ) {
     $default    = Analytica\Options::defaults();
 
     $controls[] = [
-        'label'     => esc_html__( 'Base Font', 'energia' ),
-        'desc'      => esc_html__( 'The main font for your site. This is used by paragraphs, divs, etc', 'energia' ),
+        'label'     => esc_html__( 'Base Font', 'analytica' ),
+        'desc'      => esc_html__( 'The main font for your site. This is used by paragraphs, divs, etc', 'analytica' ),
         'id'        => 'font-base',
         'section'   => 'general_typography',
         'default'   => $default['font-base'],
@@ -45,16 +45,16 @@ function analytica_add_typography_controls( $controls ) {
     ];
 
     $controls[] = [
-        'id'      => 'accent-color',
+        'id'      => 'site-accent-color',
         'section' => 'container_style',
         'type'    => 'color',
-        'label'   => esc_html__( 'Accent color', 'energia' ),
-        'default' => $default['accent-color'],
+        'label'   => esc_html__( 'Accent color', 'analytica' ),
+        'default' => $default['site-accent-color'],
     ];
 
     $controls[] = [
-        'label'     => esc_html__( 'Secondary Font', 'energia' ),
-        'desc'      => esc_html__( 'The secondary font for your site. This is used by headings, and large text.', 'energia' ),
+        'label'     => esc_html__( 'Secondary Font', 'analytica' ),
+        'desc'      => esc_html__( 'The secondary font for your site. This is used by headings, and large text.', 'analytica' ),
         'id'        => 'font-secondary-base',
         'section'   => 'general_typography',
         'default'   => $default['font-secondary-base'],
@@ -76,8 +76,8 @@ function analytica_add_typography_controls( $controls ) {
     ];
 
     $controls[] = [
-        'label'     => esc_html__( 'H1 Font', 'energia' ),
-        'desc'      => esc_html__( 'The main font for your site.', 'energia' ),
+        'label'     => esc_html__( 'H1 Font', 'analytica' ),
+        'desc'      => esc_html__( 'The main font for your site.', 'analytica' ),
         'id'        => 'font-h1',
         'section'   => 'general_typography',
         'default'   => $default['font-h1'],
@@ -96,8 +96,8 @@ function analytica_add_typography_controls( $controls ) {
     $controls[] = [
         'id'        => 'font-h2',
         'section'   => 'general_typography',
-        'label'     => esc_html__( 'H2 Font', 'energia' ),
-        'desc'      => esc_html__( 'The main font for your site.', 'energia' ),
+        'label'     => esc_html__( 'H2 Font', 'analytica' ),
+        'desc'      => esc_html__( 'The main font for your site.', 'analytica' ),
         'default'   => $default['font-h2'],
         'type'      => 'typography',
         'transport' => 'auto',
@@ -114,8 +114,8 @@ function analytica_add_typography_controls( $controls ) {
     $controls[] = [
         'id'        => 'font-h3',
         'section'   => 'general_typography',
-        'label'     => esc_html__( 'H3 Font', 'energia' ),
-        'desc'      => esc_html__( 'The main font for your site.', 'energia' ),
+        'label'     => esc_html__( 'H3 Font', 'analytica' ),
+        'desc'      => esc_html__( 'The main font for your site.', 'analytica' ),
         'default'   => $default['font-h3'],
         'type'      => 'typography',
         'transport' => 'auto',
@@ -130,8 +130,8 @@ function analytica_add_typography_controls( $controls ) {
     ];
 
     $controls[] = [
-        'label'     => esc_html__( 'H4 Font', 'energia' ),
-        'desc'      => esc_html__( 'The main font for your site.', 'energia' ),
+        'label'     => esc_html__( 'H4 Font', 'analytica' ),
+        'desc'      => esc_html__( 'The main font for your site.', 'analytica' ),
         'id'        => 'font-h4',
         'section'   => 'general_typography',
         'default'   => $default['font-h4'],
@@ -148,8 +148,8 @@ function analytica_add_typography_controls( $controls ) {
     ];
 
     $controls[] = [
-        'label'     => esc_html__( 'H5 Font', 'energia' ),
-        'desc'      => esc_html__( 'The main font for your site.', 'energia' ),
+        'label'     => esc_html__( 'H5 Font', 'analytica' ),
+        'desc'      => esc_html__( 'The main font for your site.', 'analytica' ),
         'id'        => 'font-h5',
         'section'   => 'general_typography',
         'default'   => $default['font-h5'],
@@ -166,8 +166,8 @@ function analytica_add_typography_controls( $controls ) {
     ];
 
     $controls[] = [
-        'label'   => esc_html__( 'H6 Font', 'energia' ),
-        'desc'    => esc_html__( 'The main font for your site.', 'energia' ),
+        'label'   => esc_html__( 'H6 Font', 'analytica' ),
+        'desc'    => esc_html__( 'The main font for your site.', 'analytica' ),
         'id'      => 'font-h6',
         'section' => 'general_typography',
         'default' => $default['font-h6'],
@@ -184,8 +184,8 @@ function analytica_add_typography_controls( $controls ) {
     ];
 
     $controls[] = [
-        'label'     => esc_html__( 'Emphasis', 'energia' ),
-        'desc'      => esc_html__( 'The emphasis font for your site.', 'energia' ),
+        'label'     => esc_html__( 'Emphasis', 'analytica' ),
+        'desc'      => esc_html__( 'The emphasis font for your site.', 'analytica' ),
         'id'        => 'font-em',
         'section'   => 'general_typography',
         'default'   => $default['font-em'],
@@ -206,8 +206,8 @@ function analytica_add_typography_controls( $controls ) {
     ];
 
     $controls[] = [
-        'label'     => esc_html__( 'Strong', 'energia' ),
-        'desc'      => esc_html__( 'The strong font for your site.', 'energia' ),
+        'label'     => esc_html__( 'Strong', 'analytica' ),
+        'desc'      => esc_html__( 'The strong font for your site.', 'analytica' ),
         'id'        => 'font-strong',
         'section'   => 'general_typography',
         'default'   => $default['font-strong'],
@@ -228,8 +228,8 @@ function analytica_add_typography_controls( $controls ) {
     ];
 
     $controls[] = [
-        'label'     => esc_html__( 'Form Labels', 'energia' ),
-        'desc'      => esc_html__( 'The font for form labels.', 'energia' ),
+        'label'     => esc_html__( 'Form Labels', 'analytica' ),
+        'desc'      => esc_html__( 'The font for form labels.', 'analytica' ),
         'id'        => 'font-form-labels',
         'default'   => $default['font-form-labels'],
         'type'      => 'typography',
@@ -243,8 +243,8 @@ function analytica_add_typography_controls( $controls ) {
     ];
 
     $controls[] = [
-        'label'     => esc_html__( 'Form Legend', 'energia' ),
-        'desc'      => esc_html__( 'The font for form legend.', 'energia' ),
+        'label'     => esc_html__( 'Form Legend', 'analytica' ),
+        'desc'      => esc_html__( 'The font for form legend.', 'analytica' ),
         'id'        => 'font-form-legend',
         'default'   => $default['font-form-legend'],
         'type'      => 'typography',
@@ -258,8 +258,8 @@ function analytica_add_typography_controls( $controls ) {
     ];
 
     $controls[] = [
-        'label'     => esc_html__( 'Site credits typography', 'energia' ),
-        'desc'      => esc_html__( 'Typography applied to the footer copyright section of the site.', 'energia' ),
+        'label'     => esc_html__( 'Site credits typography', 'analytica' ),
+        'desc'      => esc_html__( 'Typography applied to the footer copyright section of the site.', 'analytica' ),
         'id'        => 'site-credit-typography',
         'default'   => $default['site-credit-typography'],
         'type'      => 'typography',
@@ -282,23 +282,23 @@ add_action( 'customize_register', 'analytica_add_typography_panels_and_sections'
 function analytica_add_typography_panels_and_sections( $wp_customize ) {
     $wp_customize->add_panel( 'typography', [
         'priority' => 33,
-        'title' => esc_html__( 'Typography', 'energia' ),
+        'title' => esc_html__( 'Typography', 'analytica' ),
     ] );
 
     $wp_customize->add_section( 'general_typography', [
-        'title' => esc_html__( 'General', 'energia' ),
+        'title' => esc_html__( 'General', 'analytica' ),
         'panel' => 'typography',
         'priority' => 34,
     ] );
 
     $wp_customize->add_section( 'forms_typography', [
-        'title' => esc_html__( 'Forms', 'energia' ),
+        'title' => esc_html__( 'Forms', 'analytica' ),
         'panel' => 'typography',
         'priority' => 35,
     ] );
 
     $wp_customize->add_section( 'site_footer_typography', [
-        'title' => esc_html__( 'Footer', 'energia' ),
+        'title' => esc_html__( 'Footer', 'analytica' ),
         'panel' => 'typography',
         'priority' => 36,
     ] );

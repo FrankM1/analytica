@@ -191,5 +191,5 @@ function analytica_customizer_reorder_fields( $wp_customize ) {
     $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
     // Rename the label to "Display Site Title & Tagline" in order to make this option clearer.
-    $wp_customize->get_control( 'display_header_text' )->label = esc_html__( 'Display Site Title &amp; Tagline', 'energia' );
+    $wp_customize->get_control( 'display_header_text' )->label = esc_html__( 'Display Site Title &amp; Tagline', 'analytica' );
 }

@@ -167,7 +167,7 @@ function analytica_comment_form_default_fields_markup( $fields ) {
     $req       = get_option( 'require_name_email' );
     $aria_req  = ( $req ? " aria-required='true'" : '' );
 
-    $fields['author'] = '<div class="analytica-comment-formwrap analytica-row"><p class="comment-form-author analytica-col-xs-12 analytica-col-sm-12 analytica-col-md-4 analytica-col-lg-4">' .
+    $fields['author'] = '<div class="analytica-comment-formwrap"><p class="comment-form-author analytica-col-xs-12 analytica-col-sm-12 analytica-col-md-4 analytica-col-lg-4">' .
                 '<label for="author" class="screen-reader-text">' . esc_html( analytica_default_strings( 'string-comment-label-name', false ) ) . '</label><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
                 '" placeholder="' . esc_attr( analytica_default_strings( 'string-comment-label-name', false ) ) . '" size="30"' . $aria_req . ' /></p>';
     $fields['email']  = '<p class="comment-form-email analytica-col-xs-12 analytica-col-sm-12 analytica-col-md-4 analytica-col-lg-4">' .
@@ -195,64 +195,9 @@ function analytica_comment_form_default_markup( $args ) {
     $args['title_reply']       = analytica_default_strings( 'string-comment-title-reply', false );
     $args['cancel_reply_link'] = analytica_default_strings( 'string-comment-cancel-reply-link', false );
     $args['label_submit']      = analytica_default_strings( 'string-comment-label-submit', false );
-    $args['comment_field']     = '<div class="analytica-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea analytica-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( analytica_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( analytica_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
+    $args['comment_field']     = '<div class="comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea analytica-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( analytica_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( analytica_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
 
     return apply_filters( 'analytica_comment_form_default_markup', $args );
-}
-
-/**
- * Return current content layout
- *
- * @since 1.0.0
- * @return boolean  content layout.
- */
-function analytica_get_content_layout() {
-
-    $value = false;
-
-    if ( is_singular() ) {
-
-        // If post meta value is empty,
-        // Then get the POST_TYPE content layout.
-        $content_layout = analytica_get_custom_field( 'site-content-layout' );
-
-        if ( empty( $content_layout ) ) {
-
-            $post_type = get_post_type();
-
-            if ( 'post' === $post_type || 'page' === $post_type ) {
-                $content_layout = analytica_get_option( 'single-' . get_post_type() . '-content-layout' );
-            }
-
-            if ( 'default' == $content_layout || empty( $content_layout ) ) {
-
-                // Get the GLOBAL content layout value.
-                // NOTE: Here not used `true` in the below function call.
-                $content_layout = analytica_get_option( 'site-content-layout', 'full-width' );
-            }
-        }
-    } else {
-
-        $content_layout = '';
-        $post_type      = get_post_type();
-
-        if ( 'post' === $post_type ) {
-            $content_layout = analytica_get_option( 'archive-' . get_post_type() . '-content-layout' );
-        }
-
-        if ( is_search() ) {
-            $content_layout = analytica_get_option( 'archive-post-content-layout' );
-        }
-
-        if ( 'default' == $content_layout || empty( $content_layout ) ) {
-
-            // Get the GLOBAL content layout value.
-            // NOTE: Here not used `true` in the below function call.
-            $content_layout = analytica_get_option( 'site-content-layout', 'full-width' );
-        }
-    }
-
-    return apply_filters( 'analytica_get_content_layout', $content_layout );
 }
 
 /**

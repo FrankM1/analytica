@@ -66,6 +66,13 @@ class Theme {
 
         add_theme_support( 'custom-header', $defaults );
 
+        $defaults = array(
+            'default-color'          => preg_replace( "/#[a-f0-9]{6}/i", "", analytica_get_option( 'site-background-color' ) ), 
+            'wp-head-callback'       => 'analytica_custom_background_callback',
+        );
+
+        add_theme_support( 'custom-background', $defaults );
+
         /**
          * Maybe add support for sidebars
          */
@@ -73,16 +80,16 @@ class Theme {
 
             $sidebars = array(
                 'sidebar'       => array(
-                    'name'          => esc_html__( 'Primary Widget Area', 'energia' ),
-                    'description'   => esc_html__( 'This is the primary sidebar.', 'energia' ),
+                    'name'          => esc_html__( 'Primary Widget Area', 'analytica' ),
+                    'description'   => esc_html__( 'This is the primary sidebar.', 'analytica' ),
                 ),
                 'secondary-alt'       => array(
-                    'name'          => esc_html__( 'Secondary Widget Area', 'energia' ),
-                    'description'   => esc_html__( 'This is the secondary sidebar if you are using a two or three column page layout option.', 'energia' ),
+                    'name'          => esc_html__( 'Secondary Widget Area', 'analytica' ),
+                    'description'   => esc_html__( 'This is the secondary sidebar if you are using a two or three column page layout option.', 'analytica' ),
                 ),
                 'after-entry'   => array(
-                    'name'          => esc_html__( 'After Entry', 'energia' ),
-                    'description'   => esc_html__( 'This is the content widget area. Displayed after the post content', 'energia' ),
+                    'name'          => esc_html__( 'After Entry', 'analytica' ),
+                    'description'   => esc_html__( 'This is the content widget area. Displayed after the post content', 'analytica' ),
                 ),
             );
 
@@ -92,7 +99,7 @@ class Theme {
          // Maybe add support for menus
         if ( ! current_theme_supports( 'analytica-menus' ) ) {
             add_theme_support( 'analytica-menus', array(
-                'primary'   		=> esc_html__( 'Primary Navigation', 'energia' ),
+                'primary'   		=> esc_html__( 'Primary Navigation', 'analytica' ),
             ) );
         }
     

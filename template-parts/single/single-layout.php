@@ -27,7 +27,7 @@
 
 	<?php do_action( 'analytica_single_header_after' ); ?>
 
-	<div class="entry-content clear" itemprop="text">
+	<div class="entry-content" itemprop="text">
 
 		<?php do_action( 'analytica_entry_content_before' ); ?>
 
@@ -58,5 +58,5 @@
 				)
 			);
 		?>
-	</div><!-- .entry-content .clear -->
+	</div><!-- .entry-content -->
 </div>

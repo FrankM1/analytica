@@ -147,6 +147,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'section'         => 'footer_general',
             'transport'       => 'postMessage',
             'label'           => esc_html__( 'Support', 'analytica' ) . ' ' . Analytica\Core::instance()->theme_title,
+            /* translators: %1$s: Theme name */
             'desc'            => sprintf( esc_html__( 'Support %1$s by displaying the %1$s badge on your site.', 'analytica' ), Analytica\Core::instance()->theme_title ),
             'type'            => 'switch',
             'default'         => 1,
@@ -198,7 +199,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'output'    => [
                 [
                     'property' => 'padding',
-                    'element'  => '.site-footer .footer-widgets',
+                    'element'  => '.site-footer .site-footer-widgets',
                 ],
             ],
             'conditions' => [
@@ -298,7 +299,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
                     'property' => 'color',
                     'element'  => [
                         '.site-footer',
-                        '.site-footer .footer-widgets',
+                        '.site-footer .site-footer-widgets',
                         '.site-footer .widget-area',
                     ],
                 ],
@@ -323,20 +324,20 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
                 [
                     'property' => 'color',
                     'element'  => [
-                        '.site-footer .footer-widgets .widget-area h1',
-                        '.site-footer .footer-widgets .widget-area h2',
-                        '.site-footer .footer-widgets .widget-area h3',
-                        '.site-footer .footer-widgets .widget-area h4',
-                        '.site-footer .footer-widgets .widget-area h5',
-                        '.site-footer .footer-widgets .widget-area h6',
-                        '.site-footer .footer-widgets .widget-area input:not([type=submit]):not([type=file])',
-                        '.site-footer .footer-widgets .widget-area label',
-                        '.site-footer .footer-widgets .widget-area legend',
-                        '.site-footer .footer-widgets .widget-area select',
-                        '.site-footer .footer-widgets .widget-area textarea',
+                        '.site-footer .site-footer-widgets .widget-area h1',
+                        '.site-footer .site-footer-widgets .widget-area h2',
+                        '.site-footer .site-footer-widgets .widget-area h3',
+                        '.site-footer .site-footer-widgets .widget-area h4',
+                        '.site-footer .site-footer-widgets .widget-area h5',
+                        '.site-footer .site-footer-widgets .widget-area h6',
+                        '.site-footer .site-footer-widgets .widget-area input:not([type=submit]):not([type=file])',
+                        '.site-footer .site-footer-widgets .widget-area label',
+                        '.site-footer .site-footer-widgets .widget-area legend',
+                        '.site-footer .site-footer-widgets .widget-area select',
+                        '.site-footer .site-footer-widgets .widget-area textarea',
                         '.site-footer .widget-area .widget-wrap .widget-title',
-                        '.site-footer .footer-widgets .widget-area .widget-title',
-                        '.site-footer .footer-widgets .widget-area #wp-calendar caption',
+                        '.site-footer .site-footer-widgets .widget-area .widget-title',
+                        '.site-footer .site-footer-widgets .widget-area #wp-calendar caption',
                     ],
                 ],
             ],
@@ -394,7 +395,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
                     'element'  => [
                         '.site-footer .widget-wrap a',
                         '.site-footer ul li a',
-                        '.site-footer .footer-widgets ul li a',
+                        '.site-footer .site-footer-widgets ul li a',
                         '.site-footer a',
                     ],
                 ],

@@ -89,7 +89,7 @@ function analytica_live_qazana_default_colors( $locations ) {
 
      $font_base = analytica_get_option( 'font-base' );
      $font_secondary = analytica_get_option( 'font-secondary-base' );
-     $accent_color = analytica_get_option( 'accent-color' );
+     $accent_color = analytica_get_option( 'site-accent-color' );
 
      $font_secondary_color = ! empty( $font_secondary['color'] ) ? $font_secondary['color'] : '';
      $font_base_color = ! empty( $font_base['color'] ) ? $font_base['color'] : '';
@@ -116,13 +116,13 @@ function analytica_live_qazana_system_color_schemes( $locations ) {
 
      $font_base = analytica_get_option( 'font-base' );
      $font_secondary = analytica_get_option( 'font-secondary-base' );
-     $accent_color = analytica_get_option( 'accent-color' );
+     $accent_color = analytica_get_option( 'site-accent-color' );
 
      $font_secondary_color = ! empty( $font_secondary['color'] ) ? $font_secondary['color'] : '';
      $font_base_color = ! empty( $font_base['color'] ) ? $font_base['color'] : '';
 
      $schemes = [
-         'energia' => [
+         'analytica' => [
              'title' => 'Energia',
              'items' => [
                  '1' => $font_secondary_color, // Title colors
@@ -148,13 +148,13 @@ function analytica_live_qazana_default_color_picker_schemes( $schemes ) {
 
      $font_base = analytica_get_option( 'font-base' );
      $font_secondary = analytica_get_option( 'font-secondary-base' );
-     $accent_color = analytica_get_option( 'accent-color' );
+     $accent_color = analytica_get_option( 'site-accent-color' );
 
      $font_secondary_color = ! empty( $font_secondary['color'] ) ? $font_secondary['color'] : '';
      $font_base_color = ! empty( $font_base['color'] ) ? $font_base['color'] : '';
 
      $schemes = [
-         'energia' => [
+         'analytica' => [
             'title' => wp_get_theme()->get( 'Name' ),
             'items' => [
                  '1' => $font_secondary_color, // Title colors
@@ -192,7 +192,7 @@ function analytica_live_qazana_reset_schemes( $locations ) {
 
             $font_base = analytica_get_option( 'font-base' );
             $font_secondary = analytica_get_option( 'font-secondary-base' );
-            $accent_color = analytica_get_option( 'accent-color' );
+            $accent_color = analytica_get_option( 'site-accent-color' );
 
             $font_secondary_color = ! empty( $font_secondary['color'] ) ? $font_secondary['color'] : '';
             $font_base_color = ! empty( $font_base['color'] ) ? $font_base['color'] : '';

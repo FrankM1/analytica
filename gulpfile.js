@@ -232,10 +232,10 @@ gulp.task("frontendcss", function() {
 		)
 		.on("error", gutil.log)
 		.pipe(sourcemaps.write({ includeContent: false }))
-		pipe(sourcemaps.init({ loadMaps: true }))
-		.pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
-		.pipe(sourcemaps.write("./"))
-		.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
+		//.pipe(sourcemaps.init({ loadMaps: true }))
+		//.pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
+		//.pipe(sourcemaps.write("./"))
+		//.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
 		.pipe(gulp.dest(FrontendStyleDestination))
 		.pipe(filter("**/*.css")) // Filtering stream to only css files
 		.pipe(

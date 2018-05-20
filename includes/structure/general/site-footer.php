@@ -102,7 +102,7 @@ function analytica_footer_widget_areas() {
 
     // Get footer layout
     $layout = analytica_get_option( 'site-footer-layout' );
-    $container_class = analytica_get_option( 'footer-width' ) ? 'full-width' : 'analytica-container';
+    $container_class = analytica_get_option( 'footer-width' ) ? 'site-footer-fullwidth' : 'analytica-container';
 
     $inside = '';
     $output = '';
@@ -126,10 +126,10 @@ function analytica_footer_widget_areas() {
     endif;
 
     if ( is_active_sidebar( $sidebar_1 ) || is_active_sidebar( $sidebar_2, $layout ) || is_active_sidebar( $sidebar_3, $layout ) || is_active_sidebar( $sidebar_4, $layout ) || is_active_sidebar( $sidebar_5, $layout ) ) :
-		$inside .= '<div class="top">';
-			$inside .= '<div class="top-inner">';
+		$inside .= '<div class="site-footer-top">';
+			$inside .= '<div class="site-footer-top-inner">';
                 $inside .= '<div class="' . $container_class . '">';
-                    $inside .= '<div class="site-footer-row">';
+                    $inside .= '<div class="site-footer-row analytica-row">';
 
 						switch( $layout ) :
 							case 'layout-1' :
@@ -367,7 +367,7 @@ function analytica_footer_widget_areas() {
     if ( $inside ) {
         $output .= analytica_markup(array(
             'element' => '<div %s>',
-            'context' => 'footer-widgets',
+            'context' => 'site-footer-widgets',
         ));
 
         $output .= $inside;

@@ -167,6 +167,7 @@ class Core {
         $this->loop             = new Content\Loop();
         $this->options_instance = new Options();
         $this->customizer       = new Customizer();
+        $this->customizer       = new Metabox\Actions();
     }
 
     /**
@@ -208,8 +209,6 @@ class Core {
         if ( is_admin() ) {
             require_once get_theme_file_path( '/includes/config/metabox/meta-boxes.php' );
         }
-    
-        require_once get_theme_file_path( '/includes/config/metabox/meta-box-operations.php' );
 
         require_once get_theme_file_path( '/includes/config/strings.php' );
     }
@@ -221,6 +220,7 @@ class Core {
         require_once get_theme_file_path( '/includes/classes/css/css-generate.php' );
         require_once get_theme_file_path( '/includes/classes/customizer/customizer.php' );
         require_once get_theme_file_path( '/includes/classes/customizer/functions.php' );
+        require_once get_theme_file_path( '/includes/classes/metaboxes/actions.php' );
     }
 
     function _include_function() {
