@@ -212,17 +212,10 @@ function analytica_site_layout( $use_cache = false ) {
     $site_layout = analytica_get_option( 'site-sidebar-layout' );
 
     // Exit early if all sidebars disabled on mobile
-    if ( wp_is_mobile() && ! analytica_get_option( 'site-sidebar-enable-mobile' ) ) {
-        return apply_filters( 'analytica_site_layout', __analytica_return_full_width_content() );
-    }
-
-    // Exit early if all sidebars disabled on tablet
-   // if ( analytica_is_tablet() && ! analytica_get_option( 'site_sidebar_enable_tablet' ) ) {
-        //return apply_filters( 'analytica_site_layout', __analytica_return_full_width_content() );
-    //}
-
-    // Exit early if all sidebars disabled
-    if ( ! analytica_get_option( 'site-sidebar-enable' ) ) {
+    if ( 
+        ( wp_is_mobile() && ! analytica_get_option( 'site-sidebar-enable-mobile' ) ) ||
+        ! analytica_get_option( 'site-sidebar-enable' )
+    ) {
         return apply_filters( 'analytica_site_layout', __analytica_return_full_width_content() );
     }
 

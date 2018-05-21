@@ -32,7 +32,7 @@ function analytica_page_builder_body_class( $classes ) {
     return $classes;
 }
 
-add_filter( 'analytica_get_option', 'analytica_page_builder_site_layout', 10, 4 );
+add_filter( 'analytica_site_layout_pre', 'analytica_page_builder_site_layout', 10, 4 );
 /**
  * Change page builder page layout
  *
@@ -40,16 +40,13 @@ add_filter( 'analytica_get_option', 'analytica_page_builder_site_layout', 10, 4 
  *
  * @return boolean
  */
-function analytica_page_builder_site_layout( $value, $option_id, $default_value, $post_id ) {
-    
-    if ( analytica_is_builder_page() && $option_id === 'site-layout' ) {
-       return 'site-fullwidth';
+function analytica_page_builder_site_layout( $value ) {
+    if ( analytica_is_builder_page() ) {
+       return __analytica_return_full_width_content();
     }
-
-    return $value;
 }
 
-add_filter( 'analytica_is_hero_available', 'analytica_page_builder_is_hero_available' );
+add_filter( 'analytica_is_site_hero_available', 'analytica_page_builder_is_hero_available' );
 /**
  * Detect page builder page
  *

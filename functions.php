@@ -232,7 +232,7 @@ class Core {
         require_once get_theme_file_path( '/includes/functions/menu.php' );
         require_once get_theme_file_path( '/includes/functions/layout.php' );
 
-        require_once get_theme_file_path( '/includes/structure/general/header.php' );
+        require_once get_theme_file_path( '/includes/structure/general/general-header.php' );
         require_once get_theme_file_path( '/includes/structure/general/css-classes.php' );
         require_once get_theme_file_path( '/includes/structure/general/template-tags.php' );
         require_once get_theme_file_path( '/includes/structure/general/template-parts.php' );
@@ -282,7 +282,7 @@ class Core {
         require_once get_theme_file_path( '/includes/structure/general/site-header.php' );
         require_once get_theme_file_path( '/includes/structure/general/site-layout.php' );
         require_once get_theme_file_path( '/includes/structure/general/site-sidebar.php' );
-        require_once get_theme_file_path( '/includes/structure/pages/hero.php' );
+        require_once get_theme_file_path( '/includes/structure/general/site-hero.php' );
     }
 
     function _include_menus() {

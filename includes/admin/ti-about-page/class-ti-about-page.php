@@ -102,7 +102,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		 */
 		public function setup_config() {
 			$theme = wp_get_theme();
-			if ( is_child_theme() ) {
+			if ( is_child_theme() && is_object( $theme->parent() ) ) {
 				$this->theme_name = $theme->parent()->get( 'Name' );
 				$this->theme      = $theme->parent();
 			} else {

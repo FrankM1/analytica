@@ -9,7 +9,7 @@
  * @link     https://qazana.net/
  */
 
-if ( ! analytica_header_is_active() && empty( get_theme_mod('header') ) ) {
+if ( ! analytica_header_is_active() && empty( get_theme_mod('site-header') ) ) {
     return;
 }
 

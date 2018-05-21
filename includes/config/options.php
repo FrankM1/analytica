@@ -45,46 +45,46 @@ class Options
     {
 
         $primary = [
-            'font-family' => 'Rubik',
             'color' => '#535353',
+            'font-family' => 'Rubik',
         ];
 
         $secondary = [
+            'color' => '#3a3a3a',
             'font-family' => 'Poppins',
-            'color' => '#000',
         ];
 
         return apply_filters( 'analytica_theme_defaults', array(
-            
+
             // General
-            'site-settings-update-time' => '',
             'site-css-print-method'     => 'external',
             'site-publisher-uri'        => get_site_url(),
+            'site-settings-update-time' => '',
 
             // Site Layout.
-            'site-description'    => 0,
-            'site-layout'         => 'site-fullwidth',
-            'site-layout-offset'  => '0',
             'site-content-width'  => 1200,
+            'site-description'    => 0,
+            'site-layout-offset'  => '0',
+            'site-layout'         => 'site-fullwidth',
             'site-sidebar-layout' => 'content-sidebar',
 
             // Colors
-            'site-text-color'   => '#3a3a3a',
-            'site-accent-color' => '#4f02b3',
-            'site-background-color' => '#fff',
-            'site-accent-color'  => '#0274be',
-            'site-link-color'   => '#0274be',
-            'site-link-highlight-color' => '#3a3a3a',
+            'site-accent-color'             => '#0274be',
+            'site-background-color'         => '#fefefe',
+            'site-content-background-color' => '#ffffff',
+            'site-link-color'               => '#0274be',
+            'site-link-highlight-color'     => '#3a3a3a',
+            'site-text-color'               => '#3a3a3a',
 
             // Container.
-            'site-detach-containers' => true,
+            'site-detach-containers' => false,
             'site-dual-containers'   => false,
 
             // Sidebars
-            'site-sidebar-width'         => 360,
-            'site-sidebar-enable'        => true,
-            'site-sidebar-enable-tablet' => true,
             'site-sidebar-enable-mobile' => false,
+            'site-sidebar-enable-tablet' => true,
+            'site-sidebar-enable'        => true,
+            'site-sidebar-width'         => 360,
             'site-sidebar-supported'     => [
                 'post',
                 'page',
@@ -106,40 +106,36 @@ class Options
             ////// IMPLEMENT
 
             // Header
-            'header'                  => true,
-            'header-background-color' => '#fff',
-            'header-menu-layout'      => 'header-logo-left',
-            'header-overlay'          => false,
-            'header-overlay'          => false,
-            'header-scripts'          => '',
-            'header-sticky'           => false,
-            'header-sticky'           => false,
-            'header-transparent'      => false,
-            'header-width'            => 'layout-boxed',
+            'site-header'                  => true,
+            'site-header-background-color' => '#fff',
+            'site-header-menu-layout'      => 'header-logo-left',
+            'site-header-overlay'          => false,
+            'site-header-sticky'           => false,
+            'site-header-transparent'      => false,
+            'site-header-width'            => 'layout-boxed',
 
             // Hero Section
-            'hero'                   => true,
-            'hero-background-size'          => 'cover',
-            'hero-background-color-base'    => 'light',
-            'hero-background-color'         => '',
-            'hero-background-fixed'         => '',
-            'hero-background'               => true,
-            'hero-background-inherit'       => true,
-            'hero-background-position'      => 'center center',
-            'hero-background-image'         => analytica()->theme_url . '/assets/frontend/images/defaults/hero-background.jpg',
-            'hero-background-overlay-color' => 'rgba(10, 10, 10, 1)',
-            'hero-background-repeat'        => 'no-repeat',
-            'hero-height'                   => 350,
-            'hero-height-mobile'            => 200,
-            'hero-fullheight'               => false,
-            'hero-show-subtitle'            => true,
-            'hero-show-title'               => true,
-            'hero-subtitle'                 => '',
-            'hero-parallax'                 => false,
-            'hero-breadcrumbs'              => true,
-
-            'hero-text-alignment'           => 'text-center',
-            'hero-header-font'              => [
+            'site-hero-background-color-base'    => 'light',
+            'site-hero-background-color'         => '',
+            'site-hero-background-fixed'         => '',
+            'site-hero-background-image'         => analytica()->theme_url . '/assets/frontend/images/defaults/hero-background.jpg',
+            'site-hero-background-inherit'       => true,
+            'site-hero-background-overlay-color' => 'rgba(10, 10, 10, 1)',
+            'site-hero-background-position'      => 'center center',
+            'site-hero-background-repeat'        => 'no-repeat',
+            'site-hero-background-size'          => 'cover',
+            'site-hero-background'               => true,
+            'site-hero-breadcrumbs'              => true,
+            'site-hero-fullheight'               => false,
+            'site-hero-height-mobile'            => 200,
+            'site-hero-height'                   => 350,
+            'site-hero-parallax'                 => false,
+            'site-hero-show-subtitle'            => true,
+            'site-hero-show-title'               => true,
+            'site-hero-subtitle'                 => '',
+            'site-hero-text-alignment'           => 'text-center',
+            'site-hero'                          => true,
+            'site-hero-header-font'              => [
                 'font-family'    => $secondary['font-family'],
                 'variant'        => 'regular',
                 'font-size'      => '52px',
@@ -149,7 +145,7 @@ class Options
                 'text-transform' => 'none',
                 'variant'        => 'regular',
             ],
-            'hero-subheader-font' => [
+            'site-hero-subheader-font' => [
                 'font-family'    => $secondary['font-family'],
                 'variant'        => 'regular',
                 'font-size'      => '24px',
@@ -158,7 +154,7 @@ class Options
                 'color'          => '#ffffff',
                 'text-transform' => 'none',
             ],
-            'hero-header-padding' => [
+            'site-hero-header-padding' => [
                 'top'    => '',
                 'bottom' => '',
                 'left'   => '',
@@ -260,22 +256,12 @@ class Options
                 'font-family' => $primary['font-family'],
             ],
 
-            'site-credit-typography' => [
-                'font-family'    => $primary['font-family'],
-                'font-size'      => '13px',
-                'line-height'    => '23px',
-                'letter-spacing' => '0',
-                'variant'        => 'regular',
-                'text-transform' => 'none',
-                'text-align'     => 'center',
-            ],
-
             // Blog
             'featured-image'                   => true,
             'single-post-site-container-width' => '',
             'single-post-site-sidebar-width'   => '',
             'single-post-layout'               => 'content-sidebar',
-            'single-post-hero'                 => true,
+            'single-post-site-hero'            => true,
             'single-post-structure'            => array(
                 'single-image',
                 'single-title-meta',
@@ -287,7 +273,7 @@ class Options
             ),
 
             // Archives
-            'archives-hero'             => true,
+            'archive-site-hero'         => true,
             'archive-frontpage-title'   => esc_html__( 'Latest posts', 'analytica' ),
             'archive-sidebar-layout'    => '',
             'archive-content-structure' => array(
@@ -302,19 +288,28 @@ class Options
             ),
 
             // Footer
-            'site-footer'                => true,
-            'site-footer-width'          => true,
-            'site-footer-layout'         => '4',
-            'site-footer-copyright-text' => esc_html__('Copyright &copy; [year] Radium Themes. All rights reserved.', 'analytica'),
-            'site-theme-badge'           => true,
             'site-back-to-top'           => true,
+            'site-footer-copyright-text' => esc_html__('Copyright &copy; [year] Radium Themes. All rights reserved.', 'analytica'),
+            'site-footer-layout'         => '4',
+            'site-footer-width'          => true,
+            'site-footer'                => true,
+            'site-theme-badge'           => true,
+            'site-credit-typography'     => [
+                'font-family'    => $primary['font-family'],
+                'font-size'      => '13px',
+                'line-height'    => '23px',
+                'letter-spacing' => '0',
+                'variant'        => 'regular',
+                'text-transform' => 'none',
+                'text-align'     => 'center',
+            ],
 
             'footer-accent-color'          => '',
             'footer-body-color'            => '',
-            'footer-link-color'            => '',
-            'footer-headers-color'         => '',
             'footer-border-color'          => '',
             'footer-colophon-border-color' => 'rgba(255,255,255,0.09)',
+            'footer-headers-color'         => '',
+            'footer-link-color'            => '',
             'footer-background'            => [
                 'color'    => 'rgba(0,0,0,1)',
                 'image'    => '',
@@ -326,13 +321,13 @@ class Options
             /////////////////////////////////////////////////////////
           
             // Buttons.
-            'button-color'      => '',
-            'button-h-color'    => '',
             'button-bg-color'   => '',
             'button-bg-h-color' => '',
+            'button-color'      => '',
+            'button-h-color'    => '',
+            'button-h-padding'  => 40,
             'button-radius'     => 2,
             'button-v-padding'  => 10,
-            'button-h-padding'  => 40,
         ));
     }
 

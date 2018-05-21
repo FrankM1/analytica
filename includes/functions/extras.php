@@ -113,46 +113,6 @@ function analytica_edit_post_link( $text, $before = '', $after = '', $id = 0, $c
     }
 }
 
-/**
- * Function to get Header Classes
- *
- * @since 1.0.0
- */
-function analytica_header_classes() {
-
-    $classes                  = array( 'site-header' );
-    $menu_logo_location       = analytica_get_option( 'header-layouts' );
-    $mobile_header_alignment  = analytica_get_option( 'header-main-menu-align' );
-    $primary_menu_disable     = analytica_get_option( 'disable-primary-nav' );
-    $primary_menu_custom_item = analytica_get_option( 'header-main-rt-section' );
-    $logo_title_inline        = analytica_get_option( 'logo-title-inline' );
-
-    if ( $menu_logo_location ) {
-        $classes[] = $menu_logo_location;
-    }
-
-    if ( $primary_menu_disable ) {
-
-        $classes[] = 'analytica-primary-menu-disabled';
-
-        if ( 'none' == $primary_menu_custom_item ) {
-            $classes[] = 'analytica-no-menu-items';
-        }
-    }
-    // Add class if Inline Logo & Site Title.
-    if ( $logo_title_inline ) {
-        $classes[] = 'analytica-logo-title-inline';
-    }
-
-    $classes[] = 'analytica-mobile-header-' . $mobile_header_alignment;
-
-    $classes = array_unique( apply_filters( 'analytica_header_class', $classes ) );
-
-    $classes = array_map( 'sanitize_html_class', $classes );
-
-    echo 'class="' . esc_attr( join( ' ', $classes ) ) . '"';
-}
-
 add_filter( 'comment_form_default_fields', 'analytica_comment_form_default_fields_markup' );
 /**
  * Function filter comment form's default fields

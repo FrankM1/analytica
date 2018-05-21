@@ -1,6 +1,6 @@
 // Page header
 // -------------------------
-.hero {
+.site-hero {
     @include clearfix;
     position: relative;
     margin: 0;
@@ -9,7 +9,7 @@
     @media (min-width: $screen-sm-min) {
         min-height: $grid-gutter-width;
     }
-    .hero-background-container {
+    .site-hero-background-container {
         position: absolute;
         top: 0;
         right: 0;
@@ -18,7 +18,7 @@
         z-index: 0;
         background-color: rgba(0, 0, 0, .3);
     }
-    .hero-overlay-color {
+    .site-hero-overlay-color {
         position: static;
         margin-left: -9999px;
         width: 1px;
@@ -36,11 +36,11 @@
             opacity: .65;
         }
     }
-    &.hero-height-full,
-    &.hero-height-full .hero-wrapper {
+    &.site-hero-height-full,
+    &.site-hero-height-full .site-hero-wrapper {
         height: 100vh;
     }
-    .hero-wrapper {
+    .site-hero-wrapper {
         display: flex;
         align-items: center;
         height: 100%;
@@ -91,22 +91,22 @@
 }
 
 @media only screen and (max-width: 1023px) {
-    .hero,
-    .hero .hero-wrapper {
+    .site-hero,
+    .site-hero-wrapper {
         min-height: 150px;
     }
 }
 
 @media only screen and (max-width: 767px) {
-    .hero,
-    .hero .hero-wrapper {
+    .site-hero,
+    .site-hero-wrapper {
         height: 110px;
         min-height: auto;
     }
-    .site-inner .hero .hero-wrapper .header {
+    .site-hero-wrapper .header {
         font-size: 25px;
     }
-    .hero .hero-wrapper .subheader {
+    .site-hero-wrapper .subheader {
         font-size: 16px;
     }
 }

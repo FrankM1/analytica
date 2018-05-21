@@ -19,10 +19,10 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
 
     $controls[] = [
 		'label'   => esc_html__( 'Page Header', 'analytica' ),
-		'id'      => 'hero',
+		'id'      => 'site-hero',
 		'type'    => 'radio-buttonset',
-		'section' => 'hero-settings',
-		'default' => $default['hero'],
+		'section' => 'site-hero-settings',
+		'default' => $default['site-hero'],
 		'options' => [
 			'on'  => esc_html__( 'Enable', 'analytica' ),
 			'off' => esc_html__( 'Disable', 'analytica' ),
@@ -30,11 +30,11 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
 	];
 
     $controls[] = [
-        'id'      => 'single-post-hero',
+        'id'      => 'single-post-site-hero',
         'section' => 'single_post_settings',
         'type'    => 'switch',
         'label'   => esc_html__( 'Display page header section on posts', 'analytica' ),
-        'default' => $default['single-post-hero'],
+        'default' => $default['single-post-site-hero'],
         'conditions' => [
             [
                 'setting'  => 'single_post_style',
@@ -45,20 +45,20 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
     ];
 
     $controls[] = [
-        'id'      => 'archives-hero',
+        'id'      => 'archive-site-hero',
         'section' => 'archive_settings',
         'type'    => 'switch',
         'label'   => esc_html__( 'Display page header on post archives', 'analytica' ),
-        'default' => $default['archives-hero'],
+        'default' => $default['archive-site-hero'],
     ];
 
     $controls[] = [
         'label'   => esc_html__( 'Full window height', 'analytica' ),
         'desc'    => esc_html__( 'Sets full window height for custom header', 'analytica' ),
-        'id'      => 'hero-fullheight',
+        'id'      => 'site-hero-fullheight',
         'type'    => 'radio-buttonset',
-        'section' => 'hero-settings',
-        'default'         => $default['hero-fullheight'],
+        'section' => 'site-hero-settings',
+        'default'         => $default['site-hero-fullheight'],
         'options' => [
             'on'  => esc_html__( 'On', 'analytica' ),
             'off' => esc_html__( 'Off', 'analytica' ),
@@ -68,13 +68,13 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
     $controls[] = [
         'label'           => esc_html__( 'Custom header height in px', 'analytica' ),
         'desc'            => esc_html__( 'Allows you to set the custom header height', 'analytica' ),
-        'id'              => 'hero-height',
+        'id'              => 'site-hero-height',
         'type'            => 'text',
-        'default'         => $default['hero-height'],
-        'section'         => 'hero-settings',
+        'default'         => $default['site-hero-height'],
+        'section'         => 'site-hero-settings',
         'conditions' => [
             [
-                'setting'  => 'hero-fullheight',
+                'setting'  => 'site-hero-fullheight',
                 'operator' => '==',
                 'value'    => 'off',
             ],
@@ -84,10 +84,10 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
     $controls[] = [
 		'label'   => esc_html__( 'Background color scheme style', 'analytica' ),
 		'desc'    => esc_html__( 'According to the color scheme you choose the text colors will be changed to make it more readable.', 'analytica' ),
-        'id'      => 'hero-background-color-base',
-        'default' => $default['hero-background-color-base'],
+        'id'      => 'site-hero-background-color-base',
+        'default' => $default['site-hero-background-color-base'],
 		'type'    => 'radio-buttonset',
-		'section' => 'hero-settings',
+		'section' => 'site-hero-settings',
 		'options' => [
             'background-dark'  => esc_html__( 'Light', 'analytica' ),
             'background-light' => esc_html__( 'Dark', 'analytica' ),
@@ -97,11 +97,11 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
     $controls[] = [
         'label'   => esc_html__( 'Text alignment','analytica' ),
         'desc'    => esc_html__( 'Choose the text alignment in the custom header.', 'analytica' ),
-        'id'      => 'hero-text-alignment',
+        'id'      => 'site-hero-text-alignment',
         'type'    => 'radio-buttonset',
-        'section' => 'hero-settings',
+        'section' => 'site-hero-settings',
         'transport' => 'auto',
-        'default' => $default['hero-text-alignment'],
+        'default' => $default['site-hero-text-alignment'],
         'options' => [
             'text-left'   => esc_html__( 'Left', 'analytica' ),
             'text-center' => esc_html__( 'Center', 'analytica' ),
@@ -111,10 +111,10 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
 
     $controls[] = [
 		'label'   => esc_html__( 'Enable background image', 'analytica' ),
-		'id'      => 'hero-background',
+		'id'      => 'site-hero-background',
 		'type'    => 'radio-buttonset',
-		'section' => 'hero-background',
-		'default' => $default['hero-background'],
+		'section' => 'site-hero-background',
+		'default' => $default['site-hero-background'],
 		'options' => [
 			'on'  => esc_html__( 'Enable', 'analytica' ),
 			'off' => esc_html__( 'Disable', 'analytica' ),
@@ -124,14 +124,14 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
     $controls[] = [
 		'label'     => esc_html__( 'Background image','analytica' ),
 		'desc'      => esc_html__( 'Select image for custom header background', 'analytica' ),
-		'id'        => 'hero-background-image',
-		'default'   => $default['hero-background-image'],
+		'id'        => 'site-hero-background-image',
+		'default'   => $default['site-hero-background-image'],
 		'type'      => 'image',
 		'transport' => 'auto',
-        'section'   => 'hero-background',
+        'section'   => 'site-hero-background',
         'conditions' => [
             [
-                'setting'  => 'hero-background',
+                'setting'  => 'site-hero-background',
                 'operator' => '==',
                 'value'    => 'on',
             ],
@@ -139,27 +139,27 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
     ];
 
     $controls[] = [
-        'id'      => 'hero-background-inherit',
-        'section' => 'hero-background',
+        'id'      => 'site-hero-background-inherit',
+        'section' => 'site-hero-background',
         'type'    => 'switch',
         'label'   => esc_html__( 'Inherit featured images', 'analytica' ),
         'desc'    => esc_html__( 'Allows the page header to use the post\'s featured images as a background when available. This will override the image above.', 'analytica' ),
-        'default' => $default['hero-background-inherit'],
+        'default' => $default['site-hero-background-inherit'],
     ];
 
     $controls[] = [
         'label'   => esc_html__( 'Custom header parallax effect','analytica' ),
-        'id'      => 'hero-parallax',
+        'id'      => 'site-hero-parallax',
         'type'    => 'radio-buttonset',
-        'section' => 'hero-settings',
-        'default'         => $default['hero-parallax'],
+        'section' => 'site-hero-settings',
+        'default'         => $default['site-hero-parallax'],
         'options' => [
             'on'  => esc_html__( 'On', 'analytica' ),
             'off' => esc_html__( 'Off', 'analytica' ),
         ],
         'conditions' => [
             [
-                'setting'  => 'hero-background',
+                'setting'  => 'site-hero-background',
                 'operator' => '==',
                 'value'    => 'on',
             ],
@@ -169,24 +169,24 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
     $controls[] = [
 		'label'     => esc_html__( 'Background color','analytica' ),
 		'desc'      => esc_html__( 'The background color will be shown if the image is not set for the custom header.', 'analytica' ),
-		'id'        => 'hero-background-color',
-		'default'   => $default['hero-background-color'],
+		'id'        => 'site-hero-background-color',
+		'default'   => $default['site-hero-background-color'],
 		'type'      => 'color',
 		'transport' => 'auto',
-		'section'   => 'hero-background',
+		'section'   => 'site-hero-background',
 	];
 
     $controls[] = [
 		'label'     => esc_html__( 'Background overlay color','analytica' ),
 		'desc'      => esc_html__( 'The background color will be as an overlay.', 'analytica' ),
-		'id'        => 'hero-background-overlay-color',
-		'default'   => $default['hero-background-overlay-color'],
+		'id'        => 'site-hero-background-overlay-color',
+		'default'   => $default['site-hero-background-overlay-color'],
 		'type'      => 'color',
 		'transport' => 'auto',
-		'section'   => 'hero-background',
+		'section'   => 'site-hero-background',
 		'output'    => [
             array(
-                'element'  => '.hero-overlay-color',
+                'element'  => '.site-hero-overlay-color',
                 'property' => 'background-color',
             ),
         ],
@@ -195,10 +195,10 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
     $controls[] = [
 		'label'   => esc_html__( 'Background image position','analytica' ),
 		'desc'    => esc_html__( 'The background position sets the starting position of a background image.', 'analytica' ),
-		'id'      => 'hero-background-position',
+		'id'      => 'site-hero-background-position',
 		'type'    => 'select',
-		'default' => $default['hero-background-position'],
-		'section' => 'hero-background',
+		'default' => $default['site-hero-background-position'],
+		'section' => 'site-hero-background',
 		'options' => [
 			''              => esc_html__( 'Default', 'analytica' ),
 			'left top'      => esc_html__( 'left top', 'analytica' ),
@@ -213,7 +213,7 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
         ],
         'conditions' => [
             [
-                'setting'  => 'hero-background',
+                'setting'  => 'site-hero-background',
                 'operator' => '==',
                 'value'    => 'on',
             ],
@@ -223,10 +223,10 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
     $controls[] = [
 		'label'   => esc_html__( 'Background size','analytica' ),
 		'desc'    => esc_html__( 'Adjust the background image displaying.', 'analytica' ),
-		'id'      => 'hero-background-size',
+		'id'      => 'site-hero-background-size',
 		'type'    => 'radio-buttonset',
-		'section' => 'hero-background',
-		'default' => $default['hero-background-size'],
+		'section' => 'site-hero-background',
+		'default' => $default['site-hero-background-size'],
 		'options' => [
 		  	'initial' => esc_html__( 'Initial', 'analytica' ),
 		  	'contain' => esc_html__( 'Contain', 'analytica' ),
@@ -234,7 +234,7 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
         ],
         'conditions' => [
             [
-                'setting'  => 'hero-background',
+                'setting'  => 'site-hero-background',
                 'operator' => '==',
                 'value'    => 'on',
             ],
@@ -244,10 +244,10 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
     $controls[] = [
 		'label'   => esc_html__( 'Background attachment style', 'analytica' ),
 		'desc'    => esc_html__( 'When scroll background style is enabled, the background image scrolls with the content. When fixed background style is enabled, the background image is fixed and content scrolls over it. When initial background style is enabled, the background image and content will be fixed.', 'analytica' ),
-		'id'      => 'hero-background-fixed',
-		'default' => $default['hero-background-fixed'],
+		'id'      => 'site-hero-background-fixed',
+		'default' => $default['site-hero-background-fixed'],
 		'type'    => 'radio-buttonset',
-		'section' => 'hero-background',
+		'section' => 'site-hero-background',
 		'options' => [
 			'initial' => esc_html__( 'Initial', 'analytica' ),
 			'scroll'  => esc_html__( 'Scroll', 'analytica' ),
@@ -255,7 +255,7 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
         ],
         'conditions' => [
             [
-                'setting'  => 'hero-background',
+                'setting'  => 'site-hero-background',
                 'operator' => '==',
                 'value'    => 'on',
             ],
@@ -265,10 +265,10 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
     $controls[] = [
 		'label'   => esc_html__( 'Background repeat', 'analytica' ),
 		'desc'    => esc_html__( 'Allows you to repeat or do not repeat the image set on the background.', 'analytica' ),
-		'id'      => 'hero-background-repeat',
-		'default' => $default['hero-background-repeat'],
+		'id'      => 'site-hero-background-repeat',
+		'default' => $default['site-hero-background-repeat'],
 		'type'    => 'radio-buttonset',
-		'section' => 'hero-background',
+		'section' => 'site-hero-background',
 		'options' => [
 			'no-repeat' => esc_html__( 'No repeat', 'analytica' ),
 			'repeat-x'  => esc_html__( 'Repeat-X', 'analytica' ),
@@ -277,7 +277,7 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
         ],
         'conditions' => [
             [
-                'setting'  => 'hero-background',
+                'setting'  => 'site-hero-background',
                 'operator' => '==',
                 'value'    => 'on',
             ],
@@ -287,9 +287,9 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
     $controls[] = [
         'label'     => esc_html__( 'Header Font', 'analytica' ),
         'desc'      => esc_html__( 'The page header for your site.', 'analytica' ),
-        'id'        => 'hero-header-font',
-        'section'   => 'hero-typography',
-        'default'   => $default['hero-header-font'],
+        'id'        => 'site-hero-header-font',
+        'section'   => 'site-hero-typography',
+        'default'   => $default['site-hero-header-font'],
         'type'      => 'typography',
         'transport' => 'auto',
         'output'    => array(
@@ -301,11 +301,11 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
     ];
 
     $controls[] = [
-        'id'      => 'hero-header-padding',
+        'id'      => 'site-hero-header-padding',
         'type'    => 'spacing',
         'label'   => esc_html__( 'Heading padding', 'analytica' ),
-        'section' => 'hero-typography',
-        'default'   => $default['hero-header-padding'],
+        'section' => 'site-hero-typography',
+        'default'   => $default['site-hero-header-padding'],
         'transport' => 'auto',
         'output'    => [
             [
@@ -318,9 +318,9 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
     $controls[] = [
         'label'     => esc_html__( 'Sub header Font', 'analytica' ),
         'desc'      => esc_html__( 'The page subheader for your site.', 'analytica' ),
-        'id'        => 'hero-subheader-font',
-        'section'   => 'hero-typography',
-        'default'   => $default['hero-subheader-font'],
+        'id'        => 'site-hero-subheader-font',
+        'section'   => 'site-hero-typography',
+        'default'   => $default['site-hero-subheader-font'],
         'type'      => 'typography',
         'transport' => 'auto',
         'media_query' => '@media only screen and (min-width: 768px)',
@@ -335,7 +335,7 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
         'id'      => 'hero_subheader-padding',
         'type'    => 'spacing',
         'label'   => esc_html__( 'Sub heading padding', 'analytica' ),
-        'section' => 'hero-typography',
+        'section' => 'site-hero-typography',
         'default' => [
             'top'    => '10px',
             'bottom' => '10px',
@@ -359,32 +359,32 @@ add_action( 'customize_register', 'analytica_add_hero_panels_and_sections' );
  * Create the customizer panels and sections
  */
 function analytica_add_hero_panels_and_sections( $wp_customize ) {
-    $wp_customize->add_panel( 'hero', [
+    $wp_customize->add_panel( 'site-hero', [
         'priority' => 21,
         'title'    => esc_html__( 'Page Hero', 'analytica' ),
     ] );
 
-    $wp_customize->add_section( 'hero-settings', [
+    $wp_customize->add_section( 'site-hero-settings', [
         'title'    => esc_html__( 'Settings', 'analytica' ),
-        'panel'    => 'hero',
+        'panel'    => 'site-hero',
         'priority' => 22,
     ] );
 
-    $wp_customize->add_section( 'hero-background', [
+    $wp_customize->add_section( 'site-hero-background', [
         'title'    => esc_html__( 'Background', 'analytica' ),
-        'panel'    => 'hero',
+        'panel'    => 'site-hero',
         'priority' => 23,
     ] );
 
-    $wp_customize->add_section( 'hero-typography', [
+    $wp_customize->add_section( 'site-hero-typography', [
         'title'    => esc_html__( 'Typography', 'analytica' ),
-        'panel'    => 'hero',
+        'panel'    => 'site-hero',
         'priority' => 24,
     ] );
 
-    $wp_customize->add_section( 'hero-mobile', [
+    $wp_customize->add_section( 'site-hero-mobile', [
         'title'    => esc_html__( 'Mobile', 'analytica' ),
-        'panel'    => 'hero',
+        'panel'    => 'site-hero',
         'priority' => 24,
     ] );
 }

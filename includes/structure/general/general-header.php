@@ -192,21 +192,6 @@ function analytica_rel_publisher() {
 
 }
 
-add_filter( 'analytica_header_scripts', 'do_shortcode' );
-add_action( 'wp_head', 'analytica_header_scripts' );
-/**
- * Echo the header scripts, defined in Theme Settings.
- *
- * Applies the 'analytica_header_scripts' filter to the value returns from the header_scripts option.
- *
- * @since 1.0.0
- *
- * @uses analytica_get_option() Get theme setting value.
- */
-function analytica_header_scripts() {
-    echo apply_filters( 'analytica_header_scripts', analytica_get_option( 'header-scripts' ) );
-}
-
 add_action( 'analytica_site_title', 'analytica_site_header_title' );
 /**
  * Echo the site title into the header.
@@ -283,7 +268,7 @@ add_action( 'template_redirect', 'analytica_hero_support' );
  * @since 1.0.0
  */
 function analytica_hero_support() {
-    \Analytica\Core::instance()->hero = new \Analytica\Page_Hero();
+    \Analytica\Core::instance()->hero = new \Analytica\Site_Hero();
 }
 
 add_action( 'analytica_content_top', 'analytica_do_hero', 2 );
@@ -295,7 +280,7 @@ add_action( 'analytica_content_top', 'analytica_do_hero', 2 );
  * @since 1.0.0
  */
 function analytica_do_hero() {
-    if ( ! analytica_is_hero_available() ) {
+    if ( ! analytica_is_site_hero_available() ) {
         return;
     }
 

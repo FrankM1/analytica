@@ -50,7 +50,7 @@ class Theme {
          * Add custom headers
          */
         $defaults = array(
-            'default-image'          => analytica_get_option( 'hero-background-image' ), 
+            'default-image'          => analytica_get_option( 'site-hero-background-image' ), 
             'width'                  => 1200,
             'height'                 => 400,
             'flex-height'            => false,

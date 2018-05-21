@@ -10,12 +10,14 @@
 
 	.entry-header {
 		margin-bottom: 2em;
-	}
+    }
+    
+    .entry-content {
+        margin-bottom: 2em;
+    }
 
 	/* 1 - Single Post Navigation Styles */
 	.post-navigation {
-		
-		margin: 0;
 		padding: 2em 0 0;
 		border-top: 1px solid $color-border-content;
 		@media(max-width: $mx-col-md) {

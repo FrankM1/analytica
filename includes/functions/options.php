@@ -25,20 +25,16 @@
  */
 function analytica_get_option( $option_id, $default_value = null, $post_id = null, $post_meta = true, $prefix = '_analytica_' ) {
 
+    $value = null;
+    
     // Use analytica_get_post_id() if no $post_id is specified
     $post_id = ( null !== $post_id ? $post_id : analytica_get_post_id() );
 
-    if ( ! $post_id ) {
-        $post_meta = false;
-    }
-
-    if ( $post_meta ) {
+    if ( $post_id && $post_meta ) {
         $value = analytica_get_custom_field( $prefix . $option_id, $post_id );
-
-        if ( ! $value ) {
-            $value = \Analytica\Options::get_option( $option_id, $default_value );
-        }
-    } else {
+    }
+    
+    if ( ! $value ) {
         $value = \Analytica\Options::get_option( $option_id, $default_value );
     }
 

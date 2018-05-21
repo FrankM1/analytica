@@ -103,6 +103,7 @@ class Dynamic_CSS {
     }
 
     function generate_site_css( $parse_css ) {
+        $site_content_background_color       = analytica_get_option( 'site-content-background-color' );
         $link_color       = analytica_get_option( 'site-link-color' );
         $text_color       = analytica_get_option( 'site-text-color' );
         $accent_color       = analytica_get_option( 'site-accent-color' );
@@ -118,6 +119,14 @@ class Dynamic_CSS {
         }
 
         $css_output = array(
+
+            '.site-mono-container .site-container' => array(
+                'background-color' => esc_attr( $site_content_background_color ),
+            ),
+
+            '.site-dual-containers .site-main, .site-dual-containers .site-sidebar' => array(
+                'background-color' => esc_attr( $site_content_background_color ),
+            ),
 
             // Global CSS.
             '::selection'                             => array(
@@ -216,7 +225,7 @@ class Dynamic_CSS {
     function add_container_css( $css ) {
         $site_layout                        = analytica_get_option( 'site-layout' );
         $accent_color                       = analytica_get_option( 'site-accent-color' );
-        $site_header_color                  = analytica_get_option( 'header-background-color' );
+        $site_header_color                  = analytica_get_option( 'site-header-background-color' );
         $footer_border                      = analytica_get_option( 'site-footer-border' );
         $footer_colophon_border             = analytica_get_option( 'footer-colophon-border' );
         $offset                             = intval( analytica_get_option( 'site-layout-offset' ) );
@@ -226,7 +235,6 @@ class Dynamic_CSS {
         $site_sidebar_width                 = intval( analytica_get_option( 'site-sidebar-width' ) );
         $text_color       = analytica_get_option( 'site-text-color' );
         $link_color       = analytica_get_option( 'site-link-color' );
-
 
         $css .= 'a { color: ' . esc_attr( $link_color ) .'}';
 
@@ -272,13 +280,13 @@ class Dynamic_CSS {
                 .sidebar-content .site-main, 
                 .sidebar-sidebar-content .site-main { width: calc(100% - ' . $site_sidebar_width . 'px) }';
                 
-                $css .= '.sidebar-primary {
+                $css .= '.sidebar-primary .widget-area-inner {
                     width: ' . $site_sidebar_width . 'px;
                 }';
             }
 
             if ( $single_post_site_sidebar_width > 100 ) {
-                $css .= '.single-post .sidebar-primary {
+                $css .= '.single-post .sidebar-primary .widget-area-inner {
                     width: ' . $single_post_site_sidebar_width . 'px;
                 }';
             }
@@ -288,10 +296,10 @@ class Dynamic_CSS {
         $css .= '@media (min-width: 768px) {';
             if ( ! empty( $footer_colophon_border ) ) {
                 $css .= '.site-colophon {';
-                    $css .= 'border-top-width: ' . esc_attr( $footer_colophon_border['top'] ) . ';';
-                    $css .= 'border-left-width: ' . esc_attr( $footer_colophon_border['left'] ) . ';';
-                    $css .= 'border-bottom-width: ' . esc_attr( $footer_colophon_border['bottom'] ) . ';';
-                    $css .= 'border-right-width: ' . esc_attr( $footer_colophon_border['right'] ) . ';';
+                    $css .= ! empty( $footer_colophon_border['top'] ) ? 'border-top-width: ' . esc_attr( $footer_colophon_border['top'] ) . ';' : '';
+                    $css .= ! empty( $footer_colophon_border['left'] ) ? 'border-left-width: ' . esc_attr( $footer_colophon_border['left'] ) . ';': '';
+                    $css .= ! empty( $footer_colophon_border['bottom'] ) ? 'border-bottom-width: ' . esc_attr( $footer_colophon_border['bottom'] ) . ';': '';
+                    $css .= ! empty( $footer_colophon_border['right'] ) ? 'border-right-width: ' . esc_attr( $footer_colophon_border['right'] ) . ';': '';
                 $css .= '}';
             }
 

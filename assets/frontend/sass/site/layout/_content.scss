@@ -22,8 +22,10 @@
 .site-inner {
 	@extend %container;
 	display: flex;
-	margin: $grid-gutter-width auto;
-	flex-direction: column;
+    margin: $grid-gutter-width auto;
+    padding-left: $grid-gutter-width-half;
+    padding-right: $grid-gutter-width-half;
+    flex-direction: column;
 
 	@media (min-width: $screen-md-min) {
 		flex-direction: row;

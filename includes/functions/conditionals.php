@@ -32,7 +32,7 @@ function analytica_is_bool( $var ) {
 function analytica_header_is_active() {
     $retval = false;
 
-    if ( analytica_get_option( 'header' ) ) {
+    if ( analytica_get_option( 'site-header' ) ) {
         $retval = true;
     }
 
@@ -44,14 +44,14 @@ function analytica_header_is_active() {
 }
 
  /**
-  * Check if header is enabled on the page
+  * Check if hero sectopn is enabled on the page
   *
   * @return boolean
   */
- function analytica_is_hero_available() {
+ function analytica_is_site_hero_available() {
      $retval = true;
 
-     $option = analytica_get_option( 'hero' );
+     $option = analytica_get_option( 'site-hero' );
 
      if ( ! analytica_is_bool( $option ) ) {
          $retval = false;
@@ -62,11 +62,11 @@ function analytica_header_is_active() {
          $retval = true;
      }
 
-     if ( is_singular( 'post' ) && ! analytica_get_option( 'single-post-hero' ) ) {
+     if ( is_singular( 'post' ) && ! analytica_get_option( 'single-post-site-hero' ) ) {
          $retval = false;
      }
 
-     if ( is_archive() && ! analytica_get_option( 'archives-hero' ) ) {
+     if ( is_archive() && ! analytica_get_option( 'archive-site-hero' ) ) {
          $retval = false;
      }
 
