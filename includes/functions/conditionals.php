@@ -336,7 +336,7 @@ function analytica_is_colophon_available() {
 function analytica_footer_has_widgets() {
     $retval = true;
 
-    $option = analytica_get_option( 'footer-widgets' );
+    $option = analytica_get_option( 'site-footer-widgets' );
 
     if ( ! analytica_is_bool( $option ) ) {
         $retval = false;

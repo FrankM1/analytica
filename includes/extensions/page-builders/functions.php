@@ -62,3 +62,20 @@ function analytica_page_builder_is_hero_available( $retval ) {
 
     return $retval;
 }
+
+add_filter( 'analytica_pagination_enabled', 'analytica_page_builder_pagination' );
+/**
+ * Detect page builder page
+ *
+ * @since 1.0.0
+ *
+ * @return boolean
+ */
+function analytica_page_builder_pagination( $retval ) {
+
+    if ( analytica_is_builder_page() ) {
+        $retval = false;
+    }
+
+    return $retval;
+}

@@ -1,11 +1,10 @@
-/**
+/** 
  * # Header
  * -----------------------------------------------------------------------------------------------------
  */
 
 .site-header {
 	position: relative;
-	background-color: #993ed2;
 	@include clearfix;
 	padding: $grid-gutter-width-half;
 }

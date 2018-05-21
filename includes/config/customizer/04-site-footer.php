@@ -19,11 +19,12 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
 
     $new_controls = [
         [
-            'id'      => 'footer',
+            'id'      => 'site-footer',
             'section' => 'footer_general',
             'type'    => 'switch',
             'label'   => esc_html__( 'Enable Footer' , 'analytica' ),
             'default' => 1,
+            'default'   => $default['site-footer'],
             'options' => [
                 1 => esc_attr__( 'Enable', 'analytica' ),
                 0 => esc_attr__( 'Disable', 'analytica' ),
@@ -31,18 +32,18 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'      => 'footer-widgets',
+            'id'      => 'site-footer-widgets',
             'section' => 'footer_general',
             'type'    => 'switch',
             'label'   => esc_html__( 'Enable Footer Widgets' , 'analytica' ),
-            'default' => 1,
+            'default'   => $default['site-footer-widgets'],
             'options' => [
                 1 => esc_attr__( 'Enable', 'analytica' ),
                 0 => esc_attr__( 'Disable', 'analytica' ),
             ],
             'conditions' => [
                 [
-                    'setting'  => 'footer',
+                    'setting'  => 'site-footer',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -50,18 +51,19 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'      => 'footer-width',
+            'id'      => 'site-footer-width',
             'section' => 'footer_general',
             'type'    => 'switch',
             'label'   => esc_html__( 'Footer fullwidth' , 'analytica' ),
             'default' => 0,
+            'default'   => $default['site-footer-width'],
             'options' => [
                 1 => esc_attr__( 'Enable', 'analytica' ),
                 0 => esc_attr__( 'Disable', 'analytica' ),
             ],
             'conditions' => [
                 [
-                    'setting'  => 'footer',
+                    'setting'  => 'site-footer',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -110,15 +112,15 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
                 'layout-11' => $core->theme_url . '/assets/admin/images/footer/footer-11.png',
                 'layout-12' => $core->theme_url . '/assets/admin/images/footer/footer-12.png',
             ],
-            'default'         => 'layout-4',
+            'default'   => $default['site-footer-layout'],
             'conditions' => [
                 [
-                    'setting'  => 'footer',
+                    'setting'  => 'site-footer',
                     'operator' => '==',
                     'value'    => true,
                 ],
                 [
-                    'setting'  => 'footer-widgets',
+                    'setting'  => 'site-footer-widgets',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -150,10 +152,10 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             /* translators: %1$s: Theme name */
             'desc'            => sprintf( esc_html__( 'Support %1$s by displaying the %1$s badge on your site.', 'analytica' ), Analytica\Core::instance()->theme_title ),
             'type'            => 'switch',
-            'default'         => 1,
+            'default'   => $default['site-theme-badge'],
             'conditions' => [
                 [
-                    'setting'  => 'footer',
+                    'setting'  => 'site-footer',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -170,10 +172,10 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'            => 'switch',
             'transport'       => 'postMessage',
             'label'           => esc_html__( 'Back to Top Button', 'analytica' ),
-            'default'         => 1,
+            'default'   => $default['site-back-to-top'],
             'conditions' => [
                 [
-                    'setting'  => 'footer',
+                    'setting'  => 'site-footer',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -185,16 +187,11 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'      => 'footer-padding',
+            'id'      => 'site-footer-padding',
             'type'    => 'spacing',
             'label'   => esc_html__( 'Footer padding', 'analytica' ),
             'section' => 'footer_general',
-            'default' => [
-                'top'    => '40px',
-                'left'   => '',
-                'bottom' => '40px',
-                'right'  => '',
-            ],
+            'default'   => $default['site-footer-padding'],
             'transport' => 'auto',
             'output'    => [
                 [
@@ -204,7 +201,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             ],
             'conditions' => [
                 [
-                    'setting'  => 'footer',
+                    'setting'  => 'site-footer',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -216,7 +213,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'    => 'select',
             'label'   => esc_html__( 'Border style', 'analytica' ),
             'section' => 'footer_general',
-            'default' => 'solid',
+            'default'   => $default['site-footer-border-style'],
             'transport' => 'auto',
             'choices' => [
                 'solid' => 'solid',
@@ -229,7 +226,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             ],
             'conditions' => [
                 [
-                    'setting'  => 'footer',
+                    'setting'  => 'site-footer',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -241,16 +238,11 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'    => 'spacing',
             'label'   => esc_html__( 'Border', 'analytica' ),
             'section' => 'footer_general',
-            'default' => [
-                'top'    => '0',
-                'bottom' => '0',
-                'left'   => '0',
-                'right'  => '0',
-            ],
+            'default'   => $default['site-footer-border'],
             'transport' => 'auto',
             'conditions' => [
                 [
-                    'setting'  => 'footer',
+                    'setting'  => 'site-footer',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -263,7 +255,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'      => 'color',
             'transport' => 'auto',
             'label'     => esc_html__( 'Border Color' , 'analytica' ),
-            'default'   => '',
+            'default'   => $default['footer-border-color'],
             'output'    => [
                 [
                     'property' => 'border-color',
@@ -272,7 +264,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             ],
             'conditions' => [
                 [
-                    'setting'  => 'footer',
+                    'setting'  => 'site-footer',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -286,10 +278,10 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'            => 'color',
             'transport'       => 'auto',
             'label'           => esc_html__( 'Text Color' , 'analytica' ),
-            'default'         => 'rgba(255,255,255,0.5)',
+            'default'   => $default['footer-text-color'],
             'conditions' => [
                 [
-                    'setting'  => 'footer',
+                    'setting'  => 'site-footer',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -312,10 +304,10 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'            => 'color',
             'transport'       => 'auto',
             'label'           => esc_html__( 'Headings Color' , 'analytica' ),
-            'default'         => '#fff',
+            'default'   => $default['footer-headers-color'],
             'conditions' => [
                 [
-                    'setting'  => 'footer',
+                    'setting'  => 'site-footer',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -349,10 +341,10 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'            => 'color',
             'transport'       => 'auto',
             'label'           => esc_html__( 'Accent Color' , 'analytica' ),
-            'default'         => '#fff',
+            'default'   => $default['footer-accent-color'],
             'conditions' => [
                 [
-                    'setting'  => 'footer',
+                    'setting'  => 'site-footer',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -381,10 +373,10 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'            => 'color',
             'transport'       => 'auto',
             'label'           => esc_html__( 'Link Color' , 'analytica' ),
-            'default'         => '',
+            'default'   => $default['footer-link-color'],
             'conditions' => [
                 [
-                    'setting'  => 'footer',
+                    'setting'  => 'site-footer',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -409,17 +401,10 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'transport'   => 'auto',
             'label'       => esc_html__( 'Choose a background', 'analytica' ),
             'description' => esc_html__( 'The background you specify here will apply to the footer area', 'analytica' ),
-            'default'     => [
-                'color'    => '#000000',
-                'image'    => '',
-                'repeat'   => 'no-repeat',
-                'size'     => 'cover',
-                'attach'   => 'fixed',
-                'position' => 'left-top',
-            ],
+            'default'   => $default['footer-background'],
             'conditions' => [
                 [
-                    'setting'  => 'footer',
+                    'setting'  => 'site-footer',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -436,14 +421,14 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'section' => 'footer_copyright',
             'type'    => 'switch',
             'label'   => esc_html__( 'Enable colophon' , 'analytica' ),
-            'default' => 1,
+            'default'   => $default['footer-colophon'],
             'options' => [
                 1 => esc_attr__( 'Enable', 'analytica' ),
                 0 => esc_attr__( 'Disable', 'analytica' ),
             ],
             'conditions' => [
                 [
-                    'setting'  => 'footer',
+                    'setting'  => 'site-footer',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -455,7 +440,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'section' => 'footer_copyright',
             'type'    => 'switch',
             'label'   => esc_html__( 'Footer colophon fullwidth' , 'analytica' ),
-            'default' => 1,
+            'default'   => $default['footer-colophon-width'],
             'options' => [
                 1 => esc_attr__( 'Enable', 'analytica' ),
                 0 => esc_attr__( 'Disable', 'analytica' ),
@@ -495,7 +480,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'transport'       => 'postMessage',
             'type'            => 'textarea',
             'label'           => esc_html__( 'Copyright Text' , 'analytica' ),
-            'default'         => esc_html__( 'Copyright &copy; [year] Radium Themes. All rights reserved.', 'analytica' ),
+            'default'   => $default['site-footer-copyright-text'],
             'conditions' => [
                 [
                     'setting'  => 'footer-colophon',
@@ -509,19 +494,14 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
                     'function' => 'html',
                 ],
             ],
-        ], // copyright
+        ],
 
         [
             'id'      => 'footer-colophon-padding',
             'type'    => 'spacing',
             'label'   => esc_html__( 'Colophon Padding', 'analytica' ),
             'section' => 'footer_copyright',
-            'default' => [
-                'top'    => '20px',
-                'bottom' => '20px',
-                'left'   => '0',
-                'right'  => '0',
-            ],
+            'default'   => $default['footer-colophon-padding'],
             'transport' => 'auto',
             'output'    => [
                 [
@@ -543,7 +523,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'    => 'select',
             'label'   => esc_html__( 'Colophon border style', 'analytica' ),
             'section' => 'footer_copyright',
-            'default' => 'solid',
+            'default'   => $default['footer-colophon-border-style'],
             'transport' => 'auto',
             'choices' => [
                 'solid' => 'solid',
@@ -568,12 +548,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'    => 'spacing',
             'label'   => esc_html__( 'Colophon border', 'analytica' ),
             'section' => 'footer_copyright',
-            'default' => [
-                'top'    => '0',
-                'bottom' => '0',
-                'left'   => '0',
-                'right'  => '0',
-            ],
+            'default'   => $default['footer-colophon-border'],
             'transport' => 'auto',
             'conditions' => [
                 [
@@ -612,7 +587,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'      => 'color',
             'transport' => 'auto',
             'label'     => esc_html__( 'Colophon Color' , 'analytica' ),
-            'default'   => 'rgba(255,255,255,0.5)',
+            'default'   => $default['footer-colophon-color'],
             'output'    => [
                 [
                     'property' => 'color',
@@ -634,7 +609,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'      => 'color',
             'transport' => 'auto',
             'label'     => esc_html__( 'Colophon Links Color' , 'analytica' ),
-            'default'   => '#BCBCBC',
+            'default'   => $default['footer-colophon-links-color'],
             'output'    => [
                 [
                     'property' => 'color',
@@ -656,7 +631,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'      => 'color',
             'transport' => 'auto',
             'label'     => esc_html__( 'Colophon Background Color' , 'analytica' ),
-            'default'   => '#000',
+            'default'   => $default['footer-colophon-background-color'],
             'output'    => [
                 [
                     'property' => 'background-color',
@@ -684,26 +659,26 @@ add_action( 'customize_register', 'analytica_add_footer_panels_and_sections' );
  * Create the customizer panels and sections
  */
 function analytica_add_footer_panels_and_sections( $wp_customize ) {
-    $wp_customize->add_panel( 'footer', [
+    $wp_customize->add_panel( 'site-footer', [
         'priority' => 24,
         'title'    => esc_html__( 'Site Footer', 'analytica' ),
     ] );
 
     $wp_customize->add_section( 'footer_general', [
         'title'    => esc_html__( 'General', 'analytica' ),
-        'panel'    => 'footer',
+        'panel'    => 'site-footer',
         'priority' => 25,
     ] );
 
     $wp_customize->add_section( 'footer_color', [
         'title'    => esc_html__( 'Colors', 'analytica' ),
-        'panel'    => 'footer',
+        'panel'    => 'site-footer',
         'priority' => 26,
     ] );
 
     $wp_customize->add_section( 'footer_copyright', [
         'title'    => esc_html__( 'Copyright', 'analytica' ),
-        'panel'    => 'footer',
+        'panel'    => 'site-footer',
         'priority' => 27,
     ] );
 }

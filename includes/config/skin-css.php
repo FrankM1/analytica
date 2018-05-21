@@ -261,7 +261,7 @@ class Dynamic_CSS {
             }
 
             if ( $offset && $offset > 0) {
-                $css .= '.site-header .site-container { background-color: ' . esc_attr( $site_header_color ) . '; }';
+                $css .= '.site-header { background-color: ' . esc_attr( $site_header_color ) . '; }';
             }
 
         $css .= '}';
@@ -280,13 +280,13 @@ class Dynamic_CSS {
                 .sidebar-content .site-main, 
                 .sidebar-sidebar-content .site-main { width: calc(100% - ' . $site_sidebar_width . 'px) }';
                 
-                $css .= '.sidebar-primary .widget-area-inner {
+                $css .= '.site-sidebar .widget-area-inner {
                     width: ' . $site_sidebar_width . 'px;
                 }';
             }
 
             if ( $single_post_site_sidebar_width > 100 ) {
-                $css .= '.single-post .sidebar-primary .widget-area-inner {
+                $css .= '.single-post .site-sidebar .widget-area-inner {
                     width: ' . $single_post_site_sidebar_width . 'px;
                 }';
             }

@@ -45,14 +45,14 @@ class Customizer {
 	 * The class constructor
 	 */
 	public function __construct() {
-        add_action( 'customize_controls_enqueue_scripts', array( $this, 'admin_js' ) );
 
 		// If Kirki exists then there's no reason to procedd
 		if ( class_exists( 'Kirki' ) ) {
+            add_action( 'customize_controls_enqueue_scripts', array( $this, 'admin_js' ) );
 			return;
 		}
 		// Add our CSS
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 20 );
+        add_filter( 'analytica_dynamic_css_cached', array( $this, 'generate_styles' ));
 		// Add google fonts
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_fonts' ) );
     }
@@ -209,20 +209,15 @@ class Customizer {
 	/**
 	 * Enqueues the stylesheet
 	 */
-	public function enqueue_styles() {
+	public function generate_styles( $css ) {
 		// If Kirki exists there's no need to proceed any further
 		if ( class_exists( 'Kirki' ) ) {
-			return;
+			return $css;
 		}
 		// Get our inline styles
-		$styles = $this->get_styles();
-		// If we have some styles to add, add them now.
-		if ( ! empty( $styles ) ) {
-			// enqueue the theme's style.css file
-			$current_theme = ( wp_get_theme() );
-			wp_enqueue_style( $current_theme->stylesheet . '_no-kirki', get_stylesheet_uri(), null, null );
-			wp_add_inline_style( $current_theme->stylesheet . '_no-kirki', $styles );
-		}
+		$css .= $this->get_styles();
+        
+        return $css;
 	}
 
 	/**
