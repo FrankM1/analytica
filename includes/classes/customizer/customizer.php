@@ -69,8 +69,8 @@ class Customizer {
         }
 
         do_action( 'analytica_load_customizer_admin_js' );
-        wp_enqueue_style( 'analytica_customizer_style', Core::instance()->theme_url . '/assets/admin/css/customizer/customizer.css', null, '1.0.0', false );
-        wp_enqueue_script( 'analytica_customizer_preview', Core::instance()->theme_url . '/assets/admin/js/custom/customizer/preview.js', array( 'jquery' ), '1.0.0', false );
+        wp_enqueue_style( 'analytica_customizer_style', analytica()->theme_url . '/assets/admin/css/customizer/customizer.css', null, '1.0.0', false );
+        wp_enqueue_script( 'analytica_customizer_preview', analytica()->theme_url . '/assets/admin/js/custom/customizer/preview.js', array( 'jquery' ), '1.0.0', false );
 
         wp_localize_script( 'analytica_customizer', 'RadiumCustomizerReset', array(
             'reset'   => esc_attr__( 'Reset', 'analytica' ),

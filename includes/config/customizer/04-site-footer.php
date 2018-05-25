@@ -15,7 +15,7 @@ add_filter( 'analytica_customizer_controls', 'analytica_admin_add_customizer_sit
 function analytica_admin_add_customizer_site_footer_control( $controls ) {
 
     $default    = Analytica\Options::defaults();
-    $core       = Analytica\Core::instance();
+    $core       = analytica();
 
     $new_controls = [
         [
@@ -148,9 +148,9 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'id'              => 'site-theme-badge',
             'section'         => 'footer_general',
             'transport'       => 'postMessage',
-            'label'           => esc_html__( 'Support', 'analytica' ) . ' ' . Analytica\Core::instance()->theme_title,
+            'label'           => esc_html__( 'Support', 'analytica' ) . ' ' . analytica()->theme_title,
             /* translators: %1$s: Theme name */
-            'desc'            => sprintf( esc_html__( 'Support %1$s by displaying the %1$s badge on your site.', 'analytica' ), Analytica\Core::instance()->theme_title ),
+            'desc'            => sprintf( esc_html__( 'Support %1$s by displaying the %1$s badge on your site.', 'analytica' ), analytica()->theme_title ),
             'type'            => 'switch',
             'default'   => $default['site-theme-badge'],
             'conditions' => [

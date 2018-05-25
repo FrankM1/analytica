@@ -44,6 +44,7 @@ function analytica_page_builder_site_layout( $value ) {
     if ( analytica_is_builder_page() ) {
        return __analytica_return_full_width_content();
     }
+    return false;
 }
 
 add_filter( 'analytica_is_site_hero_available', 'analytica_page_builder_is_hero_available' );

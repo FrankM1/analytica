@@ -372,6 +372,6 @@ class Options
      */
     public static function get_option($primary, $default_value)
     {
-        return Customizer::get_option(Core::instance()->theme_slug, $primary);
+        return Customizer::get_option(analytica()->theme_slug, $primary);
     }
 }

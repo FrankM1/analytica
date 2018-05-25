@@ -26,12 +26,12 @@ add_action( 'init', 'analytica_create_initial_layouts', 0 );
  * @since 1.0.0
  *
  * @uses analytica_register_layout() Register a layout.
- * @uses \Analytica\Core::instance() to determine URL path to admin images.
+ * @uses analytica() to determine URL path to admin images.
  */
 function analytica_create_initial_layouts() {
 
     // Common path to default layout images
-    $url = \Analytica\Core::instance()->theme_url . '/assets/admin/images/layouts/';
+    $url = analytica()->theme_url . '/assets/admin/images/layouts/';
 
     $layouts = apply_filters( 'analytica_initial_layouts', [
         __analytica_return_content_sidebar() => [
@@ -44,7 +44,6 @@ function analytica_create_initial_layouts() {
             'img' => $url . 'sc.gif',
             'default' => is_rtl() ? true : false,
         ],
-
         __analytica_return_full_width_content() => [
             'label' => esc_html__( 'Full Width Content', 'analytica' ),
             'img' => $url . 'c.gif',
@@ -90,7 +89,7 @@ function analytica_get_default_layout() {
  */
 function analytica_get_layouts_for_options() {
     // Common path to default layout images
-    $url = \Analytica\Core::instance()->theme_url . '/assets/admin/images/layouts/';
+    $url = analytica()->theme_url . '/assets/admin/images/layouts/';
 
     return [
         __analytica_return_content_sidebar() => $url . 'cs.gif',

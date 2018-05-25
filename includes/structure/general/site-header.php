@@ -96,14 +96,14 @@ function analytica_header_stylesheet() {
          $version    = time();
      else:
          $css_suffix = '.min.css';
-         $version    = \Analytica\Core::instance()->theme_version;
+         $version    = analytica()->theme_version;
      endif;
 
      $direction_suffix = is_rtl() ? '-rtl' : '';
 
      wp_enqueue_style(
          'analytica-site-header',
-         \Analytica\Core::instance()->theme_url . '/assets/frontend/css/site-header' . $css_suffix,
+         analytica()->theme_url . '/assets/frontend/css/site-header' . $css_suffix,
          false,
          $version,
          'all'
@@ -111,7 +111,7 @@ function analytica_header_stylesheet() {
 
     wp_enqueue_script(
         'analytica-megamenu-mobile',
-        \Analytica\Core::instance()->theme_url . '/assets/frontend/js/vendor/mobile-menu.js',
+        analytica()->theme_url . '/assets/frontend/js/vendor/mobile-menu.js',
         [ 
             'jquery',
             'hoverIntent',

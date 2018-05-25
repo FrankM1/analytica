@@ -26,7 +26,7 @@
  * @since 1.0.0
  * @see analytica_set_default_layout() Set a default layout.
  *
- * @uses  \Analytica\Core::instance() to determine URL path to admin images.
+ * @uses  analytica() to determine URL path to admin images.
  *
  * @global array $_analytica_layouts Holds all layouts data.
  *
@@ -47,7 +47,7 @@ function analytica_register_layout( $id = '', $args = [] ) {
         return false;
     }
 
-    $framework =  \Analytica\Core::instance();
+    $framework =  analytica();
     $defaults = [
         'label' => esc_html__( 'No Label Selected', 'analytica' ),
         'img' => $framework->theme_url . '/assets/admin/images/layouts/none.gif',

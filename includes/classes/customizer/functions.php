@@ -12,7 +12,7 @@
  /**
   * Add the theme configuration
   */
-\Analytica\Customizer::add_config( \Analytica\Core::instance()->theme_slug, array(
+\Analytica\Customizer::add_config( analytica()->theme_slug, array(
     'option_type'    => 'theme_mod',
     'capability'     => 'edit_theme_options',
     'disable_output' => true,
@@ -154,7 +154,7 @@ function analytica_theme_defaults() {
                 $args['media_query'] = $value['media_query'];
             }
 
-            \Analytica\Customizer::add_field( \Analytica\Core::instance()->theme_slug, $args );
+            \Analytica\Customizer::add_field( analytica()->theme_slug, $args );
         }
     }
 }

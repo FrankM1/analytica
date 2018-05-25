@@ -422,7 +422,7 @@ add_action( 'analytica_do_colophon', 'analytica_colophon_content', 15 );
  */
 function analytica_colophon_content() {
 
-    $core = \Analytica\Core::instance();
+    $core = analytica();
 
     $creds_text = str_replace( '[year]', date( 'Y' ), analytica_get_option( 'site-footer-copyright-text' ) );
 

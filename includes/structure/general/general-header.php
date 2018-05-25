@@ -268,7 +268,7 @@ add_action( 'template_redirect', 'analytica_hero_support' );
  * @since 1.0.0
  */
 function analytica_hero_support() {
-    \Analytica\Core::instance()->hero = new \Analytica\Site_Hero();
+    analytica()->hero = new \Analytica\Site_Hero();
 }
 
 add_action( 'analytica_content_top', 'analytica_do_hero', 2 );
@@ -284,5 +284,5 @@ function analytica_do_hero() {
         return;
     }
 
-    \Analytica\Core::instance()->hero->do_header();
+    analytica()->hero->do_header();
 }
