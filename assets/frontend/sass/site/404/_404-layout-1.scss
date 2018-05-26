@@ -13,55 +13,56 @@
 }
 
 .analytica-404-search {
-    margin-top: 1.5em;
+	margin-top: 1.5em;
 
-    .widget_search {
-    	max-width: 370px;	
-    	margin: 0 auto;
-    }
+	.widget_search {
+		max-width: 370px;
+		margin: 0 auto;
+	}
 }
 
 .site-container-detach {
 	.error-404,
-	.no-results{
+	.no-results {
 		background-color: $color-background-content;
 	}
 }
-.site-container-detach{
+
+.site-container-detach {
 	@media (max-width: $mx-col-xl) {
 		.analytica-404-layout-1,
-		.no-results{
-		    margin: 0;
-		    padding: 3.34em 2.4em;
+		.no-results {
+			margin: 0;
+			padding: 3.34em 2.4em;
 		}
 	}
 	@media (max-width: $mx-col-md) {
 		.analytica-404-layout-1,
-		.no-results{
-		    padding: 1.5em 2.14em;
+		.no-results {
+			padding: 1.5em 2.14em;
 		}
 	}
 	@media (max-width: $mx-col-sm) {
 		.analytica-404-layout-1,
-		.no-results{
-		    padding: 1.5em 1em;
+		.no-results {
+			padding: 1.5em 1em;
 		}
 	}
 }
 
 @media (min-width: $col-xl) {
-	.site-container-detach{
+	.site-container-detach {
 		.analytica-404-layout-1,
-		.no-results{
-		    margin: 0;
-		    padding: 5.34em 6.67em;
+		.no-results {
+			margin: 0;
+			padding: 5.34em 6.67em;
 		}
 	}
 }
 
 .error404,
-.search-no-results{
-	&.site-container-detach{
+.search-no-results {
+	&.site-container-detach {
 		.site-main {
 			@media (min-width: $col-md) {
 				margin-bottom: 4em;

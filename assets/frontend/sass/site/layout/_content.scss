@@ -21,20 +21,21 @@
 
 .site-inner {
 	@extend %container;
+	margin: $grid-gutter-width auto;
+}
+
+.content-sidebar-sidebar .site-inner,
+.content-sidebar .site-inner,
+.sidebar-content-sidebar .site-inner,
+.sidebar-content .site-inner,
+.sidebar-sidebar-content .site-inner {
+	flex-direction: column;
 	display: flex;
-    margin: $grid-gutter-width auto;
-    padding-left: $grid-gutter-width-half;
-    padding-right: $grid-gutter-width-half;
-    flex-direction: column;
+	padding-left: $grid-gutter-width-half;
+	padding-right: $grid-gutter-width-half;
 
 	@media (min-width: $screen-md-min) {
 		flex-direction: row;
-	}
-
-	.site-sidebar,
-	.site-main {
-		padding-right: $grid-gutter-width-half;
-		padding-left: $grid-gutter-width-half;
 	}
 
 	.sidebar-primary {
@@ -44,13 +45,7 @@
 	.sidebar-secondary {
 		flex-direction: column;
 	}
-}
 
-.content-sidebar-sidebar .site-inner,
-.content-sidebar .site-inner,
-.sidebar-content-sidebar .site-inner,
-.sidebar-content .site-inner,
-.sidebar-sidebar-content .site-inner {
 	.site-main {
 		width: 100%;
 		@media (min-width: $screen-md-min) {

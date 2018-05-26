@@ -34,7 +34,6 @@ add_filter( 'post_class', 'analytica_post_class_blog_grid' );
 function analytica_post_class_blog_grid( $classes ) {
 
     if ( is_archive() || is_home() || is_search() ) {
-        $classes[] = 'analytica-col-sm-12';
         $classes[] = 'analytica-article-post';
     }
 

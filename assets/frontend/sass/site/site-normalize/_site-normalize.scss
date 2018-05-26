@@ -14,14 +14,6 @@
 html {
 	overflow-y: scroll;
 }
-
-body {
-    &:not(.logged-in) {
-        position: relative;
-    }
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
  
 a,
 a:focus {

@@ -36,7 +36,6 @@ class Site_Hero {
         $this->hero_show_subtitle = analytica_get_option( 'site-hero-show-subtitle' );
         $this->height             = wp_is_mobile() ? analytica_get_option( 'site-hero-height-mobile' ) : analytica_get_option( 'site-hero-height' );
         $this->full_height        = wp_is_mobile() ? 500 : analytica_get_option( 'site-hero-fullheight' );
-        $this->parallax           = analytica_get_option( 'site-hero-parallax' );
         $this->background         = [
             'color'    => analytica_get_option( 'site-hero-background-color' ),
             'fixed'    => analytica_get_option( 'site-hero-background-fixed' ),
@@ -222,10 +221,6 @@ class Site_Hero {
             $classes .= ' has-background base-color-' . $this->color_base;
         }
 
-        if ( $this->parallax ) {
-            $classes .= ' site-hero-parallax';
-        }
-
         if ( $this->full_height ) {
             $classes .= ' site-hero-height-full';
         }
@@ -256,22 +251,6 @@ class Site_Hero {
      */
     public function do_background() {
         $classes = $data_atts = '';
-
-        if ( $this->parallax && $this->image_active ) {
-            $hero = $this->get_background_url();
-
-            $options = [
-				'backgroundUrl'    => $hero['url'],
-				'backgroundSize'   => $hero['size'],
-				'backgroundSizing' => 'original',        // $settings[ 'parallax_background_display' ] === 'parallax-original' ? 'original' : 'scaled',
-				'limitMotion'      => 'auto',            // $settings[ 'parallax-motion' ] ? floatval( $settings[ 'parallax-motion' ] ) : 'auto',
-			];
-
-            $classes .= ' site-hero-vertical-parallax';
-
-            $data_atts .= ' data-parallax="true"';
-            $data_atts .= " data-parallax-options='" . json_encode( $options ) . "'";
-        }
 
         echo '<div class="site-hero-background-container' . esc_attr( $classes ) . '" ' . $data_atts . '>';
             echo '<div class="site-hero-overlay-color"></div>';
@@ -308,15 +287,6 @@ class Site_Hero {
 
             if ( $this->background['fixed'] ) {
                 $css_rules .= 'background-attachment: ' . $this->background['fixed'] . ';';
-                if ( $this->background['fixed'] === 'fixed') {
-                    $extra_css .= '.site-hero-background-container.site-hero-vertical-parallax {'
-                        . '-webkit-transform: -webkit-translate3d(0,0,0);'
-                        . '-moz-transform: -moz-translate3d(0,0,0);'
-                        . '-ms-transform: -ms-translate3d(0,0,0);'
-                        . '-o-transform: -o-translate3d(0,0,0);'
-                        . 'transform: translate3d(0,0,0);'
-                    . '}';
-                }
             }
 
             if ( $this->background['repeat'] ) {

@@ -9,10 +9,6 @@
  * @link     https://qazana.net/
  */
 
-if ( ! analytica_header_is_active() && empty( get_theme_mod('site-header') ) ) {
-    return;
-}
-
 add_filter( 'analytica_attr_site-header', 'analytica_attributes_header' );
 /**
  * Add attributes for site header element.
@@ -24,10 +20,16 @@ add_filter( 'analytica_attr_site-header', 'analytica_attributes_header' );
  * @return array Amended attributes.
  */
 function analytica_attributes_header( $attributes ) {
-     $attributes['class'] = implode( ' ', analytica_get_header_class() );
-     $attributes['itemscope'] = 'itemscope';
-     $attributes['itemtype'] = 'https://schema.org/WPHeader';
-     return $attributes;
+
+    if ( ! analytica_site_header_is_active() ) {
+        return;
+    }
+
+    $attributes['class'] = implode( ' ', analytica_get_header_class() );
+    $attributes['itemscope'] = 'itemscope';
+    $attributes['itemtype'] = 'https://schema.org/WPHeader';
+
+    return $attributes;
 }
 
 add_action( 'analytica_header', 'analytica_header_markup_open', 5 );
@@ -40,6 +42,11 @@ add_action( 'analytica_header', 'analytica_header_markup_open', 5 );
  * @uses analytica_structural_wrap() Maybe add opening .wrap div tag with header context.
  */
 function analytica_header_markup_open() {
+
+    if ( ! analytica_site_header_is_active() ) {
+        return;
+    }
+
      analytica_markup( array(
          'element'   => '<div %s>',
          'context' => 'site-header',
@@ -56,6 +63,11 @@ add_action( 'analytica_header', 'analytica_header_markup_close', 15 );
  * @uses analytica_markup()          Apply contextual markup.
  */
 function analytica_header_markup_close() {
+
+    if ( ! analytica_site_header_is_active() ) {
+        return;
+    }
+
     analytica_markup( array(
          'element' => '</div>',
      ) );
@@ -69,6 +81,10 @@ add_action( 'analytica_header', 'analytica_do_header', 10 );
  */
 function analytica_do_header() {
 
+    if ( ! analytica_site_header_is_active() ) {
+        return;
+    }
+
      do_action( 'analytica_do_header_secondary' );
 
      do_action( 'analytica_before_header_inner' );
@@ -79,17 +95,21 @@ function analytica_do_header() {
 
 }
 
-add_action( 'wp_enqueue_scripts', 'analytica_header_stylesheet' );
+add_action( 'wp_enqueue_scripts', 'analytica_site_header_assets' );
 /**
- * Echo the opening structural markup for the header.
+ * Add site assets to header
  *
  * @since 1.0.0
  *
  * @uses analytica_markup()          Apply contextual markup.
  * @uses analytica_structural_wrap() Maybe add opening .wrap div tag with header context.
  */
-function analytica_header_stylesheet() {
+function analytica_site_header_assets() {
 
+    if ( ! analytica_site_header_is_active() ) {
+        return;
+    }
+    
      // detect if in developer mode and load appropriate files
      if ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ): 
          $css_suffix = '.css';

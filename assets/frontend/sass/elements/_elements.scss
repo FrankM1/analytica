@@ -1,22 +1,22 @@
 html {
-    box-sizing: border-box;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-size-adjust: 100%;
-    font-kerning: auto;
-    text-rendering: optimizeLegibility;
+	box-sizing: border-box;
 }
 
 *,
 *:before,
-*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+*:after {
+	/* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 	box-sizing: inherit;
 }
 
 body {
 	color: $color-text-main;
 	background: $color-background-body; /* Fallback for when there is no custom background color defined. */
-	font-style: normal;
+    font-style: normal;
+    font-family: sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
 }
 
 ul, ol {
@@ -31,8 +31,8 @@ ol {
 	list-style: decimal;
 }
 
-li > ul,
-li > ol {
+li>ul,
+li>ol {
 	margin-bottom: 0;
 	margin-left: 1.5em;
 }
@@ -65,11 +65,12 @@ q {
 		content: "";
 	}
 }
+
 blockquote {
 	border-left: 5px solid rgba(0, 0, 0, 0.05);
 	padding: 20px;
 	font-size: 1.2em;
-	font-style:italic;
+	font-style: italic;
 	margin: 0 0 1.5em;
 	position: relative;
 	p:last-child {
@@ -85,6 +86,10 @@ abbr,
 acronym {
 	border-bottom: 1px dotted $color-border-abbr;
 	cursor: help;
+}
+
+a abbr[title] {
+    border-bottom: none;
 }
 
 pre {
@@ -104,8 +109,10 @@ var {
 }
 
 img {
-	height: auto; /* Make sure images are scaled correctly. */
-	max-width: 100%; /* Adhere to container width. */
+	height: auto;
+	/* Make sure images are scaled correctly. */
+	max-width: 100%;
+	/* Adhere to container width. */
 }
 
 hr {
@@ -123,14 +130,18 @@ select,
 textarea {
 	color: $color-text-main;
 	font-weight: normal;
-	font-size: 100%; /* Corrects font size not being inherited in all browsers */
-	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
-	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
+	font-size: 100%;
+	/* Corrects font size not being inherited in all browsers */
+	margin: 0;
+	/* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+	vertical-align: baseline;
+	/* Improves appearance and consistency in all browsers */
 }
 
 button,
 input {
-	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
+	line-height: normal;
+	/* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
 }
 
 big {

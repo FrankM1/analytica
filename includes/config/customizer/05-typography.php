@@ -29,6 +29,7 @@ function analytica_add_typography_controls( $controls ) {
         'default'   => $default['font-base'],
         'type'      => 'typography',
         'transport' => 'auto',
+        'responsive' => true,
         'exclude'   => [
             'variant',
             'font-size',
@@ -44,13 +45,6 @@ function analytica_add_typography_controls( $controls ) {
     	],
     ];
 
-    $controls[] = [
-        'id'      => 'site-accent-color',
-        'section' => 'container_style',
-        'type'    => 'color',
-        'label'   => esc_html__( 'Accent color', 'analytica' ),
-        'default' => $default['site-accent-color'],
-    ];
 
     $controls[] = [
         'label'     => esc_html__( 'Secondary Font', 'analytica' ),
@@ -58,6 +52,7 @@ function analytica_add_typography_controls( $controls ) {
         'id'        => 'font-secondary-base',
         'section'   => 'general_typography',
         'default'   => $default['font-secondary-base'],
+        'responsive' => true,
         'type'      => 'typography',
         'transport' => 'auto',
         'exclude'   => [
@@ -77,7 +72,6 @@ function analytica_add_typography_controls( $controls ) {
 
     $controls[] = [
         'label'     => esc_html__( 'H1 Font', 'analytica' ),
-        'desc'      => esc_html__( 'The main font for your site.', 'analytica' ),
         'id'        => 'font-h1',
         'section'   => 'general_typography',
         'default'   => $default['font-h1'],
@@ -97,7 +91,6 @@ function analytica_add_typography_controls( $controls ) {
         'id'        => 'font-h2',
         'section'   => 'general_typography',
         'label'     => esc_html__( 'H2 Font', 'analytica' ),
-        'desc'      => esc_html__( 'The main font for your site.', 'analytica' ),
         'default'   => $default['font-h2'],
         'type'      => 'typography',
         'transport' => 'auto',
@@ -115,7 +108,6 @@ function analytica_add_typography_controls( $controls ) {
         'id'        => 'font-h3',
         'section'   => 'general_typography',
         'label'     => esc_html__( 'H3 Font', 'analytica' ),
-        'desc'      => esc_html__( 'The main font for your site.', 'analytica' ),
         'default'   => $default['font-h3'],
         'type'      => 'typography',
         'transport' => 'auto',
@@ -131,7 +123,6 @@ function analytica_add_typography_controls( $controls ) {
 
     $controls[] = [
         'label'     => esc_html__( 'H4 Font', 'analytica' ),
-        'desc'      => esc_html__( 'The main font for your site.', 'analytica' ),
         'id'        => 'font-h4',
         'section'   => 'general_typography',
         'default'   => $default['font-h4'],
@@ -149,7 +140,6 @@ function analytica_add_typography_controls( $controls ) {
 
     $controls[] = [
         'label'     => esc_html__( 'H5 Font', 'analytica' ),
-        'desc'      => esc_html__( 'The main font for your site.', 'analytica' ),
         'id'        => 'font-h5',
         'section'   => 'general_typography',
         'default'   => $default['font-h5'],
@@ -167,7 +157,6 @@ function analytica_add_typography_controls( $controls ) {
 
     $controls[] = [
         'label'   => esc_html__( 'H6 Font', 'analytica' ),
-        'desc'    => esc_html__( 'The main font for your site.', 'analytica' ),
         'id'      => 'font-h6',
         'section' => 'general_typography',
         'default' => $default['font-h6'],
@@ -181,6 +170,23 @@ function analytica_add_typography_controls( $controls ) {
             ],
         ],
         'transport' => 'auto',
+    ];
+
+    $controls[] = [
+        'label'     => esc_html__( 'Widget Title Font', 'analytica' ),
+        'id'        => 'font-widget-title',
+        'section'   => 'general_typography',
+        'default'   => $default['font-widget-title'],
+        'type'      => 'typography',
+        'transport' => 'auto',
+        'exclude'   => [
+            'font-family',
+        ],
+        'output'    => [
+            [
+                'element' => '.widget-title',
+            ],
+        ],
     ];
 
     $controls[] = [

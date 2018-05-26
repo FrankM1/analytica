@@ -1,13 +1,12 @@
-
 @import "../../../variables-site/structure.scss";
 @import "../../../variables-site/colors.scss";
 .blog-layout-1 {
-    margin-bottom: 2.5em;
+	margin-bottom: 2.5em;
 
-    .post-thumb {
-        margin-bottom: 1.5em;
-    }
- 
+	.post-thumb {
+		margin-bottom: 1.5em;
+	}
+
 	.post-thumb,
 	.post-content {
 		position: relative;
@@ -16,7 +15,7 @@
 }
 
 .site-container-detach {
-    .blog-layout-1 {
+	.blog-layout-1 {
 		border-bottom: 0;
 	}
 }

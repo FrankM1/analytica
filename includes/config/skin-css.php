@@ -103,14 +103,14 @@ class Dynamic_CSS {
     }
 
     function generate_site_css( $parse_css ) {
-        $site_content_background_color       = analytica_get_option( 'site-content-background-color' );
-        $link_color       = analytica_get_option( 'site-link-color' );
-        $text_color       = analytica_get_option( 'site-text-color' );
-        $accent_color       = analytica_get_option( 'site-accent-color' );
-        $highlight_theme_color  = analytica_get_foreground_color( $accent_color );
-        $link_hover_color = analytica_get_option( 'site-link-highlight-color' );
-        $body_font = analytica_get_option( 'font-base' );
-        $body_font_size = $body_font['font-size'];
+        $link_color                    = analytica_get_option( 'site-link-color' );
+        $text_color                    = analytica_get_option( 'site-text-color' );
+        $accent_color                  = analytica_get_option( 'site-accent-color' );
+        $link_hover_color              = analytica_get_option( 'site-link-highlight-color' );
+        $body_font                     = analytica_get_option( 'font-base' );
+        $body_font_size                = $body_font['font-size'];
+        
+        $highlight_theme_color         = analytica_get_foreground_color( $accent_color );
 
         if ( is_array( $body_font_size ) ) {
             $body_font_size = ! empty( $body_font_size ) ?   intval( $body_font_size ) : 15;
@@ -118,15 +118,32 @@ class Dynamic_CSS {
             $body_font_size = ( '' != $body_font_size ) ? intval( $body_font_size ) : 15;
         }
 
+        /**
+         * Apply text color depends on link color
+         */
+        $btn_text_color = analytica_get_option( 'button-color' );
+        if ( empty( $btn_text_color ) ) {
+            $btn_text_color = analytica_get_foreground_color( $accent_color );
+        }
+
+        /**
+         * Apply text hover color depends on link hover color
+         */
+        $btn_text_hover_color = analytica_get_option( 'button-h-color' );
+        if ( empty( $btn_text_hover_color ) ) {
+            $btn_text_hover_color = analytica_get_foreground_color( $link_hover_color );
+        }
+        $btn_bg_color       = analytica_get_option( 'button-bg-color', $accent_color );
+        $btn_bg_hover_color = analytica_get_option( 'button-bg-h-color', $link_hover_color );
+        
+        // Button Styling.
+        $btn_border_radius      = analytica_get_option( 'button-radius' );
+        $btn_vertical_padding   = analytica_get_option( 'button-v-padding' );
+        $btn_horizontal_padding = analytica_get_option( 'button-h-padding' );
+        $highlight_link_color   = analytica_get_foreground_color( $link_color );
+        $highlight_theme_color  = analytica_get_foreground_color( $accent_color );
+
         $css_output = array(
-
-            '.site-mono-container .site-container' => array(
-                'background-color' => esc_attr( $site_content_background_color ),
-            ),
-
-            '.site-dual-containers .site-main, .site-dual-containers .site-sidebar' => array(
-                'background-color' => esc_attr( $site_content_background_color ),
-            ),
 
             // Global CSS.
             '::selection'                             => array(
@@ -173,16 +190,6 @@ class Dynamic_CSS {
                 'color'       => esc_attr( $link_color ),
             ),
 
-            '#cat option, .secondary .calendar_wrap thead a, .secondary .calendar_wrap thead a:visited' => array(
-                'color' => esc_attr( $link_color ),
-            ),
-            '.secondary .calendar_wrap #today, .analytica-progress-val span' => array(
-                'background' => esc_attr( $link_color ),
-            ),
-            '.secondary a:hover + .post-count, .secondary a:focus + .post-count' => array(
-                'background'   => esc_attr( $link_color ),
-                'border-color' => esc_attr( $link_color ),
-            ),
             '.calendar_wrap #today > a'               => array(
                 'color' => analytica_get_foreground_color( $link_color ),
             ),
@@ -197,11 +204,6 @@ class Dynamic_CSS {
                 'color' => analytica_adjust_brightness( $text_color, 75, 'darken' ),
             ),
 
-            // Widget Title.
-            '.widget-title'                           => array(
-                'font-size' => analytica_get_font_css_value( (int) $body_font_size * 1.428571429 ),
-            ),
-        
             '.analytica-pagination a:hover, .analytica-pagination a:focus, .analytica-pagination > span:hover:not(.dots), .analytica-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
                 'color' => esc_attr( $link_hover_color ),
             ),
@@ -214,6 +216,36 @@ class Dynamic_CSS {
         /* Parse CSS from array() */
         $parse_css .= $this->parse_css( $css_output );
 
+        $buttons_css_output = array(
+            // Button Typography.
+            '.menu-toggle, button, .analytica-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+                'border-radius'    => analytica_get_css_value( $btn_border_radius, 'px' ),
+                'padding'          => analytica_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . analytica_get_css_value( $btn_horizontal_padding, 'px' ),
+                'color'            => esc_attr( $btn_text_color ),
+                'border-color'     => esc_attr( $btn_bg_color ),
+                'background-color' => esc_attr( $btn_bg_color ),
+            ),
+            '.menu-toggle, button, .analytica-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+                'border-radius'    => analytica_get_css_value( $btn_border_radius, 'px' ),
+                'padding'          => analytica_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . analytica_get_css_value( $btn_horizontal_padding, 'px' ),
+                'color'            => esc_attr( $btn_text_color ),
+                'border-color'     => esc_attr( $btn_bg_color ),
+                'background-color' => esc_attr( $btn_bg_color ),
+            ),
+            'button:focus, .menu-toggle:hover, button:hover, .analytica-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
+                'color'            => esc_attr( $btn_text_hover_color ),
+                'border-color'     => esc_attr( $btn_bg_hover_color ),
+                'background-color' => esc_attr( $btn_bg_hover_color ),
+            ),
+            '.search-submit, .search-submit:hover, .search-submit:focus' => array(
+                'color'            => analytica_get_foreground_color( $link_color ),
+                'background-color' => esc_attr( $link_color ),
+            ),
+        );
+
+        /* Parse CSS from array() */
+        $parse_css .= $this->parse_css( $buttons_css_output );
+
         return $parse_css;
     }
 
@@ -225,7 +257,6 @@ class Dynamic_CSS {
     function add_container_css( $css ) {
         $site_layout                        = analytica_get_option( 'site-layout' );
         $accent_color                       = analytica_get_option( 'site-accent-color' );
-        $site_header_color                  = analytica_get_option( 'site-header-background-color' );
         $footer_border                      = analytica_get_option( 'site-footer-border' );
         $footer_colophon_border             = analytica_get_option( 'footer-colophon-border' );
         $offset                             = intval( analytica_get_option( 'site-layout-offset' ) );
@@ -239,6 +270,7 @@ class Dynamic_CSS {
         $css .= 'a { color: ' . esc_attr( $link_color ) .'}';
 
         if ( 'site-boxed' === $site_layout ) {
+
             $css .= '@media (min-width: 1200px) {';
                 if ( $site_container_width > 0 ) {
                     $css .= '.site-boxed .site-container { max-width: ' . esc_attr( $site_container_width ) . 'px; margin: 0 auto; }';
@@ -253,18 +285,16 @@ class Dynamic_CSS {
                 }
 
             $css .= '}';
+
+        } else {
+
+            $css .= '@media (min-width: 1200px) {';
+                if ( $site_container_width > 0 ) {
+                    $css .= '.analytica-container, .site-inner, .site-footer-boxed.has-container { max-width:' . esc_attr( $site_container_width ) . 'px;}';
+                }
+            $css .= '}';
+
         }
-
-        $css .= '@media (min-width: 1200px) {';
-            if ( $site_container_width > 0 ) {
-                $css .= '.analytica-container { max-width:' . esc_attr( $site_container_width ) . 'px;}';
-            }
-
-            if ( $offset && $offset > 0) {
-                $css .= '.site-header { background-color: ' . esc_attr( $site_header_color ) . '; }';
-            }
-
-        $css .= '}';
 
         // Section
         if ( $site_container_width > 0 ) {

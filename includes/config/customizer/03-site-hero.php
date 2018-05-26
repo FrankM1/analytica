@@ -146,26 +146,7 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
         'desc'    => esc_html__( 'Allows the page header to use the post\'s featured images as a background when available. This will override the image above.', 'analytica' ),
         'default' => $default['site-hero-background-inherit'],
     ];
-
-    $controls[] = [
-        'label'   => esc_html__( 'Custom header parallax effect','analytica' ),
-        'id'      => 'site-hero-parallax',
-        'type'    => 'radio-buttonset',
-        'section' => 'site-hero-settings',
-        'default'         => $default['site-hero-parallax'],
-        'options' => [
-            'on'  => esc_html__( 'On', 'analytica' ),
-            'off' => esc_html__( 'Off', 'analytica' ),
-        ],
-        'conditions' => [
-            [
-                'setting'  => 'site-hero-background',
-                'operator' => '==',
-                'value'    => 'on',
-            ],
-        ],
-    ];
-
+    
     $controls[] = [
 		'label'     => esc_html__( 'Background color','analytica' ),
 		'desc'      => esc_html__( 'The background color will be shown if the image is not set for the custom header.', 'analytica' ),

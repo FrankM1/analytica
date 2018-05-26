@@ -20,23 +20,26 @@ add_action( 'analytica_template_parts_content_bottom', 'analytica_number_paginat
  */
 function analytica_number_pagination() {
     global $numpages;
+    
     $enabled = apply_filters( 'analytica_pagination_enabled', true );
 
-    if ( isset( $numpages ) && $enabled ) {
-        ob_start();
-        echo "<div class='analytica-pagination'>";
-        the_posts_pagination(
-            array(
-                'prev_text'    => analytica_default_strings( 'string-blog-navigation-previous', false ),
-                'next_text'    => analytica_default_strings( 'string-blog-navigation-next', false ),
-                'taxonomy'     => 'category',
-                'in_same_term' => true,
-            )
-        );
-        echo '</div>';
-        $output = ob_get_clean();
-        echo apply_filters( 'analytica_pagination_markup', $output ); // WPCS: XSS OK.
+    if ( ! isset( $numpages ) || ! $enabled || ! analytica_is_post_archive_page() ) {
+        return;
     }
+
+    ob_start();
+    echo "<div class='analytica-pagination'>";
+    the_posts_pagination(
+        array(
+            'prev_text'    => analytica_default_strings( 'string-blog-navigation-previous', false ),
+            'next_text'    => analytica_default_strings( 'string-blog-navigation-next', false ),
+            'taxonomy'     => 'category',
+            'in_same_term' => true,
+        )
+    );
+    echo '</div>';
+    $output = ob_get_clean();
+    echo apply_filters( 'analytica_pagination_markup', $output ); // WPCS: XSS OK.
 }
  
 /**

@@ -29,15 +29,11 @@ function analytica_is_bool( $var ) {
   *
   * @return boolean
   */
-function analytica_header_is_active() {
+function analytica_site_header_is_active() {
     $retval = false;
 
     if ( analytica_get_option( 'site-header' ) ) {
         $retval = true;
-    }
-
-    if ( analytica_detect_plugin( ['functions' => [ 'header_composer' ] ] ) ) {
-        $retval = false;
     }
 
     return apply_filters( __FUNCTION__, $retval );
@@ -299,7 +295,8 @@ function analytica_is_post_archive_page( $post_id = null ) {
  *
  * @return boolean
  */
-function analytica_is_footer_available() {
+function analytica_site_footer_is_active() {
+
     $retval = true;
 
     $option = analytica_get_option( 'site-footer' );
@@ -316,12 +313,12 @@ function analytica_is_footer_available() {
  *
  * @return boolean
  */
-function analytica_is_colophon_available() {
+function analytica_is_site_colophon_available() {
     $retval = true;
 
     $option = analytica_get_option( 'footer-colophon' );
 
-    if ( ! analytica_is_bool( $option ) || ! analytica_is_footer_available() ) {
+    if ( ! analytica_is_bool( $option ) || ! analytica_site_footer_is_active() ) {
         $retval = false;
     }
 
@@ -333,7 +330,7 @@ function analytica_is_colophon_available() {
  *
  * @return boolean
  */
-function analytica_footer_has_widgets() {
+function analytica_site_footer_has_widgets() {
     $retval = true;
 
     $option = analytica_get_option( 'site-footer-widgets' );

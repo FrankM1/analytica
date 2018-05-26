@@ -39,7 +39,7 @@ class Theme {
         /**
          * Add add image size
          */
-        add_image_size( 'blog-featured', 840, 504, true );
+        add_image_size( 'blog-featured', 860, 504, true );
 
         /**
          * Add support for widgets inside the customizer

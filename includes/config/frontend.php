@@ -33,7 +33,6 @@ class Frontend {
     public static $scripts;
 
     public function __construct() {
-        $this->framework = analytica();
         add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ], 5 );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
@@ -55,7 +54,7 @@ class Frontend {
             else :
 
             $js_suffix = '.min.js';
-            $version = $this->framework->theme_version;
+            $version = analytica()->theme_version;
 
         endif;
 
@@ -74,7 +73,7 @@ class Frontend {
             $version = time();
         else :
             $js_suffix = '.min.js';
-            $version = $this->framework->theme_version;
+            $version = analytica()->theme_version;
         endif;
 
         // The analytica_globals object contains information and settings about the framework
@@ -88,7 +87,7 @@ class Frontend {
 
         wp_register_script(
             'analytica-frontend',
-            $this->framework->theme_url . '/assets/frontend/js/main' . $js_suffix,
+            analytica()->theme_url . '/assets/frontend/js/main' . $js_suffix,
             $dependencies,
             $version,
             true
@@ -121,11 +120,11 @@ class Frontend {
         else :
 
             $css_suffix = '.min.css';
-            $version = $this->framework->theme_version;
+            $version = analytica()->theme_version;
 
         endif;
 
-        wp_enqueue_style( 'analytica-frontend', $this->framework->theme_url . '/assets/frontend/css/style' . $css_suffix, '', $version, 'all' );
+        wp_enqueue_style( 'analytica-frontend', analytica()->theme_url . '/assets/frontend/css/style' . $css_suffix, '', $version, 'all' );
 
         $this->parse_global_css_code();
     }

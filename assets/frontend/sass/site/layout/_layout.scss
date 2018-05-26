@@ -13,11 +13,11 @@
 .site-container-detach {
 	background-color: $color-background-sep-content-body;
 
-    .hero {
-        margin-top: $grid-gutter-width;
-    }
+	.hero {
+		margin-top: $grid-gutter-width;
+	}
 
-	main > .entry-page {
+	main>.entry-page {
 		margin-left: 0;
 		margin-right: 0;
 	}
@@ -25,24 +25,29 @@
 	.analytica-article-post,
 	.analytica-article-single {
 		background-color: $color-background-content;
-		margin: 0 0 5.34em 0;
+		margin: 0 0 $grid-gutter-width 0;
 		.entry-content {
-			padding-bottom: 2em;
+			padding-bottom: $grid-gutter-width;
 		}
 
-        .entry-title {
+		.entry-title {
 			margin-bottom: .2em;
-        }
+		}
 
-		.entry-content,
-		.entry-header {
-			padding-left: 2em;
-			padding-right: 2em;
+        .entry-content,
+        .entry-header,
+		.analytica-single-post-order {
+			padding-left: $grid-gutter-width;
+			padding-right: $grid-gutter-width;
 		}
 	}
-	
+
 	.analytica-article-single {
-		border-bottom: 0;
+        border-bottom: 0;
+        .entry-header {
+			padding-left: 0;
+			padding-right: 0;
+		}
 	}
 
 	@media (max-width: $mx-col-xl) {
@@ -63,5 +68,12 @@
 		.analytica-article-single {
 			padding: 0 0 1.5em 0;
 		}
+	}
+}
+
+.site-dual-containers {
+	.site-main-inner,
+	.site-sidebar .widget-area-inner {
+		padding: $grid-gutter-width;
 	}
 }

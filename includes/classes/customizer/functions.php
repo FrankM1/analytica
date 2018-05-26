@@ -166,16 +166,16 @@ add_action( 'customize_register', 'analytica_customizer_reorder_fields', 9999 );
  */
 function analytica_customizer_reorder_fields( $wp_customize ) {
 
-    $wp_customize->get_control( 'custom_logo' )->section  = 'logo_favicon';
+    $wp_customize->get_control( 'custom_logo' )->section  = 'logo-favicon';
     $wp_customize->get_control( 'custom_logo' )->priority = '1';
 
-    $wp_customize->get_control( 'blogdescription' )->section  = 'logo_favicon';
+    $wp_customize->get_control( 'blogdescription' )->section  = 'logo-favicon';
     $wp_customize->get_control( 'blogdescription' )->priority = '2';
 
-    $wp_customize->get_control( 'blogname' )->section  = 'logo_favicon';
+    $wp_customize->get_control( 'blogname' )->section  = 'logo-favicon';
     $wp_customize->get_control( 'blogname' )->priority = '3';
 
-    $wp_customize->get_control( 'site_icon' )->section  = 'logo_favicon';
+    $wp_customize->get_control( 'site_icon' )->section  = 'logo-favicon';
     $wp_customize->get_control( 'site_icon' )->priority = '4';
 
     $site_logo_header_text = $wp_customize->get_control( 'site_logo_header_text' );
@@ -192,4 +192,18 @@ function analytica_customizer_reorder_fields( $wp_customize ) {
 
     // Rename the label to "Display Site Title & Tagline" in order to make this option clearer.
     $wp_customize->get_control( 'display_header_text' )->label = esc_html__( 'Display Site Title &amp; Tagline', 'analytica' );
+
+    if ( class_exists( 'Kirki' ) ) {
+        $wp_customize->get_control( 'header_image' )->panel  = 'site-hero';
+        $wp_customize->get_control( 'header_image' )->section  = 'site-hero-background';
+        $wp_customize->get_control( 'header_image' )->priority = '1';
+
+        $wp_customize->get_control( 'background_image' )->panel  = 'general';
+        $wp_customize->get_control( 'background_image' )->section  = 'container-style';
+        $wp_customize->get_control( 'background_image' )->priority = '1';
+
+        $wp_customize->get_control( 'background_preset' )->panel  = 'general';
+        $wp_customize->get_control( 'background_preset' )->section  = 'container-style';
+        $wp_customize->get_control( 'background_preset' )->priority = '2';
+    }
 }

@@ -129,13 +129,13 @@ function analytica_get_the_title( $post_id = 0, $echo = false ) {
 function analytica_entry_footer() {
 
     if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-        echo '<span class="comments-link">';
 
         /**
          * Get default strings.
          *
          * @see analytica_default_strings
          */
+        echo '<span class="comments-link">';
         comments_popup_link( analytica_default_strings( 'string-blog-meta-leave-a-comment', false ), analytica_default_strings( 'string-blog-meta-one-comment', false ), analytica_default_strings( 'string-blog-meta-multiple-comment', false ) );
         echo '</span>';
     }

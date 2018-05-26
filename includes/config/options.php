@@ -65,7 +65,7 @@ class Options
             'site-content-width'  => 1200,
             'site-description'    => 0,
             'site-layout-offset'  => '0',
-            'site-layout'         => 'site-fullwidth',
+            'site-layout'         => 'site-wide',
             'site-sidebar-layout' => 'content-sidebar',
 
             // Colors
@@ -77,7 +77,7 @@ class Options
             'site-text-color'               => '#3a3a3a',
 
             // Container.
-            'site-detach-containers' => false,
+            'site-detach-containers' => true,
             'site-dual-containers'   => false,
 
             // Sidebars
@@ -129,7 +129,6 @@ class Options
             'site-hero-fullheight'               => false,
             'site-hero-height-mobile'            => 200,
             'site-hero-height'                   => 350,
-            'site-hero-parallax'                 => false,
             'site-hero-show-subtitle'            => true,
             'site-hero-show-title'               => true,
             'site-hero-subtitle'                 => '',
@@ -256,6 +255,16 @@ class Options
                 'font-family' => $primary['font-family'],
             ],
 
+            'font-widget-title' => [
+                'font-family'    => $secondary['font-family'],
+                'variant'        => 'regular',
+                'font-size'      => '14px',
+                'line-height'    => '1.5',
+                'letter-spacing' => '0',
+                'color'          => $secondary['color'],
+                'text-transform' => 'uppercase',
+            ],
+
             // Blog
             'featured-image'                   => true,
             'single-post-site-container-width' => '',
@@ -287,12 +296,15 @@ class Options
                 'author',
             ),
 
+            // Search 
+            'search-sidebar-layout' => '',
+
             // Footer
             'site-back-to-top'           => true,
             'site-footer-copyright-text' => esc_html__('Copyright &copy; [year] Radium Themes. All rights reserved.', 'analytica'),
             'site-footer-layout'         => '4',
-            'site-footer-width'          => true,
-            'site-footer-widgets'          => true,
+            'site-footer-width'          => 'layout-boxed',                                                                           // 'layout-boxed', 'layout-fullwidth'
+            'site-footer-widgets'        => true,
             'site-footer'                => true,
             'site-theme-badge'           => true,
             'site-credit-typography'     => [
@@ -305,13 +317,13 @@ class Options
                 'text-align'     => 'center',
             ],
             'footer-colophon-background-color' => '#000',
-            'footer-colophon-links-color'   => '#BCBCBC',
-            'footer-colophon-color'   => 'rgba(255,255,255,0.5)',
-            'footer-colophon-width' => true,
-            'footer-colophon' => true,
-            'footer-colophon-border-color' => 'rgba(255,255,255,0.09)',
-            'footer-colophon-border-style' => 'solid',
-            'footer-colophon-border'   =>  [
+            'footer-colophon-links-color'      => '#BCBCBC',
+            'footer-colophon-color'            => 'rgba(255,255,255,0.5)',
+            'footer-colophon-width'            => true,
+            'footer-colophon'                  => true,
+            'footer-colophon-border-color'     => 'rgba(255,255,255,0.09)',
+            'footer-colophon-border-style'     => 'solid',
+            'footer-colophon-border'           => [
                 'top'    => '0',
                 'bottom' => '0',
                 'left'   => '0',
@@ -323,7 +335,6 @@ class Options
                 'left'   => '0',
                 'right'  => '0',
             ],
-
             'footer-background' => [
                 'color'    => '#000000',
                 'image'    => '',
@@ -332,28 +343,27 @@ class Options
                 'attach'   => 'fixed',
                 'position' => 'left-top',
             ],
-            'footer-accent-color' => '#fff',
-            'footer-text-color' => 'rgba(255,255,255,0.5)',
-            'footer-accent-color'          => '',
-            'footer-body-color'            => '',
-            'footer-border-color'          => '',
-            'footer-headers-color'         => '',
-            'footer-link-color'            => '',
-            'site-footer-border-style'          => 'solid',
-            'site-footer-padding'          => [
+            'footer-accent-color'      => '#fff',
+            'footer-text-color'        => 'rgba(255,255,255,0.5)',
+            'footer-accent-color'      => '',
+            'footer-body-color'        => '',
+            'footer-border-color'      => '',
+            'footer-headers-color'     => '#fff',
+            'footer-link-color'        => '',
+            'site-footer-border-style' => 'solid',
+            'site-footer-padding'      => [
                 'top'    => '40px',
                 'left'   => '',
                 'bottom' => '40px',
                 'right'  => '',
             ],
-            'site-footer-border'          => [
+            'site-footer-border'       => [
                 'top'    => '0',
                 'bottom' => '0',
                 'left'   => '0',
                 'right'  => '0',
             ],
-            /////////////////////////////////////////////////////////
-          
+       
             // Buttons.
             'button-bg-color'   => '',
             'button-bg-h-color' => '',

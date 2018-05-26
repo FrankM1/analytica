@@ -166,8 +166,9 @@ class Loop {
      */
     public function loop_markup( $is_page = false ) {
         
-        ?><main class="site-main" role="main"><?php
-        
+        ?><main class="site-main" role="main">
+            <div class="site-main-inner"><?php
+    
             if ( have_posts() ) :
                 
                 do_action( 'analytica_template_parts_content_top' );
@@ -191,7 +192,8 @@ class Loop {
 
            endif; 
             
-        ?></main><!-- #main --><?php
+            ?></div>
+        </main><!-- #main --><?php
     }
 
     /**

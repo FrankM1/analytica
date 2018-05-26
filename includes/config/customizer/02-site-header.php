@@ -41,6 +41,12 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
                 'value'    => true,
             ],
         ],
+        'output'    => [
+            [
+                'element' => '.site-header',
+                'property' => 'background-color',
+            ],
+        ],
     ];
 
     $controls[] = [

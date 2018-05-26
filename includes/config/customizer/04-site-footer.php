@@ -327,7 +327,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
                         '.site-footer .site-footer-widgets .widget-area legend',
                         '.site-footer .site-footer-widgets .widget-area select',
                         '.site-footer .site-footer-widgets .widget-area textarea',
-                        '.site-footer .widget-area .widget-wrap .widget-title',
                         '.site-footer .site-footer-widgets .widget-area .widget-title',
                         '.site-footer .site-footer-widgets .widget-area #wp-calendar caption',
                     ],

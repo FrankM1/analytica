@@ -8,7 +8,7 @@ $primary:   #a46497;                                    // Primary color for but
 $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 
 /**
- * Astra Theme compatibility with WooCommerce
+ * Analytica Theme compatibility with WooCommerce
  */
 @import "../mixins/mixins-master";
 @import "../../grid/variables";

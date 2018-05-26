@@ -8,7 +8,7 @@
  * @author   Franklin Gitonga
  */
 
-add_action( 'analytica_before_footer', 'analytica_footer_markup_open', 5 );
+add_action( 'analytica_footer_before', 'analytica_footer_markup_open', 5 );
  /**
   * Echo the opening div tag for the footer.
   *
@@ -20,7 +20,7 @@ add_action( 'analytica_before_footer', 'analytica_footer_markup_open', 5 );
   */
  function analytica_footer_markup_open() {
 
-     if ( ! analytica_is_footer_available() ) {
+     if ( ! analytica_site_footer_is_active() ) {
          return;
      }
 
@@ -31,7 +31,7 @@ add_action( 'analytica_before_footer', 'analytica_footer_markup_open', 5 );
 
  }
 
- add_action( 'analytica_after_footer', 'analytica_footer_markup_close', 20 );
+ add_action( 'analytica_footer_after', 'analytica_footer_markup_close', 20 );
  /**
   * Echo the closing div tag for the footer.
   *
@@ -43,7 +43,7 @@ add_action( 'analytica_before_footer', 'analytica_footer_markup_open', 5 );
   */
  function analytica_footer_markup_close() {
 
-    if ( ! analytica_is_footer_available() ) {
+    if ( ! analytica_site_footer_is_active() ) {
         return;
     }
 
@@ -52,9 +52,7 @@ add_action( 'analytica_before_footer', 'analytica_footer_markup_open', 5 );
     ));
  }
 
- if ( has_nav_menu( 'footer-menu' ) ) {
-     add_action( 'analytica_footer', 'analytica_footer_menu_area', 17 );
- }
+add_action( 'analytica_footer', 'analytica_footer_menu_area', 17 );
 /**
  * Echo the opening div tag for the footer.
  *
@@ -66,13 +64,13 @@ add_action( 'analytica_before_footer', 'analytica_footer_markup_open', 5 );
  */
 function analytica_footer_menu_area() {
 
-    if ( ! analytica_is_footer_available() ) {
+    if ( ! analytica_site_footer_is_active() || ! has_nav_menu( 'footer-menu' ) ) {
         return;
     }
 
     analytica_markup( array(
         'element' => '<div %s>',
-        'context' => 'footer-menu',
+        'context' => 'site-footer-menu',
     ));
 
     do_action( 'analytica_footer_menu' );
@@ -96,13 +94,13 @@ add_action( 'analytica_footer', 'analytica_footer_widget_areas' );
  */
 function analytica_footer_widget_areas() {
 
-    if ( ! analytica_is_footer_available() || ! analytica_footer_has_widgets() ) {
+    if ( ! analytica_site_footer_is_active() || ! analytica_site_footer_has_widgets() ) {
         return;
     }
 
     // Get footer layout
     $layout = analytica_get_option( 'site-footer-layout' );
-    $container_class = analytica_get_option( 'site-footer-width' ) ? 'site-footer-fullwidth' : 'analytica-container';
+    $container_class = ( 'layout-fullwidth' === analytica_get_option( 'site-footer-width' ) ) ? 'site-footer-fullwidth' : 'site-footer-boxed has-container';
 
     $inside = '';
     $output = '';
@@ -129,7 +127,7 @@ function analytica_footer_widget_areas() {
 		$inside .= '<div class="site-footer-top">';
 			$inside .= '<div class="site-footer-top-inner">';
                 $inside .= '<div class="' . $container_class . '">';
-                    $inside .= '<div class="site-footer-row analytica-row">';
+                    $inside .= '<div class="analytica-row">';
 
 						switch( $layout ) :
 							case 'layout-1' :
@@ -397,7 +395,7 @@ function analytica_get_dynamic_footer_sidebar( $sidebar, $layout ) {
 
 }
 
-add_action( 'analytica_after_footer', 'analytica_back_to_top', 99 );
+add_action( 'analytica_footer_after', 'analytica_back_to_top', 99 );
 /**
  * Add theme credits
  *
@@ -406,7 +404,7 @@ add_action( 'analytica_after_footer', 'analytica_back_to_top', 99 );
 function analytica_back_to_top() {
 
     // Filter the text strings
-    $backtotop_text = apply_filters( 'analytica_footer_backtotop_text', '<a href="#site-container" rel="nofollow">'. esc_html__( 'Back to top', 'analytica' ) .'</a>' );
+    $backtotop_text = apply_filters( 'analytica_footer_backtotop_text', '<a href="#page" rel="nofollow">'. esc_html__( 'Back to top', 'analytica' ) .'</a>' );
 
     $backtotop = $backtotop_text && analytica_get_option( 'site-back-to-top' ) ? sprintf( '<div id="gototop"><div class="cross"><span class="bloc-h"></span><span class="bloc-v"></span></div><span class="ricon-arrow-top"></span>%s</div>', $backtotop_text ) : '';
 
@@ -421,16 +419,19 @@ add_action( 'analytica_do_colophon', 'analytica_colophon_content', 15 );
  * @since 1.0.0
  */
 function analytica_colophon_content() {
+    $output = $theme_credits = $site_copyright = null;
 
-    $core = analytica();
-
-    $creds_text = str_replace( '[year]', date( 'Y' ), analytica_get_option( 'site-footer-copyright-text' ) );
-
-    $site_copyright = $creds_text ? sprintf( '<div class="site-copyright">%s</div>', $creds_text ) : '';
-
-    $theme_credits = analytica_get_option( 'site-theme-badge' ) ? '<div class="theme-credits">'. esc_html__( 'Powered by', 'analytica' ) .' <a href="https://qazana.net/" target="_blank">' . $core->theme_title .'</a> <span>and</span> WordPress.</div>': '';
-
-    $output = $site_copyright || $theme_credits ? '<div class="site-creds" role="contentinfo">' . $site_copyright . $theme_credits . '</div>' : '';
+    if ( analytica_get_option( 'site-footer-copyright-text' ) ) {
+        $site_copyright = sprintf( '<div class="site-copyright">%s</div>', str_replace( '[year]', date( 'Y' ), analytica_get_option( 'site-footer-copyright-text' ) ) );
+    }
+    
+    if ( analytica_get_option( 'site-theme-badge' ) ) {
+        $theme_credits = '<div class="theme-credits">'. esc_html__( 'Powered by', 'analytica' ) .' <a href="https://qazana.net/" target="_blank">' . analytica()->theme_title .'</a> <span>and</span> WordPress.</div>';
+    }
+    
+    if ( $site_copyright || $theme_credits ) {
+        $output = '<div class="site-creds" role="contentinfo">' . $site_copyright . $theme_credits . '</div>';
+    }
 
     echo apply_filters( __FUNCTION__, $output );
 
@@ -448,7 +449,7 @@ add_action( 'analytica_footer', 'analytica_do_colophon', 20 );
  */
 function analytica_do_colophon() {
 
-    if ( ! analytica_is_colophon_available() ) {
+    if ( ! analytica_is_site_colophon_available() ) {
         return;
     }
 

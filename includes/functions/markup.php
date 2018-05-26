@@ -939,14 +939,10 @@ function analytica_attributes_site_footer( $attributes ) {
         $attributes['class'] = 'site-footer fullwidth';
     }
 
-    if ( analytica_footer_is_parallax() && !analytica_is_fullpage_scroll() ) {
-        $attributes['class'] .= ' footer-parallax';
-    }
-
     return $attributes;
 }
 
-add_filter( 'analytica_attr_footer-widgets', 'analytica_attributes_site_footer_widgets' );
+add_filter( 'analytica_attr_site-footer-widgets', 'analytica_attributes_site_footer_widgets' );
 /**
  * Add attributes for site footer element.
  *
