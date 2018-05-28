@@ -30,7 +30,7 @@ add_filter( 'kirki_config', 'analytica_kirki_configuration_styling' );
   * @return array
   */
 function analytica_kirki_configuration_styling( $config ) {
-    return wp_parse_args( array( 'description'  => wp_get_theme()->get( 'Description' ) ), $config );
+    return wp_parse_args( array( 'description' => wp_get_theme()->get( 'Description' ) ), $config );
 }
 
 add_action( 'customize_save_after', 'analytica_customizer_single_post_defaults' );
@@ -178,9 +178,12 @@ function analytica_customizer_reorder_fields( $wp_customize ) {
     $wp_customize->get_control( 'site_icon' )->section  = 'logo-favicon';
     $wp_customize->get_control( 'site_icon' )->priority = '4';
 
+    $wp_customize->get_control( 'display_header_text' )->section  = 'logo-favicon';
+    $wp_customize->get_control( 'display_header_text' )->priority = '5';
+
     $site_logo_header_text = $wp_customize->get_control( 'site_logo_header_text' );
 
-    // this field may miss, so we need a check
+    // this field may be missing, so we need a check
     if ( ! empty( $site_logo_header_text ) ) {
         $site_logo_header_text->section = 'general';
     }

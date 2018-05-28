@@ -91,25 +91,6 @@ function analytica_site_header_is_active() {
  }
 
  /**
-  * Detect inline visual composer
-  *
-  * @since 1.0.0
-  *
-  * @return boolean
-  */
- function analytica_vc_editor_active() {
-     $retval = false;
-
-     if ( analytica_detect_plugin( ['classes' => ['Vc_Manager']] ) ) {
-         if ( is_admin() || ( isset( $_GET['vc_editable'] ) && 'true' === $_GET['vc_editable'] ) ) {
-             $retval = true;
-         }
-     }
-
-     return apply_filters( __FUNCTION__, $retval );
- }
-
- /**
   * Detect blog page.
   *
   * @since 1.0.0

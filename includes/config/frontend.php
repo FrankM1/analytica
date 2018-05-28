@@ -58,6 +58,14 @@ class Frontend {
 
         endif;
 
+        wp_register_script(
+            'jquery-smartresize',
+            analytica()->theme_url . '/assets/frontend/js/vendor/smartresize.js',
+            ['jquery'],
+            $version,
+            true
+        );
+
     }
 
     /**
@@ -83,6 +91,7 @@ class Frontend {
         ]; // create globals for front-end AJAX calls;
 
         $dependencies = [
+            'jquery-smartresize'
         ];
 
         wp_register_script(

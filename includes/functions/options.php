@@ -9,6 +9,39 @@
  * @since       Analytica 1.0.0
  */
 
+ /**
+ * Default color picker palettes
+ *
+ * @since 1.4.9
+ */
+
+function analytica_default_color_palettes() {
+
+    $font_base = analytica_get_option( 'font-base' );
+    $font_secondary = analytica_get_option( 'font-secondary-base' );
+    $accent_color = analytica_get_option( 'site-accent-color' );
+    $link_color = analytica_get_option( 'site-link-color' );
+    $link_highlight_color = analytica_get_option( 'site-link-highlight-color' );
+    $text_color = analytica_get_option( 'site-text-color' );
+
+    $font_secondary_color = ! empty( $font_secondary['color'] ) ? $font_secondary['color'] : '';
+    $font_base_color = ! empty( $font_base['color'] ) ? $font_base['color'] : '';
+
+    $palettes = [
+        $font_secondary_color, // Title colors
+        $font_base_color, // Default color
+        $accent_color,  // Accents color, buttons etc
+        $text_color,
+        $link_color,
+        $link_highlight_color,
+        '#000000',
+        '#ffffff',
+    ];
+
+    // Apply filters and return
+    return apply_filters( 'analytica_default_color_palettes', $palettes );
+}
+    
 /**
  * Return option from the options table and cache result.
  *

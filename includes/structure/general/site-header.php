@@ -130,11 +130,21 @@ function analytica_site_header_assets() {
     );
 
     wp_enqueue_script(
-        'analytica-megamenu-mobile',
-        analytica()->theme_url . '/assets/frontend/js/vendor/mobile-menu.js',
+        'analytica-jquery-dlmenu',
+        analytica()->theme_url . '/assets/frontend/js/vendor/jquery-dlmenu.js',
         [ 
             'jquery',
             'hoverIntent',
+        ],
+        $version,
+        true
+    );
+
+    wp_enqueue_script(
+        'analytica-navigation-mobile',
+        analytica()->theme_url . '/assets/frontend/js/modules/navigation.js',
+        [ 
+            'analytica-jquery-dlmenu',
         ],
         $version,
         true

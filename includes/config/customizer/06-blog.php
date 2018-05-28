@@ -20,11 +20,11 @@ function analytica_admin_add_customizer_blog_controls( $controls) {
     $new_controls = [
 
         [
-            'id'      => 'archive-content-structure'            ,
+            'id'      => 'archive-content-structure',
             'section' => 'archive_settings',
             'label'   => esc_html__( 'Blog post structure', 'analytica' ),
-            'type'    => 'multicheck',
-            'default' => $default['archive-content-structure'            ],
+            'type'    => 'sortable',
+            'default' => $default['archive-content-structure'],
             'options'  => array(
                 'image'      => __( 'Featured Image', 'analytica' ),
                 'title-meta' => __( 'Title & Blog Meta', 'analytica' ),
@@ -32,11 +32,11 @@ function analytica_admin_add_customizer_blog_controls( $controls) {
         ],
 
         [
-            'id'      => 'archive-post-content'            ,
+            'id'      => 'archive-post-content',
             'section' => 'archive_settings',
             'label'   => esc_html__( 'Blog post content', 'analytica' ),
             'type'    => 'select',
-            'default' => $default['archive-post-content'            ],
+            'default' => $default['archive-post-content'],
             'options'  => array(
                 'full-content' => __( 'Full Content', 'analytica' ),
                 'excerpt'      => __( 'Excerpt', 'analytica' ),
@@ -44,11 +44,11 @@ function analytica_admin_add_customizer_blog_controls( $controls) {
         ],
 
         [
-            'id'      => 'archive-post-meta'            ,
+            'id'      => 'archive-post-meta',
             'section' => 'archive_settings',
             'label'   => esc_html__( 'Blog meta', 'analytica' ),
-            'type'    => 'multicheck',
-            'default' => $default['archive-post-meta'            ],
+            'type'    => 'sortable',
+            'default' => $default['archive-post-meta'],
             'options'  => array(
                 'comments' => __( 'Comments', 'analytica' ),
                 'category' => __( 'Category', 'analytica' ),

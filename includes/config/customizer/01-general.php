@@ -18,6 +18,27 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
     $default = Analytica\Options::defaults();
 
     $controls[] = [
+        'id'      => 'site-content-color',
+        'section' => 'general-settings',
+        'label'   => esc_html__( 'Site container color', 'analytica' ),
+        'type'    => 'alpha-color',
+     ];
+
+     $controls[] = [
+        'id'      => 'site-content-dimensions',
+        'section' => 'general-settings',
+        'label'   => esc_html__( 'Site container dimensions', 'analytica' ),
+        'type'    => 'dimensions-responsive',
+     ];
+
+     $controls[] = [
+        'id'      => 'site-content-icon',
+        'section' => 'general-settings',
+        'label'   => esc_html__( 'Site container icon', 'analytica' ),
+        'type'    => 'icon',
+     ];
+
+    $controls[] = [
         'id'      => 'site-layout',
         'section' => 'general-settings',
         'type'    => 'radio-buttonset',
@@ -105,14 +126,16 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'default' => $default['site-accent-color'],
     ];
 
-
     $controls[] = [
         'id'      => 'site-background-color',
         'section' => 'container-style',
         'type'    => 'color',
         'label'   => esc_html__( 'Background color', 'analytica' ),
         'default' => $default['site-background-color'],
-    ];
+        'choices'     => array(
+            'alpha' => true,
+        ),
+    ]; 
 
     $controls[] = [
         'id'      => 'site-content-background-color',
@@ -120,6 +143,9 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'type'    => 'color',
         'label'   => esc_html__( 'Content background', 'analytica' ),
         'default' => $default['site-content-background-color'],
+        'choices'     => array(
+            'alpha' => true,
+        ),
         'output'    => array(
             array(
                 'element' => '.site-mono-container .site-container, .site-dual-containers .site-main-inner, .site-dual-containers .site-sidebar .widget-area-inner',

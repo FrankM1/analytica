@@ -21,7 +21,7 @@ Analytica has up to 4 widget area. 1 in your header, 1 for each sidebar and up t
 	- Typography: Choose your default body font & set default font size to H1 to H6 tags, Site title, tagline & blog post title on archive page and single page.
 
 -------------------------------------------------------
-ASTRA Child Theme
+Analytica Child Theme
 -------------------------------------------------------
 
 There are multiple ways you can use a child theme with the Analytica Theme, Use any one method mentoned below to create a child theme or use a child theme we have created.
@@ -31,10 +31,13 @@ There are multiple ways you can use a child theme with the Analytica Theme, Use 
 3. More information on creating child theme. - https://codex.wordpress.org/Child_Themes
 
 -------------------------------------------------------
-ASTRA License
+Analytica License
 -------------------------------------------------------
-Analytica WordPress Theme, Copyright 2018 WPAstra.
-Analytica is distributed under the terms of the GNU GPL.
+Analytica WordPress Theme, Copyright 2018 Qazana.
+Analytica is distributed under the terms of the GNU GPL v2 or later.
+
+Analytica is based on WPAstra WordPress Theme, Copyright 2018 WPAstra.
+WPAstra is distributed under the terms of the GNU GPL v2 or later.
 
 Analytica is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.

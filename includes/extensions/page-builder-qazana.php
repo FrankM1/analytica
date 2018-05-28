@@ -179,16 +179,7 @@ class Qazana {
         $schemes = [
             'analytica' => [
                 'title' => wp_get_theme()->get( 'Name' ),
-                'items' => [
-                    '1' => $font_secondary_color, // Title colors
-                    '2' => $font_base_color, // Meta color
-                    '3' => $accent_color,  // Accents color, buttons etc
-                    '4' => '#4CD964',
-                    '5' => '#007AFF',
-                    '6' => '#FF2D55',
-                    '7' => '#000',
-                    '8' => '#fff',
-                ],
+                'items' => analytica_default_color_palettes(),
             ],
         ];
 
@@ -239,11 +230,9 @@ class Qazana {
      * @return boolean
      */
     function is_builder_activated( $retval = false ) {
-
         if ( analytica_detect_plugin( array( 'classes' => array( 'Qazana\Plugin' ) ) ) ) {
-            $retval = true;
+            return true;
         }
-
         return $retval;
     }
 
@@ -255,11 +244,9 @@ class Qazana {
      * @return boolean
      */
     function is_builder_page( $retval, $post_id ) {
-
         if ( get_post_meta( $post_id, '_qazana_edit_mode', true ) || 'qazana_library' == get_post_type() ) {
-            $retval = true;
+            return true;
         }
-
         return $retval;
     }
 }

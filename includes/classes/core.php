@@ -169,6 +169,7 @@ class Core {
         $this->options_instance                      = new Options();
         $this->customizer                            = new Customizer();
         $this->metabox                               = new Metabox\Actions();
+
         $this->extensions_page_builders              = new Extensions\Page_Builder();
         $this->extensions_page_builders_qazana       = new Extensions\Page_Builder\Qazana();
         $this->extensions_page_builders_elementor    = new Extensions\Page_Builder\Elementor();
@@ -220,15 +221,17 @@ class Core {
     
     function _include_classes() {
 
-        require_once get_theme_file_path( '/vendor/kirki/kirki.php' );
-
         require_once get_theme_file_path( '/includes/classes/nav/breadcrumb.php' );
         require_once get_theme_file_path( '/includes/classes/css/css-base.php' );
         require_once get_theme_file_path( '/includes/classes/css/global-css-file.php' );
         require_once get_theme_file_path( '/includes/classes/css/css-generate.php' );
+
         require_once get_theme_file_path( '/includes/classes/customizer/customizer.php' );
+        require_once get_theme_file_path( '/includes/classes/customizer/controls.php' );
         require_once get_theme_file_path( '/includes/classes/customizer/functions.php' );
         require_once get_theme_file_path( '/includes/classes/metaboxes/actions.php' );
+
+        require_once get_theme_file_path( '/vendor/kirki/kirki.php' );
     }
 
     function _include_function() {
@@ -268,9 +271,8 @@ class Core {
         require_once get_theme_file_path( '/includes/config/customizer/05-typography.php' );
         require_once get_theme_file_path( '/includes/config/customizer/06-blog.php' );
         // require_once get_theme_file_path( '/includes/config/customizer/07-blog-single.php' );
-        require_once get_theme_file_path( '/includes/config/customizer/90-utilities.php' );
-
         // require_once get_theme_file_path( '/includes/config/customizer/08-breadcrumbs.php' );
+        require_once get_theme_file_path( '/includes/config/customizer/90-utilities.php' );
     }
 
     function _include_admin() {
@@ -309,7 +311,6 @@ class Core {
         require_once get_theme_file_path( '/includes/extensions/page-builder.php' );
 
         // require_once get_theme_file_path( '/includes/extensions/beaver-builder.php' );
-        // require_once get_theme_file_path( '/includes/extensions/visual-composer.php' );
         // require_once get_theme_file_path( '/includes/extensions/site-origin.php' );
 
         // require_once get_theme_file_path( '/includes/extensions/jetpack.php' );
@@ -331,6 +332,8 @@ class Core {
         if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
         	require_once get_theme_file_path( '/includes/extensions/page-builder-qazana.php' );
         }
+
+        require_once get_theme_file_path( '/includes/extensions/page-builder-visual-composer.php' );
 
         // // Beaver Themer compatibility requires PHP 5.3 for anonymus functions.
         // if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
