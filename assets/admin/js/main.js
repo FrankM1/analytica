@@ -362,55 +362,49 @@ wp.customize.controlConstructor['dimensions-responsive'] = wp.customize.Control.
 	ready: function() {
 		'use strict';
 
-		var control = this;
+        var control     = this,
+			subControls = control.params.controls,
+			value       = {},
+			subsArray   = [],
+			i;
 
-		control.container.on( 'change keyup paste', '.dimension-top', function() {
-			control.settings.desktop.top.set( jQuery( this ).val() );
+		_.each( subControls, function( v, i ) {
+			subsArray.push( i );
 		});
 
-		control.container.on( 'change keyup paste', '.dimension-right', function() {
-			control.settings.desktop.right.set( jQuery( this ).val() );
+		for ( i = 0; i < subsArray.length; i++ ) {
+            value[ subsArray[ i ] ] = control.setting._value[ subsArray[ i ] ];
+			control.updateDimensionsValue( subsArray[ i ], value );
+		}
+    },
+
+    /**
+	 * Updates the value.
+	 */
+	updateDimensionsValue: function( context, value ) {
+        var control = this;
+
+		control.container.on( 'change keyup paste', 'input.dimension-' + context, function() {
+			value[ context ] = jQuery( this ).val();
+
+			// Save the value
+			control.saveValue( value );
+		});
+    },
+
+    /**
+	 * Saves the value.
+	 */
+	saveValue: function( value ) {
+
+		var control  = this,
+			newValue = {};
+
+		_.each( value, function( newSubValue, i ) {
+			newValue[ i ] = newSubValue;
 		});
 
-		control.container.on( 'change keyup paste', '.dimension-bottom', function() {
-			control.settings.desktop.bottom.set( jQuery( this ).val() );
-		});
-
-		control.container.on( 'change keyup paste', '.dimension-left', function() {
-			control.settings.desktop.left.set( jQuery( this ).val() );
-		});
-
-		control.container.on( 'change keyup paste', '.dimension-tablet_top', function() {
-			control.settings.tablet.top.set( jQuery( this ).val() );
-		});
-
-		control.container.on( 'change keyup paste', '.dimension-tablet_right', function() {
-			control.settings.tablet.right.set( jQuery( this ).val() );
-		});
-
-		control.container.on( 'change keyup paste', '.dimension-tablet_bottom', function() {
-			control.settings.tablet.bottom.set( jQuery( this ).val() );
-		});
-
-		control.container.on( 'change keyup paste', '.dimension-tablet_left', function() {
-			control.settings.tablet.left.set( jQuery( this ).val() );
-		});
-
-		control.container.on( 'change keyup paste', '.dimension-mobile_top', function() {
-			control.settings.mobile.top.set( jQuery( this ).val() );
-		});
-
-		control.container.on( 'change keyup paste', '.dimension-mobile_right', function() {
-			control.settings.mobile.right.set( jQuery( this ).val() );
-		});
-
-		control.container.on( 'change keyup paste', '.dimension-mobile_bottom', function() {
-			control.settings.mobile.bottom.set( jQuery( this ).val() );
-		});
-
-		control.container.on( 'change keyup paste', '.dimension-mobile_left', function() {
-			control.settings.mobile.left.set( jQuery( this ).val() );
-        });
+		control.setting.set( newValue );
 	}
 
 });
