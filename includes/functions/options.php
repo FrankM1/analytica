@@ -39,7 +39,32 @@ function analytica_default_color_palettes() {
     ];
 
     // Apply filters and return
-    return apply_filters( 'analytica_default_color_palettes', $palettes );
+    return apply_filters( __FUNCTION__, $palettes );
+}
+    
+/**
+ * Array of Font Awesome Icons for the scroll up button
+ *
+ * @since 1.0.0
+ */
+function analytica_get_awesome_icons( $return = 'up_arrows', $default = 'none' ) {
+
+    // Add none to top of array
+    $icons_array = array(
+        'none' =>''
+    );
+
+    // Define return icons
+    $return_icons = array();
+
+    // Returns up arrows only
+    if ( 'up_arrows' == $return ) {
+        $return_icons = array('fa fa-chevron-up','fa fa-caret-up','fa fa-angle-up','fa fa-angle-double-up','fa fa-long-arrow-up','fa fa-arrow-circle-o-up','fa fa-arrow-up','fa fa-level-up','fa fa-toggle-up');
+        $return_icons = array_combine($return_icons, $return_icons);
+    }
+    
+    return apply_filters( __FUNCTION__, array_merge( $icons_array, $return_icons ) );
+    
 }
     
 /**

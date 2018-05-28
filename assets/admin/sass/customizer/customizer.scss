@@ -8,6 +8,13 @@
 	margin-bottom: 10px;
 }
 
+.customize-control.has-switchers {
+    margin-bottom: 0;
+    .control-wrap {
+        margin-bottom: 12px;
+    }
+}
+
 .customize-control.has-switchers .customize-control-title span {
 	line-height: 20px;
 }
@@ -45,7 +52,6 @@
 	padding: 0;
 	border: 0;
 	outline: none;
-	-webkit-transition: background-color .5s;
 	transition: background-color .5s;
 	cursor: pointer;
 }
@@ -65,9 +71,8 @@
 	line-height: 18px;
 }
 
-.customize-control.has-switchers>.control-wrap:not(.active) {
+.customize-control.has-switchers:not(.active) > ul {
 	display: none;
-	width: 100%;
 }
 
 /* RTL */

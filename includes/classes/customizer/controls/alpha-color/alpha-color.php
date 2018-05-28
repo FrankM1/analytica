@@ -54,7 +54,7 @@ add_action( 'customize_register', function( $wp_customize ) {
         protected function content_template() { 
             
             ?><label>
-                <# console.log(data); if ( data.label ) { #>
+                <# if ( data.label ) { #>
                     <span class="customize-control-title">{{{ data.label }}}</span>
                 <# } #>
                 <# if ( data.description ) { #>

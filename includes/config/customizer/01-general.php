@@ -25,10 +25,63 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
      ];
 
      $controls[] = [
-        'id'      => 'site-content-dimensions',
+        'id' 		=> 'site-content-dimensions',
         'section' => 'general-settings',
         'label'   => esc_html__( 'Site container dimensions', 'analytica' ),
         'type'    => 'dimensions-responsive',
+        'responsive' => true,
+        'size_units' => [ 'px', 'em', '%' ],
+        'default' => [
+            'all' => [
+                'top' 		=> 10,
+                'right' 	=> 10,
+                'bottom' 	=> 10,
+                'left' 		=> 10,
+                'unit' => 'px',
+                'isLinked' => ''
+            ],
+            'desktop' => [
+                'top' 		=> 10,
+                'right' 	=> 10,
+                'bottom' 	=> 10,
+                'left' 		=> 10,
+                'unit' => 'px',
+                'isLinked' => ''
+            ],
+            'tablet' => [
+                'top' 		=> 10,
+                'right' 	=> 10,
+                'bottom' 	=> 10,
+                'left' 		=> 10,
+                'unit' => 'px',
+                'isLinked' => ''
+            ],
+            'mobile' => [
+                'top' 		=> 10,
+                'right' 	=> 10,
+                'bottom' 	=> 10,
+                'left' 		=> 10,
+                'unit' => 'px',
+                'isLinked' => ''
+            ]
+        ],
+        'placeholder' => [
+            'top' 		=> 10,
+            'right' 	=> 10,
+            'bottom' 	=> 10,
+            'left' 		=> 10,
+        ],
+        'controls' => array(
+            'top',
+            'right',
+            'bottom',
+            'left',
+        ),
+        'input_attrs' 			=> array(
+            'min'   => 0,
+            'max'   => 500,
+            'step'  => 1,
+        ),
      ];
 
      $controls[] = [
@@ -36,6 +89,7 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'general-settings',
         'label'   => esc_html__( 'Site container icon', 'analytica' ),
         'type'    => 'icon',
+        'choices' => analytica_get_awesome_icons( 'up_arrows' ),
      ];
 
     $controls[] = [

@@ -1,4 +1,14 @@
-jQuery( document ).ready( function($) {
+jQuery( document ).ready( function( $ ) {
+
+    $( '.customize-control.has-switchers' ).each( function( index ) {
+		var $control 		= $( this ),
+            $devices 	= $control.find( '.responsive-switchers' );
+        if ( $devices.length >= 1 ) {
+            $control.parent().find( '#' + $control.attr( 'id' ) ).addClass( 'active' );
+            $control.parent().find( '#' + $control.attr( 'id' ) + '_mobile' ).removeClass( 'active' );
+            $control.parent().find( '#' + $control.attr( 'id' ) + '_tablet' ).removeClass( 'active' );
+        }
+    });
 
 	// Responsive switchers
 	$( '.customize-control .responsive-switchers button' ).on( 'click', function( event ) {
@@ -16,8 +26,14 @@ jQuery( document ).ready( function($) {
 		$devices.find( 'button.preview-' + $device ).addClass( 'active' );
 
 		// Control class
-		$control.find( '.control-wrap' ).removeClass( 'active' );
-		$control.find( '.control-wrap.' + $device ).addClass( 'active' );
+        $control.removeClass( 'active' );
+
+        if ( $device === 'desktop' ) {
+            $control.parent().find( '#' + $control.attr( 'id' ) ).addClass( 'active' );
+        } else {
+            $control.parent().find( '#' + $control.attr( 'id' ) + '_' + $device ).addClass( 'active' );
+        }
+
 		$control.removeClass( 'control-device-desktop control-device-tablet control-device-mobile' ).addClass( 'control-device-' + $device );
 
 		// Wrapper class
@@ -32,7 +48,7 @@ jQuery( document ).ready( function($) {
 			$control.toggleClass( 'responsive-switchers-open' );
 		}
 
-	} );
+	});
 
 	// If panel footer buttons clicked
 	$( '.wp-full-overlay-footer .devices button' ).on( 'click', function( event ) {
@@ -47,9 +63,15 @@ jQuery( document ).ready( function($) {
 		$devices.find( 'button' ).removeClass( 'active' );
 		$devices.find( 'button.preview-' + $device ).addClass( 'active' );
 
-		// Control class
-		$control.find( '.control-wrap' ).removeClass( 'active' );
-		$control.find( '.control-wrap.' + $device ).addClass( 'active' );
+        // Control class
+        $control.removeClass( 'active' );
+
+        if ( $device === 'desktop' ) {
+            $control.parent().find( '#' + $control.attr( 'id' ) ).addClass( 'active' );
+        } else {
+            $control.parent().find( '#' + $control.attr( 'id' ) + '_' + $device ).addClass( 'active' );
+        }
+
 		$control.removeClass( 'control-device-desktop control-device-tablet control-device-mobile' ).addClass( 'control-device-' + $device );
 
 		// Open switchers
@@ -59,6 +81,6 @@ jQuery( document ).ready( function($) {
 			$control.removeClass( 'responsive-switchers-open' );
 		}
 
-	} );
+	});
 
-} );
+});

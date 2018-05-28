@@ -20,6 +20,10 @@ add_action( 'customize_register', function( $wp_customize ) {
          */
         public $type = 'dimensions-responsive';
 
+        protected $controls = [];
+
+        protected $device = '';
+
         /**
          * Enqueue control related scripts/styles.
          *
@@ -58,27 +62,28 @@ add_action( 'customize_register', function( $wp_customize ) {
             $this->json['id'] 		= $this->id;
             $this->json['l10n']    	= $this->l10n();
             $this->json['title'] 	= esc_html__( 'Link values together', 'analytica' );
+            $this->json['controls'] = $this->controls;
+            $this->json['device']   = $this->device ? $this->device : 'desktop';
 
             $this->json['inputAttrs'] = '';
             foreach ( $this->input_attrs as $attr => $value ) {
                 $this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
             }
 
-            $this->json['desktop'] = array();
-            $this->json['tablet']  = array();
-            $this->json['mobile']  = array();
+            $value = $this->value();
 
-            foreach ( $this->settings as $setting_key => $setting ) {
-
-                list( $_key ) = explode( '_', $setting_key );
-
-                $this->json[ $_key ][ $setting_key ] = array(
-                    'id'        => $setting->id,
-                    'link'      => $this->get_link( $setting_key ),
-                    'value'     => $this->value( $setting_key ),
-                );
+            $default = $this->setting->default;
+            if ( isset( $this->default ) ) {
+                $default = $this->default;
             }
 
+            foreach ( $this->controls as $control ) {
+                $this->json[ $this->device ][ $control ] = array(
+                    'id'        => $control,
+                    'link'      => $this->get_link( $control ),
+                    'value'     => ! empty( $value[ $this->device ][$control] ) ? $value[ $this->device ][$control] : $default[ $this->device ][$control],
+                );
+            }
         }
 
         /**
@@ -96,7 +101,6 @@ add_action( 'customize_register', function( $wp_customize ) {
             <# if ( data.label ) { #>
                 <span class="customize-control-title">
                     <span>{{{ data.label }}}</span>
-
                     <ul class="responsive-switchers">
                         <li class="desktop">
                             <button type="button" class="preview-desktop active" data-device="desktop">
@@ -114,7 +118,6 @@ add_action( 'customize_register', function( $wp_customize ) {
                             </button>
                         </li>
                     </ul>
-
                 </span>
             <# } #>
 
@@ -122,8 +125,9 @@ add_action( 'customize_register', function( $wp_customize ) {
                 <span class="description customize-control-description">{{{ data.description }}}</span>
             <# } #>
 
-            <ul class="desktop control-wrap active">
-                <# _.each( data.desktop, function( args, key ) { #>
+              <ul class="control-wrap">
+                <# _.each( data[ data.device ], function( args, key ) { 
+                    #>
                     <li class="dimension-wrap {{ key }}">
                         <input {{{ data.inputAttrs }}} type="number" class="dimension-{{ key }}" {{{ args.link }}} value="{{{ args.value }}}" />
                         <span class="dimension-label">{{ data.l10n[ key ] }}</span>
@@ -136,41 +140,8 @@ add_action( 'customize_register', function( $wp_customize ) {
                         <span class="dashicons dashicons-editor-unlink analytica-unlinked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
                     </div>
                 </li>
-            </ul>
+            </ul><?php
 
-            <ul class="tablet control-wrap">
-                <# _.each( data.tablet, function( args, key ) { #>
-                    <li class="dimension-wrap {{ key }}">
-                        <input {{{ data.inputAttrs }}} type="number" class="dimension-{{ key }}" {{{ args.link }}} value="{{{ args.value }}}" />
-                        <span class="dimension-label">{{ data.l10n[ key ] }}</span>
-                    </li>
-                <# } ); #>
-
-                <li class="dimension-wrap">
-                    <div class="link-dimensions">
-                        <span class="dashicons dashicons-admin-links analytica-linked" data-element="{{ data.id }}_tablet" title="{{ data.title }}"></span>
-                        <span class="dashicons dashicons-editor-unlink analytica-unlinked" data-element="{{ data.id }}_tablet" title="{{ data.title }}"></span>
-                    </div>
-                </li>
-            </ul>
-
-            <ul class="mobile control-wrap">
-                <# _.each( data.mobile, function( args, key ) { #>
-                    <li class="dimension-wrap {{ key }}">
-                        <input {{{ data.inputAttrs }}} type="number" class="dimension-{{ key }}" {{{ args.link }}} value="{{{ args.value }}}" />
-                        <span class="dimension-label">{{ data.l10n[ key ] }}</span>
-                    </li>
-                <# } ); #>
-
-                <li class="dimension-wrap">
-                    <div class="link-dimensions">
-                        <span class="dashicons dashicons-admin-links analytica-linked" data-element="{{ data.id }}_mobile" title="{{ data.title }}"></span>
-                        <span class="dashicons dashicons-editor-unlink analytica-unlinked" data-element="{{ data.id }}_mobile" title="{{ data.title }}"></span>
-                    </div>
-                </li>
-            </ul>
-
-            <?php
         }
 
         /**
@@ -186,14 +157,6 @@ add_action( 'customize_register', function( $wp_customize ) {
                 'right' 	=> esc_attr__( 'Right', 'analytica' ),
                 'bottom' 	=> esc_attr__( 'Bottom', 'analytica' ),
                 'left' 		=> esc_attr__( 'Left', 'analytica' ),
-                'tablet_top' 		=> esc_attr__( 'Top', 'analytica' ),
-                'tablet_right' 		=> esc_attr__( 'Right', 'analytica' ),
-                'tablet_bottom' 	=> esc_attr__( 'Bottom', 'analytica' ),
-                'tablet_left' 		=> esc_attr__( 'Left', 'analytica' ),
-                'mobile_top' 		=> esc_attr__( 'Top', 'analytica' ),
-                'mobile_right' 		=> esc_attr__( 'Right', 'analytica' ),
-                'mobile_bottom' 	=> esc_attr__( 'Bottom', 'analytica' ),
-                'mobile_left' 		=> esc_attr__( 'Left', 'analytica' ),
             );
             if ( false === $id ) {
                 return $translation_strings;

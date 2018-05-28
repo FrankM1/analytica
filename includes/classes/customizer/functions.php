@@ -78,12 +78,10 @@ function analytica_theme_defaults() {
             $description = ! empty( $value['desc'] ) ? $value['desc'] : '';
             $priority    = ! empty( $value['priority'] ) ? $value['priority'] : 10;
             $label       = ! empty( $value['title'] ) ? $value['title'] : $value['label'];
-            $setting     = ! empty( $value['id'] ) ? $value['id'] : $value['settings'];
             $section     = ! empty( $value['section'] ) ? $value['section'] : 'general';
 
             $args = array(
                 'type'        => $value['type'],
-                'settings'    => $setting,
                 'section'     => $section,
                 'default'     => $default,
                 'label'       => $label,
@@ -101,6 +99,16 @@ function analytica_theme_defaults() {
 
             if ( ! empty( $value['options'] ) ) {
                 $args['choices'] = $value['options'];
+            }
+
+            if ( ! empty( $value['settings'] ) ) {
+                $args['settings'] = $value['settings'];
+            } else {
+                $args['settings'] = $value['id'];
+            }
+
+            if ( ! empty( $value['controls'] ) ) {
+                $args['controls'] = $value['controls'];
             }
 
             if ( ! empty( $value['output'] ) ) {
@@ -154,9 +162,35 @@ function analytica_theme_defaults() {
                 $args['media_query'] = $value['media_query'];
             }
 
+            if ( ! empty( $value['input_attrs'] ) ) {
+                $args['input_attrs'] = $value['input_attrs'];
+            }
+
+            $args['device'] = 'all';
+
             \Analytica\Customizer::add_field( analytica()->theme_slug, $args );
+
+            if ( ! empty( $value['responsive'] ) && $value['responsive'] ) {
+
+                $mobile_args = $args;
+                $mobile_args['settings'] = $args['settings'] . '_mobile';
+                $mobile_args['label'] = '';
+                $mobile_args['description'] = '';
+                $tablet_args['device'] = 'mobile';
+
+                \Analytica\Customizer::add_field( analytica()->theme_slug, $mobile_args );
+
+                $tablet_args = $args;
+                $tablet_args['settings'] = $args['settings'] . '_tablet';
+                $tablet_args['label'] = '';
+                $tablet_args['description'] = '';
+                $tablet_args['device'] = 'tablet';
+
+                \Analytica\Customizer::add_field( analytica()->theme_slug, $tablet_args ); 
+            }
         }
     }
+   
 }
 
 add_action( 'customize_register', 'analytica_customizer_reorder_fields', 9999 );

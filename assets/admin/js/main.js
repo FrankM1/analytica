@@ -1,4 +1,14 @@
-jQuery( document ).ready( function($) {
+jQuery( document ).ready( function( $ ) {
+
+    $( '.customize-control.has-switchers' ).each( function( index ) {
+		var $control 		= $( this ),
+            $devices 	= $control.find( '.responsive-switchers' );
+        if ( $devices.length >= 1 ) {
+            $control.parent().find( '#' + $control.attr( 'id' ) ).addClass( 'active' );
+            $control.parent().find( '#' + $control.attr( 'id' ) + '_mobile' ).removeClass( 'active' );
+            $control.parent().find( '#' + $control.attr( 'id' ) + '_tablet' ).removeClass( 'active' );
+        }
+    });
 
 	// Responsive switchers
 	$( '.customize-control .responsive-switchers button' ).on( 'click', function( event ) {
@@ -16,8 +26,14 @@ jQuery( document ).ready( function($) {
 		$devices.find( 'button.preview-' + $device ).addClass( 'active' );
 
 		// Control class
-		$control.find( '.control-wrap' ).removeClass( 'active' );
-		$control.find( '.control-wrap.' + $device ).addClass( 'active' );
+        $control.removeClass( 'active' );
+
+        if ( $device === 'desktop' ) {
+            $control.parent().find( '#' + $control.attr( 'id' ) ).addClass( 'active' );
+        } else {
+            $control.parent().find( '#' + $control.attr( 'id' ) + '_' + $device ).addClass( 'active' );
+        }
+
 		$control.removeClass( 'control-device-desktop control-device-tablet control-device-mobile' ).addClass( 'control-device-' + $device );
 
 		// Wrapper class
@@ -32,7 +48,7 @@ jQuery( document ).ready( function($) {
 			$control.toggleClass( 'responsive-switchers-open' );
 		}
 
-	} );
+	});
 
 	// If panel footer buttons clicked
 	$( '.wp-full-overlay-footer .devices button' ).on( 'click', function( event ) {
@@ -47,9 +63,15 @@ jQuery( document ).ready( function($) {
 		$devices.find( 'button' ).removeClass( 'active' );
 		$devices.find( 'button.preview-' + $device ).addClass( 'active' );
 
-		// Control class
-		$control.find( '.control-wrap' ).removeClass( 'active' );
-		$control.find( '.control-wrap.' + $device ).addClass( 'active' );
+        // Control class
+        $control.removeClass( 'active' );
+
+        if ( $device === 'desktop' ) {
+            $control.parent().find( '#' + $control.attr( 'id' ) ).addClass( 'active' );
+        } else {
+            $control.parent().find( '#' + $control.attr( 'id' ) + '_' + $device ).addClass( 'active' );
+        }
+
 		$control.removeClass( 'control-device-desktop control-device-tablet control-device-mobile' ).addClass( 'control-device-' + $device );
 
 		// Open switchers
@@ -59,9 +81,10 @@ jQuery( document ).ready( function($) {
 			$control.removeClass( 'responsive-switchers-open' );
 		}
 
-	} );
+	});
 
-} );
+});
+
 
 /**
  * Alpha Color Picker JS
@@ -334,7 +357,7 @@ jQuery( document ).ready( function( $ ) {
 	});
 });
 
-wp.customize.controlConstructor['analytica-dimensions'] = wp.customize.Control.extend({
+wp.customize.controlConstructor['dimensions-responsive'] = wp.customize.Control.extend({
 
 	ready: function() {
 		'use strict';
@@ -342,87 +365,87 @@ wp.customize.controlConstructor['analytica-dimensions'] = wp.customize.Control.e
 		var control = this;
 
 		control.container.on( 'change keyup paste', '.dimension-top', function() {
-			control.settings['top'].set( jQuery( this ).val() );
-		} );
+			control.settings.desktop.top.set( jQuery( this ).val() );
+		});
 
 		control.container.on( 'change keyup paste', '.dimension-right', function() {
-			control.settings['right'].set( jQuery( this ).val() );
-		} );
+			control.settings.desktop.right.set( jQuery( this ).val() );
+		});
 
 		control.container.on( 'change keyup paste', '.dimension-bottom', function() {
-			control.settings['bottom'].set( jQuery( this ).val() );
-		} );
+			control.settings.desktop.bottom.set( jQuery( this ).val() );
+		});
 
 		control.container.on( 'change keyup paste', '.dimension-left', function() {
-			control.settings['left'].set( jQuery( this ).val() );
-		} );
+			control.settings.desktop.left.set( jQuery( this ).val() );
+		});
 
 		control.container.on( 'change keyup paste', '.dimension-tablet_top', function() {
-			control.settings['tablet_top'].set( jQuery( this ).val() );
-		} );
+			control.settings.tablet.top.set( jQuery( this ).val() );
+		});
 
 		control.container.on( 'change keyup paste', '.dimension-tablet_right', function() {
-			control.settings['tablet_right'].set( jQuery( this ).val() );
-		} );
+			control.settings.tablet.right.set( jQuery( this ).val() );
+		});
 
 		control.container.on( 'change keyup paste', '.dimension-tablet_bottom', function() {
-			control.settings['tablet_bottom'].set( jQuery( this ).val() );
-		} );
+			control.settings.tablet.bottom.set( jQuery( this ).val() );
+		});
 
 		control.container.on( 'change keyup paste', '.dimension-tablet_left', function() {
-			control.settings['tablet_left'].set( jQuery( this ).val() );
-		} );
+			control.settings.tablet.left.set( jQuery( this ).val() );
+		});
 
 		control.container.on( 'change keyup paste', '.dimension-mobile_top', function() {
-			control.settings['mobile_top'].set( jQuery( this ).val() );
-		} );
+			control.settings.mobile.top.set( jQuery( this ).val() );
+		});
 
 		control.container.on( 'change keyup paste', '.dimension-mobile_right', function() {
-			control.settings['mobile_right'].set( jQuery( this ).val() );
-		} );
+			control.settings.mobile.right.set( jQuery( this ).val() );
+		});
 
 		control.container.on( 'change keyup paste', '.dimension-mobile_bottom', function() {
-			control.settings['mobile_bottom'].set( jQuery( this ).val() );
-		} );
+			control.settings.mobile.bottom.set( jQuery( this ).val() );
+		});
 
 		control.container.on( 'change keyup paste', '.dimension-mobile_left', function() {
-			control.settings['mobile_left'].set( jQuery( this ).val() );
-		} );
+			control.settings.mobile.left.set( jQuery( this ).val() );
+        });
 	}
 
 });
 
-jQuery( document ).ready( function($) {
+jQuery( document ).ready( function( $ ) {
 
 	// Linked button
 	$( '.analytica-linked' ).on( 'click', function() {
-		
+
 		// Set up variables
 		var $this = $( this );
-		
+
 		// Remove linked class
-		$this.parent().parent( '.dimension-wrap' ).prevAll().slice(0,4).find( 'input' ).removeClass( 'linked' ).attr( 'data-element', '' );
-		
+		$this.parent().parent( '.dimension-wrap' ).prevAll().slice( 0, 4 ).find( 'input' ).removeClass( 'linked' ).attr( 'data-element', '' );
+
 		// Remove class
 		$this.parent( '.link-dimensions' ).removeClass( 'unlinked' );
 
-	} );
-	
+	});
+
 	// Unlinked button
 	$( '.analytica-unlinked' ).on( 'click', function() {
 
 		// Set up variables
 		var $this 		= $( this ),
 			$element 	= $this.data( 'element' );
-		
+
 		// Add linked class
-		$this.parent().parent( '.dimension-wrap' ).prevAll().slice(0,4).find( 'input' ).addClass( 'linked' ).attr( 'data-element', $element );
-		
+		$this.parent().parent( '.dimension-wrap' ).prevAll().slice( 0, 4 ).find( 'input' ).addClass( 'linked' ).attr( 'data-element', $element );
+
 		// Add class
 		$this.parent( '.link-dimensions' ).addClass( 'unlinked' );
 
-	} );
-	
+	});
+
 	// Values linked inputs
 	$( '.dimension-wrap' ).on( 'input', '.linked', function() {
 
@@ -431,11 +454,12 @@ jQuery( document ).ready( function($) {
 
 		$( '.linked[ data-element="' + $data + '" ]' ).each( function( key, value ) {
 			$( this ).val( $val ).change();
-		} );
+		});
 
-	} );
+	});
 
-} );
+});
+
 wp.customize.controlConstructor['analytica-icon'] = wp.customize.Control.extend({
 
 	ready: function() {

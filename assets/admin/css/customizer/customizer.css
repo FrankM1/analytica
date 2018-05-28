@@ -9,6 +9,14 @@
   margin-bottom: 10px;
 }
 
+.customize-control.has-switchers {
+  margin-bottom: 0;
+}
+
+.customize-control.has-switchers .control-wrap {
+  margin-bottom: 12px;
+}
+
 .customize-control.has-switchers .customize-control-title span {
   line-height: 20px;
 }
@@ -66,9 +74,8 @@
   line-height: 18px;
 }
 
-.customize-control.has-switchers > .control-wrap:not(.active) {
+.customize-control.has-switchers:not(.active) > ul {
   display: none;
-  width: 100%;
 }
 
 /* RTL */
