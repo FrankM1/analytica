@@ -1,5 +1,5 @@
 -------------------------------------------------------
-Welcome to ASTRA!
+Welcome to Analytica!
 -------------------------------------------------------
 Website: https://qazana.net/
 Email: support@qazana.net
