@@ -1,0 +1,25 @@
+.customize-control-kirki-background {
+    padding-top: 20px;
+    .customize-control-title {
+        margin-bottom: 10px;
+    }
+    .background-wrapper {
+        h4 {
+            margin: 0 0 10px 0;
+        }
+        >div {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+    }
+    .background-image-upload .thumbnail {
+        max-height: 200px;
+    }
+    .background-image-upload .actions {
+        display: flex;
+        flex-direction: row;
+        .background-image-upload-remove-button {
+            margin-right: 10px;
+        }
+    }
+}

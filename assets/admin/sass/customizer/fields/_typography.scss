@@ -1,0 +1,13 @@
+.customize-control-kirki-typography .wrapper {
+    box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(128, 128, 128, 0.42);
+}
+
+.customize-control-kirki-typography .wrapper .font-size input,
+.customize-control-kirki-typography .wrapper .letter-spacing input {
+    max-width: 115px;
+}
+
+li.customize-control.customize-control-kirki-typography .wrapper h5 {
+    margin-bottom: 10px;
+}

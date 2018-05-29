@@ -1,115 +1,410 @@
-/* Responsive buttons switchers */
-.customize-control.has-switchers .customize-control-title {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	line-height: 1;
-	margin-top: 20px;
-	margin-bottom: 10px;
+html {
+    background: 0;
 }
 
-.customize-control.has-switchers {
+a {
+    text-decoration: none;
+}
+
+a:focus {
+    box-shadow: none;
+    outline: 0;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+
+.hidden {
+    display: none !important;
+}
+
+li.customize-control:not(.customize-control-nav_menu_item) {
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    padding: 20px;
+    margin-right: 12px;
+    max-width: 300px;
+}
+ 
+li.customize-control-kirki-switch .switch,
+li.customize-control-kirki-switch .switch label {
     margin-bottom: 0;
-    .control-wrap {
-        margin-bottom: 12px;
-    }
 }
 
-.customize-control.has-switchers .customize-control-title span {
-	line-height: 20px;
+.customize-control.highlight:before {
+    content: "";
+    position: absolute;
 }
 
-.customize-control .responsive-switchers {
-	margin-left: 5px;
-	width: auto;
+.customize-control-hidden {
+    margin-bottom: 5px;
 }
 
-.customize-control .responsive-switchers li:not(.desktop) {
-	display: none;
+#available-menu-items .spinner,
+#customize-info,
+.customize-help-toggle {
+    display: none;
 }
 
-.customize-control.responsive-switchers-open .responsive-switchers li {
-	display: block;
+#customize-header-actions .spinner {
+    position: absolute;
+    left: 4px;
+    z-index: 999;
+    opacity: 1;
 }
 
-.customize-control .responsive-switchers li {
-	float: left;
-	margin: 0;
+.customize-control-heading h4 {
+    color: #fff;
+    background: #3d3d3d;
+    margin: 0 -13px;
+    padding: 10px 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
 }
 
-.customize-control .responsive-switchers li button {
-	display: inline-block;
-	height: 20px;
-	width: 20px;
-	background-color: #a4afb7;
-	cursor: pointer;
-	position: relative;
-	margin-left: 5px;
-	color: #fff;
-	font-size: 10px;
-	text-align: center;
-	border-radius: 50%;
-	padding: 0;
-	border: 0;
-	outline: none;
-	transition: background-color .5s;
-	cursor: pointer;
+.customize-control.customize-control-heading .fa.has-tip {
+    color: #fff;
+    margin-top: 11px;
 }
 
-.customize-control .responsive-switchers li button:hover {
-	background-color: #c2cbd2;
+#customize-controls .description {
+    color: #767676;
+    margin-bottom: 10px;
+    font-size: 11px;
 }
 
-.customize-control .responsive-switchers li:not(.desktop) button.active {
-	background-color: #13aff0;
+.ui-tooltip {
+    z-index: 999999;
+    background: #555;
+    padding: 5px 10px !important;
+    border-radius: 3px;
+    color: #fff;
+    font-style: italic;
+    font-weight: normal;
+    max-width: 170px;
+    font-size: 12px;
+    border: 0;
 }
 
-.customize-control .responsive-switchers li button i {
-	width: auto;
-	height: auto;
-	font-size: inherit;
-	line-height: 18px;
+.customize-control .fa.has-tip {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 4px;
+    cursor: help;
 }
 
-.customize-control.has-switchers:not(.active) > ul {
-	display: none;
+.customize-control-content {
+    clear: both;
 }
 
-/* RTL */
-body.rtl .customize-control .responsive-switchers,
-body.rtl .customize-control .responsive-switchers li button {
-	margin-right: 5px;
-	margin-left: 0;
+.customize-control-radio .has-tip+label:before {
+    clear: both;
+    content: '';
+    width: 100%;
+    display: block;
 }
 
-body.rtl .customize-control .responsive-switchers li {
-	float: right;
+.customize-control-background .current .container,
+.customize-control-cropped_image .current .container,
+.customize-control-header .current .container,
+.customize-control-image .current .container,
+.customize-control-media .current .container,
+.customize-control-site_icon .current .container,
+.customize-control-upload .current .container {
+    min-height: 0;
+    border: 0;
 }
 
-/* Responsive */
-@media screen and ( max-width: 768px) {
-	body .customize-control .responsive-switchers {
-		display: none;
-	}
-	body .customize-control.has-switchers>.control-wrap:not(.active) {
-		display: inline-block;
-	}
+.customize-control-background .current .container .thumbnail,
+.customize-control-cropped_image .current .container .thumbnail,
+.customize-control-header .current .container .thumbnail,
+.customize-control-image .current .container .thumbnail,
+.customize-control-media .current .container .thumbnail,
+.customize-control-site_icon .current .container .thumbnail,
+.customize-control-upload .current .container .thumbnail {
+    border: 1px dashed #dadada;
+    background: #fff;
+    padding: 10px;
 }
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
-	body .customize-control.has-switchers>.control-wrap {
-		display: inline-block;
-	}
-	body .customize-control.has-switchers>.control-wrap:not(.tablet) {
-		display: none;
-	}
+.customize-control-background .placeholder,
+.customize-control-cropped_image .placeholder,
+.customize-control-header .placeholder,
+.customize-control-image .placeholder,
+.customize-control-media .placeholder,
+.customize-control-site_icon .placeholder,
+.customize-control-upload .placeholder {
+    display: none;
 }
 
-@media screen and ( max-width: 480px) {
-	body .customize-control.has-switchers>.control-wrap {
-		display: inline-block;
-	}
-	body .customize-control.has-switchers>.control-wrap:not(.mobile) {
-		display: none;
-	}
+.customize-control .actions {
+    display: flex;
+    flex-direction: column;
 }
+
+.customize-control .attachment-media-view .default-button,
+.customize-control .attachment-media-view .upload-button,
+.customize-control .default-button,
+.customize-control .upload-button,
+.customize-control-editor .upload-button,
+.nitro-backup-settings,
+.nitro-restore-settings {
+    float: none;
+    width: 100%;
+}
+
+.customize-control-editor .upload-button {
+    height: auto;
+    margin-top: 7px;
+}
+
+.customize-control .remove-button {
+    order: 2;
+    background: 0;
+    border: 0;
+    color: #c24141;
+    box-shadow: none;
+    width: 100% !important;
+    outline: 0;
+    margin: 10px 0 0;
+    position: relative;
+    height: 28px !important;
+    overflow: hidden;
+}
+
+.customize-control .remove-button:focus,
+.customize-control .remove-button:hover,
+.customize-control-textarea textarea:focus {
+    background: 0;
+    box-shadow: none;
+}
+
+.customize-control .remove-button:before {
+    content: 'Remove Image';
+    display: block;
+}
+
+.customize-control input[type="date"],
+.customize-control input[type="email"],
+.customize-control input[type="number"],
+.customize-control input[type="password"],
+.customize-control input[type="search"],
+.customize-control input[type="tel"],
+.customize-control input[type="text"],
+.customize-control input[type="url"] {
+    border-color: #dadada;
+    border-radius: 2px;
+    box-shadow: none;
+    height: 36px;
+    padding: 0 10px;
+    color: #767676;
+    font-size: 12px;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.customize-control-textarea textarea {
+    border-color: #dadada;
+    box-shadow: none;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #767676;
+}
+
+.customize-control-image .default-button {
+    margin-bottom: 10px;
+}
+
+#customize-controls .choose-sample-package {
+    height: auto;
+    text-align: center;
+}
+
+.customize-control input:focus {
+    border-color: #adadad;
+}
+
+.customize-control-select {
+    position: relative;
+}
+
+.customize-control-select:after {
+    content: "\f107";
+    position: absolute;
+    font-family: "FontAwesome";
+    color: #979797;
+    right: 32px;
+    bottom: 28px;
+    pointer-events: none;
+}
+
+.customize-control-select select {
+    height: 36px;
+    padding: 0 10px;
+    width: 100%;
+    box-shadow: none;
+    border-color: #dadada;
+    font-size: 12px;
+    color: #717171;
+    margin: 0;
+    appearance: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.btn-move-section {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.btn-move-section .button {
+    width: calc(50% - 5px);
+    margin: 0 !important;
+}
+
+.btn-move-section .button+.button {
+    margin-left: 10px !important;
+}
+
+h3.btn-move-section .button {
+    width: 100%;
+}
+
+.move-to-panel,
+.move-to-section {
+    text-align: center;
+    flex-basis: 100%;
+    margin: 0 5px !important;
+    font-weight: normal;
+}
+
+.customize-bar {
+    display: flex;
+    justify-content: space-between;
+    background: #23282d;
+    font-size: 13px;
+    color: #fff;
+    position: relative;
+    height: 36px;
+    z-index: 10001;
+}
+
+.customize-bar .action {
+    position: relative;
+    margin: 0 10px;
+}
+
+.customize-bar .devices button {
+    border: 0;
+    margin: -1px 0 0;
+    height: 36px;
+    width: 36px;
+    padding: 0;
+    float: left;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: 0;
+}
+
+.customize-bar .devices button:before {
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    font: 400 20px/30px dashicons;
+    vertical-align: top;
+    margin: 3px 0;
+    padding: 4px 8px;
+    color: #191e23;
+}
+
+.customize-bar .devices .preview-desktop:before {
+    content: "\f472";
+}
+
+.customize-bar .devices .preview-tablet:before {
+    content: "\f471";
+}
+
+.customize-bar .devices .preview-mobile:before {
+    content: "\f470";
+}
+
+.customize-bar .devices button:focus {
+    outline: 0;
+}
+
+.customize-bar .devices button.active:before,
+.customize-bar .devices button:before {
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.customize-bar .devices button.active,
+.customize-bar .devices button:hover {
+    background: #000;
+}
+
+.customize-bar .devices button:hover:before {
+    color: #fff;
+}
+
+.preview-tablet .wp-full-overlay-main {
+    height: 600px;
+}
+
+.customize-bar+#customize-preview {
+    top: 36px;
+    transition: none;
+}
+
+.customize-bar+#customize-preview iframe {
+    height: calc(100% - 36px);
+}
+
+.preview-mobile .customize-bar+#customize-preview iframe,
+.preview-tablet .customize-bar+#customize-preview iframe {
+    height: 100%;
+}
+
+.customize-bar .dashicons-warning {
+    width: auto;
+    vertical-align: middle;
+    margin-left: 10px;
+    color: #d74040;
+    line-height: 16px;
+    cursor: help;
+}
+
+.customize-bar a {
+    display: inline-block;
+    padding: 8px 10px;
+    line-height: 20px;
+    color: #fff;
+}
+
+.customize-bar a span,
+.customize-bar a:hover {
+    color: #a0a5aa;
+}
+
+.customize-bar a:hover {
+    background: #32373c;
+}
+
+@import "controls/background";
+@import "controls/checkbox";
+@import "controls/html";
+@import "controls/radio-buttonset";
+@import "controls/select-image";
+@import "controls/responsive-switchers";
+
+//fields
+@import "fields/footer-layout";
+@import "fields/typography";

@@ -1,0 +1,31 @@
+.radium-html [class*="icon-"] {
+    background: #fff;
+    float: left;
+    border: 1px solid #dfdfdf;
+    transition: all 0.3s;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.radium-html [class*="icon-"] span:after,
+.radium-html [class*="icon-"] span:before,
+.radium-html [class*="icon-"]:after,
+.radium-html [class*="icon-"]:before {
+    content: '';
+    position: absolute;
+    background: #d8d9d9;
+}
+
+.radium-html [class*="icon-"]:hover {
+    cursor: pointer;
+}
+
+.radium-html [class*="icon-"]:hover,
+.radium-html.selected [class*="icon-"] {
+    border: 1px solid #84b453;
+    box-shadow: 0 0 0 1px #84b453;
+}
+
+.radium-html:not(:first-child) [class*="icon-"] {
+    margin-left: 5px;
+}
