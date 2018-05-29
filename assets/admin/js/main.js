@@ -360,21 +360,28 @@ jQuery( document ).ready( function( $ ) {
 wp.customize.controlConstructor['dimensions-responsive'] = wp.customize.Control.extend({
 
 	ready: function() {
-		'use strict';
+        'use strict';
 
-        var control     = this,
-			subControls = control.params.controls,
+        var control = this;
+
+        // Init the control.
+		if ( ! _.isUndefined( window.kirkiControlLoader ) && _.isFunction( kirkiControlLoader ) ) {
+			kirkiControlLoader( control );
+		} else {
+			control.initKirkiControl();
+        }
+    },
+
+    initKirkiControl: function() {
+
+        var control = this,
+            subControls = control.params.choices,
 			value       = {},
-			subsArray   = [],
 			i;
 
-		_.each( subControls, function( v, i ) {
-			subsArray.push( i );
-		});
-
-		for ( i = 0; i < subsArray.length; i++ ) {
-            value[ subsArray[ i ] ] = control.setting._value[ subsArray[ i ] ];
-			control.updateDimensionsValue( subsArray[ i ], value );
+		for ( i = 0; i < subControls.length; i++ ) {
+            value[ subControls[ i ] ] = control.setting._value[ subControls[ i ] ];
+			control.updateDimensionsValue( subControls[ i ], value );
 		}
     },
 

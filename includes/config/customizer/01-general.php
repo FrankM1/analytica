@@ -32,14 +32,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'responsive' => true,
         'size_units' => [ 'px', 'em', '%' ],
         'default' => [
-            'all' => [
-                'top' 		=> 10,
-                'right' 	=> 10,
-                'bottom' 	=> 10,
-                'left' 		=> 10,
-                'unit' => 'px',
-                'isLinked' => ''
-            ],
             'desktop' => [
                 'top' 		=> 10,
                 'right' 	=> 10,
@@ -71,7 +63,7 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
             'bottom' 	=> 10,
             'left' 		=> 10,
         ],
-        'controls' => array(
+        'choices' => array(
             'top',
             'right',
             'bottom',

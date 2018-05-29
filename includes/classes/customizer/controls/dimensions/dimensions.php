@@ -52,6 +52,23 @@ add_action( 'customize_register', function( $wp_customize ) {
         }
 
         /**
+         * Fetch a setting's value.
+         * Grabs the main setting by default.
+         *
+         * @since 3.4.0
+         *
+         * @param string $setting_key
+         * @return mixed The requested setting's value, if the setting exists.
+         */
+        public function get_value( $setting_key = 'default' ) {
+            $value = $this->value();
+
+            if ( isset( $value[ $setting_key ] ) ) {
+                return $value[ $setting_key ];
+            }
+        }
+
+        /**
          * Refresh the parameters passed to the JavaScript via JSON.
          *
          * @see WP_Customize_Control::to_json()
@@ -62,26 +79,19 @@ add_action( 'customize_register', function( $wp_customize ) {
             $this->json['id'] 		= $this->id;
             $this->json['l10n']    	= $this->l10n();
             $this->json['title'] 	= esc_html__( 'Link values together', 'analytica' );
-            $this->json['controls'] = $this->controls;
+            $this->json['choices'] = $this->choices;
             $this->json['device']   = $this->device ? $this->device : 'desktop';
 
             $this->json['inputAttrs'] = '';
             foreach ( $this->input_attrs as $attr => $value ) {
                 $this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
             }
-
-            $value = $this->value();
-
-            $default = $this->setting->default;
-            if ( isset( $this->default ) ) {
-                $default = $this->default;
-            }
-
-            foreach ( $this->controls as $control ) {
+          
+            foreach ( $this->choices as $control ) {
                 $this->json[ $this->device ][ $control ] = array(
                     'id'        => $control,
                     'link'      => $this->get_link( $control ),
-                    'value'     => ! empty( $value[ $this->device ][$control] ) ? $value[ $this->device ][$control] : $default[ $this->device ][$control],
+                    'value'     => $this->get_value( $control ),
                 );
             }
         }

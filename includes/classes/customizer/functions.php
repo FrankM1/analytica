@@ -166,7 +166,7 @@ function analytica_theme_defaults() {
                 $args['input_attrs'] = $value['input_attrs'];
             }
 
-            $args['device'] = 'all';
+            $args['device'] = 'desktop';
 
             \Analytica\Customizer::add_field( analytica()->theme_slug, $args );
 
