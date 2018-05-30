@@ -33,34 +33,6 @@ function analytica_kirki_configuration_styling( $config ) {
     return wp_parse_args( array( 'description' => wp_get_theme()->get( 'Description' ) ), $config );
 }
 
-add_action( 'customize_save_after', 'analytica_customizer_single_post_defaults' );
-/**
- * Set default values for single post settings
- *
- * @param WP_Customize_Manager $wp_customize
- */
-function analytica_customizer_single_post_defaults( \WP_Customize_Manager $wp_customize ) {
-    $controls = \Analytica\Options::controls();
-
-    if ( is_array( $controls ) && ! empty( $controls ) ) {
-		$mods = get_theme_mods();
-
-        foreach ( $controls as $control ) {
-            $setting = $wp_customize->get_setting( $control['id'] );
-            if (
-                ! is_object( $setting )
-                || empty( $setting->id )
-                || empty( $setting->default )
-                || ! empty( $mods[ $setting->id ] )
-                || $control['type'] === 'checkbox' || $control['type'] === 'switch' ) {
-                    continue;
-            }
-
-            set_theme_mod( $setting->id, $setting->default );
-        }
-	}
-}
-
 add_action( 'after_setup_theme', 'analytica_theme_defaults' );
 /**
  * Register the customizer controls
@@ -214,6 +186,7 @@ function analytica_customizer_reorder_fields( $wp_customize ) {
 
     $wp_customize->get_control( 'display_header_text' )->section  = 'logo-favicon';
     $wp_customize->get_control( 'display_header_text' )->priority = '5';
+    $wp_customize->get_control( 'display_header_text' )->label = esc_html__( 'Display Site Title &amp; Tagline', 'analytica' );
 
     $site_logo_header_text = $wp_customize->get_control( 'site_logo_header_text' );
 
@@ -227,20 +200,29 @@ function analytica_customizer_reorder_fields( $wp_customize ) {
     $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
     $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-    // Rename the label to "Display Site Title & Tagline" in order to make this option clearer.
-    $wp_customize->get_control( 'display_header_text' )->label = esc_html__( 'Display Site Title &amp; Tagline', 'analytica' );
+    // if ( class_exists( 'Kirki' ) ) {
+    //     $wp_customize->get_control( 'header_image' )->panel  = 'site-hero';
+    //     $wp_customize->get_control( 'header_image' )->section  = 'site-hero-background';
+    //     $wp_customize->get_control( 'header_image' )->priority = '1';
 
-    if ( class_exists( 'Kirki' ) ) {
-        $wp_customize->get_control( 'header_image' )->panel  = 'site-hero';
-        $wp_customize->get_control( 'header_image' )->section  = 'site-hero-background';
-        $wp_customize->get_control( 'header_image' )->priority = '1';
+    //     $wp_customize->get_control( 'background_image' )->panel  = 'general';
+    //     $wp_customize->get_control( 'background_image' )->section  = 'container-style';
+    //     $wp_customize->get_control( 'background_image' )->priority = '1';
 
-        $wp_customize->get_control( 'background_image' )->panel  = 'general';
-        $wp_customize->get_control( 'background_image' )->section  = 'container-style';
-        $wp_customize->get_control( 'background_image' )->priority = '1';
 
-        $wp_customize->get_control( 'background_preset' )->panel  = 'general';
-        $wp_customize->get_control( 'background_preset' )->section  = 'container-style';
-        $wp_customize->get_control( 'background_preset' )->priority = '2';
-    }
+    
+
+    //     $wp_customize->get_control( 'background_preset' )->panel  = 'general';
+    //     $wp_customize->get_control( 'background_preset' )->section  = 'container-style';
+    //     $wp_customize->get_control( 'background_preset' )->priority = '2';
+
+    //      $wp_customize->get_control( 'colors' )->panel  = 'general';
+    //     $wp_customize->get_control( 'colors' )->section  = 'container-style';
+    //     $wp_customize->get_control( 'colors' )->priority = '1';
+
+             $wp_customize->get_control( 'colors' )->panel  = 'general';
+    //     $wp_customize->get_control( 'colors' )->section  = 'container-style';
+    //     $wp_customize->get_control( 'colors' )->priority = '1';
+
+    // }
 }

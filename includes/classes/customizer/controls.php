@@ -8,5 +8,7 @@
  * @author   Franklin Gitonga
  * @link     http://qazana.net/
  */
-require_once get_theme_file_path( '/includes/classes/customizer/controls/dimensions/dimensions.php' );
-require_once get_theme_file_path( '/includes/classes/customizer/controls/icon-select/icon-select.php' );
+if ( class_exists('Kirki_Control_Base') ) {
+    require_once get_theme_file_path( '/includes/classes/customizer/controls/dimensions/dimensions.php' );
+    require_once get_theme_file_path( '/includes/classes/customizer/controls/icon-select/icon-select.php' );
+}

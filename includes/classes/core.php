@@ -231,7 +231,7 @@ class Core {
         require_once get_theme_file_path( '/includes/classes/customizer/functions.php' );
         require_once get_theme_file_path( '/includes/classes/metaboxes/actions.php' );
 
-        require_once get_theme_file_path( '/vendor/kirki/kirki.php' );
+       require_once get_theme_file_path( '/vendor/kirki/kirki.php' );
     }
 
     function _include_function() {
@@ -265,14 +265,14 @@ class Core {
     function _include_options() {
 
         require_once get_theme_file_path( '/includes/config/customizer/01-general.php' );
-        // require_once get_theme_file_path( '/includes/config/customizer/02-site-header.php' );
-        // require_once get_theme_file_path( '/includes/config/customizer/03-site-hero.php' );
-        // require_once get_theme_file_path( '/includes/config/customizer/04-site-footer.php' );
-        // require_once get_theme_file_path( '/includes/config/customizer/05-typography.php' );
-        // require_once get_theme_file_path( '/includes/config/customizer/06-blog.php' );
-        // // require_once get_theme_file_path( '/includes/config/customizer/07-blog-single.php' );
-        // // require_once get_theme_file_path( '/includes/config/customizer/08-breadcrumbs.php' );
-        // require_once get_theme_file_path( '/includes/config/customizer/90-utilities.php' );
+        require_once get_theme_file_path( '/includes/config/customizer/02-site-header.php' );
+        require_once get_theme_file_path( '/includes/config/customizer/03-site-hero.php' );
+        require_once get_theme_file_path( '/includes/config/customizer/04-site-footer.php' );
+        require_once get_theme_file_path( '/includes/config/customizer/05-typography.php' );
+        require_once get_theme_file_path( '/includes/config/customizer/06-blog.php' );
+        // require_once get_theme_file_path( '/includes/config/customizer/07-blog-single.php' );
+        // require_once get_theme_file_path( '/includes/config/customizer/08-breadcrumbs.php' );
+        require_once get_theme_file_path( '/includes/config/customizer/90-utilities.php' );
     }
 
     function _include_admin() {

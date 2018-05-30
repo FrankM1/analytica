@@ -27,6 +27,7 @@
 		background-color: $color-background-content;
 		margin: 0 0 $grid-gutter-width 0;
 		.entry-content {
+			padding-top: $grid-gutter-width;
 			padding-bottom: $grid-gutter-width;
 		}
 

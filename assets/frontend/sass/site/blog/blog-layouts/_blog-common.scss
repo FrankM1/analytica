@@ -11,9 +11,8 @@
 }
 
 .entry-header {
-    margin-bottom: 1em;
     word-wrap: break-word;
-    + .analytica-blog-featured-section{
+    + .analytica-blog-featured-section {
     	margin-top:0.5em;
     }
 }
@@ -49,17 +48,6 @@
 	margin-bottom: 0;
 	.analytica-right-arrow {
 		font-size: 1em;
-	}
-}
-
-.analytica-no-thumb {
-	.analytica-blog-featured-section {
-		margin-bottom: 0;
-	}
-	.entry-header {
-		+ .analytica-blog-featured-section{
-			margin-top:0;
-		}
 	}
 }
 
@@ -100,7 +88,7 @@
 .analytica-article-post {
     margin-bottom: 2.5em;
 }
-.analytica-article-post:lanalytica-child {
+.analytica-article-post:last-child {
 	margin-bottom: 0;
 	border-bottom:0;
 }

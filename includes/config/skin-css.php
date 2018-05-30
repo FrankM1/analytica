@@ -175,7 +175,7 @@ class Dynamic_CSS {
                 'background-color' => esc_attr( $link_color ),
                 'box-shadow'       => 'none',
             ),
-            '.single .nav-links .nav-previous, .single .nav-links .nav-next, .single .analytica-author-details .author-title, .analytica-comment-meta' => array(
+            '.nav-horizontal .analytica_mega>li.current-menu-ancestor>a, .nav-horizontal .analytica_mega>li.current-menu-ancestor>a .menu-title-outer, .nav-horizontal .analytica_mega>li.current-menu-item>a, .nav-horizontal .analytica_mega>li.current-menu-item>a .menu-title-outer, .nav-horizontal .analytica_mega>li:hover>a, .nav-horizontal .analytica_mega>li>a.open-mega-a, .nav-horizontal .analytica_mega>li>a.open-sub-a, .nav-horizontal>ul>li.current-menu-ancestor>a, .nav-horizontal>ul>li.current-menu-ancestor>a .menu-title-outer, .nav-horizontal>ul>li.current-menu-item>a, .nav-horizontal>ul>li.current-menu-item>a .menu-title-outer, .nav-horizontal>ul>li:hover>a, .nav-horizontal>ul>li>a.open-mega-a, .nav-horizontal>ul>li>a.open-sub-a, .single .nav-links .nav-previous, .single .nav-links .nav-next, .single .analytica-author-details .author-title, .analytica-comment-meta' => array(
                 'color' => esc_attr( $link_color ),
             ),
 

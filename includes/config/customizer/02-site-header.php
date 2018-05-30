@@ -33,7 +33,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'section'         => 'site-header',
         'type'            => 'color',
         'title'           => esc_html__( 'Background color' , 'analytica' ),
-        'default' => $default['site-header-background-color'],
+        'default'         => $default['site-header-background-color'],
         'conditions' => [
             [
                 'setting'  => 'site-header',
