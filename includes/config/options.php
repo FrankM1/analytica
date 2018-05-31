@@ -110,7 +110,6 @@ class Options
             'site-header-background-color' => '#fff',
             'site-header-menu-layout'      => 'header-logo-left',
             'site-header-overlay'          => false,
-            'site-header-sticky'           => false,
             'site-header-transparent'      => false,
             'site-header-width'            => 'layout-boxed',
 

@@ -1,18 +1,19 @@
 <?php
 /**
- * Post Meta Box
+ * This file is a part of the Radium Framework core.
+ * Please be cautious editing this file,
  *
- * @package     Analytica
- * @author      Analytica
- * @copyright   Copyright (c) 2018, Analytica
- * @link        https://qazana.net/
- * @since       Analytica 1.0.0
+ * @category Analytica
+ * @package  Energia
+ * @author   Franklin Gitonga
+ * @link     http://qazana.net/
  */
+namespace Analytica;
 
 /**
  * Meta Boxes setup
  */
-class Analytica_Meta_Boxes {
+class MetaBoxes {
 
     /**
      * Instance
@@ -167,7 +168,7 @@ class Analytica_Meta_Boxes {
         $site_post_title     = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
         $ast_featured_img    = ( isset( $meta['featured-image']['default'] ) ) ? $meta['featured-image']['default'] : '';
 
-        $show_meta_field = ! Analytica_Meta_Boxes::is_bb_themer_layout();
+        $show_meta_field = ! self::is_bb_themer_layout();
 
         do_action( 'analytica_meta_box_markup_before', $meta );
 
@@ -300,4 +301,4 @@ class Analytica_Meta_Boxes {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Analytica_Meta_Boxes::get_instance();
+MetaBoxes::get_instance();

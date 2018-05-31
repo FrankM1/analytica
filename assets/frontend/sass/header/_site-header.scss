@@ -25,7 +25,6 @@
 	@media (min-width: $screen-md-min) {
 		position: relative;
 		ul>li>a {
-			padding: 0 10px;
 			color: #333;
 		}
 	}
@@ -75,23 +74,24 @@ button.menu-trigger {
  * -----------------------------------------------------------------------------------
  */
 
-.site-boxed.analytica-header-transparent .site-header .analytica-container,
-.site-wide.analytica-header-transparent .site-header {
+.site-boxed.site-header-transparent.site-header .analytica-container,
+.site-wide.site-header-transparent.site-header {
 	background: transparent;
 }
 
-.analytica-header-overlay .site-header,
-.analytica-header-transparent .site-header {
+.site-header-overlay.site-header,
+.site-header-transparent.site-header {
 	top: 0;
 	right: 0;
 	left: 0;
 	z-index: 9999;
 	width: 100%;
 	border: none;
-	transition: .3s all;
+    transition: .3s all;
+    background-color: transparent;
 }
 
-.analytica-header-transparent .site-header {
+.site-header-transparent.site-header {
 	@media (min-width: $screen-sm-min) {
 		position: absolute;
 	}
@@ -139,13 +139,13 @@ button.menu-trigger {
 	}
 }
 
-.analytica-header-overlay .site-header {
+.site-header-overlay.site-header {
 	@media (min-width: $screen-sm-min) {
 		position: fixed;
 	}
 }
 
-.page-scrolling.analytica-header-overlay .site-header {
+.page-scrolling .site-header-overlay.site-header {
 	@media (min-width: $screen-sm-min) {
 		background: white;
 		box-shadow: 0 1px 1px rgba(48, 48, 48, 0.12);
@@ -183,15 +183,10 @@ button.menu-trigger {
 	}
 }
 
-.admin-bar.analytica-header-overlay .site-header,
-.admin-bar.analytica-header-transparent .site-header {
+.admin-bar .site-header-overlay.site-header {
 	@media (min-width: $screen-sm-min) {
 		top: 32px;
 	}
-}
-
-.header-site .column {
-	margin-bottom: 0;
 }
 
 @import '../vendor/font-awesome/variables';

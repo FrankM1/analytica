@@ -41,7 +41,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
                 'value'    => true,
             ],
         ],
-        'output'    => [
+        'output' => [
             [
                 'element' => '.site-header',
                 'property' => 'background-color',
@@ -55,18 +55,6 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'default' => $default['site-header-overlay'],
         'type'    => 'switch',
         'label'   => esc_html__( 'Header Overlay' , 'analytica' ),
-        'options' => [
-            '1' => esc_attr__( 'Enable', 'analytica' ),
-            '0' => esc_attr__( 'Disable', 'analytica' ),
-        ],
-    ];
-
-    $controls[] = [
-        'id'      => 'site-header-sticky',
-        'section' => 'site-header',
-        'default' => $default['site-header-sticky'],
-        'type'    => 'switch',
-        'label'   => esc_html__( 'Header Sticky' , 'analytica' ),
         'options' => [
             '1' => esc_attr__( 'Enable', 'analytica' ),
             '0' => esc_attr__( 'Disable', 'analytica' ),

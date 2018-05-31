@@ -80,7 +80,6 @@ function analytica_get_header_class( $class = '' ) {
     $header_background_color_option = analytica_get_option( 'site-header-background-color' );
     $header_full_width_option = analytica_get_option( 'site-header-width' );
     $header_overlay_option = analytica_get_option( 'site-header-overlay' );
-    $header_sticky_option = analytica_get_option( 'site-header-sticky' );
     $header_transparent_option = analytica_get_option( 'site-header-transparent' );
 
     $classes = array();
@@ -89,28 +88,24 @@ function analytica_get_header_class( $class = '' ) {
     $classes[] = 'site-header';
 
     // Primary header class
-    $classes[] = 'header-primary';
-
-    // Handle sticky / not sticky
-    if ( true == $header_sticky_option ) {
-        $classes[] = 'header-sticky';
-    }
+    $classes[] = 'site-header-primary';
 
     // Handle overlay / not overlay
     if ( true == $header_overlay_option ) {
-        $classes[] = 'header-overlay';
+        $classes[] = 'site-header-overlay';
+        $classes[] = 'site-header-sticky';
     }
 
     // Handle overlay / not overlay
     if ( true == $header_transparent_option ) {
-        $classes[] = 'header-transparent';
+        $classes[] = 'site-header-transparent';
     }
 
     // Handle invert if background-color light / dark
     $light_or_dark = analytica_light_or_dark( $header_background_color_option, '#000000' /*dark*/, '#FFFFFF' /*light*/ );
 
     if ( '#FFFFFF' === $light_or_dark && ! empty( $header_background_color_option ) ) {
-        $classes[] = 'header-invert';
+        $classes[] = 'site-header-invert';
     }
 
     // Add width class
@@ -122,19 +117,19 @@ function analytica_get_header_class( $class = '' ) {
 
     // Add alignment classes
     if ( 'header-logo-left' == $header_align_option ) {
-        $classes[] = 'header-left';
+        $classes[] = 'site-header-left';
     } elseif ( 'header-logo-right' == $header_align_option ) {
-        $classes[] = 'header-right';
+        $classes[] = 'site-header-right';
     } elseif ( 'header-logo-top' == $header_align_option ) {
         $classes[] = 'nav-clear';
     } elseif ( 'header-logo-center-top' == $header_align_option ) {
-        $classes[] = 'header-center';
+        $classes[] = 'site-header-center';
     } elseif ( 'header-logo-center' == $header_align_option ) {
-        $classes[] = 'header-inline';
+        $classes[] = 'site-header-inline';
     } elseif ( 'header-logo-left-narrow' == $header_align_option ) {
-        $classes[] = 'header-left-narrow';
+        $classes[] = 'site-header-left-narrow';
     } elseif ( 'header-logo-left-2' == $header_align_option ) {
-        $classes[] = 'header-left-style-2';
+        $classes[] = 'site-header-left-style-2';
     }
 
     if ( ! empty( $class ) ) {
@@ -149,7 +144,7 @@ function analytica_get_header_class( $class = '' ) {
 
     // Default to Header Left if there are no matches above
     if ( empty( $classes ) ) {
-       $classes[] = 'header-left';
+       $classes[] = 'site-header-left';
     }
 
     return apply_filters( 'analytica_header_class', $classes, $class );
