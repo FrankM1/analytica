@@ -180,8 +180,11 @@ function analytica_register_footer_widget_areas() {
     while ( $counter <= $footer_widgets ) {
         analytica_register_widget_area(
             array(
-                'id'                => sprintf( 'footer-%d', $counter ),
+                /* translators: %s: footer id */
+                'id'                => sprintf( 'footer-%d', $counter ), 
+                /* translators: %s: footer id */
                 'name'              => sprintf( esc_html__( 'Footer %d', 'analytica' ), $counter ),
+                /* translators: %s: footer id */
                 'description'       => sprintf( esc_html__( 'Footer %d widget area.', 'analytica' ), $counter ),
             )
         );

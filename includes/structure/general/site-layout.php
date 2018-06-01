@@ -26,12 +26,12 @@ add_filter( 'content_width', 'analytica_content_width', 10, 3 );
 function analytica_content_width( $default, $small, $large ) {
 
     switch ( analytica_site_layout( 0 ) ) {
-        case __analytica_return_full_width_content():
+        case _analytica_return_full_width_content():
             $width = $large;
             break;
-        case __analytica_return_content_sidebar_sidebar():
-        case __analytica_return_sidebar_content_sidebar():
-        case __analytica_return_sidebar_sidebar_content():
+        case _analytica_return_content_sidebar_sidebar():
+        case _analytica_return_sidebar_content_sidebar():
+        case _analytica_return_sidebar_sidebar_content():
             $width = $small;
             break;
         default:
@@ -55,7 +55,7 @@ function analytica_get_sidebar() {
     $site_layout = analytica_site_layout();
 
     // Don't load sidebar on pages that don't need it
-    if ( __analytica_return_full_width_content() === $site_layout ) {
+    if ( _analytica_return_full_width_content() === $site_layout ) {
         return;
     }
 
@@ -76,7 +76,7 @@ function analytica_get_sidebar_alt() {
     $site_layout = analytica_site_layout();
 
     // Don't load sidebar-alt on pages that don't need it
-    if ( in_array( $site_layout, array( __analytica_return_content_sidebar(), __analytica_return_sidebar_content(), __analytica_return_full_width_content() ) ) ) {
+    if ( in_array( $site_layout, array( _analytica_return_content_sidebar(), _analytica_return_sidebar_content(), _analytica_return_full_width_content() ) ) ) {
         return;
     }
 

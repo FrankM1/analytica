@@ -5,31 +5,35 @@
  * @package Analytica
  */
 
-add_action('after_setup_theme', 'analytica_admin_setup');
+add_action( 'after_setup_theme', 'analytica_admin_setup' );
 /**
  * Theme setup wizard
  *
  * @return void
  */
 function analytica_admin_setup() {
+
 	/**
 	 * Load the About page class
 	 */
-	require_once 'ti-about-page/class-ti-about-page.php';
+	require_once 'about-page/class-about-page.php';
 
 	/*
 	* About page instance
 	*/
 	$config = array(
+
 		// Menu name under Appearance.
 		'menu_name' => esc_html__( 'About Analytica', 'analytica' ),
 		// Page title.
 		'page_name' => esc_html__( 'About Analytica', 'analytica' ),
-		// Main welcome title
+        // Main welcome title
+        /* Translators: %s: theme name */
 		'welcome_title' => sprintf( esc_html__( 'Welcome to %s! - Version ', 'analytica' ), 'Analytica' ),
 		// Main welcome content
 		'welcome_content' => wp_get_theme()->get( 'Description' ),
-		/**
+
+        /**
 		 * Tabs array.
 		 *
 		 * The key needs to be ONLY consisted from letters and underscores. If we want to define outside the class a function to render the tab,
@@ -124,5 +128,5 @@ function analytica_admin_setup() {
 		),
     );
     
-	TI_About_Page::init( $config );
+	\Analytica\About_Page::init( $config );
 }

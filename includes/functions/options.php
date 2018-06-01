@@ -109,7 +109,7 @@ function analytica_get_option( $option_id, $default_value = null, $post_id = nul
  * @param string $key Option name.
  */
 function analytica_option( $primary, $default_value = false ) {
-    echo analytica_get_option( $primary, $default_value );
+    echo wp_kses( analytica_get_option( $primary, $default_value ), wp_kses_allowed_html('post') ); 
 }
 
 /**
@@ -128,7 +128,8 @@ function analytica_option( $primary, $default_value = false ) {
  */
 function analytica_custom_field( $field, $output_pattern = '%s', $post_id = null ) {
     if ( $value = analytica_get_custom_field( $field, $post_id ) ) {
-        printf( $output_pattern, $value );
+        /* Translators: %s: field value */
+       echo wp_kses( sprintf( $output_pattern, $value ), wp_kses_allowed_html('post') ); 
     }
 }
 

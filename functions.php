@@ -1,14 +1,53 @@
 <?php
 
 /**
- * Analytica functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ * Analytica core
  *
  * @package Analytica
  * @since 1.0.0
  */
-require_once get_theme_file_path( '/includes/classes/core.php' );
+
+/**
+ * Analytica admin notice for minimum PHP version.
+ *
+ * Warning when the site doesn't have the minimum required PHP version.
+ *
+ * @since 1.0.0
+ *
+ * @return void
+ */
+function analytica_fail_php_version() {
+	/* translators: %s: PHP version */
+	$message = sprintf( esc_html__( 'Analytica requires PHP version %s+, theme is currently NOT ACTIVE.', 'analytica' ), '5.4' );
+	$html_message = sprintf( '<div class="error">%s</div>', wpautop( $message ) );
+	echo wp_kses_post( $html_message );
+}
+
+/**
+ * Analytica admin notice for minimum WordPress version.
+ *
+ * Warning when the site doesn't have the minimum required WordPress version.
+ *
+ * @since 1.5.0
+ *
+ * @return void
+ */
+function analytica_fail_wp_version() {
+	/* translators: %s: WordPress version */
+	$message = sprintf( esc_html__( 'Analytica requires WordPress version %s+. Because you are using an earlier version, the theme is currently NOT ACTIVE.', 'analytica' ), '4.6' );
+	$html_message = sprintf( '<div class="error">%s</div>', wpautop( $message ) );
+	echo wp_kses_post( $html_message );
+}
+
+if ( ! version_compare( PHP_VERSION, '5.4', '>=' ) ) {
+    add_action( 'admin_notices', 'analytica_fail_php_version' );
+    return;
+} elseif ( ! version_compare( get_bloginfo( 'version' ), '4.6', '>=' ) ) {
+    add_action( 'admin_notices', 'analytica_fail_wp_version' );
+    return;
+} else {
+    require_once get_theme_file_path( '/includes/classes/core.php' );
+}
 
 /**
  * The main function responsible for returning the one true analytica Instance

@@ -23,9 +23,7 @@
 
          printf( '<div class="section-title"><h5 class="widget-title"><span>%s</span></h5></div>', esc_html( $name ) );
          echo '<div class="textwidget"><p>';
-
-            echo esc_html__( 'This is the', 'analytica' ) . ' ' . $name . '. ' . esc_html__( 'You can add content to this area by visiting your', 'analytica' ) . ' <a href="' . esc_url( admin_url( 'widgets.php' ) ) . '">' . esc_html__( 'Widgets Panel', 'analytica' ) . ' </a> ' . esc_html__( 'and adding new widgets to this area.', 'analytica' );
-
+            echo esc_html__( 'This is the', 'analytica' ) . ' ' . esc_html( $name ) . '. ' . esc_html__( 'You can add content to this area by visiting your', 'analytica' ) . ' <a href="' . esc_url( admin_url( 'widgets.php' ) ) . '">' . esc_html__( 'Widgets Panel', 'analytica' ) . ' </a> ' . esc_html__( 'and adding new widgets to this area.', 'analytica' );
          echo '</p></div>';
 
      echo '</div>';

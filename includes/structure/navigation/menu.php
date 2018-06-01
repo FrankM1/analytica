@@ -54,9 +54,7 @@ function analytica_do_primary_nav( $args = array() ) {
         'echo'           => 0,
     );
 
-    $args = wp_parse_args( $args, $defaults );
-
-    echo analytica_mega_menu( apply_filters( 'analytica_do_primary_nav_args', $args ) );
+    echo wp_nav_menu( wp_parse_args( $args, $defaults ) );
 }
 
 add_action( 'analytica_do_primary_right_nav', 'analytica_do_primary_right_nav' );
@@ -87,10 +85,7 @@ function analytica_do_primary_right_nav( $args = array() ) {
         'echo'           => 0,
     );
 
-    $args = wp_parse_args( $args, $defaults );
-
-    echo analytica_mega_menu( apply_filters( 'analytica_do_primary_right_nav_args', $args ) );
-
+    echo wp_nav_menu( wp_parse_args( $args, $defaults ) );
 }
 
 add_action( 'analytica_footer_menu', 'analytica_footer_menu' );

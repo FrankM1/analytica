@@ -95,7 +95,7 @@ if ( ! function_exists( 'analytica_default_strings' ) ) {
 		 * Print or return
 		 */
 		if ( $echo ) {
-			echo $output;
+			echo wp_kses( $output, wp_kses_allowed_html('post') );
 		} else {
 			return $output;
 		}

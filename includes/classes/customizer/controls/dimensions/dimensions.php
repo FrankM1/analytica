@@ -5,8 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-add_action( 'customize_register', function( $wp_customize ) {
-
+if ( class_exists('Kirki_Control_Base') ) {
     /**
      * Buttonset control
      */
@@ -86,7 +85,7 @@ add_action( 'customize_register', function( $wp_customize ) {
             foreach ( $this->input_attrs as $attr => $value ) {
                 $this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
             }
-          
+            
             foreach ( $this->choices as $control ) {
                 $this->json[ $this->device ][ $control ] = array(
                     'id'        => $control,
@@ -135,7 +134,7 @@ add_action( 'customize_register', function( $wp_customize ) {
                 <span class="description customize-control-description">{{{ data.description }}}</span>
             <# } #>
 
-              <ul class="control-wrap">
+                <ul class="control-wrap">
                 <# _.each( data[ data.device ], function( args, key ) { 
                     #>
                     <li class="dimension-wrap {{ key }}">
@@ -174,13 +173,17 @@ add_action( 'customize_register', function( $wp_customize ) {
             return $translation_strings[ $id ];
         }
     }
+}
 
-	// Register our custom control with Kirki
-	add_filter( 'kirki_control_types', function( $controls ) {
-		$controls['dimensions-responsive'] = 'Kirki_Controls_Dimensions_Responsive_Control';
-		return $controls;
-    } );
-    
+add_action( 'customize_register', 'analytica_customize_register_dimensions_controls' );
+// Register control with kirki
+function analytica_customize_register_dimensions_controls( $wp_customize ) {
     $wp_customize->register_control_type( 'Kirki_Controls_Dimensions_Responsive_Control' );
+}
 
-} );
+add_filter( 'kirki_control_types', 'analytica_register_dimensions_kirki_control_type' );
+// Register our custom control with Kirki
+function analytica_register_dimensions_kirki_control_type( $controls ) {
+    $controls['dimensions-responsive'] = 'Kirki_Controls_Dimensions_Responsive_Control';
+    return $controls;
+}

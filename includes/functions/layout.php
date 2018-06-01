@@ -34,17 +34,17 @@ function analytica_create_initial_layouts() {
     $url = analytica()->theme_url . '/assets/admin/images/layouts/';
 
     $layouts = apply_filters( 'analytica_initial_layouts', [
-        __analytica_return_content_sidebar() => [
+        _analytica_return_content_sidebar() => [
             'label' => esc_html__( 'Content, Primary Sidebar', 'analytica' ),
             'img' => $url . 'cs.gif',
             'default' => is_rtl() ? false : true,
         ],
-        __analytica_return_sidebar_content() => [
+        _analytica_return_sidebar_content() => [
             'label' => esc_html__( 'Primary Sidebar, Content', 'analytica' ),
             'img' => $url . 'sc.gif',
             'default' => is_rtl() ? true : false,
         ],
-        __analytica_return_full_width_content() => [
+        _analytica_return_full_width_content() => [
             'label' => esc_html__( 'Full Width Content', 'analytica' ),
             'img' => $url . 'c.gif',
         ],
@@ -67,7 +67,7 @@ function analytica_create_initial_layouts() {
 function analytica_get_default_layout() {
     global $_analytica_layouts;
 
-    $default = __analytica_return_content_sidebar();
+    $default = _analytica_return_content_sidebar();
 
     foreach ( (array) $_analytica_layouts as $key => $value ) {
         if ( isset( $value['default'] ) && $value['default'] ) {
@@ -92,9 +92,9 @@ function analytica_get_layouts_for_options() {
     $url = analytica()->theme_url . '/assets/admin/images/layouts/';
 
     return [
-        __analytica_return_content_sidebar() => $url . 'cs.gif',
-        __analytica_return_sidebar_content() => $url . 'sc.gif',
-        __analytica_return_full_width_content() => $url . 'c.gif',
+        _analytica_return_content_sidebar() => $url . 'cs.gif',
+        _analytica_return_sidebar_content() => $url . 'sc.gif',
+        _analytica_return_full_width_content() => $url . 'c.gif',
     ];
 }
 
@@ -215,7 +215,7 @@ function analytica_site_layout( $use_cache = false ) {
         ( wp_is_mobile() && ! analytica_get_option( 'site-sidebar-enable-mobile' ) ) ||
         ! analytica_get_option( 'site-sidebar-enable' )
     ) {
-        return apply_filters( 'analytica_site_layout', __analytica_return_full_width_content() );
+        return apply_filters( 'analytica_site_layout', _analytica_return_full_width_content() );
     }
 
     if ( is_singular( 'post' ) ) {
@@ -227,7 +227,7 @@ function analytica_site_layout( $use_cache = false ) {
         $custom_field = analytica_get_custom_field( '_analytica-layout' );
         $site_layout = $custom_field ? $custom_field : $site_layout;
         if ( ! post_type_supports( get_post_type(), 'analytica-layouts' ) ) {
-            return __analytica_return_full_width_content();
+            return _analytica_return_full_width_content();
         }
     } elseif ( is_category() || is_tag() || is_tax() ) {
         // If viewing a taxonomy archive
@@ -271,7 +271,7 @@ function analytica_site_layout( $use_cache = false ) {
  *
  * @return string 'content-sidebar'
  */
-function __analytica_return_content_sidebar() {
+function _analytica_return_content_sidebar() {
     return 'content-sidebar';
 }
 
@@ -284,7 +284,7 @@ function __analytica_return_content_sidebar() {
  *
  * @return string 'sidebar-content'
  */
-function __analytica_return_sidebar_content() {
+function _analytica_return_sidebar_content() {
     return 'sidebar-content';
 }
 
@@ -297,7 +297,7 @@ function __analytica_return_sidebar_content() {
  *
  * @return string 'content-sidebar-sidebar'
  */
-function __analytica_return_content_sidebar_sidebar() {
+function _analytica_return_content_sidebar_sidebar() {
     return 'content-sidebar-sidebar';
 }
 
@@ -310,7 +310,7 @@ function __analytica_return_content_sidebar_sidebar() {
  *
  * @return string 'sidebar-sidebar-content'
  */
-function __analytica_return_sidebar_sidebar_content() {
+function _analytica_return_sidebar_sidebar_content() {
     return 'sidebar-sidebar-content';
 }
 
@@ -323,7 +323,7 @@ function __analytica_return_sidebar_sidebar_content() {
  *
  * @return string 'sidebar-content-sidebar'
  */
-function __analytica_return_sidebar_content_sidebar() {
+function _analytica_return_sidebar_content_sidebar() {
     return 'sidebar-content-sidebar';
 }
 
@@ -336,6 +336,6 @@ function __analytica_return_sidebar_content_sidebar() {
  *
  * @return string 'full-width-content'
  */
-function __analytica_return_full_width_content() {
+function _analytica_return_full_width_content() {
     return 'full-width-content';
 }

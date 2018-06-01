@@ -33,7 +33,7 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'id'      => 'site-sidebar-layout',
         'section' => 'general-settings',
         'type'    => 'radio-image',
-        'label'   => esc_html__( 'Site sidebar Layout', 'energia' ),
+        'label'   => esc_html__( 'Site sidebar Layout', 'analytica' ),
         'options' => analytica_get_layouts_for_options(),
         'default' => $default['site-sidebar-layout'],
     ];

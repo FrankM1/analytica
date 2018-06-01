@@ -75,7 +75,7 @@ function analytica_single_get_post_meta( $echo = true ) {
         }
     }
     if ( $echo ) {
-        echo $output;
+        echo wp_kses( $output, wp_kses_allowed_html('post') ); 
     } else {
         return $output;
     }

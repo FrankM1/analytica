@@ -47,7 +47,7 @@ if ( class_exists('All_in_One_SEO_Pack') || class_exists('WPSEO_Frontend') || cl
         $the_post = get_post( get_the_ID() ); // Gets post by ID
         $the_excerpt = $the_post->post_content; // Gets post_content to be used as a basis for the excerpt
         $the_excerpt = strip_tags( strip_shortcodes( $the_excerpt ) ); // Strips tags and images
-        echo trim( substr( $the_excerpt, 0, 145 ) );
+        echo wp_kses( trim( substr( $the_excerpt, 0, 145 ) ), wp_kses_allowed_html('post') );
 
     } else {
         bloginfo( 'name' ); echo ' - '; bloginfo( 'description' );
@@ -86,6 +86,7 @@ function analytica_wp_title( $title, $sep ) {
 
     // Add a page number if necessary.
     if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
+        /* translators: %s: page number */
         $title = "$title $sep " . sprintf( esc_html__( 'Page %s', 'analytica' ), max( $paged, $page ) );
     }
 

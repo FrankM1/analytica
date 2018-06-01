@@ -72,6 +72,7 @@ class Site_Hero {
 
             if ( is_tag() ) {
 
+                 /* translators: %s: Tag name */
                 $header_title = sprintf( esc_html__( 'Tag: %s', 'analytica' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 
                 $tag_description = tag_description();
@@ -90,10 +91,13 @@ class Site_Hero {
                     $header_subtitle = apply_filters( 'category_archive_meta', '<div class="category-archive-meta">' . $category_description . '</div>' );
                 }
             } elseif ( is_day() ) {
+                /* translators: %s: date */
                 $header_title = sprintf( esc_html__( 'Daily: %s', 'analytica' ), '<span>' . get_the_date() . '</span>' );
             } elseif ( is_month() ) {
+                 /* translators: %s: date */
                 $header_title = sprintf( esc_html__( 'Monthly: %s', 'analytica' ), '<span>' . get_the_date( esc_html_x( 'F Y', 'monthly archives date format', 'analytica' ) ) .'</span>' );
             } elseif ( is_year() ) {
+                /* translators: %s: date */
                 $header_title = sprintf( esc_html__( 'Yearly: %s', 'analytica' ), '<span>' . get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'analytica' ) ) . '</span>' );
             } elseif ( is_author() ) {
                 $header_title = esc_html__( 'Author: ', 'analytica' ) . get_the_author();
@@ -250,9 +254,7 @@ class Site_Hero {
      * Generate page header css
      */
     public function do_background() {
-        $classes = $data_atts = '';
-
-        echo '<div class="site-hero-background-container' . esc_attr( $classes ) . '" ' . $data_atts . '>';
+        echo '<div class="site-hero-background-container">';
             echo '<div class="site-hero-overlay-color"></div>';
             do_action( 'analytica_do_hero_do_background' );
         echo '</div>';

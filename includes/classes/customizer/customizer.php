@@ -345,7 +345,7 @@ class Customizer {
 				}
 				return $value;
             }
-            if ( empty( get_theme_mod( $field_id, $default ) ) ) {
+            if ( get_theme_mod( $field_id, $default ) ) {
                 $defaults = Options::defaults();
                 return $defaults[$field_id];
             }

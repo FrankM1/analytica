@@ -35,17 +35,6 @@ function analytica_nav_menu_supported( $menu ) {
 }
 
 /**
- * Radium_mega_menu cache the megamenu for performance boost
- *
- * @param array $args nav menu arguments
- *
- * @return string       return cached menu
- */
-function analytica_mega_menu( $args ) {
-    return apply_filters( __FUNCTION__, wp_nav_menu( $args ) );
-}
-
-/**
  * Create a navigation out of pages if the user didn't create a menu in the backend
  */
 function analytica_fallback_menu() {
