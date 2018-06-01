@@ -229,8 +229,6 @@ class Core {
         require_once get_theme_file_path( '/includes/classes/customizer/customizer.php' );
         require_once get_theme_file_path( '/includes/classes/customizer/controls.php' );
         require_once get_theme_file_path( '/includes/classes/metaboxes/actions.php' );
-
-       require_once get_theme_file_path( '/vendor/kirki/kirki.php' );
     }
 
     function _include_function() {

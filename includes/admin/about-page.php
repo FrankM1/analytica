@@ -16,7 +16,7 @@ function analytica_admin_setup() {
 	/**
 	 * Load the About page class
 	 */
-	require_once 'about-page/class-about-page.php';
+	require_once get_theme_file_path( '/includes/admin/about-page/class-about-page.php' );
 
 	/*
 	* About page instance
