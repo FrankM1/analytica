@@ -114,6 +114,12 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'choices'     => array(
             'alpha' => true,
         ),
+        'output'    => array(
+            array(
+                'element' => 'body',
+                'property' => 'background-color'
+            ),
+        ),
     ]; 
 
     $controls[] = [

@@ -290,7 +290,7 @@ class Dynamic_CSS {
 
             $css .= '@media (min-width: 1200px) {';
                 if ( $site_container_width > 0 ) {
-                    $css .= '.analytica-container, .site-inner, .site-footer-boxed.has-container { max-width:' . esc_attr( $site_container_width ) . 'px;}';
+                    $css .= '.site-header .analytica-container, .analytica-container, .site-inner, .site-footer-boxed.has-container { max-width:' . esc_attr( $site_container_width ) . 'px;}';
                 }
             $css .= '}';
 

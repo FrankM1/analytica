@@ -41,11 +41,70 @@ function analytica_filter_wp_kses_allowed_theme_attributes( $allowed_html ) {
                 'action',
                 'datetime',
                 'rel',
-                'title'
+                'title',
+                'data'
             ), true )
         );
     }
+
     return $allowed_html;
+}
+
+/**
+ * Set allowed tags in the admin panel. This works by
+ * adding the theme's allowed admin tags to WP's
+ * global $allowedtags.
+ *
+ * @since 1.0.0
+ * @uses $allowedposttags
+ *
+ * @return array $analytica_tags Allowed HTML tags for options sanitation
+ */
+function analytica_get_allowed_tags() {
+
+    global $allowedposttags;
+    
+	// Match theme tags with global HTML
+	// allowed for standard Posts/Pages.
+	$analytica_tags = $allowedposttags;
+
+	// And make any adjustments
+	$analytica_tags['iframe'] = array(
+		'style'                 => true,
+		'width'                 => true,
+		'height'                => true,
+		'src'                   => true,
+		'frameborder'           => true,
+		'allowfullscreen'       => true,
+		'webkitAllowFullScreen' => true,
+		'mozallowfullscreen'    => true
+    );
+    
+	$analytica_tags['script'] = array(
+		'type' => true,
+		'src'  => true
+    );
+    
+    $analytica_tags['input'] = array(
+		'class'       => true,
+		'name'        => true,
+		'type'        => true,
+		'maxlength'   => true,
+		'minlength'   => true,
+		'readonly'    => true,
+		'required'    => true,
+		'multiple'    => true,
+		'pattern'     => true,
+		'min'         => true,
+		'max'         => true,
+		'step'        => true,
+		'list'        => true,
+		'placeholder' => true,
+        'checked'     => true,
+        'autocomplete'=> true,
+	);
+
+	return apply_filters( __FUNCTION__, $analytica_tags );
 }
 
 /**
@@ -85,5 +144,5 @@ function analytica_sanitize_html_classes( $classes, $return_format = 'input' ) {
  * @return string
  */
 function analytica_sanitize_html( $value ) {
-    return wp_kses( $value, wp_kses_allowed_html('post') );
+    return wp_kses( $value, analytica_get_allowed_tags() );
 }

@@ -255,7 +255,7 @@ class Customizer {
                 if ( ! empty( $value['responsive'] ) && $value['responsive'] ) {
 
                     $mobile_args = $args;
-                    $mobile_args['settings'] = $args['settings'] . '_mobile';
+                    $mobile_args['settings'] = $args['settings'] . '-mobile';
                     $mobile_args['label'] = '';
                     $mobile_args['description'] = '';
                     $tablet_args['device'] = 'mobile';
@@ -263,7 +263,7 @@ class Customizer {
                     self::add_field( analytica()->theme_slug, $mobile_args );
 
                     $tablet_args = $args;
-                    $tablet_args['settings'] = $args['settings'] . '_tablet';
+                    $tablet_args['settings'] = $args['settings'] . '-tablet';
                     $tablet_args['label'] = '';
                     $tablet_args['description'] = '';
                     $tablet_args['device'] = 'tablet';

@@ -9,15 +9,7 @@
     @media (min-width: $screen-sm-min) {
         min-height: $grid-gutter-width;
     }
-    .site-hero-background-container {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 0;
-        background-color: rgba(0, 0, 0, .3);
-    }
+   
     .site-hero-overlay-color {
         position: static;
         margin-left: -9999px;
@@ -54,10 +46,6 @@
             margin-bottom: 0;
             padding: 4px 15px;
             border-radius: 30px;
-        }
-        .header,
-        .subheader {
-            color: white;
         }
     }
     .text-left .breadcrumb {

@@ -67,7 +67,7 @@ function analytica_the_title( $before = '', $after = '', $post_id = 0, $echo = t
 
     // This will work same as `the_title` function but with Custom Title if exits.
     if ( $echo ) {
-        echo wp_kses( $title, wp_kses_allowed_html('post') ); 
+        echo wp_kses( $title, analytica_get_allowed_tags() ); 
     } else {
         return $title;
     }
@@ -117,7 +117,7 @@ function analytica_get_the_title( $post_id = 0, $echo = false ) {
 
     // This will work same as `get_the_title` function but with Custom Title if exits.
     if ( $echo ) {
-        echo wp_kses( $title, wp_kses_allowed_html('post') ); 
+        echo wp_kses( $title, analytica_get_allowed_tags() ); 
     } else {
         return $title;
     }

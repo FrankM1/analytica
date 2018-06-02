@@ -239,6 +239,7 @@ class Core {
         require_once get_theme_file_path( '/includes/functions/conditionals.php' );
         require_once get_theme_file_path( '/includes/functions/menu.php' );
         require_once get_theme_file_path( '/includes/functions/layout.php' );
+        require_once get_theme_file_path( '/includes/functions/breadcrumb.php' );
 
         require_once get_theme_file_path( '/includes/structure/general/general-header.php' );
         require_once get_theme_file_path( '/includes/structure/general/css-classes.php' );
@@ -268,7 +269,7 @@ class Core {
         require_once get_theme_file_path( '/includes/config/customizer/05-typography.php' );
         require_once get_theme_file_path( '/includes/config/customizer/06-blog.php' );
         // require_once get_theme_file_path( '/includes/config/customizer/07-blog-single.php' );
-        // require_once get_theme_file_path( '/includes/config/customizer/08-breadcrumbs.php' );
+        require_once get_theme_file_path( '/includes/config/customizer/08-breadcrumbs.php' );
         require_once get_theme_file_path( '/includes/config/customizer/90-utilities.php' );
     }
 

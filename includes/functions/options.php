@@ -17,12 +17,12 @@
 
 function analytica_default_color_palettes() {
 
-    $font_base = analytica_get_option( 'font-base' );
-    $font_secondary = analytica_get_option( 'font-secondary-base' );
-    $accent_color = analytica_get_option( 'site-accent-color' );
-    $link_color = analytica_get_option( 'site-link-color' );
+    $font_base            = analytica_get_option( 'font-base' );
+    $font_secondary       = analytica_get_option( 'font-secondary-base' );
+    $accent_color         = analytica_get_option( 'site-accent-color' );
+    $link_color           = analytica_get_option( 'site-link-color' );
     $link_highlight_color = analytica_get_option( 'site-link-highlight-color' );
-    $text_color = analytica_get_option( 'site-text-color' );
+    $text_color           = analytica_get_option( 'site-text-color' );
 
     $font_secondary_color = ! empty( $font_secondary['color'] ) ? $font_secondary['color'] : '';
     $font_base_color = ! empty( $font_base['color'] ) ? $font_base['color'] : '';
@@ -109,7 +109,7 @@ function analytica_get_option( $option_id, $default_value = null, $post_id = nul
  * @param string $key Option name.
  */
 function analytica_option( $primary, $default_value = false ) {
-    echo wp_kses( analytica_get_option( $primary, $default_value ), wp_kses_allowed_html('post') ); 
+    echo wp_kses( analytica_get_option( $primary, $default_value ), analytica_get_allowed_tags() ); 
 }
 
 /**
@@ -129,7 +129,7 @@ function analytica_option( $primary, $default_value = false ) {
 function analytica_custom_field( $field, $output_pattern = '%s', $post_id = null ) {
     if ( $value = analytica_get_custom_field( $field, $post_id ) ) {
         /* Translators: %s: field value */
-       echo wp_kses( sprintf( $output_pattern, $value ), wp_kses_allowed_html('post') ); 
+       echo wp_kses( sprintf( $output_pattern, $value ), analytica_get_allowed_tags() ); 
     }
 }
 
@@ -174,7 +174,7 @@ function analytica_get_custom_field( $field, $post_id = null ) {
  */
 function analytica_get_post_id( $post_id_override = '' ) {
 
-    if ( null == Analytica\Options::$post_id ) {
+    if ( null == \Analytica\Options::$post_id ) {
         global $post;
 
         $post_id = 0;
@@ -188,9 +188,9 @@ function analytica_get_post_id( $post_id_override = '' ) {
             $post_id = $post->ID;
         }
 
-        Analytica\Options::$post_id = $post_id;
+        \Analytica\Options::$post_id = $post_id;
     }
 
-    return apply_filters( __FUNCTION__, Analytica\Options::$post_id, $post_id_override );
+    return apply_filters( __FUNCTION__, \Analytica\Options::$post_id, $post_id_override );
 }
  

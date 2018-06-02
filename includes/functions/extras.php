@@ -158,7 +158,7 @@ function analytica_comment_form_default_markup( $args ) {
     $args['title_reply']       = analytica_default_strings( 'string-comment-title-reply', false );
     $args['cancel_reply_link'] = analytica_default_strings( 'string-comment-cancel-reply-link', false );
     $args['label_submit']      = analytica_default_strings( 'string-comment-label-submit', false );
-    $args['comment_field']     = '<div class="comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea analytica-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( analytica_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( analytica_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
+    $args['comment_field']     = '<div class="comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea"><label for="comment" class="screen-reader-text">' . esc_html( analytica_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( analytica_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
 
     return apply_filters( 'analytica_comment_form_default_markup', $args );
 }

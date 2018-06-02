@@ -773,7 +773,7 @@ class About_Page {
                     echo '<h2>' . esc_html( $release['title'] ) . ' </h2 > ';
                 }
                 if ( ! empty( $release['changes'] ) ) {
-                    echo implode( '<br/>', wp_kses( $release['changes'], wp_kses_allowed_html('post') ) );
+                    echo implode( '<br/>', wp_kses( $release['changes'], analytica_get_allowed_tags() ) );
                 }
             }
             echo '</div><!-- .featured-section.changelog -->';

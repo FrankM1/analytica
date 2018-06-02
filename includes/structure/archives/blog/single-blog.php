@@ -5,6 +5,7 @@
  * @package Analytica
  */
 
+add_filter( 'body_class', 'analytica_single_body_class' );
 /**
  * Adds custom classes to the array of body classes.
  *
@@ -30,7 +31,7 @@ function analytica_single_body_class( $classes ) {
     return $classes;
 }
 
-add_filter( 'body_class', 'analytica_single_body_class' );
+add_filter( 'post_class', 'analytica_single_post_class' );
 /**
  * Adds custom classes to the array of body classes.
  *
@@ -53,8 +54,6 @@ function analytica_single_post_class( $classes ) {
     return $classes;
 }
 
-
-add_filter( 'post_class', 'analytica_single_post_class' );
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  *
@@ -75,7 +74,7 @@ function analytica_single_get_post_meta( $echo = true ) {
         }
     }
     if ( $echo ) {
-        echo wp_kses( $output, wp_kses_allowed_html('post') ); 
+        echo wp_kses( $output, analytica_get_allowed_tags() ); 
     } else {
         return $output;
     }
@@ -123,14 +122,14 @@ function analytica_theme_comment( $comment, $args, $depth ) {
                                 <?php
 
                                 printf(
-                                    '<div class="analytica-comment-cite-wrap analytica-col-lg-12"><cite><b class="fn">%1$s</b> %2$s</cite></div>',
+                                    '<div class="analytica-comment-cite-wrap"><cite><b class="fn">%1$s</b> %2$s</cite></div>',
                                     get_comment_author_link(),
                                     // If current post author is also comment author, make it known visually.
                                     ( $comment->user_id === $post->post_author ) ? '<span class="analytica-highlight-text analytica-cmt-post-author"></span>' : ''
                                 );
 
                                 printf(
-                                    '<div class="analytica-comment-time analytica-col-lg-12"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
+                                    '<div class="analytica-comment-time"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
                                     esc_url( get_comment_link( $comment->comment_ID ) ),
                                     get_comment_time( 'c' ),
                                     /* translators: 1: date, 2: time */
@@ -172,6 +171,7 @@ function analytica_theme_comment( $comment, $args, $depth ) {
     }
 }
 
+add_action( 'analytica_entry_after', 'analytica_single_post_navigation_markup' );
 /**
  * Get Post Navigation
  *
@@ -210,4 +210,3 @@ function analytica_single_post_navigation_markup() {
 
     }
 }
-add_action( 'analytica_entry_after', 'analytica_single_post_navigation_markup' );

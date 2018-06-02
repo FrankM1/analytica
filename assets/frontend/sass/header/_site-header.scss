@@ -6,13 +6,14 @@
 .site-header {
 	position: relative;
 	@include clearfix;
-	padding: $grid-gutter-width-half;
+	padding: $grid-gutter-width-half 0;
 }
 
 .site-header .analytica-container {
 	display: flex;
 	flex-direction: row;
-	align-items: center;
+    align-items: center;
+    padding: 0;
 }
 
 .site-id {

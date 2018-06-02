@@ -73,6 +73,91 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         ],
     ];
 
+    [
+        'id'      => 'site-header-padding',
+        'type'    => 'spacing',
+        'label'   => esc_html__( 'Footer padding', 'analytica' ),
+        'section' => 'site-header-style',
+        'default'   => $default['site-header-padding'],
+        'transport' => 'auto',
+        'output'    => [
+            [
+                'property' => 'padding',
+                'element'  => '.site-header',
+            ],
+        ],
+        'conditions' => [
+            [
+                'setting'  => 'site-header',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
+    ];
+
+    [
+        'id'      => 'site-header-border-style',
+        'type'    => 'select',
+        'label'   => esc_html__( 'Border style', 'analytica' ),
+        'section' => 'site-header-style',
+        'default'   => $default['site-header-border-style'],
+        'transport' => 'auto',
+        'choices' => [
+            'solid' => 'solid',
+        ],
+        'output'    => [
+            [
+                'property' => 'border-style',
+                'element'  => '.site-header',
+            ],
+        ],
+        'conditions' => [
+            [
+                'setting'  => 'site-header',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
+    ];
+
+    [
+        'id'      => 'site-header-border',
+        'type'    => 'spacing',
+        'label'   => esc_html__( 'Border', 'analytica' ),
+        'section' => 'site-header-style',
+        'default'   => $default['site-header-border'],
+        'transport' => 'auto',
+        'conditions' => [
+            [
+                'setting'  => 'site-header',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
+    ];
+
+    [
+        'id'        => 'site-header-border-color',
+        'section'   => 'site-header-style',
+        'type'      => 'color',
+        'transport' => 'auto',
+        'label'     => esc_html__( 'Border Color' , 'analytica' ),
+        'default'   => $default['site-header-border-color'],
+        'output'    => [
+            [
+                'property' => 'border-color',
+                'element'  => '.site-header',
+            ],
+        ],
+        'conditions' => [
+            [
+                'setting'  => 'site-header',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
+    ];
+
     return $controls;
 }
 
@@ -84,5 +169,11 @@ function analytica_add_header_panels_and_sections( $wp_customize ) {
     $wp_customize->add_section( 'site-header', [
         'title'    => esc_html__( 'Site Header', 'analytica' ),
         'priority' => 19,
+    ] );
+
+    $wp_customize->add_section( 'site-header-style', [
+        'title'    => esc_html__( 'Style', 'analytica' ),
+        'panel'    => 'site-header',
+        'priority' => 26,
     ] );
 }

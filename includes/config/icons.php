@@ -58,5 +58,5 @@ function analytica_get_ui_icons( $icon, $style = 1 ) {
  * @return [type]           [description]
  */
 function analytica_ui_icons( $icon, $style = 1 ) {
-    echo wp_kses( analytica_get_ui_icons( $icon, $style ), wp_kses_allowed_html('post') );
+    echo wp_kses( analytica_get_ui_icons( $icon, $style ), analytica_get_allowed_tags() );
 }

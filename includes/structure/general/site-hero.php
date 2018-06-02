@@ -29,33 +29,26 @@ class Site_Hero {
     }
 
     protected function get_config() {
-        $this->align              = analytica_get_option( 'site-hero-text-alignment' );
-        $this->breadcrumbs        = analytica_get_option( 'site-hero-breadcrumbs' );
-        $this->color_base         = analytica_get_option( 'site-hero-background-color-base' );
-        $this->hero_show_title    = analytica_get_option( 'site-hero-show-title' );
-        $this->hero_show_subtitle = analytica_get_option( 'site-hero-show-subtitle' );
-        $this->height             = wp_is_mobile() ? analytica_get_option( 'site-hero-height-mobile' ) : analytica_get_option( 'site-hero-height' );
-        $this->full_height        = wp_is_mobile() ? 500 : analytica_get_option( 'site-hero-fullheight' );
-        $this->background         = [
-            'color'    => analytica_get_option( 'site-hero-background-color' ),
-            'fixed'    => analytica_get_option( 'site-hero-background-fixed' ),
-            'position' => analytica_get_option( 'site-hero-background-position' ),
-            'repeat'   => analytica_get_option( 'site-hero-background-repeat' ),
-            'size'     => analytica_get_option( 'site-hero-background-size' ),
-        ];
-        $this->image_active  = analytica_get_option( 'site-hero-background' ) ;
-        $this->image_inherit = analytica_get_option( 'site-hero-background-inherit', true );
-        $this->content       = $this->content();
+        $this->args['align']         = analytica_get_option( 'site-hero-text-alignment' );
+        $this->args['breadcrumbs']   = analytica_get_option( 'site-hero-breadcrumbs' );
+        $this->args['color-base']    = analytica_get_option( 'site-hero-background-color-base' );
+        $this->args['fullheight']    = wp_is_mobile() ? false : analytica_get_option( 'site-hero-fullheight' );
+        $this->args['height']        = wp_is_mobile() ? analytica_get_option( 'site-hero-height-mobile' ) : analytica_get_option( 'site-hero-height' );
+        $this->args['show-subtitle'] = analytica_get_option( 'site-hero-show-subtitle' );
+        $this->args['show-title']    = analytica_get_option( 'site-hero-show-title' );
+        $this->args['has-image']     = get_header_image();
+        $this->content = $this->content();
     }
 
     public function add_action() {
+        add_filter( 'wp_enqueue_scripts',                   [ $this, 'do_hero_css' ] );
+
         add_action( 'analytica_do_before_hero_wrapper',     [ $this, 'do_background' ] );
         add_action( 'analytica_do_hero_content',            [ $this, 'do_title' ] );
         add_action( 'analytica_do_hero_content',            [ $this, 'do_subtitle' ] );
         add_action( 'analytica_do_hero_content',            [ $this, 'do_breadcrumbs' ] );
-        add_filter( 'analytica_attr_site-hero',             [ $this, 'attributes_hero' ] );
 
-        add_filter( 'wp_enqueue_scripts',                   [ $this, 'do_hero_css' ] );
+        add_filter( 'analytica_attr_site-hero',             [ $this, 'attributes_hero' ] );
     }
  
     /**
@@ -146,7 +139,7 @@ class Site_Hero {
     public function get_post_image_data() {
 
         $hero = [
-            'url'  => get_header_image(),
+            'url'  => $this->args['has-image'],
             'size' => [
                 get_custom_header()->width,
                 get_custom_header()->height,
@@ -217,35 +210,34 @@ class Site_Hero {
     public function get_hero_classes() {
         $classes = null;
 
-        if ( $this->align ) {
-            $classes .= ' ' . $this->align;
+        if ( $this->args['align'] ) {
+            $classes .= ' ' . $this->args['align'];
         }
 
-        if ( $this->color_base ) {
-            $classes .= ' has-background base-color-' . $this->color_base;
-        }
-
-        if ( $this->full_height ) {
-            $classes .= ' site-hero-height-full';
+        if ( $this->args['color-base'] && $this->args['has-image'] ) {
+            $classes .= ' has-background base-color-' . $this->args['color-base'];
+            if ( $this->args['fullheight'] ) {
+                $classes .= ' site-hero-height-full';
+            }
         }
 
         return $classes;
     }
 
     public function do_breadcrumbs() {
-        if ( $this->breadcrumbs !== 'off' ) {
+        if ( $this->args['breadcrumbs'] ) {
             do_action( 'analytica_do_breadcrumbs' );
         }
     }
 
     public function do_title() {
-        if ( $this->hero_show_title !== 'off' && ! empty( $this->content['title'] ) ) {
+        if ( $this->args['show-title'] && ! empty( $this->content['title'] ) ) {
             ?><h1 class = "header"><?php echo $this->content['title'];  // WPCS: XSS ok. ?></h1><?php
         }
     }
 
     public function do_subtitle() {
-        if ( ! empty( $this->content['subtitle'] ) && $this->hero_show_subtitle !== 'off' ) {
+        if ( ! empty( $this->content['subtitle'] ) && $this->args['show-subtitle'] ) {
             ?><h3 class = "subheader"><?php echo $this->content['subtitle'];  // WPCS: XSS ok. ?></h3><?php
         }
     }
@@ -267,7 +259,7 @@ class Site_Hero {
     public function generate_hero_css() {
         $css_rules = $extra_css = null;
 
-        if ( $this->image_active ) {
+        if ( $this->args['has-image'] ) {
 
             $hero = $this->get_background_url();
 
@@ -275,34 +267,14 @@ class Site_Hero {
                 $css_rules .= 'background-image: url(' . esc_url( $hero['url'] ) . ');';
             }
 
-            if ( $this->background['color'] ) {
-                $css_rules .= 'background-color: ' . $this->background['color'] . ';';
-            }
-
-            if ( $this->background['size'] ) {
-                $css_rules .= 'background-size: ' . $this->background['size'] . ';';
-            }
-
-            if ( $this->background['position'] ) {
-                $css_rules .= 'background-position: ' . $this->background['position'] . ';';
-            }
-
-            if ( $this->background['fixed'] ) {
-                $css_rules .= 'background-attachment: ' . $this->background['fixed'] . ';';
-            }
-
-            if ( $this->background['repeat'] ) {
-                $css_rules .= 'background-repeat: ' . $this->background['repeat'] . ';';
-            }
-
             if ( $css_rules != '' ) {
                 $css_rules = '.site-hero-background-container {' . $css_rules . '}';
             }
         }
 
-        if ( $this->height ) {
+        if ( $this->args['height'] ) {
             $css_rules .= '@media only screen and (min-width: 768px) {';
-                $css_rules .= '.site-hero, .site-hero-wrapper { min-height: ' . esc_attr( preg_replace( '/[^0-9,.-]/', '', $this->height ) ) . 'px; }';
+                $css_rules .= '.site-hero, .site-hero-wrapper { min-height: ' . esc_attr( preg_replace( '/[^0-9,.-]/', '', $this->args['height'] ) ) . 'px; }';
             $css_rules .= '}';
         }
 

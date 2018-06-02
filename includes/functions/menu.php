@@ -46,7 +46,7 @@ function analytica_fallback_menu() {
             'depth'       => 3,
             'sort_column' => 'menu_order',
             'child_of'    => 0,
-            'walker'      => new Analytica\Fallback_Menu_Walker(),
+            'walker'      => new \Analytica\Fallback_Menu_Walker(),
         );
 
         wp_list_pages( $args );

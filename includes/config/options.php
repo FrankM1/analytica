@@ -113,13 +113,28 @@ class Options
             'site-header-transparent'      => false,
             'site-header-width'            => 'layout-boxed',
 
+            'site-header-border-color'      => '',
+            'site-header-border-style' => '',
+            'site-header-padding' => [
+                'top'    => '',
+                'left'   => '',
+                'bottom' => '',
+                'right'  => '',
+            ],
+            'site-header-border' => [
+                'top'    => '',
+                'bottom' => '',
+                'left'   => '',
+                'right'  => '',
+            ],
+
             // Hero Section
             'site-hero-background-color-base'    => 'light',
             'site-hero-background-color'         => '',
             'site-hero-background-fixed'         => '',
             'site-hero-background-image'         => analytica()->theme_url . '/assets/frontend/images/defaults/hero-background.jpg',
             'site-hero-background-inherit'       => true,
-            'site-hero-background-overlay-color' => 'rgba(10, 10, 10, 1)',
+            'site-hero-background-overlay-color' => '',
             'site-hero-background-position'      => 'center center',
             'site-hero-background-repeat'        => 'no-repeat',
             'site-hero-background-size'          => 'cover',
@@ -159,6 +174,11 @@ class Options
                 'right'  => '',
             ],
 
+            // Breadcrumbs
+            'site-breadcrumb-color'            => true,
+            'site-breadcrumb-active-color'     => true,
+            'site-breadcrumb-background-color' => true,
+
             // Typography
             'font-base' => [
                 'font-family'    => $primary['font-family'],
@@ -170,10 +190,40 @@ class Options
                 'text-transform' => 'none',
             ],
 
+            //  'font-base-tablet' => [
+            //     'font-family'    => $primary['font-family'],
+            //     'color'          => $primary['color'],
+            //     'font-size'      => '14px',
+            //     'line-height'    => '1.6em',
+            //     'letter-spacing' => '0',
+            //     'variant'        => 'regular',
+            //     'text-transform' => 'none',
+            // ],
+
+            //  'font-base-mobile' => [
+            //     'font-family'    => $primary['font-family'],
+            //     'color'          => $primary['color'],
+            //     'font-size'      => '14px',
+            //     'line-height'    => '1.6em',
+            //     'letter-spacing' => '0',
+            //     'variant'        => 'regular',
+            //     'text-transform' => 'none',
+            // ],
+
             'font-secondary-base' => [
                 'font-family' => $secondary['font-family'],
                 'color'       => $secondary['color'],
             ],
+
+            // 'font-secondary-base-tablet' => [
+            //     'font-family' => $secondary['font-family'],
+            //     'color'       => $secondary['color'],
+            // ],
+
+            // 'font-secondary-base-mobile' => [
+            //     'font-family' => $secondary['font-family'],
+            //     'color'       => $secondary['color'],
+            // ],
 
             'font-h1' => [
                 'font-family'    => $secondary['font-family'],

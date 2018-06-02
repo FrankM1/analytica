@@ -8,7 +8,11 @@
  * @author   Franklin Gitonga
  * @link     http://qazana.net/
  */
-if ( class_exists('Kirki_Control_Base') ) {
-    require_once get_theme_file_path( '/includes/classes/customizer/controls/dimensions/dimensions.php' );
-    require_once get_theme_file_path( '/includes/classes/customizer/controls/icon-select/icon-select.php' );
+
+add_action( 'plugins_loaded', 'analytica_customizer_controls' );
+function analytica_customizer_controls() {
+    if ( class_exists('Kirki') ) {
+        require_once get_theme_file_path( '/includes/classes/customizer/controls/dimensions/dimensions.php' );
+        require_once get_theme_file_path( '/includes/classes/customizer/controls/icon-select/icon-select.php' );
+    }
 }
