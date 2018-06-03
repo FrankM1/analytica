@@ -9,6 +9,10 @@
     @media (min-width: $screen-sm-min) {
         min-height: $grid-gutter-width;
     }
+
+    .analytica-container{
+        padding: 0;
+    }
    
     .site-hero-overlay-color {
         position: static;
@@ -36,7 +40,7 @@
         display: flex;
         align-items: center;
         height: 100%;
-        padding: 2em;
+        padding: $grid-gutter-width 0;
         .page-title-inner {
             position: relative;
             width: 100%;

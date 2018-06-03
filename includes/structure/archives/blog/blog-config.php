@@ -56,7 +56,7 @@ function analytica_get_post_meta( $post_meta, $separator = '<span class="meta-se
                 }
                 break;
             default:
-                $output_str = apply_filters( 'analytica_meta_case_' . $meta_value, $output_str, $loop_count, $separator );
+                $output_str .= apply_filters( 'analytica_meta_case_' . $meta_value, $output_str, $loop_count, $separator );
 
         }
 
@@ -89,6 +89,7 @@ function analytica_post_date() {
     $output       .= '<span class="published" itemprop="datePublished"> ' . $posted_on . '</span>';
     $output       .= '<span class="updated" itemprop="dateModified"> ' . $modified_on . '</span>';
     $output       .= '</span>';
+    
     return apply_filters( 'analytica_post_date', $output );
 }
 

@@ -22,7 +22,7 @@ add_filter( 'analytica_customizer_controls', 'analytica_get_customizer_breadcrum
     $default = Analytica\Options::defaults();
 
     $controls[] = [
-        'label'     => esc_html__( 'Link Color', 'energia' ),
+        'label'     => esc_html__( 'Link Color', 'analytica' ),
         'id'        => 'site-breadcrumb-color',
         'type'      => 'color',
         'default'   => $default['site-breadcrumb-color'],
@@ -37,7 +37,7 @@ add_filter( 'analytica_customizer_controls', 'analytica_get_customizer_breadcrum
     ];
 
     $controls[] = [
-        'label'     => esc_html__( 'Active Link Color', 'energia' ),
+        'label'     => esc_html__( 'Active Link Color', 'analytica' ),
         'id'        => 'site-breadcrumb-active-color',
         'type'      => 'color',
         'default'   => $default['site-breadcrumb-active-color'],
@@ -52,7 +52,7 @@ add_filter( 'analytica_customizer_controls', 'analytica_get_customizer_breadcrum
     ];
 
     $controls[] = [
-        'label'     => esc_html__( 'Background Color', 'energia' ),
+        'label'     => esc_html__( 'Background Color', 'analytica' ),
         'id'        => 'site-breadcrumb-background-color',
         'type'      => 'color',
         'default'   => $default['site-breadcrumb-background-color'],
@@ -70,23 +70,23 @@ add_filter( 'analytica_customizer_controls', 'analytica_get_customizer_breadcrum
         'id'      => 'breadcrumb_prefix',
         'section' => 'breadcrumb',
         'type'    => 'text',
-        'label'   => esc_html__( 'Breadcrumb Prefix' , 'energia' ),
-        'default' => esc_html__( 'You Are Here:', 'energia' ),
+        'label'   => esc_html__( 'Breadcrumb Prefix' , 'analytica' ),
+        'default' => esc_html__( 'You Are Here:', 'analytica' ),
     ];
 
     $controls[] = [
         'id'      => 'breadcrumb_home_label',
         'section' => 'breadcrumb',
         'type'    => 'text',
-        'label'   => esc_html__( 'Breadcrumb Home Title' , 'energia' ),
-        'default' => esc_html__( 'Home', 'energia' ),
+        'label'   => esc_html__( 'Breadcrumb Home Title' , 'analytica' ),
+        'default' => esc_html__( 'Home', 'analytica' ),
     ];
 
     $controls[] = [
         'id'      => 'breadcrumb_sep',
         'section' => 'breadcrumb',
         'type'    => 'text',
-        'label'   => esc_html__( 'Breadcrumb Seperator' , 'energia' ),
+        'label'   => esc_html__( 'Breadcrumb Seperator' , 'analytica' ),
         'default' => ' / ',
     ];
 
@@ -94,25 +94,25 @@ add_filter( 'analytica_customizer_controls', 'analytica_get_customizer_breadcrum
         'id'      => 'breadcrumb_home',
         'section' => 'breadcrumb',
         'type'    => 'switch',
-        'label'   => esc_html__( 'Homepage' , 'energia' ),
+        'label'   => esc_html__( 'Homepage' , 'analytica' ),
         'default' => true,
-        'desc'    => esc_html__( 'The homepage for the \'Blog\' section' , 'energia' ),
+        'desc'    => esc_html__( 'The homepage for the \'Blog\' section' , 'analytica' ),
     ];
 
     $controls[] = [
         'id'      => 'breadcrumb_front_page',
         'section' => 'breadcrumb',
         'type'    => 'switch',
-        'label'   => esc_html__( 'Front Page' , 'energia' ),
+        'label'   => esc_html__( 'Front Page' , 'analytica' ),
         'default' => true,
-        'desc'    => esc_html__( 'The frontpage is be the page set in Settings -> Reading' , 'energia' ),
+        'desc'    => esc_html__( 'The frontpage is be the page set in Settings -> Reading' , 'analytica' ),
     ];
 
     $controls[] = [
         'id'      => 'breadcrumb_posts_page',
         'section' => 'breadcrumb',
         'type'    => 'switch',
-        'label'   => esc_html__( 'Posts Page' , 'energia' ),
+        'label'   => esc_html__( 'Posts Page' , 'analytica' ),
         'default' => true,
     ];
 
@@ -120,7 +120,7 @@ add_filter( 'analytica_customizer_controls', 'analytica_get_customizer_breadcrum
         'id'              => 'breadcrumb_single',
         'section'         => 'breadcrumb',
         'type'            => 'switch',
-        'label'           => esc_html__( 'Single' , 'energia' ),
+        'label'           => esc_html__( 'Single' , 'analytica' ),
         'default'         => true,
         'conditions' => [
             [
@@ -135,7 +135,7 @@ add_filter( 'analytica_customizer_controls', 'analytica_get_customizer_breadcrum
         'id'      => 'breadcrumb_page',
         'section' => 'breadcrumb',
         'type'    => 'switch',
-        'label'   => esc_html__( 'Page' , 'energia' ),
+        'label'   => esc_html__( 'Page' , 'analytica' ),
         'default' => true,
     ];
 
@@ -143,7 +143,7 @@ add_filter( 'analytica_customizer_controls', 'analytica_get_customizer_breadcrum
         'id'      => 'breadcrumb_archive',
         'section' => 'breadcrumb',
         'type'    => 'switch',
-        'label'   => esc_html__( 'Archive' , 'energia' ),
+        'label'   => esc_html__( 'Archive' , 'analytica' ),
         'default' => true,
     ];
 
@@ -151,7 +151,7 @@ add_filter( 'analytica_customizer_controls', 'analytica_get_customizer_breadcrum
         'id'      => 'breadcrumb_404',
         'section' => 'breadcrumb',
         'type'    => 'switch',
-        'label'   => esc_html__( '404' , 'energia' ),
+        'label'   => esc_html__( '404' , 'analytica' ),
         'default' => true,
     ];
 
@@ -159,14 +159,14 @@ add_filter( 'analytica_customizer_controls', 'analytica_get_customizer_breadcrum
         'id'      => 'breadcrumb_attachment',
         'section' => 'breadcrumb',
         'type'    => 'switch',
-        'label'   => esc_html__( 'Attachment/Media', 'energia' ),
+        'label'   => esc_html__( 'Attachment/Media', 'analytica' ),
         'default' => true,
     ];
 
     $controls[] = [
         'id'      => 'breadcrumb-padding',
         'type'    => 'spacing',
-        'label'   => esc_html__( 'Breadcrumb Padding', 'energia' ),
+        'label'   => esc_html__( 'Breadcrumb Padding', 'analytica' ),
         'section' => 'breadcrumb',
         'default' => [
             'top'    => '',
@@ -194,6 +194,6 @@ function analytica_add_breadcrumb_panels_and_sections( $wp_customize ) {
     $wp_customize->add_section( 'breadcrumb', [
         'priority' => 40,
         'panel'    => 'general',
-        'title'    => esc_html__( 'Breadcrumb', 'energia' ),
+        'title'    => esc_html__( 'Breadcrumb', 'analytica' ),
     ] );
 }

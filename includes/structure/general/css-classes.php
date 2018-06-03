@@ -109,7 +109,7 @@ function analytica_get_header_class( $class = '' ) {
     }
 
     // Add width class
-    if ( 'layout-fullwidth' != $header_full_width_option ) {
+    if ( ! $header_full_width_option ) {
         $classes[] = 'has-container';
     } else {
         $classes[] = 'fullwidth';

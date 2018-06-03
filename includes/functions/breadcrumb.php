@@ -74,6 +74,14 @@ function analytica_do_breadcrumbs() {
             'sep'    => analytica_get_option( 'breadcrumb_sep' ),
             'labels' => array(
                 'prefix' => trim( analytica_get_option( 'breadcrumb_prefix' ) ) . ' ',
+                'author'    => esc_html__( 'Archives for ', 'analytica' ),
+                'category'  => esc_html__( 'Archives for ', 'analytica' ),
+                'tag'       => esc_html__( 'Archives for ', 'analytica' ),
+                'date'      => esc_html__( 'Archives for ', 'analytica' ),
+                'search'    => esc_html__( 'Search for ', 'analytica' ),
+                'tax'       => esc_html__( 'Archives for ', 'analytica' ),
+                'post_type' => esc_html__( 'Archives for ', 'analytica' ),
+                '404'       => esc_html__( 'Not found: ', 'analytica' ),
             ),
         );
         analytica_breadcrumb( $args );

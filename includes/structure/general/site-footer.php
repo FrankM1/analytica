@@ -100,7 +100,7 @@ function analytica_footer_widget_areas() {
 
     // Get footer layout
     $layout = analytica_get_option( 'site-footer-layout' );
-    $container_class = ( 'layout-fullwidth' === analytica_get_option( 'site-footer-width' ) ) ? 'site-footer-fullwidth' : 'site-footer-boxed has-container';
+    $container_class = ( ! analytica_get_option( 'site-footer-width' ) ) ? 'site-footer-boxed has-container' : 'site-footer-fullwidth';
 
     $inside = '';
     $output = '';

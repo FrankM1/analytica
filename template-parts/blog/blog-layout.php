@@ -14,7 +14,7 @@
 
 	<div class="post-content">
 
-		<?php analytica_blog_post_thumbnai_and_title_order(); ?>
+		<?php analytica_blog_post_thumbnail_and_title_order(); ?>
 
 		<div class="entry-content" itemprop="text">
 

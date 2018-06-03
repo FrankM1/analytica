@@ -49,7 +49,7 @@ function analytica_post_class_blog_grid( $classes ) {
 function analytica_blog_get_post_meta() {
 
     $enable_meta = apply_filters( 'analytica_blog_post_meta_enabled', '__return_true' );
-    $post_meta   = analytica_get_option( 'archive-post-meta'             );
+    $post_meta   = analytica_get_option( 'archive-post-meta' );
 
     if ( 'post' == get_post_type() && is_array( $post_meta ) && $enable_meta ) {
 
@@ -119,9 +119,9 @@ function analytica_blog_post_get_featured_item() {
  *
  * @since  1.0.0
  */
-function analytica_blog_post_thumbnai_and_title_order() {
+function analytica_blog_post_thumbnail_and_title_order() {
 
-    $blog_post_thumb_title_order = analytica_get_option( 'archive-content-structure'             );
+    $blog_post_thumb_title_order = analytica_get_option( 'archive-content-structure' );
     if ( is_single() ) {
         $blog_post_thumb_title_order = analytica_get_option( 'single-post-structure' );
     }
@@ -152,7 +152,7 @@ function analytica_blog_post_thumbnai_and_title_order() {
                     do_action( 'analytica_blog_single_featured_image_after' );
                     break;
 
-                    // Single Post Title and Single Post Meta.
+                // Single Post Title and Single Post Meta.
                 case 'single-title-meta':
                     do_action( 'analytica_blog_single_title_meta_before' );
                     analytica_get_single_post_title_meta();

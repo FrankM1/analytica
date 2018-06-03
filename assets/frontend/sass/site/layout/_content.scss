@@ -21,7 +21,8 @@
 
 .site-inner {
 	@extend %container;
-	margin: $grid-gutter-width auto;
+    margin: $grid-gutter-width auto;
+    margin-top: 0;
 }
 
 .content-sidebar-sidebar .site-inner,

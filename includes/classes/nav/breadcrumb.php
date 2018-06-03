@@ -801,7 +801,7 @@ class Breadcrumb
         return $link;
     }
 
-    public function trail_end($old_title)
+    public function trail_end( $old_title )
     {
 
         $new_title = false;
@@ -810,16 +810,15 @@ class Breadcrumb
         $max_length = $this->args['max_length'];
 
         if ( $count > $max_length) {
-
             $offset = ($max_length - 3) - $count;
             $new_title = substr($old_title, 0, strrpos($old_title, ' ', $offset) );
             $new_title = $new_title . $this->args['trail'];
-
         }
 
-        $new_title = is_string($new_title) && !empty( $new_title ) ? $new_title : $old_title;
+        $new_title = is_string( $new_title ) && ! empty( $new_title ) ? $new_title : $old_title;
 
-        return '<span class="trail-end">'. $new_title . '</span>';
+        return $new_title;
+        return '<span class="trail-end">' . $new_title . '</span>';
     }
 
     /**

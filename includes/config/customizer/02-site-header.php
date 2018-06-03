@@ -18,7 +18,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
 
     $controls[] = [
         'id'      => 'site-header',
-        'section' => 'site-header',
+        'section' => 'site-header-settings',
         'type'    => 'switch',
         'label'   => esc_html__( 'Enable Header' , 'analytica' ),
         'default' => $default['site-header'],
@@ -30,7 +30,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
 
     $controls[] = [
         'id'              => 'site-header-background-color',
-        'section'         => 'site-header',
+        'section'         => 'site-header-settings',
         'type'            => 'color',
         'title'           => esc_html__( 'Background color' , 'analytica' ),
         'default'         => $default['site-header-background-color'],
@@ -51,7 +51,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
 
     $controls[] = [
         'id'      => 'site-header-overlay',
-        'section' => 'site-header',
+        'section' => 'site-header-settings',
         'default' => $default['site-header-overlay'],
         'type'    => 'switch',
         'label'   => esc_html__( 'Header Overlay' , 'analytica' ),
@@ -63,7 +63,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
 
     $controls[] = [
         'id'      => 'site-header-transparent',
-        'section' => 'site-header',
+        'section' => 'site-header-settings',
         'default' => $default['site-header-transparent'],
         'type'    => 'switch',
         'label'   => esc_html__( 'Header Transparent' , 'analytica' ),
@@ -90,7 +90,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
             [
                 'setting'  => 'site-header',
                 'operator' => '==',
-                'value'    => true,
+                'value'    => '1',
             ],
         ],
     ];
@@ -115,7 +115,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
             [
                 'setting'  => 'site-header',
                 'operator' => '==',
-                'value'    => true,
+                'value'    => '1',
             ],
         ],
     ];
@@ -131,7 +131,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
             [
                 'setting'  => 'site-header',
                 'operator' => '==',
-                'value'    => true,
+                'value'    => '1',
             ],
         ],
     ];
@@ -153,7 +153,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
             [
                 'setting'  => 'site-header',
                 'operator' => '==',
-                'value'    => true,
+                'value'    => '1',
             ],
         ],
     ];
@@ -166,14 +166,20 @@ add_action( 'customize_register', 'analytica_add_header_panels_and_sections' );
  * Create the customizer panels and sections
  */
 function analytica_add_header_panels_and_sections( $wp_customize ) {
-    $wp_customize->add_section( 'site-header', [
+    $wp_customize->add_panel( 'site-header', [
         'title'    => esc_html__( 'Site Header', 'analytica' ),
         'priority' => 19,
     ] );
 
+    $wp_customize->add_section( 'site-header-settings', [
+        'title'    => esc_html__( 'Settings', 'analytica' ),
+        'panel'    => 'site-header',
+        'priority' => 20,
+    ]);
+
     $wp_customize->add_section( 'site-header-style', [
         'title'    => esc_html__( 'Style', 'analytica' ),
         'panel'    => 'site-header',
-        'priority' => 26,
+        'priority' => 21,
     ] );
 }

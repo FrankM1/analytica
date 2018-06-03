@@ -425,7 +425,7 @@ add_filter( 'analytica_attr_site-footer', 'analytica_attributes_site_footer' );
  * @return array Amended attributes.
  */
 function analytica_attributes_site_footer( $attributes ) {
-    if ( 'layout-fullwidth' != analytica_get_option( 'site-footer-width' ) ) {
+    if ( ! analytica_get_option( 'site-footer-width' ) ) {
         $attributes['class'] = 'site-footer has-container';
     } else {
         $attributes['class'] = 'site-footer fullwidth';
@@ -446,7 +446,7 @@ add_filter( 'analytica_attr_site-footer-widgets', 'analytica_attributes_site_foo
  */
 function analytica_attributes_site_footer_widgets( $attributes ) {
 
-    if ( 'layout-fullwidth' != analytica_get_option( 'site-footer-width' ) ) {
+    if ( ! analytica_get_option( 'site-footer-width' ) ) {
         $attributes['class'] .= ' has-container';
     } else {
         $attributes['class'] .= ' fullwidth';

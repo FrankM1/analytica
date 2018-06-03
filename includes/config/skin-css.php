@@ -408,5 +408,40 @@ class Dynamic_CSS {
 		}
 
 		return $parse_css;
-	}
+    }
+    
+    public function generate_hero_css() {
+        $css_rules = $extra_css = null;
+
+        if ( get_header_image() ) {
+
+            $hero = [
+                'url'  => get_header_image(),
+                'size' => [
+                    get_custom_header()->width,
+                    get_custom_header()->height,
+                ],
+            ];
+
+            $hero = $this->get_background_url();
+
+            if ( ! empty( $hero ) || $hero['url'] ) {
+                $css_rules .= 'background-image: url(' . esc_url( $hero['url'] ) . ');';
+            }
+
+            if ( $css_rules != '' ) {
+                $css_rules = '.site-hero-background-container {' . $css_rules . '}';
+            }
+        }
+
+        if ( $this->args['height'] ) {
+            $css_rules .= '@media only screen and (min-width: 768px) {';
+                $css_rules .= '.site-hero, .site-hero-wrapper { min-height: ' . esc_attr( preg_replace( '/[^0-9,.-]/', '', $this->args['height'] ) ) . 'px; }';
+            $css_rules .= '}';
+        }
+
+        $css = $css_rules . $extra_css;
+
+        return esc_js( $css );
+    }
 }

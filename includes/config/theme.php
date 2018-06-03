@@ -118,7 +118,7 @@ class Theme {
     
         // Maybe add support for structural wraps
         if ( ! current_theme_supports( 'analytica-structural-wraps' ) ) {
-            add_theme_support( 'analytica-structural-wraps', array( 'site-header', 'page-header', 'site-content', 'menu-primary', 'menu-secondary', 'site-footer' ) );
+            add_theme_support( 'analytica-structural-wraps', array( 'site-header', 'site-hero', 'site-content', 'menu-primary', 'menu-secondary', 'site-footer' ) );
         }
     
         // Custom Site Logo
