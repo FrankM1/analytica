@@ -27,6 +27,12 @@ Normalizing styles have been helped along thanks to the fine work of.
 Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 
 -------------------------------------------------------
+Screenshot Licenses
+-------------------------------------------------------
+Screenshot images are all licensed under CC0 Universal
+https://pixabay.com/en/sun-sunrise-path-in-the-morning-2915215/
+
+-------------------------------------------------------
 Flexibility JS
 -------------------------------------------------------
 Flexibility is a JavaScript polyfill for Flexbox By Jonathan Neal, 10up. (https://github.com/jonathantneal/flexibility)

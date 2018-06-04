@@ -154,11 +154,7 @@ class Dynamic_CSS {
             'a:hover, a:focus'                        => array(
                 'color' => esc_attr( $link_hover_color ),
             ),
-            
-            'body, h1, .entry-title a, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a' => array(
-                'color' => esc_attr( $text_color ),
-            ),
-
+    
              // Typography.
              '.tagcloud a:hover, .tagcloud a:focus, .tagcloud a.current-item' => array(
                 'color'            => analytica_get_foreground_color( $link_color ),
@@ -218,21 +214,21 @@ class Dynamic_CSS {
 
         $buttons_css_output = array(
             // Button Typography.
-            '.menu-toggle, button, .analytica-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+            '.menu-trigger, button, .analytica-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
                 'border-radius'    => analytica_get_css_value( $btn_border_radius, 'px' ),
                 'padding'          => analytica_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . analytica_get_css_value( $btn_horizontal_padding, 'px' ),
                 'color'            => esc_attr( $btn_text_color ),
                 'border-color'     => esc_attr( $btn_bg_color ),
                 'background-color' => esc_attr( $btn_bg_color ),
             ),
-            '.menu-toggle, button, .analytica-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+            '.menu-trigger, button, .analytica-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
                 'border-radius'    => analytica_get_css_value( $btn_border_radius, 'px' ),
                 'padding'          => analytica_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . analytica_get_css_value( $btn_horizontal_padding, 'px' ),
                 'color'            => esc_attr( $btn_text_color ),
                 'border-color'     => esc_attr( $btn_bg_color ),
                 'background-color' => esc_attr( $btn_bg_color ),
             ),
-            'button:focus, .menu-toggle:hover, button:hover, .analytica-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
+            'button:focus, .menu-trigger:hover, button:hover, .analytica-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
                 'color'            => esc_attr( $btn_text_hover_color ),
                 'border-color'     => esc_attr( $btn_bg_hover_color ),
                 'background-color' => esc_attr( $btn_bg_hover_color ),

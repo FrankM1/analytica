@@ -22,10 +22,6 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'type'    => 'switch',
         'label'   => esc_html__( 'Enable Header' , 'analytica' ),
         'default' => $default['site-header'],
-        'options' => [
-            '1' => esc_attr__( 'Enable', 'analytica' ),
-            '0' => esc_attr__( 'Disable', 'analytica' ),
-        ]
     ];
 
     $controls[] = [
@@ -55,10 +51,6 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'default' => $default['site-header-overlay'],
         'type'    => 'switch',
         'label'   => esc_html__( 'Header Overlay' , 'analytica' ),
-        'options' => [
-            '1' => esc_attr__( 'Enable', 'analytica' ),
-            '0' => esc_attr__( 'Disable', 'analytica' ),
-        ],
     ];
 
     $controls[] = [
@@ -67,13 +59,9 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'default' => $default['site-header-transparent'],
         'type'    => 'switch',
         'label'   => esc_html__( 'Header Transparent' , 'analytica' ),
-        'options' => [
-            '1' => esc_attr__( 'Enable', 'analytica' ),
-            '0' => esc_attr__( 'Disable', 'analytica' ),
-        ],
     ];
 
-    [
+    $controls[] = [
         'id'      => 'site-header-padding',
         'type'    => 'spacing',
         'label'   => esc_html__( 'Footer padding', 'analytica' ),
@@ -90,12 +78,54 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
             [
                 'setting'  => 'site-header',
                 'operator' => '==',
-                'value'    => '1',
+                'value'    => true,
             ],
         ],
     ];
 
-    [
+    $controls[] = [
+        'id'        => 'site-header-link-color',
+        'section'   => 'site-header-style',
+        'type'      => 'color',
+        'transport' => 'auto',
+        'label'     => esc_html__( 'Link Color' , 'analytica' ),
+        'output'    => [
+            [
+                'property' => 'color',
+                'element'  => '.nav.nav-horizontal ul > li > a',
+            ],
+        ],
+        'conditions' => [
+            [
+                'setting'  => 'site-header',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
+    ];
+
+    $controls[] = [
+        'id'        => 'site-header-link-highlight-color',
+        'section'   => 'site-header-style',
+        'type'      => 'color',
+        'transport' => 'auto',
+        'label'     => esc_html__( 'Highlight Link Color' , 'analytica' ),
+        'output'    => [
+            [
+                'property' => 'color',
+                'element'  => '.nav.nav-horizontal ul > li:hover > a',
+            ],
+        ],
+        'conditions' => [
+            [
+                'setting'  => 'site-header',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
+    ];
+
+    $controls[] = [
         'id'      => 'site-header-border-style',
         'type'    => 'select',
         'label'   => esc_html__( 'Border style', 'analytica' ),
@@ -115,12 +145,12 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
             [
                 'setting'  => 'site-header',
                 'operator' => '==',
-                'value'    => '1',
+                'value'    => true,
             ],
         ],
     ];
 
-    [
+    $controls[] = [
         'id'      => 'site-header-border',
         'type'    => 'spacing',
         'label'   => esc_html__( 'Border', 'analytica' ),
@@ -131,12 +161,12 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
             [
                 'setting'  => 'site-header',
                 'operator' => '==',
-                'value'    => '1',
+                'value'    => true,
             ],
         ],
     ];
 
-    [
+    $controls[] = [
         'id'        => 'site-header-border-color',
         'section'   => 'site-header-style',
         'type'      => 'color',
@@ -153,7 +183,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
             [
                 'setting'  => 'site-header',
                 'operator' => '==',
-                'value'    => '1',
+                'value'    => true,
             ],
         ],
     ];

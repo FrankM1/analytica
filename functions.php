@@ -34,7 +34,7 @@ function analytica_fail_php_version() {
  */
 function analytica_fail_wp_version() {
 	/* translators: %s: WordPress version */
-	$message = sprintf( esc_html__( 'Analytica requires WordPress version %s+. Because you are using an earlier version, the theme is currently NOT ACTIVE.', 'analytica' ), '4.6' );
+	$message = sprintf( esc_html__( 'Analytica requires WordPress version %s+. Because you are using an earlier version, the theme is currently NOT ACTIVE.', 'analytica' ), '4.7' );
 	$html_message = sprintf( '<div class="error">%s</div>', wpautop( $message ) );
 	echo wp_kses_post( $html_message );
 }
@@ -42,7 +42,7 @@ function analytica_fail_wp_version() {
 if ( ! version_compare( PHP_VERSION, '5.4', '>=' ) ) {
     add_action( 'admin_notices', 'analytica_fail_php_version' );
     return;
-} elseif ( ! version_compare( get_bloginfo( 'version' ), '4.6', '>=' ) ) {
+} elseif ( ! version_compare( get_bloginfo( 'version' ), '4.7', '>=' ) ) {
     add_action( 'admin_notices', 'analytica_fail_wp_version' );
     return;
 } else {
