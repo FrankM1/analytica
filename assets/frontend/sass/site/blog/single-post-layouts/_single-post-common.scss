@@ -8,11 +8,11 @@
 
 .single {
 
-	.entry-header {
+	.site-main .entry-header {
 		margin-bottom: 2em;
     }
     
-    .entry-content {
+    .site-main .entry-content {
         margin-bottom: 2em;
     }
 
@@ -78,7 +78,7 @@
 }
 /* 2 - Single Post Article Header */
 .single {
-	.entry-header {
+	.site-main .entry-header {
 		.analytica-single-post-order {
 			+ .post-thumb {
 				img {
@@ -145,7 +145,7 @@
 	}
 
 	@media(max-width: $mx-col-md) {
-		.entry-header {
+		.site-main .entry-header {
 			margin-bottom: 1em;
 		}
 	}
