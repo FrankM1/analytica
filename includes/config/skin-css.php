@@ -155,7 +155,7 @@ class Dynamic_CSS {
                 'color' => esc_attr( $link_hover_color ),
             ),
 
-            '.nav-horizontal .dl-menu, .nav-horizontal > .main_menu > .sub-menu' => array(
+            '.nav-horizontal .dl-menu, .nav-horizontal > .main_menu > .sub-menu, .nav-horizontal ul > li > ul.sub-menu' => array(
                 'border-top-color'     => esc_attr( $accent_color ),
             ),
 
@@ -271,7 +271,7 @@ class Dynamic_CSS {
         $text_color       = analytica_get_option( 'site-text-color' );
         $link_color       = analytica_get_option( 'site-link-color' );
 
-        $css .= 'a { color: ' . esc_attr( $link_color ) .'}';
+        $css .= 'a, .nav-horizontal ul > li > ul.sub-menu .current_page_item a { color: ' . esc_attr( $link_color ) .'}';
 
         if ( 'site-boxed' === $site_layout ) {
 
