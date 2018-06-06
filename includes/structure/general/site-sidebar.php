@@ -6,7 +6,7 @@
  * @category analytica\Framework
  * @package  Energia
  * @author   Franklin Gitonga
- * @link     https://analyticathemes.com/
+ * @link     https://qazana.net/
  */
 
  /**

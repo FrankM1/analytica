@@ -9,7 +9,7 @@ namespace Analytica\Extensions;
  * @package  Radium\Extensions\Related-Posts
  * @subpackage  Energia
  * @author   Franklin Gitonga
- * @link     https://analyticathemes.com/
+ * @link     https://qazana.net/
  */
 
  use Elementor\Plugin;

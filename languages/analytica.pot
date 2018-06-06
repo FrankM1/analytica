@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language-Team: RadiumThemes <frank@radiumthemes.com>\n"
+"Language-Team: Qazana <frank@radiumthemes.com>\n"
 "Last-Translator: Franklin Gitonga <frank@radiumthemes.com>\n"
 "Report-Msgid-Bugs-To: https://qazana.net/contact/\n"
 "X-Poedit-Basepath: ..\n"
@@ -152,14 +152,6 @@ msgstr ""
 msgid "It is highly recommended that you install Kirki so you can access more customizer options."
 msgstr ""
 
-#: includes/admin/functions.php:21
-msgid "Primary Menu"
-msgstr ""
-
-#: includes/admin/functions.php:22
-msgid "Footer Menu"
-msgstr ""
-
 #: includes/config/options.php:329
 msgid "Latest posts"
 msgstr ""
@@ -168,127 +160,127 @@ msgstr ""
 msgid "Copyright &copy; [year] Radium Themes. All rights reserved."
 msgstr ""
 
-#: includes/config/strings.php:31
+#: includes/config/strings.php:25
 msgid "Skip to content"
 msgstr ""
 
-#: includes/config/strings.php:34
+#: includes/config/strings.php:28
 msgid "It looks like the link pointing here was faulty. Maybe try searching?"
 msgstr ""
 
-#: includes/config/strings.php:37
+#: includes/config/strings.php:31
 msgid "Nothing Found"
 msgstr ""
 
-#: includes/config/strings.php:38
+#: includes/config/strings.php:32
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: includes/config/strings.php:39
+#: includes/config/strings.php:33
 msgid "Start typing and press enter to search"
 msgstr ""
 
-#: includes/config/strings.php:40, includes/config/strings.php:41
+#: includes/config/strings.php:34, includes/config/strings.php:35
 msgid "Start Typing&hellip;"
 msgstr ""
 
-#: includes/config/strings.php:42
+#: includes/config/strings.php:36
 msgid "Search &hellip;"
 msgstr ""
 
-#: includes/config/strings.php:45
+#: includes/config/strings.php:39
 msgid "Reply"
 msgstr ""
 
-#: includes/config/strings.php:46
+#: includes/config/strings.php:40
 msgid "Edit"
 msgstr ""
 
-#: includes/config/strings.php:47
+#: includes/config/strings.php:41
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: includes/config/strings.php:48, includes/config/strings.php:63
+#: includes/config/strings.php:42, includes/config/strings.php:57
 msgid "Leave a Comment"
 msgstr ""
 
-#: includes/config/strings.php:49
+#: includes/config/strings.php:43
 msgid "Cancel Reply"
 msgstr ""
 
-#: includes/config/strings.php:50
+#: includes/config/strings.php:44
 msgid "Post Comment &raquo;"
 msgstr ""
 
-#: includes/config/strings.php:51
+#: includes/config/strings.php:45
 msgid "Type here.."
 msgstr ""
 
-#: includes/config/strings.php:52
+#: includes/config/strings.php:46
 msgid "Name*"
 msgstr ""
 
-#: includes/config/strings.php:53
+#: includes/config/strings.php:47
 msgid "Email*"
 msgstr ""
 
-#: includes/config/strings.php:54
+#: includes/config/strings.php:48
 msgid "Website"
 msgstr ""
 
-#: includes/config/strings.php:55
+#: includes/config/strings.php:49
 msgid "Comments are closed."
 msgstr ""
 
-#: includes/config/strings.php:56
+#: includes/config/strings.php:50
 msgid "Comment navigation"
 msgstr ""
 
-#: includes/config/strings.php:57
+#: includes/config/strings.php:51
 msgid "Newer Comments"
 msgstr ""
 
-#: includes/config/strings.php:58
+#: includes/config/strings.php:52
 msgid "Older Comments"
 msgstr ""
 
-#: includes/config/strings.php:61, includes/config/strings.php:70
+#: includes/config/strings.php:55, includes/config/strings.php:64
 msgid "Pages:"
 msgstr ""
 
-#: includes/config/strings.php:62
+#: includes/config/strings.php:56
 msgid "By "
 msgstr ""
 
-#: includes/config/strings.php:64
+#: includes/config/strings.php:58
 msgid "1 Comment"
 msgstr ""
 
-#: includes/config/strings.php:65
+#: includes/config/strings.php:59
 msgid "% Comments"
 msgstr ""
 
-#: includes/config/strings.php:66, includes/config/strings.php:83
+#: includes/config/strings.php:60, includes/config/strings.php:77
 msgid "Next Page"
 msgstr ""
 
-#: includes/config/strings.php:67, includes/config/strings.php:84
+#: includes/config/strings.php:61, includes/config/strings.php:78
 msgid "Previous Page"
 msgstr ""
 
 #. translators: 1: Post type label
 #. translators: 1: Post type label
-#: includes/config/strings.php:72, includes/config/strings.php:87
+#: includes/config/strings.php:66, includes/config/strings.php:81
 msgid "Next %s"
 msgstr ""
 
 #. translators: 1: Post type label
 #. translators: 1: Post type label
-#: includes/config/strings.php:74, includes/config/strings.php:89
+#: includes/config/strings.php:68, includes/config/strings.php:83
 msgid "Previous %s"
 msgstr ""
 
-#: includes/config/strings.php:77
+#: includes/config/strings.php:71
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
@@ -469,11 +461,11 @@ msgstr ""
 msgid "Enable Site description"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:71, includes/config/customizer/01-general.php:83, includes/config/customizer/01-general.php:95, includes/config/customizer/02-site-header.php:26, includes/config/customizer/02-site-header.php:59, includes/config/customizer/02-site-header.php:71, includes/config/customizer/04-site-footer.php:29, includes/config/customizer/04-site-footer.php:41, includes/config/customizer/04-site-footer.php:61, includes/config/customizer/04-site-footer.php:164, includes/config/customizer/04-site-footer.php:184, includes/config/customizer/04-site-footer.php:425, includes/config/customizer/04-site-footer.php:444
+#: includes/config/customizer/01-general.php:71, includes/config/customizer/01-general.php:83, includes/config/customizer/01-general.php:95, includes/config/customizer/04-site-footer.php:29, includes/config/customizer/04-site-footer.php:41, includes/config/customizer/04-site-footer.php:61, includes/config/customizer/04-site-footer.php:164, includes/config/customizer/04-site-footer.php:184, includes/config/customizer/04-site-footer.php:425, includes/config/customizer/04-site-footer.php:444
 msgid "Enable"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:72, includes/config/customizer/01-general.php:84, includes/config/customizer/01-general.php:96, includes/config/customizer/02-site-header.php:27, includes/config/customizer/02-site-header.php:60, includes/config/customizer/02-site-header.php:72, includes/config/customizer/04-site-footer.php:30, includes/config/customizer/04-site-footer.php:42, includes/config/customizer/04-site-footer.php:62, includes/config/customizer/04-site-footer.php:165, includes/config/customizer/04-site-footer.php:185, includes/config/customizer/04-site-footer.php:426, includes/config/customizer/04-site-footer.php:445
+#: includes/config/customizer/01-general.php:72, includes/config/customizer/01-general.php:84, includes/config/customizer/01-general.php:96, includes/config/customizer/04-site-footer.php:30, includes/config/customizer/04-site-footer.php:42, includes/config/customizer/04-site-footer.php:62, includes/config/customizer/04-site-footer.php:165, includes/config/customizer/04-site-footer.php:185, includes/config/customizer/04-site-footer.php:426, includes/config/customizer/04-site-footer.php:445
 msgid "Disable"
 msgstr ""
 
@@ -489,7 +481,7 @@ msgstr ""
 msgid "Accent color"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:112, includes/config/customizer/02-site-header.php:35
+#: includes/config/customizer/01-general.php:112, includes/config/customizer/02-site-header.php:31
 msgid "Background color"
 msgstr ""
 
@@ -513,39 +505,47 @@ msgstr ""
 msgid "Enable Header"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:57
+#: includes/config/customizer/02-site-header.php:53
 msgid "Header Overlay"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:69
+#: includes/config/customizer/02-site-header.php:61
 msgid "Header Transparent"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:79, includes/config/customizer/04-site-footer.php:192
+#: includes/config/customizer/02-site-header.php:67, includes/config/customizer/04-site-footer.php:192
 msgid "Footer padding"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:101, includes/config/customizer/04-site-footer.php:214
+#: includes/config/customizer/02-site-header.php:91, includes/config/customizer/04-site-footer.php:374, includes/config/customizer/08-breadcrumbs.php:25
+msgid "Link Color"
+msgstr ""
+
+#: includes/config/customizer/02-site-header.php:113
+msgid "Highlight Link Color"
+msgstr ""
+
+#: includes/config/customizer/02-site-header.php:132, includes/config/customizer/04-site-footer.php:214
 msgid "Border style"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:126, includes/config/customizer/04-site-footer.php:239
+#: includes/config/customizer/02-site-header.php:157, includes/config/customizer/04-site-footer.php:239
 msgid "Border"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:144, includes/config/customizer/04-site-footer.php:257
+#: includes/config/customizer/02-site-header.php:175, includes/config/customizer/04-site-footer.php:257
 msgid "Border Color"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:170
+#: includes/config/customizer/02-site-header.php:201
 msgid "Site Header"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:175, includes/config/customizer/03-site-hero.php:225
+#: includes/config/customizer/02-site-header.php:206, includes/config/customizer/03-site-hero.php:225
 msgid "Settings"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:181
+#: includes/config/customizer/02-site-header.php:212
 msgid "Style"
 msgstr ""
 
@@ -714,10 +714,6 @@ msgstr ""
 msgid "Accent Color"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:374, includes/config/customizer/08-breadcrumbs.php:25
-msgid "Link Color"
-msgstr ""
-
 #: includes/config/customizer/04-site-footer.php:401
 msgid "Choose a background"
 msgstr ""
@@ -874,7 +870,7 @@ msgstr ""
 msgid "Blog post structure"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:29
+#: includes/config/customizer/06-blog.php:29, includes/config/customizer/07-blog-single.php:29
 msgid "Featured Image"
 msgstr ""
 
@@ -898,23 +894,23 @@ msgstr ""
 msgid "Blog meta"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:53
+#: includes/config/customizer/06-blog.php:53, includes/config/customizer/07-blog-single.php:41
 msgid "Comments"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:54
+#: includes/config/customizer/06-blog.php:54, includes/config/customizer/07-blog-single.php:42
 msgid "Category"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:55
+#: includes/config/customizer/06-blog.php:55, includes/config/customizer/07-blog-single.php:43
 msgid "Author"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:56
+#: includes/config/customizer/06-blog.php:56, includes/config/customizer/07-blog-single.php:44
 msgid "Publish Date"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:57
+#: includes/config/customizer/06-blog.php:57, includes/config/customizer/07-blog-single.php:45
 msgid "Tag"
 msgstr ""
 
@@ -928,6 +924,26 @@ msgstr ""
 
 #: includes/config/customizer/06-blog.php:86
 msgid "Single post settings"
+msgstr ""
+
+#: includes/config/customizer/07-blog-single.php:25
+msgid "Single post structure"
+msgstr ""
+
+#: includes/config/customizer/07-blog-single.php:30
+msgid "Title & Single Meta"
+msgstr ""
+
+#: includes/config/customizer/07-blog-single.php:37
+msgid "Single meta"
+msgstr ""
+
+#: includes/config/customizer/07-blog-single.php:64
+msgid "Single Layout"
+msgstr ""
+
+#: includes/config/customizer/07-blog-single.php:68
+msgid "Single Post"
 msgstr ""
 
 #: includes/config/customizer/08-breadcrumbs.php:40

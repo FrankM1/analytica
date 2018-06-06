@@ -6,7 +6,7 @@
  * @category Radium\Framework
  * @package  Energia
  * @author   Franklin Gitonga
- * @link     https://analyticathemes.com/
+ * @link     https://qazana.net/
  */
 
 add_filter( 'analytica_customizer_controls', 'analytica_admin_add_customizer_blog_single_controls' );

@@ -6,7 +6,7 @@
  * @category analytica\Framework
  * @package  Energia
  * @author   Franklin Gitonga
- * @link     https://analyticathemes.com/
+ * @link     https://qazana.net/
  */
 
 add_filter( 'content_width', 'analytica_content_width', 10, 3 );

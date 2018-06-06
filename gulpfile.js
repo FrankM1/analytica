@@ -110,6 +110,8 @@ var buildInclude = [
     "!style.css.map",
     "!gulpfile.js",
     "!Gruntfile.js",
+    "!package.js",
+    "!package-lock.js",
 	"!assets/frontend/js/modules/*",
 	"!assets/frontend/sass/*"
 ];

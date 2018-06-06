@@ -12,7 +12,7 @@ namespace Analytica;
  * @category Header Composer
  * @package  Header Composer WP
  * @author   Franklin Gitonga
- * @link     http://analyticathemes.com/
+ * @link     https://qazana.net/
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

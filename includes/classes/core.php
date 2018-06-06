@@ -291,7 +291,7 @@ class Core {
     }
 
     function _include_menus() {
-        require_once get_theme_file_path( '/includes/classes/nav/megamenu.php' );
+        require_once get_theme_file_path( '/includes/classes/nav/menu.php' );
         require_once get_theme_file_path( '/includes/functions/menu.php' );
         require_once get_theme_file_path( '/includes/structure/navigation/menu.php' );
     }
@@ -305,19 +305,6 @@ class Core {
     function _include_extensions() {
         require_once get_theme_file_path( '/includes/extensions/page-builder.php' );
 
-        // require_once get_theme_file_path( '/includes/extensions/beaver-builder.php' );
-        // require_once get_theme_file_path( '/includes/extensions/site-origin.php' );
-
-        // require_once get_theme_file_path( '/includes/extensions/jetpack.php' );
-        // require_once get_theme_file_path( '/includes/extensions/woocommerce/woocommerce.php' );
-        // require_once get_theme_file_path( '/includes/extensions/lifterlms/lifterlms.php' );
-        // require_once get_theme_file_path( '/includes/extensions/learndash/learndash.php' );
-        // require_once get_theme_file_path( '/includes/extensions/bb-ultimate-addon.php' );
-        // require_once get_theme_file_path( '/includes/extensions/contact-form-7.php' );
-        // require_once get_theme_file_path( '/includes/extensions/gravity-forms.php' );
-        // require_once get_theme_file_path( '/includes/extensions/bne-flyout.php' );
-        // require_once get_theme_file_path( '/includes/extensions/ubermeu.php' );
-
         // Elementor Compatibility requires PHP 5.4 for namespaces.
         if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
         	require_once get_theme_file_path( '/includes/extensions/page-builder-elementor.php' );
@@ -329,11 +316,6 @@ class Core {
         }
 
         require_once get_theme_file_path( '/includes/extensions/page-builder-visual-composer.php' );
-
-        // // Beaver Themer compatibility requires PHP 5.3 for anonymus functions.
-        // if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
-        // 	require_once get_theme_file_path( '/includes/extensions/page-builder-beaver-themer.php' );
-        // }
     }
 
 }

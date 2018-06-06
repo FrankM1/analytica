@@ -7,7 +7,7 @@ namespace Analytica\Extensions\Page_Builder;
  * @package  Radium\Extensions\Related-Posts
  * @subpackage  Energia
  * @author   Franklin Gitonga
- * @link     https://analyticathemes.com/
+ * @link     https://qazana.net/
  */
 
  use Elementor\Plugin;

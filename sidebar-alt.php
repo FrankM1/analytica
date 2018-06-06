@@ -11,7 +11,7 @@
  * @category Analytica
  * @package  Analytica
  * @author   Franklin Gitonga
- * @link     http://analyticathemes.com/
+ * @link     https://qazana.net/
  */
 
 //* Output secondary sidebar structure
