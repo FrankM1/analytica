@@ -101,7 +101,7 @@ class Site_Hero {
             $number_of_results = $wp_query->found_posts;
 
             /* translators: %1$s: Search results count, %2$s: Search query  */
-            $header_title = '<span class="search-results-icon">' . analytica_get_ui_icons( 'search' ) . '</span>' . sprintf( esc_html__( 'Found %1$s results for: &ldquo;%2$s&rdquo;', 'analytica' ), $number_of_results, get_search_query() );
+            $header_title = '<span class="search-results-icon"></span>' . sprintf( esc_html__( 'Found %1$s results for: &ldquo;%2$s&rdquo;', 'analytica' ), $number_of_results, get_search_query() );
 
         } elseif ( 'post' == get_post_type() && (is_front_page() || ( get_option( 'show_on_front' ) == 'posts' && is_singular( 'post' ) ) ) ) {
             

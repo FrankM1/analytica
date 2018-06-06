@@ -210,7 +210,6 @@ class Core {
         require_once get_theme_file_path( '/includes/config/theme.php' );
         require_once get_theme_file_path( '/includes/config/frontend.php' );
         require_once get_theme_file_path( '/includes/config/skin-css.php' );
-        require_once get_theme_file_path( '/includes/config/icons.php' );
 
         if ( is_admin() ) {
             require_once get_theme_file_path( '/includes/config/metabox/meta-boxes.php' );

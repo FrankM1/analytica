@@ -23,6 +23,9 @@
 	@extend %container;
     margin: $grid-gutter-width auto;
     margin-top: 0;
+    @media (max-width: $screen-md-max) {
+        padding: 0 $grid-gutter-width-half;
+    }
 }
 
 .content-sidebar-sidebar .site-inner,

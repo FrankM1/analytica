@@ -1,104 +1,109 @@
 // Page header
 // -------------------------
 .site-hero {
-    @include clearfix;
-    position: relative;
-    margin: 0;
-    min-height: ( $grid-gutter-width * 2);
-    border: none;
-    @media (min-width: $screen-sm-min) {
-        min-height: $grid-gutter-width;
-    }
+	@include clearfix;
+	position: relative;
+	margin: 0;
+	min-height: ( $grid-gutter-width * 2);
+	border: none;
+	@media (min-width: $screen-sm-min) {
+		min-height: $grid-gutter-width;
+	}
 
-    .analytica-container{
-        padding: 0;
-    }
-   
-    .site-hero-overlay-color {
-        position: static;
-        margin-left: -9999px;
-        width: 1px;
-        height: 1px;
-        pointer-events: none;
-        &:after {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 10;
-            width: 100%;
-            height: 100%;
-            background-color: inherit;
-            content: '';
-            opacity: .65;
-        }
-    }
-    &.site-hero-height-full,
-    &.site-hero-height-full .site-hero-wrapper {
-        height: 100vh;
-    }
-    .site-hero-wrapper {
-        display: flex;
+	.analytica-container {
+		@media (min-width: $screen-md-min) {
+			padding: 0;
+		}
+	}
+
+	.site-hero-overlay-color {
+		position: static;
+		margin-left: -9999px;
+		width: 1px;
+		height: 1px;
+		pointer-events: none;
+		&:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 10;
+			width: 100%;
+			height: 100%;
+			background-color: inherit;
+			content: '';
+			opacity: .65;
+		}
+	}
+	&.site-hero-height-full,
+	&.site-hero-height-full .site-hero-wrapper {
+		height: 100vh;
+	}
+	.site-hero-wrapper {
+		display: flex;
         align-items: center;
-        height: 100%;
-        padding: $grid-gutter-width 0;
-        .page-title-inner {
-            position: relative;
-            width: 100%;
-        }
-        .breadcrumb {
-            display: inline-block;
-            margin-bottom: 0;
-            padding: 4px 15px;
-            border-radius: 30px;
-        }
-    }
-    .text-left .breadcrumb {
-        padding-left: 0;
-    }
-    .text-right .breadcrumb {
-        padding-right: 0;
-    }
-    .post-title-featured {
-        margin: 0;
-        max-width: 100%;
-    }
-    .base-color-light {
-        &,
-        a,
-        p,
-        .page-title-inner .tagcloud a,
-        .page-title-inner .entry-tags span,
-        .page-title-inner .entry-tags a,
-        &.post-title-featured .entry-category.transparent span {
-            border-color: #fff;
-            color: #fff;
-        }
-    }
-    .post-title-featured .entry-category.transparent span {
-        padding: 8px 13px;
-        letter-spacing: 0;
-        letter-spacing: 1px;
-        font-size: 0.6em;
-    }
+        padding: $grid-gutter-width-half 0;
+
+		@media (min-width: $screen-md-min) {
+            padding: $grid-gutter-width 0;
+			height: 100%;
+		}
+		.page-title-inner {
+			position: relative;
+			width: 100%;
+		}
+		.breadcrumb {
+			display: inline-block;
+			margin-bottom: 0;
+			padding: 4px 15px;
+			border-radius: 30px;
+		}
+	}
+	.text-left .breadcrumb {
+		padding-left: 0;
+	}
+	.text-right .breadcrumb {
+		padding-right: 0;
+	}
+	.post-title-featured {
+		margin: 0;
+		max-width: 100%;
+	}
+	.base-color-light {
+		&,
+		a,
+		p,
+		.page-title-inner .tagcloud a,
+		.page-title-inner .entry-tags span,
+		.page-title-inner .entry-tags a,
+		&.post-title-featured .entry-category.transparent span {
+			border-color: #fff;
+			color: #fff;
+		}
+	}
+	.post-title-featured .entry-category.transparent span {
+		padding: 8px 13px;
+		letter-spacing: 0;
+		letter-spacing: 1px;
+		font-size: 0.6em;
+	}
 }
 
-@media only screen and (max-width: 1023px) {
-    .site-hero,
-    .site-hero-wrapper {
-        min-height: 150px;
-    }
+@media (min-width: $screen-md-min) {
+	.site-hero,
+	.site-hero-wrapper {
+		min-height: 150px;
+	}
 }
 
-@media only screen and (max-width: 767px) {
-    .site-hero,
-    .site-hero-wrapper {
-        height: 110px;
-        min-height: auto;
-    }
-    .site-hero-wrapper .header {
-        font-size: 25px;
-    }
-    .site-hero-wrapper .subheader {
-        font-size: 16px;
-    }
+@media (max-width: $screen-sm-max) {
+	.site-hero,
+	.site-hero-wrapper {
+		min-height: auto;
+	}
+	.site-hero-wrapper .header {
+		font-size: 25px;
+	}
+	.site-hero-wrapper .subheader {
+		font-size: 16px;
+	}
 }

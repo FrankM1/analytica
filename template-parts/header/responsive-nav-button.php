@@ -1,1 +1,7 @@
-<button class="menu-trigger show-on-small button"><?php analytica_ui_icons( 'subject' ); ?></button>
+<button class="menu-trigger show-on-small button">
+    <span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </span>
+</button>
