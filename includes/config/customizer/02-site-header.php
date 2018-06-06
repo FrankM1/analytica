@@ -93,6 +93,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
             [
                 'property' => 'color',
                 'element'  => '.nav.nav-horizontal ul > li > a',
+                'media_query' => '@media (min-width: 1023px)',
             ],
         ],
         'conditions' => [

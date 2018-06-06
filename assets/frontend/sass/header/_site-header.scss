@@ -12,8 +12,10 @@
 .site-header .analytica-container {
 	display: flex;
 	flex-direction: row;
-    align-items: center;
-    padding: 0;
+	align-items: center;
+	@media (min-width: $screen-md-min) {
+		padding: 0;
+	}
 }
 
 .site-id {
@@ -88,8 +90,8 @@ button.menu-trigger {
 	z-index: 9999;
 	width: 100%;
 	border: none;
-    transition: .3s all;
-    background-color: transparent;
+	transition: .3s all;
+	background-color: transparent;
 }
 
 .site-header-transparent.site-header {

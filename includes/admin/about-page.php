@@ -62,7 +62,7 @@ function analytica_admin_setup() {
 				'icon'         => 'dashicons dashicons-book-alt',
 				'text'         => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Analytica.','analytica' ),
 				'button_label' => esc_html__( 'Read The Documentation','analytica' ),
-				'button_link'  => 'https://qazana.net/analytica-documentation/',
+				'button_link'  => 'https://qazana.net/docs-category/analytica/',
 				'is_button'    => false,
 				'is_new_tab'   => true
 			)
@@ -92,7 +92,7 @@ function analytica_admin_setup() {
 				'title'               => esc_html__( 'Read the documentation','analytica' ),
 				'text'                => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Analytica.','analytica' ),
 				'button_label'        => esc_html__( 'Documentation','analytica' ),
-				'button_link'         => 'https://qazana.net/analytica-documentation/',
+				'button_link'         => 'https://qazana.net/docs-category/analytica/',
 				'is_button'           => false,
 				'recommended_actions' => false,
 				'is_new_tab'          => true

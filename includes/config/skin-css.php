@@ -154,6 +154,14 @@ class Dynamic_CSS {
             'a:hover, a:focus'                        => array(
                 'color' => esc_attr( $link_hover_color ),
             ),
+
+            '.nav-horizontal .dl-menu, .nav-horizontal > .main_menu > .sub-menu' => array(
+                'border-top-color'     => esc_attr( $accent_color ),
+            ),
+
+            '.nav-horizontal .analytica_mega:after, .nav-horizontal > .sub-menu:after' => array(
+                'border-bottom-color'     => esc_attr( $accent_color ),
+            ),
     
              // Typography.
              '.tagcloud a:hover, .tagcloud a:focus, .tagcloud a.current-item' => array(

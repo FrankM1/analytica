@@ -37,7 +37,8 @@
 		z-index: 999;
 
 		ul {
-			padding: 0;
+            padding: 0;
+            margin: 0;
 			list-style: none;
 			transform-style: preserve-3d;
 		}
@@ -53,7 +54,8 @@
 			font-size: 16px;
 			line-height: 20px;
 			font-weight: 300;
-			outline: none;
+            outline: none;
+            color: #333;
 		}
 
 		.menu-desc {

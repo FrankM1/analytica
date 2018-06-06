@@ -84,13 +84,12 @@
         },
         _config: function() {
             this.$trigger = this.$el.children( '.menu-trigger' );
-            this.$menu = this.$el.find( '.radium_mega' );
+            this.$menu = this.$el.find( '.analytica_mega' );
             this.$menuitems = this.$menu.find( 'li:not(.dl-back)' );
 
             // add elements
             if ( typeof this.$back === 'undefined' ) {
                 this.$el.find( 'a' ).siblings( 'ul.sub-menu' ).prepend( '<li class="dl-back"><a href="#">back</a></li>' );
-                this.$el.find( 'a' ).siblings( 'div.radium-mega-div' ).find( 'ul.sub-menu:first' ).prepend( '<li class="dl-back"><a href="#">back</a></li>' );
             }
             this.$back = this.$menu.find( '.dl-back' );
         },
@@ -114,7 +113,6 @@
                     $submenu = $item.find( 'ul.sub-menu' );
 
                 $item.find( 'div>ul>li>ul' ).removeClass( 'sub-menu' );
-                $item.find( 'div>ul>li>ul>li ul' ).addClass( 'radium-mega-sub-menu' );
 
                 if ( $submenu.length > 0 ) {
 
@@ -122,11 +120,6 @@
                         onAnimationEndFn = function() {
                             self.$menu.off( self.animEndEventName ).removeClass( self.options.animationClasses.classout ).addClass( 'dl-subview' );
                             $item.addClass( 'dl-subviewopen' ).parents( '.dl-subviewopen:first' ).removeClass( 'dl-subviewopen' ).addClass( 'dl-subview' );
-
-                            if ( $item.parent().parent().hasClass( 'radium_mega_menu_columns' ) ) {
-                                $item.parent().parent().addClass( 'dl-subview' );
-                            }
-
                             $flyin.remove();
                         };
 
@@ -157,10 +150,6 @@
                     $submenu = $this.parents( 'ul.sub-menu:first' ),
                     $item = $submenu.parent();
 
-                if ( $item.hasClass( 'radium-mega-div' ) ) {
-                    $item = $submenu.parent().parent();
-                }
-
                 var $flyin = $submenu.clone().insertAfter( self.$menu );
 
                 var onAnimationEndFn = function() {
@@ -181,11 +170,6 @@
                     }
 
                     $subview.removeClass( 'dl-subview' );
-
-                    if ( $item.parent().parent().hasClass( 'radium_mega_menu_columns' ) ) {
-                        $item.parent().parent().removeClass( 'dl-subviewopen' ).parent().parent().parent().removeClass( 'dl-subview' ).addClass( 'dl-subviewopen' );
-                    }
-
                 });
 
                 return false;
