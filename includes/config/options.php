@@ -349,7 +349,7 @@ class Options
             'site-footer-width'          => 'layout-boxed',                                                                           // 'layout-boxed', 'layout-fullwidth'
             'site-footer-widgets'        => true,
             'site-footer'                => true,
-            'site-theme-badge'           => false,
+            'site-theme-badge'           => true,
             'site-credit-typography'     => [
                 'font-family'    => $primary['font-family'],
                 'font-size'      => '13px',
