@@ -23,7 +23,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'section' => 'footer_general',
             'type'    => 'switch',
             'label'   => esc_html__( 'Enable Footer' , 'analytica' ),
-            'default' => 1,
             'default'   => $default['site-footer'],
             'options' => [
                 1 => esc_attr__( 'Enable', 'analytica' ),
@@ -55,7 +54,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'section' => 'footer_general',
             'type'    => 'switch',
             'label'   => esc_html__( 'Footer fullwidth' , 'analytica' ),
-            'default' => 0,
             'default'   => $default['site-footer-width'],
             'options' => [
                 1 => esc_attr__( 'Enable', 'analytica' ),

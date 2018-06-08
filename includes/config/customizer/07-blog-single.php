@@ -46,6 +46,17 @@ function analytica_admin_add_customizer_blog_single_controls( $controls) {
             ),
         ],
 
+        [
+            'id'      => 'single-has-post-thumbnail',
+            'section' => 'single_post_settings',
+            'type'    => 'switch',
+            'label'   => esc_html__( 'Enable Featured Image' , 'analytica' ),
+            'default'   => $default['single-has-post-thumbnail'],
+            'options' => [
+                1 => esc_attr__( 'Enable', 'analytica' ),
+                0 => esc_attr__( 'Disable', 'analytica' ),
+            ],
+        ],
     ];
 
     $controls = array_merge( $controls, $new_controls );

@@ -314,6 +314,7 @@ class Options
             'single-post-site-sidebar-width'   => '',
             'single-post-layout'               => 'content-sidebar',
             'single-post-site-hero'            => true,
+            'single-has-post-thumbnail'        => true,
             'single-post-structure'            => array(
                 'single-image',
                 'single-title-meta',

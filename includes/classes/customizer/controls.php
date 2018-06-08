@@ -9,10 +9,16 @@
  * @link     http://qazana.net/
  */
 
-add_action( 'plugins_loaded', 'analytica_customizer_controls' );
+add_action( 'customize_register', 'analytica_customizer_controls', 5 );
+/**
+ * Load controls after plugins
+ *
+ * @return void
+ */
 function analytica_customizer_controls() {
     if ( class_exists('Kirki') ) {
         require_once get_theme_file_path( '/includes/classes/customizer/controls/dimensions/dimensions.php' );
         require_once get_theme_file_path( '/includes/classes/customizer/controls/icon-select/icon-select.php' );
+        require_once get_theme_file_path( '/includes/classes/customizer/controls/image-gallery/image-gallery.php' );
     }
 }
