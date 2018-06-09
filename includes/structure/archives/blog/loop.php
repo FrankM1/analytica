@@ -42,7 +42,7 @@ class Archives extends Base {
 
         // Template Parts
         add_action( 'analytica_entry_content_blog', array( $this, 'entry_content_blog_template' ) );
-        add_action( 'analytica_after_loop', array( $this, 'number_pagination' ) );
+        add_action( 'analytica_archive_loop_pagination', array( $this, 'number_pagination' ) );
     }
 
     /**
@@ -60,11 +60,22 @@ class Archives extends Base {
      *
      * @return void
      */
+    public function archive_tools() {
+        if ( ! analytica_is_post_archive_page() ) { 
+            return;
+        }
+        do_action( 'analytica_loop_archives_tools' );
+    }
+
+    /**
+     * Template parts
+     *
+     * @return void
+     */
     public function template_parts() {
         if ( ! analytica_is_post_archive_page() ) { 
             return;
         }
-
         get_template_part( 'template-parts/content', $this->get_post_format() );
     }
 
@@ -114,6 +125,10 @@ class Archives extends Base {
             return;
         }
         echo '<div class="entry-archives">';
+            
+            do_action( 'analytica_loop_archives_tools' );
+
+            echo '<div class="analytica-content-list analytica-content-list-1 analytica-content-list-container">';
     }
 
     /**
@@ -125,6 +140,10 @@ class Archives extends Base {
         if ( ! analytica_is_post_archive_page() ) { 
             return;
         }
+            echo '</div>';
+
+            do_action( 'analytica_archive_loop_pagination' );
+
         echo '</div>';
     }
 

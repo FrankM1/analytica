@@ -10,6 +10,11 @@
 	@extend %container;
 }
 
+.entry-summary,
+.entry-content {
+    @include clearfix;
+}
+
 .site-container-detach {
 	background-color: $color-background-sep-content-body;
 

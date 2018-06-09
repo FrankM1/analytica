@@ -75,6 +75,13 @@ class Options
             'site-link-color'               => '#0274be',
             'site-link-highlight-color'     => '#3a3a3a',
             'site-text-color'               => '#3a3a3a',
+            'site-border-color'             => '',
+
+            // Forms 
+            'site-form-inputs-background-color' => '',
+            'site-form-inputs-highlight-background-color' => '',
+            'site-form-inputs-border-color' => '',
+            'site-form-inputs-text-color' => '',
 
             // Container.
             'site-detach-containers' => true,
@@ -409,12 +416,12 @@ class Options
             ],
        
             // Buttons.
-            'button-bg-color'   => '',
-            'button-bg-h-color' => '',
-            'button-color'      => '',
+            'button-background-color'   => '',
+            'button-background-h-color' => '',
+            'button-text-color'      => '',
+            'button-radius'     => 2,
             'button-h-color'    => '',
             'button-h-padding'  => 40,
-            'button-radius'     => 2,
             'button-v-padding'  => 10,
         ));
     }

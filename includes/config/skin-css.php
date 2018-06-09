@@ -107,6 +107,7 @@ class Dynamic_CSS {
         $text_color                    = analytica_get_option( 'site-text-color' );
         $accent_color                  = analytica_get_option( 'site-accent-color' );
         $link_hover_color              = analytica_get_option( 'site-link-highlight-color' );
+        $content_background_color      = analytica_get_option( 'site-content-background-color' );
         $body_font                     = analytica_get_option( 'font-base' );
         $body_font_size                = $body_font['font-size'];
         
@@ -121,7 +122,7 @@ class Dynamic_CSS {
         /**
          * Apply text color depends on link color
          */
-        $btn_text_color = analytica_get_option( 'button-color' );
+        $btn_text_color = analytica_get_option( 'button-text-color' );
         if ( empty( $btn_text_color ) ) {
             $btn_text_color = analytica_get_foreground_color( $accent_color );
         }
@@ -133,8 +134,9 @@ class Dynamic_CSS {
         if ( empty( $btn_text_hover_color ) ) {
             $btn_text_hover_color = analytica_get_foreground_color( $link_hover_color );
         }
-        $btn_bg_color       = analytica_get_option( 'button-bg-color', $accent_color );
-        $btn_bg_hover_color = analytica_get_option( 'button-bg-h-color', $link_hover_color );
+ 
+        $btn_bg_color       = analytica_get_option( 'button-background-color', $accent_color );
+        $btn_bg_hover_color = analytica_get_option( 'button-background-h-color', $link_hover_color );
         
         // Button Styling.
         $btn_border_radius      = analytica_get_option( 'button-radius' );
@@ -161,6 +163,11 @@ class Dynamic_CSS {
 
             '.nav-horizontal .analytica_mega:after, .nav-horizontal > .sub-menu:after' => array(
                 'border-bottom-color'     => esc_attr( $accent_color ),
+            ),
+
+            'mark, ins' => array(
+                'color'            => analytica_get_foreground_color( $accent_color ),
+                'background-color'     => esc_attr( $accent_color ),
             ),
     
              // Typography.
@@ -208,6 +215,11 @@ class Dynamic_CSS {
                 'color' => analytica_adjust_brightness( $text_color, 75, 'darken' ),
             ),
 
+            'pre' => array(
+                'background-color' => analytica_adjust_brightness( $content_background_color, 75, 'reverse' ),
+                'color'            => analytica_get_foreground_color( $content_background_color ),
+            ),
+
             '.analytica-pagination a:hover, .analytica-pagination a:focus, .analytica-pagination > span:hover:not(.dots), .analytica-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
                 'color' => esc_attr( $link_hover_color ),
             ),
@@ -222,7 +234,7 @@ class Dynamic_CSS {
 
         $buttons_css_output = array(
             // Button Typography.
-            '.menu-trigger, button, .analytica-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+            '.menu-trigger, button, .analytica-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], #comments .submit' => array(
                 'border-radius'    => analytica_get_css_value( $btn_border_radius, 'px' ),
                 'padding'          => analytica_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . analytica_get_css_value( $btn_horizontal_padding, 'px' ),
                 'color'            => esc_attr( $btn_text_color ),

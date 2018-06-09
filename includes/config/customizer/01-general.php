@@ -163,6 +163,164 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'default' => $default['site-text-color'],
     ];
 
+    $controls[] = [
+        'id'      => 'site-border-color',
+        'section' => 'container-style',
+        'type'    => 'color',
+        'label'   => esc_html__( 'Border color', 'analytica' ),
+        'default' => $default['site-border-color'],
+        'choices'     => array(
+            'alpha' => true,
+        ),
+        'output'    => array(
+            array(
+                'element' => '.single .post-navigation, .comments-area, .page-links .page-link, .page-links a .page-link',
+                'property' => 'border-color'
+            ),
+
+            array(
+                'element' => 'hr',
+                'property' => 'background-color'
+            ),
+        ),
+    ];
+
+    $controls[] = [
+        'id'      => 'site-form-inputs-background-color',
+        'section' => 'form-style',
+        'type'    => 'color',
+        'label'   => esc_html__( 'Form background color', 'analytica' ),
+        'default' => $default['site-form-inputs-background-color'],
+        'choices'     => array(
+            'alpha' => true,
+        ),
+        'output'    => array(
+            array(
+                'element' => 'input[type="text"], input[type="number"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type=reset], input[type=tel], select, textarea',
+                'property' => 'background-color'
+            ),
+        ),
+    ];
+
+    $controls[] = [
+        'id'      => 'site-form-inputs-highlight-background-color',
+        'section' => 'form-style',
+        'type'    => 'color',
+        'label'   => esc_html__( 'Form highlight background color', 'analytica' ),
+        'default' => $default['site-form-inputs-highlight-background-color'],
+        'choices'     => array(
+            'alpha' => true,
+        ),
+        'output'    => array(
+            array(
+                'element' => 'input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type=tel]:focus, select:focus, textarea:focus',
+                'property' => 'background-color'
+            ),
+        ),
+    ];
+
+    $controls[] = [
+        'id'      => 'site-form-inputs-border-color',
+        'section' => 'form-style',
+        'type'    => 'color',
+        'label'   => esc_html__( 'Form border color', 'analytica' ),
+        'default' => $default['site-form-inputs-border-color'],
+        'choices'     => array(
+            'alpha' => true,
+        ),
+        'output'    => array(
+            array(
+                'element' => 'input[type="text"], input[type="number"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type=reset], input[type=tel], select, textarea',
+                'property' => 'border-color'
+            ),
+        ),
+    ];
+
+    $controls[] = [
+        'id'      => 'site-form-inputs-text-color',
+        'section' => 'form-style',
+        'type'    => 'color',
+        'label'   => esc_html__( 'Form text color', 'analytica' ),
+        'default' => $default['site-form-inputs-text-color'],
+        'choices'     => array(
+            'alpha' => true,
+        ),
+        'output'    => array(
+            array(
+                'element' => 'input[type="text"], input[type="number"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type=reset], input[type=tel], select, textarea',
+                'property' => 'color'
+            ),
+        ),
+    ];
+
+    $controls[] = [
+        'id'      => 'button-background-color',
+        'section' => 'button-style',
+        'type'    => 'color',
+        'label'   => esc_html__( 'Button background color', 'analytica' ),
+        'default' => $default['button-background-color'],
+        'choices'     => array(
+            'alpha' => true,
+        ),
+    ];
+
+    $controls[] = [
+        'id'      => 'button-background-h-color',
+        'section' => 'button-style',
+        'type'    => 'color',
+        'label'   => esc_html__( 'Button background highlight color', 'analytica' ),
+        'default' => $default['button-background-h-color'],
+        'choices'     => array(
+            'alpha' => true,
+        ),
+    ];
+
+    $controls[] = [
+        'id'      => 'button-text-color',
+        'section' => 'button-style',
+        'type'    => 'color',
+        'label'   => esc_html__( 'Button text color', 'analytica' ),
+        'default' => $default['button-text-color'],
+        'choices'     => array(
+            'alpha' => true,
+        ),
+    ];
+
+    $controls[] = [
+        'id'      => 'button-radius',
+        'section' => 'button-style',
+        'type'    => 'text',
+        'label'   => esc_html__( 'Button radius', 'analytica' ),
+        'default' => $default['button-radius'],
+    ];
+
+    $controls[] = [
+        'id'      => 'button-h-color',
+        'section' => 'button-style',
+        'type'    => 'color',
+        'label'   => esc_html__( 'Button highlight color', 'analytica' ),
+        'default' => $default['button-h-color'],
+        'choices'     => array(
+            'alpha' => true,
+        ),
+    ];
+
+    $controls[] = [
+        'id'      => 'button-h-padding',
+        'section' => 'button-style',
+        'type'    => 'text',
+        'label'   => esc_html__( 'Button horizontal padding', 'analytica' ),
+        'default' => $default['button-h-padding'],
+    ];
+
+    $controls[] = [
+        'id'      => 'button-v-padding',
+        'section' => 'button-style',
+        'type'    => 'text',
+        'label'   => esc_html__( 'Button vertical padding', 'analytica' ),
+        'default' => $default['button-v-padding'],
+    ];
+
     return $controls;
 }
 
@@ -186,6 +344,18 @@ function analytica_add_general_panels_and_sections( $wp_customize ) {
         'title'    => esc_html__( 'Container Style', 'analytica' ),
         'panel'    => 'general',
         'priority' => 11,
+    ]);
+
+    $wp_customize->add_section( 'form-style', [
+        'title'    => esc_html__( 'Form Style', 'analytica' ),
+        'panel'    => 'general',
+        'priority' => 12,
+    ]);
+
+    $wp_customize->add_section( 'button-style', [
+        'title'    => esc_html__( 'Button Style', 'analytica' ),
+        'panel'    => 'general',
+        'priority' => 13,
     ]);
 
     $wp_customize->add_section( 'logo-favicon', [
