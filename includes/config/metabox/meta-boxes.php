@@ -125,7 +125,8 @@ class MetaBoxes {
 
         $post_types['fl-theme-layout'] = 'fl-theme-layout';
 
-        $metabox_name = analytica_get_theme_name() . __( ' Settings', 'analytica' );
+        $metabox_name = __( 'Theme Settings', 'analytica' );
+
         // Enable for all posts.
         foreach ( $post_types as $type ) {
             if ( 'attachment' !== $type ) {

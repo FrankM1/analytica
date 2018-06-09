@@ -29,47 +29,50 @@ class Archives extends Base {
      * @since 1.0.0
      */
      public function __construct() {
-  
-        // Template Parts.
-        add_action( 'analytica_template_parts_content', array( $this, 'template_parts_search' ) );
-        add_action( 'analytica_template_parts_content', array( $this, 'template_parts_blog' ) );
+        if ( analytica_is_post_archive_page() ) {
 
-        // Content top and bottom.
-        add_action( 'analytica_template_parts_content_top', array( $this, 'template_parts_content_top' ) );
-        add_action( 'analytica_template_parts_content_bottom', array( $this, 'template_parts_content_bottom' ) );
+            // Template parts
+            add_action( 'analytica_template_parts_content', array( $this, 'template_parts' ) );
+            add_action( 'analytica_template_parts_content_none', array( $this, 'template_parts_none' ) );
 
-        // Add closing and ending div 'entry-page'.
-        add_action( 'analytica_template_parts_content_top', array( $this, 'analytica_templat_part_wrap_open' ), 25 );
-        add_action( 'analytica_template_parts_content_bottom', array( $this, 'analytica_templat_part_wrap_close' ), 5 );
-    }
+            // Content top and bottom.
+            add_action( 'analytica_template_parts_content_top', array( $this, 'template_parts_content_top' ) );
+            add_action( 'analytica_template_parts_content_bottom', array( $this, 'template_parts_content_bottom' ) );
 
-    /**
-     * Template part search
-     *
-     * @since 1.0.0
-     * @return void
-     */
-     public function template_parts_search() {
-        if ( is_search() ) {
-            get_template_part( 'template-parts/content', 'blog' );
+            // Add closing and ending div 'entry-archives'.
+            add_action( 'analytica_template_parts_content_top', array( $this, 'analytica_templat_part_wrap_open' ), 25 );
+            add_action( 'analytica_template_parts_content_bottom', array( $this, 'analytica_templat_part_wrap_close' ), 5 );
         }
     }
 
     /**
-     * Template part default
+	 * Get post format
+	 *
+	 * @param  string $post_format_override Override post formate.
+	 * @return string                       Return post format.
+	 */
+	function get_post_format( $post_format_override = '' ) {
+		return apply_filters( 'analytica_get_post_format', 'blog', $post_format_override );
+	}
+
+    /**
+     * Template parts
      *
      * @since 1.0.0
      * @return void
      */
-     public function template_parts_blog() {
-        if ( ! is_page() && ! is_single() && ! is_search() ) {
-            /*
-                * Include the Post-Format-specific template for the content.
-                * If you want to override this in a child theme, then include a file
-                * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                */
-            get_template_part( 'template-parts/content', $this->get_post_format() );
-        }
+    public function template_parts() {
+        get_template_part( 'template-parts/content', $this->get_post_format() );
+    }
+
+    /**
+     * Template part none
+     *
+     * @since 1.0.0
+     * @return void
+     */
+    public function template_parts_none() {
+        get_template_part( 'template-parts/content', 'none' );
     }
 
     /**
@@ -78,10 +81,8 @@ class Archives extends Base {
      * @since 1.0.0
      * @return void
      */
-     public function template_parts_content_top() {
-        if ( is_archive() ) {
-            do_action( 'analytica_content_while_before' );
-        }
+    public function template_parts_content_top() {
+        do_action( 'analytica_loop_archives_while_before' );
     }
 
     /**
@@ -91,33 +92,26 @@ class Archives extends Base {
      * @return void
      */
     public function template_parts_content_bottom() {
-        if ( is_archive() ) {
-            do_action( 'analytica_content_while_after' );
-        }
+        do_action( 'analytica_loop_archives_while_after' );
     }
 
     /**
-     * Add wrapper div 'entry-page' for Analytica template part.
+     * Add wrapper div 'entry-archives' for Analytica template part.
      *
      * @since  1.0.0
      * @return void
      */
     public function analytica_templat_part_wrap_open() {
-        if ( is_archive() || is_search() || is_home() ) {
-            echo '<div class="entry-page">';
-        }
+        echo '<div class="entry-archives">';
     }
 
     /**
-     * Add closing wrapper div for 'entry-page' after Analytica template part.
+     * Add closing wrapper div for 'entry-archives' after Analytica template part.
      *
      * @since  1.0.0
      * @return void
      */
     public function analytica_templat_part_wrap_close() {
-        if ( is_archive() || is_search() || is_home() ) {
-            echo '</div>';
-        }
+        echo '</div>';
     }
-
 }

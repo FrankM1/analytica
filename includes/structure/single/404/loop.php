@@ -29,20 +29,8 @@ class Page_Not_Found {
      * @since 1.0.0
      */
      public function __construct() {
-        // Template None.
-        add_action( 'analytica_template_parts_content_none', array( $this, 'template_parts_none' ) );
-        add_action( 'analytica_template_parts_content_none', array( $this, 'template_parts_404' ) );
-    }
-
-    /**
-     * Template part none
-     *
-     * @since 1.0.0
-     * @return void
-     */
-     public function template_parts_none() {
-        if ( is_archive() || is_search() ) {
-            get_template_part( 'template-parts/content', 'none' );
+        if ( is_404() ) {
+            add_action( 'analytica_template_parts_content_none', array( $this, 'template_parts_404' ) ); 
         }
     }
 
@@ -53,9 +41,7 @@ class Page_Not_Found {
      * @return void
      */
     public function template_parts_404() {
-        if ( is_404() ) {
-            get_template_part( 'template-parts/content', '404' );
-        }
+        get_template_part( 'template-parts/content', '404' );
     }
 
 

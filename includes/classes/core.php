@@ -167,9 +167,9 @@ class Core {
         $this->frontend                              = new Frontend();
         $this->loop_base                             = new Content\Loop\Base();
         $this->loop_archives                         = new Content\Loop\Archives();
-        $this->loop_404                              = new Content\Loop\Page_Not_Found();
-        $this->loop_page                              = new Content\Loop\Page();
         $this->loop_post                             = new Content\Loop\Post();
+        $this->loop_404                              = new Content\Loop\Page_Not_Found();
+        $this->loop_page                             = new Content\Loop\Page();
         $this->options_instance                      = new Options();
         $this->customizer                            = new Customizer();
         $this->metabox                               = new Metabox\Actions();

@@ -317,6 +317,71 @@ function analytica_get_blog_layout_class( $class = '' ) {
     return array_unique( $classes );
 }
 
+/**
+ * Analytica get post thumbnail image
+ *
+ * @since 1.0.15
+ * @param string  $before Markup before thumbnail image.
+ * @param string  $after  Markup after thumbnail image.
+ * @param boolean $echo   Output print or return.
+ * @return string|void
+ */
+ function analytica_get_post_thumbnail( $before = '', $after = '', $echo = true ) {
+
+    $output = '';
+
+    $check_is_singular = is_singular();
+
+    $featured_image = true;
+
+    $is_featured_image = analytica_get_option( 'featured-image' );
+
+    if ( 'disabled' === $is_featured_image ) {
+        $featured_image = false;
+    }
+
+    $featured_image = apply_filters( 'analytica_featured_image_enabled', $featured_image );
+    $blog_post_thumb   = analytica_get_option( 'archive-content-structure'            , [] );
+    $single_post_thumb = analytica_get_option( 'single-post-structure', [] );
+
+    if ( ( ( ! $check_is_singular && in_array( 'image', $blog_post_thumb ) ) || ( is_single() && in_array( 'single-image', $single_post_thumb ) ) || is_page() ) && has_post_thumbnail() ) {
+
+        if ( $featured_image && ( ! ( $check_is_singular ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
+
+            $post_thumb = get_the_post_thumbnail(
+                get_the_ID(),
+                apply_filters( 'analytica_post_thumbnail_default_size', 'blog-featured' ),
+                array(
+                    'itemprop' => 'image',
+                )
+            );
+
+            if ( '' != $post_thumb ) {
+                $output .= '<div class="post-thumb-img-content post-thumb">';
+                if ( ! $check_is_singular ) {
+                    $output .= '<a href="' . esc_url( get_permalink() ) . '" >';
+                }
+                $output .= $post_thumb;
+                if ( ! $check_is_singular ) {
+                    $output .= '</a>';
+                }
+                $output .= '</div>';
+            }
+        }
+    }
+
+    if ( ! $check_is_singular ) {
+        $output = apply_filters( 'analytica_blog_post_featured_image_after', $output );
+    }
+
+    $output = apply_filters( 'analytica_get_post_thumbnail', $output, $before, $after );
+
+    if ( $echo ) {
+        echo $before . $output . $after; // WPCS: XSS OK.
+    } else {
+        return $before . $output . $after;
+    }
+}
 
 /**
  * Blog post Thubmnail, Title & Blog Meta order

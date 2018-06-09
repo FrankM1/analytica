@@ -41,62 +41,6 @@ function analytica_number_pagination() {
     $output = ob_get_clean();
     echo apply_filters( 'analytica_pagination_markup', $output ); // WPCS: XSS OK.
 }
- 
-/**
- * Adding Wrapper for Search Form.
- *
- * @since 1.0.0
- * @param  string $option   Search Option name.
- * @return mixed Search HTML structure created.
- */
-function analytica_get_search( $option = '' ) {
-
-    $search_html  = '<div class="analytica-search-icon"><a class="slide-search analytica-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'analytica' ) . '</span></a></div>
-                    <div class="analytica-search-menu-icon slide-search" id="analytica-search-form" >';
-    $search_html .= get_search_form( false );
-    $search_html .= '</div>';
-
-    return apply_filters( 'analytica_get_search', $search_html, $option );
-}
-
-/**
- * Get custom HTML added by user.
- *
- * @since 1.0.0
- * @param  string $option_name Option name.
- * @return String TEXT/HTML added by user in options panel.
- */
-function analytica_get_custom_html( $option_name = '' ) {
-
-    $custom_html         = '';
-    $custom_html_content = analytica_get_option( $option_name );
-
-    if ( ! empty( $custom_html_content ) ) {
-        $custom_html = '<div class="analytica-custom-html">' . do_shortcode( $custom_html_content ) . '</div>';
-    } elseif ( current_user_can( 'edit_theme_options' ) ) {
-        $custom_html = '<a href="' . esc_url( admin_url( 'customize.php?autofocus[control]=' . analytica()->option_name . '[' . $option_name . ']' ) ) . '">' . __( 'Add Custom HTML', 'analytica' ) . '</a>';
-    }
-
-    return $custom_html;
-}
-
-/**
- * Function to get Body Font Family
- *
- * @since 1.0.0
- * @return string
- */
-function analytica_body_font_family() {
-
-    $font_family = analytica_get_option( 'body-font-family' );
-
-    // Body Font Family.
-    if ( 'inherit' == $font_family ) {
-        $font_family = '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif';
-    }
-
-    return apply_filters( 'analytica_body_font_family', $font_family );
-}
 
 /**
  * Function to get Edit Post Link
@@ -142,7 +86,6 @@ function analytica_comment_form_default_fields_markup( $fields ) {
 
     return apply_filters( 'analytica_comment_form_default_fields_markup', $fields );
 }
-
 
 add_filter( 'comment_form_defaults', 'analytica_comment_form_default_markup' );
 /**
@@ -217,100 +160,4 @@ function analytica_entry_header_class() {
     $classes = array_map( 'sanitize_html_class', $classes );
 
     echo esc_attr( join( ' ', $classes ) );
-}
-
-/**
- * Analytica get post thumbnail image
- *
- * @since 1.0.15
- * @param string  $before Markup before thumbnail image.
- * @param string  $after  Markup after thumbnail image.
- * @param boolean $echo   Output print or return.
- * @return string|void
- */
-function analytica_get_post_thumbnail( $before = '', $after = '', $echo = true ) {
-
-    $output = '';
-
-    $check_is_singular = is_singular();
-
-    $featured_image = true;
-
-    $is_featured_image = analytica_get_option( 'featured-image' );
-
-    if ( 'disabled' === $is_featured_image ) {
-        $featured_image = false;
-    }
-
-    $featured_image = apply_filters( 'analytica_featured_image_enabled', $featured_image );
-    $blog_post_thumb   = analytica_get_option( 'archive-content-structure'            , [] );
-    $single_post_thumb = analytica_get_option( 'single-post-structure', [] );
-
-    if ( ( ( ! $check_is_singular && in_array( 'image', $blog_post_thumb ) ) || ( is_single() && in_array( 'single-image', $single_post_thumb ) ) || is_page() ) && has_post_thumbnail() ) {
-
-        if ( $featured_image && ( ! ( $check_is_singular ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
-
-            $post_thumb = get_the_post_thumbnail(
-                get_the_ID(),
-                apply_filters( 'analytica_post_thumbnail_default_size', 'blog-featured' ),
-                array(
-                    'itemprop' => 'image',
-                )
-            );
-
-            if ( '' != $post_thumb ) {
-                $output .= '<div class="post-thumb-img-content post-thumb">';
-                if ( ! $check_is_singular ) {
-                    $output .= '<a href="' . esc_url( get_permalink() ) . '" >';
-                }
-                $output .= $post_thumb;
-                if ( ! $check_is_singular ) {
-                    $output .= '</a>';
-                }
-                $output .= '</div>';
-            }
-        }
-    }
-
-    if ( ! $check_is_singular ) {
-        $output = apply_filters( 'analytica_blog_post_featured_image_after', $output );
-    }
-
-    $output = apply_filters( 'analytica_get_post_thumbnail', $output, $before, $after );
-
-    if ( $echo ) {
-        echo $before . $output . $after; // WPCS: XSS OK.
-    } else {
-        return $before . $output . $after;
-    }
-}
-
-/**
- * Analytica Color Palletes.
- *
- * @return array Color Palletes.
- */
-function analytica_color_palette() {
-
-    $color_palette = array(
-        '#000000',
-        '#ffffff',
-        '#dd3333',
-        '#dd9933',
-        '#eeee22',
-        '#81d742',
-        '#1e73be',
-        '#8224e3',
-    );
-
-    return apply_filters( 'analytica_color_palettes', $color_palette );
-}
-
-/**
- * Get theme name.
- *
- * @return string Theme Name.
- */
-function analytica_get_theme_name() {
-    return apply_filters( 'analytica_theme_name', __( 'Analytica', 'analytica' ) );
 }

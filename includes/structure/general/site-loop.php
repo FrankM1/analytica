@@ -19,23 +19,6 @@ class Base {
     }
 
     /**
-	 * Get post format
-	 *
-	 * @param  string $post_format_override Override post formate.
-	 * @return string                       Return post format.
-	 */
-	function get_post_format( $post_format_override = '' ) {
-
-		if ( ( is_home() ) || is_archive() ) {
-			$post_format = 'blog';
-		} else {
-			$post_format = get_post_format();
-		}
-
-		return apply_filters( 'analytica_get_post_format', $post_format, $post_format_override );
-	}
-
-    /**
      * Template part loop
      *
      * @param  boolean $is_page Loop outputs different content action for content page and default content.
