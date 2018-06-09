@@ -165,7 +165,11 @@ class Core {
         $this->dynamic_css                           = new Dynamic_CSS();
         $this->theme                                 = new Theme();
         $this->frontend                              = new Frontend();
-        $this->loop                                  = new Content\Loop();
+        $this->loop_base                             = new Content\Loop\Base();
+        $this->loop_archives                         = new Content\Loop\Archives();
+        $this->loop_404                              = new Content\Loop\Page_Not_Found();
+        $this->loop_page                              = new Content\Loop\Page();
+        $this->loop_post                             = new Content\Loop\Post();
         $this->options_instance                      = new Options();
         $this->customizer                            = new Customizer();
         $this->metabox                               = new Metabox\Actions();
@@ -297,9 +301,18 @@ class Core {
     }
 
     function _include_structure_post_archives() {
-        require_once get_theme_file_path( '/includes/structure/archives/blog/blog-config.php' );
-        require_once get_theme_file_path( '/includes/structure/archives/blog/blog.php' );
-        require_once get_theme_file_path( '/includes/structure/archives/blog/single-blog.php' );
+        require_once get_theme_file_path( '/includes/structure/archives/blog/functions.php' );
+        require_once get_theme_file_path( '/includes/structure/archives/blog/actions.php' );
+        require_once get_theme_file_path( '/includes/structure/archives/blog/loop.php' );
+
+        require_once get_theme_file_path( '/includes/structure/single/404/loop.php' );
+
+        require_once get_theme_file_path( '/includes/structure/single/page/loop.php' );
+
+        require_once get_theme_file_path( '/includes/structure/single/post/functions.php' );
+        require_once get_theme_file_path( '/includes/structure/single/post/actions.php' );
+        require_once get_theme_file_path( '/includes/structure/single/post/loop.php' );
+        require_once get_theme_file_path( '/includes/structure/single/post/related-posts.php' );
      }
 
     function _include_extensions() {

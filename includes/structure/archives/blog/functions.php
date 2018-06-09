@@ -1,10 +1,39 @@
 <?php
 /**
- * Blog Config File
- * Common Functions for Blog and Single Blog
+ * Radium Framework Core - A WordPress theme development framework.
  *
- * @package Analytica
+ * This file is a part of the Radium Framework core.
+ * Please be cautious editing this file.
+ * Modifying the contents of this file can be a poor life decision if you don't know what you're doing.
+ *
+ * NOTE: Theme data (options, global variables etc ) can be accessed anywhere in the theme by calling  <?php $framework = radium_framework(); ?>
+ *
+ * @category Radium\Framework
+ * @package  Energia WP
+ * @author   Franklin Gitonga
+ * @link     https://radiumthemes.com/
  */
+ 
+/**
+ * Prints HTML with meta information for the current post-date/time and author.
+ *
+ * @since 1.0.0
+ * @return mixed            Markup.
+ */
+function analytica_blog_get_post_meta() {
+
+    $enable_meta = apply_filters( 'analytica_blog_post_meta_enabled', '__return_true' );
+    $post_meta   = analytica_get_option( 'archive-post-meta' );
+
+    if ( 'post' == get_post_type() && is_array( $post_meta ) && $enable_meta ) {
+
+        $output_str = analytica_get_post_meta( $post_meta );
+
+        if ( ! empty( $output_str ) ) {
+            echo apply_filters( 'analytica_blog_post_meta', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // WPCS: XSS OK.
+        }
+    }
+}
 
 /**
  * Post meta
@@ -110,33 +139,6 @@ function analytica_post_author( $output_filter = '' ) {
     $output .= '<span class="posted-by vcard author" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"> ' . $byline . '</span>';
 
     return apply_filters( 'analytica_post_author', $output, $output_filter );
-}
-
-add_filter( 'excerpt_more', 'analytica_post_link', 1 );
-/**
- * Function to get Read More Link of Post
- *
- * @param  string $output_filter Filter string.
- * @return html                Markup.
- */
-function analytica_post_link( $output_filter = '' ) {
-
-    $enabled = apply_filters( 'analytica_post_link_enabled', '__return_true' );
-    if ( ( is_admin() && ! wp_doing_ajax() ) || ! $enabled ) {
-        return $output_filter;
-    }
-
-    $read_more_text    = apply_filters( 'analytica_post_read_more', __( 'Read More &raquo;', 'analytica' ) );
-    $read_more_classes = apply_filters( 'analytica_post_read_more_class', array() );
-
-    $post_link = sprintf(
-        esc_html( '%s' ),
-        '<a class="' . implode( ' ', $read_more_classes ) . '" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . $read_more_text . '</a>'
-    );
-
-    $output = ' &hellip;<p class="read-more"> ' . $post_link . '</p>';
-
-    return apply_filters( 'analytica_post_link', $output, $output_filter );
 }
 
 /**
@@ -315,30 +317,184 @@ function analytica_get_blog_layout_class( $class = '' ) {
     return array_unique( $classes );
 }
 
-add_filter( 'the_content_more_link', 'analytica_the_content_more_link', 10, 2 );
-/**
- * Filters the Read More link text.
- *
- * @param  string $more_link_element Read More link element.
- * @param  string $more_link_text Read More text.
- * @return html                Markup.
- */
-function analytica_the_content_more_link( $more_link_element = '', $more_link_text = '' ) {
 
-    $enabled = apply_filters( 'analytica_the_content_more_link_enabled', '__return_true' );
-    if ( ( is_admin() && ! wp_doing_ajax() ) || ! $enabled ) {
-        return $more_link_element;
+/**
+ * Blog post Thubmnail, Title & Blog Meta order
+ *
+ * @since  1.0.0
+ */
+ function analytica_blog_post_thumbnail_and_title_order() {
+
+    $blog_post_thumb_title_order = analytica_get_option( 'archive-content-structure' );
+    if ( is_single() ) {
+        $blog_post_thumb_title_order = analytica_get_option( 'single-post-structure' );
+    }
+    if ( is_array( $blog_post_thumb_title_order ) ) {
+        // Append the custom class for second element for single post.
+        foreach ( $blog_post_thumb_title_order as $post_thumb_title_order ) {
+
+            switch ( $post_thumb_title_order ) {
+
+                // Blog Post Featured Image.
+                case 'image':
+                    do_action( 'analytica_blog_archive_featured_image_before' );
+                    analytica_get_blog_post_thumbnail( 'archive' );
+                    do_action( 'analytica_blog_archive_featured_image_after' );
+                    break;
+
+                // Blog Post Title and Blog Post Meta.
+                case 'title-meta':
+                    do_action( 'analytica_blog_archive_title_meta_before' );
+                    analytica_get_blog_post_title_meta();
+                    do_action( 'analytica_blog_archive_title_meta_after' );
+                    break;
+
+                // Single Post Featured Image.
+                case 'single-image':
+                    do_action( 'analytica_blog_single_featured_image_before' );
+                    analytica_get_blog_post_thumbnail( 'single' );
+                    do_action( 'analytica_blog_single_featured_image_after' );
+                    break;
+
+                // Single Post Title and Single Post Meta.
+                case 'single-title-meta':
+                    do_action( 'analytica_blog_single_title_meta_before' );
+                    analytica_get_single_post_title_meta();
+                    do_action( 'analytica_blog_single_title_meta_after' );
+                    break;
+            }
+        }
+    }
+}
+
+/**
+ * Blog post Thumbnail
+ *
+ * @param string $type Type of post.
+ * @since  1.0.0
+ */
+function analytica_get_blog_post_thumbnail( $type = 'archive' ) {
+
+    if ( 'archive' === $type ) {
+        // Blog Post Featured Image.
+        analytica_get_post_thumbnail( '<div class="analytica-blog-featured-section">', '</div>' );
+    } elseif ( 'single' === $type && analytica_get_option( 'single-get-post-thumbnail' ) ) {
+        // Single Post Featured Image.
+        analytica_get_post_thumbnail();
+    }
+}
+
+/**
+ * Blog post Thumbnail
+ *
+ * @since  1.0.0
+ */
+function analytica_get_blog_post_title_meta() {
+
+    // Blog Post Title and Blog Post Meta.
+    do_action( 'analytica_archive_entry_header_before' );
+    ?>
+    <header class="entry-header">
+        <?php
+
+            do_action( 'analytica_archive_post_title_before' );
+
+            /* translators: 1: Current post link, 2: Current post id */
+            analytica_the_post_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() );
+
+            do_action( 'analytica_archive_post_title_after' );
+
+        ?>
+        <?php
+
+            do_action( 'analytica_archive_post_meta_before' );
+
+            analytica_blog_get_post_meta();
+
+            do_action( 'analytica_archive_post_meta_after' );
+
+        ?>
+    </header><!-- .entry-header -->
+    <?php
+
+    do_action( 'analytica_archive_entry_header_after' );
+}
+
+/**
+ * Blog post Thumbnail
+ *
+ * @since  1.0.0
+ */
+function analytica_get_single_post_title_meta() {
+
+    // Single Post Title and Single Post Meta.
+    do_action( 'analytica_single_post_order_before' );
+
+    ?><div class="analytica-single-post-order"><?php
+
+        do_action( 'analytica_single_post_title_before' );
+
+        analytica_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
+
+        do_action( 'analytica_single_post_title_after' );
+
+        do_action( 'analytica_single_post_meta_before' );
+
+        analytica_single_get_post_meta();
+
+        do_action( 'analytica_single_post_meta_after' );
+
+    ?></div><?php
+
+    do_action( 'analytica_single_post_order_after' );
+}
+
+/**
+ * Get audio files from post content
+ *
+ * @param  number $post_id Post id.
+ * @return mixed          Iframe.
+ */
+function analytica_get_audios_from_post( $post_id ) {
+
+    // for audio post type - grab.
+    $post    = get_post( $post_id );
+    $content = do_shortcode( apply_filters( 'the_content', $post->post_content ) );
+    $embeds  = apply_filters( 'analytica_get_post_audio', get_media_embedded_in_content( $content ) );
+
+    if ( empty( $embeds ) ) {
+        return '';
     }
 
-    $more_link_text    = apply_filters( 'analytica_the_content_more_string', __( 'Read More &raquo;', 'analytica' ) );
-    $read_more_classes = apply_filters( 'analytica_the_content_more_link_class', array() );
+    // check what is the first embed containg video tag, youtube or vimeo.
+    foreach ( $embeds as $embed ) {
+        if ( strpos( $embed, 'audio' ) ) {
+            return '<span class="analytica-post-audio-wrapper">' . $embed . '</span>';
+        }
+    }
+}
 
-    $post_link = sprintf(
-        esc_html( '%s' ),
-        '<a class="' . implode( ' ', $read_more_classes ) . '" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . $more_link_text . '</a>'
-    );
+/**
+ * Get first image from post content
+ *
+ * @since 1.0.0
+ * @param  number $post_id Post id.
+ * @return mixed
+ */
+function analytica_get_video_from_post( $post_id ) {
 
-    $more_link_element = ' &hellip;<p class="analytica-the-content-more-link"> ' . $post_link . '</p>';
+    $post    = get_post( $post_id );
+    $content = do_shortcode( apply_filters( 'the_content', $post->post_content ) );
+    $embeds  = apply_filters( 'analytica_get_post_audio', get_media_embedded_in_content( $content ) );
 
-    return apply_filters( 'analytica_the_content_more_link', $more_link_element, $more_link_text );
+    if ( empty( $embeds ) ) {
+        return '';
+    }
+
+    // check what is the first embed containg video tag, youtube or vimeo.
+    foreach ( $embeds as $embed ) {
+        if ( strpos( $embed, 'video' ) || strpos( $embed, 'youtube' ) || strpos( $embed, 'vimeo' ) ) {
+            return $embed;
+        }
+    }
 }
