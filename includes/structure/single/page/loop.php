@@ -95,7 +95,7 @@ class Page extends Base {
      * @return void
      */
     public function template_parts_comments() {
-        if ( ! is_page() ) { 
+        if ( ! is_page() || analytica_is_builder_page() ) { 
             return;
         }
         // If comments are open or we have at least one comment, load up the comment template.
