@@ -376,6 +376,26 @@ function analytica_attributes_site_inner( $attributes ) {
     return $attributes;
 }
 
+add_filter( 'radium_attr_site-main', 'radium_attributes_site_main' );
+/**
+ * Add attributes for main site element.
+ *
+ * @since 1.0.0
+ *
+ * @param array $attributes Existing attributes.
+ *
+ * @return array Amended attributes.
+ */
+function radium_attributes_site_main( $attributes ) {
+    if ( ! ( is_singular( 'post' ) || is_archive() || is_home() || is_page_template( 'blog.php' ) ) ) {
+        $attributes['itemprop'] = 'mainContentOfPage';
+    }
+
+    $attributes['role'] = 'main';
+
+    return $attributes;
+}
+
 add_filter( 'analytica_attr_sidebar-primary', 'analytica_attributes_sidebar_primary' );
 /**
  * Add attributes for primary sidebar element.

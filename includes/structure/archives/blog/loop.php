@@ -29,20 +29,20 @@ class Archives extends Base {
      public function __construct() {
 
         // Template parts
-        add_action( 'analytica_template_parts_content', array( $this, 'template_parts' ) );
-        add_action( 'analytica_template_parts_content_none', array( $this, 'template_parts_none' ) );
+        add_action( 'analytica_loop_template_part', array( $this, 'template_parts' ) );
+        add_action( 'analytica_loop_template_part_none', array( $this, 'template_parts_none' ) );
 
         // Content top and bottom.
-        add_action( 'analytica_template_parts_content_top', array( $this, 'template_parts_content_top' ) );
-        add_action( 'analytica_template_parts_content_bottom', array( $this, 'template_parts_content_bottom' ) );
+        add_action( 'analytica_before_loop', array( $this, 'template_parts_content_top' ) );
+        add_action( 'analytica_after_loop', array( $this, 'template_parts_content_bottom' ) );
 
         // Add closing and ending div 'entry-archives'.
-        add_action( 'analytica_template_parts_content_top', array( $this, 'templat_part_wrap_open' ), 25 );
-        add_action( 'analytica_template_parts_content_bottom', array( $this, 'templat_part_wrap_close' ), 5 );
+        add_action( 'analytica_before_loop', array( $this, 'templat_part_wrap_open' ), 25 );
+        add_action( 'analytica_after_loop', array( $this, 'templat_part_wrap_close' ), 5 );
 
         // Template Parts
         add_action( 'analytica_entry_content_blog', array( $this, 'entry_content_blog_template' ) );
-        add_action( 'analytica_template_parts_content_bottom', array( $this, 'number_pagination' ) );
+        add_action( 'analytica_after_loop', array( $this, 'number_pagination' ) );
     }
 
     /**

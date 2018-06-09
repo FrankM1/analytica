@@ -29,7 +29,7 @@ class Page_Not_Found {
      * @since 1.0.0
      */
      public function __construct() {
-        add_action( 'analytica_template_parts_content_none', array( $this, 'template_parts_404' ) ); 
+        add_action( 'analytica_loop_template_part_none', array( $this, 'template_parts_404' ) ); 
         add_action( 'analytica_entry_content_404_page', array( $this, 'entry_content_404_page_template' ) );
     }
 

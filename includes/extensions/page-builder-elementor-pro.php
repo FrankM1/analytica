@@ -37,7 +37,7 @@ class Elementor_Pro {
         // Override theme templates.
         add_action( 'analytica_header', array( $this, 'do_header' ), 0 );
         add_action( 'analytica_footer', array( $this, 'do_footer' ), 0 );
-        add_action( 'analytica_template_parts_content_top', array( $this, 'do_template_parts' ), 0 );
+        add_action( 'analytica_before_loop', array( $this, 'do_template_parts' ), 0 );
 
         add_action( 'analytica_entry_content_404_page', array( $this, 'do_template_part_404' ), 0 );
 
@@ -82,7 +82,7 @@ class Elementor_Pro {
         $did_location = Module::instance()->get_locations_manager()->do_location( 'archive' );
         if ( $did_location ) {
             // Search and default.
-            remove_action( 'analytica_template_parts_content', array( analytica()->loop_archives, 'template_parts' ) );
+            remove_action( 'analytica_loop_template_part', array( analytica()->loop_archives, 'template_parts' ) );
 
             // Remove pagination.
             remove_action( 'analytica_pagination', array( analytica()->loop_archives, 'number_pagination' ) );
@@ -95,10 +95,10 @@ class Elementor_Pro {
         // IS Single?
         $did_location = Module::instance()->get_locations_manager()->do_location( 'single' );
         if ( $did_location ) {
-            remove_action( 'analytica_template_parts_content', array( analytica()->loop_page, 'template_parts_page' ) );
-            remove_action( 'analytica_template_parts_content', array( analytica()->loop_post, 'template_parts_post' ) );
-            remove_action( 'analytica_template_parts_content', array( analytica()->loop_page, 'template_parts_comments' ), 15 );
-            remove_action( 'analytica_template_parts_content', array( analytica()->loop_post, 'template_parts_comments' ), 15 );
+            remove_action( 'analytica_loop_template_part', array( analytica()->loop_page, 'template_parts_page' ) );
+            remove_action( 'analytica_loop_template_part', array( analytica()->loop_post, 'template_parts_post' ) );
+            remove_action( 'analytica_loop_template_part', array( analytica()->loop_page, 'template_parts_comments' ), 15 );
+            remove_action( 'analytica_loop_template_part', array( analytica()->loop_post, 'template_parts_comments' ), 15 );
         }
     }
 

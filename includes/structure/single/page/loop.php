@@ -32,8 +32,8 @@ class Page extends Base {
         add_filter( 'body_class', array( $this, 'single_body_class' ) );
         add_filter( 'post_class', array( $this, 'single_page_class' ) );
 
-        add_action( 'analytica_template_parts_content', array( $this, 'template_parts_page' ) );
-        add_action( 'analytica_template_parts_content', array( $this, 'template_parts_comments' ), 15 );
+        add_action( 'analytica_loop_template_part', array( $this, 'template_parts_page' ) );
+        add_action( 'analytica_loop_template_part', array( $this, 'template_parts_comments' ), 15 );
     }
 
     /**

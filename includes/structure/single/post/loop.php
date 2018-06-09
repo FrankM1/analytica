@@ -34,8 +34,8 @@ class Post {
         add_filter( 'post_class', array( $this, 'single_post_class' ) );
     
         // Template Parts.
-        add_action( 'analytica_template_parts_content', array( $this, 'template_parts_post' ) );
-        add_action( 'analytica_template_parts_content', array( $this, 'template_parts_comments' ), 15 );
+        add_action( 'analytica_loop_template_part', array( $this, 'template_parts_post' ) );
+        add_action( 'analytica_loop_template_part', array( $this, 'template_parts_comments' ), 15 );
 
         add_action( 'analytica_entry_content_single', array( $this, 'entry_content_single_template' ) );
         add_action( 'analytica_entry_after',  array( $this, 'navigation_markup' ) );

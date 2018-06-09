@@ -22,30 +22,44 @@ class Base {
      * @return void
      */
     public function loop_markup() {
-        
-        ?><main class="site-main" role="main">
-            <div class="site-main-inner"><?php
+
+        do_action( 'analytica_before_content' );
+
+        analytica_markup( array(
+            'element'   => '<main %s>',
+            'context' => 'site-main',
+        ) );
+
+            analytica_markup( array(
+                'element'   => '<div %s>',
+                'context' => 'site-main-inner',
+            ) );
     
-            if ( have_posts() ) :
-                
-                do_action( 'analytica_template_parts_content_top' );
+                if ( have_posts() ) :
+                    
+                    do_action( 'analytica_before_loop' );
 
-                while ( have_posts() ) : the_post();
+                    while ( have_posts() ) : the_post();
+                        do_action( 'analytica_loop_template_part' );
+                    endwhile;
 
-                    do_action( 'analytica_template_parts_content' );
+                    do_action( 'analytica_after_loop' );
 
-                endwhile;
+                else :
 
-                do_action( 'analytica_template_parts_content_bottom' );
+                    do_action( 'analytica_loop_template_part_none' );
 
-            else :
+                endif; 
 
-                do_action( 'analytica_template_parts_content_none' );
+            analytica_markup( array(
+                'element' => '</div>', // end .site-main-inner
+            ) );
 
-           endif; 
-            
-            ?></div>
-        </main><!-- #main --><?php
+        analytica_markup( array(
+            'element' => '</main>', // end .site-main
+        ) );
+
+        do_action( 'analytica_after_content' );
     }
 
 }
