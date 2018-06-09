@@ -25,7 +25,7 @@ function analytica_attributes_header( $attributes ) {
         return;
     }
 
-    $attributes['class'] = implode( ' ', analytica_get_header_class() );
+    $attributes['class'] = implode( ' ', analytica_get_site_header_class() );
     $attributes['itemscope'] = 'itemscope';
     $attributes['itemtype'] = 'https://schema.org/WPHeader';
 

@@ -36,7 +36,8 @@
     }
 }
 
-.entry-content {
+.entry-summary {
+    margin-top: $grid-gutter-width-half;
     word-wrap: break-word;
     @include clearfix();
 	p {

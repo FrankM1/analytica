@@ -8,6 +8,80 @@
  */
 
 /**
+ * Function to get Edit Post Link
+ *
+ * @since 1.0.0
+ * @param string $text      Anchor Text.
+ * @param string $before    Anchor Text.
+ * @param string $after     Anchor Text.
+ * @param int    $id           Anchor Text.
+ * @param string $class     Anchor Text.
+ * @return void
+ */
+function analytica_edit_post_link( $text, $before = '', $after = '', $id = 0, $class = 'post-edit-link' ) {
+
+    if ( apply_filters( 'analytica_edit_post_link', false ) ) {
+        edit_post_link( $text, $before, $after, $id, $class );
+    }
+}
+
+/**
+ * Display Blog Post Excerpt
+ *
+ * @since 1.0.0
+ */
+function analytica_the_excerpt() {
+
+    $excerpt_type = analytica_get_option( 'archive-post-content'             );
+
+    do_action( 'analytica_the_excerpt_before', $excerpt_type );
+
+    if ( 'full-content' == $excerpt_type ) {
+        the_content();
+    } else {
+        the_excerpt();
+    }
+
+    do_action( 'analytica_the_excerpt_after', $excerpt_type );
+}
+
+/**
+ * Analytica entry header class
+ *
+ * @since 1.0.15
+ */
+function analytica_entry_header_class() {
+
+    $post_id          = analytica_get_post_id();
+    $classes          = array();
+    $title_markup     = analytica_the_title( '', '', $post_id, false );
+    $thumb_markup     = analytica_get_post_thumbnail( '', '', false );
+    $post_meta_markup = analytica_single_get_post_meta( '', '', false );
+
+    if ( empty( $title_markup ) && empty( $thumb_markup ) && ( is_page() || empty( $post_meta_markup ) ) ) {
+        $classes[] = 'analytica-header-without-markup';
+    } else {
+
+        if ( empty( $title_markup ) ) {
+            $classes[] = 'analytica-no-title';
+        }
+
+        if ( empty( $thumb_markup ) ) {
+            $classes[] = 'analytica-no-thumbnail';
+        }
+
+        if ( is_page() || empty( $post_meta_markup ) ) {
+            $classes[] = 'analytica-no-meta';
+        }
+    }
+
+    $classes = array_unique( apply_filters( 'analytica_entry_header_class', $classes ) );
+    $classes = array_map( 'sanitize_html_class', $classes );
+
+    echo esc_attr( join( ' ', $classes ) );
+}
+
+/**
  * Wrapper function for get_the_title() for blog post.
  *
  * Displays title only if the page title bar is disabled.

@@ -82,23 +82,23 @@ class Elementor_Pro {
         $did_location = Module::instance()->get_locations_manager()->do_location( 'archive' );
         if ( $did_location ) {
             // Search and default.
-            remove_action( 'analytica_template_parts_content', array( analytica()->loop, 'template_parts_search' ) );
-            remove_action( 'analytica_template_parts_content', array( analytica()->loop, 'template_parts_default' ) );
+            remove_action( 'analytica_template_parts_content', array( analytica()->loop_archives, 'template_parts' ) );
 
             // Remove pagination.
-            remove_action( 'analytica_pagination', 'analytica_number_pagination' );
-            remove_action( 'analytica_entry_after', 'analytica_single_post_navigation_markup' );
+            remove_action( 'analytica_pagination', array( analytica()->loop_archives, 'number_pagination' ) );
+            remove_action( 'analytica_entry_after', array( analytica()->loop_post, 'navigation_markup' ) );
 
             // Content.
-            remove_action( 'analytica_entry_content_single', 'analytica_entry_content_single_template' );
+            remove_action( 'analytica_entry_content_single', array( analytica()->loop_post, 'analytica_entry_content_single_template' ) );
         }
 
         // IS Single?
         $did_location = Module::instance()->get_locations_manager()->do_location( 'single' );
         if ( $did_location ) {
-            remove_action( 'analytica_template_parts_content', array( analytica()->loop, 'template_parts_page' ) );
-            remove_action( 'analytica_template_parts_content', array( analytica()->loop, 'template_parts_post' ) );
-            remove_action( 'analytica_template_parts_content', array( analytica()->loop, 'template_parts_comments' ), 15 );
+            remove_action( 'analytica_template_parts_content', array( analytica()->loop_page, 'template_parts_page' ) );
+            remove_action( 'analytica_template_parts_content', array( analytica()->loop_post, 'template_parts_post' ) );
+            remove_action( 'analytica_template_parts_content', array( analytica()->loop_page, 'template_parts_comments' ), 15 );
+            remove_action( 'analytica_template_parts_content', array( analytica()->loop_post, 'template_parts_comments' ), 15 );
         }
     }
 
@@ -114,7 +114,7 @@ class Elementor_Pro {
             // Is Single?
             $did_location = Module::instance()->get_locations_manager()->do_location( 'single' );
             if ( $did_location ) {
-                remove_action( 'analytica_entry_content_404_page', 'analytica_entry_content_404_page_template' );
+                remove_action( 'analytica_entry_content_404_page', array( analytica()->loop_404, 'entry_content_404_page_template' ) );
             }
         }
     }

@@ -42,48 +42,6 @@ function analytica_content_width( $default, $small, $large ) {
 
 }
 
-add_action( 'analytica_left_sidebar', 'analytica_get_sidebar' );
-/**
- * Output the sidebar.php file if layout allows for it.
- *
- * @since 1.0.0
- *
- * @uses analytica_site_layout() Return the site layout for different contexts.
- */
-function analytica_get_sidebar() {
-
-    $site_layout = analytica_site_layout();
-
-    // Don't load sidebar on pages that don't need it
-    if ( _analytica_return_full_width_content() === $site_layout ) {
-        return;
-    }
-
-    get_sidebar();
-
-}
-
-add_action( 'analytica_right_sidebar', 'analytica_get_sidebar_alt' );
-/**
- * Output the sidebar_alt.php file if layout allows for it.
- *
- * @since 1.0.0
- *
- * @uses analytica_site_layout() Return the site layout for different contexts.
- */
-function analytica_get_sidebar_alt() {
-
-    $site_layout = analytica_site_layout();
-
-    // Don't load sidebar-alt on pages that don't need it
-    if ( in_array( $site_layout, array( _analytica_return_content_sidebar(), _analytica_return_sidebar_content(), _analytica_return_full_width_content() ) ) ) {
-        return;
-    }
-
-    get_sidebar( 'alt' );
-
-}
-
 add_filter( 'the_password_form', 'analytica_get_custom_password_form' );
 /**
  * Modify the WordPress post password form

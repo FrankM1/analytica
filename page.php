@@ -19,7 +19,7 @@ get_header(); ?>
 
     <?php do_action( 'analytica_primary_content_top' ); ?>
 
-    <?php do_action( 'analytica_content_page_loop' ); ?>
+    <?php do_action( 'analytica_content_loop' ); ?>
 
     <?php do_action( 'analytica_primary_content_bottom' ); ?>
 

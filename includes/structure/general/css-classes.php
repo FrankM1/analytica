@@ -74,7 +74,7 @@ function analytica_layout_body_classes( array $classes ) {
  * @param string|array $class One or more classes to add to the class list.
  * @return array Array of classes.
  */
-function analytica_get_header_class( $class = '' ) {
+function analytica_get_site_header_class( $class = '' ) {
 
     $header_align_option = analytica_get_option( 'site-header-menu-layout' );
     $header_background_color_option = analytica_get_option( 'site-header-background-color' );

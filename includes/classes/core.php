@@ -250,7 +250,6 @@ class Core {
         require_once get_theme_file_path( '/includes/structure/general/template-parts.php' );
 
         require_once get_theme_file_path( '/includes/functions/widgets.php' );
-        require_once get_theme_file_path( '/includes/functions/extras.php' );
 
         // Used by both front and admin
         require_once get_theme_file_path( '/includes/functions/conditionals.php' );
@@ -292,6 +291,7 @@ class Core {
         require_once get_theme_file_path( '/includes/structure/general/site-layout.php' );
         require_once get_theme_file_path( '/includes/structure/general/site-sidebar.php' );
         require_once get_theme_file_path( '/includes/structure/general/site-hero.php' );
+        require_once get_theme_file_path( '/includes/structure/general/site-comments.php' );
     }
 
     function _include_menus() {
@@ -309,8 +309,6 @@ class Core {
 
         require_once get_theme_file_path( '/includes/structure/single/page/loop.php' );
 
-        require_once get_theme_file_path( '/includes/structure/single/post/functions.php' );
-        require_once get_theme_file_path( '/includes/structure/single/post/actions.php' );
         require_once get_theme_file_path( '/includes/structure/single/post/loop.php' );
         require_once get_theme_file_path( '/includes/structure/single/post/related-posts.php' );
      }

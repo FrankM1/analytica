@@ -486,6 +486,32 @@ function analytica_get_blog_post_title_meta() {
 }
 
 /**
+ * Prints HTML with meta information for the current post-date/time and author.
+ *
+ * @param boolean $echo   Output print or return.
+ * @return string|void
+ */
+function analytica_single_get_post_meta( $echo = true ) {
+
+    $enable_meta = apply_filters( 'analytica_single_post_meta_enabled', '__return_true' );
+    $post_meta   = analytica_get_option( 'single-post-meta' );
+
+    $output = '';
+    if ( is_array( $post_meta ) && 'post' == get_post_type() && $enable_meta ) {
+
+        $output_str = analytica_get_post_meta( $post_meta );
+        if ( ! empty( $output_str ) ) {
+            $output = apply_filters( 'analytica_single_post_meta', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // WPCS: XSS OK.
+        }
+    }
+    if ( $echo ) {
+        echo wp_kses( $output, analytica_get_allowed_tags() ); 
+    } else {
+        return $output;
+    }
+}
+
+/**
  * Blog post Thumbnail
  *
  * @since  1.0.0

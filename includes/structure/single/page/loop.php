@@ -29,20 +29,51 @@ class Page extends Base {
      * @since 1.0.0
      */
     public function __construct() {
-        add_action( 'analytica_content_page_loop', array( $this, 'loop_markup_page' ) );
+        add_filter( 'body_class', array( $this, 'single_body_class' ) );
+        add_filter( 'post_class', array( $this, 'single_page_class' ) );
 
-        // Template Parts.
-        add_action( 'analytica_page_template_parts_content', array( $this, 'template_parts_page' ) );
+        add_action( 'analytica_template_parts_content', array( $this, 'template_parts_page' ) );
+        add_action( 'analytica_template_parts_content', array( $this, 'template_parts_comments' ), 15 );
     }
 
     /**
-     * Loop Markup for content page
+     * Adds custom classes to the array of body classes.
      *
      * @since 1.0.0
+     * @param array $classes Classes for the body element.
+     * @return array
      */
-     public function loop_markup_page() {
-        $this->loop_markup( true );
+    function single_body_class( $classes ) {
+        if ( ! is_page() ) { 
+            return $classes;
+        }
+
+        if ( is_singular() ) {
+            $classes[] = 'analytica-single-post';
+        }
+
+        return $classes;
     }
+
+
+     /**
+     * Adds custom classes to the array of body classes.
+     *
+     * @since 1.0.0
+     * @param array $classes Classes for the body element.
+     * @return array
+     */
+    function single_page_class( $classes ) {
+        if ( ! is_page() ) { 
+            return $classes;
+        }
+      
+        $classes[] = 'analytica-article-single';
+        $classes = array_diff( $classes, array( 'hentry' ) );
+
+        return $classes;
+    }
+
 
     /**
      * Template part page
@@ -51,8 +82,25 @@ class Page extends Base {
      * @return void
      */
      public function template_parts_page() {
+        if ( ! is_page() ) { 
+            return;
+        }
         get_template_part( 'template-parts/content', 'page' );
     }
 
-
+    /**
+     * Template part comments
+     *
+     * @since 1.0.0
+     * @return void
+     */
+    public function template_parts_comments() {
+        if ( ! is_page() ) { 
+            return;
+        }
+        // If comments are open or we have at least one comment, load up the comment template.
+        if ( comments_open() || get_comments_number() ) :
+            comments_template();
+        endif;
+    }
 }

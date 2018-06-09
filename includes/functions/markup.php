@@ -264,7 +264,7 @@ function analytica_attr( $context, $attributes = [] ) {
 
     // Cycle through attributes, build tag attribute string
     foreach ( $attributes as $key => $value ) {
-        if ( !$value ) {
+        if ( ! $value ) {
             continue;
         }
         $output .= sprintf( '%s="%s" ', esc_html( $key ), esc_attr( $value ) );

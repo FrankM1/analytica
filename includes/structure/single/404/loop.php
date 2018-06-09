@@ -29,9 +29,8 @@ class Page_Not_Found {
      * @since 1.0.0
      */
      public function __construct() {
-        if ( is_404() ) {
-            add_action( 'analytica_template_parts_content_none', array( $this, 'template_parts_404' ) ); 
-        }
+        add_action( 'analytica_template_parts_content_none', array( $this, 'template_parts_404' ) ); 
+        add_action( 'analytica_entry_content_404_page', array( $this, 'entry_content_404_page_template' ) );
     }
 
     /**
@@ -41,8 +40,32 @@ class Page_Not_Found {
      * @return void
      */
     public function template_parts_404() {
+        if ( ! is_404() ) { 
+            return;
+        }
         get_template_part( 'template-parts/content', '404' );
     }
 
+    /**
+     * 404 markup
+     *
+     * => Used in files:
+     *
+     * /template-parts/content-404.php
+     *
+     * @since 1.0.0
+     */
+    function entry_content_404_page_template() {
+        
+        $layout_404 = analytica_get_option( 'analytica-404-layout' );
+        $layout_404 = str_replace( '404-layout-', '', $layout_404 );
+
+        // Default 404 is nothing but the 404 layout 1.
+        if ( '1' == $layout_404 ) {
+            $layout_404 = '';
+        }
+
+        get_template_part( 'template-parts/404/404-layout', $layout_404 );
+    }
 
 }

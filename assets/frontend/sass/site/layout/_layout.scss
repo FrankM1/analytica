@@ -20,7 +20,8 @@
 	.analytica-article-post,
 	.analytica-article-single {
 		background-color: $color-background-content;
-		margin: 0 0 $grid-gutter-width 0;
+        margin: 0 0 $grid-gutter-width 0;
+        .entry-summary,
 		.entry-content {
 			padding-top: $grid-gutter-width;
 			padding-bottom: $grid-gutter-width;
@@ -30,6 +31,7 @@
 			margin-bottom: .2em;
 		}
 
+        .entry-summary,
         .entry-content,
         .entry-header,
 		.analytica-single-post-order {
