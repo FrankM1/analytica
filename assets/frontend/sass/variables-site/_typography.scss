@@ -3,12 +3,15 @@
 /*----------  Font Size  ----------*/
 $font-size-root:     		14px !default; // Applied to <html> element only
 $font-size-base:     		1 !default;
-$font-size-h1:       		2em !default;
-$font-size-h2:       		1.7em !default;
-$font-size-h3:       		1.5em !default;
-$font-size-h4:       		1.3em !default;
-$font-size-h5:       		1.2em !default;
-$font-size-h6:       		1.1em !default;
+
+/*----------  Headings  ----------*/
+
+$font-size-h1: 3.6 !default;
+$font-size-h2: 3.0 !default;
+$font-size-h3: 2.4 !default;
+$font-size-h4: 1.8 !default;
+$font-size-h5: 1.4 !default;
+$font-size-h6: 1.2 !default;
 
 /*----------  Line Height  ----------*/
 

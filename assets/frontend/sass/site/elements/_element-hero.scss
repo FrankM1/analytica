@@ -103,9 +103,9 @@
 		min-height: auto;
 	}
 	.site-hero-wrapper .header {
-		font-size: 25px;
+        @include font-size( 25px );
 	}
 	.site-hero-wrapper .subheader {
-		font-size: 16px;
+        @include font-size( 16px );
 	}
 }

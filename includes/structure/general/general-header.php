@@ -232,7 +232,7 @@ function analytica_site_header_title() {
 
     $output .= '</div>';
 
-    echo analytica_sanitize_html( $output ); // WPCS: XSS ok.
+    echo analytica_sanitize_html( $output );
 }
 
 add_action( 'analytica_site_description', 'analytica_site_header_description' );
@@ -256,10 +256,9 @@ function analytica_site_header_description() {
 
     $description  = '<p class="site-description" itemprop="description">' . $inside . '</p>';
 
-    // Output (filtered)
     $output = $inside ? $description : '';
 
-    echo analytica_sanitize_html( $output ); // WPCS: XSS ok.
+    echo analytica_sanitize_html( $output ); 
 }
 
 add_action( 'template_redirect', 'analytica_hero_support' );

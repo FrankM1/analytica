@@ -29,8 +29,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 -------------------------------------------------------
 Screenshot Licenses
 -------------------------------------------------------
-Screenshot images are all licensed under CC0 Universal
-https://pixabay.com/en/sun-sunrise-path-in-the-morning-2915215/
+Screenshot header image, Copyright Lukas Rychvalsky
+License: CC0 1.0 Universal (CC0 1.0)
+Source: https://pixabay.com/en/sun-sunrise-path-in-the-morning-2915215/
 
 -------------------------------------------------------
 Flexibility JS

@@ -429,10 +429,10 @@ class Dynamic_CSS {
     public function generate_hero_css() {
         $css_rules = $extra_css = null;
 
-        if ( get_header_image() ) {
+        if ( esc_url( get_header_image() ) ) {
 
             $hero = [
-                'url'  => get_header_image(),
+                'url'  => esc_url( get_header_image() ),
                 'size' => [
                     get_custom_header()->width,
                     get_custom_header()->height,

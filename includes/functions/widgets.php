@@ -265,7 +265,7 @@ function analytica_widget_area( $id, $args = array() ) {
     }
 
     // Opening markup
-    echo analytica_sanitize_html( $args['before'] ); // WPCS: XSS ok.
+    echo analytica_sanitize_html( $args['before'] ); 
 
     // Before hook
     if ( $args['before_sidebar_hook'] ) {
@@ -273,7 +273,7 @@ function analytica_widget_area( $id, $args = array() ) {
     }
 
     if ( ! dynamic_sidebar( $id ) ) {
-        echo analytica_sanitize_html( $args['default'] ); // WPCS: XSS ok.
+        echo analytica_sanitize_html( $args['default'] ); 
     }
 
     // After hook
@@ -282,7 +282,7 @@ function analytica_widget_area( $id, $args = array() ) {
     }
 
     // Closing markup
-    echo analytica_sanitize_html( $args['after'] ); // WPCS: XSS ok.
+    echo analytica_sanitize_html( $args['after'] ); 
 
     return true;
 }

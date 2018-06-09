@@ -377,7 +377,7 @@ function analytica_get_blog_layout_class( $class = '' ) {
     $output = apply_filters( 'analytica_get_post_thumbnail', $output, $before, $after );
 
     if ( $echo ) {
-        echo $before . $output . $after; // WPCS: XSS OK.
+        echo wp_kses( $before . $output . $after, analytica_get_allowed_tags() );
     } else {
         return $before . $output . $after;
     }

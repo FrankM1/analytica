@@ -112,7 +112,7 @@ class Breadcrumb
      */
     public function output($args = array())
     {
-        echo analytica_sanitize_html( $this->get_output($args) ); // WPCS: XSS ok.
+        echo analytica_sanitize_html( $this->get_output($args) ); 
     }
 
     /**

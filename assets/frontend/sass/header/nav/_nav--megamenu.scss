@@ -47,7 +47,7 @@
         li>a {
             display: block;
             padding: 0 $grid-gutter-width-half;
-            font-size: 14px;
+            @include font-size( 14px );
             line-height: 1.65;
             outline: none;
             transition: all 0.4s ease-in-out;

@@ -166,7 +166,7 @@ function analytica_markup( $args = [] ) {
     $tag = $args['context'] ? apply_filters( "analytica_markup_{$args['context']}_output", $tag, $args ) : $tag;
 
     if ( $args['echo'] ) {
-        echo $tag; // WPCS: XSS ok.
+        echo wp_kses( $tag, analytica_get_allowed_tags() );
     } else {
         return $tag;
     }
@@ -214,7 +214,7 @@ function analytica_structural_wrap( $context = '', $output = 'open', $echo = tru
     $output = apply_filters( "analytica_structural_wrap-{$context}", $output, $original_output );
 
     if ( $echo ) {
-        echo analytica_sanitize_html( $output );  // WPCS: XSS ok.
+        echo analytica_sanitize_html( $output );  
     } else {
         return $output;
     }

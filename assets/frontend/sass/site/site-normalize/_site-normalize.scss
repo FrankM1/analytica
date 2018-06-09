@@ -1,20 +1,23 @@
 /*----------  Mixins  ----------*/
+
 @import "../mixins/mixins-master";
 
 /*----------  Site Variables  ----------*/
+
 @import "../variables-site/colors";
 @import "../variables-site/structure";
 @import "../variables-site/typography";
 
 ::selection {
-    color: #fff;
-    background: $color-link;
+	color: #fff;
+	background: $color-link;
 }
 
 html {
 	overflow-y: scroll;
+	font-size: 62.5%;
 }
- 
+
 a,
 a:focus {
 	text-decoration: none;
@@ -24,7 +27,7 @@ a,
 .site-header a *,
 .site-footer a *,
 .site-sidebar a * {
-    @include analytica-transition();
+	@include analytica-transition();
 }
 
 .capitalize {
@@ -32,7 +35,7 @@ a,
 }
 
 img {
-    vertical-align: middle;
+	vertical-align: middle;
 }
 
 .entry-content h1,
@@ -40,100 +43,100 @@ img {
 .entry-content h3,
 .entry-content h4,
 .entry-content h5,
-.entry-content h6 
-{
-    margin-bottom: 20px;
+.entry-content h6 {
+	margin-bottom: 20px;
 }
 
 p {
-   margin-bottom: 1.75em;
+	margin-bottom: 1.75em;
 }
 
 blockquote {
-    margin: 1.5em 1em 1.5em 3em;
-    padding: 1.2em;
-    font-size: 1.1em;
-    line-height: inherit;
-    position: relative;
+	margin: 1.5em 1em 1.5em 3em;
+	padding: 1.2em;
+	font-size: 1.1em;
+	line-height: inherit;
+	position: relative;
 }
 
 .analytica-button,
 .button,
 input[type="button"],
 input[type="submit"] {
-    border-radius: 0;
-    padding: 9px 30px;
-   	border: 0;
-    box-shadow: none;
-    text-shadow: none;
+	border-radius: 0;
+	padding: 9px 30px;
+	border: 0;
+	box-shadow: none;
+	text-shadow: none;
 
-    &:hover {
-        box-shadow: none;
-    }
+	&:hover {
+		box-shadow: none;
+	}
 
-    &:active,
-    &:focus {
-        box-shadow: none;
-    }
+	&:active,
+	&:focus {
+		box-shadow: none;
+	}
 }
 
 .site-title {
-    display: flex;
-    font-weight: normal;
+	display: flex;
+	font-weight: normal;
 }
 
 .site-title,
 .site-description {
-    margin-bottom: 0;
+	margin-bottom: 0;
 
-    a,
-    &:hover a,
-    &:focus a {
-        @include analytica-transition();
-    }
+	a,
+	&:hover a,
+	&:focus a {
+		@include analytica-transition();
+	}
 }
 
 .site-title a,
 .site-title a:focus,
 .site-title a:hover,
 .site-title a:visited {
-    color: $color-site-title;
+	color: $color-site-title;
 }
 
 .site-description a,
 .site-description a:focus,
 .site-description a:hover,
 .site-description a:visited {
-    color: $color-site-tagline;
+	color: $color-site-tagline;
 }
 
 /* must have higher specificity than alternative color schemes inline styles */
-.site .skip-link {
-    background-color: #f1f1f1;
-    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
-    color: #21759b;
-    display: block;
-    font-family: Montserrat, "Helvetica Neue", sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    left: -9999em;
-    outline: none;
-    padding: 15px 23px 14px;
-    text-decoration: none;
-    text-transform: none;
-    top: -9999em;
-    
-    &:focus {
-        clip: auto;
-        height: auto;
-        left: 6px;
-        top: 7px;
-        width: auto;
-        z-index: 100000;
-    }
 
-    .logged-in & {
-        box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
-        font-family: "Open Sans", sans-serif;
-    }
+.site .skip-link {
+	background-color: #f1f1f1;
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+	color: #21759b;
+	display: block;
+	font-family: Montserrat, "Helvetica Neue", sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	left: -9999em;
+	outline: none;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	text-transform: none;
+	top: -9999em;
+
+	&:focus {
+		clip: auto;
+		height: auto;
+		left: 6px;
+		top: 7px;
+		width: auto;
+		z-index: 100000;
+	}
+
+	.logged-in & {
+		box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+		font-family: "Open Sans", sans-serif;
+	}
 }

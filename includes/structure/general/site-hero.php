@@ -35,7 +35,7 @@ class Site_Hero {
         $this->args['fullheight']    = wp_is_mobile() ? false : analytica_get_option( 'site-hero-fullheight' );
         $this->args['show-subtitle'] = analytica_get_option( 'site-hero-show-subtitle' );
         $this->args['show-title']    = analytica_get_option( 'site-hero-show-title' );
-        $this->args['has-image']     = get_header_image();
+        $this->args['has-image']     = esc_url( get_header_image() );
         $this->content = $this->content();
     }
 
@@ -207,13 +207,13 @@ class Site_Hero {
 
     public function do_title() {
         if ( $this->args['show-title'] && ! empty( $this->content['title'] ) ) {
-            ?><h1 class = "header"><?php echo $this->content['title'];  // WPCS: XSS ok. ?></h1><?php
+            ?><h1 class = "header"><?php echo wp_kses( $this->content['title'], analytica_get_allowed_tags() ); ?></h1><?php
         }
     }
 
     public function do_subtitle() {
         if ( ! empty( $this->content['subtitle'] ) && $this->args['show-subtitle'] ) {
-            ?><h3 class = "subheader"><?php echo $this->content['subtitle'];  // WPCS: XSS ok. ?></h3><?php
+            ?><h3 class = "subheader"><?php echo wp_kses( $this->content['subtitle'], analytica_get_allowed_tags() ); ?></h3><?php
         }
     }
 

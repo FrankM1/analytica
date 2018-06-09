@@ -57,7 +57,7 @@ function analytica_do_breadcrumbs() {
     $breadcrumb_markup_open = sprintf( '<div %s>', analytica_attr( 'breadcrumb' ) );
 
     if ( function_exists( 'bcn_display' ) ) {
-        echo analytica_get_sanitized_output( $breadcrumb_markup_open ); // WPCS: XSS ok.
+        echo analytica_get_sanitized_output( $breadcrumb_markup_open ); 
         bcn_display();
         echo '</div>';
     } elseif ( function_exists( 'breadcrumbs' ) ) {

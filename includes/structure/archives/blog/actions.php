@@ -99,7 +99,7 @@ function analytica_blog_post_get_featured_item() {
         }
     }
 
-    echo $post_featured_data; // WPCS: XSS OK.
+    echo wp_kses( $post_featured_data, analytica_get_allowed_tags() );
 }
 
 add_filter( 'excerpt_more', 'analytica_post_link', 1 );

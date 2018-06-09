@@ -104,7 +104,7 @@ function analytica_the_post_title( $before = '', $after = '', $post_id = 0, $ech
 
         // This will work same as `the_title` function but with Custom Title if exits.
         if ( $echo ) {
-            echo $before . $title . $after; // WPCS: XSS OK.
+            echo wp_kses( $before . $title . $after, analytica_get_allowed_tags() ); 
         } else {
             return $before . $title . $after;
         }
