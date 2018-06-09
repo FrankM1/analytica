@@ -276,8 +276,6 @@ class Core {
     }
 
     function _include_admin() {
-        require_once get_theme_file_path( '/includes/admin/helper.php' );
-
         // We've separated admin and frontend specific files for the best performance
         if ( is_admin() ) {
             require_once get_template_directory() . '/includes/admin/about-page.php';
