@@ -349,7 +349,7 @@ function analytica_footer_widget_areas() {
 						endswitch;
 
                         $inside .= '</div><!-- .row -->';
-				$inside .= '</div><!-- .analytica-container -->';
+				$inside .= '</div><!-- .analytica-row -->';
 			$inside .= '</div><!-- .site-footer-top-inner -->';
 		$inside .= '</div>';
 	endif;

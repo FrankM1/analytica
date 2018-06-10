@@ -4,39 +4,18 @@
 	overflow: hidden;
 }
 
-.site-boxed .site-inner {
-	@extend %container;
-}
-
 .site-boxed .site-container {
-	@extend %container;
+    @include make-container-max-widths();
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.site-container {
-	margin-left: auto;
-	margin-right: auto;
-	position: relative;
-}
-
-.site-inner {
-	@extend %container;
-    margin: $grid-gutter-width auto;
-    margin-top: 0;
-    @media (max-width: $screen-md-max) {
-        padding: 0 $grid-gutter-width-half;
-    }
-}
-
-.content-sidebar-sidebar .site-inner,
-.content-sidebar .site-inner,
-.sidebar-content-sidebar .site-inner,
-.sidebar-content .site-inner,
-.sidebar-sidebar-content .site-inner {
+.content-sidebar-sidebar .site-inner > .analytica-container,
+.content-sidebar .site-inner > .analytica-container,
+.sidebar-content-sidebar .site-inner > .analytica-container,
+.sidebar-content .site-inner > .analytica-container,
+.sidebar-sidebar-content .site-inner > .analytica-container {
 	flex-direction: column;
 	display: flex;
-	padding-left: $grid-gutter-width-half;
-	padding-right: $grid-gutter-width-half;
 
 	@media (min-width: $screen-md-min) {
 		flex-direction: row;
@@ -49,26 +28,49 @@
 	.sidebar-secondary {
 		flex-direction: column;
 	}
+}
 
-	.site-main {
-		width: 100%;
+.content-sidebar .site-inner > .analytica-container,
+.content-sidebar-sidebar .site-inner > .analytica-container {
+	flex-direction: row-reverse;
+}
+
+.content-sidebar-sidebar .site-inner > .analytica-container,
+.content-sidebar .site-inner > .analytica-container {
+	.site-main-inner {
 		@media (min-width: $screen-md-min) {
-			width: calc(100% - 360px);
+			padding-right: $grid-gutter-width-half;
+		}
+	}
+
+	.widget-area-inner {
+		@media (min-width: $screen-md-min) {
+			padding-left: $grid-gutter-width-half;
 		}
 	}
 }
 
-.content-sidebar .site-inner,
-.content-sidebar-sidebar .site-inner {
-	flex-direction: row-reverse;
-}
-
-.site-content {
-	content: "768";
-}
-
-@media all and ( max-width: 768px) {
-	.site-content {
-		content: "";
+.sidebar-content-sidebar .site-inner > .analytica-container,
+.sidebar-content .site-inner > .analytica-container,
+.sidebar-sidebar-content .site-inner > .analytica-container {
+	.site-main-inner {
+		@media (min-width: $screen-md-min) {
+			padding-left: $grid-gutter-width-half;
+		}
 	}
+
+	.widget-area-inner {
+		@media (min-width: $screen-md-min) {
+			padding-right: $grid-gutter-width-half;
+		}
+	}
+}
+
+.site-boxed .site-inner > .analytica-container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.site-main {
+	width: 100%;
 }

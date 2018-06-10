@@ -14,19 +14,15 @@
 
     do_action( 'analytica_single_header_before' );
     
-    ?><header class="entry-header <?php analytica_entry_header_class(); ?>">
+		do_action( 'analytica_single_header_top' );
 
-		<?php do_action( 'analytica_single_header_top' ); ?>
+		analytica_blog_post_thumbnail_and_title_order();
 
-		<?php analytica_blog_post_thumbnail_and_title_order(); ?>
-
-		<?php do_action( 'analytica_single_header_bottom' ); ?>
-
-    </header><!-- .entry-header --><?php
+		do_action( 'analytica_single_header_bottom' );
     
-    do_action( 'analytica_single_header_after' );
+        do_action( 'analytica_single_header_after' );
 
-    analytica_markup( array( 'element' => '<div %s>', 'context' => 'entry-content' ));
+        analytica_markup( array( 'element' => '<div %s>', 'context' => 'entry-content' ));
     
         do_action( 'analytica_entry_content_before' );
 

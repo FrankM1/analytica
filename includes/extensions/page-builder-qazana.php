@@ -66,7 +66,7 @@ class Qazana {
      * @return [type]                    [description]
      */
     function page_title_selector(){
-        return '.hero h1.heading';
+        return ' .site-hero h1.heading';
     }
 
     /**

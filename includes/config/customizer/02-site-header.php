@@ -92,6 +92,13 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'default' => $default['site-header-overlay'],
         'type'    => 'switch',
         'label'   => esc_html__( 'Header Overlay' , 'analytica' ),
+        'conditions' => [
+            [
+                'setting'  => 'site-header',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
     ];
 
     $controls[] = [
@@ -100,6 +107,13 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'default' => $default['site-header-transparent'],
         'type'    => 'switch',
         'label'   => esc_html__( 'Header Transparent' , 'analytica' ),
+        'conditions' => [
+            [
+                'setting'  => 'site-header',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
     ];
 
     $controls[] = [

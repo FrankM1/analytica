@@ -39,7 +39,7 @@ class Theme {
         /**
          * Add add image size
          */
-        add_image_size( 'blog-featured', 860, 504, true );
+        add_image_size( 'blog-featured', analytica_get_option( 'site-content-width' ), 504, true );
 
         /**
          * Add support for widgets inside the customizer
@@ -118,7 +118,7 @@ class Theme {
     
         // Maybe add support for structural wraps
         if ( ! current_theme_supports( 'analytica-structural-wraps' ) ) {
-            add_theme_support( 'analytica-structural-wraps', array( 'site-header', 'site-hero', 'site-content', 'menu-primary', 'menu-secondary', 'site-footer' ) );
+            add_theme_support( 'analytica-structural-wraps', array( 'site-header', 'site-hero', 'site-inner', 'site-content', 'menu-primary', 'menu-secondary', 'site-footer' ) );
         }
     
         // Custom Site Logo

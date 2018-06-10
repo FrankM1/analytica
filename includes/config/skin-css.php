@@ -24,6 +24,7 @@ class Dynamic_CSS {
     public function __construct() {
         add_filter( 'analytica_dynamic_css_cached', array( $this, 'add_container_css' ));
         add_filter( 'analytica_dynamic_css_cached', array( $this, 'custom_background' ));
+        add_filter( 'analytica_dynamic_css_cached', array( $this, 'generate_hero_css' ));
         add_filter( 'analytica_dynamic_css_cached', array( $this, 'generate_site_css' ));
     }
 
@@ -276,12 +277,13 @@ class Dynamic_CSS {
         $footer_border                      = analytica_get_option( 'site-footer-border' );
         $footer_colophon_border             = analytica_get_option( 'footer-colophon-border' );
         $offset                             = intval( analytica_get_option( 'site-layout-offset' ) );
-        $single_post_site_container_width   = intval( analytica_get_option( 'single-post-site-container-width' ) );
         $single_post_site_sidebar_width     = intval( analytica_get_option( 'single-post-site-sidebar-width' ) );
         $site_container_width               = intval( analytica_get_option( 'site-content-width' ) );
         $site_sidebar_width                 = intval( analytica_get_option( 'site-sidebar-width' ) );
         $text_color       = analytica_get_option( 'site-text-color' );
         $link_color       = analytica_get_option( 'site-link-color' );
+        
+        $site_hero_height       = analytica_get_option( 'site-hero-height' );
 
         $css .= 'a, .nav-horizontal ul > li > ul.sub-menu .current_page_item a { color: ' . esc_attr( $link_color ) .'}';
 
@@ -289,57 +291,42 @@ class Dynamic_CSS {
 
             $css .= '@media (min-width: 1200px) {';
                 if ( $site_container_width > 0 ) {
-                    $css .= '.site-boxed .site-container { max-width: ' . esc_attr( $site_container_width ) . 'px; margin: 0 auto; }';
-                }
-
-                if ( $single_post_site_container_width > 0 ) {
-                    $css .= '.single-attachment .site-inner .analytica-container { width: ' . esc_attr( $single_post_site_container_width ) . 'px; }';
+                    $css .= '.site-boxed .site-container, .site-boxed .analytica-container { max-width: ' . esc_attr( $site_container_width + $site_sidebar_width  ) . 'px; margin: 0 auto; }';
                 }
 
                 if ( $offset && $offset > 0) {
                     $css .= '.site-boxed .site-container { margin-top: ' . esc_attr( $offset ) . 'px; margin-bottom: ' . esc_attr( $offset ) . 'px; }';
                 }
-
             $css .= '}';
 
         } else {
 
-            $css .= '@media (min-width: 1200px) {';
-                if ( $site_container_width > 0 ) {
-                    $css .= '.site-header .analytica-container, .analytica-container, .site-inner, .site-footer-boxed.has-container { max-width:' . esc_attr( $site_container_width ) . 'px;}';
-                }
-            $css .= '}';
-
+            if ( $site_container_width > 0 ) {
+                $css .= '@media (min-width: 1200px) {';
+                    $css .= '.analytica-container { max-width:' . esc_attr( $site_container_width + $site_sidebar_width ) . 'px; }';
+                $css .= '}';
+            }
         }
-
-        // Section
-        if ( $site_container_width > 0 ) {
-            $css .= '.site-inner { max-width: ' . esc_attr( $site_container_width ) . 'px; }';
-        }
-
+        
         $css .= '@media (min-width: 992px) {';
 
             if ( $site_sidebar_width > 100 ) {
-                $css .= '.site-main-sidebar-sidebar .site-main,
-                .site-main-sidebar .site-main,
-                .sidebar-content-sidebar .site-main, 
-                .sidebar-content .site-main, 
-                .sidebar-sidebar-content .site-main { width: calc(100% - ' . $site_sidebar_width . 'px) }';
-                
-                $css .= '.site-sidebar .widget-area-inner {
-                    width: ' . $site_sidebar_width . 'px;
-                }';
+                $css .= '.content-sidebar-sidebar .site-main, .content-sidebar .site-main, .sidebar-content-sidebar .site-main, .sidebar-content .site-main, .sidebar-sidebar-content .site-main { width: calc(100% - ' . esc_attr( $site_sidebar_width ) . 'px) }';
+                $css .= '.site-sidebar .widget-area-inner { width: ' . esc_attr( $site_sidebar_width ) . 'px; }';
             }
 
             if ( $single_post_site_sidebar_width > 100 ) {
+                
                 $css .= '.single-post .site-sidebar .widget-area-inner {
                     width: ' . $single_post_site_sidebar_width . 'px;
                 }';
+
             }
 
         $css .= '}';
   
         $css .= '@media (min-width: 768px) {';
+
             if ( ! empty( $footer_colophon_border ) ) {
                 $css .= '.site-colophon {';
                     $css .= ! empty( $footer_colophon_border['top'] ) ? 'border-top-width: ' . esc_attr( $footer_colophon_border['top'] ) . ';' : '';
@@ -426,10 +413,10 @@ class Dynamic_CSS {
 		return $parse_css;
     }
     
-    public function generate_hero_css() {
-        $css_rules = $extra_css = null;
+    public function generate_hero_css( $css ) {
+        $css_rules = null;
 
-        if ( esc_url( get_header_image() ) ) {
+        if ( get_header_image() ) {
 
             $hero = [
                 'url'  => esc_url( get_header_image() ),
@@ -439,25 +426,17 @@ class Dynamic_CSS {
                 ],
             ];
 
-            $hero = $this->get_background_url();
-
             if ( ! empty( $hero ) || $hero['url'] ) {
                 $css_rules .= 'background-image: url(' . esc_url( $hero['url'] ) . ');';
             }
 
             if ( $css_rules != '' ) {
-                $css_rules = '.site-hero-background-container {' . $css_rules . '}';
+                $css_rules = '.site-hero-background {' . $css_rules . '}';
             }
         }
 
-        if ( $this->args['height'] ) {
-            $css_rules .= '@media only screen and (min-width: 768px) {';
-                $css_rules .= '.site-hero, .site-hero-wrapper { min-height: ' . esc_attr( preg_replace( '/[^0-9,.-]/', '', $this->args['height'] ) ) . 'px; }';
-            $css_rules .= '}';
-        }
+        $css .= $css_rules;
 
-        $css = $css_rules . $extra_css;
-
-        return esc_js( $css );
+        return $css;
     }
 }

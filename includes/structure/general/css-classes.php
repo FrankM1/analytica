@@ -38,6 +38,8 @@ function analytica_site_layout_body_class( $classes ) {
 
     $site_layout = analytica_site_layout();
 
+    $classes[] = analytica_get_option( 'site-layout' );
+
     if ( $site_layout && ! is_404() ) {
         $classes[] = $site_layout;
     }

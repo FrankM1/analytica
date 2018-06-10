@@ -125,7 +125,7 @@ class Markup {
      */
     public function attributes_site_content( $attributes ) {
         $attributes['id']    = 'content';
-        $attributes['class'] = 'site-content site-content-has-container';
+        $attributes['class'] = 'site-content';
         return $attributes;
     }
 
@@ -140,6 +140,7 @@ class Markup {
      */
     function attributes_site_inner( $attributes ) {
         $attributes['class'] = 'site-inner';
+        $attributes['class'] = 'site-inner site-inner-has-container';
         return $attributes;
     }
 

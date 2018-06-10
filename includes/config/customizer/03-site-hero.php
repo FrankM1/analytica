@@ -30,7 +30,14 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
 		'id'      => 'site-hero-show-title',
 		'type'    => 'switch',
 		'section' => 'site-hero-settings',
-		'default' => $default['site-hero-show-title'],
+        'default' => $default['site-hero-show-title'],
+        'conditions' => [
+            [
+                'setting'  => 'site-hero',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
     ];
     
     $controls[] = [
@@ -38,7 +45,14 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
 		'id'      => 'site-hero-show-subtitle',
 		'type'    => 'switch',
 		'section' => 'site-hero-settings',
-		'default' => $default['site-hero-show-subtitle'],
+        'default' => $default['site-hero-show-subtitle'],
+        'conditions' => [
+            [
+                'setting'  => 'site-hero',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
     ];
 
     $controls[] = [
@@ -46,7 +60,14 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
 		'id'      => 'site-hero-breadcrumbs',
 		'type'    => 'switch',
 		'section' => 'site-hero-settings',
-		'default' => $default['site-hero-breadcrumbs'],
+        'default' => $default['site-hero-breadcrumbs'],
+        'conditions' => [
+            [
+                'setting'  => 'site-hero',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
     ];
 
     $controls[] = [
@@ -61,6 +82,11 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
                 'operator' => '!=',
                 'value'    => 'single-post-overlay-wide',
             ],
+            [
+                'setting'  => 'site-hero',
+                'operator' => '==',
+                'value'    => true,
+            ],
         ],
     ];
 
@@ -70,6 +96,13 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
         'type'    => 'switch',
         'label'   => esc_html__( 'Display page header on post archives', 'analytica' ),
         'default' => $default['archive-site-hero'],
+        'conditions' => [
+            [
+                'setting'  => 'site-hero',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
     ];
 
     $controls[] = [
@@ -79,6 +112,13 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
         'type'    => 'switch',
         'section' => 'site-hero-settings',
         'default' => $default['site-hero-fullheight'],
+        'conditions' => [
+            [
+                'setting'  => 'site-hero',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
     ];
 
     $controls[] = [
@@ -94,7 +134,19 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
                 'operator' => '==',
                 'value'    => false,
             ],
+            [
+                'setting'  => 'site-hero',
+                'operator' => '==',
+                'value'    => true,
+            ],
         ],
+        'output'    => [
+            array(
+                'element'  => '.site-hero, .site-hero-wrapper',
+                'property' => 'min-height',
+            ),
+        ],
+        'media_query' => '@media only screen and (max-width: 768px)',
     ];
 
     $controls[] = [
@@ -107,7 +159,14 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
 		'options' => [
             'background-dark'  => esc_html__( 'Light', 'analytica' ),
             'background-light' => esc_html__( 'Dark', 'analytica' ),
-		],
+        ],
+        'conditions' => [
+            [
+                'setting'  => 'site-hero',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
 	];
 
     $controls[] = [
@@ -123,6 +182,13 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
             'text-center' => esc_html__( 'Center', 'analytica' ),
             'text-right'  => esc_html__( 'Right', 'analytica' ),
         ],
+        'conditions' => [
+            [
+                'setting'  => 'site-hero',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
     ];
 
     $controls[] = [
@@ -135,9 +201,16 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
 		'section'   => 'site-hero-background',
 		'output'    => [
             array(
-                'element'  => '.site-hero-overlay-color',
+                'element'  => '.site-hero-background',
                 'property' => 'background-color',
             ),
+        ],
+        'conditions' => [
+            [
+                'setting'  => 'site-hero',
+                'operator' => '==',
+                'value'    => true,
+            ],
         ],
 	];
 
@@ -151,9 +224,16 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
         'transport' => 'auto',
         'output'    => array(
             array(
-                'element' => '.hero .hero-wrapper .header',
+                'element' => ' .site-hero  .site-hero-wrapper .header',
             ),
         ),
+        'conditions' => [
+            [
+                'setting'  => 'site-hero',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
         'media_query' => '@media only screen and (min-width: 768px)',
     ];
 
@@ -167,7 +247,14 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
         'output'    => [
             [
                 'property' => 'padding',
-                'element'  => '.hero .hero-wrapper .header',
+                'element'  => ' .site-hero  .site-hero-wrapper .header',
+            ],
+        ],
+        'conditions' => [
+            [
+                'setting'  => 'site-hero',
+                'operator' => '==',
+                'value'    => true,
             ],
         ],
     ];
@@ -183,9 +270,16 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
         'media_query' => '@media only screen and (min-width: 768px)',
         'output'    => array(
             array(
-                'element' => '.hero .hero-wrapper .subheader',
+                'element' => ' .site-hero  .site-hero-wrapper .subheader',
             ),
         ),
+        'conditions' => [
+            [
+                'setting'  => 'site-hero',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
     ];
 
     $controls[] = [
@@ -203,7 +297,14 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
         'output'    => [
             [
                 'property' => 'padding',
-                'element'  => '.hero .hero-wrapper .subheader',
+                'element'  => ' .site-hero  .site-hero-wrapper .subheader',
+            ],
+        ],
+        'conditions' => [
+            [
+                'setting'  => 'site-hero',
+                'operator' => '==',
+                'value'    => true,
             ],
         ],
     ];

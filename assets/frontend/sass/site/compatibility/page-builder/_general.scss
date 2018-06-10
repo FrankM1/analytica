@@ -1,13 +1,17 @@
 // page builder content layout
 .analytica-page-builder {
 
-	.site-inner,
+    .site-inner > .analytica-container,
 	.site-main-inner {
 		padding: 0;
 		margin: 0;
 		width: 100%;
 		max-width: none;
-	}
+    }
+    
+    .analytica-article-single .entry-content {
+		padding: 0;
+    }
 
 	.no-results {
 		text-align: center;

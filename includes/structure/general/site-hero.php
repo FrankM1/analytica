@@ -222,7 +222,7 @@ class Site_Hero {
      */
     public function do_background() {
         echo '<div class="site-hero-background-container">';
-            echo '<div class="site-hero-overlay-color"></div>';
+            echo '<div class="site-hero-background"></div>';
             do_action( 'analytica_do_hero_do_background' );
         echo '</div>';
     }
