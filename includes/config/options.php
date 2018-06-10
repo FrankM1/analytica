@@ -14,8 +14,7 @@ namespace Analytica;
 /**
  * Theme Options
  */
-class Options
-{
+class Options {
 
     /**
      * Post id.
@@ -30,8 +29,7 @@ class Options
      * @since 1.0.0
      * @return default values of the theme.
      */
-    public static function controls()
-    {
+    public static function controls() {
         return apply_filters( 'analytica_customizer_controls', [] );
     }
 
@@ -41,8 +39,7 @@ class Options
      * @since 1.0.0
      * @return default values of the theme.
      */
-    public static function defaults()
-    {
+    public static function defaults() {
 
         $primary = [
             'color' => '#535353',
@@ -63,10 +60,11 @@ class Options
 
             // Site Layout.
             'site-content-width'  => 1200,
-            'site-description'    => 0,
+            'site-description'    => false,
             'site-layout-offset'  => '0',
             'site-layout'         => 'site-wide',
             'site-sidebar-layout' => 'content-sidebar',
+            'site-schema'         => true,
 
             // Colors
             'site-accent-color'             => '#0274be',
@@ -118,7 +116,7 @@ class Options
             'site-header-menu-layout'      => 'header-logo-left',
             'site-header-overlay'          => false,
             'site-header-transparent'      => false,
-            'site-header-width'            => 'layout-boxed',
+            'site-header-width'            => true,
 
             'site-header-border-color'      => '',
             'site-header-border-style' => '',
@@ -354,7 +352,7 @@ class Options
             'site-back-to-top'           => true,
             'site-footer-copyright-text' => esc_html__('Copyright &copy; [year] Radium Themes. All rights reserved.', 'analytica'),
             'site-footer-layout'         => '4',
-            'site-footer-width'          => 'layout-boxed',                                                                           // 'layout-boxed', 'layout-fullwidth'
+            'site-footer-width'          => false,
             'site-footer-widgets'        => true,
             'site-footer'                => true,
             'site-theme-badge'           => true,
@@ -370,7 +368,7 @@ class Options
             'footer-colophon-background-color' => '#000',
             'footer-colophon-links-color'      => '#BCBCBC',
             'footer-colophon-color'            => 'rgba(255,255,255,0.5)',
-            'footer-colophon-width'            => true,
+            'footer-colophon-width'            => false,
             'footer-colophon'                  => true,
             'footer-colophon-border-color'     => 'rgba(255,255,255,0.09)',
             'footer-colophon-border-style'     => 'solid',
@@ -431,8 +429,7 @@ class Options
      *
      * @return array    Return array of theme options.
      */
-    public static function get_option($primary, $default_value)
-    {
-        return Customizer::get_option(analytica()->theme_slug, $primary);
+    public static function get_option( $primary, $default_value ) {
+        return Customizer::get_option( analytica()->theme_slug, $primary );
     }
 }

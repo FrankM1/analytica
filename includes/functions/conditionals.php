@@ -23,6 +23,23 @@ function analytica_is_bool( $var ) {
 }
 
 /**
+  * Detect if site schema is active
+  *
+  * @since 1.0.0
+  *
+  * @return boolean
+  */
+  function analytica_site_schema_is_active() {
+    $retval = false;
+
+    if ( analytica_get_option( 'site-schema' ) ) {
+        $retval = true;
+    }
+
+    return apply_filters( __FUNCTION__, $retval );
+}
+
+/**
   * Detect if header is active
   *
   * @since 1.0.0

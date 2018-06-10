@@ -39,12 +39,21 @@ class Customizer {
 	 * @access protected
 	 * @var array
 	 */
-	protected static $fields = array();
+    protected static $fields = array();
+    
+    /**
+	 * @static
+	 * @access protected
+	 * @var array
+	 */
+	protected static $defaults = array();
 	
 	/**
 	 * The class constructor
 	 */
 	public function __construct() {
+
+        self::$defaults = Options::defaults();
 
         add_filter( 'kirki_config', array( $this, 'configuration_styling' ) );
         add_action( 'after_setup_theme', array( $this, 'theme_defaults' ) );
@@ -311,15 +320,19 @@ class Customizer {
 	public static function get_option( $config_id = '', $field_id = '' ) {
 
 		// if Kirki exists, use it.
-		if ( class_exists( 'Kirki' ) ) {
-			return Kirki::get_option( $config_id, $field_id );
-		}
-		// Kirki does not exist, continue with our custom implementation.
+		if ( class_exists( 'Kirki' ) && isset( self::$fields[ $field_id ] ) ) {
+            return Kirki::get_option( $config_id, $field_id );
+		} elseif ( ! isset( self::$fields[ $field_id ] ) && isset( self::$defaults[ $field_id ] ) ) {
+            return self::$defaults[ $field_id ];
+        }
+        
+        // Kirki does not exist, continue with our custom implementation.
 		// Get the default value of the field
 		$default = '';
 		if ( isset( self::$fields[ $field_id ] ) && isset( self::$fields[ $field_id ]['default'] ) ) {
 			$default = self::$fields[ $field_id ]['default'];
-		}
+        }
+
 		// Make sure the config is defined
 		if ( isset( self::$config[ $config_id ] ) ) {
 			if ( 'option' == self::$config[ $config_id ]['option_type'] ) {
@@ -345,6 +358,7 @@ class Customizer {
 				}
 				return $value;
             }
+
             if ( get_theme_mod( $field_id, $default ) ) {
                 $defaults = Options::defaults();
                 return isset( $defaults[$field_id] ) ? $defaults[$field_id] : '';
@@ -390,7 +404,6 @@ class Customizer {
 		// if Kirki exists, use it.
 		if ( class_exists( 'Kirki' ) ) {
 			Kirki::add_config( $config_id, $args );
-			return;
 		}
 		// Kirki does not exist, set the config arguments
 		$config[ $config_id ] = $args;
@@ -410,7 +423,6 @@ class Customizer {
 		// if Kirki exists, use it.
 		if ( class_exists( 'Kirki' ) ) {
 			Kirki::add_field( $config_id, $args );
-			return;
 		}
 		// Kirki was not located, so we'll need to add our fields here.
 		// check that the "settings" & "type" arguments have been defined

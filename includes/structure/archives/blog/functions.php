@@ -154,24 +154,22 @@ function analytica_post_comments( $output_filter = '' ) {
     ob_start();
     if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
         ?>
-        <span class="comments-link">
-            <?php
+        <span class="comments-link"><?php
+
             /**
              * Get Comment Link
              *
              * @see analytica_default_strings()
              */
             comments_popup_link( analytica_default_strings( 'string-blog-meta-leave-a-comment', false ), analytica_default_strings( 'string-blog-meta-one-comment', false ), analytica_default_strings( 'string-blog-meta-multiple-comment', false ) );
-            ?>
-
-            <!-- Comment Schema Meta -->
+            
+            ?><!-- Comment Schema Meta -->
             <span itemprop="interactionStatistic" itemscope itemtype="https://schema.org/InteractionCounter">
                 <meta itemprop="interactionType" content="https://schema.org/CommentAction" />
                 <meta itemprop="userInteractionCount" content="<?php echo absint( wp_count_comments( get_the_ID() )->approved ); ?>" />
             </span>
-        </span>
+        </span><?php
 
-        <?php
     }
 
     $output = ob_get_clean();
@@ -458,29 +456,23 @@ function analytica_get_blog_post_title_meta() {
 
     // Blog Post Title and Blog Post Meta.
     do_action( 'analytica_archive_entry_header_before' );
-    ?>
-    <header class="entry-header">
-        <?php
+    
+    ?><header class="entry-header"><?php
 
-            do_action( 'analytica_archive_post_title_before' );
+        do_action( 'analytica_archive_post_title_before' );
 
-            /* translators: 1: Current post link, 2: Current post id */
-            analytica_the_post_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() );
+        /* translators: 1: Current post link, 2: Current post id */
+        analytica_the_post_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() );
 
-            do_action( 'analytica_archive_post_title_after' );
+        do_action( 'analytica_archive_post_title_after' );
 
-        ?>
-        <?php
+        do_action( 'analytica_archive_post_meta_before' );
 
-            do_action( 'analytica_archive_post_meta_before' );
+        analytica_blog_get_post_meta();
 
-            analytica_blog_get_post_meta();
+        do_action( 'analytica_archive_post_meta_after' );
 
-            do_action( 'analytica_archive_post_meta_after' );
-
-        ?>
-    </header><!-- .entry-header -->
-    <?php
+    ?></header><!-- .entry-header --><?php
 
     do_action( 'analytica_archive_entry_header_after' );
 }
@@ -504,6 +496,7 @@ function analytica_single_get_post_meta( $echo = true ) {
             $output = apply_filters( 'analytica_single_post_meta', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // WPCS: XSS OK.
         }
     }
+
     if ( $echo ) {
         echo wp_kses( $output, analytica_get_allowed_tags() ); 
     } else {

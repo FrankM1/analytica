@@ -162,18 +162,21 @@ class Core {
      */
     public function init() {
         $this->css_generator                         = new CSS_Generate();
+        $this->customizer                            = new Customizer();
         $this->dynamic_css                           = new Dynamic_CSS();
-        $this->theme                                 = new Theme();
         $this->frontend                              = new Frontend();
+        $this->markup                                = new Markup();
+        $this->metabox                               = new Metabox\Actions();
+        $this->options_instance                      = new Options();
+        $this->schema                                = new SchemaORG();
+        $this->theme                                 = new Theme();
+
         $this->loop_base                             = new Content\Loop\Base();
         $this->loop_archives                         = new Content\Loop\Archives();
         $this->loop_post                             = new Content\Loop\Post();
         $this->loop_404                              = new Content\Loop\Page_Not_Found();
         $this->loop_page                             = new Content\Loop\Page();
-        $this->options_instance                      = new Options();
-        $this->customizer                            = new Customizer();
-        $this->metabox                               = new Metabox\Actions();
-
+     
         $this->extensions_page_builders              = new Extensions\Page_Builder();
         $this->extensions_page_builders_qazana       = new Extensions\Page_Builder\Qazana();
         $this->extensions_page_builders_elementor    = new Extensions\Page_Builder\Elementor();
@@ -209,7 +212,6 @@ class Core {
     }
 
     function _include_config() {
-        // First file to load - setup theme environment
         require_once get_theme_file_path( '/includes/config/options.php' );
         require_once get_theme_file_path( '/includes/config/theme.php' );
         require_once get_theme_file_path( '/includes/config/frontend.php' );
@@ -276,13 +278,15 @@ class Core {
     }
 
     function _include_admin() {
-        // We've separated admin and frontend specific files for the best performance
-        if ( is_admin() ) {
-            require_once get_template_directory() . '/includes/admin/about-page.php';
+        if ( ! is_admin() ) { 
+            return;
         }
+        require_once get_template_directory() . '/includes/admin/about-page.php';
     }
 
     function _include_structure_base() {
+        require_once get_theme_file_path( '/includes/structure/general/site-markup.php' );
+        require_once get_theme_file_path( '/includes/structure/general/site-schema.php' );
         require_once get_theme_file_path( '/includes/structure/general/site-loop.php' );
         require_once get_theme_file_path( '/includes/structure/general/site-footer.php' );
         require_once get_theme_file_path( '/includes/structure/general/site-header.php' );

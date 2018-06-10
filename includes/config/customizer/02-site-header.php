@@ -25,6 +25,47 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
     ];
 
     $controls[] = [
+        'id'      => 'site-header-width',
+        'section' => 'site-header-settings',
+        'type'    => 'switch',
+        'label'   => esc_html__( 'Header fullwidth' , 'analytica' ),
+        'default'   => $default['site-header-width'],
+        'options' => [
+            1 => esc_attr__( 'Enable', 'analytica' ),
+            0 => esc_attr__( 'Disable', 'analytica' ),
+        ],
+        'conditions' => [
+            [
+                'setting'  => 'site-header',
+                'operator' => '==',
+                'value'    => true,
+            ],
+            [
+                'setting'  => 'site-layout',
+                'operator' => '!=',
+                'value'    => 'boxed',
+            ],
+        ],
+        'partial_refresh' => [
+            'site-header' => [
+                'selector'        => '.site-header',
+                'render_callback' => function() {
+                    ob_start();
+
+                    do_action( 'analytica_header_before' );
+                    do_action( 'analytica_header' );
+                    do_action( 'analytica_header_after' );
+
+                    $output = ob_get_contents();
+                    ob_end_clean();
+
+                    return $output;
+                },
+            ],
+        ],
+    ];
+
+    $controls[] = [
         'id'              => 'site-header-background-color',
         'section'         => 'site-header-settings',
         'type'            => 'color',

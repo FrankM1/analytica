@@ -23,8 +23,7 @@ namespace Analytica;
  *
  * @since 1.0.0
  */
-class Breadcrumb
-{
+class Breadcrumb {
     /**
      * Settings array, a merge of provided values and defaults.
      *
@@ -39,8 +38,7 @@ class Breadcrumb
      *
      * @since 1.0.0
      */
-    public function __construct()
-    {
+    public function __construct() {
 
         // Default arguments
         $this->args = array(
@@ -76,8 +74,7 @@ class Breadcrumb
      *
      * @return string HTML markup
      */
-    public function get_output($args = array())
-    {
+    public function get_output($args = array()) {
 
         /*
          * Filter the Radium breadcrumb arguments.
@@ -773,10 +770,10 @@ class Breadcrumb
     {
         $title = '';
 
-    $itemprop_item = ' itemprop="item"';
-    $itemprop_name = ' itemprop="name"';
+        $itemprop_item = ' itemprop="item"';
+        $itemprop_name = ' itemprop="name"';
 
-       $link = sprintf( '<a href="%s"%s><span%s>%s</span></a>', esc_attr( $url ), $itemprop_item, $itemprop_name, $content );
+        $link = sprintf( '<a href="%s"%s><span%s>%s</span></a>', esc_attr( $url ), $itemprop_item, $itemprop_name, $content );
 
         /**
          * Filter the anchor link for a single breadcrumb.
@@ -791,8 +788,7 @@ class Breadcrumb
          */
         $link = apply_filters('analytica_breadcrumb_link', $link, $url, $title, $content, $this->args);
 
-
-    $link = sprintf( '<span %s>', analytica_attr( 'breadcrumb-link-wrap' ) ) . $link . '</span>';
+        $link = sprintf( '<span %s>', analytica_attr( 'breadcrumb-link-wrap' ) ) . $link . '</span>';
 
         if ($sep) {
             $link .= $sep;

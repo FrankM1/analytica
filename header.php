@@ -38,8 +38,10 @@ analytica_markup( array(
 
 do_action( 'analytica_body_top' ); 
 
-?><div id="page" class="hfeed site">
-    <a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( analytica_default_strings( 'string-header-skip-link', false ) ); ?></a><?php
+analytica_markup( array(
+    'element' => '<div %s>',
+    'context' => 'site',
+) );
 
     do_action( 'analytica_header_before' );
 
@@ -48,9 +50,12 @@ do_action( 'analytica_body_top' );
     do_action( 'analytica_header_after' );
 
     do_action( 'analytica_content_before' ); 
-    
-    ?><div id="content" class="site-content has-container"><?php
-            
+
+        analytica_markup( array(
+            'element' => '<div %s>',
+            'context' => 'site-content',
+        ) );
+                
             do_action( 'analytica_content_top' );
 
                 analytica_markup( array(

@@ -36,27 +36,6 @@ function analytica_site_layout_body_class( $classes ) {
     // Current Analytica verion.
     $classes[] = esc_attr( 'analytica-' . wp_get_theme()->version );
 
-    $classes[] = esc_attr( analytica_get_option( 'site-layout' ) );
-
-    return $classes;
-}
-
-add_filter( 'body_class', 'analytica_layout_body_classes' );
-/**
- * Add site layout classes to the body classes.
- *
- * We can use pseudo-variables in our CSS file, which helps us achieve multiple site layouts with minimal code.
- *
- * @since 1.0.0
- *
- * @uses analytica_site_layout() Return the site layout for different contexts.
- *
- * @param array $classes Existing classes.
- *
- * @return array Amended classes.
- */
-function analytica_layout_body_classes( array $classes ) {
-
     $site_layout = analytica_site_layout();
 
     if ( $site_layout && ! is_404() ) {
@@ -78,7 +57,6 @@ function analytica_get_site_header_class( $class = '' ) {
 
     $header_align_option = analytica_get_option( 'site-header-menu-layout' );
     $header_background_color_option = analytica_get_option( 'site-header-background-color' );
-    $header_full_width_option = analytica_get_option( 'site-header-width' );
     $header_overlay_option = analytica_get_option( 'site-header-overlay' );
     $header_transparent_option = analytica_get_option( 'site-header-transparent' );
 
@@ -108,13 +86,6 @@ function analytica_get_site_header_class( $class = '' ) {
         $classes[] = 'site-header-invert';
     }
 
-    // Add width class
-    if ( ! $header_full_width_option ) {
-        $classes[] = 'has-container';
-    } else {
-        $classes[] = 'fullwidth';
-    }
-
     // Add alignment classes
     if ( 'header-logo-left' == $header_align_option ) {
         $classes[] = 'site-header-left';
@@ -130,6 +101,13 @@ function analytica_get_site_header_class( $class = '' ) {
         $classes[] = 'site-header-left-narrow';
     } elseif ( 'header-logo-left-2' == $header_align_option ) {
         $classes[] = 'site-header-left-style-2';
+    }
+    
+    // Add width class
+    if ( ! analytica_get_option( 'site-header-width' ) ) {
+        $classes[] = 'site-header-has-container';
+    } else {
+        $classes[] = 'site-header-fullwidth';
     }
 
     if ( ! empty( $class ) ) {

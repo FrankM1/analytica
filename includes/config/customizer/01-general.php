@@ -174,7 +174,7 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         ),
         'output'    => array(
             array(
-                'element' => '.single .post-navigation, .comments-area, .page-links .page-link, .page-links a .page-link',
+                'element' => '.single .post-navigation, .comments-area, .page-links .page-link, .page-links a .page-link, .gallery-icon',
                 'property' => 'border-color'
             ),
 

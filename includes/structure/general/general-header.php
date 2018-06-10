@@ -136,20 +136,20 @@ function analytica_do_meta_pingback() {
 
 }
 
-add_action( 'wp_head', 'analytica_rel_author' );
+add_action( 'wp_head', 'analytica_site_author' );
 /**
  * Echo custom rel="author" link tag.
  *
  * If the appropriate information has been entered, either for the homepage author, or for an individual post/page
  * author, echo a custom rel="author" link.
  *
- * @since 1.9.0
+ * @since 1.0.0
  *
  * @uses analytica_get_option() Get SEO setting value.
  *
  * @return null Return null on failure.
  */
-function analytica_rel_author() {
+function analytica_site_author() {
 
     $post = get_post();
 
@@ -175,7 +175,7 @@ function analytica_wpmu_signup_stylesheet() {
     remove_action( 'wp_head', 'wpmu_signup_stylesheet' );
 }
 
-add_action( 'wp_head', 'analytica_rel_publisher' );
+add_action( 'wp_head', 'analytica_site_publisher' );
 /**
  * Echo custom rel="publisher" link tag.
  *
@@ -185,7 +185,7 @@ add_action( 'wp_head', 'analytica_rel_publisher' );
  *
  * @uses analytica_get_option() Get SEO setting value.
  */
-function analytica_rel_publisher() {
+function analytica_site_publisher() {
 
     if ( is_front_page() && $publisher_url = analytica_get_option( 'site-publisher-uri' ) ) {
         printf( '<link rel="publisher" href="%s" />', esc_url( $publisher_url ) );
@@ -193,15 +193,15 @@ function analytica_rel_publisher() {
 
 }
 
-add_action( 'analytica_site_title', 'analytica_site_header_title' );
+add_action( 'analytica_site_title', 'analytica_site_title' );
 /**
- * Echo the site title into the header.
+ * Echo the site title in the header.
  *
  * Applies the 'analytica_title' filter before echoing.
  *
  * @since 1.0.0
  */
-function analytica_site_header_title() {
+function analytica_site_title() {
 
     // Build the title
     $output = '<div class="site-title-wrapper" itemprop="headline">';
@@ -235,9 +235,9 @@ function analytica_site_header_title() {
     echo analytica_sanitize_html( $output );
 }
 
-add_action( 'analytica_site_description', 'analytica_site_header_description' );
+add_action( 'analytica_site_description', 'analytica_site_description' );
 /**
- * Echo the site description into the header.
+ * Echo the site description in the header.
  *
  * Depending on the SEO option set by the user, this will either be wrapped in an 'h1' or 'p' element.
  *
@@ -245,20 +245,33 @@ add_action( 'analytica_site_description', 'analytica_site_header_description' );
  *
  * @since 1.0.0
  */
-function analytica_site_header_description() {
+function analytica_site_description() {
 
-    if ( ! analytica_get_option( 'site-description' ) ) {
+    if ( ! analytica_get_option( 'site-description' ) && get_bloginfo( 'description' ) ) {
         return;
     }
 
-    // Set what goes inside the wrapping tags
-    $inside = esc_html( get_bloginfo( 'description' ) );
+    analytica_markup( array(
+        'element' => '<p %s>',
+        'context' => 'site-description',
+    ));
 
-    $description  = '<p class="site-description" itemprop="description">' . $inside . '</p>';
+    echo esc_html( get_bloginfo( 'description' ) );
 
-    $output = $inside ? $description : '';
+    analytica_markup( array(
+        'element' => '</p>',
+    ));
 
-    echo analytica_sanitize_html( $output ); 
+}
+
+add_action( 'analytica_header_before', 'analytica_site_skip_link', 5 );
+/**
+ * Echo the site skip link in the header.
+ *
+ * @since 1.0.0
+ */
+function analytica_site_skip_link () {
+    ?><a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( analytica_default_strings( 'string-header-skip-link', false ) ); ?></a><?php
 }
 
 add_action( 'template_redirect', 'analytica_hero_support' );

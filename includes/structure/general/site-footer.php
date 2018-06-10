@@ -363,12 +363,17 @@ function analytica_footer_widget_areas() {
     endif;
 
     if ( $inside ) {
+
         $output .= analytica_markup(array(
             'element' => '<div %s>',
             'context' => 'site-footer-widgets',
         ));
 
+        $output .= analytica_structural_wrap( 'site-footer', 'open', false );
+
         $output .= $inside;
+
+        $output .= analytica_structural_wrap( 'site-footer', 'close', false  );
 
         $output .= '</div>';
     }
@@ -457,7 +462,11 @@ function analytica_do_colophon() {
         'context' => 'site-colophon',
     ) );
 
+   analytica_structural_wrap( 'site-footer', 'open' );
+
     do_action( 'analytica_do_colophon' );
+
+    analytica_structural_wrap( 'site-footer', 'close' );
 
     analytica_markup( array(
         'element' => '</footer>',

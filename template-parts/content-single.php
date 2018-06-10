@@ -8,18 +8,18 @@
  * @since 1.0.0
  */
 
+do_action( 'analytica_entry_before' );
+
+analytica_markup( array( 'element' => '<article %s>', 'context' => 'article' ));
+
+    do_action( 'analytica_entry_top' );
+
+    do_action( 'analytica_entry_content_single' );
+
+    do_action( 'analytica_entry_bottom' );
+
+analytica_markup( array( 'element' => '</article>' ));
+
+do_action( 'analytica_entry_after' );
+
 ?>
-
-<?php do_action( 'analytica_entry_before' ); ?>
-
-<article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-	<?php do_action( 'analytica_entry_top' ); ?>
-
-	<?php do_action( 'analytica_entry_content_single' ); ?>
-
-	<?php do_action( 'analytica_entry_bottom' ); ?>
-
-</article><!-- #post-## -->
-
-<?php do_action( 'analytica_entry_after' ); ?>

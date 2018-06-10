@@ -77,9 +77,9 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
                     'render_callback' => function() {
                         ob_start();
 
-                        do_action( 'analytica_before_footer' );
+                        do_action( 'analytica_footer_before' );
                         do_action( 'analytica_footer' );
-                        do_action( 'analytica_after_footer' );
+                        do_action( 'analytica_footer_after' );
 
                         $output = ob_get_contents();
                         ob_end_clean();

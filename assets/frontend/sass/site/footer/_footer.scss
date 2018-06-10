@@ -27,10 +27,9 @@
 		padding: $grid-gutter-width-half / 2;
 	}
 
-	&-boxed.has-container {
-		@extend %container;
-		margin: 0 auto;
-	}
+	&-fullwidth .analytica-container {
+        max-width: none;
+    }
 
 	a {
 		color: inherit;
@@ -55,8 +54,11 @@
 }
 
 .site-colophon {
-	padding: $grid-gutter-width-half 0;
-	border-width: 1px;
+    padding: $grid-gutter-width-half 0;
+    border-width: 1px;
+    &-fullwidth .analytica-container {
+        max-width: none;
+    }
 }
 
 .site-creds span {

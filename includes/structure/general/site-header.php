@@ -9,30 +9,7 @@
  * @link     https://qazana.net/
  */
 
-add_filter( 'analytica_attr_site-header', 'analytica_attributes_header' );
-/**
- * Add attributes for site header element.
- *
- * @since 1.0.0
- *
- * @param array $attributes Existing attributes.
- *
- * @return array Amended attributes.
- */
-function analytica_attributes_header( $attributes ) {
-
-    if ( ! analytica_site_header_is_active() ) {
-        return;
-    }
-
-    $attributes['class'] = implode( ' ', analytica_get_site_header_class() );
-    $attributes['itemscope'] = 'itemscope';
-    $attributes['itemtype'] = 'https://schema.org/WPHeader';
-
-    return $attributes;
-}
-
-add_action( 'analytica_header', 'analytica_header_markup_open', 5 );
+add_action( 'analytica_header', 'analytica_site_header_markup_open', 5 );
 /**
  * Echo the opening structural markup for the header.
  *
@@ -41,7 +18,7 @@ add_action( 'analytica_header', 'analytica_header_markup_open', 5 );
  * @uses analytica_markup()          Apply contextual markup.
  * @uses analytica_structural_wrap() Maybe add opening .wrap div tag with header context.
  */
-function analytica_header_markup_open() {
+function analytica_site_header_markup_open() {
 
     if ( ! analytica_site_header_is_active() ) {
         return;
@@ -53,7 +30,7 @@ function analytica_header_markup_open() {
      ) );
 }
 
-add_action( 'analytica_header', 'analytica_header_markup_close', 15 );
+add_action( 'analytica_header', 'analytica_site_header_markup_close', 15 );
 /**
  * Echo the opening structural markup for the header.
  *
@@ -62,7 +39,7 @@ add_action( 'analytica_header', 'analytica_header_markup_close', 15 );
  * @uses analytica_structural_wrap() Maybe add closing .wrap div tag with header context.
  * @uses analytica_markup()          Apply contextual markup.
  */
-function analytica_header_markup_close() {
+function analytica_site_header_markup_close() {
 
     if ( ! analytica_site_header_is_active() ) {
         return;
@@ -73,13 +50,13 @@ function analytica_header_markup_close() {
      ) );
 }
 
-add_action( 'analytica_header', 'analytica_do_header', 10 );
+add_action( 'analytica_header', 'analytica_do_site_header', 10 );
 /**
  * Echo the default header, including the #title-area div, along with #title and #description, as well as the .widget-area.
  *
  * @since 1.0.0
  */
-function analytica_do_header() {
+function analytica_do_site_header() {
 
     if ( ! analytica_site_header_is_active() ) {
         return;
