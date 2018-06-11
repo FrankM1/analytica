@@ -55,7 +55,7 @@ function analytica_site_layout_body_class( $classes ) {
  * @param string|array $class One or more classes to add to the class list.
  * @return array Array of classes.
  */
-function analytica_get_site_header_class( $class = '' ) {
+function analytica_get_site_header_class() {
 
     $header_align_option = analytica_get_option( 'site-header-menu-layout' );
     $header_background_color_option = analytica_get_option( 'site-header-background-color' );
@@ -71,13 +71,13 @@ function analytica_get_site_header_class( $class = '' ) {
     $classes[] = 'site-header-primary';
 
     // Handle overlay / not overlay
-    if ( true == $header_overlay_option ) {
+    if ( $header_overlay_option ) {
         $classes[] = 'site-header-overlay';
         $classes[] = 'site-header-sticky';
     }
 
     // Handle overlay / not overlay
-    if ( true == $header_transparent_option ) {
+    if ( $header_transparent_option ) {
         $classes[] = 'site-header-transparent';
     }
 
@@ -112,20 +112,5 @@ function analytica_get_site_header_class( $class = '' ) {
         $classes[] = 'site-header-fullwidth';
     }
 
-    if ( ! empty( $class ) ) {
-       if ( ! is_array( $class ) ) {
-           $class = preg_split( '#\s+#', $class );
-       }
-       $classes[] = array_merge( $classes, $class );
-    } else {
-        // Ensure that we always coerce class to being an array.
-        $class = array();
-    }
-
-    // Default to Header Left if there are no matches above
-    if ( empty( $classes ) ) {
-       $classes[] = 'site-header-left';
-    }
-
-    return apply_filters( 'analytica_header_class', $classes, $class );
+    return apply_filters( 'analytica_header_class', $classes );
 }

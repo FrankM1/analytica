@@ -1,7 +1,6 @@
 // Page header
 // -------------------------
 .site-hero {
-	@include clearfix;
 	position: relative;
 	margin: 0;
 	min-height: ( $grid-gutter-width * 2);
@@ -33,7 +32,6 @@
 
 		@media (min-width: $screen-md-min) {
 			padding: $grid-gutter-width 0;
-			height: 100%;
 		}
 		.page-title-inner {
 			position: relative;

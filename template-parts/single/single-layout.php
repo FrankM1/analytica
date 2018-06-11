@@ -11,8 +11,9 @@
 ?>
 
 <div <?php analytica_blog_layout_class( 'single-layout-1' ); ?>><?php
+        do_action( 'analytica_single_before' );
 
-    do_action( 'analytica_single_header_before' );
+        do_action( 'analytica_single_header_before' );
     
 		do_action( 'analytica_single_header_top' );
 
@@ -51,5 +52,7 @@
         );
         
     analytica_markup( array( 'element' => '</div><!-- .entry-content -->' ));
+
+    do_action( 'analytica_single_after' );
 
 ?></div>

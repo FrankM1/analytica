@@ -43,12 +43,9 @@ class Page_Builder {
      * @return array Amended classes.
      */
     function body_class( $classes ) {
-
-        // Page builder class
-        if ( analytica_is_builder_page() ) {
+        if ( analytica_is_builder_page() && is_page() ) {
             $classes[] = 'analytica-page-builder';
         }
-
         return $classes;
     }
 
@@ -74,11 +71,9 @@ class Page_Builder {
      * @return boolean
      */
     function is_hero_available( $retval ) {
-
         if ( analytica_is_builder_page() ) {
             $retval = false;
         }
-
         return $retval;
     }
 
@@ -90,11 +85,9 @@ class Page_Builder {
      * @return boolean
      */
     function has_pagination( $retval ) {
-
         if ( analytica_is_builder_page() ) {
             $retval = false;
         }
-
         return $retval;
     }
 

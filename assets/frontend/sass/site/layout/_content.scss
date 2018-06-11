@@ -16,7 +16,7 @@
 .sidebar-sidebar-content .site-inner > .analytica-container {
 	flex-direction: column;
 	display: flex;
-
+    flex-wrap: wrap;
 	@media (min-width: $screen-md-min) {
 		flex-direction: row;
 	}
@@ -66,9 +66,8 @@
 	}
 }
 
-.site-boxed .site-inner > .analytica-container {
-    padding-left: 0;
-    padding-right: 0;
+.site-inner > .analytica-container {
+    padding: $grid-gutter-width;
 }
 
 .site-main {

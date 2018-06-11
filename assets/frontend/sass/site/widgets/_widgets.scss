@@ -31,8 +31,38 @@
 
 	ul {
 		padding: 0;
-		margin: 0 0 0 20px;
-	}
+		margin: 0;
+    }
+    
+    li {
+        margin: 0;
+        list-style: none;
+
+        &:hover {
+            color: $dark;
+
+            &::before {
+                margin-right: 13px;
+                width: 13px;
+                background-color: $brand-primary;
+            }
+        }
+
+        &:hover a {
+            color: $dark;
+        }
+
+        &::before {
+            display: inline-block;
+            margin-right: 12px;
+            width: 8px;
+            height: 2px;
+            background: #e1e1e1;
+            content: '';
+            vertical-align: middle;
+            transition: all 0.15s ease-out;
+        }
+    }
 
 	li {
 		padding-top: rem(5px);
@@ -52,27 +82,6 @@
 
 		ul {
 			margin: 0;
-
-			a:hover {
-				color: $dark;
-
-				&::before {
-					margin-right: 13px;
-					width: 13px;
-					background-color: $brand-primary;
-				}
-			}
-
-			a::before {
-				display: inline-block;
-				margin-right: 12px;
-				width: 8px;
-				height: 2px;
-				background: #e1e1e1;
-				content: '';
-				vertical-align: middle;
-				transition: all 0.15s ease-out;
-			}
 		}
 	}
 

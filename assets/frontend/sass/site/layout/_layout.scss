@@ -6,6 +6,12 @@
 	@include clearfix;
 }
 
+.single-post.site-mono-container {
+    .entry-content {
+		padding: $grid-gutter-width 0;
+    }
+}
+
 .site-container-detach {
 	background-color: $color-background-sep-content-body;
 
@@ -72,5 +78,16 @@
 	.site-main-inner,
 	.site-sidebar .widget-area-inner {
 		padding: $grid-gutter-width;
+    }
+    
+    .analytica-article-single {
+
+        .single-layout-1 {
+			padding-bottom: $grid-gutter-width;
+        }
+
+		.entry-content {
+			padding-top: $grid-gutter-width;
+		}
 	}
 }

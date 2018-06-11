@@ -21,7 +21,7 @@ function analytica_admin_setup() {
 	/*
 	* About page instance
 	*/
-	$config = array(
+	$config = apply_filters( 'analytica_admin_setup_config', array(
 
 		// Menu name under Appearance.
 		'menu_name' => esc_html__( 'About Analytica', 'analytica' ),
@@ -126,7 +126,7 @@ function analytica_admin_setup() {
 				),
 			),
 		),
-    );
+    ));
     
 	\Analytica\About_Page::init( $config );
 }
