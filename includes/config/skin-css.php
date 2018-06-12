@@ -110,6 +110,8 @@ class Dynamic_CSS {
         $link_hover_color              = analytica_get_option( 'site-link-highlight-color' );
         $content_background_color      = analytica_get_option( 'site-content-background-color' );
         $body_font                     = analytica_get_option( 'font-base' );
+        $post_meta_color               = analytica_get_option( 'post-meta-color' );
+        
         $body_font_size                = $body_font['font-size'];
         
         $highlight_theme_color         = analytica_get_foreground_color( $accent_color );
@@ -197,9 +199,8 @@ class Dynamic_CSS {
             ),
 
             // Blog Post Meta Typography.
-            '.entry-meta, .entry-meta *'              => array(
-                'line-height' => '1.45',
-                'color'       => esc_attr( $link_color ),
+            '.entry-meta, .entry-meta *' => array(
+                'color'       => esc_attr( $post_meta_color ),
             ),
 
             '.calendar_wrap #today > a'               => array(
@@ -303,7 +304,7 @@ class Dynamic_CSS {
 
             if ( $site_container_width > 0 ) {
                 $css .= '@media (min-width: 1200px) {';
-                    $css .= '.analytica-container { max-width:' . esc_attr( $site_container_width + $site_sidebar_width ) . 'px; }';
+                    $css .= '.site-inner > .analytica-container, .analytica-container { max-width:' . esc_attr( $site_container_width + $site_sidebar_width ) . 'px; }';
                 $css .= '}';
             }
         }

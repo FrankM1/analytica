@@ -32,7 +32,7 @@ add_action( 'analytica_primary_content_bottom', 'analytica_related_posts' );
  */
 function analytica_related_posts() {
 
-    if ( ! is_single() ) {
+    if ( ! is_singular('post' ) ) {
         return;
     }
     

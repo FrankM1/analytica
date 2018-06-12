@@ -12,10 +12,8 @@ namespace Analytica\Extensions;
  * @link     https://qazana.net/
  */
 
- use Elementor\Plugin;
-
 /**
- * Elementor Compatibility
+ * Page Builder Compatibility
  *
  * @since 1.0.0
  */
@@ -43,7 +41,7 @@ class Page_Builder {
      * @return array Amended classes.
      */
     function body_class( $classes ) {
-        if ( analytica_is_builder_page() && is_page() ) {
+        if ( analytica_is_builder_page() && ! is_singular('post') ) {
             $classes[] = 'analytica-page-builder';
         }
         return $classes;

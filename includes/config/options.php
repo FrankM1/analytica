@@ -320,6 +320,7 @@ class Options {
             'single-post-layout'               => 'content-sidebar',
             'single-post-site-hero'            => true,
             'single-has-post-thumbnail'        => true,
+            'post-meta-color'                  => '',
             'single-post-structure'            => array(
                 'single-image',
                 'single-title-meta',

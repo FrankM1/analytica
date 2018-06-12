@@ -35,6 +35,7 @@ class Frontend {
     public function __construct() {
         add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ], 5 );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles' ] );
+        add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_customizer_styles' ], 99 );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
     }
 
@@ -134,11 +135,9 @@ class Frontend {
         endif;
 
         wp_enqueue_style( 'analytica-frontend', analytica()->theme_url . '/assets/frontend/css/style' . $css_suffix, '', $version, 'all' );
-
-        $this->parse_global_css_code();
     }
 
-    protected function parse_global_css_code() {
+    public function enqueue_customizer_styles() {
         $global_css_file = new Global_CSS_File();
         $global_css_file->enqueue();
     }

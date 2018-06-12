@@ -7,11 +7,11 @@
 
 	&-widgets {
 		// # Site Footer Widgets
-        padding: $grid-gutter-width 0;
-        
-        @media (max-width: $screen-md-max) {
-            padding: $grid-gutter-width $grid-gutter-width-half;
-        }
+		padding: $grid-gutter-width 0;
+
+		@media (max-width: $screen-md-max) {
+			padding: $grid-gutter-width $grid-gutter-width-half;
+		}
 
 		p:last-child,
 		table {
@@ -27,9 +27,14 @@
 		padding: $grid-gutter-width-half / 2;
 	}
 
-	&-fullwidth .analytica-container {
-        max-width: none;
-    }
+	&-fullwidth {
+		.analytica-col-md-12 {
+			padding: 0;
+		}
+		.analytica-container {
+			max-width: none;
+		}
+	}
 
 	a {
 		color: inherit;
@@ -41,11 +46,11 @@
 	}
 
 	.widget {
-        margin-bottom: $grid-gutter-width-half;
+		margin-bottom: $grid-gutter-width-half;
 		&:last-child {
-            @media (min-width: $screen-md-min) {
-                margin-bottom: 0; 
-            }
+			@media (min-width: $screen-md-min) {
+				margin-bottom: 0;
+			}
 		}
 	}
 	.widget-area .widget-title-wrap {
@@ -54,11 +59,11 @@
 }
 
 .site-colophon {
-    padding: $grid-gutter-width-half 0;
-    border-width: 1px;
-    &-fullwidth .analytica-container {
-        max-width: none;
-    }
+	padding: $grid-gutter-width-half 0;
+	border-width: 1px;
+	&-fullwidth .analytica-container {
+		max-width: none;
+	}
 }
 
 .site-creds span {
