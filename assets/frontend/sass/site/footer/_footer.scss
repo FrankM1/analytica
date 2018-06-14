@@ -30,6 +30,7 @@
 	&-fullwidth {
 		.analytica-col-md-12 {
 			padding: 0;
+			max-width: 100%;
 		}
 		.analytica-container {
 			max-width: none;
@@ -47,6 +48,9 @@
 
 	.widget {
 		margin-bottom: $grid-gutter-width-half;
+		&.widget_qazana-library {
+			margin-bottom: 0;
+		}
 		&:last-child {
 			@media (min-width: $screen-md-min) {
 				margin-bottom: 0;

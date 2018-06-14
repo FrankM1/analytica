@@ -166,7 +166,7 @@ function analytica_markup( $args = [] ) {
     $tag = $args['context'] ? apply_filters( "analytica_markup_{$args['context']}_output", $tag, $args ) : $tag;
 
     if ( $args['echo'] ) {
-        echo $tag;
+        echo $tag;  // escaping not needed here. Output is html and escaped elsewhere
     } else {
         return $tag;
     }
