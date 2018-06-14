@@ -378,7 +378,7 @@ function analytica_footer_widget_areas() {
         $output .= '</div>';
     }
 
-    echo wp_kses( apply_filters( __FUNCTION__, $output ), analytica_get_allowed_tags() );
+    echo $output; // escaping not needed here. Output is html and escaped elsewhere
 }
 
 /**

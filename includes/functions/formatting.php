@@ -42,7 +42,10 @@ function analytica_filter_wp_kses_allowed_theme_attributes( $allowed_html ) {
                 'datetime',
                 'rel',
                 'title',
-                'data'
+                'data',
+                'data-settings',
+                'data-options',
+                'data-element_type'
             ), true )
         );
     }
