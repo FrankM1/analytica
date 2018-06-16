@@ -14,3 +14,12 @@
 	clear: both;
 	@include center-block;
 }
+
+.alignnone {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+p a .alignnone {
+    margin-bottom: 0;
+}

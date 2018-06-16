@@ -29,7 +29,6 @@ function analytica_add_typography_controls( $controls ) {
         'default'   => $default['font-base'],
         'type'      => 'typography',
         'transport' => 'auto',
-        'responsive' => true,
         'exclude'   => [
             'variant',
             'font-size',
@@ -52,7 +51,6 @@ function analytica_add_typography_controls( $controls ) {
         'id'        => 'font-secondary-base',
         'section'   => 'general_typography',
         'default'   => $default['font-secondary-base'],
-        'responsive' => true,
         'type'      => 'typography',
         'transport' => 'auto',
         'exclude'   => [
@@ -278,6 +276,22 @@ function analytica_add_typography_controls( $controls ) {
         ],
     ];
 
+    $controls[] = [
+        'label'     => esc_html__( 'Blog heading', 'analytica' ),
+        'desc'      => esc_html__( 'Typography applied to the blog headings.', 'analytica' ),
+        'id'        => 'archive-heading-typography',
+        'default'   => $default['archive-heading-typography'],
+        'type'      => 'typography',
+        'section'   => 'site_blog_typography',
+        'transport' => 'auto',
+        'output'    => [
+            [
+                'element' => '.blog .entry-title, .archive .entry-title, .search .entry-title, .blog .entry-title a, .archive .entry-title a, .search .entry-title a',
+            ],
+        ],
+    ];
+
+
     return $controls;
 }
 
@@ -303,9 +317,15 @@ function analytica_add_typography_panels_and_sections( $wp_customize ) {
         'priority' => 35,
     ] );
 
+    $wp_customize->add_section( 'site_blog_typography', [
+        'title' => esc_html__( 'Blog', 'analytica' ),
+        'panel' => 'typography',
+        'priority' => 36,
+    ] );
+
     $wp_customize->add_section( 'site_footer_typography', [
         'title' => esc_html__( 'Footer', 'analytica' ),
         'panel' => 'typography',
-        'priority' => 36,
+        'priority' => 37,
     ] );
 }

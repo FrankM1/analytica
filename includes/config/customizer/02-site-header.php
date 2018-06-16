@@ -119,7 +119,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
     $controls[] = [
         'id'      => 'site-header-padding',
         'type'    => 'spacing',
-        'label'   => esc_html__( 'Footer padding', 'analytica' ),
+        'label'   => esc_html__( 'Header padding', 'analytica' ),
         'section' => 'site-header-style',
         'default'   => $default['site-header-padding'],
         'transport' => 'auto',
@@ -170,31 +170,6 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
             [
                 'property' => 'color',
                 'element'  => '.nav.nav-horizontal ul > li:hover > a',
-            ],
-        ],
-        'conditions' => [
-            [
-                'setting'  => 'site-header',
-                'operator' => '==',
-                'value'    => true,
-            ],
-        ],
-    ];
-
-    $controls[] = [
-        'id'      => 'site-header-border-style',
-        'type'    => 'select',
-        'label'   => esc_html__( 'Border style', 'analytica' ),
-        'section' => 'site-header-style',
-        'default'   => $default['site-header-border-style'],
-        'transport' => 'auto',
-        'choices' => [
-            'solid' => 'solid',
-        ],
-        'output'    => [
-            [
-                'property' => 'border-style',
-                'element'  => '.site-header',
             ],
         ],
         'conditions' => [
@@ -265,6 +240,24 @@ function analytica_add_header_panels_and_sections( $wp_customize ) {
 
     $wp_customize->add_section( 'site-header-style', [
         'title'    => esc_html__( 'Style', 'analytica' ),
+        'panel'    => 'site-header',
+        'priority' => 21,
+    ] );
+
+    $wp_customize->add_section( 'site-header-general', [
+        'title'    => esc_html__( 'General', 'analytica' ),
+        'panel'    => 'site-header',
+        'priority' => 21,
+    ] );
+
+    $wp_customize->add_section( 'site-header-logo', [
+        'title'    => esc_html__( 'Logo', 'analytica' ),
+        'panel'    => 'site-header',
+        'priority' => 21,
+    ] );
+
+    $wp_customize->add_section( 'site-header-menu', [
+        'title'    => esc_html__( 'Menu', 'analytica' ),
         'panel'    => 'site-header',
         'priority' => 21,
     ] );

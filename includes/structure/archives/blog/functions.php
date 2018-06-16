@@ -332,7 +332,7 @@ function analytica_get_blog_layout_class( $class = '' ) {
 
     $featured_image = true;
 
-    $is_featured_image = analytica_get_option( 'featured-image' );
+    $is_featured_image = is_singular() ? analytica_get_option( 'single-featured-image' ) : analytica_get_option( 'archive-featured-image' );
 
     if ( 'disabled' === $is_featured_image ) {
         $featured_image = false;

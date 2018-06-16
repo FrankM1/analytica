@@ -108,7 +108,7 @@ class MetaBoxes {
                     'default'  => 'default',
                     'sanitize' => 'FILTER_DEFAULT',
                 ),
-                'featured-image'        => array(
+                'single-featured-image'        => array(
                     'sanitize' => 'FILTER_DEFAULT',
                 ),
             )
@@ -167,7 +167,7 @@ class MetaBoxes {
         $site_sidebar        = ( isset( $meta['site-sidebar-layout']['default'] ) ) ? $meta['site-sidebar-layout']['default'] : 'default';
         $site_content_layout = ( isset( $meta['site-content-layout']['default'] ) ) ? $meta['site-content-layout']['default'] : 'default';
         $site_post_title     = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
-        $ast_featured_img    = ( isset( $meta['featured-image']['default'] ) ) ? $meta['featured-image']['default'] : '';
+        $ast_featured_img    = ( isset( $meta['single-featured-image']['default'] ) ) ? $meta['single-featured-image']['default'] : '';
 
         $show_meta_field = ! self::is_bb_themer_layout();
 

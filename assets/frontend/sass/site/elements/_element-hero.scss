@@ -39,16 +39,11 @@
 		}
 		.breadcrumb {
 			display: inline-block;
-			margin-bottom: 0;
-			padding: 4px 15px;
-			border-radius: 30px;
+            padding: 4px 0;
 		}
 	}
-	.text-left .breadcrumb {
-		padding-left: 0;
-	}
-	.text-right .breadcrumb {
-		padding-right: 0;
+    .text-center .breadcrumb {
+	    padding: 4px 15px;
 	}
 	.post-title-featured {
 		margin: 0;
@@ -87,9 +82,9 @@
 		min-height: auto;
 	}
 	.site-hero-wrapper .header {
-		@include font-size( 25px);
+		@include font-size( 2.5 );
 	}
 	.site-hero-wrapper .subheader {
-		@include font-size( 16px);
+		@include font-size( 1.6 );
 	}
 }
