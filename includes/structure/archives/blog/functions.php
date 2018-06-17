@@ -110,13 +110,15 @@ function analytica_post_date() {
         esc_html( '%s' ),
         $time_string
     );
+
     $modified_on   = sprintf(
         esc_html( '%s' ),
         $modified_date
     );
+
     $output       .= '<span class="posted-on">';
-    $output       .= '<span class="published" itemprop="datePublished"> ' . $posted_on . '</span>';
-    $output       .= '<span class="updated" itemprop="dateModified"> ' . $modified_on . '</span>';
+        $output       .= '<span class="published" itemprop="datePublished"> ' . $posted_on . '</span>';
+        $output       .= '<span class="updated" itemprop="dateModified"> ' . $modified_on . '</span>';
     $output       .= '</span>';
     
     return apply_filters( 'analytica_post_date', $output );

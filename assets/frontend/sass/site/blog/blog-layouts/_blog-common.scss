@@ -1,45 +1,44 @@
-
 /**
  *  Blog Common
  */
 
 .analytica-single-post .entry-header {
-		&.analytica-header-without-markup,
-		&.analytica-no-title.analytica-no-thumbnail {
-			margin-bottom: 0;
-		}
+	&.analytica-header-without-markup,
+	&.analytica-no-title.analytica-no-thumbnail {
+		margin-bottom: 0;
+	}
 }
 
 .entry-header {
-    word-wrap: break-word;
-    + .analytica-blog-featured-section {
-    	margin-top:0.5em;
-    }
+	word-wrap: break-word;
+	+.analytica-blog-featured-section {
+		margin-top: 0.5em;
+	}
 }
 
 .meta-sep {
-    position: relative;
+	position: relative;
 	display: inline-block;
-    width: 1em;
-    height: 1em;
-    &:before {
-        position: absolute;
-        left: 50%;
-        top: 70%;
-        margin-left: -1px;
-        margin-top: -1px;
-        content: '';
-        width: 2px;
-        height: 2px;
-        background-color: currentColor;
-        border-radius: 50%;
-    }
+	width: 1em;
+	height: 1em;
+	&:before {
+		position: absolute;
+		left: 50%;
+		top: 70%;
+		margin-left: -1px;
+		margin-top: -1px;
+		content: '';
+		width: 2px;
+		height: 2px;
+		background-color: currentColor;
+		border-radius: 50%;
+	}
 }
 
 .entry-summary {
-    margin-top: $grid-gutter-width-half;
-    word-wrap: break-word;
-    @include clearfix();
+	margin-top: $grid-gutter-width-half;
+	word-wrap: break-word;
+	@include clearfix();
 	p {
 		margin-bottom: 1.6em;
 	}
@@ -52,22 +51,14 @@
 	}
 }
 
-.analytica-blog-featured-section {
+.error404 .page-header {
 	margin-bottom: 1.5em;
-
-	.gallery {
+	.page-title {
 		margin-bottom: 0;
 	}
 }
 
-.error404 .page-header {
-    margin-bottom: 1.5em;
-	.page-title {
-    	margin-bottom: 0;
-	}
-}
-
-.blog, 
+.blog,
 .archive,
 .search {
 	.entry-title {
@@ -83,21 +74,22 @@
 }
 
 .entry-title {
-    margin-bottom: 0.2em;
+	margin-bottom: 0.2em;
 }
 
 .analytica-article-post {
-    margin-bottom: 2.5em;
+	margin-bottom: 2.5em;
 }
+
 .analytica-article-post:last-child {
 	margin-bottom: 0;
-	border-bottom:0;
+	border-bottom: 0;
 }
 
 .search .site-content .search-form {
-    margin-bottom: 3em;
+	margin-bottom: 3em;
 }
 
 .post-thumb a {
-    display: block;
+	display: block;
 }
