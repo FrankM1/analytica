@@ -250,12 +250,6 @@ function analytica_add_header_panels_and_sections( $wp_customize ) {
         'priority' => 21,
     ] );
 
-    $wp_customize->add_section( 'site-header-logo', [
-        'title'    => esc_html__( 'Logo', 'analytica' ),
-        'panel'    => 'site-header',
-        'priority' => 21,
-    ] );
-
     $wp_customize->add_section( 'site-header-menu', [
         'title'    => esc_html__( 'Menu', 'analytica' ),
         'panel'    => 'site-header',

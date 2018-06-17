@@ -157,7 +157,7 @@ msgid "Latest posts"
 msgstr ""
 
 #: includes/config/options.php:347
-msgid "Copyright &copy; [year] Radium Themes. All rights reserved."
+msgid "Copyright &copy; [year] Qazana. All rights reserved."
 msgstr ""
 
 #: includes/config/strings.php:25

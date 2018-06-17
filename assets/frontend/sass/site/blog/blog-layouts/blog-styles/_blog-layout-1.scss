@@ -1,11 +1,11 @@
 @import "../../../variables-site/structure.scss";
 @import "../../../variables-site/colors.scss";
 .blog-layout-1 {
-	margin-bottom: 2.5em;
-
-	.post-thumb {
-		margin-bottom: 1.5em;
-	}
+    margin-bottom: 3.0rem;
+    
+    .entry-header {
+        margin-top: 2.5rem;
+    }
 
 	.post-thumb,
 	.post-content {

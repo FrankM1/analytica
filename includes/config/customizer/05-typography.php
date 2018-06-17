@@ -291,7 +291,6 @@ function analytica_add_typography_controls( $controls ) {
         ],
     ];
 
-
     return $controls;
 }
 

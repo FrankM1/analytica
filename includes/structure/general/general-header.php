@@ -247,7 +247,7 @@ add_action( 'analytica_site_description', 'analytica_site_description' );
  */
 function analytica_site_description() {
 
-    if ( ! analytica_get_option( 'site-description' ) && get_bloginfo( 'description' ) ) {
+    if ( ! display_header_text() ) {
         return;
     }
 
