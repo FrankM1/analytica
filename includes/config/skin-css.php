@@ -109,9 +109,10 @@ class Dynamic_CSS {
         $accent_color                  = analytica_get_option( 'site-accent-color' );
         $link_hover_color              = analytica_get_option( 'site-link-highlight-color' );
         $content_background_color      = analytica_get_option( 'site-content-background-color' );
-        $body_font                     = analytica_get_option( 'font-base' );
-        $post_meta_color               = analytica_get_option( 'post-meta-color' );
+        $post_meta_color               = analytica_get_option( 'archive-post-meta-color' );
         
+        $body_font                     = analytica_get_option( 'font-base' );
+
         $body_font_size                = $body_font['font-size'];
         
         $highlight_theme_color         = analytica_get_foreground_color( $accent_color );
@@ -275,8 +276,10 @@ class Dynamic_CSS {
     function add_container_css( $css ) {
         $site_layout                        = analytica_get_option( 'site-layout' );
         $accent_color                       = analytica_get_option( 'site-accent-color' );
-        $footer_border                      = analytica_get_option( 'site-footer-border' );
-        $footer_colophon_border             = analytica_get_option( 'footer-colophon-border' );
+        $site_header_border                      = analytica_get_option( 'site-header-border' );
+        $site_header_border_style                = analytica_get_option( 'site-header-border-style' );
+        $site_footer_border                      = analytica_get_option( 'site-footer-border' );
+        $site_footer_colophon_border             = analytica_get_option( 'site-footer-colophon-border' );
         $offset                             = intval( analytica_get_option( 'site-layout-offset' ) );
         $single_post_site_sidebar_width     = intval( analytica_get_option( 'single-post-site-sidebar-width' ) );
         $site_container_width               = intval( analytica_get_option( 'site-content-width' ) );
@@ -328,21 +331,31 @@ class Dynamic_CSS {
   
         $css .= '@media (min-width: 768px) {';
 
-            if ( ! empty( $footer_colophon_border ) ) {
-                $css .= '.site-colophon {';
-                    $css .= ! empty( $footer_colophon_border['top'] ) ? 'border-top-width: ' . esc_attr( $footer_colophon_border['top'] ) . ';' : '';
-                    $css .= ! empty( $footer_colophon_border['left'] ) ? 'border-left-width: ' . esc_attr( $footer_colophon_border['left'] ) . ';': '';
-                    $css .= ! empty( $footer_colophon_border['bottom'] ) ? 'border-bottom-width: ' . esc_attr( $footer_colophon_border['bottom'] ) . ';': '';
-                    $css .= ! empty( $footer_colophon_border['right'] ) ? 'border-right-width: ' . esc_attr( $footer_colophon_border['right'] ) . ';': '';
+            if ( ! empty( $site_header_border['top'] ) || ! empty( $site_header_border['left'] ) || ! empty( $site_header_border['bottom'] ) || ! empty( $site_header_border['right'] )  ) {
+                $css .= '.site-header {';
+                    $css .= 'border-style: solid;';
+                    $css .= ! empty( $site_header_border['top'] ) ? 'border-top-width: ' . esc_attr( $site_header_border['top'] ) . ';' : '';
+                    $css .= ! empty( $site_header_border['left'] ) ? 'border-left-width: ' . esc_attr( $site_header_border['left'] ) . ';' : '';
+                    $css .= ! empty( $site_header_border['bottom'] ) ? 'border-bottom-width: ' . esc_attr( $site_header_border['bottom'] ) . ';' : '';
+                    $css .= ! empty( $site_header_border['right'] ) ? 'border-right-width: ' . esc_attr( $site_header_border['right'] ) . ';' : '';
                 $css .= '}';
             }
 
-            if ( ! empty( $footer_border ) ) {
+            if ( ! empty( $site_header_border['top'] ) || ! empty( $site_header_border['left'] ) || ! empty( $site_header_border['bottom'] ) || ! empty( $site_header_border['right'] )  ) {
                 $css .= '.site-footer {';
-                    $css .= 'border-top-width: ' . esc_attr( $footer_border['top'] ) . ';';
-                    $css .= 'border-left-width: ' . esc_attr( $footer_border['left'] ) . ';';
-                    $css .= 'border-bottom-width: ' . esc_attr( $footer_border['bottom'] ) . ';';
-                    $css .= 'border-right-width: ' . esc_attr( $footer_border['right'] ) . ';';
+                    $css .= ! empty( $site_header_border['top'] ) ? 'border-top-width: ' . esc_attr( $site_footer_border['top'] ) . ';' : '';
+                    $css .= ! empty( $site_header_border['left'] ) ? 'border-left-width: ' . esc_attr( $site_footer_border['left'] ) . ';' : '';
+                    $css .= ! empty( $site_header_border['bottom'] ) ? 'border-bottom-width: ' . esc_attr( $site_footer_border['bottom'] ) . ';' : '';
+                    $css .= ! empty( $site_header_border['right'] ) ? 'border-right-width: ' . esc_attr( $site_footer_border['right'] ) . ';' : '';
+                $css .= '}';
+            }
+
+            if ( ! empty( $site_footer_colophon_border['top'] ) || ! empty( $site_footer_colophon_border['left'] ) || ! empty( $site_footer_colophon_border['bottom'] ) || ! empty( $site_footer_colophon_border['right'] )  ) {
+                $css .= '.site-colophon {';
+                    $css .= ! empty( $site_footer_colophon_border['top'] ) ? 'border-top-width: ' . esc_attr( $site_footer_colophon_border['top'] ) . ';' : '';
+                    $css .= ! empty( $site_footer_colophon_border['left'] ) ? 'border-left-width: ' . esc_attr( $site_footer_colophon_border['left'] ) . ';': '';
+                    $css .= ! empty( $site_footer_colophon_border['bottom'] ) ? 'border-bottom-width: ' . esc_attr( $site_footer_colophon_border['bottom'] ) . ';': '';
+                    $css .= ! empty( $site_footer_colophon_border['right'] ) ? 'border-right-width: ' . esc_attr( $site_footer_colophon_border['right'] ) . ';': '';
                 $css .= '}';
             }
         

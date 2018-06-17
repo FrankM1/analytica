@@ -15,12 +15,6 @@
 	align-items: center;
 }
 
-.site-wide .site-header-has-container .analytica-container {
-	@media (min-width: $screen-md-min) {
-		padding: 0;
-	}
-}
-
 .site-header-fullwidth .analytica-container {
 	max-width: none;
 }
@@ -47,18 +41,20 @@
 
 .site-title {
 	margin-bottom: 0;
+    display: flex;
+	align-items: center;
+	justify-content: center;
+    color: $dark;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0;
+	line-height: 1;
+    font-weight: 700;
+    @include font-size( 2.4 );
 }
 
 .site-title a {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	color: $dark;
-	text-align: center;
-	text-transform: uppercase;
-	line-height: 1;
-    font-weight: 700;
-    @include font-size( 24px );
 }
 
 .site-title a.logo {

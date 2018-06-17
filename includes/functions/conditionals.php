@@ -314,7 +314,7 @@ function analytica_site_footer_is_active() {
 function analytica_is_site_colophon_available() {
     $retval = true;
 
-    $option = analytica_get_option( 'footer-colophon' );
+    $option = analytica_get_option( 'site-footer-colophon' );
 
     if ( ! analytica_is_bool( $option ) || ! analytica_site_footer_is_active() ) {
         $retval = false;

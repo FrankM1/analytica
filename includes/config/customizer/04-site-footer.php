@@ -414,11 +414,11 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'      => 'footer-colophon',
+            'id'      => 'site-footer-colophon',
             'section' => 'footer_copyright',
             'type'    => 'switch',
             'label'   => esc_html__( 'Enable colophon' , 'analytica' ),
-            'default'   => $default['footer-colophon'],
+            'default'   => $default['site-footer-colophon'],
             'options' => [
                 1 => esc_attr__( 'Enable', 'analytica' ),
                 0 => esc_attr__( 'Disable', 'analytica' ),
@@ -433,18 +433,18 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'      => 'footer-colophon-width',
+            'id'      => 'site-footer-colophon-width',
             'section' => 'footer_copyright',
             'type'    => 'switch',
             'label'   => esc_html__( 'Footer colophon fullwidth' , 'analytica' ),
-            'default'   => $default['footer-colophon-width'],
+            'default'   => $default['site-footer-colophon-width'],
             'options' => [
                 1 => esc_attr__( 'Enable', 'analytica' ),
                 0 => esc_attr__( 'Disable', 'analytica' ),
             ],
             'conditions' => [
                 [
-                    'setting'  => 'footer-colophon',
+                    'setting'  => 'site-footer-colophon',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -480,7 +480,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'default'   => $default['site-footer-copyright-text'],
             'conditions' => [
                 [
-                    'setting'  => 'footer-colophon',
+                    'setting'  => 'site-footer-colophon',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -494,11 +494,11 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'      => 'footer-colophon-padding',
+            'id'      => 'site-footer-colophon-padding',
             'type'    => 'spacing',
             'label'   => esc_html__( 'Colophon Padding', 'analytica' ),
             'section' => 'footer_copyright',
-            'default'   => $default['footer-colophon-padding'],
+            'default'   => $default['site-footer-colophon-padding'],
             'transport' => 'auto',
             'output'    => [
                 [
@@ -508,7 +508,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             ],
             'conditions' => [
                 [
-                    'setting'  => 'footer-colophon',
+                    'setting'  => 'site-footer-colophon',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -516,11 +516,11 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'      => 'footer-colophon-border-style',
+            'id'      => 'site-footer-colophon-border-style',
             'type'    => 'select',
             'label'   => esc_html__( 'Colophon border style', 'analytica' ),
             'section' => 'footer_copyright',
-            'default'   => $default['footer-colophon-border-style'],
+            'default'   => $default['site-footer-colophon-border-style'],
             'transport' => 'auto',
             'choices' => [
                 'solid' => 'solid',
@@ -533,7 +533,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             ],
             'conditions' => [
                 [
-                    'setting'  => 'footer-colophon',
+                    'setting'  => 'site-footer-colophon',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -541,15 +541,15 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'      => 'footer-colophon-border',
+            'id'      => 'site-footer-colophon-border',
             'type'    => 'spacing',
             'label'   => esc_html__( 'Colophon border', 'analytica' ),
             'section' => 'footer_copyright',
-            'default'   => $default['footer-colophon-border'],
+            'default'   => $default['site-footer-colophon-border'],
             'transport' => 'auto',
             'conditions' => [
                 [
-                    'setting'  => 'footer-colophon',
+                    'setting'  => 'site-footer-colophon',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -557,12 +557,12 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'        => 'footer-colophon-border-color',
+            'id'        => 'site-footer-colophon-border-color',
             'section'   => 'footer_copyright',
             'type'      => 'color',
             'transport' => 'auto',
             'label'     => esc_html__( 'Colophon Border Color' , 'analytica' ),
-            'default'   => $default['footer-colophon-border-color'],
+            'default'   => $default['site-footer-colophon-border-color'],
             'output'    => [
                 [
                     'property' => 'border-color',
@@ -571,7 +571,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             ],
             'conditions' => [
                 [
-                    'setting'  => 'footer-colophon',
+                    'setting'  => 'site-footer-colophon',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -579,12 +579,12 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'        => 'footer-colophon-color',
+            'id'        => 'site-footer-colophon-color',
             'section'   => 'footer_copyright',
             'type'      => 'color',
             'transport' => 'auto',
             'label'     => esc_html__( 'Colophon Color' , 'analytica' ),
-            'default'   => $default['footer-colophon-color'],
+            'default'   => $default['site-footer-colophon-color'],
             'output'    => [
                 [
                     'property' => 'color',
@@ -593,7 +593,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             ],
             'conditions' => [
                 [
-                    'setting'  => 'footer-colophon',
+                    'setting'  => 'site-footer-colophon',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -601,12 +601,12 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'        => 'footer-colophon-links-color',
+            'id'        => 'site-footer-colophon-links-color',
             'section'   => 'footer_copyright',
             'type'      => 'color',
             'transport' => 'auto',
             'label'     => esc_html__( 'Colophon Links Color' , 'analytica' ),
-            'default'   => $default['footer-colophon-links-color'],
+            'default'   => $default['site-footer-colophon-links-color'],
             'output'    => [
                 [
                     'property' => 'color',
@@ -615,7 +615,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             ],
             'conditions' => [
                 [
-                    'setting'  => 'footer-colophon',
+                    'setting'  => 'site-footer-colophon',
                     'operator' => '==',
                     'value'    => true,
                 ],
@@ -623,12 +623,12 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
         ],
 
         [
-            'id'        => 'footer-colophon-background-color',
+            'id'        => 'site-footer-colophon-background-color',
             'section'   => 'footer_copyright',
             'type'      => 'color',
             'transport' => 'auto',
             'label'     => esc_html__( 'Colophon Background Color' , 'analytica' ),
-            'default'   => $default['footer-colophon-background-color'],
+            'default'   => $default['site-footer-colophon-background-color'],
             'output'    => [
                 [
                     'property' => 'background-color',
@@ -637,7 +637,7 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             ],
             'conditions' => [
                 [
-                    'setting'  => 'footer-colophon',
+                    'setting'  => 'site-footer-colophon',
                     'operator' => '==',
                     'value'    => true,
                 ],

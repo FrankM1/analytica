@@ -90,7 +90,7 @@
 			display: block;
 			position: relative;
 			padding: 15px 20px;
-            @include font-size( 16px );
+            @include font-size( 1.6 );
 			line-height: 20px;
 			font-weight: 300;
 			outline: none;
@@ -113,7 +113,7 @@
 				position: relative;
 				line-height: 40px;
 				outline: none;
-                @include font-size( 14px );
+                @include font-size( 1.4 );
 				text-align: left;
 				*zoom: 1;
 				padding: 0 20px;

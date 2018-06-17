@@ -233,7 +233,7 @@ class Markup {
      * @return array Amended attributes.
      */
     function attributes_site_colophon( $attributes ) {
-        if ( ! analytica_get_option( 'footer-colophon-width' ) ) {
+        if ( ! analytica_get_option( 'site-footer-colophon-width' ) ) {
             $attributes['class'] = 'site-colophon site-colophon-has-container';
         } else {
             $attributes['class'] = 'site-colophon site-colophon-fullwidth';

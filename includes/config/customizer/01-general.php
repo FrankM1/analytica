@@ -174,7 +174,7 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         ),
         'output'    => array(
             array(
-                'element' => '.single .post-navigation, .comments-area, .page-links .page-link, .page-links a .page-link, .gallery-icon, .analytica-comment-list li.depth-1 .analytica-comment, .analytica-comment-list li.depth-2 .analytica-comment',
+                'element' => '.single .post-navigation, .comments-area, .page-links .page-link, .page-links a .page-link, .gallery-icon, .analytica-comment-list li.depth-1 .analytica-comment, .analytica-comment-list li.depth-2 .analytica-comment, .analytica-comment-list .comment-respond',
                 'property' => 'border-color'
             ),
 
