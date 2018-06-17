@@ -9,10 +9,6 @@
 		// # Site Footer Widgets
 		padding: $grid-gutter-width 0;
 
-		@media (max-width: $screen-md-max) {
-			padding: $grid-gutter-width $grid-gutter-width-half;
-		}
-
 		p:last-child,
 		table {
 			margin-bottom: 0;
