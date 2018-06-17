@@ -195,11 +195,11 @@ class Options {
             'logo-favicon-typography' => [
                 'font-family'    => $secondary['font-family'],
                 'variant'        => '',
-                'font-size'      => '52px',
+                'font-size'      => '24px',
                 'font-weight'    => 'bold',
                 'line-height'    => '1.3',
-                'letter-spacing' => '-.05em',
-                'color'          => '',
+                'letter-spacing' => '',
+                'color'          => '#000',
                 'text-transform' => '',
             ],
 
@@ -340,7 +340,7 @@ class Options {
 
             // Footer
             'site-back-to-top'           => true,
-            'site-footer-copyright-text' => esc_html__('Copyright &copy; [year] Radium Themes. All rights reserved.', 'analytica'),
+            'site-footer-copyright-text' => esc_html__('Copyright &copy; [year] Qazana. All rights reserved.', 'analytica'),
             'site-footer-layout'         => '4',
             'site-footer-width'          => false,
             'site-footer-widgets'        => true,
