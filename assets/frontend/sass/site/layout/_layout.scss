@@ -7,15 +7,15 @@
 }
 
 .single-post.site-mono-container {
-    .entry-content {
+	.entry-content {
 		padding: $grid-gutter-width 0;
-    }
+	}
 }
 
 .site-container-detach {
 	background-color: $color-background-sep-content-body;
 
-	.hero {
+	.site-hero {
 		margin-top: $grid-gutter-width;
 	}
 
@@ -43,13 +43,14 @@
 		background-color: $color-background-content;
 		margin-bottom: $grid-gutter-width;
 
-        .single-layout-1 {
+		.entry-header {
 			padding: $grid-gutter-width;
-        }
+			padding-bottom: 0;
+		}
 
 		.entry-content {
-			padding-top: $grid-gutter-width;
-			padding-bottom: $grid-gutter-width;
+			padding: $grid-gutter-width;
+			padding-top: $grid-gutter-width-half;
 		}
 	}
 
@@ -78,13 +79,13 @@
 	.site-main-inner,
 	.site-sidebar .widget-area-inner {
 		padding: $grid-gutter-width;
-    }
-    
-    .analytica-article-single {
+	}
 
-        .single-layout-1 {
+	.analytica-article-single {
+
+		.single-layout-1 {
 			padding-bottom: $grid-gutter-width;
-        }
+		}
 
 		.entry-content {
 			padding-top: $grid-gutter-width;

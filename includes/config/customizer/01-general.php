@@ -62,18 +62,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
     ];
 
     $controls[] = [
-        'id'      => 'site-description',
-        'type'    => 'switch',
-        'section' => 'logo-favicon',
-        'label'   => esc_html__( 'Enable Site description', 'analytica' ),
-        'default' => $default['site-description'],
-        'options' => [
-            1 => esc_attr__( 'Enable', 'analytica' ),
-            0 => esc_attr__( 'Disable', 'analytica' ),
-        ],
-    ];
-
-    $controls[] = [
         'id'      => 'site-detach-containers',
         'section' => 'container-style',
         'type'    => 'switch',
@@ -319,6 +307,21 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'type'    => 'text',
         'label'   => esc_html__( 'Button vertical padding', 'analytica' ),
         'default' => $default['button-v-padding'],
+    ];
+
+    $controls[] = [
+        'label'     => esc_html__( 'Logo typography', 'analytica' ),
+        'desc'      => esc_html__( 'Typography applied to the text logo.', 'analytica' ),
+        'id'        => 'logo-favicon-typography',
+        'default'   => $default['logo-favicon-typography'],
+        'type'      => 'typography',
+        'section'   => 'logo-favicon',
+        'transport' => 'postMessage',
+        'output'    => [
+            [
+                'element' => '.site-title a',
+            ], 
+        ]
     ];
 
     return $controls;

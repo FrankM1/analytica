@@ -30,16 +30,6 @@ class Theme {
      * support post thumbnails.
      */
     function setup_theme() {
-        
-        /**
-         * Customize image sizes
-         */
-        set_post_thumbnail_size( 140, 140, true );
-
-        /**
-         * Add add image size
-         */
-        add_image_size( 'blog-featured', analytica_get_option( 'site-content-width' ), 504, true );
 
         /**
          * Add support for widgets inside the customizer
@@ -110,17 +100,7 @@ class Theme {
     
         // Turn on HTML5, responsive viewport
         add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
-    
-        add_theme_support( 'analytica-responsive-viewport' );
-        add_theme_support( 'analytica-inpost-layouts' );
-        add_theme_support( 'analytica-page-header' );
-        add_theme_support( 'analytica-breadcrumbs' );
-    
-        // Maybe add support for structural wraps
-        if ( ! current_theme_supports( 'analytica-structural-wraps' ) ) {
-            add_theme_support( 'analytica-structural-wraps', array( 'site-header', 'site-hero', 'site-inner', 'site-content', 'menu-primary', 'menu-secondary', 'site-footer' ) );
-        }
-    
+ 
         // Custom Site Logo
         add_theme_support( 'site-logo', array(
             'header-text' => array(
@@ -130,12 +110,53 @@ class Theme {
             'size' => 'medium',
         ) );
     
-        do_action( 'analytica_class_loaded' );
+        // Add default posts and comments RSS feed links to head.
+        add_theme_support( 'automatic-feed-links' );
+    
+        // Let WordPress manage the document title.
+        add_theme_support( 'title-tag' );
+    
+        // Enable support for Post Thumbnails on posts and pages.
+        add_theme_support( 'post-thumbnails' );
+    
+        // Add theme support for Custom Logo.
+        add_theme_support(
+            'custom-logo', array(
+                'width'       => 180,
+                'height'      => 60,
+                'flex-width'  => true,
+                'flex-height' => true,
+            )
+        );
+    
+        // Customize Selective Refresh Widgets.
+        add_theme_support( 'customize-selective-refresh-widgets' );
+        
+        /** 
+         * Theme specific features 
+         */
+        add_theme_support( 'analytica-responsive-viewport' );
+        add_theme_support( 'analytica-inpost-layouts' );
+        add_theme_support( 'analytica-page-header' );
+        add_theme_support( 'analytica-breadcrumbs' );
+    
+        // Maybe add support for structural wraps
+        if ( ! current_theme_supports( 'analytica-structural-wraps' ) ) {
+            add_theme_support( 'analytica-structural-wraps', array( 'site-header', 'site-hero', 'site-inner', 'site-content', 'menu-primary', 'menu-secondary', 'site-footer' ) );
+        }
+
+        /**
+         * Customize image sizes
+         */
+        set_post_thumbnail_size( 140, 140, true );
+
+        /**
+         * Add add image size
+         */
+        add_image_size( 'blog-featured', analytica_get_option( 'site-content-width' ), 504, true );
 
         /**
          * Post type support for features.
-         *
-         * @since 1.0.0
          */
         $post_types = [
             'post',
@@ -163,33 +184,10 @@ class Theme {
             $content_width = apply_filters( 'analytica_content_width', 700 );
         }
     
-        // Add default posts and comments RSS feed links to head.
-        add_theme_support( 'automatic-feed-links' );
-    
-        // Let WordPress manage the document title.
-        add_theme_support( 'title-tag' );
-    
-        // Enable support for Post Thumbnails on posts and pages.
-        add_theme_support( 'post-thumbnails' );
-    
-        // Add theme support for Custom Logo.
-        add_theme_support(
-            'custom-logo', array(
-                'width'       => 180,
-                'height'      => 60,
-                'flex-width'  => true,
-                'flex-height' => true,
-            )
-        );
-    
-        // Customize Selective Refresh Widgets.
-        add_theme_support( 'customize-selective-refresh-widgets' );
-    
         /**
          * This theme styles the visual editor to resemble the theme style,
          * specifically font, colors, icons, and column width.
          */
-        /* Directory and Extension */
         $dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
         $file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
         add_editor_style( 'assets/frontend/css/' . $dir_name . '/editor-style' . $file_prefix . '.css' );
@@ -230,7 +228,7 @@ class Theme {
             )
         );
 
-        if ( $this->analytica_strposa( $url, $allowed_providers ) ) {
+        if ( $this->strposa( $url, $allowed_providers ) ) {
             if ( $add_analytica_oembed_wrapper ) {
                 $html = ( '' !== $html ) ? '<div class="analytica-oembed-container">' . $html . '</div>' : '';
             }
@@ -249,7 +247,7 @@ class Theme {
      *
      * @return bool            True if haystack if part of any of the $needles.
      */
-    function analytica_strposa( $haystack, $needles, $offset = 0 ) {
+    function strposa( $haystack, $needles, $offset = 0 ) {
 
         if ( ! is_array( $needles ) ) {
             $needles = array( $needles );
@@ -265,5 +263,4 @@ class Theme {
 
         return false;
     }
-
 }

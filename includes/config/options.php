@@ -60,7 +60,6 @@ class Options {
 
             // Site Layout.
             'site-content-width'  => 1200,
-            'site-description'    => false,
             'site-layout-offset'  => '0',
             'site-layout'         => 'site-wide',
             'site-sidebar-layout' => 'content-sidebar',
@@ -191,6 +190,17 @@ class Options {
             'font-secondary-base' => [
                 'font-family' => $secondary['font-family'],
                 'color'       => $secondary['color'],
+            ],
+
+            'logo-favicon-typography' => [
+                'font-family'    => $secondary['font-family'],
+                'variant'        => '',
+                'font-size'      => '52px',
+                'font-weight'    => 'bold',
+                'line-height'    => '1.3',
+                'letter-spacing' => '-.05em',
+                'color'          => '',
+                'text-transform' => '',
             ],
 
             'font-h1' => [
@@ -394,7 +404,7 @@ class Options {
             ],
        
             // Buttons.
-            'button-background-color'   => '',
+            'button-background-color'   => '#0274be',
             'button-background-h-color' => '',
             'button-text-color'      => '',
             'button-radius'     => 2,

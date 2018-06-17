@@ -27,8 +27,8 @@ if ( post_password_required() ) {
 
 	<?php if ( have_comments() ) : ?>
 		<div class="comments-count-wrapper">
-			<h3 class="comments-title">
-				<?php
+            <h3 class="comments-title"><?php
+
 				$comments_title = apply_filters(
 					'analytica_comment_form_title', sprintf( // WPCS: XSS OK.
 						/* translators: 1: number of comments */
@@ -38,8 +38,8 @@ if ( post_password_required() ) {
 				);
 
 				echo esc_html( $comments_title );
-				?>
-			</h3>
+            
+            ?></h3>
 		</div>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>

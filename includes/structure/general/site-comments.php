@@ -116,13 +116,13 @@ function analytica_comment_form_default_fields_markup( $fields ) {
     $req       = get_option( 'require_name_email' );
     $aria_req  = ( $req ? " aria-required='true'" : '' );
 
-    $fields['author'] = '<div class="analytica-comment-formwrap"><p class="comment-form-author analytica-col-xs-12 analytica-col-sm-12 analytica-col-md-4 analytica-col-lg-4">' .
+    $fields['author'] = '<div class="comment-formwrap"><p class="comment-form-author">' .
                 '<label for="author" class="screen-reader-text">' . esc_html( analytica_default_strings( 'string-comment-label-name', false ) ) . '</label><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
                 '" placeholder="' . esc_attr( analytica_default_strings( 'string-comment-label-name', false ) ) . '" size="30"' . $aria_req . ' /></p>';
-    $fields['email']  = '<p class="comment-form-email analytica-col-xs-12 analytica-col-sm-12 analytica-col-md-4 analytica-col-lg-4">' .
+    $fields['email']  = '<p class="comment-form-email">' .
                 '<label for="email" class="screen-reader-text">' . esc_html( analytica_default_strings( 'string-comment-label-email', false ) ) . '</label><input id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) .
                 '" placeholder="' . esc_attr( analytica_default_strings( 'string-comment-label-email', false ) ) . '" size="30"' . $aria_req . ' /></p>';
-    $fields['url']    = '<p class="comment-form-url analytica-col-xs-12 analytica-col-sm-12 analytica-col-md-4 analytica-col-lg-4"><label for="url">' .
+    $fields['url']    = '<p class="comment-form-url"><label for="url">' .
                 '<label for="url" class="screen-reader-text">' . esc_html( analytica_default_strings( 'string-comment-label-website', false ) ) . '</label><input id="url" name="url" type="text" value="' . esc_url( $commenter['comment_author_url'] ) .
                 '" placeholder="' . esc_attr( analytica_default_strings( 'string-comment-label-website', false ) ) . '" size="30" /></label></p></div>';
 

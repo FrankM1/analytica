@@ -41,7 +41,7 @@ class Page_Builder {
      * @return array Amended classes.
      */
     function body_class( $classes ) {
-        if ( analytica_is_builder_page() && ! is_singular('post') ) {
+        if ( analytica_is_builder_page() && ! is_singular('post') && ! is_archive() ) {
             $classes[] = 'analytica-page-builder';
         }
         return $classes;
@@ -56,7 +56,7 @@ class Page_Builder {
      */
     function site_layout( $value ) {
         if ( analytica_is_builder_page() ) {
-        return _analytica_return_full_width_content();
+            return _analytica_return_full_width_content();
         }
         return false;
     }
