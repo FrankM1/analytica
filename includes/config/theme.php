@@ -64,36 +64,6 @@ class Theme {
         add_theme_support( 'custom-background', $defaults );
 
         /**
-         * Maybe add support for sidebars
-         */
-        if ( ! current_theme_supports( 'analytica-sidebars' ) ) {
-
-            $sidebars = array(
-                'sidebar'       => array(
-                    'name'          => esc_html__( 'Primary Widget Area', 'analytica' ),
-                    'description'   => esc_html__( 'This is the primary sidebar.', 'analytica' ),
-                ),
-                'secondary-alt'       => array(
-                    'name'          => esc_html__( 'Secondary Widget Area', 'analytica' ),
-                    'description'   => esc_html__( 'This is the secondary sidebar if you are using a two or three column page layout option.', 'analytica' ),
-                ),
-                'after-entry'   => array(
-                    'name'          => esc_html__( 'After Entry', 'analytica' ),
-                    'description'   => esc_html__( 'This is the content widget area. Displayed after the post content', 'analytica' ),
-                ),
-            );
-
-            add_theme_support( 'analytica-sidebars', $sidebars );
-        }
-
-         // Maybe add support for menus
-        if ( ! current_theme_supports( 'analytica-menus' ) ) {
-            add_theme_support( 'analytica-menus', array(
-                'primary'   		=> esc_html__( 'Primary Navigation', 'analytica' ),
-            ) );
-        }
-    
-        /**
          * Enable support for Post Formats
          */
         add_theme_support( 'post-formats', array( 'gallery', 'image', 'link', 'quote', 'video', 'audio', 'status', 'aside',) );
@@ -143,6 +113,36 @@ class Theme {
         // Maybe add support for structural wraps
         if ( ! current_theme_supports( 'analytica-structural-wraps' ) ) {
             add_theme_support( 'analytica-structural-wraps', array( 'site-header', 'site-hero', 'site-inner', 'site-content', 'menu-primary', 'menu-secondary', 'site-footer' ) );
+        }
+
+        /**
+         * Maybe add support for sidebars
+         */
+        if ( ! current_theme_supports( 'analytica-sidebars' ) ) {
+
+            $sidebars = array(
+                'sidebar'       => array(
+                    'name'          => esc_html__( 'Primary Widget Area', 'analytica' ),
+                    'description'   => esc_html__( 'This is the primary sidebar.', 'analytica' ),
+                ),
+                'secondary-alt'       => array(
+                    'name'          => esc_html__( 'Secondary Widget Area', 'analytica' ),
+                    'description'   => esc_html__( 'This is the secondary sidebar if you are using a two or three column page layout option.', 'analytica' ),
+                ),
+                'after-entry'   => array(
+                    'name'          => esc_html__( 'After Entry', 'analytica' ),
+                    'description'   => esc_html__( 'This is the content widget area. Displayed after the post content', 'analytica' ),
+                ),
+            );
+
+            add_theme_support( 'analytica-sidebars', $sidebars );
+        }
+
+         // Maybe add support for menus
+        if ( ! current_theme_supports( 'analytica-menus' ) ) {
+            add_theme_support( 'analytica-menus', array(
+                'primary'   		=> esc_html__( 'Primary Navigation', 'analytica' ),
+            ) );
         }
 
         /**

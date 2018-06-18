@@ -108,19 +108,18 @@ class Dynamic_CSS {
         $text_color                    = analytica_get_option( 'site-text-color' );
         $accent_color                  = analytica_get_option( 'site-accent-color' );
         $link_hover_color              = analytica_get_option( 'site-link-highlight-color' );
-        $content_background_color      = analytica_get_option( 'site-content-background-color' );
+        $content_bg_color              = analytica_get_option( 'site-content-background-color' );
         $post_meta_color               = analytica_get_option( 'archive-post-meta-color' );
-        
+        $highlight_color               = analytica_get_foreground_color( $accent_color );
+
         $body_font                     = analytica_get_option( 'font-base' );
 
         $body_font_size                = $body_font['font-size'];
         
-        $highlight_theme_color         = analytica_get_foreground_color( $accent_color );
-
         if ( is_array( $body_font_size ) ) {
-            $body_font_size = ! empty( $body_font_size ) ?   intval( $body_font_size ) : 15;
+            $body_font_size = ! empty( $body_font_size ) ? intval( $body_font_size ) : 15;
         } else {
-            $body_font_size = ( '' != $body_font_size ) ? intval( $body_font_size ) : 15;
+            $body_font_size = ! empty( $body_font_size ) ? intval( $body_font_size ) : 15;
         }
 
         /**
@@ -147,14 +146,14 @@ class Dynamic_CSS {
         $btn_vertical_padding   = analytica_get_option( 'button-v-padding' );
         $btn_horizontal_padding = analytica_get_option( 'button-h-padding' );
         $highlight_link_color   = analytica_get_foreground_color( $link_color );
-        $highlight_theme_color  = analytica_get_foreground_color( $accent_color );
+        $highlight_color        = analytica_get_foreground_color( $accent_color );
 
         $css_output = array(
 
             // Global CSS.
             '::selection'                             => array(
                 'background-color' => esc_attr( $accent_color ),
-                'color'            => esc_attr( $highlight_theme_color ),
+                'color'            => esc_attr( $highlight_color ),
             ),
 
             'a:hover, a:focus'                        => array(
@@ -219,8 +218,8 @@ class Dynamic_CSS {
             ),
 
             'pre' => array(
-                'background-color' => analytica_adjust_brightness( $content_background_color, 75, 'reverse' ),
-                'color'            => analytica_get_foreground_color( $content_background_color ),
+                'background-color' => analytica_adjust_brightness( $content_bg_color, 75, 'reverse' ),
+                'color'            => analytica_get_foreground_color( $content_bg_color ),
             ),
 
             '.analytica-pagination a:hover, .analytica-pagination a:focus, .analytica-pagination > span:hover:not(.dots), .analytica-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
@@ -343,6 +342,7 @@ class Dynamic_CSS {
 
             if ( ! empty( $site_header_border['top'] ) || ! empty( $site_header_border['left'] ) || ! empty( $site_header_border['bottom'] ) || ! empty( $site_header_border['right'] )  ) {
                 $css .= '.site-footer {';
+                    $css .= 'border-style: solid;';
                     $css .= ! empty( $site_header_border['top'] ) ? 'border-top-width: ' . esc_attr( $site_footer_border['top'] ) . ';' : '';
                     $css .= ! empty( $site_header_border['left'] ) ? 'border-left-width: ' . esc_attr( $site_footer_border['left'] ) . ';' : '';
                     $css .= ! empty( $site_header_border['bottom'] ) ? 'border-bottom-width: ' . esc_attr( $site_footer_border['bottom'] ) . ';' : '';
@@ -352,6 +352,7 @@ class Dynamic_CSS {
 
             if ( ! empty( $site_footer_colophon_border['top'] ) || ! empty( $site_footer_colophon_border['left'] ) || ! empty( $site_footer_colophon_border['bottom'] ) || ! empty( $site_footer_colophon_border['right'] )  ) {
                 $css .= '.site-colophon {';
+                    $css .= 'border-style: solid;';
                     $css .= ! empty( $site_footer_colophon_border['top'] ) ? 'border-top-width: ' . esc_attr( $site_footer_colophon_border['top'] ) . ';' : '';
                     $css .= ! empty( $site_footer_colophon_border['left'] ) ? 'border-left-width: ' . esc_attr( $site_footer_colophon_border['left'] ) . ';': '';
                     $css .= ! empty( $site_footer_colophon_border['bottom'] ) ? 'border-bottom-width: ' . esc_attr( $site_footer_colophon_border['bottom'] ) . ';': '';
