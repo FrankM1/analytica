@@ -134,7 +134,7 @@ class Frontend {
 
         endif;
 
-        wp_enqueue_style( 'analytica-frontend', analytica()->theme_url . '/assets/frontend/css/style' . $css_suffix, '', $version, 'all' );
+        wp_enqueue_style( 'analytica-frontend', analytica()->theme_url . '/assets/frontend/css/main' . $css_suffix, '', $version, 'all' );
     }
 
     public function enqueue_customizer_styles() {
