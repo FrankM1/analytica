@@ -4,7 +4,8 @@
  */
 
 .site-header {
-	position: relative;
+    position: relative;
+    border-width: 0;
 	@include clearfix;
 	padding: $grid-gutter-width-half 0;
 }
