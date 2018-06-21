@@ -45,13 +45,13 @@ class Kirki_Controls_Image_Gallery_Control extends Kirki_Control_Base {
         parent::__construct( $manager, $id, $args );
 
         $this->button_labels = wp_parse_args( $this->button_labels, array(
-            'select'       => __( 'Select Images', 'customize-image-gallery-control' ),
-            'change'       => __( 'Modify Gallery', 'customize-image-gallery-control' ),
-            'default'      => __( 'Default', 'customize-image-gallery-control' ),
-            'remove'       => __( 'Remove', 'customize-image-gallery-control' ),
-            'placeholder'  => __( 'No images selected', 'customize-image-gallery-control' ),
-            'frame_title'  => __( 'Select Gallery Images', 'customize-image-gallery-control' ),
-            'frame_button' => __( 'Choose Images', 'customize-image-gallery-control' ),
+            'select'       => __( 'Select Images', 'analytica' ),
+            'change'       => __( 'Modify Gallery', 'analytica' ),
+            'default'      => __( 'Default', 'analytica' ),
+            'remove'       => __( 'Remove', 'analytica' ),
+            'placeholder'  => __( 'No images selected', 'analytica' ),
+            'frame_title'  => __( 'Select Gallery Images', 'analytica' ),
+            'frame_button' => __( 'Choose Images', 'analytica' ),
         ) );
     }
     

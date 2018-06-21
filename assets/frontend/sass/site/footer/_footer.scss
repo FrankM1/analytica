@@ -1,9 +1,5 @@
 // # Site Footer
 .site-footer {
-	background-attachment: inherit;
-	background-repeat: no-repeat;
-	background-color: #000;
-	border-width: none;
 
 	&-widgets {
 		// # Site Footer Widgets
@@ -60,7 +56,6 @@
 
 .site-colophon {
 	padding: $grid-gutter-width-half 0;
-	border-width: 1px;
 	&-fullwidth .analytica-container {
 		max-width: none;
 	}

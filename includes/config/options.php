@@ -59,7 +59,7 @@ class Options {
             'site-settings-update-time' => '',
 
             // Site Layout.
-            'site-content-width'  => 1200,
+            'site-content-width'  => 840, // full width will be content width + sidebar width
             'site-layout-offset'  => '0',
             'site-layout'         => 'site-wide',
             'site-sidebar-layout' => 'content-sidebar',
@@ -361,18 +361,17 @@ class Options {
             'site-footer-colophon-width'            => false,
             'site-footer-colophon'                  => true,
             'site-footer-colophon-border-color'     => 'rgba(255,255,255,0.09)',
-            'site-footer-colophon-border-style'     => 'solid',
             'site-footer-colophon-border'           => [
-                'top'    => '0',
-                'bottom' => '0',
-                'left'   => '0',
-                'right'  => '0',
+                'top'    => '',
+                'bottom' => '',
+                'left'   => '',
+                'right'  => '',
             ],
             'site-footer-colophon-padding' => [
-                'top'    => '20px',
-                'bottom' => '20px',
-                'left'   => '0',
-                'right'  => '0',
+                'top'    => '',
+                'bottom' => '',
+                'left'   => '',
+                'right'  => '',
             ],
             'footer-background' => [
                 'color'    => '#000000',
@@ -389,18 +388,17 @@ class Options {
             'footer-border-color'      => '',
             'footer-headers-color'     => '',
             'footer-link-color'        => '',
-            'site-footer-border-style' => 'solid',
             'site-footer-padding'      => [
-                'top'    => '40px',
+                'top'    => '',
                 'left'   => '',
-                'bottom' => '40px',
+                'bottom' => '',
                 'right'  => '',
             ],
             'site-footer-border'       => [
-                'top'    => '0',
-                'bottom' => '0',
-                'left'   => '0',
-                'right'  => '0',
+                'top'    => '',
+                'bottom' => '',
+                'left'   => '',
+                'right'  => '',
             ],
        
             // Buttons.
