@@ -1,6 +1,9 @@
 /*----------  Mixins  ----------*/
 @import "mixins/mixins-master";
 
+/*----------  Fonts ----------*/
+@import "fonts/analytica";
+
 /*----------  Site Variables  ----------*/
 @import "variables-site/colors";
 @import "variables-site/structure";
@@ -11,10 +14,10 @@
 @import "site-normalize/typography";
 
 /*----------  Elements ----------*/
-@import "elements/element-social-follow.scss";
-@import "elements/element-search.scss";
-@import "elements/element-email.scss";
-@import "elements/element-hero.scss";
+@import "elements/element-social-follow";
+@import "elements/element-search";
+@import "elements/element-email";
+@import "elements/element-hero";
 
 /*----------  Media ----------*/
 @import "media/galleries";

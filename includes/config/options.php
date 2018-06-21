@@ -59,7 +59,7 @@ class Options {
             'site-settings-update-time' => '',
 
             // Site Layout.
-            'site-content-width'  => 1200,
+            'site-content-width'  => 840, // full width will be content width + sidebar width
             'site-layout-offset'  => '0',
             'site-layout'         => 'site-wide',
             'site-sidebar-layout' => 'content-sidebar',

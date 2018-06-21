@@ -32,37 +32,37 @@
 	ul {
 		padding: 0;
 		margin: 0;
-    }
-    
-    li {
-        margin: 0;
-        list-style: none;
+	}
 
-        &:hover {
-            color: $dark;
+	li {
+		margin: 0;
+		list-style: none;
 
-            &::before {
-                margin-right: 13px;
-                width: 13px;
-                background-color: $brand-primary;
-            }
-        }
+		&:hover {
+			color: $dark;
 
-        &:hover a {
-            color: $dark;
-        }
+			&::before {
+				margin-right: 13px;
+				width: 13px;
+				background-color: $brand-primary;
+			}
+		}
 
-        &::before {
-            display: inline-block;
-            margin-right: 12px;
-            width: 8px;
-            height: 2px;
-            background: #e1e1e1;
-            content: '';
-            vertical-align: middle;
-            transition: all 0.15s ease-out;
-        }
-    }
+		&:hover a {
+			color: $dark;
+		}
+
+		&::before {
+			display: inline-block;
+			margin-right: 12px;
+			width: 8px;
+			height: 2px;
+			background: #e1e1e1;
+			content: '';
+			vertical-align: middle;
+			transition: all 0.15s ease-out;
+		}
+	}
 
 	li {
 		padding-top: rem(5px);
@@ -188,10 +188,10 @@
 		color: inherit;
 
 		&:after {
-			font-family: $font-family-analytica;
+			font-family: 'Analytica';
 			font-size: 1.2em;
 			font-weight: normal;
-			content: "\e8b6";
+			content: "\e900";
 			position: absolute;
 			top: 50%;
 			right: 15px;
@@ -208,8 +208,8 @@
 			padding: 13px 20px;
 			border-radius: 2px;
 			border: none;
-			top: 0px;
-			right: 0px;
+			top: 0;
+			right: 0;
 			position: absolute;
 			color: transparent;
 			background: transparent;
