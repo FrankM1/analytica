@@ -1,5 +1,7 @@
 # Analytica WordPress Theme
 
+<img src="https://github.com/FrankM1/analytica/raw/master/screenshot.jpg">
+
 ## Demo and Documentation
 * **Demo** : https://demo-analytica.qazana.net/
 * **Documentation** : https://qazana.net/docs

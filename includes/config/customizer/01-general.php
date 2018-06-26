@@ -319,7 +319,7 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'transport' => 'postMessage',
         'output'    => [
             [
-                'element' => '.site-title a',
+                'element' => '.site-id .site-title a',
             ], 
         ]
     ];

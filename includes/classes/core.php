@@ -199,7 +199,6 @@ class Core {
         $this->_include_config();
         $this->_include_classes();
         $this->_include_function();
-        $this->_include_profiles();
         
         $this->_include_options();
         $this->_include_admin();
@@ -258,10 +257,6 @@ class Core {
 
         // Not crucial for the admin
        // require_once get_theme_file_path( '/includes/functions/breadcrumb.php' );
-    }
-
-    function _include_profiles() {
-        require_once get_theme_file_path( '/includes/config/profiles/default.php' );
     }
 
     function _include_options() {

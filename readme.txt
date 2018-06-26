@@ -40,8 +40,7 @@ Flexibility is a JavaScript polyfill for Flexbox By Jonathan Neal, 10up. (https:
 Licensed under MIT ( https://github.com/jonathantneal/flexibility/blob/master/LICENSE.md )
 
 -------------------------------------------------------
-IcoMoon-Free
+Feather Icons
 -------------------------------------------------------
-Analytica icon font is based on IcoMoon-Free vector icon by Keyamoon.
-IcoMoon-Free vector icon destributed under trems of CC BY 4.0 or GPL. (http://creativecommons.org/licenses/by/4.0/ or http://www.gnu.org/licenses/gpl.html)
-Source: http://keyamoon.com/
+Analytica icon font is based on Feather Icons by Cole Bemis.
+Licensed under MIT ( https://feathericons.com/ )
