@@ -8,6 +8,22 @@
  */
 
 /**
+ * Analytica check PHP version.
+ *
+ * Check when the site doesn't have the minimum required PHP version.
+ *
+ * @since 1.0.0
+ *
+ * @return void
+ */
+function analytica_is_php_version_compatible() {
+	if ( ! version_compare( PHP_VERSION, '5.4', '>=' ) ) {
+		return false;
+	}
+	return true;
+}
+
+/**
  * Analytica admin notice for minimum PHP version.
  *
  * Warning when the site doesn't have the minimum required PHP version.
@@ -39,7 +55,7 @@ function analytica_fail_wp_version() {
 	echo wp_kses_post( $html_message );
 }
 
-if ( ! version_compare( PHP_VERSION, '5.4', '>=' ) ) {
+if ( ! analytica_is_php_version_compatible() ) {
     add_action( 'admin_notices', 'analytica_fail_php_version' );
     return;
 } elseif ( ! version_compare( get_bloginfo( 'version' ), '4.7', '>=' ) ) {
@@ -63,6 +79,9 @@ if ( ! version_compare( PHP_VERSION, '5.4', '>=' ) ) {
  * @return The one true analytica Instance
  */
 function analytica() {
+	if ( ! analytica_is_php_version_compatible() ) {
+        return;
+    }
     return \Analytica\Core::instance();
 }
 analytica(); // All systems go
