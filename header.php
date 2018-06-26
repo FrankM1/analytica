@@ -8,6 +8,9 @@
  * @author   Franklin Gitonga
  * @link     http://radiumthemes.com/
  */
+if ( ! analytica_is_php_version_compatible() ) {
+    return;
+}
 
 /**
  * The Header for our theme.

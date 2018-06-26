@@ -9,6 +9,9 @@
  * @package Analytica
  * @since 1.0.0
  */
+if ( ! analytica_is_php_version_compatible() ) {
+    return;
+}
 
             analytica_structural_wrap( 'site-inner', 'close' );
 
