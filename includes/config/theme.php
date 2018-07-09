@@ -102,20 +102,11 @@ class Theme {
         // Customize Selective Refresh Widgets.
         add_theme_support( 'customize-selective-refresh-widgets' );
 
-
         $font_base = analytica_get_option( 'font-base' );
         $font_secondary = analytica_get_option( 'font-secondary-base' );
         $accent_color = analytica_get_option( 'site-accent-color' );
-
         $font_secondary_color = ! empty( $font_secondary['color'] ) ? $font_secondary['color'] : '';
         $font_base_color = ! empty( $font_base['color'] ) ? $font_base['color'] : '';
-
-        $colors = [
-            '1' => $font_secondary_color, // Title colors
-            '2' => $font_base_color, // Meta color
-            '3' => $font_base_color,
-            '4' => $accent_color, // Accents color, buttons etc
-		];
 
 		/**
 		 * Gutenberg support
