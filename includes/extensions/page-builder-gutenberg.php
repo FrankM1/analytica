@@ -1,24 +1,15 @@
 <?php
 namespace Analytica\Extensions\Page_Builder;
-
 /**
  * This file is a part of the Radium Framework core.
  * Please be cautious editing this file,
  *
- * @package  Radium\Extensions\Related-Posts
+ * @package  Radium\Extensions\Gutenberg
  * @subpackage  Energia
  * @author   Franklin Gitonga
  * @link     https://qazana.net/
  */
-
- use Elementor\Plugin;
-
-/**
- * Elementor Compatibility
- *
- * @since 1.0.0
- */
-class Elementor {
+class Gutenberg {
 
     /**
      * Constructor
@@ -28,34 +19,48 @@ class Elementor {
             return;
         }
         add_filter( 'analytica_is_builder_page', [ $this, 'is_builder_page'], 10, 2 );
-        add_filter( 'analytica_builder_is_active', [ $this, 'is_builder_activated'] );
+		add_filter( 'analytica_builder_is_active', [ $this, 'is_builder_activated'] );
+		add_filter( 'body_class', [ $this, 'body_class'] );
+	}
+
+	/**
+     * Detect gutenberg page and add a class
+     *
+     * @param int $id Post/Page Id.
+     * @return boolean
+     */
+    function body_class( $classes ) {
+        if ( gutenberg_post_has_blocks( get_queried_object_id() ) ) {
+            $classes[] = 'analytica-page-builder-gutenberg';
+        }
+        return $classes;
     }
 
     /**
-     * Check is elementor activated.
+     * Check is gutenberg activated.
      *
      * @param int $id Post/Page Id.
      * @return boolean
      */
     function is_builder_activated( $retval = false ) {
-        if ( analytica_detect_plugin( array( 'classes' => array( 'Elementor\Plugin' ) ) ) ) {
+        if ( is_plugin_active( 'gutenberg/gutenberg.php' ) ) {
             $retval = true;
         }
         return $retval;
     }
 
     /**
-     * Detect elementor page
+     * Detect gutenberg page
      *
      * @since 1.0.0
      *
      * @return boolean
      */
     function is_builder_page( $retval, $post_id ) {
-        if ( version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) ) {
-            return ( 'builder' === Plugin::$instance->db->get_edit_mode( $post_id ) );
-        } else {
-            return Plugin::$instance->db->is_built_with_elementor( $post_id );
+        if ( gutenberg_post_has_blocks( $post_id ) ) {
+            $retval = true;
         }
+        return $retval;
     }
 }
+
