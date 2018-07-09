@@ -1,19 +1,18 @@
 <?php
 namespace Analytica\Extensions\Page_Builder;
+
 /**
- * This file is a part of the Radium Framework core.
+ * This file is a part of the Analytica core.
  * Please be cautious editing this file,
  *
- * @package  Radium\Extensions\Related-Posts
- * @subpackage  Energia
+ * @package  Analytica\Extensions\Page_Builder\Qazana
+ * @subpackage  Analytica
  * @author   Franklin Gitonga
  * @link     https://qazana.net/
  */
 
- use Elementor\Plugin;
-
 /**
- * Elementor Compatibility
+ * Qazana Compatibility
  *
  * @since 1.0.0
  */
@@ -31,7 +30,7 @@ class Qazana {
         add_filter( 'analytica_is_builder_page', [ $this, 'is_builder_page'], 10, 2 );
         add_filter( 'analytica_builder_is_active', [ $this, 'is_builder_activated'] );
         add_action( 'customize_save_after', [ $this, 'reset_schemes'], 100 );
-        
+
         add_filter( 'qazana/schemes/default_color_picker_schemes', [ $this, 'default_color_picker_schemes'] );
         add_filter( 'qazana/schemes/system_color_schemes', [ $this, 'system_color_schemes'] );
         add_filter( 'qazana/schemes/default_color_schemes', [ $this, 'default_colors'] );
@@ -40,7 +39,7 @@ class Qazana {
 
     /**
      * Clean up qazana widgets
-     * 
+     *
      * @method analytica_qazana_hero
      * @return [type]                    [description]
      */
@@ -247,7 +246,7 @@ class Qazana {
         if ( get_post_meta( $post_id, '_qazana_edit_mode', true ) || \Qazana\Template_Library\Source_Local::CPT === get_post_type( $post_id ) ) {
             $retval = true;
         }
-                
+
         return $retval;
     }
 }

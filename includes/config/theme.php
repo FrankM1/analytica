@@ -21,7 +21,7 @@ class Theme {
     public function __construct() {
         add_action( 'after_setup_theme', array( $this, 'setup_theme' ), 2 );
     }
-    
+
     /**
      * Sets up theme defaults and registers support for various WordPress features.
      *
@@ -40,7 +40,7 @@ class Theme {
          * Add custom headers
          */
         $defaults = array(
-            'default-image'          => analytica_get_option( 'site-hero-background-image' ), 
+            'default-image'          => analytica_get_option( 'site-hero-background-image' ),
             'width'                  => 1200,
             'height'                 => 400,
             'flex-height'            => false,
@@ -57,7 +57,7 @@ class Theme {
         add_theme_support( 'custom-header', $defaults );
 
         $defaults = array(
-            'default-color'          => preg_replace( "/#[a-f0-9]{6}/i", "", analytica_get_option( 'site-background-color' ) ), 
+            'default-color'          => preg_replace( "/#[a-f0-9]{6}/i", "", analytica_get_option( 'site-background-color' ) ),
             'wp-head-callback'       => 'analytica_custom_background_callback',
         );
 
@@ -67,10 +67,10 @@ class Theme {
          * Enable support for Post Formats
          */
         add_theme_support( 'post-formats', array( 'gallery', 'image', 'link', 'quote', 'video', 'audio', 'status', 'aside',) );
-    
+
         // Turn on HTML5, responsive viewport
         add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
- 
+
         // Custom Site Logo
         add_theme_support( 'site-logo', array(
             'header-text' => array(
@@ -79,16 +79,16 @@ class Theme {
             ),
             'size' => 'medium',
         ) );
-    
+
         // Add default posts and comments RSS feed links to head.
         add_theme_support( 'automatic-feed-links' );
-    
+
         // Let WordPress manage the document title.
         add_theme_support( 'title-tag' );
-    
+
         // Enable support for Post Thumbnails on posts and pages.
         add_theme_support( 'post-thumbnails' );
-    
+
         // Add theme support for Custom Logo.
         add_theme_support(
             'custom-logo', array(
@@ -98,18 +98,57 @@ class Theme {
                 'flex-height' => true,
             )
         );
-    
+
         // Customize Selective Refresh Widgets.
         add_theme_support( 'customize-selective-refresh-widgets' );
-        
-        /** 
-         * Theme specific features 
+
+        $font_base = analytica_get_option( 'font-base' );
+        $font_secondary = analytica_get_option( 'font-secondary-base' );
+        $accent_color = analytica_get_option( 'site-accent-color' );
+        $font_secondary_color = ! empty( $font_secondary['color'] ) ? $font_secondary['color'] : '';
+        $font_base_color = ! empty( $font_base['color'] ) ? $font_base['color'] : '';
+
+		/**
+		 * Gutenberg support
+		 */
+		add_theme_support( 'align-wide' );
+		add_theme_support( 'wp-block-styles' );
+		add_theme_support( 'editor-color-palette', [
+			array(
+				'name' => __( 'Black', 'analytica' ),
+				'slug' => 'black',
+				'color' => '#000000',
+			),
+			array(
+				'name' => __( 'White', 'analytica' ),
+				'slug' => 'white',
+				'color' => '#ffffff',
+			),
+			array(
+				'name' => __( 'Base text color', 'analytica' ),
+				'slug' => 'font-base-color',
+				'color' => $font_base_color,
+			),
+			array(
+				'name' => __( 'Secondary text color', 'analytica' ),
+				'slug' => 'font-secondary-color',
+				'color' => $font_secondary_color,
+			),
+			array(
+				'name' => __( 'Accent color', 'analytica' ),
+				'slug' => 'accent-color',
+				'color' => $accent_color
+			),
+		]);
+
+        /**
+         * Theme specific features
          */
         add_theme_support( 'analytica-responsive-viewport' );
         add_theme_support( 'analytica-inpost-layouts' );
         add_theme_support( 'analytica-page-header' );
         add_theme_support( 'analytica-breadcrumbs' );
-    
+
         // Maybe add support for structural wraps
         if ( ! current_theme_supports( 'analytica-structural-wraps' ) ) {
             add_theme_support( 'analytica-structural-wraps', array( 'site-header', 'site-hero', 'site-inner', 'site-content', 'menu-primary', 'menu-secondary', 'site-footer' ) );
@@ -176,14 +215,14 @@ class Theme {
 
             add_post_type_support( $post_type, $supported[$post_type] );
         }
-    
+
         /**
          * Content Width
          */
         if ( ! isset( $content_width ) ) {
             $content_width = apply_filters( 'analytica_content_width', 700 );
         }
-    
+
         /**
          * This theme styles the visual editor to resemble the theme style,
          * specifically font, colors, icons, and column width.
@@ -191,13 +230,13 @@ class Theme {
         $dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
         $file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
         add_editor_style( 'assets/frontend/css/' . $dir_name . '/editor-style' . $file_prefix . '.css' );
-    
+
         if ( apply_filters( 'analytica_fullwidth_oembed', true ) ) {
             // Filters the oEmbed process to run the responsive_oembed_wrapper() function.
             add_filter( 'embed_oembed_html', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
             add_filter( 'oembed_result', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
         }
-      
+
         /**
          * Make theme available for translation.
          * Translations can be filed in the /languages/ directory.

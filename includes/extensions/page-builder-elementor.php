@@ -2,11 +2,11 @@
 namespace Analytica\Extensions\Page_Builder;
 
 /**
- * This file is a part of the Radium Framework core.
+ * This file is a part of the Analytica core.
  * Please be cautious editing this file,
  *
- * @package  Radium\Extensions\Related-Posts
- * @subpackage  Energia
+ * @package  Analytica\Extensions\Page_Builder\Elementor
+ * @subpackage  Analytica
  * @author   Franklin Gitonga
  * @link     https://qazana.net/
  */
@@ -38,11 +38,9 @@ class Elementor {
      * @return boolean
      */
     function is_builder_activated( $retval = false ) {
-
         if ( analytica_detect_plugin( array( 'classes' => array( 'Elementor\Plugin' ) ) ) ) {
             $retval = true;
         }
-
         return $retval;
     }
 
@@ -54,12 +52,10 @@ class Elementor {
      * @return boolean
      */
     function is_builder_page( $retval, $post_id ) {
-
         if ( version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) ) {
             return ( 'builder' === Plugin::$instance->db->get_edit_mode( $post_id ) );
         } else {
             return Plugin::$instance->db->is_built_with_elementor( $post_id );
         }
-
     }
 }

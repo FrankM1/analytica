@@ -2,23 +2,23 @@
 namespace Analytica\Extensions\Page_Builder;
 
 /**
- * This file is a part of the Radium Framework core.
+ * This file is a part of the Analytica core.
  * Please be cautious editing this file,
  *
- * @package  Radium\Extensions\Related-Posts
- * @subpackage  Energia
+ * @package  Analytica\Extensions\Page_Builder\FLBuilderModel
+ * @subpackage  Analytica
  * @author   Franklin Gitonga
  * @link     https://qazana.net/
  */
 
- use FLBuilderModel;
+use FLBuilderModel;
 
 /**
  * Elementor Compatibility
  *
  * @since 1.0.0
  */
-class Elementor {
+class Beaver_Builder {
 
     /**
      * Constructor
@@ -65,7 +65,7 @@ class Elementor {
             if ( empty( $post->post_content ) && $do_render && FLBuilderModel::is_builder_enabled() ) {
                 $retval = true;
             }
-        
+
         }
 
         return $retval;
