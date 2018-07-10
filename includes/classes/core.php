@@ -312,21 +312,10 @@ class Core {
 
     function _include_extensions() {
 		require_once get_theme_file_path( '/includes/extensions/page-builder.php' );
-
-		if ( function_exists( 'gutenberg_init' ) ) {
-        	require_once get_theme_file_path( '/includes/extensions/page-builder-gutenberg.php' );
-		}
-
-        // Elementor Compatibility requires PHP 5.4 for namespaces.
-        if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
-        	require_once get_theme_file_path( '/includes/extensions/page-builder-elementor.php' );
-        	require_once get_theme_file_path( '/includes/extensions/page-builder-elementor-pro.php' );
-        }
-
-        if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
-        	require_once get_theme_file_path( '/includes/extensions/page-builder-qazana.php' );
-        }
-
+        require_once get_theme_file_path( '/includes/extensions/page-builder-gutenberg.php' );
+		require_once get_theme_file_path( '/includes/extensions/page-builder-elementor.php' );
+		require_once get_theme_file_path( '/includes/extensions/page-builder-elementor-pro.php' );
+		require_once get_theme_file_path( '/includes/extensions/page-builder-qazana.php' );
         require_once get_theme_file_path( '/includes/extensions/page-builder-visual-composer.php' );
     }
 
