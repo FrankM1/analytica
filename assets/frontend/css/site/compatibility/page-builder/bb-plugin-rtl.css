@@ -1,0 +1,17 @@
+/**
+ * Analytica Theme compatibility with Beaver Builder
+ */
+.fl-builder-content {
+  clear: both;
+}
+
+.fl-theme-builder-archive h2.fl-post-feed-title {
+  clear: initial;
+}
+
+.analytica-fluid-width-layout .fl-row-fixed-width .fl-row-fixed-width {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNpdGUvY29tcGF0aWJpbGl0eS9wYWdlLWJ1aWxkZXIvc2l0ZS9jb21wYXRpYmlsaXR5L3BhZ2UtYnVpbGRlci9iYi1wbHVnaW4uc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7R0FFRztBQUVIO0VBQ0MsWUFBWTtDQUNaOztBQUVEO0VBRUUsZUFBZTtDQUNmOztBQUlGO0VBQ0MsaUJBQWdCO0VBQ2hCLGdCQUFpQjtDQUNqQiIsImZpbGUiOiJ0by5jc3MifQ== */

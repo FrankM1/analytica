@@ -5,7 +5,6 @@
   "homepage": "https://qazana.net",
   "description": "Analytica is multi-niche business theme with the perfect blend of modern design trends and powerful tools to launch your high conversion website.",
   "main": "index.php",
-  "homepage": "https://qazana.net",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FrankM1/analytica.git"
@@ -39,6 +38,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.6.1",
     "gulp-rimraf": "^0.2.2",
+    "gulp-rtlcss": "^1.2.0",
     "gulp-sass": "^2.2.0",
     "gulp-sort": "^2.0.0",
     "gulp-sourcemaps": "^2.6.4",

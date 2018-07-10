@@ -54,8 +54,6 @@ var AdmincssRC = "assets/admin/sass/**/*.scss"; // Path to main .scss file.
 var AdminStyleDestination = "assets/admin/css"; // Path to place the compiled CSS file.
 // Defualt set to root folder.
 
-var ExtenstioncssRC = "analytica/extensions/**/*.scss"; // Path to extensions .scss file.
-
 // Images related.
 var imagesSRC = "assets/frontend/images/raw/**/*.{png,jpg,gif,svg}"; // Source folder of images which should be optimized.
 var imagesDestination = "assets/frontend/images/"; // Destination folder of optimized images. Must be different from the imagesSRC folder.
@@ -63,7 +61,6 @@ var imagesDestination = "assets/frontend/images/"; // Destination folder of opti
 // Watch files paths.
 var FrontendJSWatchFiles = [
 	"assets/frontend/js/modules/**/*.js",
-	"assets/extensions/**/*.js",
 	"!assets/frontend/js/analytica-editor.js",
 	"!assets/frontend/js/analytica-frontend.js"
 ]; // Path to all vendor JS files.
@@ -101,7 +98,7 @@ var buildInclude = [
     "**/*.pot",
     "**/*.json",
     "**/*.xml",
-  
+
 	"**/plugins/*.zip",
 
 	// exclude files and folders
@@ -143,7 +140,6 @@ var gulp                  = require("gulp");                        // Gulp of-c
 var autoprefixer          = require("gulp-autoprefixer");           // Autoprefixing magic.
 var banner                = require("gulp-banner");
 var browserSync           = require("browser-sync").create();       // Reloads browser and injects CSS. Time-saving synchronised browser testing.
-var browserify            = require("gulp-browserify");
 var cache                 = require("gulp-cache");
 var checktextdomain       = require("gulp-checktextdomain");
 var cleanCSS              = require("gulp-clean-css");              // Minify CSS and merge combine matching media queries into one media query definition.
@@ -151,11 +147,9 @@ var concat                = require("gulp-concat");                 // Concatena
 var filter                = require("gulp-filter");                 // Enables you to work on a subset of the original files by filtering them using globbing.
 var git                   = require("gulp-git");
 var gutil                 = require("gulp-util");
-var ignore                = require("gulp-ignore");                 // Helps with ignoring files and directories in our run tasks
 var imagemin              = require("gulp-imagemin");               // Minify PNG, JPEG, GIF and SVG images with imagemin.
 var jshint                = require("gulp-jshint");
 var lineec                = require("gulp-line-ending-corrector");  // Consistent Line Endings for non UNIX systems. Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings)
-var modernizr             = require("modernizr");
 var notify                = require("gulp-notify");                 // Sends message notification to you
 var rename                = require("gulp-rename");                 // Renames files E.g. style.css -> style.min.css
 var replace               = require('gulp-replace');
@@ -167,10 +161,9 @@ var sourcemaps            = require("gulp-sourcemaps");             // Maps code
 var uglify                = require("gulp-uglify");                 // Minifies JS files
 var wpPot                 = require("gulp-wp-pot");                 // For generating the .pot file.
 var zip                   = require("gulp-zip");                    // Using to zip up our packaged theme into a tasty zip file that can be installed in WordPress!
-var log                   = require('fancy-log');
 var initReleaseIt         = require('gulp-release-it');
-var line_ending_corrector = require('gulp-line-ending-corrector');
 var standard = require('gulp-standard');
+var rtlcss  = require('gulp-rtlcss');
 
 /**
  * Task: `browser-sync`.
@@ -219,19 +212,16 @@ gulp.task("browser-sync", function() {
  *    7. Injects CSS or reloads the browser via browserSync
  */
 gulp.task("frontendcss", function() {
-	gulp
-		.src(FrontendcssRC)
+	gulp.src(FrontendcssRC)
 		.pipe(sourcemaps.init())
-		.pipe(
-			sass({
+		.pipe(sass({
 				errLogToConsole: true,
 				outputStyle: "expanded",
 				//outputStyle: 'compressed',
 				// outputStyle: 'nested',
 				// outputStyle: 'expanded',
 				precision: 10
-			})
-		)
+			}))
 		.on("error", gutil.log)
 		.pipe(sourcemaps.write({ includeContent: false }))
 		//.pipe(sourcemaps.init({ loadMaps: true }))
@@ -239,9 +229,13 @@ gulp.task("frontendcss", function() {
 		//.pipe(sourcemaps.write("./"))
 		//.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
 		.pipe(gulp.dest(FrontendStyleDestination))
+
+		.pipe(rtlcss()) // Convert to RTL
+		.pipe(rename({ suffix: "-rtl" })) // Rename to -rtl.css
+		.pipe(gulp.dest(FrontendStyleDestination)) // Output RTL stylesheets (rtl.css)
+
 		.pipe(filter("**/*.css")) // Filtering stream to only css files
-		.pipe(
-			cleanCSS({
+		.pipe(cleanCSS({
 				level: {
 					1: {
 						all: false // sets all default values to 'false'
@@ -251,67 +245,14 @@ gulp.task("frontendcss", function() {
 						mergeMedia: true // combine only media queries
 					}
 				}
-			})
-		) // Merge Media Queries only for .min.css version.
+			})) // Merge Media Queries only for .min.css version.
 		.pipe(browserSync.stream()) // Reloads style.css if that is enqueued.
 		.pipe(rename({ suffix: ".min" }))
-		.pipe(
-			cleanCSS({
-				level: 2 // full minification
-			})
-		)
+		.pipe(cleanCSS({ level: 2 })) // full minification
 		.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
 		.pipe(gulp.dest(FrontendStyleDestination))
 		.pipe(filter("**/*.css")) // Filtering stream to only css files
 		.pipe(browserSync.stream()); // Reloads style.min.css if that is enqueued.
-});
-
-gulp.task("extensionscss", function() {
-	return(gulp
-		.src(ExtenstioncssRC, { base: "." })
-		.pipe(
-			sass({
-				includePaths: ["./assets/frontend/sass/"],
-				errLogToConsole: true,
-				outputStyle: "expanded",
-				//outputStyle: 'compressed',
-				// outputStyle: 'nested',
-				// outputStyle: 'expanded',
-				precision: 10
-			})
-		)
-		.on("error", gutil.log)
-		//.pipe(sourcemaps.write({ includeContent: false }))
-		//.pipe(sourcemaps.init({ loadMaps: true }))
-		.pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
-		//.pipe(sourcemaps.write("./"))
-		.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
-		.pipe(gulp.dest("./"))
-		.pipe(filter("**/*.css")) // Filtering stream to only css files
-		.pipe(
-			cleanCSS({
-				level: {
-					1: {
-						all: false // sets all default values to 'false'
-					},
-					2: {
-						all: false, // sets all default values to 'false'
-						mergeMedia: true // combine only media queries
-					}
-				}
-			})
-		) // Merge Media Queries only for .min.css version.
-		.pipe(browserSync.stream()) // Reloads style.css if that is enqueued.
-		.pipe(rename({ suffix: ".min" }))
-		.pipe(
-			cleanCSS({
-				level: 2 // full minification
-			})
-		)
-		.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
-		.pipe(gulp.dest("./"))
-		.pipe(filter("**/*.css")) // Filtering stream to only css files
-		.pipe(browserSync.stream())); // Reloads style.min.css if that is enqueued.
 });
 
 /**
@@ -375,7 +316,7 @@ gulp.task("admincss", function() {
 		.pipe(browserSync.stream()); // Reloads style.min.css if that is enqueued.
 });
 
- 
+
 gulp.task('standard', function () {
   return gulp.src(["assets/frontend/js/modules/**/*.js", "assets/admin/js/**/*.js"])
     .pipe(standard())
@@ -570,14 +511,14 @@ gulp.task( "bump", function() {
     gulp.src(['style.css'])
 		.pipe(replace(/Version: \d{1,1}\.\d{1,2}\.\d{1,2}/g, 'Version: ' + pkg.version))
         .pipe(gulp.dest('./'));
-        
+
     return initReleaseIt(gulp);
 });
 
 gulp.task('commit', function () {
     return gulp.src('./')
         .pipe(git.add({ args: '--all', maxBuffer: Infinity }))
-        .pipe(git.commit('Bump to ' + pkg.version, { maxBuffer: Infinity })) 
+        .pipe(git.commit('Bump to ' + pkg.version, { maxBuffer: Infinity }))
         .pipe(git.branch( pkg.version, '', function (err) { if (err) throw err; }));
 });
 
@@ -630,10 +571,9 @@ gulp.task("bundleZip", function() {
         .pipe(notify({ message: 'Zip file generation Completed! 💯', onLast: true }) );
 });
 
-gulp.task("css", ["frontendcss", "extensionscss", "admincss", "browser-sync"], function() {
+gulp.task("css", ["frontendcss", "admincss", "browser-sync"], function() {
     gulp.watch(FrontendcssRC, ["frontendcss"]); // Reload on SCSS file changes.
     gulp.watch(AdmincssRC, ["admincss"]); // Reload on SCSS file changes.
-	gulp.watch(ExtenstioncssRC, ["extensionscss"]); // Reload on SCSS file changes.
 });
 
 gulp.task("js", ["FrontendScriptsJs", "AdminScriptsJs", "admincss", "browser-sync"], function() {
@@ -649,7 +589,6 @@ gulp.task("js", ["FrontendScriptsJs", "AdminScriptsJs", "admincss", "browser-syn
 gulp.task( "default", [ "vendorFiles", "FrontendScriptsJs", "AdminScriptsJs", "frontendcss", "admincss", "browser-sync"], function() {
     gulp.watch(projectPHPWatchFiles, browserSync.reload); // Reload on PHP file changes.
     gulp.watch(FrontendcssRC, ["frontendcss"]); // Reload on SCSS file changes.
-    gulp.watch(ExtenstioncssRC, ["extensionscss"]); // Reload on SCSS file changes.
     gulp.watch(AdmincssRC, ["admincss"]); // Reload on SCSS file changes.
     gulp.watch(FrontendJSWatchFiles, ["FrontendScriptsJs"]); // Reload on vendorFiles file changes.
     gulp.watch(AdminJSWatchFiles, ["AdminScriptsJs"]); // Reload on vendorFiles file changes.
@@ -663,7 +602,6 @@ gulp.task( "default", [ "vendorFiles", "FrontendScriptsJs", "AdminScriptsJs", "f
 gulp.task("buildFrontend", ["FrontendScriptsJs", "browser-sync"], function() {
 	gulp.watch(projectPHPWatchFiles, browserSync.reload); // Reload on PHP file changes.
 	gulp.watch(FrontendcssRC, ["frontendcss"]); // Reload on SCSS file changes.
-	gulp.watch(ExtenstioncssRC, ["extensionscss"]); // Reload on SCSS file changes.
 	gulp.watch(FrontendJSWatchFiles, ["FrontendScriptsJs"]); // Reload on vendorFiles file changes.
 });
 
