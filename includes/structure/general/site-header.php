@@ -85,14 +85,16 @@ function analytica_site_header_assets() {
 
     if ( ! analytica_site_header_is_active() ) {
         return;
-    }
-    
+	}
+
+	$css_suffix = is_rtl() ? '-rtl' : null;
+
      // detect if in developer mode and load appropriate files
-     if ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ): 
-         $css_suffix = '.css';
+     if ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ):
+         $css_suffix .= '.css';
          $version    = time();
      else:
-         $css_suffix = '.min.css';
+         $css_suffix .= '.min.css';
          $version    = analytica()->theme_version;
      endif;
 
@@ -109,7 +111,7 @@ function analytica_site_header_assets() {
     wp_enqueue_script(
         'analytica-jquery-dlmenu',
         analytica()->theme_url . '/assets/frontend/js/vendor/jquery-dlmenu.js',
-        [ 
+        [
             'jquery',
             'hoverIntent',
         ],
@@ -120,7 +122,7 @@ function analytica_site_header_assets() {
     wp_enqueue_script(
         'analytica-navigation-mobile',
         analytica()->theme_url . '/assets/frontend/js/modules/navigation.js',
-        [ 
+        [
             'analytica-jquery-dlmenu',
         ],
         $version,

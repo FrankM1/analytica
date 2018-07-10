@@ -1,0 +1,10 @@
+/**
+ * Analytica Theme compatibility with Elementor
+ */
+.analytica-left-sidebar .elementor-section.elementor-section-stretched,
+.analytica-right-sidebar .elementor-section.elementor-section-stretched {
+  max-width: 100%;
+  right: 0 !important;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNpdGUvY29tcGF0aWJpbGl0eS9wYWdlLWJ1aWxkZXIvc2l0ZS9jb21wYXRpYmlsaXR5L3BhZ2UtYnVpbGRlci9lbGVtZW50b3Iuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7R0FFRztBQUVIOztFQUdFLGdCQUFnQjtFQUNoQixvQkFBbUI7Q0FDbkIiLCJmaWxlIjoidG8uY3NzIn0= */
