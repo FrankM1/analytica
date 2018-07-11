@@ -42,8 +42,8 @@ var textDomain = "analytica"; // Your textdomain here.
 var translationFile = textDomain + ".pot"; // Name of the transalation file.
 var packageName = "analytica"; // Package name.
 var bugReport = "https://qazana.net/contact/"; // Where can users report bugs.
-var lastTranslator = "Franklin Gitonga <frank@radiumthemes.com>"; // Last translator Email ID.
-var team = "Qazana <frank@radiumthemes.com>"; // Team's Email ID.
+var lastTranslator = "Franklin Gitonga <frank@qazana.net>"; // Last translator Email ID.
+var team = "Qazana <frank@qazana.net>"; // Team's Email ID.
 var translatePath = "./languages"; // Where to save the translation files.
 
 // Style related.
