@@ -45,7 +45,7 @@ class Gutenberg {
      * @return boolean
      */
     function is_builder_activated( $retval = false ) {
-		if ( analytica_detect_plugin( array( 'function' => array( 'gutenberg_post_has_blocks' ) ) ) ) {
+		if ( analytica_detect_plugin( array( 'functions' => array( 'gutenberg_post_has_blocks' ) ) ) ) {
             $retval = true;
         }
         return $retval;
