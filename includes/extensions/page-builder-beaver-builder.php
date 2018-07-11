@@ -59,14 +59,9 @@ class Beaver_Builder {
 
         $do_render = apply_filters( 'fl_builder_do_render_content', true, FLBuilderModel::get_post_id() );
 
-        $page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
-        if ( isset( $post ) && empty( $page_builder_flag ) && ( is_admin() || is_singular() ) ) {
-
-            if ( empty( $post->post_content ) && $do_render && FLBuilderModel::is_builder_enabled() ) {
-                $retval = true;
-            }
-
-        }
+		if ( $do_render && FLBuilderModel::is_builder_enabled() ) {
+			$retval = true;
+		}
 
         return $retval;
     }
