@@ -13,35 +13,35 @@ namespace Analytica;
  * Singleton class used for generating the about page of the theme.
  */
 class About_Page {
-    
+
     /**
      * Define the version of the class.
      *
      * @var string $version The About_Page class version.
      */
     private $version = '1.0.0';
-    
+
     /**
      * Used for loading the texts and setup the actions inside the page.
      *
      * @var array $config The configuration array for the theme used.
      */
     private $config;
-    
+
     /**
      * Get the theme name using wp_get_theme.
      *
      * @var string $theme_name The theme name.
      */
     private $theme_name;
-    
+
     /**
      * Get the theme slug ( theme folder name ).
      *
      * @var string $theme_slug The theme slug.
      */
     private $theme_slug;
-    
+
     /**
      * The current theme object.
      *
@@ -54,35 +54,35 @@ class About_Page {
      * @var string $theme_version The theme version.
      */
     private $theme_version;
-    
+
     /**
      * Define the menu item name for the page.
      *
      * @var string $menu_name The name of the menu name under Appearance settings.
      */
     private $menu_name;
-    
+
     /**
      * Define the page title name.
      *
      * @var string $page_name The title of the About page.
      */
     private $page_name;
-    
+
     /**
      * Define the page tabs.
      *
      * @var array $tabs The page tabs.
      */
     private $tabs;
-    
+
     /**
      * Define the html notification content displayed upon activation.
      *
      * @var string $notification The html notification content.
      */
     private $notification;
-    
+
     /**
      * The single instance of About_Page
      *
