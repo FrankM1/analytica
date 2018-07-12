@@ -144,6 +144,8 @@ class Theme {
         /**
          * Theme specific features
          */
+
+		add_theme_support( 'analytica-browser-theme-color' );
         add_theme_support( 'analytica-responsive-viewport' );
         add_theme_support( 'analytica-inpost-layouts' );
         add_theme_support( 'analytica-page-header' );
@@ -279,7 +281,7 @@ class Theme {
     /**
      * Strpos over an array.
      *
-     * @since  1.2.4
+     * @since  1.0.0
      * @param  String  $haystack The string to search in.
      * @param  Array   $needles  Array of needles to be passed to strpos().
      * @param  integer $offset   If specified, search will start this number of characters counted from the beginning of the string. If the offset is negative, the search will start this number of characters counted from the end of the string.

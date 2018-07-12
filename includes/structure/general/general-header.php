@@ -93,6 +93,33 @@ function analytica_wp_title( $title, $sep ) {
     return $title;
 }
 
+add_action( 'analytica_meta', 'analytica_browser_theme_color' );
+/**
+ * Optionally output the theme color tag.
+ *
+ * Child theme needs to support 'analytica-responsive-viewport'.
+ *
+ * Applies `analytica_viewport_value` filter on content attribute.
+ *
+ * @since 1.0.6
+ *
+ * @return null Return early if child theme does not support theme color tag.
+ */
+function analytica_browser_theme_color() {
+
+    if ( ! current_theme_supports( 'analytica-browser-theme-color' ) ) { return; }
+
+    /**
+     * Filter the viewport meta tag value.
+     *
+     * @param string $viewport_default Default value of the theme color meta tag.
+     */
+    $value = apply_filters( 'analytica_browser_theme_color_value', analytica_get_option('site-accent-color') );
+
+    printf( '<meta name="theme-color" content="%s" />' . "\n", esc_attr( $value ) );
+
+}
+
 add_action( 'analytica_meta', 'analytica_responsive_viewport' );
 /**
  * Optionally output the responsive CSS viewport tag.
@@ -111,8 +138,6 @@ function analytica_responsive_viewport() {
 
     /**
      * Filter the viewport meta tag value.
-     *
-     * @since 1.5.4
      *
      * @param string $viewport_default Default value of the viewport meta tag.
      */

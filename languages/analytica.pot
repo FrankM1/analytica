@@ -6,8 +6,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language-Team: Qazana <frank@qazana.net>\n"
-"Last-Translator: Franklin Gitonga <frank@qazana.net>\n"
+"Language-Team: Qazana\n"
+"Last-Translator: Franklin Gitonga\n"
 "Report-Msgid-Bugs-To: https://qazana.net/contact/\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -304,31 +304,31 @@ msgstr ""
 msgid "Accent color"
 msgstr ""
 
-#: includes/config/theme.php:164, includes/structure/general/site-sidebar.php:47
+#: includes/config/theme.php:166, includes/structure/general/site-sidebar.php:47
 msgid "Primary Widget Area"
 msgstr ""
 
-#: includes/config/theme.php:165
+#: includes/config/theme.php:167
 msgid "This is the primary sidebar."
 msgstr ""
 
-#: includes/config/theme.php:168, includes/structure/general/site-sidebar.php:65
+#: includes/config/theme.php:170, includes/structure/general/site-sidebar.php:65
 msgid "Secondary Widget Area"
 msgstr ""
 
-#: includes/config/theme.php:169
+#: includes/config/theme.php:171
 msgid "This is the secondary sidebar if you are using a two or three column page layout option."
 msgstr ""
 
-#: includes/config/theme.php:172, includes/functions/widgets.php:216
+#: includes/config/theme.php:174, includes/functions/widgets.php:216
 msgid "After Entry"
 msgstr ""
 
-#: includes/config/theme.php:173
+#: includes/config/theme.php:175
 msgid "This is the content widget area. Displayed after the post content"
 msgstr ""
 
-#: includes/config/theme.php:183
+#: includes/config/theme.php:185
 msgid "Primary Navigation"
 msgstr ""
 
@@ -405,39 +405,11 @@ msgstr ""
 msgid "You are here: "
 msgstr ""
 
-#: includes/config/customizer/00-sample.php:48
-msgid "Site container color"
-msgstr ""
-
-#: includes/config/customizer/00-sample.php:58
-msgid "Site container dimensions"
-msgstr ""
-
-#: includes/config/customizer/00-sample.php:110
-msgid "Site container icon"
-msgstr ""
-
-#: includes/config/customizer/00-sample.php:125, includes/config/customizer/01-general.php:337, includes/config/customizer/02-site-header.php:248, includes/config/customizer/04-site-footer.php:616, includes/config/customizer/05-typography.php:308
-msgid "General"
-msgstr ""
-
-#: includes/config/customizer/00-sample.php:129, includes/config/customizer/01-general.php:341
-msgid "General Settings"
-msgstr ""
-
-#: includes/config/customizer/00-sample.php:135, includes/config/customizer/01-general.php:347
-msgid "Container Style"
-msgstr ""
-
-#: includes/config/customizer/00-sample.php:141, includes/config/customizer/01-general.php:365
-msgid "Logo & Favicon"
-msgstr ""
-
 #: includes/config/customizer/01-general.php:24
 msgid "Site layout"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:27, includes/config/metabox/meta-boxes.php:202
+#: includes/config/customizer/01-general.php:27, includes/config/metabox/meta-boxes.php:147
 msgid "Boxed"
 msgstr ""
 
@@ -549,12 +521,28 @@ msgstr ""
 msgid "Typography applied to the text logo."
 msgstr ""
 
+#: includes/config/customizer/01-general.php:337, includes/config/customizer/02-site-header.php:248, includes/config/customizer/04-site-footer.php:616, includes/config/customizer/05-typography.php:308
+msgid "General"
+msgstr ""
+
+#: includes/config/customizer/01-general.php:341
+msgid "General Settings"
+msgstr ""
+
+#: includes/config/customizer/01-general.php:347
+msgid "Container Style"
+msgstr ""
+
 #: includes/config/customizer/01-general.php:353
 msgid "Form Style"
 msgstr ""
 
 #: includes/config/customizer/01-general.php:359
 msgid "Button Style"
+msgstr ""
+
+#: includes/config/customizer/01-general.php:365
+msgid "Logo & Favicon"
 msgstr ""
 
 #: includes/config/customizer/02-site-header.php:23
@@ -1110,55 +1098,55 @@ msgstr ""
 msgid "Theme Utilities"
 msgstr ""
 
-#: includes/config/metabox/meta-boxes.php:128
+#: includes/config/metabox/meta-boxes.php:75
 msgid "Theme Settings"
 msgstr ""
 
-#: includes/config/metabox/meta-boxes.php:182
+#: includes/config/metabox/meta-boxes.php:127
 msgid "Sidebar"
 msgstr ""
 
-#: includes/config/metabox/meta-boxes.php:185, includes/config/metabox/meta-boxes.php:201
+#: includes/config/metabox/meta-boxes.php:130, includes/config/metabox/meta-boxes.php:146
 msgid "Customizer Setting"
 msgstr ""
 
-#: includes/config/metabox/meta-boxes.php:186
+#: includes/config/metabox/meta-boxes.php:131
 msgid "Left Sidebar"
 msgstr ""
 
-#: includes/config/metabox/meta-boxes.php:187
+#: includes/config/metabox/meta-boxes.php:132
 msgid "Right Sidebar"
 msgstr ""
 
-#: includes/config/metabox/meta-boxes.php:188
+#: includes/config/metabox/meta-boxes.php:133
 msgid "No Sidebar"
 msgstr ""
 
-#: includes/config/metabox/meta-boxes.php:198
+#: includes/config/metabox/meta-boxes.php:143
 msgid "Content Layout"
 msgstr ""
 
-#: includes/config/metabox/meta-boxes.php:203
+#: includes/config/metabox/meta-boxes.php:148
 msgid "Content Boxed"
 msgstr ""
 
-#: includes/config/metabox/meta-boxes.php:204
+#: includes/config/metabox/meta-boxes.php:149
 msgid "Full Width / Contained"
 msgstr ""
 
-#: includes/config/metabox/meta-boxes.php:205
+#: includes/config/metabox/meta-boxes.php:150
 msgid "Full Width / Stretched"
 msgstr ""
 
-#: includes/config/metabox/meta-boxes.php:215
+#: includes/config/metabox/meta-boxes.php:160
 msgid "Disable Sections"
 msgstr ""
 
-#: includes/config/metabox/meta-boxes.php:224
+#: includes/config/metabox/meta-boxes.php:168
 msgid "Disable Title"
 msgstr ""
 
-#: includes/config/metabox/meta-boxes.php:231
+#: includes/config/metabox/meta-boxes.php:175
 msgid "Disable Featured Image"
 msgstr ""
 

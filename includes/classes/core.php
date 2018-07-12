@@ -32,7 +32,7 @@ class Core {
      *
      * @var string
      */
-    public $version = '1.0.0';
+    public $version = '1.0.6';
 
     /**
      * @var array Overloads get_option()
@@ -165,11 +165,14 @@ class Core {
         $this->customizer                            = new Customizer();
         $this->dynamic_css                           = new Dynamic_CSS();
         $this->frontend                              = new Frontend();
-        $this->markup                                = new Markup();
-        $this->metabox                               = new Metabox\Actions();
+		$this->markup                                = new Markup();
+		if ( is_admin() ) {
+			$this->metaboxes                             = new MetaBoxes();
+		}
+        $this->metabox_actions                       = new Metabox\Actions();
         $this->options_instance                      = new Options();
         $this->schema                                = new SchemaORG();
-        $this->theme                                 = new Theme();
+		$this->theme                                 = new Theme();
 
         $this->loop_base                             = new Content\Loop\Base();
         $this->loop_archives                         = new Content\Loop\Archives();
@@ -178,7 +181,7 @@ class Core {
         $this->loop_page                             = new Content\Loop\Page();
 
 		$this->extensions_page_builders              = new Extensions\Page_Builder();
-		$this->extensions_page_builders_beaver_builder 	 = new Extensions\Page_Builder\Beaver_Builder();
+		$this->extensions_page_builders_beaver_builder = new Extensions\Page_Builder\Beaver_Builder();
 		$this->extensions_page_builders_gutenberg 	 = new Extensions\Page_Builder\Gutenberg();
         $this->extensions_page_builders_qazana       = new Extensions\Page_Builder\Qazana();
         $this->extensions_page_builders_elementor    = new Extensions\Page_Builder\Elementor();
@@ -249,15 +252,11 @@ class Core {
         require_once get_theme_file_path( '/includes/structure/general/general-header.php' );
         require_once get_theme_file_path( '/includes/structure/general/css-classes.php' );
         require_once get_theme_file_path( '/includes/structure/general/template-tags.php' );
-        require_once get_theme_file_path( '/includes/structure/general/template-parts.php' );
 
         require_once get_theme_file_path( '/includes/functions/widgets.php' );
 
         // Used by both front and admin
         require_once get_theme_file_path( '/includes/functions/conditionals.php' );
-
-        // Not crucial for the admin
-       // require_once get_theme_file_path( '/includes/functions/breadcrumb.php' );
     }
 
     function _include_options() {
