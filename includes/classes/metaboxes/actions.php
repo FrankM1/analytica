@@ -29,7 +29,6 @@ class Actions {
     function add_action() {
         if ( is_singular() ) {
             add_filter( 'analytica_site_header_is_active', array( $this, 'site_header' ) );
-            add_filter( 'body_class', array( $this, 'body_class' ) );
         }
     }
 
