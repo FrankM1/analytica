@@ -121,18 +121,20 @@ class Frontend {
      */
     function enqueue_styles() {
 
+		$css_suffix = is_rtl() ? '-rtl' : null;
+
         // detect if in developer mode and load appropriate files
         if ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ) :
 
-            $css_suffix = '.css';
+            $css_suffix .= '.css';
             $version = time();
 
         else :
 
-            $css_suffix = '.min.css';
+            $css_suffix .= '.min.css';
             $version = analytica()->theme_version;
 
-        endif;
+		endif;
 
         wp_enqueue_style( 'analytica-frontend', analytica()->theme_url . '/assets/frontend/css/main' . $css_suffix, '', $version, 'all' );
     }

@@ -2,11 +2,11 @@
 namespace Analytica\Extensions\Page_Builder;
 
 /**
- * This file is a part of the Radium Framework core.
+ * This file is a part of the Analytica core.
  * Please be cautious editing this file,
  *
- * @package  Radium\Extensions\Related-Posts
- * @subpackage  Energia
+ * @package  Analytica\Extensions\Page_Builder\Elementor_Pro
+ * @subpackage  Analytica
  * @author   Franklin Gitonga
  * @link     https://qazana.net/
  */
@@ -151,7 +151,7 @@ class Elementor_Pro {
      * @return void
      */
     function override_with_post_meta( $post_id = 0 ) {
-       
+
     }
 
     /**

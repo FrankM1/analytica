@@ -3,7 +3,7 @@
 <img src="https://github.com/FrankM1/analytica/raw/master/screenshot.jpg">
 
 ## Demo and Documentation
-* **Demo** : https://demo-analytica.qazana.net/
+* **Demo** : http://demo-analytica.qazana.net/
 * **Documentation** : https://qazana.net/docs
 
 ## Getting Started
@@ -30,6 +30,27 @@ Upload the theme to your WordPress directory in wp-content/themes/
 * [Infinite Scroll](http://jetpack.me/support/infinite-scroll/) (JetPack)
 * Page Builders
 * Built around [Actions](https://codex.wordpress.org/Glossary#Action) and [Filters](https://codex.wordpress.org/Glossary#Filter)
+* RTL Support
+* Fully compatible with Gutenberg
+
+## Plugin Support ==
+
+Analytica includes integration support for the following plugins:
+
+* [Breadcrumb NavXT](https://wordpress.org/plugins/breadcrumb-navxt/)
+* [Yoast Breadcrumbs](https://wordpress.org/plugins/wordpress-seo/)
+* [Jetpack Infinite Scroll](https://jetpack.com/support/infinite-scroll/)
+* [Jetpack Responsive Videos](https://jetpack.com/support/responsive-videos/)
+* [Max Mega Menu](https://wordpress.org/plugins/megamenu/)
+* [Page Builder by SiteOrigin](https://wordpress.org/plugins/siteorigin-panels/)
+* [SiteOrigin Widgets Bundle](https://wordpress.org/plugins/so-widgets-bundle/)
+* [SiteOrigin CSS](https://wordpress.org/plugins/so-css/)
+* [Smart Slider 3](https://wordpress.org/plugins/smart-slider-3/)
+* [Elementor Page Builder](https://wordpress.org/plugins/elementor/)
+* [Elementor Pro Page Builder](https://wordpress.org/plugins/elementor/)
+* [Beaver Builder Page Builder](https://www.wpbeaverbuilder.com)
+* [Visual Composer Page Builder](https://www.wpbakery.com)
+* [Qazana Page Builder](https://www.qazana.net)
 
 ### Screenshots
  Customizer

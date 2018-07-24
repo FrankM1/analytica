@@ -74,7 +74,7 @@ class Options {
             'site-text-color'               => '#3a3a3a',
             'site-border-color'             => '',
 
-            // Forms 
+            // Forms
             'site-form-inputs-background-color' => '',
             'site-form-inputs-highlight-background-color' => '',
             'site-form-inputs-border-color' => '',
@@ -134,7 +134,7 @@ class Options {
 
             // Hero Section
             'site-hero-background-color-base'    => 'light',
-            'site-hero-background-image'         => analytica()->theme_url . '/assets/frontend/images/defaults/hero-background.jpg',
+            'site-hero-background-image'         => '',
             'site-hero-background-overlay-color' => '',
             'site-hero-background'               => true,
             'site-hero-breadcrumbs'              => true,
@@ -335,7 +335,7 @@ class Options {
                 'text-transform' => '',
             ],
 
-            // Search 
+            // Search
             'search-sidebar-layout' => '',
 
             // Footer
@@ -400,7 +400,7 @@ class Options {
                 'left'   => '',
                 'right'  => '',
             ],
-       
+
             // Buttons.
             'button-background-color'   => '#0274be',
             'button-background-h-color' => '',

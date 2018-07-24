@@ -16,13 +16,6 @@ namespace Analytica;
 class MetaBoxes {
 
     /**
-     * Instance
-     *
-     * @var $instance
-     */
-    private static $instance;
-
-    /**
      * Meta Option
      *
      * @var $meta_option
@@ -30,60 +23,14 @@ class MetaBoxes {
     private static $meta_option;
 
     /**
-     * Initiator
-     */
-    public static function get_instance() {
-        if ( ! isset( self::$instance ) ) {
-            self::$instance = new self;
-        }
-        return self::$instance;
-    }
-
-    /**
      * Constructor
      */
     public function __construct() {
-
+		if ( ! analytica_post_has_metaboxes() ) {
+			return;
+		}
         add_action( 'load-post.php', array( $this, 'init_metabox' ) );
         add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
-        add_action( 'do_meta_boxes', array( $this, 'remove_metabox' ) );
-    }
-
-    /**
-     * Check if layout is bb themer's layout
-     */
-    public static function is_bb_themer_layout() {
-
-        $is_layout = false;
-
-        $post_type = get_post_type();
-        $post_id   = get_the_ID();
-
-        if ( 'fl-theme-layout' === $post_type && $post_id ) {
-
-            $is_layout = true;
-        }
-
-        return $is_layout;
-    }
-
-    /**
-     *  Remove Metabox for beaver themer specific layouts
-     */
-    public function remove_metabox() {
-
-        $post_type = get_post_type();
-        $post_id   = get_the_ID();
-
-        if ( 'fl-theme-layout' === $post_type && $post_id ) {
-
-            $template_type = get_post_meta( $post_id, '_fl_theme_layout_type', true );
-
-            if ( ! ( 'archive' === $template_type || 'singular' === $template_type || '404' === $template_type ) ) {
-
-                remove_meta_box( 'analytica_settings_meta_box', 'fl-theme-layout', 'side' );
-            }
-        }
     }
 
     /**
@@ -169,8 +116,6 @@ class MetaBoxes {
         $site_post_title     = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
         $ast_featured_img    = ( isset( $meta['single-featured-image']['default'] ) ) ? $meta['single-featured-image']['default'] : '';
 
-        $show_meta_field = ! self::is_bb_themer_layout();
-
         do_action( 'analytica_meta_box_markup_before', $meta );
 
         /**
@@ -190,7 +135,7 @@ class MetaBoxes {
         </div>
         <?php
         /**
-         * Option: Sidebar
+         * Option: Content Layout
          */
         ?>
         <div class="site-content-layout-meta-wrap">
@@ -207,7 +152,7 @@ class MetaBoxes {
         </div>
         <?php
         /**
-         * Option: Disable Sections - Primary Header, Title, Footer Widgets, Footer Bar
+         * Option: Disable Sections - Site Header, Title, Footer Widgets, Footer Bar
          */
         ?>
         <div class="disable-section-meta-wrap">
@@ -217,21 +162,19 @@ class MetaBoxes {
             <div class="disable-section-meta">
                 <?php do_action( 'analytica_meta_box_markup_disable_sections_before', $meta ); ?>
 
-                <?php if ( $show_meta_field ) { ?>
-                    <div class="site-post-title-option-wrap">
-                        <label for="site-post-title">
-                            <input type="checkbox" id="site-post-title" name="site-post-title" value="disabled" <?php checked( $site_post_title, 'disabled' ); ?> />
-                            <?php esc_html_e( 'Disable Title', 'analytica' ); ?>
-                        </label>
-                    </div>
+				<div class="site-post-title-option-wrap">
+					<label for="site-post-title">
+						<input type="checkbox" id="site-post-title" name="site-post-title" value="disabled" <?php checked( $site_post_title, 'disabled' ); ?> />
+						<?php esc_html_e( 'Disable Title', 'analytica' ); ?>
+					</label>
+				</div>
 
-                    <div class="analytica-featured-img-option-wrap">
-                        <label for="analytica-featured-img">
-                            <input type="checkbox" id="analytica-featured-img" name="analytica-featured-img" value="disabled" <?php checked( $ast_featured_img, 'disabled' ); ?> />
-                            <?php esc_html_e( 'Disable Featured Image', 'analytica' ); ?>
-                        </label>
-                    </div>
-                <?php } ?>
+				<div class="analytica-featured-img-option-wrap">
+					<label for="analytica-featured-img">
+						<input type="checkbox" id="analytica-featured-img" name="analytica-featured-img" value="disabled" <?php checked( $ast_featured_img, 'disabled' ); ?> />
+						<?php esc_html_e( 'Disable Featured Image', 'analytica' ); ?>
+					</label>
+				</div>
 
                 <?php do_action( 'analytica_meta_box_markup_disable_sections_after', $meta ); ?>
             </div>
@@ -298,8 +241,4 @@ class MetaBoxes {
 
     }
 }
-    
-/**
- * Kicking this off by calling 'get_instance()' method
- */
-MetaBoxes::get_instance();
+

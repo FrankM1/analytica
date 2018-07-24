@@ -32,7 +32,7 @@ class Core {
      *
      * @var string
      */
-    public $version = '1.0.0';
+    public $version = '1.0.6';
 
     /**
      * @var array Overloads get_option()
@@ -45,7 +45,7 @@ class Core {
      * @var analytica The one true instance
      */
     protected static $instance;
- 
+
     /**
      * Arguments for later use
      *
@@ -112,9 +112,9 @@ class Core {
         // Add actions to plugin activation and deactivation hooks
         add_action( 'activate_'   . $this->theme_slug, 'analytica_activation' );
         add_action( 'deactivate_' . $this->theme_slug, 'analytica_deactivation' );
-        
+
         // If theme is being deactivated, do not add any actions
-        
+
         /** Run the analytica_pre_framework Hook */
         do_action( 'analytica_pre_framework' );
 
@@ -165,19 +165,24 @@ class Core {
         $this->customizer                            = new Customizer();
         $this->dynamic_css                           = new Dynamic_CSS();
         $this->frontend                              = new Frontend();
-        $this->markup                                = new Markup();
-        $this->metabox                               = new Metabox\Actions();
+		$this->markup                                = new Markup();
+		if ( is_admin() ) {
+			$this->metaboxes                             = new MetaBoxes();
+		}
+        $this->metabox_actions                       = new Metabox\Actions();
         $this->options_instance                      = new Options();
         $this->schema                                = new SchemaORG();
-        $this->theme                                 = new Theme();
+		$this->theme                                 = new Theme();
 
         $this->loop_base                             = new Content\Loop\Base();
         $this->loop_archives                         = new Content\Loop\Archives();
         $this->loop_post                             = new Content\Loop\Post();
         $this->loop_404                              = new Content\Loop\Page_Not_Found();
         $this->loop_page                             = new Content\Loop\Page();
-     
-        $this->extensions_page_builders              = new Extensions\Page_Builder();
+
+		$this->extensions_page_builders              = new Extensions\Page_Builder();
+		$this->extensions_page_builders_beaver_builder = new Extensions\Page_Builder\Beaver_Builder();
+		$this->extensions_page_builders_gutenberg 	 = new Extensions\Page_Builder\Gutenberg();
         $this->extensions_page_builders_qazana       = new Extensions\Page_Builder\Qazana();
         $this->extensions_page_builders_elementor    = new Extensions\Page_Builder\Elementor();
         $this->extensions_page_builders_elementorpro = new Extensions\Page_Builder\Elementor_Pro();
@@ -199,7 +204,7 @@ class Core {
         $this->_include_config();
         $this->_include_classes();
         $this->_include_function();
-        
+
         $this->_include_options();
         $this->_include_admin();
         $this->_include_structure_base();
@@ -207,7 +212,7 @@ class Core {
 
         $this->_include_structure_post_archives();
         $this->_include_menus();
-        $this->_include_extensions(); 
+        $this->_include_extensions();
     }
 
     function _include_config() {
@@ -222,9 +227,8 @@ class Core {
 
         require_once get_theme_file_path( '/includes/config/strings.php' );
     }
-    
-    function _include_classes() {
 
+    function _include_classes() {
         require_once get_theme_file_path( '/includes/classes/nav/breadcrumb.php' );
         require_once get_theme_file_path( '/includes/classes/css/css-base.php' );
         require_once get_theme_file_path( '/includes/classes/css/global-css-file.php' );
@@ -248,15 +252,11 @@ class Core {
         require_once get_theme_file_path( '/includes/structure/general/general-header.php' );
         require_once get_theme_file_path( '/includes/structure/general/css-classes.php' );
         require_once get_theme_file_path( '/includes/structure/general/template-tags.php' );
-        require_once get_theme_file_path( '/includes/structure/general/template-parts.php' );
 
         require_once get_theme_file_path( '/includes/functions/widgets.php' );
 
         // Used by both front and admin
         require_once get_theme_file_path( '/includes/functions/conditionals.php' );
-
-        // Not crucial for the admin
-       // require_once get_theme_file_path( '/includes/functions/breadcrumb.php' );
     }
 
     function _include_options() {
@@ -273,7 +273,7 @@ class Core {
     }
 
     function _include_admin() {
-        if ( ! is_admin() ) { 
+        if ( ! is_admin() ) {
             return;
         }
         require_once get_template_directory() . '/includes/admin/about-page.php';
@@ -311,18 +311,12 @@ class Core {
      }
 
     function _include_extensions() {
-        require_once get_theme_file_path( '/includes/extensions/page-builder.php' );
-
-        // Elementor Compatibility requires PHP 5.4 for namespaces.
-        if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
-        	require_once get_theme_file_path( '/includes/extensions/page-builder-elementor.php' );
-        	require_once get_theme_file_path( '/includes/extensions/page-builder-elementor-pro.php' );
-        }
-
-        if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
-        	require_once get_theme_file_path( '/includes/extensions/page-builder-qazana.php' );
-        }
-
+		require_once get_theme_file_path( '/includes/extensions/page-builder.php' );
+		require_once get_theme_file_path( '/includes/extensions/page-builder-beaver-builder.php' );
+        require_once get_theme_file_path( '/includes/extensions/page-builder-gutenberg.php' );
+		require_once get_theme_file_path( '/includes/extensions/page-builder-elementor.php' );
+		require_once get_theme_file_path( '/includes/extensions/page-builder-elementor-pro.php' );
+		require_once get_theme_file_path( '/includes/extensions/page-builder-qazana.php' );
         require_once get_theme_file_path( '/includes/extensions/page-builder-visual-composer.php' );
     }
 

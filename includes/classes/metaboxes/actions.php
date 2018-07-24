@@ -20,65 +20,27 @@ class Actions {
      * Constructor
      */
     public function __construct() {
-        add_action( 'wp', array( $this, 'meta_hooks' ) );
+        add_action( 'wp', array( $this, 'add_action' ) );
     }
 
     /**
      * Metabox Hooks
      */
-    function meta_hooks() {
-
+    function add_action() {
         if ( is_singular() ) {
-            add_action( 'wp_head', array( $this, 'primary_header' ) );
-            add_filter( 'analytica_the_title_enabled', array( $this, 'post_title' ) );
-            add_filter( 'body_class', array( $this, 'body_class' ) );
+            add_filter( 'analytica_site_header_is_active', array( $this, 'site_header' ) );
         }
     }
 
     /**
-     * Primary Header
+     * Site Header
      */
-    function primary_header() {
+    function site_header( $retval ) {
 
-        $display_header = get_post_meta( get_the_ID(), '_analytica_header', true );
+        if ( 'disabled' == get_post_meta( get_the_ID(), '_analytica_site_header', true ) ) {
+			$retval = false;
+		}
 
-        $display_header = apply_filters( 'analytica_main_header_display', $display_header );
-
-        if ( 'disabled' == $display_header ) {
-            remove_action( 'analytica_masthead', 'analytica_masthead_primary_template' );
-        }
-    }
-
-    /**
-     * Disable Post / Page Title
-     *
-     * @param  boolean $defaults Show default post title.
-     * @return boolean           Status of default post title.
-     */
-    function post_title( $defaults ) {
-
-        $title = get_post_meta( get_the_ID(), 'site-post-title', true );
-        if ( 'disabled' == $title ) {
-            $defaults = false;
-        }
-
-        return $defaults;
-    }
-
-    /**
-     * Add Body Classes
-     *
-     * @param  array $classes Body Classes Array.
-     * @return array
-     */
-    function body_class( $classes ) {
-
-        $title = get_post_meta( get_the_ID(), 'site-post-title', true );
-
-        if ( 'disabled' != $title ) {
-            $classes[] = 'analytica-normal-title-enabled';
-        }
-
-        return $classes;
+		return $retval;
     }
 }

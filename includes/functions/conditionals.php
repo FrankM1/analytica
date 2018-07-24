@@ -163,10 +163,10 @@ function analytica_site_header_is_active() {
 
      $post_id = $post_id ? (int) $post_id : get_the_ID();
 
-    if ( 
-         ( function_exists( 'qazana' ) && ( qazana()->db->has_qazana_in_post( get_the_ID() ) ) && Qazana\Utils::is_post_type_support( $post_id ) ) || 
-         is_page_template( 'builder.php' ) || 
-         analytica_is_blog_and_builder_page() 
+    if (
+         ( function_exists( 'qazana' ) && ( qazana()->db->has_qazana_in_post( get_the_ID() ) ) && Qazana\Utils::is_post_type_support( $post_id ) ) ||
+         is_page_template( 'builder.php' ) ||
+         analytica_is_blog_and_builder_page()
     ) {
          $retval = true;
      }
@@ -338,4 +338,13 @@ function analytica_site_footer_has_widgets() {
     }
 
     return apply_filters( __FUNCTION__, $retval );
+}
+
+/**
+ * Check if post supports metaboxes
+ *
+ * @return boolean
+ */
+function analytica_post_has_metaboxes() {
+    return apply_filters( __FUNCTION__, true );
 }

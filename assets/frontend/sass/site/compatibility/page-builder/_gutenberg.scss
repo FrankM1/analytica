@@ -1,0 +1,19 @@
+// page builder content layout
+.analytica-page-builder-gutenberg {
+	.site-main-inner {
+		padding: 40px;
+	}
+
+	.wp-block-pullquote {
+		padding: 0;
+		text-align: center;
+		border-top: none;
+		border-bottom: none;
+		color: inherit;
+	}
+
+	.wp-block-gallery.alignnone {
+		display: flex;
+		margin-bottom: 0;
+	}
+}
