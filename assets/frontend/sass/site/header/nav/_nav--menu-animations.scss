@@ -22,13 +22,16 @@
 
 @keyframes MenuAnimOut1 {
 	0% {}
+
 	50% {
 		transform: translateZ(-250px) rotateY(30deg);
 	}
+
 	75% {
 		transform: translateZ(-372.5px) rotateY(15deg);
 		opacity: .5;
 	}
+
 	100% {
 		transform: translateZ(-500px) rotateY(0deg);
 		opacity: 0;
@@ -146,23 +149,23 @@
 	}
 }
 
-.nav-horizontal>.main_menu>.sub-menu.dl-animate-in-1 {
+.nav-horizontal>.sub-menu.dl-animate-in-1 {
 	animation: SubMenuAnimIn1 0.4s ease;
 }
 
-.nav-horizontal>.main_menu>.sub-menu.dl-animate-in-2 {
+.nav-horizontal>.sub-menu.dl-animate-in-2 {
 	animation: SubMenuAnimIn2 0.3s ease-in-out;
 }
 
-.nav-horizontal>.main_menu>.sub-menu.dl-animate-in-3 {
+.nav-horizontal>.sub-menu.dl-animate-in-3 {
 	animation: SubMenuAnimIn3 0.4s ease;
 }
 
-.nav-horizontal>.main_menu>.sub-menu.dl-animate-in-4 {
+.nav-horizontal>.sub-menu.dl-animate-in-4 {
 	animation: SubMenuAnimIn4 0.4s ease;
 }
 
-.nav-horizontal>.main_menu>.sub-menu.dl-animate-in-5 {
+.nav-horizontal>.sub-menu.dl-animate-in-5 {
 	animation: SubMenuAnimIn5 0.4s ease;
 }
 

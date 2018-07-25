@@ -116,11 +116,11 @@
 
                 if ( $submenu.length > 0 ) {
 
-                    var $flyin = $submenu.clone().css( 'opacity', 0 ).insertAfter( self.$menu ),
+                    var $flyin = $submenu.clone().css( 'opacity', 0 ).addClass('submenu-clone').insertAfter( self.$menu ),
                         onAnimationEndFn = function() {
-                            self.$menu.off( self.animEndEventName ).removeClass( self.options.animationClasses.classout ).addClass( 'dl-subview' );
-                            $item.addClass( 'dl-subviewopen' ).parents( '.dl-subviewopen:first' ).removeClass( 'dl-subviewopen' ).addClass( 'dl-subview' );
-                            $flyin.remove();
+                           self.$menu.off( self.animEndEventName ).removeClass( self.options.animationClasses.classout ).addClass( 'dl-subview' );
+                           $item.addClass( 'dl-subviewopen' ).parents( '.dl-subviewopen:first' ).removeClass( 'dl-subviewopen' ).addClass( 'dl-subview' );
+                           $flyin.remove();
                         };
 
                     setTimeout( function() {
@@ -150,11 +150,11 @@
                     $submenu = $this.parents( 'ul.sub-menu:first' ),
                     $item = $submenu.parent();
 
-                var $flyin = $submenu.clone().insertAfter( self.$menu );
+                var $flyin = $submenu.clone().addClass('submenu-clone').insertAfter(self.$menu);
 
                 var onAnimationEndFn = function() {
-                    self.$menu.off( self.animEndEventName ).removeClass( self.options.animationClasses.classin );
-                    $flyin.remove();
+                   self.$menu.off( self.animEndEventName ).removeClass( self.options.animationClasses.classin );
+                   $flyin.remove();
                 };
 
                 setTimeout( function() {

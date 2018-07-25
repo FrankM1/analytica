@@ -1,6 +1,9 @@
 /* Mobile Menu */
 
 @media only screen and (max-width: 1023px) {
+	.site-header .analytica-container {
+		position: relative;
+	}
 	button.menu-trigger {
 		display: block;
 		height: 38px;
@@ -11,7 +14,9 @@
 		border-radius: 3px;
 		color: #333;
 		padding: 0;
-		background: transparent;
+		position: absolute;
+		left: 0;
+		top: 0;
 
 		&.dl-active,
 		&:hover {
@@ -69,11 +74,39 @@
 	}
 
 	.nav-horizontal {
+		z-index: 999;
+		margin-left: auto;
+		width: 100%;
+		max-width: 300px;
 		position: relative;
 		perspective: 1000px;
 		perspective-origin: 50% 200%;
-		z-index: 999;
-		margin-left: auto;
+
+		>ul,
+		.dl-menu {
+			width: 230px;
+			left: -35px;
+			top: 52px;
+			background: white;
+			border-top: 3px solid $brand-primary;
+			position: absolute;
+		}
+
+		.dl-menu {
+			opacity: 0;
+			pointer-events: none;
+			transform: translateY(10px);
+			backface-visibility: hidden;
+			position: absolute;
+			&.dl-menuopen {
+				opacity: 1;
+				pointer-events: auto;
+				transform: translateY(0px);
+			} // Hide the inner submenus
+			&.dl-menu-toggle {
+				transition: all 0.3s ease;
+			}
+		}
 
 		ul {
 			padding: 0;
@@ -90,7 +123,7 @@
 			display: block;
 			position: relative;
 			padding: 15px 20px;
-            @include font-size( 1.6 );
+			@include font-size( 1.6);
 			line-height: 20px;
 			font-weight: 300;
 			outline: none;
@@ -111,9 +144,9 @@
 			a {
 				display: block;
 				position: relative;
-				line-height: 40px;
+				line-height: 43px;
 				outline: none;
-                @include font-size( 1.4 );
+				@include font-size( 1.4);
 				text-align: left;
 				*zoom: 1;
 				padding: 0 20px;
@@ -258,28 +291,11 @@
 		color: rgba(0, 0, 0, 0.15);
 	}
 
-	.nav-horizontal .dl-menu {
-		position: absolute;
-		opacity: 0;
-		pointer-events: none;
-		transform: translateY(10px);
-		backface-visibility: hidden;
-	}
-
-	.nav-horizontal .dl-menu.dl-menu-toggle {
-		transition: all 0.3s ease;
-	}
-
-	.nav-horizontal .dl-menu.dl-menuopen {
-		opacity: 1;
-		pointer-events: auto;
-		transform: translateY(0px);
-	} // Hide the inner submenus 
 	.nav-horizontal li .sub-menu {
 		display: none;
 	} // When a submenu is openend, we will hide all li siblings.
 	// For that we give a class to the parent menu called "dl-subview".
-	// We also hide the submenu link. 
+	// We also hide the submenu link.
 	// The opened submenu will get the class "dl-subviewopen".
 	// All this is done for any sub-level being entered.
 	.dl-menu.dl-subview li,
@@ -294,23 +310,6 @@
 	.dl-menu.dl-subview li.dl-subviewopen>.sub-menu,
 	.dl-menu.dl-subview li.dl-subviewopen>.sub-menu>li {
 		display: block;
-	}
-
-	/* Dynamically added submenu outside of the menu context */
-	.nav-horizontal>.main_menu>.sub-menu {
-		position: absolute;
-		right: 0;
-		margin: 0;
-		z-index: 999;
-	}
-
-	.nav-horizontal .dl-menu,
-	.nav-horizontal>.main_menu>.sub-menu {
-		width: 230px;
-		right: 0;
-		top: 52px;
-		background: white;
-		border-top: 3px solid $brand-primary;
 	}
 
 	/* No JS Fallback */
@@ -346,5 +345,4 @@
 		left: 0;
 		z-index: 90;
 	}
-
 }

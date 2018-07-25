@@ -32,6 +32,7 @@ Upload the theme to your WordPress directory in wp-content/themes/
 * Built around [Actions](https://codex.wordpress.org/Glossary#Action) and [Filters](https://codex.wordpress.org/Glossary#Filter)
 * RTL Support
 * Fully compatible with Gutenberg
+* Intuitive mobile navigation
 
 ## Plugin Support ==
 
