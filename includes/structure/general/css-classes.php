@@ -23,7 +23,7 @@ add_filter( 'body_class', 'analytica_site_layout_body_class' );
  */
 function analytica_site_layout_body_class( $classes ) {
 
-    if ( analytica_get_option( 'site-detach-containers' ) ) {
+    if ( analytica_get_option( 'site-detach-containers' ) && ! analytica_is_builder_page() ) {
         if ( analytica_get_option( 'site-dual-containers' ) ) {
             $classes[] = 'site-dual-containers';
         } else {
@@ -104,7 +104,7 @@ function analytica_get_site_header_class() {
     } elseif ( 'header-logo-left-2' == $header_align_option ) {
         $classes[] = 'site-header-left-style-2';
     }
-    
+
     // Add width class
     if ( ! analytica_get_option( 'site-header-width' ) ) {
         $classes[] = 'site-header-has-container';
