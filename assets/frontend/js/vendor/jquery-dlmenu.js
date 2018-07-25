@@ -34,8 +34,8 @@
 
         // classes for the animation effects
         animationClasses: {
-            classin: 'dl-animate-in-1', // 1-5
-            classout: 'dl-animate-out-1' // 1-5
+            classin: 'dl-animate-in-5', // 1-5
+            classout: 'dl-animate-out-5' // 1-5
         },
 
         // callback: click a link that has a sub menu
@@ -150,11 +150,11 @@
                     $submenu = $this.parents( 'ul.sub-menu:first' ),
                     $item = $submenu.parent();
 
-                var $flyin = $submenu.clone().addClass('submenu-clone').insertAfter(self.$menu);
+                var $flyin = $submenu.clone().addClass('submenu-clone back').insertAfter(self.$menu);
 
                 var onAnimationEndFn = function() {
-                   self.$menu.off( self.animEndEventName ).removeClass( self.options.animationClasses.classin );
-                   $flyin.remove();
+                   	self.$menu.off( self.animEndEventName ).removeClass( self.options.animationClasses.classin );
+                  	$flyin.remove();
                 };
 
                 setTimeout( function() {

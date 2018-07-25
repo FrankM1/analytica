@@ -36,65 +36,65 @@ class Dynamic_CSS {
     function custom_background( $css ) {
         // $background is the saved custom image, or the default image.
         $background = set_url_scheme( get_background_image() );
-    
+
         // $color is the saved custom color.
         // A default has to be specified in style.css. It will not be printed here.
         $color = get_background_color();
-    
+
         if ( $color === get_theme_support( 'custom-background', 'default-color' ) ) {
             $color = false;
         }
-    
+
         if ( ! $background && ! $color ) {
             return $css;
         }
 
         $style = $color ? "background-color: #$color;" : '';
-    
+
         if ( $background ) {
             $image = ' background-image: url("' . esc_url_raw( $background ) . '");';
-    
+
             // Background Position.
             $position_x = get_theme_mod( 'background_position_x', get_theme_support( 'custom-background', 'default-position-x' ) );
             $position_y = get_theme_mod( 'background_position_y', get_theme_support( 'custom-background', 'default-position-y' ) );
-    
+
             if ( ! in_array( $position_x, array( 'left', 'center', 'right' ), true ) ) {
                 $position_x = 'left';
             }
-    
+
             if ( ! in_array( $position_y, array( 'top', 'center', 'bottom' ), true ) ) {
                 $position_y = 'top';
             }
-    
+
             $position = " background-position: $position_x $position_y;";
-    
+
             // Background Size.
             $size = get_theme_mod( 'background_size', get_theme_support( 'custom-background', 'default-size' ) );
-    
+
             if ( ! in_array( $size, array( 'auto', 'contain', 'cover' ), true ) ) {
                 $size = 'auto';
             }
-    
+
             $size = " background-size: $size;";
-    
+
             // Background Repeat.
             $repeat = get_theme_mod( 'background_repeat', get_theme_support( 'custom-background', 'default-repeat' ) );
-    
+
             if ( ! in_array( $repeat, array( 'repeat-x', 'repeat-y', 'repeat', 'no-repeat' ), true ) ) {
                 $repeat = 'repeat';
             }
-    
+
             $repeat = " background-repeat: $repeat;";
-    
+
             // Background Scroll.
             $attachment = get_theme_mod( 'background_attachment', get_theme_support( 'custom-background', 'default-attachment' ) );
-    
+
             if ( 'fixed' !== $attachment ) {
                 $attachment = 'scroll';
             }
-    
+
             $attachment = " background-attachment: $attachment;";
-    
+
             $style .= $image . $position . $size . $repeat . $attachment;
         }
 
@@ -115,7 +115,7 @@ class Dynamic_CSS {
         $body_font                     = analytica_get_option( 'font-base' );
 
         $body_font_size                = $body_font['font-size'];
-        
+
         if ( is_array( $body_font_size ) ) {
             $body_font_size = ! empty( $body_font_size ) ? intval( $body_font_size ) : 15;
         } else {
@@ -137,10 +137,10 @@ class Dynamic_CSS {
         if ( empty( $btn_text_hover_color ) ) {
             $btn_text_hover_color = analytica_get_foreground_color( $link_hover_color );
         }
- 
+
         $btn_bg_color       = analytica_get_option( 'button-background-color', $accent_color );
         $btn_bg_hover_color = analytica_get_option( 'button-background-h-color', $link_hover_color );
-        
+
         // Button Styling.
         $btn_border_radius      = analytica_get_option( 'button-radius' );
         $btn_vertical_padding   = analytica_get_option( 'button-v-padding' );
@@ -160,7 +160,7 @@ class Dynamic_CSS {
                 'color' => esc_attr( $link_hover_color ),
             ),
 
-            '.nav-horizontal .dl-menu, .nav-horizontal > .main_menu > .sub-menu, .nav-horizontal ul > li > ul.sub-menu' => array(
+            '.nav-horizontal .dl-menu, .nav-horizontal .submenu-clone, .nav-horizontal .sub-menu' => array(
                 'border-top-color'     => esc_attr( $accent_color ),
             ),
 
@@ -172,7 +172,7 @@ class Dynamic_CSS {
                 'color'            => analytica_get_foreground_color( $accent_color ),
                 'background-color'     => esc_attr( $accent_color ),
             ),
-    
+
              // Typography.
              '.tagcloud a:hover, .tagcloud a:focus, .tagcloud a.current-item' => array(
                 'color'            => analytica_get_foreground_color( $link_color ),
@@ -211,7 +211,7 @@ class Dynamic_CSS {
             '.analytica-pagination a, .page-links .page-link, .single .post-navigation a' => array(
                 'color' => esc_attr( $link_color ),
             ),
-                
+
             'blockquote'                              => array(
                 'border-color' => analytica_hex_to_rgba( $link_color, 0.05 ),
                 'color' => analytica_adjust_brightness( $text_color, 75, 'darken' ),
@@ -225,7 +225,7 @@ class Dynamic_CSS {
             '.analytica-pagination a:hover, .analytica-pagination a:focus, .analytica-pagination > span:hover:not(.dots), .analytica-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
                 'color' => esc_attr( $link_hover_color ),
             ),
-               
+
             '.entry-meta a:hover, .entry-meta a:hover *, .entry-meta a:focus, .entry-meta a:focus *' => array(
                 'color' => esc_attr( $link_hover_color ),
             ),
@@ -285,7 +285,7 @@ class Dynamic_CSS {
         $site_sidebar_width                 = intval( analytica_get_option( 'site-sidebar-width' ) );
         $text_color       = analytica_get_option( 'site-text-color' );
         $link_color       = analytica_get_option( 'site-link-color' );
-        
+
         $site_hero_height       = analytica_get_option( 'site-hero-height' );
 
         $css .= 'a, .nav-horizontal ul > li > ul.sub-menu .current_page_item a { color: ' . esc_attr( $link_color ) .'}';
@@ -310,7 +310,7 @@ class Dynamic_CSS {
                 $css .= '}';
             }
         }
-        
+
         $css .= '@media (min-width: 992px) {';
 
             if ( $site_sidebar_width > 100 ) {
@@ -319,7 +319,7 @@ class Dynamic_CSS {
             }
 
             if ( $single_post_site_sidebar_width > 100 ) {
-                
+
                 $css .= '.single-post .site-sidebar .widget-area-inner {
                     width: ' . $single_post_site_sidebar_width . 'px;
                 }';
@@ -327,7 +327,7 @@ class Dynamic_CSS {
             }
 
         $css .= '}';
-  
+
         $css .= '@media (min-width: 768px) {';
 
             if ( ! empty( $site_header_border['top'] ) || ! empty( $site_header_border['left'] ) || ! empty( $site_header_border['bottom'] ) || ! empty( $site_header_border['right'] )  ) {
@@ -359,12 +359,12 @@ class Dynamic_CSS {
                     $css .= ! empty( $site_footer_colophon_border['right'] ) ? 'border-right-width: ' . esc_attr( $site_footer_colophon_border['right'] ) . ';': '';
                 $css .= '}';
             }
-        
+
         $css .= '}';
 
         return $css;
     }
- 
+
 	/**
 	 * Parse CSS
 	 *
@@ -427,7 +427,7 @@ class Dynamic_CSS {
 
 		return $parse_css;
     }
-    
+
     public function generate_hero_css( $css ) {
         $css_rules = null;
 
