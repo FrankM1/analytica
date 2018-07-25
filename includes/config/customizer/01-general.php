@@ -95,7 +95,7 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
 
     $controls[] = [
         'id'      => 'site-background-color',
-        'section' => 'container-style',
+        'section' => 'background_image',
         'type'    => 'color',
         'label'   => esc_html__( 'Background color', 'analytica' ),
         'default' => $default['site-background-color'],
@@ -108,13 +108,13 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
                 'property' => 'background-color'
             ),
         ),
-    ]; 
+    ];
 
     $controls[] = [
         'id'      => 'site-content-background-color',
         'section' => 'container-style',
         'type'    => 'color',
-        'label'   => esc_html__( 'Content background', 'analytica' ),
+        'label'   => esc_html__( 'Content area background', 'analytica' ),
         'default' => $default['site-content-background-color'],
         'choices'     => array(
             'alpha' => true,
@@ -320,7 +320,7 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'output'    => [
             [
                 'element' => '.site-id .site-title a',
-            ], 
+            ],
         ]
     ];
 
@@ -333,37 +333,37 @@ add_action( 'customize_register', 'analytica_add_general_panels_and_sections' );
  */
 function analytica_add_general_panels_and_sections( $wp_customize ) {
     $wp_customize->add_panel( 'general', [
-        'priority' => 9,
+        'priority' => 1,
         'title'    => esc_html__( 'General', 'analytica' ),
     ]);
 
     $wp_customize->add_section( 'general-settings', [
         'title'    => esc_html__( 'General Settings', 'analytica' ),
         'panel'    => 'general',
-        'priority' => 10,
+        'priority' => 1,
     ]);
 
     $wp_customize->add_section( 'container-style', [
         'title'    => esc_html__( 'Container Style', 'analytica' ),
         'panel'    => 'general',
-        'priority' => 11,
+        'priority' => 2,
     ]);
 
     $wp_customize->add_section( 'form-style', [
         'title'    => esc_html__( 'Form Style', 'analytica' ),
         'panel'    => 'general',
-        'priority' => 12,
+        'priority' => 3,
     ]);
 
     $wp_customize->add_section( 'button-style', [
         'title'    => esc_html__( 'Button Style', 'analytica' ),
         'panel'    => 'general',
-        'priority' => 13,
+        'priority' => 4,
     ]);
 
     $wp_customize->add_section( 'logo-favicon', [
         'title'    => esc_html__( 'Logo & Favicon', 'analytica' ),
-        'priority' => 14,
+        'priority' => 5,
     ]);
 
 }

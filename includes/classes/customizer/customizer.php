@@ -103,6 +103,9 @@ class Customizer {
         $wp_customize->get_control( 'display_header_text' )->priority = '5';
         $wp_customize->get_control( 'display_header_text' )->label = esc_html__( 'Display Site Title &amp; Tagline', 'analytica' );
 
+		$wp_customize->get_control( 'header_textcolor' )->section  = 'logo-favicon';
+		$wp_customize->get_control( 'header_textcolor' )->priority = '1';
+
         $site_logo_header_text = $wp_customize->get_control( 'site_logo_header_text' );
 
         // this field may be missing, so we need a check
@@ -118,19 +121,22 @@ class Customizer {
         if ( class_exists( 'Kirki' ) ) {
             $wp_customize->get_control( 'header_image' )->panel  = 'site-hero';
             $wp_customize->get_control( 'header_image' )->section  = 'site-hero-background';
-            $wp_customize->get_control( 'header_image' )->priority = '1';
+			$wp_customize->get_control( 'header_image' )->priority = '1';
 
-            $wp_customize->get_control( 'background_image' )->panel  = 'general';
-            $wp_customize->get_control( 'background_image' )->section  = 'container-style';
-            $wp_customize->get_control( 'background_image' )->priority = '1';
+			$wp_customize->get_control( 'header_video' )->panel  = 'site-hero';
+            $wp_customize->get_control( 'header_video' )->section  = 'site-hero-background';
+			$wp_customize->get_control( 'header_video' )->priority = '2';
 
-            $wp_customize->get_control( 'background_preset' )->panel  = 'general';
-            $wp_customize->get_control( 'background_preset' )->section  = 'container-style';
-            $wp_customize->get_control( 'background_preset' )->priority = '2';
+			$wp_customize->get_control( 'external_header_video' )->panel  = 'site-hero';
+            $wp_customize->get_control( 'external_header_video' )->section  = 'site-hero-background';
+			$wp_customize->get_control( 'external_header_video' )->priority = '3';
 
-            $wp_customize->get_control( 'colors' )->panel  = 'general';
-            $wp_customize->get_control( 'colors' )->section  = 'container-style';
-            $wp_customize->get_control( 'colors' )->priority = '1';
+			$wp_customize->get_control( 'background_color' )->panel  = 'general';
+            $wp_customize->get_control( 'background_color' )->section  = 'container-style';
+			$wp_customize->get_control( 'background_color' )->priority = '2';
+
+			$wp_customize->get_section( 'background_image' )->panel  = 'general';
+			$wp_customize->get_section( 'background_image' )->priority = '2';
         }
     }
 
