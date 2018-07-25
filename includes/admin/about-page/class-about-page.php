@@ -882,7 +882,7 @@ class About_Page {
 
         if ( 'appearance_page_' . $this->theme_slug . '-welcome' == $hook_suffix ) {
 
-            wp_enqueue_script( 'ti-about-page-js', get_template_directory_uri() . '/includes/admin/about-page/js/ti_about_page_scripts.js', array( 'jquery' ) );
+            wp_enqueue_script( 'ti-about-page-js', get_template_directory_uri() . '/includes/admin/about-page/js/ti_about_page_scripts.js', array( 'jquery' ), analytica()->theme_version );
 
             wp_enqueue_style( 'plugin-install' );
             wp_enqueue_script( 'plugin-install' );

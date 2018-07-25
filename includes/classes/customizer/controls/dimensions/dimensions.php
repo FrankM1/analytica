@@ -29,10 +29,10 @@ class Kirki_Controls_Dimensions_Responsive_Control extends Kirki_Control_Base {
      */
     public function enqueue() {
 
-        wp_enqueue_script( 'analytica-dimensions', analytica()->theme_url . '/assets/admin/js/modules/customizer/controls/dimensions.js', array( 'jquery', 'customize-base' ), false, true );
+        wp_enqueue_script( 'analytica-dimensions', analytica()->theme_url . '/assets/admin/js/modules/customizer/controls/dimensions.js', array( 'jquery', 'customize-base' ), analytica()->theme_version, true );
         wp_localize_script( 'analytica-dimensions', 'analyticaL10n', $this->l10n() );
 
-        wp_enqueue_style( 'analytica-dimensions', analytica()->theme_url . '/assets/admin/css/customizer/controls/dimensions.min.css', null );
+        wp_enqueue_style( 'analytica-dimensions', analytica()->theme_url . '/assets/admin/css/customizer/controls/dimensions.min.css', analytica()->theme_version );
     }
 
     /**
@@ -84,7 +84,7 @@ class Kirki_Controls_Dimensions_Responsive_Control extends Kirki_Control_Base {
         foreach ( $this->input_attrs as $attr => $value ) {
             $this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
         }
-        
+
         foreach ( $this->choices as $control ) {
             $this->json[ $this->device ][ $control ] = array(
                 'id'        => $control,
@@ -134,7 +134,7 @@ class Kirki_Controls_Dimensions_Responsive_Control extends Kirki_Control_Base {
         <# } #>
 
             <ul class="control-wrap">
-            <# _.each( data[ data.device ], function( args, key ) { 
+            <# _.each( data[ data.device ], function( args, key ) {
                 #>
                 <li class="dimension-wrap {{ key }}">
                     <input {{{ data.inputAttrs }}} type="number" class="dimension-{{ key }}" {{{ args.link }}} value="{{{ args.value }}}" />

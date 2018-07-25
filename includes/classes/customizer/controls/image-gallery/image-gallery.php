@@ -54,15 +54,15 @@ class Kirki_Controls_Image_Gallery_Control extends Kirki_Control_Base {
             'frame_button' => __( 'Choose Images', 'analytica' ),
         ) );
     }
-    
+
     /**
      * Enqueue control related scripts/styles.
      *
      * @access public
      */
     public function enqueue() {
-        wp_enqueue_script( 'analytica-image-gallery', analytica()->theme_url . '/assets/admin/js/modules/customizer/controls/image-gallery.js', array( 'jquery', 'customize-base' ), false, true );
-        wp_enqueue_style( 'analytica-image-gallery', analytica()->theme_url . '/assets/admin/css/customizer/controls/image-gallery.min.css', null );
+        wp_enqueue_script( 'analytica-image-gallery', analytica()->theme_url . '/assets/admin/js/modules/customizer/controls/image-gallery.js', array( 'jquery', 'customize-base' ), analytica()->theme_version, true );
+        wp_enqueue_style( 'analytica-image-gallery', analytica()->theme_url . '/assets/admin/css/customizer/controls/image-gallery.min.css', analytica()->theme_version );
     }
 
     /**

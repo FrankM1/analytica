@@ -33,21 +33,21 @@ class Customizer {
 	 * @var array
 	 */
 	protected static $config = array();
-	
+
 	/**
 	 * @static
 	 * @access protected
 	 * @var array
 	 */
     protected static $fields = array();
-    
+
     /**
 	 * @static
 	 * @access protected
 	 * @var array
 	 */
 	protected static $defaults = array();
-	
+
 	/**
 	 * The class constructor
 	 */
@@ -115,28 +115,23 @@ class Customizer {
         $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
         $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-        // if ( class_exists( 'Kirki' ) ) {
-        //     $wp_customize->get_control( 'header_image' )->panel  = 'site-hero';
-        //     $wp_customize->get_control( 'header_image' )->section  = 'site-hero-background';
-        //     $wp_customize->get_control( 'header_image' )->priority = '1';
+        if ( class_exists( 'Kirki' ) ) {
+            $wp_customize->get_control( 'header_image' )->panel  = 'site-hero';
+            $wp_customize->get_control( 'header_image' )->section  = 'site-hero-background';
+            $wp_customize->get_control( 'header_image' )->priority = '1';
 
-        //     $wp_customize->get_control( 'background_image' )->panel  = 'general';
-        //     $wp_customize->get_control( 'background_image' )->section  = 'container-style';
-        //     $wp_customize->get_control( 'background_image' )->priority = '1';
+            $wp_customize->get_control( 'background_image' )->panel  = 'general';
+            $wp_customize->get_control( 'background_image' )->section  = 'container-style';
+            $wp_customize->get_control( 'background_image' )->priority = '1';
 
-        //     $wp_customize->get_control( 'background_preset' )->panel  = 'general';
-        //     $wp_customize->get_control( 'background_preset' )->section  = 'container-style';
-        //     $wp_customize->get_control( 'background_preset' )->priority = '2';
+            $wp_customize->get_control( 'background_preset' )->panel  = 'general';
+            $wp_customize->get_control( 'background_preset' )->section  = 'container-style';
+            $wp_customize->get_control( 'background_preset' )->priority = '2';
 
-        //      $wp_customize->get_control( 'colors' )->panel  = 'general';
-        //     $wp_customize->get_control( 'colors' )->section  = 'container-style';
-        //     $wp_customize->get_control( 'colors' )->priority = '1';
-
-        //     $wp_customize->get_control( 'colors' )->panel  = 'general';
-        //     $wp_customize->get_control( 'colors' )->section  = 'container-style';
-        //     $wp_customize->get_control( 'colors' )->priority = '1';
-
-        // }
+            $wp_customize->get_control( 'colors' )->panel  = 'general';
+            $wp_customize->get_control( 'colors' )->section  = 'container-style';
+            $wp_customize->get_control( 'colors' )->priority = '1';
+        }
     }
 
     /**
@@ -165,99 +160,32 @@ class Customizer {
         if ( ! empty( $new_controls ) ) {
             foreach ( $new_controls as $control => $value ) {
 
-                $default     = ! empty( $value['default'] ) ? $value['default'] : '';
-                $description = ! empty( $value['desc'] ) ? $value['desc'] : '';
-                $priority    = ! empty( $value['priority'] ) ? $value['priority'] : 10;
-                $label       = ! empty( $value['title'] ) ? $value['title'] : $value['label'];
-                $section     = ! empty( $value['section'] ) ? $value['section'] : 'general';
-
                 $args = array(
                     'type'        => $value['type'],
-                    'section'     => $section,
-                    'default'     => $default,
-                    'label'       => $label,
-                    'description' => $description,
-                    'priority'    => $priority,
+                    'section'     => ! empty( $value['section'] ) ? $value['section'] : 'general',
+                    'default'     => ! empty( $value['default'] ) ? $value['default'] : '',
+                    'label'       => ! empty( $value['title'] ) ? $value['title'] : $value['label'],
+                    'description' => ! empty( $value['desc'] ) ? $value['desc'] : '',
+                    'priority'    => ! empty( $value['priority'] ) ? $value['priority'] : 10,
                 );
 
-                if ( ! empty( $value['options'] ) ) {
-                    $args['choices'] = $value['options'];
-                }
-
-                if ( ! empty( $value['choices'] ) ) {
-                    $args['choices'] = $value['choices'];
-                }
+				$args = wp_parse_args( $args, $value );
 
                 if ( ! empty( $value['options'] ) ) {
                     $args['choices'] = $value['options'];
                 }
 
-                if ( ! empty( $value['settings'] ) ) {
+				if ( ! empty( $value['settings'] ) ) {
                     $args['settings'] = $value['settings'];
                 } else {
                     $args['settings'] = $value['id'];
-                }
-
-                if ( ! empty( $value['controls'] ) ) {
-                    $args['controls'] = $value['controls'];
-                }
-
-                if ( ! empty( $value['output'] ) ) {
-                    $args['output'] = $value['output'];
-                }
-
-                if ( ! empty( $value['transport'] ) ) {
-                    $args['transport'] = $value['transport'];
-                }
-
-                if ( ! empty( $value['js_vars'] ) ) {
-                    $args['js_vars'] = $value['js_vars'];
-                }
-
-                if ( ! empty( $value['active_callback'] ) ) {
-                    $args['active_callback'] = $value['active_callback'];
                 }
 
                 if ( ! empty( $value['conditions'] ) ) {
                     $args['active_callback'] = $value['conditions'];
                 }
 
-                if ( ! empty( $value['required'] ) ) {
-                    $args['required'] = $value['required'];
-                }
-
-                if ( ! empty( $value['fields'] ) ) {
-                    $args['fields'] = $value['fields'];
-                }
-
-                if ( ! empty( $value['multiple'] ) ) {
-                    $args['multiple'] = $value['multiple'];
-                }
-
-                if ( ! empty( $value['partial_refresh'] ) ) {
-                    $args['partial_refresh'] = $value['partial_refresh'];
-                }
-
-                if ( ! empty( $value['sanitize_callback'] ) ) {
-                    $args['sanitize_callback'] = $value['sanitize_callback'];
-                }
-
-                if ( ! empty( $value['tooltip'] ) ) {
-                    $args['tooltip'] = $value['tooltip'];
-                }
-
-                if ( ! empty( $value['variables'] ) ) {
-                    $args['variables'] = $value['variables'];
-                }
-                if ( ! empty( $value['media_query'] ) ) {
-                    $args['media_query'] = $value['media_query'];
-                }
-
-                if ( ! empty( $value['input_attrs'] ) ) {
-                    $args['input_attrs'] = $value['input_attrs'];
-                }
-
-                $args['device'] = 'desktop';
+				$args['device'] = 'desktop';
 
                 self::add_field( analytica()->theme_slug, $args );
 
@@ -277,7 +205,7 @@ class Customizer {
                     $tablet_args['description'] = '';
                     $tablet_args['device'] = 'tablet';
 
-                    self::add_field( analytica()->theme_slug, $tablet_args ); 
+                    self::add_field( analytica()->theme_slug, $tablet_args );
                 }
             }
         }
@@ -294,10 +222,9 @@ class Customizer {
             return;
         }
 
-        do_action( 'analytica_load_customizer_admin_js' );
-        wp_enqueue_style( 'analytica_customizer_style', analytica()->theme_url . '/assets/admin/css/customizer/customizer.css', null, '1.0.0', false );
-        wp_enqueue_script( 'analytica_customizer_general', analytica()->theme_url . '/assets/admin/js/modules/customizer/general.js', array( 'jquery' ), '1.0.0', false );
-        wp_enqueue_script( 'analytica_customizer_preview', analytica()->theme_url . '/assets/admin/js/modules/customizer/preview.js', array( 'jquery' ), '1.0.0', false );
+        wp_enqueue_style( 'analytica_customizer_style', analytica()->theme_url . '/assets/admin/css/customizer/customizer.css', null, analytica()->theme_version, false );
+        wp_enqueue_script( 'analytica_customizer_general', analytica()->theme_url . '/assets/admin/js/modules/customizer/general.js', array( 'jquery' ), analytica()->theme_version, false );
+        wp_enqueue_script( 'analytica_customizer_preview', analytica()->theme_url . '/assets/admin/js/modules/customizer/preview.js', array( 'jquery' ), analytica()->theme_version, false );
 
         wp_localize_script( 'analytica_customizer', 'RadiumCustomizerReset', array(
             'reset'   => esc_attr__( 'Reset', 'analytica' ),
@@ -325,7 +252,7 @@ class Customizer {
 		} elseif ( ! isset( self::$fields[ $field_id ] ) && isset( self::$defaults[ $field_id ] ) ) {
             return self::$defaults[ $field_id ];
         }
-        
+
         // Kirki does not exist, continue with our custom implementation.
 		// Get the default value of the field
 		$default = '';
@@ -446,7 +373,7 @@ class Customizer {
 		}
 		// Get our inline styles
 		$css .= $this->get_styles();
-        
+
         return $css;
 	}
 
