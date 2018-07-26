@@ -40,11 +40,11 @@ function analytica_register_widget_area( $args ) {
     $defaults = array(
         'before_widget' => analytica_markup( array(
             'element' => '<div id="%1$s" class="analytica-widget widget %2$s"><div class="widget-wrap">',
-            'echo'  => false,
+            'echo'    => false,
         ) ),
         'after_widget'  => analytica_markup( array(
             'element' => '</div></div>' . "\n",
-            'echo'  => false,
+            'echo'    => false,
         ) ),
         'before_title'  => '<div class="widget-title-wrap"><h5 class="widget-title"><span>',
         'after_title'   => "</span></h5></div>\n",
