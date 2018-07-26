@@ -97,12 +97,6 @@ function analytica_get_site_header_class() {
         $classes[] = 'nav-clear';
     } elseif ( 'header-logo-center-top' == $header_align_option ) {
         $classes[] = 'site-header-center';
-    } elseif ( 'header-logo-center' == $header_align_option ) {
-        $classes[] = 'site-header-inline';
-    } elseif ( 'header-logo-left-narrow' == $header_align_option ) {
-        $classes[] = 'site-header-left-narrow';
-    } elseif ( 'header-logo-left-2' == $header_align_option ) {
-        $classes[] = 'site-header-left-style-2';
     }
 
     // Add width class

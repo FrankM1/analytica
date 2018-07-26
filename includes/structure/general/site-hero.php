@@ -24,8 +24,9 @@ class Site_Hero {
      */
     public function __construct() {
         $this->uniqid = uniqid( 'analytica-hero-' );
-        $this->get_config();
-        $this->add_action();
+		$this->get_config();
+		$this->content();
+		$this->add_action();
     }
 
     protected function get_config() {
@@ -35,8 +36,8 @@ class Site_Hero {
         $this->args['fullheight']    = wp_is_mobile() ? false : analytica_get_option( 'site-hero-fullheight' );
         $this->args['show-subtitle'] = analytica_get_option( 'site-hero-show-subtitle' );
         $this->args['show-title']    = analytica_get_option( 'site-hero-show-title' );
-        $this->args['has-image']     = esc_url( get_header_image() );
-        $this->content = $this->content();
+		$this->args['has-image']     = get_header_image();
+
     }
 
     public function add_action() {
@@ -44,10 +45,9 @@ class Site_Hero {
         add_action( 'analytica_do_hero_content',            [ $this, 'do_title' ] );
         add_action( 'analytica_do_hero_content',            [ $this, 'do_subtitle' ] );
         add_action( 'analytica_do_hero_content',            [ $this, 'do_breadcrumbs' ] );
-
         add_filter( 'analytica_attr_site-hero',             [ $this, 'attributes_hero' ] );
     }
- 
+
     /**
      * get hero content.
      *
@@ -104,16 +104,16 @@ class Site_Hero {
             $header_title = '<span class="search-results-icon"></span>' . sprintf( esc_html__( 'Found %1$s results for: &ldquo;%2$s&rdquo;', 'analytica' ), $number_of_results, get_search_query() );
 
         } elseif ( 'post' == get_post_type() && (is_front_page() || ( get_option( 'show_on_front' ) == 'posts' && is_singular( 'post' ) ) ) ) {
-            
+
             $header_title = analytica_get_option( 'archive-frontpage-title' );
-        
+
         } elseif ( 'post' == get_post_type() ) {
 
             // Get Blog Post Page ID, extract and show the title
             $blog = get_post( get_option( 'page_for_posts' ) );
             $header_title = $blog->post_title;
         } elseif ( 'page' == get_post_type() && is_front_page() ) {
-            
+
             // Get Frontpage Page ID, extract and show the title
             $frontpage = get_post( get_option( 'page_on_front' ) );
             $header_title = $frontpage->post_title;
@@ -125,12 +125,11 @@ class Site_Hero {
             $header_title = esc_html__( 'Post', 'analytica' );
         }
 
-        $header = array(
-            'title' => apply_filters( 'analytica_hero_title', $header_title ),
-            'subtitle' => apply_filters( 'analytica_hero_subtitle', analytica_get_option( 'site-hero-subtitle' ) ),
-        );
+		$this->page_title = apply_filters( 'analytica_hero_title', $header_title );
 
-        return $header;
+		if ( $this->args['show-subtitle'] ) {
+			$this->page_subtitle = apply_filters( 'analytica_hero_subtitle', analytica_get_option( 'site-hero-subtitle' ) );
+		}
     }
 
     /**
@@ -206,14 +205,14 @@ class Site_Hero {
     }
 
     public function do_title() {
-        if ( $this->args['show-title'] && ! empty( $this->content['title'] ) ) {
-            ?><h1 class = "header"><?php echo wp_kses( $this->content['title'], analytica_get_allowed_tags() ); ?></h1><?php
+        if ( $this->args['show-title'] && ! empty( $this->page_title ) ) {
+            ?><h1 class = "header"><?php echo wp_kses( $this->page_title, analytica_get_allowed_tags() ); ?></h1><?php
         }
     }
 
     public function do_subtitle() {
-        if ( ! empty( $this->content['subtitle'] ) && $this->args['show-subtitle'] ) {
-            ?><h3 class = "subheader"><?php echo wp_kses( $this->content['subtitle'], analytica_get_allowed_tags() ); ?></h3><?php
+        if ( ! empty( $this->page_subtitle ) && $this->args['show-subtitle'] ) {
+            ?><h3 class = "subheader"><?php echo wp_kses( $this->page_subtitle, analytica_get_allowed_tags() ); ?></h3><?php
         }
     }
 

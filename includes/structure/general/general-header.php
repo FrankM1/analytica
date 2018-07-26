@@ -23,35 +23,6 @@ function analytica_do_doctype() {
 <head><?php
 }
 
-add_action( 'analytica_meta', 'analytica_do_meta' );
-/**
- * Header markup
- *
- * @since 1.0.0
- */
-function analytica_do_meta() {
-
-global $is_IE;
-
-?><meta charset="<?php bloginfo( 'charset' ); ?>" />
-<?php if ( $is_IE ) { ?><meta http-equiv="X-UA-Compatible" content="IE=edge"><?php }
-
-if ( class_exists('All_in_One_SEO_Pack') || class_exists('WPSEO_Frontend') || class_exists( 'Platinum_SEO_Pack' ) || class_exists( 'SEO_Ultimate' ) ) return;
-
-?><meta name="description" content="<?php
-    if ( is_single() ) {
-
-        $the_post = get_post( get_the_ID() ); // Gets post by ID
-        $the_excerpt = $the_post->post_content; // Gets post_content to be used as a basis for the excerpt
-        $the_excerpt = strip_tags( strip_shortcodes( $the_excerpt ) ); // Strips tags and images
-        echo wp_kses( trim( substr( $the_excerpt, 0, 145 ) ), analytica_get_allowed_tags() );
-
-    } else {
-        bloginfo( 'name' ); echo ' - '; bloginfo( 'description' );
-    }
-    ?>" /><?php
-}
-
 add_filter( 'wp_title', 'analytica_wp_title', 10, 2 );
 /**
  * Filter the page title.
@@ -154,63 +125,6 @@ function analytica_do_meta_pingback() {
 
     if ( 'open' === get_option( 'default_ping_status' ) ) {
         echo '<link rel="pingback" href="' . esc_url( get_bloginfo( 'pingback_url' ) ) . '" />' . "\n";
-    }
-
-}
-
-add_action( 'wp_head', 'analytica_site_author' );
-/**
- * Echo custom rel="author" link tag.
- *
- * If the appropriate information has been entered, either for the homepage author, or for an individual post/page
- * author, echo a custom rel="author" link.
- *
- * @since 1.0.0
- *
- * @uses analytica_get_option() Get SEO setting value.
- *
- * @return null Return null on failure.
- */
-function analytica_site_author() {
-
-    $post = get_post();
-
-    if ( is_singular() && post_type_supports( $post->post_type, 'analytica-rel-author' ) && isset( $post->post_author ) && $gplus_url = get_user_option( 'googleplus', $post->post_author ) ) {
-        printf( '<link rel="author" href="%s" />' . "\n", esc_url( $gplus_url ) );
-        return;
-    }
-
-    if ( is_author() && get_query_var( 'author' ) && $gplus_url = get_user_option( 'googleplus', get_query_var( 'author' ) ) ) {
-        printf( '<link rel="author" href="%s" />' . "\n", esc_url( $gplus_url ) );
-        return;
-    }
-
-}
-
-add_action( 'wp_head', 'analytica_wpmu_signup_stylesheet', 1 );
-/**
- * Remove Inline Style added by Multisite in the Signup Form
- *
- * @since 1.0.0
- */
-function analytica_wpmu_signup_stylesheet() {
-    remove_action( 'wp_head', 'wpmu_signup_stylesheet' );
-}
-
-add_action( 'wp_head', 'analytica_site_publisher' );
-/**
- * Echo custom rel="publisher" link tag.
- *
- * If the appropriate information has been entered and we are viewing the front page, echo a custom rel="publisher" link.
- *
- * @since 1.0.0
- *
- * @uses analytica_get_option() Get SEO setting value.
- */
-function analytica_site_publisher() {
-
-    if ( is_front_page() && $publisher_url = analytica_get_option( 'site-publisher-uri' ) ) {
-        printf( '<link rel="publisher" href="%s" />', esc_url( $publisher_url ) );
     }
 
 }
