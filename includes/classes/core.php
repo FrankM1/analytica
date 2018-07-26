@@ -125,7 +125,8 @@ class Core {
         $this->theme_title = apply_filters( 'analytica_theme_title',      $this->theme->name );                          // or $this->theme->title
         $this->theme_slug  = apply_filters( 'analytica_theme_slug',       get_stylesheet() );
         $this->theme_dir   = apply_filters( 'analytica_theme_dir_path',   strtolower( get_template_directory() ) );
-        $this->theme_url   = apply_filters( 'analytica_theme_dir_url',    strtolower( get_template_directory_uri() ) );
+		$this->theme_url   = apply_filters( 'analytica_theme_dir_url',    strtolower( get_template_directory_uri() ) );
+		$this->sidebar_layouts = [];
         $this->hero = new stdClass();  // set up hero holder
     }
 

@@ -5,7 +5,10 @@
 }
 
 .site-boxed .site-container {
-    @include make-container-max-widths();
+	@include make-container-max-widths();
+
+}
+.site-boxed.site-mono-container .site-container {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 

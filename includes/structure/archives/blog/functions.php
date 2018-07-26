@@ -13,14 +13,14 @@
  * @author   Franklin Gitonga
  * @link     https://radiumthemes.com/
  */
- 
+
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  *
  * @since 1.0.0
  * @return mixed            Markup.
  */
-function analytica_blog_get_post_meta() {
+function analytica_blog_post_meta() {
 
     $enable_meta = apply_filters( 'analytica_blog_post_meta_enabled', '__return_true' );
     $post_meta   = analytica_get_option( 'archive-post-meta' );
@@ -53,7 +53,7 @@ function analytica_get_post_meta( $post_meta, $separator = '<span class="meta-se
 
             case 'author':
                 $output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
-                $output_str .= esc_html( analytica_default_strings( 'string-blog-meta-author-by', false ) ) . analytica_post_author();
+                $output_str .= esc_html( analytica_default_strings( 'string-blog-meta-author-by', false ) ) . analytica_get_post_author();
                 break;
 
             case 'date':
@@ -62,7 +62,7 @@ function analytica_get_post_meta( $post_meta, $separator = '<span class="meta-se
                 break;
 
             case 'category':
-                $category = analytica_post_categories();
+                $category = analytica_get_post_categories();
                 if ( '' != $category ) {
                     $output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
                     $output_str .= $category;
@@ -70,7 +70,7 @@ function analytica_get_post_meta( $post_meta, $separator = '<span class="meta-se
                 break;
 
             case 'tag':
-                $tags = analytica_post_tags();
+                $tags = analytica_get_post_tags();
                 if ( '' != $tags ) {
                     $output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
                     $output_str .= $tags;
@@ -78,7 +78,7 @@ function analytica_get_post_meta( $post_meta, $separator = '<span class="meta-se
                 break;
 
             case 'comments':
-                $comment = analytica_post_comments();
+                $comment = analytica_get_post_comments();
                 if ( '' != $comment ) {
                     $output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
                     $output_str .= $comment;
@@ -120,7 +120,7 @@ function analytica_post_date() {
         $output       .= '<span class="published" itemprop="datePublished"> ' . $posted_on . '</span>';
         $output       .= '<span class="updated" itemprop="dateModified"> ' . $modified_on . '</span>';
     $output       .= '</span>';
-    
+
     return apply_filters( 'analytica_post_date', $output );
 }
 
@@ -130,7 +130,7 @@ function analytica_post_date() {
  * @param  string $output_filter Filter string.
  * @return html                Markup.
  */
-function analytica_post_author( $output_filter = '' ) {
+function analytica_get_post_author( $output_filter = '' ) {
     $output = '';
 
     $byline = sprintf(
@@ -140,7 +140,7 @@ function analytica_post_author( $output_filter = '' ) {
 
     $output .= '<span class="posted-by vcard author" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"> ' . $byline . '</span>';
 
-    return apply_filters( 'analytica_post_author', $output, $output_filter );
+    return apply_filters( 'analytica_get_post_author', $output, $output_filter );
 }
 
 /**
@@ -149,7 +149,7 @@ function analytica_post_author( $output_filter = '' ) {
  * @param  string $output_filter Output filter.
  * @return html                Markup.
  */
-function analytica_post_comments( $output_filter = '' ) {
+function analytica_get_post_comments( $output_filter = '' ) {
 
     $output = '';
 
@@ -164,7 +164,7 @@ function analytica_post_comments( $output_filter = '' ) {
              * @see analytica_default_strings()
              */
             comments_popup_link( analytica_default_strings( 'string-blog-meta-leave-a-comment', false ), analytica_default_strings( 'string-blog-meta-one-comment', false ), analytica_default_strings( 'string-blog-meta-multiple-comment', false ) );
-            
+
             ?><!-- Comment Schema Meta -->
             <span itemprop="interactionStatistic" itemscope itemtype="https://schema.org/InteractionCounter">
                 <meta itemprop="interactionType" content="https://schema.org/CommentAction" />
@@ -176,7 +176,7 @@ function analytica_post_comments( $output_filter = '' ) {
 
     $output = ob_get_clean();
 
-    return apply_filters( 'analytica_post_comments', $output, $output_filter );
+    return apply_filters( 'analytica_get_post_comments', $output, $output_filter );
 }
 
 /**
@@ -185,7 +185,7 @@ function analytica_post_comments( $output_filter = '' ) {
  * @param  string $output_filter Output filter.
  * @return html                Markup.
  */
-function analytica_post_tags( $output_filter = '' ) {
+function analytica_get_post_tags( $output_filter = '' ) {
 
     $output = '';
 
@@ -196,7 +196,7 @@ function analytica_post_tags( $output_filter = '' ) {
         $output .= '<span class="tags-links">' . $tags_list . '</span>';
     }
 
-    return apply_filters( 'analytica_post_tags', $output, $output_filter );
+    return apply_filters( 'analytica_get_post_tags', $output, $output_filter );
 }
 
 /**
@@ -205,7 +205,7 @@ function analytica_post_tags( $output_filter = '' ) {
  * @param  string $output_filter Output filter.
  * @return html                Markup.
  */
-function analytica_post_categories( $output_filter = '' ) {
+function analytica_get_post_categories( $output_filter = '' ) {
 
     $output = '';
 
@@ -216,7 +216,7 @@ function analytica_post_categories( $output_filter = '' ) {
         $output .= '<span class="cat-links">' . $categories_list . '</span>';
     }
 
-    return apply_filters( 'analytica_post_categories', $output, $output_filter );
+    return apply_filters( 'analytica_get_post_categories', $output, $output_filter );
 }
 
 /**
@@ -410,7 +410,7 @@ function analytica_get_blog_layout_class( $class = '' ) {
                 // Blog Post Title and Blog Post Meta.
                 case 'title-meta':
                     do_action( 'analytica_blog_archive_title_meta_before' );
-                    analytica_get_blog_post_title_meta();
+                    analytica_do_blog_post_title_meta();
                     do_action( 'analytica_blog_archive_title_meta_after' );
                     break;
 
@@ -454,11 +454,11 @@ function analytica_get_blog_post_thumbnail( $type = 'archive' ) {
  *
  * @since  1.0.0
  */
-function analytica_get_blog_post_title_meta() {
+function analytica_do_blog_post_title_meta() {
 
     // Blog Post Title and Blog Post Meta.
     do_action( 'analytica_archive_entry_header_before' );
-    
+
     ?><header class="entry-header"><?php
 
         do_action( 'analytica_archive_post_title_before' );
@@ -470,7 +470,7 @@ function analytica_get_blog_post_title_meta() {
 
         do_action( 'analytica_archive_post_meta_before' );
 
-        analytica_blog_get_post_meta();
+        analytica_blog_post_meta();
 
         do_action( 'analytica_archive_post_meta_after' );
 
@@ -500,7 +500,7 @@ function analytica_single_get_post_meta( $echo = true ) {
     }
 
     if ( $echo ) {
-        echo wp_kses( $output, analytica_get_allowed_tags() ); 
+        echo wp_kses( $output, analytica_get_allowed_tags() );
     } else {
         return $output;
     }

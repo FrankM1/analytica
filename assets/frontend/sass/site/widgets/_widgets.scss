@@ -1,6 +1,4 @@
 // # Sidebars
-@import 'tags';
-
 .widget-title {
 	font-weight: normal;
 	margin-bottom: 1em;
@@ -120,7 +118,18 @@
 	a {
 		float: left;
 		font: normal 11px $font-family-base !important;
-		@extend %entry-tags;
+		position: relative;
+		margin: 0 2px 2px 0;
+		border-radius: 3px;
+		text-transform: uppercase;
+		color: $text-color;
+		letter-spacing: -.0275em;
+		border: 1px solid $color-border-dotted-widget;
+		padding: 0.5em 0.9em;
+		display: inline-block;
+		margin-bottom: 4px;
+		margin-right: 4px;
+		@include analytica-transition();
 
 		&:hover {
 			border-color: $brand-primary;
@@ -254,17 +263,7 @@
 .widget_tag_cloud {
 	.tagcloud {
 		margin-top: 10px;
-		display: inline-block;
-		a {
-			border: 1px solid $color-border-dotted-widget;
-			padding: 0.5em 0.9em;
-			display: inline-block;
-			margin-bottom: 4px;
-			font-size: 14px;
-			margin-right: 4px;
-			line-height: 1.5;
-			@include analytica-transition();
-		}
+		display: inline-block;;
 	}
 }
 

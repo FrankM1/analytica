@@ -65,7 +65,7 @@ function analytica_create_initial_layouts() {
  * @return string Return ID of the layout, or 'nolayout'.
  */
 function analytica_get_default_layout() {
-    global $_analytica_layouts;
+    $_analytica_layouts = analytica()->sidebar_layouts;
 
     $default = _analytica_return_content_sidebar();
 
@@ -111,7 +111,7 @@ function analytica_get_layouts_for_options() {
  * @return array Registered layouts.
  */
 function analytica_get_layouts( $type = '' ) {
-    global $_analytica_layouts;
+    $_analytica_layouts = analytica()->sidebar_layouts;
 
     // If no layouts exists, return empty array
     if ( !is_array( $_analytica_layouts ) ) {
@@ -211,7 +211,7 @@ function analytica_site_layout( $use_cache = false ) {
     $site_layout = analytica_get_option( 'site-sidebar-layout' );
 
     // Exit early if all sidebars disabled on mobile
-    if ( 
+    if (
         ( wp_is_mobile() && ! analytica_get_option( 'site-sidebar-enable-mobile' ) ) ||
         ! analytica_get_option( 'site-sidebar-enable' )
     ) {

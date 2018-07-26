@@ -41,7 +41,7 @@ function analytica_default_color_palettes() {
     // Apply filters and return
     return apply_filters( __FUNCTION__, $palettes );
 }
-    
+
 /**
  * Return option from the options table and cache result.
  *
@@ -59,14 +59,14 @@ function analytica_default_color_palettes() {
 function analytica_get_option( $option_id, $default_value = null, $post_id = null, $post_meta = true, $prefix = '_analytica_' ) {
 
     $value = null;
-    
+
     // Use analytica_get_post_id() if no $post_id is specified
     $post_id = ( null !== $post_id ? $post_id : analytica_get_post_id() );
 
     if ( $post_id && $post_meta ) {
         $value = analytica_get_custom_field( $prefix . $option_id, $post_id );
     }
-    
+
     if ( ! $value ) {
         $value = \Analytica\Options::get_option( $option_id, $default_value );
     }
@@ -84,7 +84,7 @@ function analytica_get_option( $option_id, $default_value = null, $post_id = nul
  * @param string $key Option name.
  */
 function analytica_option( $primary, $default_value = false ) {
-    echo wp_kses( analytica_get_option( $primary, $default_value ), analytica_get_allowed_tags() ); 
+    echo wp_kses( analytica_get_option( $primary, $default_value ), analytica_get_allowed_tags() );
 }
 
 /**
@@ -104,7 +104,7 @@ function analytica_option( $primary, $default_value = false ) {
 function analytica_custom_field( $field, $output_pattern = '%s', $post_id = null ) {
     if ( $value = analytica_get_custom_field( $field, $post_id ) ) {
         /* Translators: %s: field value */
-       echo wp_kses( sprintf( $output_pattern, $value ), analytica_get_allowed_tags() ); 
+       echo wp_kses( sprintf( $output_pattern, $value ), analytica_get_allowed_tags() );
     }
 }
 
@@ -168,4 +168,3 @@ function analytica_get_post_id( $post_id_override = '' ) {
 
     return apply_filters( __FUNCTION__, \Analytica\Options::$post_id, $post_id_override );
 }
- 
