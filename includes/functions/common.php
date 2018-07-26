@@ -82,3 +82,15 @@ function analytica_light_or_dark( $color, $dark = '#000000', $light = '#FFFFFF' 
 
     return $brightness > 155 ? $dark : $light;
 }
+
+/**
+ * Default Strings
+ *
+ * @since 1.0.0
+ * @param  string  $key  String key.
+ * @param  boolean $echo Print string.
+ * @return mixed        Return string or nothing.
+ */
+function analytica_default_strings( $key, $echo = true ) {
+    return \Analytica\Options::default_strings( $option_id, $default_value );
+}

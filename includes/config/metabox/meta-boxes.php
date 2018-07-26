@@ -8,12 +8,12 @@
  * @author   Franklin Gitonga
  * @link     http://qazana.net/
  */
-namespace Analytica;
+namespace Analytica\MetaBoxes;
 
 /**
  * Meta Boxes setup
  */
-class MetaBoxes {
+class Options {
 
     /**
      * Meta Option

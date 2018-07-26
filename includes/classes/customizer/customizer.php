@@ -58,6 +58,7 @@ class Customizer {
         add_filter( 'kirki_config', array( $this, 'configuration_styling' ) );
         add_action( 'after_setup_theme', array( $this, 'theme_defaults' ) );
         add_action( 'customize_register', array( $this, 'reorder_fields' ), 9999 );
+		add_action( 'customize_register', array( $this, 'customizer_controls' ), 5 );
 
         /**
          * Add the theme configuration
@@ -79,7 +80,20 @@ class Customizer {
 
         // Add google fonts
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_fonts' ) );
-    }
+	}
+
+	/**
+	 * Load controls after plugins
+	 *
+	 * @return void
+	 */
+	function customizer_controls() {
+		if ( class_exists('Kirki') ) {
+			require_once get_theme_file_path( '/includes/classes/customizer/controls/dimensions/dimensions.php' );
+			require_once get_theme_file_path( '/includes/classes/customizer/controls/icon-select/icon-select.php' );
+			require_once get_theme_file_path( '/includes/classes/customizer/controls/image-gallery/image-gallery.php' );
+		}
+	}
 
     /**
      * Here we organize the fields into one "Theme Options" section

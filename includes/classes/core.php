@@ -32,7 +32,7 @@ class Core {
      *
      * @var string
      */
-    public $version = '1.0.6';
+    public $version = '1.0.7';
 
     /** Analytica *************************************************************/
 
@@ -66,14 +66,28 @@ class Core {
      */
     public static function instance() {
         if ( ! isset( self::$instance ) ) {
-            self::$instance = new self();
+			self::$instance = new self();
+			self::$instance->register_autoloader();
             self::$instance->pre();
             self::$instance->setup_globals();
             self::$instance->includes();
             self::$instance->init();
         }
         return self::$instance;
-    }
+	}
+
+	/**
+	 * Register autoloader.
+	 *
+	 * Autoloader loads all the classes needed to run the theme.
+	 *
+	 * @since 1.0.7
+	 * @access private
+	 */
+	private function register_autoloader() {
+		require get_template_directory() . '/includes/classes/autoloader.php';
+		Autoloader::init();
+	}
 
    /**
      * Run the analytica_pre Hook
@@ -142,7 +156,7 @@ class Core {
         $this->frontend                              = new Frontend();
 		$this->markup                                = new Markup();
 		if ( is_admin() ) {
-			$this->metaboxes                             = new MetaBoxes();
+			$this->metaboxes                             = new MetaBoxes\Options();
 		}
         $this->metabox_actions                       = new Metabox\Actions();
         $this->options_instance                      = new Options();
@@ -177,8 +191,6 @@ class Core {
     public function includes() {
 
         // Base Files
-        $this->_include_config();
-        $this->_include_classes();
         $this->_include_function();
 
         $this->_include_options();
@@ -188,31 +200,6 @@ class Core {
 
         $this->_include_structure_post_archives();
         $this->_include_menus();
-        $this->_include_extensions();
-    }
-
-    function _include_config() {
-        require_once get_theme_file_path( '/includes/config/options.php' );
-        require_once get_theme_file_path( '/includes/config/theme.php' );
-        require_once get_theme_file_path( '/includes/config/frontend.php' );
-        require_once get_theme_file_path( '/includes/config/skin-css.php' );
-
-        if ( is_admin() ) {
-            require_once get_theme_file_path( '/includes/config/metabox/meta-boxes.php' );
-        }
-
-        require_once get_theme_file_path( '/includes/config/strings.php' );
-    }
-
-    function _include_classes() {
-        require_once get_theme_file_path( '/includes/classes/nav/breadcrumb.php' );
-        require_once get_theme_file_path( '/includes/classes/css/css-base.php' );
-        require_once get_theme_file_path( '/includes/classes/css/global-css-file.php' );
-        require_once get_theme_file_path( '/includes/classes/css/css-generate.php' );
-
-        require_once get_theme_file_path( '/includes/classes/customizer/customizer.php' );
-        require_once get_theme_file_path( '/includes/classes/customizer/controls.php' );
-        require_once get_theme_file_path( '/includes/classes/metaboxes/actions.php' );
     }
 
     function _include_function() {
@@ -284,14 +271,4 @@ class Core {
         require_once get_theme_file_path( '/includes/structure/single/post/loop.php' );
         require_once get_theme_file_path( '/includes/structure/single/post/related-posts.php' );
      }
-
-    function _include_extensions() {
-		require_once get_theme_file_path( '/includes/extensions/page-builder.php' );
-		require_once get_theme_file_path( '/includes/extensions/page-builder-beaver-builder.php' );
-        require_once get_theme_file_path( '/includes/extensions/page-builder-gutenberg.php' );
-		require_once get_theme_file_path( '/includes/extensions/page-builder-elementor.php' );
-		require_once get_theme_file_path( '/includes/extensions/page-builder-elementor-pro.php' );
-		require_once get_theme_file_path( '/includes/extensions/page-builder-qazana.php' );
-        require_once get_theme_file_path( '/includes/extensions/page-builder-visual-composer.php' );
-    }
 }
