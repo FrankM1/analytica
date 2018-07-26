@@ -32,7 +32,7 @@ class Core {
      *
      * @var string
      */
-    public $version = '1.0.6';
+    public $version = '1.0.7';
 
     /** Analytica *************************************************************/
 
