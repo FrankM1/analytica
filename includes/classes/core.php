@@ -136,32 +136,39 @@ class Core {
      * @return void
      */
     public function init() {
-        $this->css_generator                         = new CSS_Generate();
-        $this->customizer                            = new Customizer();
-        $this->dynamic_css                           = new Dynamic_CSS();
-        $this->frontend                              = new Frontend();
-		$this->markup                                = new Markup();
+        $this->css_generator                           = new CSS_Generate();
+        $this->customizer                              = new Customizer();
+        $this->dynamic_css                             = new Dynamic_CSS();
+        $this->frontend                                = new Frontend();
+		$this->markup                                  = new Markup();
 		if ( is_admin() ) {
-			$this->metaboxes                             = new MetaBoxes();
+			$this->metaboxes                           = new MetaBoxes();
 		}
-        $this->metabox_actions                       = new Metabox\Actions();
-        $this->options_instance                      = new Options();
-        $this->schema                                = new SchemaORG();
-		$this->theme                                 = new Theme();
+        $this->metabox_actions                         = new Metabox\Actions();
+        $this->options_instance                        = new Options();
+        $this->schema                                  = new SchemaORG();
+		$this->theme                                   = new Theme();
 
-        $this->loop_base                             = new Content\Loop\Base();
-        $this->loop_archives                         = new Content\Loop\Archives();
-        $this->loop_post                             = new Content\Loop\Post();
-        $this->loop_404                              = new Content\Loop\Page_Not_Found();
-        $this->loop_page                             = new Content\Loop\Page();
+        $this->loop_base                               = new Content\Loop\Base();
+        $this->loop_archives                           = new Content\Loop\Archives();
+        $this->loop_post                               = new Content\Loop\Post();
+        $this->loop_404                                = new Content\Loop\Page_Not_Found();
+        $this->loop_page                               = new Content\Loop\Page();
 
-		$this->extensions_page_builders              = new Extensions\Page_Builder();
+		$this->extensions_page_builders                = new Extensions\Page_Builder();
 		$this->extensions_page_builders_beaver_builder = new Extensions\Page_Builder\Beaver_Builder();
+<<<<<<< HEAD
 		$this->extensions_page_builders_gutenberg 	 = new Extensions\Page_Builder\Gutenberg();
         $this->extensions_page_builders_qazana       = new Extensions\Page_Builder\Qazana();
         $this->extensions_page_builders_elementor    = new Extensions\Page_Builder\Elementor();
         $this->extensions_page_builders_elementorpro = new Extensions\Page_Builder\Elementor_Pro();
         $this->extensions_page_builders_visualcomposer = new Extensions\Page_Builder\Visual_Composer();
+=======
+		$this->extensions_page_builders_gutenberg 	   = new Extensions\Page_Builder\Gutenberg();
+        $this->extensions_page_builders_qazana         = new Extensions\Page_Builder\Qazana();
+        $this->extensions_page_builders_elementor      = new Extensions\Page_Builder\Elementor();
+        $this->extensions_page_builders_elementorpro   = new Extensions\Page_Builder\Elementor_Pro();
+>>>>>>> master
     }
 
     /**

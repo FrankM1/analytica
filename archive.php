@@ -8,16 +8,16 @@
  * @since 1.0.0
  */
 
-get_header(); ?>
+get_header();
 
-<?php do_action( 'analytica_left_sidebar' ); ?>
+do_action( 'analytica_left_sidebar' );
 
-    <?php do_action( 'analytica_primary_content_top' ); ?>
+do_action( 'analytica_primary_content_top' );
 
-    <?php do_action( 'analytica_content_loop' ); ?>
+do_action( 'analytica_content_loop' );
 
-    <?php do_action( 'analytica_primary_content_bottom' ); ?>
+do_action( 'analytica_primary_content_bottom' );
 
-<?php do_action( 'analytica_right_sidebar' ); ?>
+do_action( 'analytica_right_sidebar' );
 
-<?php get_footer(); ?>
+get_footer();
