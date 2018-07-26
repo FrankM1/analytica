@@ -257,8 +257,7 @@ gulp.task("frontendcss", function() {
 		.pipe(browserSync.stream()) // Reloads style.css if that is enqueued.
 		.pipe(gulp.dest(FrontendStyleDestination)); // Output cleaned stylesheets
 
-	// minify
-	gulp.src(FrontendStyleDestination + '/**/*.css') // Filtering stream to only css files
+		gulp.src([FrontendStyleDestination + '/**/*.css', '!' + FrontendStyleDestination + '/**/*.min.css']) // Filtering stream to only css files
 		.pipe(rename({ suffix: ".min" }))
 		.pipe(cleanCSS({ level: 2 })) // full minification
 		.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
@@ -268,6 +267,7 @@ gulp.task("frontendcss", function() {
 		.pipe(filter("**/*.css")) // Filtering stream to only css files
 		.pipe(browserSync.stream()); // Reloads style.min.css if that is enqueued.
 });
+
 
 /**
  * Task: `admincss`.
