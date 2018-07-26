@@ -157,18 +157,11 @@ class Core {
 
 		$this->extensions_page_builders                = new Extensions\Page_Builder();
 		$this->extensions_page_builders_beaver_builder = new Extensions\Page_Builder\Beaver_Builder();
-<<<<<<< HEAD
 		$this->extensions_page_builders_gutenberg 	 = new Extensions\Page_Builder\Gutenberg();
         $this->extensions_page_builders_qazana       = new Extensions\Page_Builder\Qazana();
         $this->extensions_page_builders_elementor    = new Extensions\Page_Builder\Elementor();
         $this->extensions_page_builders_elementorpro = new Extensions\Page_Builder\Elementor_Pro();
         $this->extensions_page_builders_visualcomposer = new Extensions\Page_Builder\Visual_Composer();
-=======
-		$this->extensions_page_builders_gutenberg 	   = new Extensions\Page_Builder\Gutenberg();
-        $this->extensions_page_builders_qazana         = new Extensions\Page_Builder\Qazana();
-        $this->extensions_page_builders_elementor      = new Extensions\Page_Builder\Elementor();
-        $this->extensions_page_builders_elementorpro   = new Extensions\Page_Builder\Elementor_Pro();
->>>>>>> master
     }
 
     /**
