@@ -243,7 +243,7 @@ class Qazana {
      * @return boolean
      */
     function is_builder_page( $retval, $post_id ) {
-        if ( get_post_meta( $post_id, '_qazana_edit_mode', true ) || \Qazana\Template_Library\Source_Local::CPT === get_post_type( $post_id ) || qazana()->is_edit_mode( $post_id ) ) {
+        if ( get_post_meta( $post_id, '_qazana_edit_mode', true ) || \Qazana\TemplateLibrary\Source_Local::CPT === get_post_type( $post_id ) || qazana()->is_edit_mode( $post_id ) ) {
             $retval = true;
         }
 

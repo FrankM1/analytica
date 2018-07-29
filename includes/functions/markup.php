@@ -36,8 +36,11 @@
  * @return bool|array Return false if ID is missing or is already set. Return merged $args otherwise.
  */
 function analytica_register_layout( $id = '', $args = [] ) {
+    global $_analytica_layouts;
 
-	$_analytica_layouts = analytica()->sidebar_layouts;
+    if ( ! is_array( $_analytica_layouts ) ) {
+        $_analytica_layouts = [];
+    }
 
     // Don't allow empty $id, or double registrations
     if ( ! $id || isset( $_analytica_layouts[ $id ] ) ) {
@@ -71,23 +74,25 @@ function analytica_register_layout( $id = '', $args = [] ) {
  * @return bool|string Return false if ID is empty or layout is not registered. Return ID otherwise.
  */
 function analytica_set_default_layout( $id = '' ) {
-  $layouts = analytica()->sidebar_layouts;
+    global $_analytica_layouts;
+
+    if ( ! is_array( $_analytica_layouts ) ) {
+        $_analytica_layouts = [];
+    }
 
     // Don't allow empty $id, or unregistered layouts
-    if ( ! $id || ! isset( $layouts[ $id ] ) ) {
+    if ( ! $id || ! isset( $_analytica_layouts[ $id ] ) ) {
         return false;
     }
 
     // Remove default flag for all other layouts
-    foreach ( (array) $layouts as $key ) {
-        if ( isset( $layouts[ $key ]['default'] ) ) {
-            unset( $layouts[ $key ]['default'] );
+    foreach ( (array) $_analytica_layouts as $key ) {
+        if ( isset( $_analytica_layouts[ $key ]['default'] ) ) {
+            unset( $_analytica_layouts[ $key ]['default'] );
         }
     }
 
-	$layouts[ $id ]['default'] = true;
-
-	analytica()->sidebar_layouts = $layouts;
+    $_analytica_layouts[ $id ]['default'] = true;
 
     return $id;
 }
@@ -106,12 +111,13 @@ function analytica_set_default_layout( $id = '' ) {
  * @return bool Returns false if ID is empty, or layout is not registered.
  */
 function analytica_unregister_layout( $id = '' ) {
+    global $_analytica_layouts;
 
-    if ( ! $id || ! isset( analytica()->sidebar_layouts[ $id ] ) ) {
+    if ( ! $id || ! isset( $_analytica_layouts[ $id ] ) ) {
         return false;
     }
 
-    unset( analytica()->sidebar_layouts[ $id ] );
+    unset( $_analytica_layouts[ $id ] );
 
     return true;
 }
