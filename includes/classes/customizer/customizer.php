@@ -33,21 +33,21 @@ class Customizer {
 	 * @var array
 	 */
 	protected static $config = array();
-	
+
 	/**
 	 * @static
 	 * @access protected
 	 * @var array
 	 */
     protected static $fields = array();
-    
+
     /**
 	 * @static
 	 * @access protected
 	 * @var array
 	 */
 	protected static $defaults = array();
-	
+
 	/**
 	 * The class constructor
 	 */
@@ -115,28 +115,27 @@ class Customizer {
         $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
         $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-        // if ( class_exists( 'Kirki' ) ) {
-        //     $wp_customize->get_control( 'header_image' )->panel  = 'site-hero';
-        //     $wp_customize->get_control( 'header_image' )->section  = 'site-hero-background';
-        //     $wp_customize->get_control( 'header_image' )->priority = '1';
+        if ( class_exists( 'Kirki' ) ) {
+            $wp_customize->get_control( 'header_image' )->panel  = 'site-hero';
+            $wp_customize->get_control( 'header_image' )->section  = 'site-hero-background';
+            $wp_customize->get_control( 'header_image' )->priority = '1';
 
-        //     $wp_customize->get_control( 'background_image' )->panel  = 'general';
-        //     $wp_customize->get_control( 'background_image' )->section  = 'container-style';
-        //     $wp_customize->get_control( 'background_image' )->priority = '1';
+            $wp_customize->get_control( 'background_image' )->panel  = 'general';
+            $wp_customize->get_control( 'background_image' )->section  = 'container-style';
+            $wp_customize->get_control( 'background_image' )->priority = '1';
 
-        //     $wp_customize->get_control( 'background_preset' )->panel  = 'general';
-        //     $wp_customize->get_control( 'background_preset' )->section  = 'container-style';
-        //     $wp_customize->get_control( 'background_preset' )->priority = '2';
+            $wp_customize->get_control( 'background_preset' )->panel  = 'general';
+            $wp_customize->get_control( 'background_preset' )->section  = 'container-style';
+            $wp_customize->get_control( 'background_preset' )->priority = '2';
 
-        //      $wp_customize->get_control( 'colors' )->panel  = 'general';
-        //     $wp_customize->get_control( 'colors' )->section  = 'container-style';
-        //     $wp_customize->get_control( 'colors' )->priority = '1';
+             $wp_customize->get_control( 'colors' )->panel  = 'general';
+            $wp_customize->get_control( 'colors' )->section  = 'container-style';
+            $wp_customize->get_control( 'colors' )->priority = '1';
 
-        //     $wp_customize->get_control( 'colors' )->panel  = 'general';
-        //     $wp_customize->get_control( 'colors' )->section  = 'container-style';
-        //     $wp_customize->get_control( 'colors' )->priority = '1';
-
-        // }
+            $wp_customize->get_control( 'colors' )->panel  = 'general';
+            $wp_customize->get_control( 'colors' )->section  = 'container-style';
+            $wp_customize->get_control( 'colors' )->priority = '1';
+        }
     }
 
     /**
@@ -277,7 +276,7 @@ class Customizer {
                     $tablet_args['description'] = '';
                     $tablet_args['device'] = 'tablet';
 
-                    self::add_field( analytica()->theme_slug, $tablet_args ); 
+                    self::add_field( analytica()->theme_slug, $tablet_args );
                 }
             }
         }
@@ -325,7 +324,7 @@ class Customizer {
 		} elseif ( ! isset( self::$fields[ $field_id ] ) && isset( self::$defaults[ $field_id ] ) ) {
             return self::$defaults[ $field_id ];
         }
-        
+
         // Kirki does not exist, continue with our custom implementation.
 		// Get the default value of the field
 		$default = '';
@@ -446,7 +445,7 @@ class Customizer {
 		}
 		// Get our inline styles
 		$css .= $this->get_styles();
-        
+
         return $css;
 	}
 
