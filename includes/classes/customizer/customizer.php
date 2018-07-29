@@ -137,9 +137,6 @@ class Customizer {
 			$wp_customize->get_control( 'external_header_video' )->panel  = 'site-hero';
             $wp_customize->get_control( 'external_header_video' )->section  = 'site-hero-background';
 			$wp_customize->get_control( 'external_header_video' )->priority = '3';
-
-
-
         }
     }
 
