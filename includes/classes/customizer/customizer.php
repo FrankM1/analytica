@@ -119,6 +119,13 @@ class Customizer {
         $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
         if ( class_exists( 'Kirki' ) ) {
+			$wp_customize->get_section( 'background_image' )->panel  = 'general';
+			$wp_customize->get_section( 'background_image' )->priority = '2';
+
+			$wp_customize->get_control( 'background_color' )->panel  = 'general';
+            $wp_customize->get_control( 'background_color' )->section  = 'container-style';
+			$wp_customize->get_control( 'background_color' )->priority = '2';
+
             $wp_customize->get_control( 'header_image' )->panel  = 'site-hero';
             $wp_customize->get_control( 'header_image' )->section  = 'site-hero-background';
 			$wp_customize->get_control( 'header_image' )->priority = '1';
@@ -131,12 +138,8 @@ class Customizer {
             $wp_customize->get_control( 'external_header_video' )->section  = 'site-hero-background';
 			$wp_customize->get_control( 'external_header_video' )->priority = '3';
 
-			$wp_customize->get_control( 'background_color' )->panel  = 'general';
-            $wp_customize->get_control( 'background_color' )->section  = 'container-style';
-			$wp_customize->get_control( 'background_color' )->priority = '2';
 
-			$wp_customize->get_section( 'background_image' )->panel  = 'general';
-			$wp_customize->get_section( 'background_image' )->priority = '2';
+
         }
     }
 
