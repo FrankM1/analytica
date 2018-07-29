@@ -147,8 +147,6 @@ class Theme {
 
 		add_theme_support( 'analytica-browser-theme-color' );
         add_theme_support( 'analytica-responsive-viewport' );
-        add_theme_support( 'analytica-inpost-layouts' );
-        add_theme_support( 'analytica-page-header' );
         add_theme_support( 'analytica-breadcrumbs' );
 
         // Maybe add support for structural wraps
@@ -204,9 +202,6 @@ class Theme {
             'page',
         ];
 
-        $supported['page'] = [ 'analytica-page-header' ];
-        $supported['post'] = [ 'analytica-page-header', 'auto-load-next-post' ];
-
         $site_sidebars = analytica_get_option( 'site-sidebar-supported' ) ? analytica_get_option( 'site-sidebar-supported' ) : [];
 
         foreach ( $post_types as $post_type ) {
@@ -222,7 +217,7 @@ class Theme {
          * Content Width
          */
         if ( ! isset( $content_width ) ) {
-            $content_width = apply_filters( 'analytica_content_width', 700 );
+            $content_width = apply_filters( 'analytica_content_width', analytica_get_option( 'site-content-width' ) );
         }
 
         /**

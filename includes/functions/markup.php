@@ -47,10 +47,9 @@ function analytica_register_layout( $id = '', $args = [] ) {
         return false;
     }
 
-    $framework =  analytica();
     $defaults = [
         'label' => esc_html__( 'No Label Selected', 'analytica' ),
-        'img' => $framework->theme_url . '/assets/admin/images/layouts/none.gif',
+        'img' => analytica()->theme_url . '/assets/admin/images/layouts/none.gif',
         'type' => 'site',
     ];
 
@@ -214,7 +213,7 @@ function analytica_structural_wrap( $context = '', $output = 'open', $echo = tru
     $output = apply_filters( "analytica_structural_wrap-{$context}", $output, $original_output );
 
     if ( $echo ) {
-        echo analytica_sanitize_html( $output );  
+        echo analytica_sanitize_html( $output );
     } else {
         return $output;
     }

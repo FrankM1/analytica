@@ -1,23 +1,31 @@
-<?php do_action('analytica_before_header_primary'); ?>
+<?php
 
-<?php analytica_structural_wrap( 'site-header', 'open' ); ?>
+do_action('analytica_before_header_primary');
 
-<?php get_template_part( 'template-parts/header/header', 'logo' ); ?>
+analytica_structural_wrap( 'site-header', 'open' );
 
-<?php do_action( 'analytica_before_nav_primary' ); ?>
+get_template_part( 'template-parts/header/header', 'logo' );
 
-<nav class="nav nav-horizontal nav-animation-submenu-left-to-right">
-    <?php do_action( 'analytica_before_header_nav' ); ?>
+ ?><div class="site-navigation"><?php
 
-        <?php get_template_part( 'template-parts/header/responsive', 'nav-button' ); ?>
+	do_action( 'analytica_before_nav_primary' );
 
-        <?php do_action( 'analytica_do_primary_nav', array( 'container' => false ) ); ?>
+	 ?><nav class="nav nav-horizontal nav-animation-submenu-left-to-right"><?php
 
-    <?php do_action( 'analytica_after_header_nav' ); ?>
-</nav>
+			do_action( 'analytica_before_header_nav' );
 
-<?php do_action( 'analytica_after_nav_primary' ); ?>
+				get_template_part( 'template-parts/header/responsive', 'nav-button' );
 
-<?php analytica_structural_wrap( 'site-header', 'close' ); ?>
+				do_action( 'analytica_do_primary_nav', array( 'container' => false ) );
 
-<?php do_action( 'analytica_after_header_primary' ); ?>
+			do_action( 'analytica_after_header_nav' );
+
+	 ?></nav><?php
+
+	do_action( 'analytica_after_nav_primary' );
+
+ ?></div><?php
+
+analytica_structural_wrap( 'site-header', 'close' );
+
+do_action( 'analytica_after_header_primary' );

@@ -30,7 +30,7 @@ li.customize-control:not(.customize-control-nav_menu_item) {
     margin-right: 12px;
     max-width: 300px;
 }
- 
+
 li.customize-control-kirki-switch .switch,
 li.customize-control-kirki-switch .switch label {
     margin-bottom: 0;
@@ -405,6 +405,5 @@ h3.btn-move-section .button {
 @import "controls/select-image";
 @import "controls/responsive-switchers";
 
-//fields
 @import "fields/footer-layout";
 @import "fields/typography";

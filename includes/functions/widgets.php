@@ -9,45 +9,6 @@
  * @since       Analytica 1.0.0
  */
 
-add_filter( 'widget_tag_cloud_args', 'analytica_widget_tag_cloud_args', 90 );
-/**
- * WordPress filter - Widget Tags
- *
- * @param  array $args Tag arguments.
- * @return array       Modified tag arguments.
- */
-function analytica_widget_tag_cloud_args( $args = array() ) {
-
-    $sidebar_link_font_size            = analytica_get_option( 'font-base' );
-    $sidebar_link_font_size['desktop'] = ( isset( $sidebar_link_font_size['desktop'] ) && '' != $sidebar_link_font_size['desktop'] ) ? $sidebar_link_font_size['desktop'] : 15;
-
-    $args['smallest'] = intval( $sidebar_link_font_size['desktop'] ) - 2;
-    $args['largest']  = intval( $sidebar_link_font_size['desktop'] ) + 3;
-    $args['unit']     = 'px';
-
-    return apply_filters( 'analytica_widget_tag_cloud_args', $args );
-}
-
-add_filter( 'wp_generate_tag_cloud_data', 'analytica_filter_widget_tag_cloud' );
-/**
- * WordPress filter - Widget Categories
- *
- * @param  array $tags_data Tags data.
- * @return array            Modified tags data.
- */
-function analytica_filter_widget_tag_cloud( $tags_data ) {
-
-    if ( is_tag() ) {
-        foreach ( $tags_data as $key => $tag ) {
-            if ( get_queried_object_id() === (int) $tags_data[ $key ]['id'] ) {
-                $tags_data[ $key ]['class'] = $tags_data[ $key ]['class'] . ' current-item';
-            }
-        }
-    }
-
-    return apply_filters( 'analytica_filter_widget_tag_cloud', $tags_data );
-}
-
 /**
  * Expedites the widget area registration process by taking common things, before / after_widget, before / after_title,
  * and doing them automatically.
@@ -181,7 +142,7 @@ function analytica_register_footer_widget_areas() {
         analytica_register_widget_area(
             array(
                 /* translators: %s: footer id */
-                'id'                => sprintf( 'footer-%d', $counter ), 
+                'id'                => sprintf( 'footer-%d', $counter ),
                 /* translators: %s: footer id */
                 'name'              => sprintf( esc_html__( 'Footer %d', 'analytica' ), $counter ),
                 /* translators: %s: footer id */

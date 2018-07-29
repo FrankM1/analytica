@@ -26,8 +26,8 @@ add_action( 'customize_register', function( $wp_customize ) {
          * @access public
          */
         public function enqueue() {
-            wp_enqueue_script( 'analytica-icon-select', analytica()->theme_url . '/assets/admin/js/modules/customizer/controls/icon-select.js', array( 'jquery', 'customize-base' ), false, true );
-            wp_enqueue_style( 'analytica-icon-select', analytica()->theme_url . '/assets/admin/css/customizer/controls/icon-select.min.css', null );
+            wp_enqueue_script( 'analytica-icon-select', analytica()->theme_url . '/assets/admin/js/modules/customizer/controls/icon-select.js', array( 'jquery', 'customize-base' ), analytica()->theme_version, true );
+            wp_enqueue_style( 'analytica-icon-select', analytica()->theme_url . '/assets/admin/css/customizer/controls/icon-select.min.css', analytica()->theme_version );
         }
 
         /**
@@ -67,7 +67,7 @@ add_action( 'customize_register', function( $wp_customize ) {
 		$controls['icon'] = 'Kirki_Controls_Icon_Control';
 		return $controls;
     } );
-    
+
     $wp_customize->register_control_type( 'Kirki_Controls_Icon_Control' );
 
 } );

@@ -15,10 +15,10 @@ add_filter( 'analytica_customizer_controls', 'analytica_add_typography_controls'
  * @param [type] $controls [description]
  */
 function analytica_add_typography_controls( $controls ) {
-    
+
     $base = analytica_get_option( 'font-base' );
     $secondary = analytica_get_option( 'font-secondary-base' );
-    
+
     $default    = Analytica\Options::defaults();
 
     $controls[] = [
@@ -39,7 +39,7 @@ function analytica_add_typography_controls( $controls ) {
         ],
         'output'    => [
     		[
-                'element' => 'body, p, button, input, select, textarea',
+                'element' => 'body, button, input, select, textarea',
     		],
     	],
     ];
@@ -204,7 +204,7 @@ function analytica_add_typography_controls( $controls ) {
         ],
         'output'    => [
             [
-                'element' => 'body i, body em, body .em, body b.em, body blockquote, body blockquote p',
+                'element' => 'body i, body em, body .em, body b.em, body blockquote',
             ],
         ],
     ];

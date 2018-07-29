@@ -1,79 +1,137 @@
 /* Mobile Menu */
 
+button.menu-trigger {
+	display: none;
+}
+
 @media only screen and (max-width: 1023px) {
+
 	button.menu-trigger {
 		display: block;
-		height: 38px;
+		height: 48px;
 		width: 48px;
-		z-index: 9999;
+		z-index: 10;
 		cursor: pointer;
 		display: block;
-		border-radius: 3px;
-		color: #333;
+		border-radius: 2px;
 		padding: 0;
-		background: transparent;
+		position: absolute;
+		right: 0;
+		top: 0;
+		background-color: transparent;
+
+		>span {
+			position: relative;
+			width: 36px;
+			height: 29px;
+			display: inline-block;
+			left: 0;
+			top: 3px;
+		}
+
+		span span {
+			display: block;
+			height: 4px;
+			width: 32px;
+			left: 3px;
+			position: absolute;
+			transition: .3s all ease-in;
+			background: #333;
+		}
+
+		span span:nth-child(1) {
+			top: 0;
+		}
+		span span:nth-child(2) {
+			top: 12px;
+			transform-origin: left;
+		}
+		span span:nth-child(3) {
+			top: 24px;
+		}
 
 		&.dl-active,
 		&:hover {
 			color: white;
 			background: #333;
 			span span {
-				background: $menu-accent-color;
+				background: #fff;
 			}
+		}
+
+		&.dl-active span span:nth-child(1),
+		&.dl-active span span:nth-child(3) {
+			transform: rotate(45deg);
+			top: 14px;
+		}
+		&.dl-active span span:nth-child(2) {
+			width: 0;
+			opacity: 0;
+		}
+		&.dl-active span span:nth-child(3) {
+			transform: rotate(-45deg);
 		}
 	}
 
-	.menu-trigger>span {
-		position: relative;
-		width: 36px;
-		height: 29px;
-		display: inline-block;
-		left: 0;
-		top: 3px;
-	}
-
-	.menu-trigger span span {
-		display: block;
-		height: 4px;
-		width: 32px;
-		left: 3px;
-		background: white;
-		position: absolute;
-		transition: .6s all;
-		border-radius: 2px;
-	}
-
-	.menu-trigger span span:nth-child(1) {
-		top: 0;
-	}
-	.menu-trigger span span:nth-child(2) {
-		top: 12px;
-		transform-origin: left;
-	}
-	.menu-trigger span span:nth-child(3) {
-		top: 24px;
-	}
-
-	.menu-trigger.dl-active span span:nth-child(1),
-	.menu-trigger.dl-active span span:nth-child(3) {
-		transform: rotate(45deg);
-		top: 14px;
-		transform-origin: right-center;
-	}
-	.menu-trigger.dl-active span span:nth-child(2) {
-		width: 0;
-		opacity: 0;
-	}
-	.menu-trigger.dl-active span span:nth-child(3) {
-		transform: rotate(-45deg);
-	}
-
 	.nav-horizontal {
+		z-index: 999;
+		margin-left: auto;
+		max-width: 300px;
 		position: relative;
 		perspective: 1000px;
 		perspective-origin: 50% 200%;
-		z-index: 999;
-		margin-left: auto;
+		margin-left: -195px;
+		margin-top: -20px;
+
+		>ul,
+		.dl-menu {
+			width: 230px;
+			left: -35px;
+			top: 55px;
+			background: white;
+			border-top: 3px solid $brand-primary;
+			position: absolute;
+		}
+
+		.submenu-clone.back {
+			z-index: -1;
+		}
+
+		.dl-menu {
+			opacity: 0;
+			pointer-events: none;
+			transform: translateY(10px);
+			&.dl-menuopen {
+				opacity: 1;
+				pointer-events: auto;
+				transform: translateY(0px);
+			} // Hide the inner submenus
+			&.dl-menu-toggle {
+				transition: all 0.3s ease;
+			}
+		}
+
+		.sub-menu li.dl-back {
+			>a {
+				padding-left: 25px;
+				text-transform: capitalize;
+			}
+		}
+
+		li.dl-back>a {
+			background: rgba(0, 0, 0, 0.1);
+		}
+
+		li.dl-back:after,
+		li>a:not(:only-child):after {
+			position: absolute;
+			top: 0;
+			background-color: transparent !important;
+		}
+
+		li .sub-menu {
+			display: none; // When a submenu is openend, we will hide all li siblings.
+		}
 
 		ul {
 			padding: 0;
@@ -83,24 +141,6 @@
 		}
 
 		li {
-			position: relative;
-		}
-
-		li a {
-			display: block;
-			position: relative;
-			padding: 15px 20px;
-            @include font-size( 1.6 );
-			line-height: 20px;
-			font-weight: 300;
-			outline: none;
-			color: #333;
-		}
-
-		.menu-desc {
-			display: none;
-		}
-		li {
 			border-bottom: 1px solid rgba(119, 119, 119, 0.21);
 			&:last-child {
 				border-bottom: none;
@@ -108,77 +148,53 @@
 			.has-icon .icon {
 				margin-right: 5px;
 			}
+
 			a {
 				display: block;
 				position: relative;
-				line-height: 40px;
-				outline: none;
-                @include font-size( 1.4 );
-				text-align: left;
-				*zoom: 1;
+				line-height: 43px;
+				@include font-size( 1.4);
 				padding: 0 20px;
 			}
-			a .menu-title-outer {
-				color: #333;
-			}
-			a:after,
-			a:before {
-				content: ' ';
-				display: table;
-			}
-			a:after {
-				clear: both;
-			}
-			a>.menu-title-outer,
+			a,
+			a .menu-title-outer,
 			a>span>.menu-title-outer {
 				color: #333;
 			}
-			>ul>li>a {
-				padding: 0 20px;
-			}
 		}
-		li.current-menu-item {
-			&:before {
-				content: '';
-				position: absolute;
-				z-index: -1;
-				transition: all .3s;
-				width: 260px;
-				height: 1px;
-				bottom: -1px;
-				z-index: 1;
-				left: 0;
-				background-color: $brand-primary;
-			}
-		}
-		li.dl-back {
+
+		.sub-menu>.current-menu-item:first-child:before {
+			content: '';
+			position: absolute;
+			transition: all .3s;
 			width: 100%;
-			padding: 0;
-			>a {
-				padding-left: 22px;
-				background: #fff;
-				text-transform: capitalize;
-			}
+			height: 1px;
+			bottom: -1px;
+			z-index: 1;
+			left: 0;
+			background-color: $brand-primary;
 		}
+
 		li>a:not(:only-child):after,
 		li.dl-back:after {
 			position: absolute;
 			top: 0;
 			line-height: 40px;
-			font-family: FontAwesome;
+			font-family: Analytica;
 			font-weight: normal;
 			font-style: normal;
 			text-decoration: inherit;
-			content: '\f0da';
+			content: '\e901';
+			color: #000;
+			transform: rotate(180deg);
 		}
 		li.dl-back:after {
 			left: 10px;
-			color: #333;
-			transform: rotate(180deg);
+			transform: rotate(0deg);
 		}
 		li>a:after {
 			right: 10px;
-			color: #333;
+			color: #000;
 		}
 		.has-icon .fa {
 			margin-right: 10px;
@@ -193,25 +209,16 @@
 			height: 40px;
 			display: block;
 			float: right;
-			font-family: FontAwesome;
+			font-family: Analytica;
 			font-weight: normal;
 			font-style: normal;
 			text-decoration: inherit;
-			content: '\f0da';
-			color: #333;
+			content: '\e901';
+			color: #000;
 		}
 
-		.main_menu>.sub-menu,
-		.analytica_mega {
-			&.dl-menuopen {
-				box-shadow: 0 0 35px -1px rgba(0, 0, 0, 0.2);
-				border-radius: 0 0 2px 2px;
-			}
-		}
-		.analytica_mega,
+		>.menu,
 		>.sub-menu {
-			transition: all .3s ease;
-
 			&:after {
 				content: '';
 				position: absolute;
@@ -222,64 +229,17 @@
 				border-bottom: 8px solid $brand-primary;
 			}
 
-			ul>li>a .menu-title-outer {
-				color: inherit;
-				max-height: inherit;
-				padding: inherit;
-				line-height: inherit;
+			&.dl-menuopen {
+				box-shadow: 0 0 35px -1px rgba(0, 0, 0, 0.2);
+				border-radius: 0 0 2px 2px;
 			}
 		}
 	}
 
 	.no-touch .nav-horizontal li a:hover {
 		background: rgba(255, 248, 213, 0.1);
-	}
-
-	.nav-horizontal li.dl-back>a {
-		background: rgba(0, 0, 0, 0.1);
-	}
-
-	.nav-horizontal li.dl-back:after,
-	.nav-horizontal li>a:not(:only-child):after {
-		position: absolute;
-		top: 0;
-		background-color: transparent !important;
-	}
-
-	.nav-horizontal li.dl-back:after {
-		padding-left: 20px;
-		left: 10px;
-		color: rgba(0, 0, 0, 0.6);
-		transform: rotate(180deg);
-	}
-
-	.nav-horizontal li>a:after {
-		right: 10px;
-		color: rgba(0, 0, 0, 0.15);
-	}
-
-	.nav-horizontal .dl-menu {
-		position: absolute;
-		opacity: 0;
-		pointer-events: none;
-		transform: translateY(10px);
-		backface-visibility: hidden;
-	}
-
-	.nav-horizontal .dl-menu.dl-menu-toggle {
-		transition: all 0.3s ease;
-	}
-
-	.nav-horizontal .dl-menu.dl-menuopen {
-		opacity: 1;
-		pointer-events: auto;
-		transform: translateY(0px);
-	} // Hide the inner submenus 
-	.nav-horizontal li .sub-menu {
-		display: none;
-	} // When a submenu is openend, we will hide all li siblings.
-	// For that we give a class to the parent menu called "dl-subview".
-	// We also hide the submenu link. 
+	} // For that we give a class to the parent menu called "dl-subview".
+	// We also hide the submenu link.
 	// The opened submenu will get the class "dl-subviewopen".
 	// All this is done for any sub-level being entered.
 	.dl-menu.dl-subview li,
@@ -294,23 +254,6 @@
 	.dl-menu.dl-subview li.dl-subviewopen>.sub-menu,
 	.dl-menu.dl-subview li.dl-subviewopen>.sub-menu>li {
 		display: block;
-	}
-
-	/* Dynamically added submenu outside of the menu context */
-	.nav-horizontal>.main_menu>.sub-menu {
-		position: absolute;
-		right: 0;
-		margin: 0;
-		z-index: 999;
-	}
-
-	.nav-horizontal .dl-menu,
-	.nav-horizontal>.main_menu>.sub-menu {
-		width: 230px;
-		right: 0;
-		top: 52px;
-		background: white;
-		border-top: 3px solid $brand-primary;
 	}
 
 	/* No JS Fallback */
@@ -346,5 +289,4 @@
 		left: 0;
 		z-index: 90;
 	}
-
 }

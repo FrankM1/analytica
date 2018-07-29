@@ -19,27 +19,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Main Theme Framework Class
+ * Main Analytica Class
  *
  * @since 1.0.0
  */
 class Core {
 
-      /**
-     * framework version, used for cache-busting of style and script file references.
+    /**
+     * Analytica version, used for cache-busting of style and script file references.
      *
      * @since 1.0.0
      *
      * @var string
      */
-    public $version = '1.0.6';
+    public $version = '1.0.7';
 
-    /**
-     * @var array Overloads get_option()
-     */
-    public $options = array();
-
-    /** Radium *************************************************************/
+    /** Analytica *************************************************************/
 
     /**
      * @var analytica The one true instance
@@ -47,21 +42,12 @@ class Core {
     protected static $instance;
 
     /**
-     * Arguments for later use
-     *
-     * @var $args
-     *
-     * @since 1.0.0
-     */
-    public $args = [];
-
-    /**
      * [__construct description]
      */
     private function __construct() {}
 
     /**
-     * Main radium Instance
+     * Main Analytica Instance
      *
      * Please load it only one time
      * For this, we thank you
@@ -86,7 +72,6 @@ class Core {
             self::$instance->includes();
             self::$instance->init();
         }
-
         return self::$instance;
     }
 
@@ -109,12 +94,6 @@ class Core {
      */
     private function setup_actions() {
 
-        // Add actions to plugin activation and deactivation hooks
-        add_action( 'activate_'   . $this->theme_slug, 'analytica_activation' );
-        add_action( 'deactivate_' . $this->theme_slug, 'analytica_deactivation' );
-
-        // If theme is being deactivated, do not add any actions
-
         /** Run the analytica_pre_framework Hook */
         do_action( 'analytica_pre_framework' );
 
@@ -125,7 +104,6 @@ class Core {
 
         /** Run the analytica_setup hook */
         do_action( 'analytica_setup', array( &$this ) );
-
     }
 
     /**
@@ -147,12 +125,8 @@ class Core {
         $this->theme_title = apply_filters( 'analytica_theme_title',      $this->theme->name );                          // or $this->theme->title
         $this->theme_slug  = apply_filters( 'analytica_theme_slug',       get_stylesheet() );
         $this->theme_dir   = apply_filters( 'analytica_theme_dir_path',   strtolower( get_template_directory() ) );
-        $this->theme_url   = apply_filters( 'analytica_theme_dir_url',    strtolower( get_template_directory_uri() ) );
-
-        // Setup theme Options name - it's not recommended that you change this, if you do you will looses theme option settings and you will need to resave them
-        $this->option_name = $this->theme_slug . '_options';  // Theme_options name
-        $this->options = get_option( $this->option_name );  // get theme options so we don't run it all the time
-        $this->hero = new stdClass();  // get theme options so we don't run it all the time
+		$this->theme_url   = apply_filters( 'analytica_theme_dir_url',    strtolower( get_template_directory_uri() ) );
+        $this->hero = new stdClass();  // set up hero holder
     }
 
     /**
@@ -182,10 +156,11 @@ class Core {
 
 		$this->extensions_page_builders                = new Extensions\Page_Builder();
 		$this->extensions_page_builders_beaver_builder = new Extensions\Page_Builder\Beaver_Builder();
-		$this->extensions_page_builders_gutenberg 	   = new Extensions\Page_Builder\Gutenberg();
-        $this->extensions_page_builders_qazana         = new Extensions\Page_Builder\Qazana();
-        $this->extensions_page_builders_elementor      = new Extensions\Page_Builder\Elementor();
-        $this->extensions_page_builders_elementorpro   = new Extensions\Page_Builder\Elementor_Pro();
+		$this->extensions_page_builders_gutenberg 	 = new Extensions\Page_Builder\Gutenberg();
+        $this->extensions_page_builders_qazana       = new Extensions\Page_Builder\Qazana();
+        $this->extensions_page_builders_elementor    = new Extensions\Page_Builder\Elementor();
+        $this->extensions_page_builders_elementorpro = new Extensions\Page_Builder\Elementor_Pro();
+        $this->extensions_page_builders_visualcomposer = new Extensions\Page_Builder\Visual_Composer();
     }
 
     /**
@@ -260,7 +235,6 @@ class Core {
     }
 
     function _include_options() {
-
         require_once get_theme_file_path( '/includes/config/customizer/01-general.php' );
         require_once get_theme_file_path( '/includes/config/customizer/02-site-header.php' );
         require_once get_theme_file_path( '/includes/config/customizer/03-site-hero.php' );
@@ -319,5 +293,4 @@ class Core {
 		require_once get_theme_file_path( '/includes/extensions/page-builder-qazana.php' );
         require_once get_theme_file_path( '/includes/extensions/page-builder-visual-composer.php' );
     }
-
 }
