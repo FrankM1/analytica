@@ -8,18 +8,18 @@
  * @since 1.0.0
  */
 
+do_action( 'analytica_entry_before' );
+
+?><section class="error-404 not-found"><?php
+
+	do_action( 'analytica_entry_top' );
+
+	do_action( 'analytica_entry_content_404_page' );
+
+	do_action( 'analytica_entry_bottom' );
+
+?></section><!-- .error-404 --><?php
+
+do_action( 'analytica_entry_after' );
+
 ?>
-
-<?php do_action( 'analytica_entry_before' ); ?>
-
-<section class="error-404 not-found">
-
-	<?php do_action( 'analytica_entry_top' ); ?>
-
-	<?php do_action( 'analytica_entry_content_404_page' ); ?>
-
-	<?php do_action( 'analytica_entry_bottom' ); ?>
-
-</section><!-- .error-404 -->
-
-<?php do_action( 'analytica_entry_after' ); ?>

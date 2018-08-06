@@ -1,10 +1,19 @@
 # Analytica WordPress Theme
 
+The goal of this Analytica WordPress Theme is to provide a simple yet performant, powerfull WordPress theme. Analytica follows modern desing and development technique to provide a great base for your content.
+
 <img src="https://github.com/FrankM1/analytica/raw/master/screenshot.jpg">
 
 ## Demo and Documentation
 * **Demo** : http://demo-analytica.qazana.net/
 * **Documentation** : https://qazana.net/docs
+
+### Requirements
+
+Analytica Theme follows [WordPress recommended requirements](https://wordpress.org/about/requirements/).
+
+- WordPress >= 4.7
+- PHP >= 5.4
 
 ## Getting Started
 Upload the theme to your WordPress directory in wp-content/themes/
@@ -63,12 +72,6 @@ Color, Typography an layout changes can be made in the WordPress Customizer ( Ap
 
 If you need to further customize the theme, it is recommended that you first create a child theme so you will be able to update the theme in the future. You can read how to create a WordPress Child theme [here](http://codex.wordpress.org/Child_Themes).
 
-### Requirements
-
-Analytica Theme follows [WordPress recommended requirements](https://wordpress.org/about/requirements/).
-
-- WordPress >= 4.7
-- PHP >= 5.4
 
 ## Documentation, FAQs, and More
 

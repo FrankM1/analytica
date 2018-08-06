@@ -26,7 +26,8 @@ class Page_Builder {
         add_filter( 'body_class', [ $this, 'body_class' ] );
         add_filter( 'analytica_site_layout_pre', [ $this, 'site_layout' ], 10, 4 );
         add_filter( 'analytica_is_site_hero_available', [ $this, 'is_hero_available' ] );
-        add_filter( 'analytica_pagination_enabled', [ $this, 'has_pagination' ] );
+		add_filter( 'analytica_pagination_enabled', [ $this, 'has_pagination' ] );
+		add_filter( 'post_class', array($this, 'single_page_class') );
     }
 
     /**
@@ -44,6 +45,23 @@ class Page_Builder {
         if ( analytica_is_builder_page() && ! is_singular('post') && ! is_archive() ) {
             $classes[] = 'analytica-page-builder';
         }
+        return $classes;
+	}
+
+	/**
+     * Adds custom classes to the array of body classes.
+     *
+     * @since 1.0.0
+     * @param array $classes Classes for the body element.
+     * @return array
+     */
+    function single_page_class( $classes ) {
+
+		if ( analytica_is_builder_page() ) {
+			$classes = array_diff($classes, array( 'hentry', 'analytica-article-single', 'type-page' ) );
+			$classes[] = 'type-page-builder';
+		}
+
         return $classes;
     }
 

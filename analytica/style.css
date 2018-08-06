@@ -1,0 +1,26 @@
+/**
+Theme Name: Analytica
+Theme URI: https://github.com/FrankM1/analytica
+Author: frankgitonga
+Author URI: http://qazana.net/
+Description: Analytica is fast, fully customizable & beautiful theme suitable for blog, personal portfolio and business website.
+Version: 1.0.7
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: analytica
+Domain Path: /languages
+Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-colors, custom-menu, editor-style, featured-images, full-width-template, microformats, post-formats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog
+
+Analytica is based on WPAstra WordPress Theme, Copyright 2018 WPAstra.
+WPAstra is distributed under the terms of the GNU GPL v2 or later.
+
+Analytica is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of.
+Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+*/
+/* Note: The CSS files are loaded from assets/frontend/css/ folder. */
+
+.sticky {
+}

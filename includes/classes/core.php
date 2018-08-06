@@ -155,6 +155,7 @@ class Core {
         $this->loop_page                               = new Content\Loop\Page();
 
 		$this->extensions_page_builders                = new Extensions\Page_Builder();
+		$this->extensions_header_composer 			   = new Extensions\Header_Composer();
 		$this->extensions_page_builders_beaver_builder = new Extensions\Page_Builder\Beaver_Builder();
 		$this->extensions_page_builders_gutenberg 	 = new Extensions\Page_Builder\Gutenberg();
         $this->extensions_page_builders_qazana       = new Extensions\Page_Builder\Qazana();
@@ -286,11 +287,12 @@ class Core {
 
     function _include_extensions() {
 		require_once get_theme_file_path( '/includes/extensions/page-builder.php' );
+		require_once get_theme_file_path('/includes/extensions/header-composer.php');
 		require_once get_theme_file_path( '/includes/extensions/page-builder-beaver-builder.php' );
         require_once get_theme_file_path( '/includes/extensions/page-builder-gutenberg.php' );
 		require_once get_theme_file_path( '/includes/extensions/page-builder-elementor.php' );
 		require_once get_theme_file_path( '/includes/extensions/page-builder-elementor-pro.php' );
 		require_once get_theme_file_path( '/includes/extensions/page-builder-qazana.php' );
-        require_once get_theme_file_path( '/includes/extensions/page-builder-visual-composer.php' );
+		require_once get_theme_file_path( '/includes/extensions/page-builder-visual-composer.php' );
     }
 }

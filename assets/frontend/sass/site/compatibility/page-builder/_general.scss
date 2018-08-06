@@ -9,11 +9,6 @@
 		max-width: none;
     }
 
-	&.site-container-detach .analytica-article-single .single-layout-1,
-    .analytica-article-single .entry-content {
-		padding: 0;
-    }
-
 	.no-results {
 		text-align: center;
 		margin: 4em auto;
@@ -45,10 +40,6 @@
 		@media (max-width: $mx-col-md) {
 			margin-top: 1.5em;
 		}
-    }
-
-    .analytica-article-single {
-        margin: 0;
     }
 
 	&.single .post-navigation {
