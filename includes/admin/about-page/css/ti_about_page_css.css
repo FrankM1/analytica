@@ -2,19 +2,6 @@
  * Welcome Page CSS
  * ------------------------------------------------------------------------- */
 
-/* New Logo */
-
-.wp-badge.epsilon-welcome-logo {
-	background-color: #fff;
-	background-image: url(../images/logo.png);
-	background-position: center center;
-	background-size: 100%;
-	background-repeat: no-repeat;
-
-	padding-top: 100px;
-	box-shadow: none;
-}
-
 /* proper positioning of the icons */
 .epsilon-wrap i.dashicons {
 	margin-right: 15px;

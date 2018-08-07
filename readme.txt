@@ -16,11 +16,6 @@ Analytica is based on Underscores http://underscores.me/, (C) 2012-2015 Automatt
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 -------------------------------------------------------
-Screenshot Licenses
--------------------------------------------------------
-Screenshot images are all licensed under CC0 Universal
-
--------------------------------------------------------
 Normalizing styles
 -------------------------------------------------------
 Normalizing styles have been helped along thanks to the fine work of.
@@ -44,3 +39,16 @@ Feather Icons
 -------------------------------------------------------
 Analytica icon font is based on Feather Icons by Cole Bemis.
 Licensed under MIT ( https://feathericons.com/ )
+
+-------------------------------------------------------
+Breadcrumbs Trail
+-------------------------------------------------------
+Analytica Breadcrumbs are based on Breadcrumbs Trail by Justin Tudlock.
+Licensed under GNU General Public License v2 or later ( https://github.com/justintadlock/breadcrumb-trail )
+
+-------------------------------------------------------
+Admin About Page
+-------------------------------------------------------
+Admin About Page is based on TI_About_Page Trail by Theme Isle.
+Licensed under GNU General Public License v2 or later ( https://wordpress.org/themes/zerif-lite/ )
+
