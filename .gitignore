@@ -39,6 +39,7 @@ Thumbs.db
 vendors/composer/
 !assets/js/vendor/
 wpcs/
+analytica/
 composer.lock
 
 # Bower #

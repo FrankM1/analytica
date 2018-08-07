@@ -381,7 +381,7 @@ class Dynamic_CSS {
                 'border-top-color'     => esc_attr( $accent_color ),
             ),
 
-            '.nav-horizontal .analytica_mega:after, .nav-horizontal > .sub-menu:after' => array(
+			'.nav-horizontal .analytica_mega:after, .nav-horizontal > .sub-menu:after, .analytica-article-post.sticky' => array(
                 'border-bottom-color'     => esc_attr( $accent_color ),
             ),
 
@@ -422,7 +422,7 @@ class Dynamic_CSS {
 
             '.calendar_wrap #today > a'               => array(
                 'color' => $this->get_foreground_color( $link_color ),
-            ),
+			),
 
             // Pagination.
             '.analytica-pagination a, .page-links .page-link, .single .post-navigation a' => array(
