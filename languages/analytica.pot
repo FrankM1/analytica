@@ -304,31 +304,31 @@ msgstr ""
 msgid "Accent color"
 msgstr ""
 
-#: includes/config/theme.php:166, includes/structure/general/site-sidebar.php:47
+#: includes/config/theme.php:164, includes/structure/general/site-sidebar.php:47
 msgid "Primary Widget Area"
 msgstr ""
 
-#: includes/config/theme.php:167
+#: includes/config/theme.php:165
 msgid "This is the primary sidebar."
 msgstr ""
 
-#: includes/config/theme.php:170, includes/structure/general/site-sidebar.php:65
+#: includes/config/theme.php:168, includes/structure/general/site-sidebar.php:65
 msgid "Secondary Widget Area"
 msgstr ""
 
-#: includes/config/theme.php:171
+#: includes/config/theme.php:169
 msgid "This is the secondary sidebar if you are using a two or three column page layout option."
 msgstr ""
 
-#: includes/config/theme.php:174, includes/functions/widgets.php:216
+#: includes/config/theme.php:172, includes/functions/widgets.php:177
 msgid "After Entry"
 msgstr ""
 
-#: includes/config/theme.php:175
+#: includes/config/theme.php:173
 msgid "This is the content widget area. Displayed after the post content"
 msgstr ""
 
-#: includes/config/theme.php:185
+#: includes/config/theme.php:183
 msgid "Primary Navigation"
 msgstr ""
 
@@ -356,22 +356,26 @@ msgstr ""
 msgid "Full Width Content"
 msgstr ""
 
-#: includes/functions/markup.php:52
+#: includes/functions/markup.php:51
 msgid "No Label Selected"
 msgstr ""
 
 #. translators: %s: footer id
-#: includes/functions/widgets.php:186
+#: includes/functions/widgets.php:147
 msgid "Footer %d"
 msgstr ""
 
 #. translators: %s: footer id
-#: includes/functions/widgets.php:188
+#: includes/functions/widgets.php:149
 msgid "Footer %d widget area."
 msgstr ""
 
-#: includes/functions/widgets.php:217
+#: includes/functions/widgets.php:178
 msgid "Widgets in this widget area will display after single entries."
+msgstr ""
+
+#: template-parts/header/responsive-nav-button.php:1
+msgid "Main mobile navigation"
 msgstr ""
 
 #: includes/admin/about-page/class-about-page.php:897
@@ -386,11 +390,11 @@ msgstr ""
 msgid "Display Site Title &amp; Tagline"
 msgstr ""
 
-#: includes/classes/customizer/customizer.php:303
+#: includes/classes/customizer/customizer.php:236
 msgid "Reset"
 msgstr ""
 
-#: includes/classes/customizer/customizer.php:304
+#: includes/classes/customizer/customizer.php:237
 msgid ""
 "Attention! This will remove all customizations ever made via customizer to this theme!\n"
 "\n"
@@ -450,7 +454,7 @@ msgid "Background color"
 msgstr ""
 
 #: includes/config/customizer/01-general.php:117
-msgid "Content background"
+msgid "Content area background"
 msgstr ""
 
 #: includes/config/customizer/01-general.php:134
@@ -1151,7 +1155,7 @@ msgid "Disable Featured Image"
 msgstr ""
 
 #. translators: %s: page number
-#: includes/structure/general/general-header.php:90
+#: includes/structure/general/general-header.php:58
 msgid "Page %s"
 msgstr ""
 

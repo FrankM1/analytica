@@ -8,15 +8,12 @@
  * @since 1.0.0
  */
 
-?>
+?><section class="no-results not-found">
+	<div class="page-content"><?php
 
-<section class="no-results not-found">
-	<div class="page-content">
+	if ( is_home() && current_user_can( 'publish_posts' ) ) :
 
-		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
-
-			<p>
-			<?php
+		?><p><?php
 				printf(
 					wp_kses(
 						/* translators: 1: link to new post */
@@ -27,20 +24,22 @@
 						)
 					), esc_url( admin_url( 'post-new.php' ) )
 				);
-			?>
-			</p>
 
-		<?php elseif ( is_search() ) : ?>
+		?></p><?php
 
-			<p><?php echo esc_html( analytica_default_strings( 'string-search-nothing-found-message', false ) ); ?></p>
-			<?php get_search_form(); ?>
+		elseif ( is_search() ) :
 
-		<?php else : ?>
+			?><p><?php echo esc_html( analytica_default_strings( 'string-search-nothing-found-message', false ) ); ?></p><?php
 
-			<p><?php echo esc_html( analytica_default_strings( 'string-content-nothing-found-message', false ) ); ?></p>
-			<?php get_search_form(); ?>
+			get_search_form();
 
-		<?php endif; ?>
+		else :
 
-	</div><!-- .page-content -->
+			?><p><?php echo esc_html( analytica_default_strings( 'string-content-nothing-found-message', false ) ); ?></p><?php
+
+			get_search_form();
+
+		endif;
+
+	?></div><!-- .page-content -->
 </section><!-- .no-results -->

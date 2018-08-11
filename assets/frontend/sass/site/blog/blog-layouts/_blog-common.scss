@@ -1,6 +1,9 @@
 /**
  *  Blog Common
  */
+.analytica-article-post.sticky {
+	border-bottom: 3px solid $brand-primary;
+}
 
 .analytica-single-post .entry-header {
 	&.analytica-header-without-markup,

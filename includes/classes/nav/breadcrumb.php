@@ -24,7 +24,8 @@ namespace Analytica;
  * @since 1.0.0
  */
 class Breadcrumb {
-    /**
+
+	/**
      * Settings array, a merge of provided values and defaults.
      *
      * @since 1.0.0
@@ -109,7 +110,7 @@ class Breadcrumb {
      */
     public function output($args = array())
     {
-        echo analytica_sanitize_html( $this->get_output($args) ); 
+        echo analytica_sanitize_html( $this->get_output($args) );
     }
 
     /**

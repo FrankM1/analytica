@@ -44,7 +44,7 @@ class Page extends Base {
      * @return array
      */
     function single_body_class( $classes ) {
-        if ( ! is_page() ) { 
+        if ( ! is_page() || analytica_is_builder_page() ) {
             return $classes;
         }
 
@@ -55,8 +55,7 @@ class Page extends Base {
         return $classes;
     }
 
-
-     /**
+    /**
      * Adds custom classes to the array of body classes.
      *
      * @since 1.0.0
@@ -64,16 +63,15 @@ class Page extends Base {
      * @return array
      */
     function single_page_class( $classes ) {
-        if ( ! is_page() ) { 
+        if ( ! is_page() || analytica_is_builder_page() ) {
             return $classes;
         }
-      
+
         $classes[] = 'analytica-article-single';
         $classes = array_diff( $classes, array( 'hentry' ) );
 
         return $classes;
     }
-
 
     /**
      * Template part page
@@ -82,10 +80,15 @@ class Page extends Base {
      * @return void
      */
      public function template_parts_page() {
-        if ( ! is_page() ) { 
+        if ( ! is_page() ) {
             return;
-        }
-        get_template_part( 'template-parts/content', 'page' );
+		}
+
+		if ( analytica_is_builder_page() ) {
+			the_content();
+		} else {
+			get_template_part('template-parts/content', 'page');
+		}
     }
 
     /**
@@ -95,7 +98,7 @@ class Page extends Base {
      * @return void
      */
     public function template_parts_comments() {
-        if ( ! is_page() || analytica_is_builder_page() ) { 
+        if ( ! is_page() || analytica_is_builder_page() ) {
             return;
         }
         // If comments are open or we have at least one comment, load up the comment template.
