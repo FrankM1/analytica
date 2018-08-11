@@ -6,10 +6,10 @@
 
     &:after {
         position: absolute;
-        top: rem(32px);
-        right: rem(22px);
+        top: 32px;
+        right: 22px;
         border: 0 solid transparent;
-        border-width: rem(4px) rem(3px);
+        border-width: 4px 3px;
         border-top-color: currentColor;
         content: '';
     }
@@ -24,7 +24,7 @@
         position: absolute;
         top: 100%;
         left: 0;
-        min-width: rem(240px);
+        min-width: 240px;
 
         & & {
             top: -1px;

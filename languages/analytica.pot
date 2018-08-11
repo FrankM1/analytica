@@ -39,7 +39,7 @@ msgid "Analytica requires WordPress version %s+. Because you are using an earlie
 msgstr ""
 
 #. translators: 1: link to new post
-#: template-parts/content-none.php:23
+#: template-parts/content-none.php:20
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
@@ -332,15 +332,15 @@ msgstr ""
 msgid "Primary Navigation"
 msgstr ""
 
-#: includes/functions/breadcrumb.php:77, includes/functions/breadcrumb.php:78, includes/functions/breadcrumb.php:79, includes/functions/breadcrumb.php:80, includes/functions/breadcrumb.php:82, includes/functions/breadcrumb.php:83, includes/classes/nav/breadcrumb.php:56, includes/classes/nav/breadcrumb.php:57, includes/classes/nav/breadcrumb.php:58, includes/classes/nav/breadcrumb.php:59, includes/classes/nav/breadcrumb.php:61, includes/classes/nav/breadcrumb.php:62
+#: includes/functions/breadcrumb.php:77, includes/functions/breadcrumb.php:78, includes/functions/breadcrumb.php:79, includes/functions/breadcrumb.php:80, includes/functions/breadcrumb.php:82, includes/functions/breadcrumb.php:83, includes/classes/nav/breadcrumb.php:57, includes/classes/nav/breadcrumb.php:58, includes/classes/nav/breadcrumb.php:59, includes/classes/nav/breadcrumb.php:60, includes/classes/nav/breadcrumb.php:62, includes/classes/nav/breadcrumb.php:63
 msgid "Archives for "
 msgstr ""
 
-#: includes/functions/breadcrumb.php:81, includes/classes/nav/breadcrumb.php:60
+#: includes/functions/breadcrumb.php:81, includes/classes/nav/breadcrumb.php:61
 msgid "Search for "
 msgstr ""
 
-#: includes/functions/breadcrumb.php:84, includes/classes/nav/breadcrumb.php:63
+#: includes/functions/breadcrumb.php:84, includes/classes/nav/breadcrumb.php:64
 msgid "Not found: "
 msgstr ""
 
@@ -397,11 +397,11 @@ msgid ""
 "This action is irreversible!"
 msgstr ""
 
-#: includes/classes/nav/breadcrumb.php:45, includes/config/customizer/08-breadcrumbs.php:82, includes/structure/general/template-tags.php:167
+#: includes/classes/nav/breadcrumb.php:46, includes/config/customizer/08-breadcrumbs.php:82, includes/structure/general/template-tags.php:167
 msgid "Home"
 msgstr ""
 
-#: includes/classes/nav/breadcrumb.php:55
+#: includes/classes/nav/breadcrumb.php:56
 msgid "You are here: "
 msgstr ""
 

@@ -1,0 +1,21 @@
+{
+	"name": "FrankM1/analytica",
+	"type": "wordpress-theme",
+	"description": "A multiporpose theme for WordPress.",
+	"keywords": ["wordpress"],
+	"homepage": "https://qazana.net/themes/analytica",
+	"license": "GPL-2.0-or-later",
+	"authors": [{
+		"name": "Franklin Gitonga",
+		"email": "frank@qazana.net",
+		"homepage": "http://qazana.net"
+	}],
+	"require": {
+		"php": ">=5.4",
+		"composer/installers": "~1.0"
+	},
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^1.0.0",
+		"wimg/php-compatibility": "^8.2"
+	}
+}

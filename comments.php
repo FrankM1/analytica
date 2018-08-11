@@ -38,12 +38,12 @@ if ( post_password_required() ) {
 				);
 
 				echo esc_html( $comments_title );
-            
+
             ?></h3>
 		</div>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_html_e( 'Comments Navigation', 'analytica' ); ?>">
+		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Comments Navigation', 'analytica' ); ?>">
 			<h3 class="screen-reader-text"><?php echo esc_html( analytica_default_strings( 'string-comment-navigation-next', false ) ); ?></h3>
 			<div class="nav-links">
 
@@ -66,7 +66,7 @@ if ( post_password_required() ) {
 		</ol><!-- .analytica-comment-list -->
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_html_e( 'Comments Navigation', 'analytica' ); ?>">
+		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Comments Navigation', 'analytica' ); ?>">
 			<h3 class="screen-reader-text"><?php echo esc_html( analytica_default_strings( 'string-comment-navigation-next', false ) ); ?></h3>
 			<div class="nav-links">
 
