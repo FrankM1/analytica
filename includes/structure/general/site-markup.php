@@ -24,7 +24,6 @@ class Markup {
         add_filter( 'analytica_attr_site-header',           array( $this, 'attributes_site_header' ));
         add_filter( 'analytica_attr_site-content',          array( $this, 'attributes_site_content' ));
         add_filter( 'analytica_attr_site-inner',            array( $this, 'attributes_site_inner' ));
-        add_filter( 'analytica_attr_site-main',             array( $this, 'attributes_site_main' ));
 
         add_filter( 'analytica_attr_article',               array( $this, 'attributes_article' ));
 
@@ -141,20 +140,6 @@ class Markup {
     function attributes_site_inner( $attributes ) {
         $attributes['class'] = 'site-inner';
         $attributes['class'] = 'site-inner site-inner-has-container';
-        return $attributes;
-    }
-
-    /**
-     * Add attributes for main site element.
-     *
-     * @since 1.0.0
-     *
-     * @param array $attributes Existing attributes.
-     *
-     * @return array Amended attributes.
-     */
-    function attributes_site_main( $attributes ) {
-        $attributes['role'] = 'main';
         return $attributes;
     }
 
