@@ -75,7 +75,7 @@ function analytica_site_header_is_active() {
          $retval = true;
      }
 
-     if ( is_singular( 'post' ) && ! analytica_get_option( 'single-post-site-hero' ) ) {
+     if ( is_404() || is_singular( 'post' ) && ! analytica_get_option( 'single-post-site-hero' ) ) {
          $retval = false;
      }
 

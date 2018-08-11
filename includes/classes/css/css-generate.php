@@ -38,7 +38,8 @@ class CSS_Generate {
 
         add_action( 'analytica_after_theme_is_activated',   [ $this, 'update_css' ], 90 );
         add_action( 'customize_save_after',                 [ $this, 'update_css' ], 100 );
-        add_action( 'analytica_style_switcher_import_after',  [ $this, 'update_css' ], 100 );
+		add_action( 'analytica_style_switcher_import_after',  [ $this, 'update_css' ], 100 );
+		remove_action( 'wp_head', 'wp_custom_css_cb', 101 );
     }
 
     public function add_css( $global_css_file ) {
@@ -125,12 +126,12 @@ class CSS_Generate {
      * @return  string  the dynamically-generated CSS.
      */
     function dynamic_css() {
-    
+
         /**
          * Append the user-entered dynamic CSS
          */
         $dynamic_css = strip_tags( wp_get_custom_css() );
-        
+
         /**
          * If we're compiling to file, then do not use transients for caching.
          */

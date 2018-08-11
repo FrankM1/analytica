@@ -211,7 +211,7 @@ function analytica_site_layout( $use_cache = false ) {
     $site_layout = analytica_get_option( 'site-sidebar-layout' );
 
     // Exit early if all sidebars disabled on mobile
-    if ( 
+    if ( is_404() ||
         ( wp_is_mobile() && ! analytica_get_option( 'site-sidebar-enable-mobile' ) ) ||
         ! analytica_get_option( 'site-sidebar-enable' )
     ) {
@@ -227,7 +227,7 @@ function analytica_site_layout( $use_cache = false ) {
         $custom_field = analytica_get_custom_field( '_analytica-layout' );
         $site_layout = $custom_field ? $custom_field : $site_layout;
         if ( ! post_type_supports( get_post_type(), 'analytica-layouts' ) ) {
-            return _analytica_return_full_width_content();
+			return apply_filters('analytica_site_layout', _analytica_return_full_width_content());
         }
     } elseif ( is_category() || is_tag() || is_tax() ) {
         // If viewing a taxonomy archive

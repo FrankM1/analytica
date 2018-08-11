@@ -36,7 +36,7 @@ class Frontend {
         add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ], 5 );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_customizer_styles' ], 99 );
-        add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
     }
 
     /**

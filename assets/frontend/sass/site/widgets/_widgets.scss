@@ -203,12 +203,8 @@
 			content: "\e900";
 			position: absolute;
 			top: 50%;
-			right: 15px;
+			right: 90px;
 			transform: translate(0, -50%);
-		}
-
-		>label {
-			position: relative;
 		}
 
 		input[type="submit"],
@@ -263,7 +259,8 @@
 .widget_tag_cloud {
 	.tagcloud {
 		margin-top: 10px;
-		display: inline-block;;
+		display: inline-block;
+		;
 	}
 }
 
