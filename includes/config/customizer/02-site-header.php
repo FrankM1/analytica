@@ -48,7 +48,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         ],
         'partial_refresh' => [
             'site-header' => [
-                'selector'        => '.site-header',
+                'selector'        => '.site-header-primary',
                 'render_callback' => function() {
                     ob_start();
 
@@ -80,7 +80,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         ],
         'output' => [
             [
-                'element' => '.site-header',
+                'element' => '.site-header-primary',
                 'property' => 'background-color',
             ],
         ],
@@ -126,7 +126,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'output'    => [
             [
                 'property' => 'padding',
-                'element'  => '.site-header',
+                'element'  => '.site-header-primary',
             ],
         ],
         'conditions' => [
@@ -207,7 +207,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'output'    => [
             [
                 'property' => 'border-color',
-                'element'  => '.site-header',
+                'element'  => '.site-header-primary',
             ],
         ],
         'conditions' => [

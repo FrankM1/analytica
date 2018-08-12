@@ -58,6 +58,9 @@ class Header_Composer {
 			return analytica_get_option('accent-color');
 		});
 
+		add_filter('pre_option_header_composer_style_container_width', function () {
+			return ( intval( analytica_get_option( 'site-content-width' ) ) + intval( analytica_get_option( 'site-sidebar-width' ) )) - 40;
+		});
 	}
 
 	/**
