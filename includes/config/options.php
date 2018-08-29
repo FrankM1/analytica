@@ -54,7 +54,6 @@ class Options {
         return apply_filters( 'analytica_theme_defaults', array(
 
             // General
-            'site-css-print-method'     => 'external',
             'site-publisher-uri'        => get_site_url(),
             'site-settings-update-time' => '',
 
