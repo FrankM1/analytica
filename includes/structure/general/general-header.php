@@ -154,7 +154,7 @@ function analytica_site_title() {
 
     } else {
 
-        $output .= '<a href="' . esc_url( trailingslashit( home_url() ) ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home">';
+        $output .= '<a href="' . trailingslashit( esc_url( home_url() ) ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home">';
         $output .= get_bloginfo( 'name' );
         $output .= '</a>';
 

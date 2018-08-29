@@ -878,11 +878,11 @@ class About_Page {
     public function style_and_scripts( $hook_suffix ) {
 
         // this is needed on all admin pages, not just the about page, for the badge action count in the wordpress main sidebar
-        wp_enqueue_style( 'ti-about-page-css', get_template_directory_uri() . '/includes/admin/about-page/css/ti_about_page_css.css' );
+        wp_enqueue_style( 'analytica-about-page', get_template_directory_uri() . '/includes/admin/about-page/css/ti_about_page_css.css' );
 
         if ( 'appearance_page_' . $this->theme_slug . '-welcome' == $hook_suffix ) {
 
-            wp_enqueue_script( 'ti-about-page-js', get_template_directory_uri() . '/includes/admin/about-page/js/ti_about_page_scripts.js', array( 'jquery' ), analytica()->theme_version );
+            wp_enqueue_script( 'analytica-about-page', get_template_directory_uri() . '/includes/admin/about-page/js/ti_about_page_scripts.js', array( 'jquery' ), analytica()->theme_version );
 
             wp_enqueue_style( 'plugin-install' );
             wp_enqueue_script( 'plugin-install' );
@@ -890,7 +890,7 @@ class About_Page {
 
             $recommended_actions         = isset( $this->config['recommended_actions'] ) ? $this->config['recommended_actions'] : array();
             $required_actions = $this->get_required_actions();
-            wp_localize_script( 'ti-about-page-js', 'tiAboutPageObject', array(
+            wp_localize_script( 'analytica-about-page', 'tiAboutPageObject', array(
                 'nr_actions_required'      => count( $required_actions ),
                 'ajaxurl'                  => admin_url( 'admin-ajax.php' ),
                 'template_directory'       => get_template_directory_uri(),

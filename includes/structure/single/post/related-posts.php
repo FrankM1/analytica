@@ -35,7 +35,7 @@ function analytica_related_posts() {
     if ( ! is_singular('post' ) ) {
         return;
     }
-    
+
     $in_tax_query_array = $and_tax_query_array = $found_posts = array();
 
     $args = array(
@@ -185,18 +185,18 @@ function analytica_related_posts() {
 
     $related_posts_query = new WP_Query( $query_args );
 
-    if ( $related_posts_query->have_posts() ) : 
-        
+    if ( $related_posts_query->have_posts() ) :
+
         ?><div class="related-posts"><?php
-                
+
         while ( $related_posts_query->have_posts() ) : $related_posts_query->the_post();
             get_template_part( 'template-parts/content', 'related' );
         endwhile;
 
         ?></div><?php
 
-   endif; 
+   endif;
 
-     wp_reset_query();
+     wp_reset_postdata();
 
 }

@@ -54,7 +54,6 @@ class Options {
         return apply_filters( 'analytica_theme_defaults', array(
 
             // General
-            'site-css-print-method'     => 'external',
             'site-publisher-uri'        => get_site_url(),
             'site-settings-update-time' => '',
 
@@ -340,7 +339,7 @@ class Options {
 
             // Footer
             'site-back-to-top'           => true,
-            'site-footer-copyright-text' => esc_html__('Copyright &copy; [year] Qazana. All rights reserved.', 'analytica'),
+            'site-footer-copyright-text' => esc_html__( 'Copyright &copy; [year] Your Company or website name here. All rights reserved.', 'analytica' ),
             'site-footer-layout'         => '4',
             'site-footer-width'          => false,
             'site-footer-widgets'        => true,

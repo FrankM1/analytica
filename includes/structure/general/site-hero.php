@@ -59,41 +59,7 @@ class Site_Hero {
         $post_id = $post ? $post->ID : 0;
 
         if ( is_archive() ) { // A few checks for archives
-
-            if ( is_tag() ) {
-
-                 /* translators: %s: Tag name */
-                $header_title = sprintf( esc_html__( 'Tag: %s', 'analytica' ), '<span>' . single_tag_title( '', false ) . '</span>' );
-
-                $tag_description = tag_description();
-
-                if ( ! empty( $tag_description ) ) {
-                    $header_subtitle = apply_filters( 'tag_archive_meta', '<div class="tag-archive-meta">' . $tag_description . '</div>' );
-                }
-
-            } elseif ( is_category() ) {
-
-                $header_title = '<span>' . single_cat_title( '', false ) . '</span>';
-
-                $category_description = category_description();
-
-                if ( ! empty( $category_description ) ) {
-                    $header_subtitle = apply_filters( 'category_archive_meta', '<div class="category-archive-meta">' . $category_description . '</div>' );
-                }
-            } elseif ( is_day() ) {
-                /* translators: %s: date */
-                $header_title = sprintf( esc_html__( 'Daily: %s', 'analytica' ), '<span>' . get_the_date() . '</span>' );
-            } elseif ( is_month() ) {
-                 /* translators: %s: date */
-                $header_title = sprintf( esc_html__( 'Monthly: %s', 'analytica' ), '<span>' . get_the_date( esc_html_x( 'F Y', 'monthly archives date format', 'analytica' ) ) .'</span>' );
-            } elseif ( is_year() ) {
-                /* translators: %s: date */
-                $header_title = sprintf( esc_html__( 'Yearly: %s', 'analytica' ), '<span>' . get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'analytica' ) ) . '</span>' );
-            } elseif ( is_author() ) {
-                $header_title = esc_html__( 'Author: ', 'analytica' ) . get_the_author();
-            } else {
-                $header_title = sprintf( esc_html__( 'Archive', 'analytica' ) );
-            }
+			$header_title = get_the_archive_title();
 
         } elseif ( is_search() ) {
 

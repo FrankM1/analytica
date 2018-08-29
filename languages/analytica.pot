@@ -39,7 +39,7 @@ msgid "Analytica requires WordPress version %s+. Because you are using an earlie
 msgstr ""
 
 #. translators: 1: link to new post
-#: template-parts/content-none.php:23
+#: template-parts/content-none.php:20
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
@@ -152,12 +152,12 @@ msgstr ""
 msgid "It is highly recommended that you install Kirki so you can access more customizer options."
 msgstr ""
 
-#: includes/config/options.php:316
+#: includes/config/options.php:315
 msgid "Latest posts"
 msgstr ""
 
-#: includes/config/options.php:343
-msgid "Copyright &copy; [year] Qazana. All rights reserved."
+#: includes/config/options.php:342
+msgid "Copyright &copy; [year] Your Company or website name here. All rights reserved."
 msgstr ""
 
 #: includes/config/strings.php:25
@@ -332,15 +332,15 @@ msgstr ""
 msgid "Primary Navigation"
 msgstr ""
 
-#: includes/functions/breadcrumb.php:77, includes/functions/breadcrumb.php:78, includes/functions/breadcrumb.php:79, includes/functions/breadcrumb.php:80, includes/functions/breadcrumb.php:82, includes/functions/breadcrumb.php:83, includes/classes/nav/breadcrumb.php:56, includes/classes/nav/breadcrumb.php:57, includes/classes/nav/breadcrumb.php:58, includes/classes/nav/breadcrumb.php:59, includes/classes/nav/breadcrumb.php:61, includes/classes/nav/breadcrumb.php:62
+#: includes/functions/breadcrumb.php:77, includes/functions/breadcrumb.php:78, includes/functions/breadcrumb.php:79, includes/functions/breadcrumb.php:80, includes/functions/breadcrumb.php:82, includes/functions/breadcrumb.php:83, includes/classes/nav/breadcrumb.php:57, includes/classes/nav/breadcrumb.php:58, includes/classes/nav/breadcrumb.php:59, includes/classes/nav/breadcrumb.php:60, includes/classes/nav/breadcrumb.php:62, includes/classes/nav/breadcrumb.php:63
 msgid "Archives for "
 msgstr ""
 
-#: includes/functions/breadcrumb.php:81, includes/classes/nav/breadcrumb.php:60
+#: includes/functions/breadcrumb.php:81, includes/classes/nav/breadcrumb.php:61
 msgid "Search for "
 msgstr ""
 
-#: includes/functions/breadcrumb.php:84, includes/classes/nav/breadcrumb.php:63
+#: includes/functions/breadcrumb.php:84, includes/classes/nav/breadcrumb.php:64
 msgid "Not found: "
 msgstr ""
 
@@ -382,10 +382,6 @@ msgstr ""
 msgid "Activating"
 msgstr ""
 
-#: includes/classes/css/css-generate.php:75
-msgid "Cannot delete files cache"
-msgstr ""
-
 #: includes/classes/customizer/customizer.php:104
 msgid "Display Site Title &amp; Tagline"
 msgstr ""
@@ -401,11 +397,11 @@ msgid ""
 "This action is irreversible!"
 msgstr ""
 
-#: includes/classes/nav/breadcrumb.php:45, includes/config/customizer/08-breadcrumbs.php:82, includes/structure/general/template-tags.php:167
+#: includes/classes/nav/breadcrumb.php:46, includes/config/customizer/08-breadcrumbs.php:82, includes/structure/general/template-tags.php:167
 msgid "Home"
 msgstr ""
 
-#: includes/classes/nav/breadcrumb.php:55
+#: includes/classes/nav/breadcrumb.php:56
 msgid "You are here: "
 msgstr ""
 
@@ -1066,7 +1062,7 @@ msgstr ""
 msgid "Page"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:146, includes/structure/general/site-hero.php:95
+#: includes/config/customizer/08-breadcrumbs.php:146
 msgid "Archive"
 msgstr ""
 
@@ -1086,19 +1082,7 @@ msgstr ""
 msgid "Breadcrumb"
 msgstr ""
 
-#: includes/config/customizer/90-utilities.php:27
-msgid "CSS Print Method"
-msgstr ""
-
-#: includes/config/customizer/90-utilities.php:30
-msgid "External File"
-msgstr ""
-
-#: includes/config/customizer/90-utilities.php:31
-msgid "Internal Embedding"
-msgstr ""
-
-#: includes/config/customizer/90-utilities.php:52
+#: includes/config/customizer/90-utilities.php:40
 msgid "Theme Utilities"
 msgstr ""
 
@@ -1180,46 +1164,12 @@ msgstr ""
 msgid "Powered by"
 msgstr ""
 
-#. translators: %s: Tag name
-#: includes/structure/general/site-hero.php:66
-msgid "Tag: %s"
-msgstr ""
-
-#. translators: %s: date
-#: includes/structure/general/site-hero.php:85
-msgid "Daily: %s"
-msgstr ""
-
-#. translators: %s: date
-#: includes/structure/general/site-hero.php:88
-msgid "Monthly: %s"
-msgstr ""
-
-#: includes/structure/general/site-hero.php:88
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr ""
-
-#. translators: %s: date
-#: includes/structure/general/site-hero.php:91
-msgid "Yearly: %s"
-msgstr ""
-
-#: includes/structure/general/site-hero.php:91
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr ""
-
-#: includes/structure/general/site-hero.php:93
-msgid "Author: "
-msgstr ""
-
 #. translators: %1$s: Search results count, %2$s: Search query
-#: includes/structure/general/site-hero.php:104
+#: includes/structure/general/site-hero.php:70
 msgid "Found %1$s results for: &ldquo;%2$s&rdquo;"
 msgstr ""
 
-#: includes/structure/general/site-hero.php:125
+#: includes/structure/general/site-hero.php:91
 msgid "Post"
 msgstr ""
 
@@ -1235,11 +1185,11 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: includes/structure/general/site-markup.php:187
+#: includes/structure/general/site-markup.php:172
 msgid "Primary Sidebar"
 msgstr ""
 
-#: includes/structure/general/site-markup.php:202
+#: includes/structure/general/site-markup.php:187
 msgid "Secondary Sidebar"
 msgstr ""
 

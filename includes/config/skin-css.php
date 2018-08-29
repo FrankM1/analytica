@@ -548,7 +548,7 @@ class Dynamic_CSS {
         $css .= '@media (min-width: 768px) {';
 
             if ( ! empty( $site_header_border['top'] ) || ! empty( $site_header_border['left'] ) || ! empty( $site_header_border['bottom'] ) || ! empty( $site_header_border['right'] )  ) {
-                $css .= '.site-header {';
+                $css .= '.site-header-primary {';
                     $css .= 'border-style: solid;';
                     $css .= ! empty( $site_header_border['top'] ) ? 'border-top-width: ' . esc_attr( $site_header_border['top'] ) . ';' : '';
                     $css .= ! empty( $site_header_border['left'] ) ? 'border-left-width: ' . esc_attr( $site_header_border['left'] ) . ';' : '';
