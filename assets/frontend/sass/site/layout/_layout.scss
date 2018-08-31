@@ -19,6 +19,7 @@
 		margin-top: $grid-gutter-width;
 	}
 
+	.analytica-article-single,
 	.analytica-article-post {
 		background-color: $color-background-content;
 		margin: 0 0 $grid-gutter-width 0;
@@ -52,6 +53,17 @@
 			padding: $grid-gutter-width;
 			padding-top: $grid-gutter-width-half;
 		}
+
+		.analytica-single-post-order {
+			padding-top: $grid-gutter-width;
+		}
+	}
+
+	.related-posts {
+		padding-top: $grid-gutter-width;
+		.entry-header {
+			padding: 0 $grid-gutter-width;
+		}
 	}
 
 	@media (max-width: $mx-col-xl) {
@@ -73,6 +85,8 @@
 			padding: 0 0 1.5em 0;
 		}
 	}
+
+	
 }
 
 .site-dual-containers {
