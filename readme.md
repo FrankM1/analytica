@@ -48,7 +48,7 @@ Upload the theme to your WordPress directory in wp-content/themes/
 * Detached containers
 
 
-## Plugin Support ==
+## Plugin Support
 
 Analytica includes integration support for the following plugins:
 
