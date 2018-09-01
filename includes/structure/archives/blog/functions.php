@@ -400,7 +400,7 @@ function analytica_get_blog_layout_class( $class = '' ) {
  function analytica_blog_post_thumbnail_and_title_order() {
 
     $blog_post_thumb_title_order = analytica_get_option( 'archive-content-structure' );
-    if ( is_single() ) {
+    if ( is_single( get_the_ID() ) ) {
         $blog_post_thumb_title_order = analytica_get_option( 'single-post-structure' );
     }
     if ( is_array( $blog_post_thumb_title_order ) ) {
