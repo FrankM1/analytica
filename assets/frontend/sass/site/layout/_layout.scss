@@ -27,10 +27,6 @@
 			padding-bottom: $grid-gutter-width-quarter;
 		}
 
-		.entry-title {
-			margin-bottom: .2em;
-		}
-
 		.entry-summary,
 		.entry-header,
 		.analytica-single-post-order {
@@ -57,19 +53,24 @@
 	}
 
 	@media (max-width: $mx-col-xl) {
+
 		.analytica-article-post,
 		.analytica-article-single {
 			margin: 0;
 			padding: 3.34em 2.4em;
 		}
 	}
+
 	@media (max-width: $mx-col-md) {
+
 		.analytica-article-post,
 		.analytica-article-single {
 			padding: 0 0 1.5em 0;
 		}
 	}
+
 	@media (max-width: $mx-col-sm) {
+
 		.analytica-article-post,
 		.analytica-article-single {
 			padding: 0 0 1.5em 0;
@@ -78,6 +79,7 @@
 }
 
 .site-dual-containers {
+
 	.site-main-inner,
 	.site-sidebar .widget-area-inner {
 		padding: $grid-gutter-width;

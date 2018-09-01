@@ -10,6 +10,10 @@
 		border-bottom: 3px solid $brand-primary;
 	}
 
+	.analytica-no-thumb {
+	padding-top: $grid-gutter-width-half;
+	}
+
 	&:last-child {
 		margin-bottom: 0;
 		border-bottom: 0;
