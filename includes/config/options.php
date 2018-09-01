@@ -388,7 +388,7 @@ class Options {
             'footer-accent-color'      => '',
             'footer-body-color'        => '',
             'footer-border-color'      => '',
-            'footer-headers-color'     => '',
+            'footer-headers-color'     => '#fff',
             'footer-link-color'        => '',
             'site-footer-padding'      => [
                 'top'    => '',
