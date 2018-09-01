@@ -6,7 +6,7 @@ The goal of this Analytica WordPress Theme is to provide a simple yet performant
 
 ## Demo and Documentation
 * **Demo** : http://demo-analytica.qazana.net/
-* **Documentation** : https://qazana.net/docs
+* **Documentation** : https://qazana.net/docs-category/analytica/
 
 ### Requirements
 
