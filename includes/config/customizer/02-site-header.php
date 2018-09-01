@@ -66,27 +66,6 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
     ];
 
     $controls[] = [
-        'id'              => 'site-header-background-color',
-        'section'         => 'site-header-settings',
-        'type'            => 'color',
-        'title'           => esc_html__( 'Background color' , 'analytica' ),
-        'default'         => $default['site-header-background-color'],
-        'conditions' => [
-            [
-                'setting'  => 'site-header',
-                'operator' => '==',
-                'value'    => true,
-            ],
-        ],
-        'output' => [
-            [
-                'element' => '.site-header-primary',
-                'property' => 'background-color',
-            ],
-        ],
-    ];
-
-    $controls[] = [
         'id'      => 'site-header-overlay',
         'section' => 'site-header-settings',
         'default' => $default['site-header-overlay'],
@@ -136,6 +115,27 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
                 'value'    => true,
             ],
         ],
+	];
+
+	$controls[] = [
+        'id'              => 'site-header-background-color',
+        'section'         => 'site-header-style',
+        'type'            => 'color',
+        'title'           => esc_html__( 'Background color' , 'analytica' ),
+        'default'         => $default['site-header-background-color'],
+        'conditions' => [
+            [
+                'setting'  => 'site-header',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
+        'output' => [
+            [
+                'element' => '.site-header-primary',
+                'property' => 'background-color',
+            ],
+        ],
     ];
 
     $controls[] = [
@@ -179,7 +179,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
                 'value'    => true,
             ],
         ],
-    ];
+	];
 
     $controls[] = [
         'id'      => 'site-header-border',
@@ -217,6 +217,90 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
                 'value'    => true,
             ],
         ],
+	];
+
+	$controls[] = [
+        'id'              => 'site-header-overlay-background-color',
+        'section'         => 'site-header-overlay',
+        'type'            => 'color',
+        'title'           => esc_html__( 'Background color' , 'analytica' ),
+        'default'         => $default['site-header-overlay-background-color'],
+        'conditions' => [
+            [
+                'setting'  => 'site-header-overlay',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
+        'output' => [
+            [
+                'element' => '.page-scrolling .site-header-overlay.site-header-primary',
+                'property' => 'background-color',
+            ],
+        ],
+	];
+
+	$controls[] = [
+        'id'              => 'site-header-overlay-color',
+        'section'         => 'site-header-overlay',
+        'type'            => 'color',
+        'title'           => esc_html__( 'Color' , 'analytica' ),
+        'conditions' => [
+            [
+                'setting'  => 'site-header-overlay',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
+        'output' => [
+            [
+                'element' => '.page-scrolling .site-header-overlay.site-header, .page-scrolling .site-header-overlay.site-header a, .page-scrolling .site-header-overlay.site-header .site-title a',
+                'property' => 'color',
+            ],
+        ],
+	];
+
+	$controls[] = [
+        'id'        => 'site-header-overlay-link-color',
+        'section'   => 'site-header-overlay',
+        'type'      => 'color',
+        'transport' => 'auto',
+        'label'     => esc_html__( 'Link Color' , 'analytica' ),
+        'output'    => [
+            [
+                'property' => 'color',
+                'element'  => '.page-scrolling .site-header-overlay.site-header .nav.nav-horizontal ul > li > a',
+                'media_query' => '@media (min-width: 1023px)',
+            ],
+        ],
+        'conditions' => [
+            [
+                'setting'  => 'site-header-overlay',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
+    ];
+
+	$controls[] = [
+        'id'        => 'site-header-overlay-highlight-color',
+        'section'   => 'site-header-overlay',
+        'type'      => 'color',
+        'transport' => 'auto',
+        'label'     => esc_html__( 'Highlight Link Color' , 'analytica' ),
+        'output'    => [
+            [
+                'property' => 'color',
+                'element'  => '.page-scrolling .site-header-overlay.site-header .nav.nav-horizontal ul > li:hover > a',
+            ],
+        ],
+        'conditions' => [
+            [
+                'setting'  => 'site-header-overlay',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
     ];
 
     return $controls;
@@ -229,30 +313,24 @@ add_action( 'customize_register', 'analytica_add_header_panels_and_sections' );
 function analytica_add_header_panels_and_sections( $wp_customize ) {
     $wp_customize->add_panel( 'site-header', [
         'title'    => esc_html__( 'Site Header', 'analytica' ),
-        'priority' => 19,
+        'priority' => 1,
     ] );
 
     $wp_customize->add_section( 'site-header-settings', [
         'title'    => esc_html__( 'Settings', 'analytica' ),
         'panel'    => 'site-header',
-        'priority' => 20,
+        'priority' => 2,
     ]);
 
     $wp_customize->add_section( 'site-header-style', [
         'title'    => esc_html__( 'Style', 'analytica' ),
         'panel'    => 'site-header',
-        'priority' => 21,
+        'priority' => 3,
     ] );
 
-    $wp_customize->add_section( 'site-header-general', [
-        'title'    => esc_html__( 'General', 'analytica' ),
+    $wp_customize->add_section( 'site-header-overlay', [
+        'title'    => esc_html__( 'Overlay Styling', 'analytica' ),
         'panel'    => 'site-header',
-        'priority' => 21,
-    ] );
-
-    $wp_customize->add_section( 'site-header-menu', [
-        'title'    => esc_html__( 'Menu', 'analytica' ),
-        'panel'    => 'site-header',
-        'priority' => 21,
+        'priority' => 4,
     ] );
 }

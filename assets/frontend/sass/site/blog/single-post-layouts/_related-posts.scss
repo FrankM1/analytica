@@ -1,3 +1,18 @@
 .related-posts {
 	width: 100%;
 }
+
+.site-dual-containers {
+	.related-posts {
+		margin-top: $grid-gutter-width;
+	}
+}
+
+.site-container-detach {
+	.related-posts {
+		margin-top: $grid-gutter-width;
+		.entry-header {
+			padding: 0 $grid-gutter-width;
+		}
+	}
+}

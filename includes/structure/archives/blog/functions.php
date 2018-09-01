@@ -328,28 +328,32 @@ function analytica_get_blog_layout_class( $class = '' ) {
  */
  function analytica_get_post_thumbnail( $before = '', $after = '', $echo = true ) {
 
+	$post_id = get_the_ID();
+
     $output = '';
 
-    $check_is_singular = is_singular();
+    $check_is_singular = is_singular( $post_id );
 
-    $featured_image = true;
+	$featured_image = true;
 
-    $is_featured_image = is_singular() ? analytica_get_option( 'single-featured-image' ) : analytica_get_option( 'archive-featured-image' );
+    $is_featured_image = is_singular( $post_id ) ? analytica_get_option( 'single-featured-image', '', $post_id ) : analytica_get_option( 'archive-featured-image', '', $post_id );
 
     if ( 'disabled' === $is_featured_image ) {
-        $featured_image = false;
-    }
+		$featured_image = false;
+		$before = '';
+		$after = '';
+	}
 
     $featured_image = apply_filters( 'analytica_featured_image_enabled', $featured_image );
-    $blog_post_thumb   = analytica_get_option( 'archive-content-structure'            , [] );
-    $single_post_thumb = analytica_get_option( 'single-post-structure', [] );
+    $blog_post_thumb   = analytica_get_option( 'archive-content-structure', [], $post_id );
+    $single_post_thumb = analytica_get_option( 'single-post-structure', [], $post_id );
 
-    if ( ( ( ! $check_is_singular && in_array( 'image', $blog_post_thumb ) ) || ( is_single() && in_array( 'single-image', $single_post_thumb ) ) || is_page() ) && has_post_thumbnail() ) {
+    if ( ( ( ! $check_is_singular && in_array( 'image', $blog_post_thumb ) ) || ( is_single( $post_id ) && in_array( 'single-image', $single_post_thumb ) ) || is_page( $post_id ) ) && has_post_thumbnail( $post_id ) ) {
 
-        if ( $featured_image && ( ! ( $check_is_singular ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
+        if ( $featured_image && ( ! ( $check_is_singular ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail( $post_id ) ) ) ) {
 
             $post_thumb = get_the_post_thumbnail(
-                get_the_ID(),
+                $post_id,
                 apply_filters( 'analytica_post_thumbnail_default_size', 'blog-featured' ),
                 array(
                     'itemprop' => 'image',
@@ -359,7 +363,7 @@ function analytica_get_blog_layout_class( $class = '' ) {
             if ( '' != $post_thumb ) {
                 $output .= '<div class="post-thumb-img-content post-thumb">';
                 if ( ! $check_is_singular ) {
-                    $output .= '<a href="' . esc_url( get_permalink() ) . '" >';
+                    $output .= '<a href="' . esc_url( get_permalink( $post_id ) ) . '" >';
                 }
                 $output .= $post_thumb;
                 if ( ! $check_is_singular ) {
@@ -374,7 +378,12 @@ function analytica_get_blog_layout_class( $class = '' ) {
         $output = apply_filters( 'analytica_blog_post_featured_image_after', $output );
     }
 
-    $output = apply_filters( 'analytica_get_post_thumbnail', $output, $before, $after );
+	$output = apply_filters( 'analytica_get_post_thumbnail', $output, $before, $after );
+
+	 if ( ! $output ) {
+		$before = '';
+		$after = '';
+	}
 
     if ( $echo ) {
         echo wp_kses( $before . $output . $after, analytica_get_allowed_tags() );

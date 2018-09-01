@@ -18,7 +18,7 @@ class Base {
 
     /**
      * Template part loop
-     * 
+     *
      * @return void
      */
     public function loop_markup() {
@@ -28,15 +28,17 @@ class Base {
         analytica_markup( array(
             'element'   => '<main %s>',
             'context' => 'site-main',
-        ) );
+		) );
+
+			do_action( 'analytica_before_loop_markup' );
 
             analytica_markup( array(
                 'element'   => '<div %s>',
                 'context' => 'site-main-inner',
             ) );
-    
+
                 if ( have_posts() ) :
-                    
+
                     do_action( 'analytica_before_loop' );
 
                     while ( have_posts() ) : the_post();
@@ -49,11 +51,13 @@ class Base {
 
                     do_action( 'analytica_loop_template_part_none' );
 
-                endif; 
+                endif;
 
             analytica_markup( array(
                 'element' => '</div>', // end .site-main-inner
             ) );
+
+			do_action( 'analytica_after_loop_markup' );
 
         analytica_markup( array(
             'element' => '</main>', // end .site-main

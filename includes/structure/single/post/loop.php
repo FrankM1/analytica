@@ -32,7 +32,7 @@ class Post {
     public function __construct() {
         add_filter( 'body_class', array( $this, 'single_body_class' ) );
         add_filter( 'post_class', array( $this, 'single_post_class' ) );
-    
+
         // Template Parts.
         add_action( 'analytica_loop_template_part', array( $this, 'template_parts_post' ) );
         add_action( 'analytica_loop_template_part', array( $this, 'template_parts_comments' ), 15 );
@@ -49,12 +49,12 @@ class Post {
      * @return array
      */
     function single_body_class( $classes ) {
-        if ( ! is_single() ) { 
+        if ( ! is_single( get_the_ID() ) ) {
             return $classes;
         }
 
         $classes[] = 'analytica-blog-single-style-1';
-        $classes[] = 'analytica-single-post';
+        $classes[] = 'analytica-single-' . get_post_type();
 
         return $classes;
     }
@@ -67,11 +67,12 @@ class Post {
      * @return array
      */
     function single_post_class( $classes ) {
-        if ( ! is_single() ) { 
+        if ( ! is_single( get_the_ID() ) ) {
+			$classes[] = 'analytica-article-' . get_post_type( get_the_ID() );
             return $classes;
-        }
-       
-        $classes[] = 'analytica-article-single';
+        } else {
+        	$classes[] = 'analytica-article-single';
+		}
 
         return $classes;
     }
@@ -83,9 +84,9 @@ class Post {
      * @return void
      */
     public function template_parts_post() {
-        if ( ! is_single() ) { 
+        if ( ! is_single( get_the_ID() ) ) {
             return;
-        }         
+        }
         get_template_part( 'template-parts/content', 'single' );
     }
 
@@ -99,7 +100,7 @@ class Post {
      * @since 1.0.0
      */
     function entry_content_single_template() {
-        if ( ! is_single() ) { 
+        if ( ! is_single( get_the_ID() ) ) {
             return;
         }
         get_template_part( 'template-parts/single/single-layout' );
@@ -112,7 +113,7 @@ class Post {
      * @return void
      */
     public function template_parts_comments() {
-        if ( ! is_single() ) { 
+        if ( ! is_single( get_the_ID() ) ) {
             return;
         }
         // If comments are open or we have at least one comment, load up the comment template.
@@ -132,7 +133,7 @@ class Post {
 
         $single_post_navigation_enabled = apply_filters( 'analytica_single_post_navigation_enabled', true );
 
-        if ( ! is_single() || ! $single_post_navigation_enabled ) {
+        if ( ! is_single( get_the_ID() ) || ! $single_post_navigation_enabled ) {
             return;
         }
 

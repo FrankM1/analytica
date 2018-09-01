@@ -132,6 +132,8 @@ class Options {
                 'right'  => '',
             ],
 
+			'site-header-overlay-background-color' => '#fff',
+
             // Hero Section
             'site-hero-background-color-base'    => 'light',
             'site-hero-background-image'         => '',

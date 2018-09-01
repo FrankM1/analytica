@@ -82,7 +82,14 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'options' => [
             '1' => esc_attr__( 'Enable', 'analytica' ),
             '0' => esc_attr__( 'Disable', 'analytica' ),
-        ]
+		],
+		'conditions' => [
+            [
+                'setting'  => 'site-detach-containers',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
     ];
 
     $controls[] = [

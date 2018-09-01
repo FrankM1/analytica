@@ -1,10 +1,9 @@
 @import "../../../variables-site/structure.scss";
 @import "../../../variables-site/colors.scss";
 .blog-layout-1 {
-    margin-bottom: 3.0rem;
-    
-    .entry-header {
-        margin-top: 2.5rem;
+
+    .analytica-blog-featured-section {
+        margin-bottom: $grid-gutter-width-half;
     }
 
 	.post-thumb,

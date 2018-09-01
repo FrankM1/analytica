@@ -42,7 +42,7 @@
 .content-sidebar .site-inner > .analytica-container {
 	.site-main-inner {
 		@media (min-width: $screen-md-min) {
-			padding-right: $grid-gutter-width-half;
+			margin-right: $grid-gutter-width-half;
 		}
 	}
 
@@ -58,7 +58,7 @@
 .sidebar-sidebar-content .site-inner > .analytica-container {
 	.site-main-inner {
 		@media (min-width: $screen-md-min) {
-			padding-left: $grid-gutter-width-half;
+			margin-left: $grid-gutter-width-half;
 		}
 	}
 

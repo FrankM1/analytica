@@ -24,7 +24,7 @@ function analytica_entry_related_content_blog_template() {
     get_template_part( 'template-parts/blog/blog-layout' );
 }
 
-add_action( 'analytica_primary_content_bottom', 'analytica_related_posts' );
+add_action( 'analytica_after_loop', 'analytica_related_posts' );
 /**
  * Undocumented function
  *
@@ -187,13 +187,15 @@ function analytica_related_posts() {
 
     if ( $related_posts_query->have_posts() ) :
 
-        ?><div class="related-posts"><?php
+        ?><aside class="related-posts">
+			<div class="related-posts-inner"><?php
 
         while ( $related_posts_query->have_posts() ) : $related_posts_query->the_post();
             get_template_part( 'template-parts/content', 'related' );
         endwhile;
 
-        ?></div><?php
+		?></div>
+	</aside><?php
 
    endif;
 
