@@ -170,7 +170,7 @@
 .site-container-detach {
 	.comments-count-wrapper {
 		background-color: $color-background-content;
-		padding: 2em 6.67em 0;
+		padding: $grid-gutter-width $grid-gutter-width 0;
 		@media (max-width: $mx-col-xl) {
 			padding: 2em 3.34em;
 		}
@@ -185,13 +185,12 @@
 		border-top: 0;
 	}
 	.analytica-comment-list {
-		padding-bottom: 0;
 		li {
 			background-color: $color-background-content;
 			&.depth-1 {
 
-				padding: 4em 6.67em;
-				margin-bottom: 2em;
+				padding: $grid-gutter-width-half $grid-gutter-width;
+				margin-bottom: $grid-gutter-width;
 
 				@media (max-width: $mx-col-xl) {
 					padding: 3em 3.34em;
@@ -258,7 +257,7 @@
 	}
 	.comment-respond {
 		background-color: $color-background-content;
-		padding: 4em 6.67em;
+		padding: $grid-gutter-width;
 		border-bottom: 0;
 		@media (max-width: $mx-col-xl) {
 			padding: 3em 2.34em;

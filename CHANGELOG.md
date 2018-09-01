@@ -1,9 +1,12 @@
-v1.0.1
-- Updated customizer options
-- Fixed desktop menu
-- Fixed mobile menu
-- Updated Responsive layout design
-- Removed unneeded files
+v1.0.10
+- Improved blog styling
+- Improved comments styling
+- Customizer detached container conditions
+- Fixed dual container styling
+- Content typography improvements
+- Related styling improvements
+- Moved related posts position to below comments and content
+- Fixed loading of images on relaed posts
 
-v1.0.0
+v1.0.9
 - Initial release

@@ -6,7 +6,7 @@ The goal of this Analytica WordPress Theme is to provide a simple yet performant
 
 ## Demo and Documentation
 * **Demo** : http://demo-analytica.qazana.net/
-* **Documentation** : https://qazana.net/docs
+* **Documentation** : https://qazana.net/docs-category/analytica/
 
 ### Requirements
 
@@ -42,8 +42,13 @@ Upload the theme to your WordPress directory in wp-content/themes/
 * RTL Support
 * Fully compatible with Gutenberg
 * Intuitive mobile navigation
+* Sticky header
+* Related posts
+* Threaded comments
+* Detached containers
 
-## Plugin Support ==
+
+## Plugin Support
 
 Analytica includes integration support for the following plugins:
 

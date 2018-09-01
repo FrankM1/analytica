@@ -4,6 +4,7 @@
 
 /*----------  Site Variables  ----------*/
 
+@import "../../variables";
 @import "../variables-site/colors";
 @import "../variables-site/structure";
 @import "../variables-site/typography";
@@ -44,7 +45,15 @@ img {
 .entry-content h4,
 .entry-content h5,
 .entry-content h6 {
-	margin-bottom: 20px;
+	margin-bottom: $grid-gutter-width-half;
+}
+
+.entry-content li {
+	margin-bottom: $grid-gutter-width-half;
+
+	ol, ul {
+		margin-top: $grid-gutter-width-half;
+	}
 }
 
 p {

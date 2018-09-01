@@ -89,7 +89,6 @@
 
 	.widget-title-wrap {
 		margin-top: ceil(($grid-gutter-width / 2));
-		margin-bottom: 0;
 	}
 }
 
@@ -203,7 +202,7 @@
 			content: "\e900";
 			position: absolute;
 			top: 50%;
-			right: 90px;
+			right: 10px;
 			transform: translate(0, -50%);
 		}
 

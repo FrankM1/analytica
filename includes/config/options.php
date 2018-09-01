@@ -131,6 +131,8 @@ class Options {
                 'right'  => '',
             ],
 
+			'site-header-overlay-background-color' => '#fff',
+
             // Hero Section
             'site-hero-background-color-base'    => 'light',
             'site-hero-background-image'         => '',
@@ -373,19 +375,19 @@ class Options {
                 'right'  => '',
             ],
             'footer-background' => [
-                'color'    => '#000000',
-                'image'    => '',
-                'repeat'   => 'no-repeat',
-                'size'     => 'cover',
-                'attach'   => 'fixed',
-                'position' => 'left-top',
+                'background-color'    => '#000000',
+                'background-image'    => '',
+                'background-repeat'   => 'no-repeat',
+                'background-size'     => 'cover',
+                'background-attach'   => 'fixed',
+                'background-position' => 'left-top',
             ],
             'footer-accent-color'      => '',
             'footer-text-color'        => 'rgba(255,255,255,0.5)',
             'footer-accent-color'      => '',
             'footer-body-color'        => '',
             'footer-border-color'      => '',
-            'footer-headers-color'     => '',
+            'footer-headers-color'     => '#fff',
             'footer-link-color'        => '',
             'site-footer-padding'      => [
                 'top'    => '',
