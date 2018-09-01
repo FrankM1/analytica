@@ -42,6 +42,11 @@ Upload the theme to your WordPress directory in wp-content/themes/
 * RTL Support
 * Fully compatible with Gutenberg
 * Intuitive mobile navigation
+* Sticky header
+* Related posts
+* Threaded comments
+* Detached containers
+
 
 ## Plugin Support ==
 
