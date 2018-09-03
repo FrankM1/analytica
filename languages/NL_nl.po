@@ -1,394 +1,455 @@
 # Copyright (C) 2018 analytica
 # This file is distributed under the same license as the analytica package.
+# Translators:
+# Frankline Gitonga <frank@radiumthemes.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: analytica\n"
+"Report-Msgid-Bugs-To: https://qazana.net/contact/\n"
+"Last-Translator: Frankline Gitonga <frank@radiumthemes.com>, 2018\n"
+"Language-Team: Dutch (https://www.transifex.com/qazana/teams/25800/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language-Team: Qazana\n"
-"Last-Translator: Franklin Gitonga\n"
-"Report-Msgid-Bugs-To: https://qazana.net/contact/\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. translators: 1: number of comments
 #: comments.php:35
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s dacht op &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s gedachten over &ldquo;%2$s&rdquo;"
 
-#: comments.php:46, comments.php:69
+#: comments.php46, comments.php:69
 msgid "Comments Navigation"
-msgstr ""
+msgstr "Opmerkingen Navigatie"
 
 #. translators: %s: PHP version
 #: functions.php:37
 msgid "Analytica requires PHP version %s+, theme is currently NOT ACTIVE."
-msgstr ""
+msgstr "Analytica vereist PHP-versie %s +, thema is momenteel NIET ACTIEF."
 
 #. translators: %s: WordPress version
 #: functions.php:53
-msgid "Analytica requires WordPress version %s+. Because you are using an earlier version, the theme is currently NOT ACTIVE."
+msgid ""
+"Analytica requires WordPress version %s+. Because you are using an earlier "
+"version, the theme is currently NOT ACTIVE."
 msgstr ""
+"Analytica vereist WordPress-versie %s +. Omdat u een eerdere versie "
+"gebruikt, is het thema momenteel NIET ACTIEF."
 
 #. translators: 1: link to new post
 #: template-parts/content-none.php:20
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
+"Klaar om je eerste post te publiceren? <a href=\"%1$s\"> Ga hier aan de slag"
+" </a>."
 
 #. translators: %s: Name of current post
 #. translators: %s: Name of current post
 #. translators: %s: Name of current post
-#: template-parts/content-page.php:39, template-parts/single/single-layout.php:36, includes/structure/general/template-tags.php:220
+#: template-parts/content-page.php39,
+#: template-parts/single/single-layout.php36,
+#: includes/structure/general/template-tags.php:220
 msgid "Edit %s"
-msgstr ""
+msgstr "Bewerken %s"
 
 #. translators: %s: Name of current post.
 #: template-parts/content.php:29
 msgid "Continue reading %s"
-msgstr ""
+msgstr "Doorgaan met lezen 1%s"
 
-#: includes/admin/about-page.php:27, includes/admin/about-page.php:29
+#: includes/admin/about-page.php27, includes/admin/about-page.php:29
 msgid "About Analytica"
-msgstr ""
+msgstr "Over Analytica"
 
 #. translators: %s: theme name
 #: includes/admin/about-page.php:32
 msgid "Welcome to %s! - Version "
-msgstr ""
+msgstr "Welkom bij  %s! - Versie"
 
 #: includes/admin/about-page.php:43
 msgid "Getting Started"
-msgstr ""
+msgstr "Aan de slag"
 
 #: includes/admin/about-page.php:44
 msgid "Recommended Actions"
-msgstr ""
+msgstr "Aanbevolen Acties"
 
 #: includes/admin/about-page.php:45
 msgid "Useful Plugins"
-msgstr ""
+msgstr "Nuttige Plug-ins"
 
-#: includes/admin/about-page.php:46, includes/config/customizer/04-site-footer.php:149
+#: includes/admin/about-page.php46,
+#: includes/config/customizer/04-site-footer.php:149
 msgid "Support"
-msgstr ""
+msgstr "Ondersteuning"
 
 #: includes/admin/about-page.php:47
 msgid "Changelog"
-msgstr ""
+msgstr "Changelog"
 
-#: includes/admin/about-page.php:52, includes/admin/about-page.php:55
+#: includes/admin/about-page.php52, includes/admin/about-page.php:55
 msgid "Contact Support"
-msgstr ""
+msgstr "Contact Ondersteuning"
 
 #: includes/admin/about-page.php:54
-msgid "We want to make sure you have the best experience using Analytica. Please post your question in our community forums."
+msgid ""
+"We want to make sure you have the best experience using Analytica. Please "
+"post your question in our community forums."
 msgstr ""
+"Wij willen er zeker van zijn dat u de beste ervaring heeft met Analytica. "
+"Plaats uw vraag op onze community forums."
 
-#: includes/admin/about-page.php:61, includes/admin/about-page.php:94
+#: includes/admin/about-page.php61, includes/admin/about-page.php:94
 msgid "Documentation"
-msgstr ""
+msgstr "Documentatie"
 
-#: includes/admin/about-page.php:63, includes/admin/about-page.php:93
-msgid "Need more details? Please check our full documentation for detailed information on how to use Analytica."
+#: includes/admin/about-page.php63, includes/admin/about-page.php:93
+msgid ""
+"Need more details? Please check our full documentation for detailed "
+"information on how to use Analytica."
 msgstr ""
+"Meer details nodig? Raadpleeg onze volledige documentatie voor "
+"gedetailleerde informatie over het gebruik van Analytica."
 
 #: includes/admin/about-page.php:64
 msgid "Read The Documentation"
-msgstr ""
+msgstr "Lees de documentatie"
 
-#: includes/admin/about-page.php:73, includes/admin/about-page.php:75
+#: includes/admin/about-page.php73, includes/admin/about-page.php:75
 msgid "Go to Customizer"
-msgstr ""
+msgstr "Ga naar Customizer"
 
 #: includes/admin/about-page.php:74
-msgid "Using the WordPress Customizer you can easily customize every aspect of the theme."
+msgid ""
+"Using the WordPress Customizer you can easily customize every aspect of the "
+"theme."
 msgstr ""
+"Met behulp van de WordPress Customizer kunt u eenvoudig elk aspect van het "
+"thema aanpassen."
 
-#: includes/admin/about-page.php:82, includes/admin/about-page.php:84
+#: includes/admin/about-page.php82, includes/admin/about-page.php:84
 msgid "Recommended actions"
-msgstr ""
+msgstr "Aanbevolen acties"
 
 #: includes/admin/about-page.php:83
-msgid "We have compiled a list of steps for you, to take make sure the experience you will have using one of our products is very easy to follow."
+msgid ""
+"We have compiled a list of steps for you, to take make sure the experience "
+"you will have using one of our products is very easy to follow."
 msgstr ""
+"We hebben een lijst met stappen voor u samengesteld om ervoor te zorgen dat "
+"de ervaring die u zult hebben bij het gebruik van een van onze producten "
+"zeer gemakkelijk te volgen is."
 
 #: includes/admin/about-page.php:86
 msgid "You are good to go!"
-msgstr ""
+msgstr "U bent goed om te gaan!"
 
 #: includes/admin/about-page.php:92
 msgid "Read the documentation"
-msgstr ""
+msgstr "Lees de documentatie"
 
 #: includes/admin/about-page.php:103
 msgid "Already activated"
-msgstr ""
+msgstr "Reeds geactiveerd"
 
 #: includes/admin/about-page.php:104
 msgid "Version: "
-msgstr ""
+msgstr "Versie:"
 
-#: includes/admin/about-page.php:105, includes/admin/about-page.php:116
+#: includes/admin/about-page.php105, includes/admin/about-page.php:116
 msgid "Install and Activate"
-msgstr ""
+msgstr "Installeer en activeer"
 
-#: includes/admin/about-page.php:106, includes/admin/about-page.php:117
+#: includes/admin/about-page.php106, includes/admin/about-page.php:117
 msgid "Activate"
-msgstr ""
+msgstr "Activeren"
 
-#: includes/admin/about-page.php:107, includes/admin/about-page.php:118
+#: includes/admin/about-page.php107, includes/admin/about-page.php:118
 msgid "Deactivate"
-msgstr ""
+msgstr "Deactiveren"
 
 #: includes/admin/about-page.php:122
-msgid "It is highly recommended that you install Kirki so you can access more customizer options."
+msgid ""
+"It is highly recommended that you install Kirki so you can access more "
+"customizer options."
 msgstr ""
+"Het wordt ten zeerste aanbevolen Kirki te installeren, zodat u meer "
+"aanpassingsopties kunt openen."
 
 #: includes/config/options.php:317
 msgid "Latest posts"
-msgstr ""
+msgstr "Laatste berichten"
 
 #: includes/config/options.php:344
-msgid "Copyright &copy; [year] Your Company or website name here. All rights reserved."
+msgid ""
+"Copyright &copy; [year] Your Company or website name here. All rights "
+"reserved."
 msgstr ""
+"Copyright &copy; [year] Uw bedrijfs- of websitenaam hier. Alle rechten "
+"voorbehouden."
 
 #: includes/config/strings.php:25
 msgid "Skip to content"
-msgstr ""
+msgstr "Meteen naar de inhoud"
 
 #: includes/config/strings.php:28
 msgid "It looks like the link pointing here was faulty. Maybe try searching?"
 msgstr ""
+"Het lijkt erop dat de link die hier wijst, defect was. Misschien proberen?"
 
 #: includes/config/strings.php:31
 msgid "Nothing Found"
-msgstr ""
+msgstr "Niets Gevonden"
 
 #: includes/config/strings.php:32
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
 msgstr ""
+"Sorry, maar niets klopte met uw zoektermen. Probeer het opnieuw met een "
+"aantal verschillende trefwoorden."
 
 #: includes/config/strings.php:33
 msgid "Start typing and press enter to search"
-msgstr ""
+msgstr "Begin met typen en druk op enter om te zoeken"
 
-#: includes/config/strings.php:34, includes/config/strings.php:35
+#: includes/config/strings.php34, includes/config/strings.php:35
 msgid "Start Typing&hellip;"
-msgstr ""
+msgstr "Start Typing&hellip;"
 
 #: includes/config/strings.php:36
 msgid "Search &hellip;"
-msgstr ""
+msgstr "Zoeken &hellip;"
 
 #: includes/config/strings.php:39
 msgid "Reply"
-msgstr ""
+msgstr "Antwoord"
 
 #: includes/config/strings.php:40
 msgid "Edit"
-msgstr ""
+msgstr "Bewerk"
 
 #: includes/config/strings.php:41
 msgid "Your comment is awaiting moderation."
-msgstr ""
+msgstr "Je opmerking moet nog beoordeeld worden."
 
-#: includes/config/strings.php:42, includes/config/strings.php:57
+#: includes/config/strings.php42, includes/config/strings.php:57
 msgid "Leave a Comment"
-msgstr ""
+msgstr "Laat een reactie achter"
 
 #: includes/config/strings.php:43
 msgid "Cancel Reply"
-msgstr ""
+msgstr "Annuleer Antwoord"
 
 #: includes/config/strings.php:44
 msgid "Post Comment &raquo;"
-msgstr ""
+msgstr "Plaats Reactie &raquo;"
 
 #: includes/config/strings.php:45
 msgid "Type here.."
-msgstr ""
+msgstr "Type hier ..."
 
 #: includes/config/strings.php:46
 msgid "Name*"
-msgstr ""
+msgstr "Naam*"
 
 #: includes/config/strings.php:47
 msgid "Email*"
-msgstr ""
+msgstr "E-mail *"
 
 #: includes/config/strings.php:48
 msgid "Website"
-msgstr ""
+msgstr "Website"
 
 #: includes/config/strings.php:49
 msgid "Comments are closed."
-msgstr ""
+msgstr "Reacties zijn gesloten."
 
 #: includes/config/strings.php:50
 msgid "Comment navigation"
-msgstr ""
+msgstr "Commentaar navigatie"
 
 #: includes/config/strings.php:51
 msgid "Newer Comments"
-msgstr ""
+msgstr "Nieuwere Opmerkingen"
 
 #: includes/config/strings.php:52
 msgid "Older Comments"
-msgstr ""
+msgstr "Eerdere Opmerkingen"
 
-#: includes/config/strings.php:55, includes/config/strings.php:64
+#: includes/config/strings.php55, includes/config/strings.php:64
 msgid "Pages:"
-msgstr ""
+msgstr "Pagina's:"
 
 #: includes/config/strings.php:56
 msgid "By "
-msgstr ""
+msgstr "Door"
 
 #: includes/config/strings.php:58
 msgid "1 Comment"
-msgstr ""
+msgstr "1 Reactie"
 
 #: includes/config/strings.php:59
 msgid "% Comments"
-msgstr ""
+msgstr "% Reacties"
 
-#: includes/config/strings.php:60, includes/config/strings.php:77
+#: includes/config/strings.php60, includes/config/strings.php:77
 msgid "Next Page"
-msgstr ""
+msgstr "Volgende Bladzijde"
 
-#: includes/config/strings.php:61, includes/config/strings.php:78
+#: includes/config/strings.php61, includes/config/strings.php:78
 msgid "Previous Page"
-msgstr ""
+msgstr "Vorige Bladzijde"
 
 #. translators: 1: Post type label
 #. translators: 1: Post type label
-#: includes/config/strings.php:66, includes/config/strings.php:81
+#: includes/config/strings.php66, includes/config/strings.php:81
 msgid "Next %s"
-msgstr ""
+msgstr "Volgende %s"
 
 #. translators: 1: Post type label
 #. translators: 1: Post type label
-#: includes/config/strings.php:68, includes/config/strings.php:83
+#: includes/config/strings.php68, includes/config/strings.php:83
 msgid "Previous %s"
-msgstr ""
+msgstr "Vorige %s"
 
 #: includes/config/strings.php:71
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
 msgstr ""
+"Het lijkt erop dat we can&rsquo;t vinden waarnaar je op zoek bent. Misschien"
+" kan zoeken helpen."
 
 #: includes/config/theme.php:118
 msgid "Black"
-msgstr ""
+msgstr "Zwart"
 
 #: includes/config/theme.php:123
 msgid "White"
-msgstr ""
+msgstr "Wit"
 
 #: includes/config/theme.php:128
 msgid "Base text color"
-msgstr ""
+msgstr "Base text color"
 
 #: includes/config/theme.php:133
 msgid "Secondary text color"
-msgstr ""
+msgstr "Secundaire tekst kleur"
 
-#: includes/config/theme.php:138, includes/config/customizer/01-general.php:99
+#: includes/config/theme.php138, includes/config/customizer/01-general.php:99
 msgid "Accent color"
-msgstr ""
+msgstr "Accentkleur"
 
-#: includes/config/theme.php:164, includes/structure/general/site-sidebar.php:47
+#: includes/config/theme.php164,
+#: includes/structure/general/site-sidebar.php:47
 msgid "Primary Widget Area"
-msgstr ""
+msgstr "Primair Widgetgebied"
 
 #: includes/config/theme.php:165
 msgid "This is the primary sidebar."
-msgstr ""
+msgstr "Dit is de primaire zijbalk."
 
-#: includes/config/theme.php:168, includes/structure/general/site-sidebar.php:65
+#: includes/config/theme.php168,
+#: includes/structure/general/site-sidebar.php:65
 msgid "Secondary Widget Area"
-msgstr ""
+msgstr "Secundair Widgetgebied"
 
 #: includes/config/theme.php:169
-msgid "This is the secondary sidebar if you are using a two or three column page layout option."
+msgid ""
+"This is the secondary sidebar if you are using a two or three column page "
+"layout option."
 msgstr ""
+"Dit is de secundaire zijbalk als u een paginalayout met twee of drie "
+"kolommen gebruikt."
 
-#: includes/config/theme.php:172, includes/functions/widgets.php:177
+#: includes/config/theme.php172, includes/functions/widgets.php:177
 msgid "After Entry"
-msgstr ""
+msgstr "Na Binnenkomst"
 
 #: includes/config/theme.php:173
 msgid "This is the content widget area. Displayed after the post content"
-msgstr ""
+msgstr "Dit is het inhoudswidgetvak. Weergegeven na de inhoud van het bericht"
 
 #: includes/config/theme.php:183
 msgid "Primary Navigation"
-msgstr ""
+msgstr "Primaire Navigatie"
 
-#: includes/functions/breadcrumb.php:77, includes/functions/breadcrumb.php:78, includes/functions/breadcrumb.php:79, includes/functions/breadcrumb.php:80, includes/functions/breadcrumb.php:82, includes/functions/breadcrumb.php:83, includes/classes/nav/breadcrumb.php:57, includes/classes/nav/breadcrumb.php:58, includes/classes/nav/breadcrumb.php:59, includes/classes/nav/breadcrumb.php:60, includes/classes/nav/breadcrumb.php:62, includes/classes/nav/breadcrumb.php:63
+#: includes/functions/breadcrumb.php77, includes/functions/breadcrumb.php78,
+#: includes/functions/breadcrumb.php79, includes/functions/breadcrumb.php80,
+#: includes/functions/breadcrumb.php82, includes/functions/breadcrumb.php83,
+#: includes/classes/nav/breadcrumb.php57,
+#: includes/classes/nav/breadcrumb.php58,
+#: includes/classes/nav/breadcrumb.php59,
+#: includes/classes/nav/breadcrumb.php60,
+#: includes/classes/nav/breadcrumb.php62,
+#: includes/classes/nav/breadcrumb.php:63
 msgid "Archives for "
-msgstr ""
+msgstr "Archieven voor"
 
-#: includes/functions/breadcrumb.php:81, includes/classes/nav/breadcrumb.php:61
+#: includes/functions/breadcrumb.php81, includes/classes/nav/breadcrumb.php:61
 msgid "Search for "
-msgstr ""
+msgstr "Zoeken"
 
-#: includes/functions/breadcrumb.php:84, includes/classes/nav/breadcrumb.php:64
+#: includes/functions/breadcrumb.php84, includes/classes/nav/breadcrumb.php:64
 msgid "Not found: "
-msgstr ""
+msgstr "Niet gevonden:"
 
 #: includes/functions/layout.php:38
 msgid "Content, Primary Sidebar"
-msgstr ""
+msgstr "Inhoud, Primaire Zijbalk"
 
 #: includes/functions/layout.php:43
 msgid "Primary Sidebar, Content"
-msgstr ""
+msgstr "Primaire Zijbalk, Inhoud"
 
 #: includes/functions/layout.php:48
 msgid "Full Width Content"
-msgstr ""
+msgstr "Inhoud Volledige Breedte"
 
 #: includes/functions/markup.php:51
 msgid "No Label Selected"
-msgstr ""
+msgstr "Geen label geselecteerd"
 
 #. translators: %s: footer id
 #: includes/functions/widgets.php:147
 msgid "Footer %d"
-msgstr ""
+msgstr "Voettekst %d"
 
 #. translators: %s: footer id
 #: includes/functions/widgets.php:149
 msgid "Footer %d widget area."
-msgstr ""
+msgstr "Voettekst %d widget gebied."
 
 #: includes/functions/widgets.php:178
 msgid "Widgets in this widget area will display after single entries."
 msgstr ""
+"Widgets in dit widgetgebied worden weergegeven na afzonderlijke items."
 
 #: template-parts/header/responsive-nav-button.php:1
 msgid "Main mobile navigation"
-msgstr ""
+msgstr "Hoofd mobiele navigatie"
 
 #: includes/admin/about-page/class-about-page.php:897
 msgid "Activating"
-msgstr ""
+msgstr "Activeren"
 
 #: includes/classes/customizer/customizer.php:104
 msgid "Display Site Title &amp; Tagline"
-msgstr ""
+msgstr "Titel van site weergeven &amp; Tagline"
 
 #: includes/classes/customizer/customizer.php:236
 msgid "Reset"
-msgstr ""
+msgstr "Reset"
 
 #: includes/classes/customizer/customizer.php:237
 msgid ""
@@ -396,826 +457,888 @@ msgid ""
 "\n"
 "This action is irreversible!"
 msgstr ""
+"Aandacht! Hiermee worden alle aanpassingen die ooit zijn gemaakt via Customizer verwijderd voor dit thema!\n"
+"\n"
+"Deze actie is onomkeerbaar!"
 
-#: includes/classes/nav/breadcrumb.php:46, includes/config/customizer/08-breadcrumbs.php:82, includes/structure/general/template-tags.php:167
+#: includes/classes/nav/breadcrumb.php46,
+#: includes/config/customizer/08-breadcrumbs.php82,
+#: includes/structure/general/template-tags.php:167
 msgid "Home"
-msgstr ""
+msgstr "Huis"
 
 #: includes/classes/nav/breadcrumb.php:56
 msgid "You are here: "
-msgstr ""
+msgstr "Je bent hier:"
 
 #: includes/config/customizer/01-general.php:24
 msgid "Site layout"
-msgstr ""
+msgstr "Website opmaak"
 
 #: includes/config/customizer/01-general.php:27
 msgid "Boxed"
-msgstr ""
+msgstr "Verpakt"
 
 #: includes/config/customizer/01-general.php:28
 msgid "Wide"
-msgstr ""
+msgstr "Breed"
 
 #: includes/config/customizer/01-general.php:36
 msgid "Site sidebar Layout"
-msgstr ""
+msgstr "Indeling van de zijbalk van de site"
 
 #: includes/config/customizer/01-general.php:44
 msgid "Site container width"
-msgstr ""
+msgstr "Breedte van sitebak"
 
 #: includes/config/customizer/01-general.php:52
 msgid "Site sidebar width"
-msgstr ""
+msgstr "Breedte van de locatie zijbalk"
 
 #: includes/config/customizer/01-general.php:68
 msgid "Detach containers"
-msgstr ""
+msgstr "Maak containers los"
 
-#: includes/config/customizer/01-general.php:71, includes/config/customizer/01-general.php:83, includes/config/customizer/02-site-header.php:34, includes/config/customizer/04-site-footer.php:28, includes/config/customizer/04-site-footer.php:40, includes/config/customizer/04-site-footer.php:59, includes/config/customizer/04-site-footer.php:162, includes/config/customizer/04-site-footer.php:182, includes/config/customizer/04-site-footer.php:398, includes/config/customizer/04-site-footer.php:417, includes/config/customizer/07-blog-single.php:56
+#: includes/config/customizer/01-general.php71,
+#: includes/config/customizer/01-general.php83,
+#: includes/config/customizer/02-site-header.php34,
+#: includes/config/customizer/04-site-footer.php28,
+#: includes/config/customizer/04-site-footer.php40,
+#: includes/config/customizer/04-site-footer.php59,
+#: includes/config/customizer/04-site-footer.php162,
+#: includes/config/customizer/04-site-footer.php182,
+#: includes/config/customizer/04-site-footer.php398,
+#: includes/config/customizer/04-site-footer.php417,
+#: includes/config/customizer/07-blog-single.php:56
 msgid "Enable"
-msgstr ""
+msgstr "Inschakelen"
 
-#: includes/config/customizer/01-general.php:72, includes/config/customizer/01-general.php:84, includes/config/customizer/02-site-header.php:35, includes/config/customizer/04-site-footer.php:29, includes/config/customizer/04-site-footer.php:41, includes/config/customizer/04-site-footer.php:60, includes/config/customizer/04-site-footer.php:163, includes/config/customizer/04-site-footer.php:183, includes/config/customizer/04-site-footer.php:399, includes/config/customizer/04-site-footer.php:418, includes/config/customizer/07-blog-single.php:57
+#: includes/config/customizer/01-general.php72,
+#: includes/config/customizer/01-general.php84,
+#: includes/config/customizer/02-site-header.php35,
+#: includes/config/customizer/04-site-footer.php29,
+#: includes/config/customizer/04-site-footer.php41,
+#: includes/config/customizer/04-site-footer.php60,
+#: includes/config/customizer/04-site-footer.php163,
+#: includes/config/customizer/04-site-footer.php183,
+#: includes/config/customizer/04-site-footer.php399,
+#: includes/config/customizer/04-site-footer.php418,
+#: includes/config/customizer/07-blog-single.php:57
 msgid "Disable"
-msgstr ""
+msgstr "Uitschakelen"
 
 #: includes/config/customizer/01-general.php:80
 msgid "Dual containers"
-msgstr ""
+msgstr "Dubbele containers"
 
-#: includes/config/customizer/01-general.php:107, includes/config/customizer/02-site-header.php:124, includes/config/customizer/02-site-header.php:226
+#: includes/config/customizer/01-general.php107,
+#: includes/config/customizer/02-site-header.php124,
+#: includes/config/customizer/02-site-header.php:226
 msgid "Background color"
-msgstr ""
+msgstr "Achtergrond kleur"
 
 #: includes/config/customizer/01-general.php:124
 msgid "Content area background"
-msgstr ""
+msgstr "Inhoudsgebied achtergrond"
 
 #: includes/config/customizer/01-general.php:141
 msgid "Link color"
-msgstr ""
+msgstr "Verbindingskleur"
 
 #: includes/config/customizer/01-general.php:149
 msgid "Link highlight color"
-msgstr ""
+msgstr "Link steunkleur"
 
 #: includes/config/customizer/01-general.php:157
 msgid "Text color"
-msgstr ""
+msgstr "Kleur tekst"
 
 #: includes/config/customizer/01-general.php:165
 msgid "Border color"
-msgstr ""
+msgstr "Randkleur"
 
 #: includes/config/customizer/01-general.php:187
 msgid "Form background color"
-msgstr ""
+msgstr "Formulier achtergrond kleur"
 
 #: includes/config/customizer/01-general.php:204
 msgid "Form highlight background color"
-msgstr ""
+msgstr "Vorm gemarkeerde achtergrondkleur"
 
 #: includes/config/customizer/01-general.php:221
 msgid "Form border color"
-msgstr ""
+msgstr "Formulier Kleur van de Rand"
 
 #: includes/config/customizer/01-general.php:238
 msgid "Form text color"
-msgstr ""
+msgstr "Vorm tekstkleur"
 
 #: includes/config/customizer/01-general.php:255
 msgid "Button background color"
-msgstr ""
+msgstr "Knop achtergrondkleur"
 
 #: includes/config/customizer/01-general.php:266
 msgid "Button background highlight color"
-msgstr ""
+msgstr "Knop achtergrond markeerkleur"
 
 #: includes/config/customizer/01-general.php:277
 msgid "Button text color"
-msgstr ""
+msgstr "Knop tekstkleur"
 
 #: includes/config/customizer/01-general.php:288
 msgid "Button radius"
-msgstr ""
+msgstr "Knopradius"
 
 #: includes/config/customizer/01-general.php:296
 msgid "Button highlight color"
-msgstr ""
+msgstr "Knop markeerkleur"
 
 #: includes/config/customizer/01-general.php:307
 msgid "Button horizontal padding"
-msgstr ""
+msgstr "Knop horizontale opvulling"
 
 #: includes/config/customizer/01-general.php:315
 msgid "Button vertical padding"
-msgstr ""
+msgstr "Knop verticale opvulling"
 
 #: includes/config/customizer/01-general.php:320
 msgid "Logo typography"
-msgstr ""
+msgstr "Logo typografie"
 
 #: includes/config/customizer/01-general.php:321
 msgid "Typography applied to the text logo."
-msgstr ""
+msgstr "Typografie toegepast op het tekstlogo."
 
-#: includes/config/customizer/01-general.php:344, includes/config/customizer/04-site-footer.php:616, includes/config/customizer/05-typography.php:308
+#: includes/config/customizer/01-general.php344,
+#: includes/config/customizer/04-site-footer.php616,
+#: includes/config/customizer/05-typography.php:308
 msgid "General"
-msgstr ""
+msgstr "Algemeen"
 
 #: includes/config/customizer/01-general.php:348
 msgid "General Settings"
-msgstr ""
+msgstr "Algemene instellingen"
 
 #: includes/config/customizer/01-general.php:354
 msgid "Container Style"
-msgstr ""
+msgstr "Container Stijl"
 
 #: includes/config/customizer/01-general.php:360
 msgid "Form Style"
-msgstr ""
+msgstr "Vormstijl"
 
 #: includes/config/customizer/01-general.php:366
 msgid "Button Style"
-msgstr ""
+msgstr "Knoopstijl"
 
 #: includes/config/customizer/01-general.php:372
 msgid "Logo & Favicon"
-msgstr ""
+msgstr "Embleem & Favicon"
 
 #: includes/config/customizer/02-site-header.php:23
 msgid "Enable Header"
-msgstr ""
+msgstr "Kopregel inschakelen"
 
 #: includes/config/customizer/02-site-header.php:31
 msgid "Header fullwidth"
-msgstr ""
+msgstr "Koptekst fullwidth"
 
 #: includes/config/customizer/02-site-header.php:73
 msgid "Header Overlay"
-msgstr ""
+msgstr "Kopregel overlay"
 
 #: includes/config/customizer/02-site-header.php:88
 msgid "Header Transparent"
-msgstr ""
+msgstr "Kopregel Transparant"
 
 #: includes/config/customizer/02-site-header.php:101
 msgid "Header padding"
-msgstr ""
+msgstr "Kopvulling"
 
-#: includes/config/customizer/02-site-header.php:146, includes/config/customizer/02-site-header.php:268, includes/config/customizer/04-site-footer.php:347, includes/config/customizer/08-breadcrumbs.php:25
+#: includes/config/customizer/02-site-header.php146,
+#: includes/config/customizer/02-site-header.php268,
+#: includes/config/customizer/04-site-footer.php347,
+#: includes/config/customizer/08-breadcrumbs.php:25
 msgid "Link Color"
-msgstr ""
+msgstr "Verbindingskleur"
 
-#: includes/config/customizer/02-site-header.php:168, includes/config/customizer/02-site-header.php:290
+#: includes/config/customizer/02-site-header.php168,
+#: includes/config/customizer/02-site-header.php:290
 msgid "Highlight Link Color"
-msgstr ""
+msgstr "Kleur koppelen Markeren"
 
-#: includes/config/customizer/02-site-header.php:187, includes/config/customizer/04-site-footer.php:212
+#: includes/config/customizer/02-site-header.php187,
+#: includes/config/customizer/04-site-footer.php:212
 msgid "Border"
-msgstr ""
+msgstr "Grens"
 
-#: includes/config/customizer/02-site-header.php:205, includes/config/customizer/04-site-footer.php:230
+#: includes/config/customizer/02-site-header.php205,
+#: includes/config/customizer/04-site-footer.php:230
 msgid "Border Color"
-msgstr ""
+msgstr "Randkleur"
 
 #: includes/config/customizer/02-site-header.php:247
 msgid "Color"
-msgstr ""
+msgstr "Kleur"
 
 #: includes/config/customizer/02-site-header.php:315
 msgid "Site Header"
-msgstr ""
+msgstr "Site Koptekst"
 
-#: includes/config/customizer/02-site-header.php:320, includes/config/customizer/03-site-hero.php:326
+#: includes/config/customizer/02-site-header.php320,
+#: includes/config/customizer/03-site-hero.php:326
 msgid "Settings"
-msgstr ""
+msgstr "instellingen"
 
 #: includes/config/customizer/02-site-header.php:326
 msgid "Style"
-msgstr ""
+msgstr "Stijl"
 
 #: includes/config/customizer/02-site-header.php:332
 msgid "Overlay Styling"
-msgstr ""
+msgstr "Overlay Styling"
 
 #: includes/config/customizer/03-site-hero.php:21
 msgid "Enable Site Hero"
-msgstr ""
+msgstr "Site Hero Inschakelen"
 
 #: includes/config/customizer/03-site-hero.php:29
 msgid "Enable title"
-msgstr ""
+msgstr "Schakel titel in"
 
 #: includes/config/customizer/03-site-hero.php:44
 msgid "Enable subtitle"
-msgstr ""
+msgstr "Schakel ondertiteling in"
 
 #: includes/config/customizer/03-site-hero.php:59
 msgid "Enable breadcrumbs"
-msgstr ""
+msgstr "Schakel broodkruimels in"
 
 #: includes/config/customizer/03-site-hero.php:77
 msgid "Display page header section on posts"
-msgstr ""
+msgstr "Pagina-headergedeelte weergeven bij berichten"
 
 #: includes/config/customizer/03-site-hero.php:97
 msgid "Display page header on post archives"
-msgstr ""
+msgstr "Toon paginakop op postarchieven"
 
 #: includes/config/customizer/03-site-hero.php:109
 msgid "Full window height"
-msgstr ""
+msgstr "Volledige raamhoogte"
 
 #: includes/config/customizer/03-site-hero.php:110
 msgid "Sets full window height for custom header"
-msgstr ""
+msgstr "Stelt de volledige vensterhoogte in voor aangepaste kopregel"
 
 #: includes/config/customizer/03-site-hero.php:125
 msgid "Custom header height in px"
-msgstr ""
+msgstr "Aangepaste kopteksthoogte in px"
 
 #: includes/config/customizer/03-site-hero.php:126
 msgid "Allows you to set the custom header height"
-msgstr ""
+msgstr "Hiermee kunt u de aangepaste kopregelhoogte instellen"
 
 #: includes/config/customizer/03-site-hero.php:153
 msgid "Background color scheme style"
-msgstr ""
+msgstr "Achtergrondkleurenschema"
 
 #: includes/config/customizer/03-site-hero.php:154
-msgid "According to the color scheme you choose the text colors will be changed to make it more readable."
+msgid ""
+"According to the color scheme you choose the text colors will be changed to "
+"make it more readable."
 msgstr ""
+"Volgens het kleurenschema dat u kiest, worden de tekstkleuren gewijzigd om "
+"het leesbaarder te maken."
 
 #: includes/config/customizer/03-site-hero.php:160
 msgid "Light"
-msgstr ""
+msgstr "Licht"
 
 #: includes/config/customizer/03-site-hero.php:161
 msgid "Dark"
-msgstr ""
+msgstr "Donker"
 
 #: includes/config/customizer/03-site-hero.php:173
 msgid "Text alignment"
-msgstr ""
+msgstr "Tekstuitlijning"
 
 #: includes/config/customizer/03-site-hero.php:174
 msgid "Choose the text alignment in the custom header."
-msgstr ""
+msgstr "Kies de tekstuitlijning in de aangepaste koptekst."
 
-#: includes/config/customizer/03-site-hero.php:181, includes/classes/customizer/controls/dimensions/dimensions.php:167
+#: includes/config/customizer/03-site-hero.php181,
+#: includes/classes/customizer/controls/dimensions/dimensions.php:167
 msgid "Left"
-msgstr ""
+msgstr "Links"
 
 #: includes/config/customizer/03-site-hero.php:182
 msgid "Center"
-msgstr ""
+msgstr "Centrum"
 
-#: includes/config/customizer/03-site-hero.php:183, includes/classes/customizer/controls/dimensions/dimensions.php:165
+#: includes/config/customizer/03-site-hero.php183,
+#: includes/classes/customizer/controls/dimensions/dimensions.php:165
 msgid "Right"
-msgstr ""
+msgstr "Rechts"
 
 #: includes/config/customizer/03-site-hero.php:195
 msgid "Background overlay color"
-msgstr ""
+msgstr "Achtergrond overlay kleur"
 
 #: includes/config/customizer/03-site-hero.php:196
 msgid "The background color will be as an overlay."
-msgstr ""
+msgstr "De achtergrondkleur is als een overlay."
 
 #: includes/config/customizer/03-site-hero.php:218
 msgid "Header Font"
-msgstr ""
+msgstr "Koptekst Lettertype"
 
 #: includes/config/customizer/03-site-hero.php:219
 msgid "The page header for your site."
-msgstr ""
+msgstr "De paginakop voor uw site."
 
 #: includes/config/customizer/03-site-hero.php:243
 msgid "Heading padding"
-msgstr ""
+msgstr "Kopvulling"
 
 #: includes/config/customizer/03-site-hero.php:263
 msgid "Sub header Font"
-msgstr ""
+msgstr "Subkopschrift Lettertype"
 
 #: includes/config/customizer/03-site-hero.php:264
 msgid "The page subheader for your site."
-msgstr ""
+msgstr "De pagina-subkop voor uw site."
 
 #: includes/config/customizer/03-site-hero.php:288
 msgid "Sub heading padding"
-msgstr ""
+msgstr "Subsectie opvulling"
 
 #: includes/config/customizer/03-site-hero.php:322
 msgid "Site Hero"
-msgstr ""
+msgstr "Site Hero"
 
 #: includes/config/customizer/03-site-hero.php:332
 msgid "Background"
-msgstr ""
+msgstr "Achtergrond"
 
-#: includes/config/customizer/03-site-hero.php:338, includes/config/customizer/05-typography.php:304
+#: includes/config/customizer/03-site-hero.php338,
+#: includes/config/customizer/05-typography.php:304
 msgid "Typography"
-msgstr ""
+msgstr "Typografie"
 
 #: includes/config/customizer/03-site-hero.php:344
 msgid "Mobile"
-msgstr ""
+msgstr "Mobiel"
 
 #: includes/config/customizer/04-site-footer.php:25
 msgid "Enable Footer"
-msgstr ""
+msgstr "Voettekst Inschakelen"
 
 #: includes/config/customizer/04-site-footer.php:37
 msgid "Enable Footer Widgets"
-msgstr ""
+msgstr "Voetgangersgaten inschakelen"
 
 #: includes/config/customizer/04-site-footer.php:56
 msgid "Footer fullwidth"
-msgstr ""
+msgstr "Voettekst fullwidth"
 
 #: includes/config/customizer/04-site-footer.php:97
 msgid "Footer Layout"
-msgstr ""
+msgstr "Voettekstindeling"
 
 #: includes/config/customizer/04-site-footer.php:98
 msgid "Select a layout for the footer."
-msgstr ""
+msgstr "Selecteer een lay-out voor de voettekst."
 
 #. translators: %1$s: Theme name
 #: includes/config/customizer/04-site-footer.php:151
 msgid "Support %1$s by displaying the %1$s badge on your site."
-msgstr ""
+msgstr "Ondersteun %1$s door de %1$s-badge op uw site weer te geven."
 
 #: includes/config/customizer/04-site-footer.php:172
 msgid "Back to Top Button"
-msgstr ""
+msgstr "Terug naar boven knop"
 
 #: includes/config/customizer/04-site-footer.php:190
 msgid "Footer padding"
-msgstr ""
+msgstr "Voettekst padding"
 
 #: includes/config/customizer/04-site-footer.php:253
 msgid "Text Color"
-msgstr ""
+msgstr "Kleur tekst"
 
 #: includes/config/customizer/04-site-footer.php:279
 msgid "Headings Color"
-msgstr ""
+msgstr "Kopjes Kleur"
 
 #: includes/config/customizer/04-site-footer.php:315
 msgid "Accent Color"
-msgstr ""
+msgstr "Accentkleur"
 
 #: includes/config/customizer/04-site-footer.php:374
 msgid "Choose a background"
-msgstr ""
+msgstr "Kies een achtergrond"
 
 #: includes/config/customizer/04-site-footer.php:375
 msgid "The background you specify here will apply to the footer area"
 msgstr ""
+"De achtergrond die u hier opgeeft, is van toepassing op het voettekstgebied"
 
 #: includes/config/customizer/04-site-footer.php:395
 msgid "Enable colophon"
-msgstr ""
+msgstr "Schakel colofon in"
 
 #: includes/config/customizer/04-site-footer.php:414
 msgid "Footer colophon fullwidth"
-msgstr ""
+msgstr "Voettekst colofon fullwidth"
 
 #: includes/config/customizer/04-site-footer.php:454
 msgid "Copyright Text"
-msgstr ""
+msgstr "Copyright Tekst"
 
 #: includes/config/customizer/04-site-footer.php:474
 msgid "Colophon Padding"
-msgstr ""
+msgstr "Colofon Padding"
 
 #: includes/config/customizer/04-site-footer.php:496
 msgid "Colophon border"
-msgstr ""
+msgstr "Colofon grens"
 
 #: includes/config/customizer/04-site-footer.php:514
 msgid "Colophon Border Color"
-msgstr ""
+msgstr "Kolofon Kleur van de Rand"
 
 #: includes/config/customizer/04-site-footer.php:537
 msgid "Colophon Color"
-msgstr ""
+msgstr "Colofon Color"
 
 #: includes/config/customizer/04-site-footer.php:559
 msgid "Colophon Links Color"
-msgstr ""
+msgstr "Colofon Linkt Kleur"
 
 #: includes/config/customizer/04-site-footer.php:581
 msgid "Colophon Background Color"
-msgstr ""
+msgstr "Colofon Achtergrondkleur"
 
 #: includes/config/customizer/04-site-footer.php:612
 msgid "Site Footer"
-msgstr ""
+msgstr "Site Voettekst"
 
 #: includes/config/customizer/04-site-footer.php:622
 msgid "Colors"
-msgstr ""
+msgstr "Kleuren"
 
 #: includes/config/customizer/04-site-footer.php:628
 msgid "Copyright"
-msgstr ""
+msgstr "Auteursrechten"
 
 #: includes/config/customizer/05-typography.php:25
 msgid "Base Font"
-msgstr ""
+msgstr "Basislettertype"
 
 #: includes/config/customizer/05-typography.php:26
 msgid "The main font for your site. This is used by paragraphs, divs, etc"
 msgstr ""
+"Het hoofdlettertype voor uw site. Dit wordt gebruikt door alinea's, divs, "
+"enz"
 
 #: includes/config/customizer/05-typography.php:49
 msgid "Secondary Font"
-msgstr ""
+msgstr "Secundair Lettertype"
 
 #: includes/config/customizer/05-typography.php:50
-msgid "The secondary font for your site. This is used by headings, and large text."
+msgid ""
+"The secondary font for your site. This is used by headings, and large text."
 msgstr ""
+"Het secundaire lettertype voor uw site. Dit wordt gebruikt door koppen en "
+"grote tekst."
 
 #: includes/config/customizer/05-typography.php:72
 msgid "H1 Font"
-msgstr ""
+msgstr "H1 Lettertype"
 
 #: includes/config/customizer/05-typography.php:91
 msgid "H2 Font"
-msgstr ""
+msgstr "H2 Lettertype"
 
 #: includes/config/customizer/05-typography.php:108
 msgid "H3 Font"
-msgstr ""
+msgstr "H3 Lettertype"
 
 #: includes/config/customizer/05-typography.php:123
 msgid "H4 Font"
-msgstr ""
+msgstr "H4 Lettertype"
 
 #: includes/config/customizer/05-typography.php:140
 msgid "H5 Font"
-msgstr ""
+msgstr "H5 Lettertype"
 
 #: includes/config/customizer/05-typography.php:157
 msgid "H6 Font"
-msgstr ""
+msgstr "H6 Lettertype"
 
 #: includes/config/customizer/05-typography.php:174
 msgid "Widget Title Font"
-msgstr ""
+msgstr "Widget Titel Lettertype"
 
 #: includes/config/customizer/05-typography.php:191
 msgid "Emphasis"
-msgstr ""
+msgstr "Nadruk"
 
 #: includes/config/customizer/05-typography.php:192
 msgid "The emphasis font for your site."
-msgstr ""
+msgstr "Het lettertype voor de nadruk op uw site."
 
 #: includes/config/customizer/05-typography.php:213
 msgid "Strong"
-msgstr ""
+msgstr "Sterk"
 
 #: includes/config/customizer/05-typography.php:214
 msgid "The strong font for your site."
-msgstr ""
+msgstr "Het sterke lettertype voor uw site."
 
 #: includes/config/customizer/05-typography.php:235
 msgid "Form Labels"
-msgstr ""
+msgstr "Formulierenetiketten"
 
 #: includes/config/customizer/05-typography.php:236
 msgid "The font for form labels."
-msgstr ""
+msgstr "Het lettertype voor formulierlabels."
 
 #: includes/config/customizer/05-typography.php:250
 msgid "Form Legend"
-msgstr ""
+msgstr "Legenda van de vorm"
 
 #: includes/config/customizer/05-typography.php:251
 msgid "The font for form legend."
-msgstr ""
+msgstr "Het lettertype voor formulierlegenda."
 
 #: includes/config/customizer/05-typography.php:265
 msgid "Site credits typography"
-msgstr ""
+msgstr "Site credits typografie"
 
 #: includes/config/customizer/05-typography.php:266
 msgid "Typography applied to the footer copyright section of the site."
-msgstr ""
+msgstr "Typografie toegepast op het footer copyright-gedeelte van de site."
 
 #: includes/config/customizer/05-typography.php:280
 msgid "Blog heading"
-msgstr ""
+msgstr "Blog overskrift"
 
 #: includes/config/customizer/05-typography.php:281
 msgid "Typography applied to the blog headings."
-msgstr ""
+msgstr "Typografie toegepast op de blogteksten."
 
 #: includes/config/customizer/05-typography.php:314
 msgid "Forms"
-msgstr ""
+msgstr "Vormen"
 
 #: includes/config/customizer/05-typography.php:320
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: includes/config/customizer/05-typography.php:326
 msgid "Footer"
-msgstr ""
+msgstr "Footer"
 
 #: includes/config/customizer/06-blog.php:25
 msgid "Blog post structure"
-msgstr ""
+msgstr "Blog poststructuur"
 
-#: includes/config/customizer/06-blog.php:29, includes/config/customizer/07-blog-single.php:29
+#: includes/config/customizer/06-blog.php29,
+#: includes/config/customizer/07-blog-single.php:29
 msgid "Featured Image"
-msgstr ""
+msgstr "Uitgelichte Afbeelding"
 
 #: includes/config/customizer/06-blog.php:30
 msgid "Title & Blog Meta"
-msgstr ""
+msgstr "Titel & Blog Meta"
 
 #: includes/config/customizer/06-blog.php:37
 msgid "Blog post content"
-msgstr ""
+msgstr "Inhoud van blogpost"
 
 #: includes/config/customizer/06-blog.php:41
 msgid "Full Content"
-msgstr ""
+msgstr "Volledige Inhoud"
 
 #: includes/config/customizer/06-blog.php:42
 msgid "Excerpt"
-msgstr ""
+msgstr "Uittreksel"
 
 #: includes/config/customizer/06-blog.php:49
 msgid "Blog meta"
-msgstr ""
+msgstr "Meta van blog"
 
-#: includes/config/customizer/06-blog.php:53, includes/config/customizer/07-blog-single.php:41
+#: includes/config/customizer/06-blog.php53,
+#: includes/config/customizer/07-blog-single.php:41
 msgid "Comments"
-msgstr ""
+msgstr "Comments"
 
-#: includes/config/customizer/06-blog.php:54, includes/config/customizer/07-blog-single.php:42
+#: includes/config/customizer/06-blog.php54,
+#: includes/config/customizer/07-blog-single.php:42
 msgid "Category"
-msgstr ""
+msgstr "Categorie"
 
-#: includes/config/customizer/06-blog.php:55, includes/config/customizer/07-blog-single.php:43
+#: includes/config/customizer/06-blog.php55,
+#: includes/config/customizer/07-blog-single.php:43
 msgid "Author"
-msgstr ""
+msgstr "Auteur"
 
-#: includes/config/customizer/06-blog.php:56, includes/config/customizer/07-blog-single.php:44
+#: includes/config/customizer/06-blog.php56,
+#: includes/config/customizer/07-blog-single.php:44
 msgid "Publish Date"
-msgstr ""
+msgstr "Publiceer Datum"
 
-#: includes/config/customizer/06-blog.php:57, includes/config/customizer/07-blog-single.php:45
+#: includes/config/customizer/06-blog.php57,
+#: includes/config/customizer/07-blog-single.php:45
 msgid "Tag"
-msgstr ""
+msgstr "Label"
 
 #: includes/config/customizer/06-blog.php:76
 msgid "Blog Layout"
-msgstr ""
+msgstr "Blogindeling"
 
 #: includes/config/customizer/06-blog.php:80
 msgid "Post Archive"
-msgstr ""
+msgstr "Postarchief"
 
 #: includes/config/customizer/06-blog.php:86
 msgid "Single post settings"
-msgstr ""
+msgstr "Instellingen voor één bericht"
 
 #: includes/config/customizer/07-blog-single.php:25
 msgid "Single post structure"
-msgstr ""
+msgstr "Enkele poststructuur"
 
 #: includes/config/customizer/07-blog-single.php:30
 msgid "Title & Single Meta"
-msgstr ""
+msgstr "Titel & Enkele Meta"
 
 #: includes/config/customizer/07-blog-single.php:37
 msgid "Single meta"
-msgstr ""
+msgstr "Enkele meta"
 
 #: includes/config/customizer/07-blog-single.php:53
 msgid "Enable Featured Image"
-msgstr ""
+msgstr "Uitgelichte Afbeelding Inschakelen"
 
 #: includes/config/customizer/07-blog-single.php:75
 msgid "Single Layout"
-msgstr ""
+msgstr "Enige Indeling"
 
 #: includes/config/customizer/07-blog-single.php:79
 msgid "Single Post"
-msgstr ""
+msgstr "Enkelvoudig bericht"
 
 #: includes/config/customizer/08-breadcrumbs.php:40
 msgid "Active Link Color"
-msgstr ""
+msgstr "Actieve link kleur"
 
 #: includes/config/customizer/08-breadcrumbs.php:55
 msgid "Background Color"
-msgstr ""
+msgstr "Achtergrond kleur"
 
 #: includes/config/customizer/08-breadcrumbs.php:73
 msgid "Breadcrumb Prefix"
-msgstr ""
+msgstr "Broodkruim Voorvoegsel"
 
 #: includes/config/customizer/08-breadcrumbs.php:74
 msgid "You Are Here:"
-msgstr ""
+msgstr "U Bent Hier:"
 
 #: includes/config/customizer/08-breadcrumbs.php:81
 msgid "Breadcrumb Home Title"
-msgstr ""
+msgstr "Breadcrumb Home Titel"
 
 #: includes/config/customizer/08-breadcrumbs.php:89
 msgid "Breadcrumb Seperator"
-msgstr ""
+msgstr "Broodkruimelscheider"
 
 #: includes/config/customizer/08-breadcrumbs.php:97
 msgid "Homepage"
-msgstr ""
+msgstr "Homepagina"
 
 #: includes/config/customizer/08-breadcrumbs.php:99
 msgid "The homepage for the 'Blog' section"
-msgstr ""
+msgstr "De startpagina voor het gedeelte 'Blog'"
 
 #: includes/config/customizer/08-breadcrumbs.php:106
 msgid "Front Page"
-msgstr ""
+msgstr "Voorpagina"
 
 #: includes/config/customizer/08-breadcrumbs.php:108
 msgid "The frontpage is be the page set in Settings -> Reading"
-msgstr ""
+msgstr "De voorpagina is de pagina die is ingesteld in Instellingen -> Lezen"
 
 #: includes/config/customizer/08-breadcrumbs.php:115
 msgid "Posts Page"
-msgstr ""
+msgstr "Berichten Pagina"
 
 #: includes/config/customizer/08-breadcrumbs.php:123
 msgid "Single"
-msgstr ""
+msgstr "Enig"
 
 #: includes/config/customizer/08-breadcrumbs.php:138
 msgid "Page"
-msgstr ""
+msgstr "Pagina"
 
 #: includes/config/customizer/08-breadcrumbs.php:146
 msgid "Archive"
-msgstr ""
+msgstr "Archief"
 
 #: includes/config/customizer/08-breadcrumbs.php:154
 msgid "404"
-msgstr ""
+msgstr "404"
 
 #: includes/config/customizer/08-breadcrumbs.php:162
 msgid "Attachment/Media"
-msgstr ""
+msgstr "Bijvoegsel/Media"
 
 #: includes/config/customizer/08-breadcrumbs.php:169
 msgid "Breadcrumb Padding"
-msgstr ""
+msgstr "Broodkruimelvulling"
 
 #: includes/config/customizer/08-breadcrumbs.php:197
 msgid "Breadcrumb"
-msgstr ""
+msgstr "Broodkruimel"
 
 #: includes/config/customizer/90-utilities.php:40
 msgid "Theme Utilities"
-msgstr ""
+msgstr "Thema Nutsbedrijven"
 
 #. translators: %s: page number
 #: includes/structure/general/general-header.php:58
 msgid "Page %s"
-msgstr ""
+msgstr "Pagina %s"
 
 #: includes/structure/general/site-comments.php:36
 msgid "Pingback:"
-msgstr ""
+msgstr "Pingback:"
 
 #: includes/structure/general/site-comments.php:36
 msgid "(Edit)"
-msgstr ""
+msgstr "(Bewerken)"
 
 #. translators: 1: date, 2: time
 #: includes/structure/general/site-comments.php:67
 msgid "%1$s at %2$s"
-msgstr ""
+msgstr "%1$s op %2$s"
 
 #: includes/structure/general/site-footer.php:412
 msgid "Back to top"
-msgstr ""
+msgstr "Terug naar boven"
 
 #: includes/structure/general/site-footer.php:433
 msgid "Powered by"
-msgstr ""
+msgstr "Aangedreven door"
 
 #. translators: %1$s: Search results count, %2$s: Search query
 #: includes/structure/general/site-hero.php:70
 msgid "Found %1$s results for: &ldquo;%2$s&rdquo;"
-msgstr ""
+msgstr "Gevonden %1$s resultaten voor: &ldquo;%2$s&rdquo;"
 
 #: includes/structure/general/site-hero.php:91
 msgid "Post"
-msgstr ""
+msgstr "Paal"
 
 #: includes/structure/general/site-layout.php:60
-msgid "This content is password protected. To view it please enter your password below."
+msgid ""
+"This content is password protected. To view it please enter your password "
+"below."
 msgstr ""
+"Deze inhoud is beveiligd met een wachtwoord. Voer uw wachtwoord hieronder in"
+" om het te bekijken."
 
 #: includes/structure/general/site-layout.php:61
 msgid "Password:"
-msgstr ""
+msgstr "Wachtwoord:"
 
 #: includes/structure/general/site-layout.php:64
 msgid "Submit"
-msgstr ""
+msgstr "Voorleggen"
 
 #: includes/structure/general/site-markup.php:172
 msgid "Primary Sidebar"
-msgstr ""
+msgstr "Primaire Zijbalk"
 
 #: includes/structure/general/site-markup.php:187
 msgid "Secondary Sidebar"
-msgstr ""
+msgstr "Secundaire Zijbalk"
 
 #: includes/structure/general/site-sidebar.php:26
 msgid "This is the"
-msgstr ""
+msgstr "Dit is de"
 
 #: includes/structure/general/site-sidebar.php:26
 msgid "You can add content to this area by visiting your"
 msgstr ""
+"U kunt inhoud aan dit gebied toevoegen door een bezoek te brengen aan uw"
 
 #: includes/structure/general/site-sidebar.php:26
 msgid "Widgets Panel"
-msgstr ""
+msgstr "Het Panel van Widgets"
 
 #: includes/structure/general/site-sidebar.php:26
 msgid "and adding new widgets to this area."
-msgstr ""
+msgstr "en het toevoegen van nieuwe widgets aan dit gebied."
 
 #: includes/structure/general/template-tags.php:173
 msgid "This page doesn't seem to exist."
-msgstr ""
+msgstr "Deze pagina lijkt niet te bestaan."
 
 #. translators: 1: search string
 #: includes/structure/general/template-tags.php:179
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Zoek Resultaten voor:  %s"
 
-#: includes/structure/archives/blog/actions.php:119, includes/structure/archives/blog/actions.php:147
+#: includes/structure/archives/blog/actions.php119,
+#: includes/structure/archives/blog/actions.php:147
 msgid "Read More &raquo;"
-msgstr ""
+msgstr "Lees meer &raquo;"
 
 #. translators: used between list items, there is a space after the comma
 #. translators: used between list items, there is a space after the comma
-#: includes/structure/archives/blog/functions.php:193, includes/structure/archives/blog/functions.php:213
+#: includes/structure/archives/blog/functions.php193,
+#: includes/structure/archives/blog/functions.php:213
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: includes/classes/customizer/controls/dimensions/dimensions.php:79
 msgid "Link values together"
-msgstr ""
+msgstr "Waarden aan elkaar koppelen"
 
 #: includes/classes/customizer/controls/dimensions/dimensions.php:164
 msgid "Top"
-msgstr ""
+msgstr "Boven"
 
 #: includes/classes/customizer/controls/dimensions/dimensions.php:166
 msgid "Bottom"
-msgstr ""
+msgstr "Onder"
 
 #: includes/classes/customizer/controls/image-gallery/image-gallery.php:48
 msgid "Select Images"
-msgstr ""
+msgstr "Selecteer Beelden"
 
 #: includes/classes/customizer/controls/image-gallery/image-gallery.php:49
 msgid "Modify Gallery"
-msgstr ""
+msgstr "Galerij wijzigen"
 
 #: includes/classes/customizer/controls/image-gallery/image-gallery.php:50
 msgid "Default"
-msgstr ""
+msgstr "Standaard"
 
 #: includes/classes/customizer/controls/image-gallery/image-gallery.php:51
 msgid "Remove"
-msgstr ""
+msgstr "Verwijderen"
 
 #: includes/classes/customizer/controls/image-gallery/image-gallery.php:52
 msgid "No images selected"
-msgstr ""
+msgstr "Geen afbeeldingen geselecteerd"
 
 #: includes/classes/customizer/controls/image-gallery/image-gallery.php:53
 msgid "Select Gallery Images"
-msgstr ""
+msgstr "Selecteer Galerijafbeeldingen"
 
 #: includes/classes/customizer/controls/image-gallery/image-gallery.php:54
 msgid "Choose Images"
-msgstr ""
+msgstr "Afbeeldingen kiezen"

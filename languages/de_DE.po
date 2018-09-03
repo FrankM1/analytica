@@ -1,394 +1,457 @@
 # Copyright (C) 2018 analytica
 # This file is distributed under the same license as the analytica package.
+# Translators:
+# Frankline Gitonga <frank@radiumthemes.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: analytica\n"
+"Report-Msgid-Bugs-To: https://qazana.net/contact/\n"
+"Last-Translator: Frankline Gitonga <frank@radiumthemes.com>, 2018\n"
+"Language-Team: German (https://www.transifex.com/qazana/teams/25800/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language-Team: Qazana\n"
-"Last-Translator: Franklin Gitonga\n"
-"Report-Msgid-Bugs-To: https://qazana.net/contact/\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. translators: 1: number of comments
 #: comments.php:35
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s dachte auf &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s Gedanken zu &ldquo;%2$s&rdquo;"
 
-#: comments.php:46, comments.php:69
+#: comments.php46, comments.php:69
 msgid "Comments Navigation"
-msgstr ""
+msgstr "Kommentare Navigation"
 
 #. translators: %s: PHP version
 #: functions.php:37
 msgid "Analytica requires PHP version %s+, theme is currently NOT ACTIVE."
 msgstr ""
+"Analytica benötigt die PHP-Version %s +, das Thema ist derzeit NICHT AKTIV."
 
 #. translators: %s: WordPress version
 #: functions.php:53
-msgid "Analytica requires WordPress version %s+. Because you are using an earlier version, the theme is currently NOT ACTIVE."
+msgid ""
+"Analytica requires WordPress version %s+. Because you are using an earlier "
+"version, the theme is currently NOT ACTIVE."
 msgstr ""
+"Analytica benötigt WordPress Version %s +. Da Sie eine frühere Version "
+"verwenden, ist das Thema derzeit NICHT AKTIV."
 
 #. translators: 1: link to new post
 #: template-parts/content-none.php:20
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
+"Bereit Deinen ersten Post zu veröffentlichen? <a href=\"%1$s\"> Hier "
+"beginnen </a>."
 
 #. translators: %s: Name of current post
 #. translators: %s: Name of current post
 #. translators: %s: Name of current post
-#: template-parts/content-page.php:39, template-parts/single/single-layout.php:36, includes/structure/general/template-tags.php:220
+#: template-parts/content-page.php39,
+#: template-parts/single/single-layout.php36,
+#: includes/structure/general/template-tags.php:220
 msgid "Edit %s"
-msgstr ""
+msgstr "Bearbeiten Sie %s"
 
 #. translators: %s: Name of current post.
 #: template-parts/content.php:29
 msgid "Continue reading %s"
-msgstr ""
+msgstr "Lesen Sie weiter %s"
 
-#: includes/admin/about-page.php:27, includes/admin/about-page.php:29
+#: includes/admin/about-page.php27, includes/admin/about-page.php:29
 msgid "About Analytica"
-msgstr ""
+msgstr "Über Analytica"
 
 #. translators: %s: theme name
 #: includes/admin/about-page.php:32
 msgid "Welcome to %s! - Version "
-msgstr ""
+msgstr "Willkommen bei %s! - Ausführung"
 
 #: includes/admin/about-page.php:43
 msgid "Getting Started"
-msgstr ""
+msgstr "Anfangen"
 
 #: includes/admin/about-page.php:44
 msgid "Recommended Actions"
-msgstr ""
+msgstr "empfohlenes Vorgehen"
 
 #: includes/admin/about-page.php:45
 msgid "Useful Plugins"
-msgstr ""
+msgstr "Nützliche Plugins"
 
-#: includes/admin/about-page.php:46, includes/config/customizer/04-site-footer.php:149
+#: includes/admin/about-page.php46,
+#: includes/config/customizer/04-site-footer.php:149
 msgid "Support"
-msgstr ""
+msgstr "Unterstützung"
 
 #: includes/admin/about-page.php:47
 msgid "Changelog"
-msgstr ""
+msgstr "Änderungsprotokoll"
 
-#: includes/admin/about-page.php:52, includes/admin/about-page.php:55
+#: includes/admin/about-page.php52, includes/admin/about-page.php:55
 msgid "Contact Support"
-msgstr ""
+msgstr "Kontaktieren Sie Support"
 
 #: includes/admin/about-page.php:54
-msgid "We want to make sure you have the best experience using Analytica. Please post your question in our community forums."
+msgid ""
+"We want to make sure you have the best experience using Analytica. Please "
+"post your question in our community forums."
 msgstr ""
+"Wir möchten sicherstellen, dass Sie die beste Erfahrung mit Analytica haben."
+" Bitte posten Sie Ihre Frage in unseren Community-Foren."
 
-#: includes/admin/about-page.php:61, includes/admin/about-page.php:94
+#: includes/admin/about-page.php61, includes/admin/about-page.php:94
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentation"
 
-#: includes/admin/about-page.php:63, includes/admin/about-page.php:93
-msgid "Need more details? Please check our full documentation for detailed information on how to use Analytica."
+#: includes/admin/about-page.php63, includes/admin/about-page.php:93
+msgid ""
+"Need more details? Please check our full documentation for detailed "
+"information on how to use Analytica."
 msgstr ""
+"Brauchen Sie mehr Details? Ausführliche Informationen zur Verwendung von "
+"Analytica finden Sie in unserer vollständigen Dokumentation."
 
 #: includes/admin/about-page.php:64
 msgid "Read The Documentation"
-msgstr ""
+msgstr "Lesen Sie die Dokumentation"
 
-#: includes/admin/about-page.php:73, includes/admin/about-page.php:75
+#: includes/admin/about-page.php73, includes/admin/about-page.php:75
 msgid "Go to Customizer"
-msgstr ""
+msgstr "Gehe zu Customizer"
 
 #: includes/admin/about-page.php:74
-msgid "Using the WordPress Customizer you can easily customize every aspect of the theme."
+msgid ""
+"Using the WordPress Customizer you can easily customize every aspect of the "
+"theme."
 msgstr ""
+"Mit dem WordPress Customizer können Sie jeden Aspekt des Themas leicht "
+"anpassen."
 
-#: includes/admin/about-page.php:82, includes/admin/about-page.php:84
+#: includes/admin/about-page.php82, includes/admin/about-page.php:84
 msgid "Recommended actions"
-msgstr ""
+msgstr "Empfohlenes Vorgehen"
 
 #: includes/admin/about-page.php:83
-msgid "We have compiled a list of steps for you, to take make sure the experience you will have using one of our products is very easy to follow."
+msgid ""
+"We have compiled a list of steps for you, to take make sure the experience "
+"you will have using one of our products is very easy to follow."
 msgstr ""
+"Wir haben eine Liste von Schritten für Sie zusammengestellt, um "
+"sicherzustellen, dass die Erfahrung, die Sie mit einem unserer Produkte "
+"machen, sehr einfach zu befolgen ist."
 
 #: includes/admin/about-page.php:86
 msgid "You are good to go!"
-msgstr ""
+msgstr "Du bist startklar!"
 
 #: includes/admin/about-page.php:92
 msgid "Read the documentation"
-msgstr ""
+msgstr "Lesen Sie die Dokumentation"
 
 #: includes/admin/about-page.php:103
 msgid "Already activated"
-msgstr ""
+msgstr "Bereits aktiviert"
 
 #: includes/admin/about-page.php:104
 msgid "Version: "
-msgstr ""
+msgstr "Ausführung:"
 
-#: includes/admin/about-page.php:105, includes/admin/about-page.php:116
+#: includes/admin/about-page.php105, includes/admin/about-page.php:116
 msgid "Install and Activate"
-msgstr ""
+msgstr "Installieren und aktivieren"
 
-#: includes/admin/about-page.php:106, includes/admin/about-page.php:117
+#: includes/admin/about-page.php106, includes/admin/about-page.php:117
 msgid "Activate"
-msgstr ""
+msgstr "aktivieren Sie"
 
-#: includes/admin/about-page.php:107, includes/admin/about-page.php:118
+#: includes/admin/about-page.php107, includes/admin/about-page.php:118
 msgid "Deactivate"
-msgstr ""
+msgstr "Deaktivieren"
 
 #: includes/admin/about-page.php:122
-msgid "It is highly recommended that you install Kirki so you can access more customizer options."
+msgid ""
+"It is highly recommended that you install Kirki so you can access more "
+"customizer options."
 msgstr ""
+"Es wird dringend empfohlen, Kirki zu installieren, damit Sie auf weitere "
+"Optionen für die Anpassung zugreifen können."
 
 #: includes/config/options.php:317
 msgid "Latest posts"
-msgstr ""
+msgstr "Neueste Beiträge"
 
 #: includes/config/options.php:344
-msgid "Copyright &copy; [year] Your Company or website name here. All rights reserved."
+msgid ""
+"Copyright &copy; [year] Your Company or website name here. All rights "
+"reserved."
 msgstr ""
+"Copyright &copy; [year] Ihr Firmen- oder Website-Name hier. Alle Rechte "
+"vorbehalten."
 
 #: includes/config/strings.php:25
 msgid "Skip to content"
-msgstr ""
+msgstr "Zum Inhalt springen"
 
 #: includes/config/strings.php:28
 msgid "It looks like the link pointing here was faulty. Maybe try searching?"
 msgstr ""
+"Es sieht so aus, als ob der hier angezeigte Link fehlerhaft ist. Vielleicht "
+"versuchen Sie es zu suchen?"
 
 #: includes/config/strings.php:31
 msgid "Nothing Found"
-msgstr ""
+msgstr "Nichts gefunden"
 
 #: includes/config/strings.php:32
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
 msgstr ""
+"Entschuldigung, aber nichts entspricht Ihren Suchbegriffen. Bitte versuchen "
+"Sie es erneut mit verschiedenen Keywords."
 
 #: includes/config/strings.php:33
 msgid "Start typing and press enter to search"
-msgstr ""
+msgstr "Beginnen Sie zu tippen und drücken Sie die Eingabetaste, um zu suchen"
 
-#: includes/config/strings.php:34, includes/config/strings.php:35
+#: includes/config/strings.php34, includes/config/strings.php:35
 msgid "Start Typing&hellip;"
-msgstr ""
+msgstr "Starten Sie Typing&hellip;"
 
 #: includes/config/strings.php:36
 msgid "Search &hellip;"
-msgstr ""
+msgstr "Suche &hellip;"
 
 #: includes/config/strings.php:39
 msgid "Reply"
-msgstr ""
+msgstr "Antworten"
 
 #: includes/config/strings.php:40
 msgid "Edit"
-msgstr ""
+msgstr "Bearbeiten"
 
 #: includes/config/strings.php:41
 msgid "Your comment is awaiting moderation."
-msgstr ""
+msgstr "Ihr Beitrag wartet auf die Moderation."
 
-#: includes/config/strings.php:42, includes/config/strings.php:57
+#: includes/config/strings.php42, includes/config/strings.php:57
 msgid "Leave a Comment"
-msgstr ""
+msgstr "Hinterlasse einen Kommentar"
 
 #: includes/config/strings.php:43
 msgid "Cancel Reply"
-msgstr ""
+msgstr "Antwort verwerfen"
 
 #: includes/config/strings.php:44
 msgid "Post Comment &raquo;"
-msgstr ""
+msgstr "Geben Sie Anmerkung bekannt &raquo;"
 
 #: includes/config/strings.php:45
 msgid "Type here.."
-msgstr ""
+msgstr "Geben Sie hier ein .."
 
 #: includes/config/strings.php:46
 msgid "Name*"
-msgstr ""
+msgstr "Name*"
 
 #: includes/config/strings.php:47
 msgid "Email*"
-msgstr ""
+msgstr "Email*"
 
 #: includes/config/strings.php:48
 msgid "Website"
-msgstr ""
+msgstr "Webseite"
 
 #: includes/config/strings.php:49
 msgid "Comments are closed."
-msgstr ""
+msgstr "Kommentarfunktion ist geschlossen."
 
 #: includes/config/strings.php:50
 msgid "Comment navigation"
-msgstr ""
+msgstr "Kommentar-Navigation"
 
 #: includes/config/strings.php:51
 msgid "Newer Comments"
-msgstr ""
+msgstr "Neuere Kommentare"
 
 #: includes/config/strings.php:52
 msgid "Older Comments"
-msgstr ""
+msgstr "ältere Kommentare"
 
-#: includes/config/strings.php:55, includes/config/strings.php:64
+#: includes/config/strings.php55, includes/config/strings.php:64
 msgid "Pages:"
-msgstr ""
+msgstr "Seiten:"
 
 #: includes/config/strings.php:56
 msgid "By "
-msgstr ""
+msgstr "Durch"
 
 #: includes/config/strings.php:58
 msgid "1 Comment"
-msgstr ""
+msgstr "1 Kommentar"
 
 #: includes/config/strings.php:59
 msgid "% Comments"
-msgstr ""
+msgstr "% Bemerkungen"
 
-#: includes/config/strings.php:60, includes/config/strings.php:77
+#: includes/config/strings.php60, includes/config/strings.php:77
 msgid "Next Page"
-msgstr ""
+msgstr "Nächste Seite"
 
-#: includes/config/strings.php:61, includes/config/strings.php:78
+#: includes/config/strings.php61, includes/config/strings.php:78
 msgid "Previous Page"
-msgstr ""
+msgstr "Vorherige Seite"
 
 #. translators: 1: Post type label
 #. translators: 1: Post type label
-#: includes/config/strings.php:66, includes/config/strings.php:81
+#: includes/config/strings.php66, includes/config/strings.php:81
 msgid "Next %s"
-msgstr ""
+msgstr "Nächste %s"
 
 #. translators: 1: Post type label
 #. translators: 1: Post type label
-#: includes/config/strings.php:68, includes/config/strings.php:83
+#: includes/config/strings.php68, includes/config/strings.php:83
 msgid "Previous %s"
-msgstr ""
+msgstr "Vorherige %s"
 
 #: includes/config/strings.php:71
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
 msgstr ""
+"Es scheint, dass wir can&rsquo;t finden können, was du suchst011442655z0re. "
+"Vielleicht kann das Suchen helfen."
 
 #: includes/config/theme.php:118
 msgid "Black"
-msgstr ""
+msgstr "Schwarz"
 
 #: includes/config/theme.php:123
 msgid "White"
-msgstr ""
+msgstr "Weiß"
 
 #: includes/config/theme.php:128
 msgid "Base text color"
-msgstr ""
+msgstr "Grundtextfarbe"
 
 #: includes/config/theme.php:133
 msgid "Secondary text color"
-msgstr ""
+msgstr "Sekundäre Textfarbe"
 
-#: includes/config/theme.php:138, includes/config/customizer/01-general.php:99
+#: includes/config/theme.php138, includes/config/customizer/01-general.php:99
 msgid "Accent color"
-msgstr ""
+msgstr "Akzentfarbe"
 
-#: includes/config/theme.php:164, includes/structure/general/site-sidebar.php:47
+#: includes/config/theme.php164,
+#: includes/structure/general/site-sidebar.php:47
 msgid "Primary Widget Area"
-msgstr ""
+msgstr "Primäres Widget"
 
 #: includes/config/theme.php:165
 msgid "This is the primary sidebar."
-msgstr ""
+msgstr "Dies ist die primäre Seitenleiste."
 
-#: includes/config/theme.php:168, includes/structure/general/site-sidebar.php:65
+#: includes/config/theme.php168,
+#: includes/structure/general/site-sidebar.php:65
 msgid "Secondary Widget Area"
-msgstr ""
+msgstr "Sekundärer Widget-Bereich"
 
 #: includes/config/theme.php:169
-msgid "This is the secondary sidebar if you are using a two or three column page layout option."
+msgid ""
+"This is the secondary sidebar if you are using a two or three column page "
+"layout option."
 msgstr ""
+"Dies ist die sekundäre Seitenleiste, wenn Sie eine zwei- oder dreispaltige "
+"Seitenlayoutoption verwenden."
 
-#: includes/config/theme.php:172, includes/functions/widgets.php:177
+#: includes/config/theme.php172, includes/functions/widgets.php:177
 msgid "After Entry"
-msgstr ""
+msgstr "Nach dem Eintrag"
 
 #: includes/config/theme.php:173
 msgid "This is the content widget area. Displayed after the post content"
-msgstr ""
+msgstr "Dies ist der Inhaltswidget-Bereich. Nach dem Post-Inhalt angezeigt"
 
 #: includes/config/theme.php:183
 msgid "Primary Navigation"
-msgstr ""
+msgstr "Primäre Navigation"
 
-#: includes/functions/breadcrumb.php:77, includes/functions/breadcrumb.php:78, includes/functions/breadcrumb.php:79, includes/functions/breadcrumb.php:80, includes/functions/breadcrumb.php:82, includes/functions/breadcrumb.php:83, includes/classes/nav/breadcrumb.php:57, includes/classes/nav/breadcrumb.php:58, includes/classes/nav/breadcrumb.php:59, includes/classes/nav/breadcrumb.php:60, includes/classes/nav/breadcrumb.php:62, includes/classes/nav/breadcrumb.php:63
+#: includes/functions/breadcrumb.php77, includes/functions/breadcrumb.php78,
+#: includes/functions/breadcrumb.php79, includes/functions/breadcrumb.php80,
+#: includes/functions/breadcrumb.php82, includes/functions/breadcrumb.php83,
+#: includes/classes/nav/breadcrumb.php57,
+#: includes/classes/nav/breadcrumb.php58,
+#: includes/classes/nav/breadcrumb.php59,
+#: includes/classes/nav/breadcrumb.php60,
+#: includes/classes/nav/breadcrumb.php62,
+#: includes/classes/nav/breadcrumb.php:63
 msgid "Archives for "
-msgstr ""
+msgstr "Archive für"
 
-#: includes/functions/breadcrumb.php:81, includes/classes/nav/breadcrumb.php:61
+#: includes/functions/breadcrumb.php81, includes/classes/nav/breadcrumb.php:61
 msgid "Search for "
-msgstr ""
+msgstr "Suchen nach"
 
-#: includes/functions/breadcrumb.php:84, includes/classes/nav/breadcrumb.php:64
+#: includes/functions/breadcrumb.php84, includes/classes/nav/breadcrumb.php:64
 msgid "Not found: "
-msgstr ""
+msgstr "Nicht gefunden:"
 
 #: includes/functions/layout.php:38
 msgid "Content, Primary Sidebar"
-msgstr ""
+msgstr "Inhalt, primäre Seitenleiste"
 
 #: includes/functions/layout.php:43
 msgid "Primary Sidebar, Content"
-msgstr ""
+msgstr "Primäre Seitenleiste, Inhalt"
 
 #: includes/functions/layout.php:48
 msgid "Full Width Content"
-msgstr ""
+msgstr "Inhalt mit voller Breite"
 
 #: includes/functions/markup.php:51
 msgid "No Label Selected"
-msgstr ""
+msgstr "Kein Label ausgewählt"
 
 #. translators: %s: footer id
 #: includes/functions/widgets.php:147
 msgid "Footer %d"
-msgstr ""
+msgstr "Fußzeile %d"
 
 #. translators: %s: footer id
 #: includes/functions/widgets.php:149
 msgid "Footer %d widget area."
-msgstr ""
+msgstr "Fußzeile %d Widget-Bereich."
 
 #: includes/functions/widgets.php:178
 msgid "Widgets in this widget area will display after single entries."
 msgstr ""
+"Widgets in diesem Widgetbereich werden nach einzelnen Einträgen angezeigt."
 
 #: template-parts/header/responsive-nav-button.php:1
 msgid "Main mobile navigation"
-msgstr ""
+msgstr "Mobile Navigation"
 
 #: includes/admin/about-page/class-about-page.php:897
 msgid "Activating"
-msgstr ""
+msgstr "Aktivieren"
 
 #: includes/classes/customizer/customizer.php:104
 msgid "Display Site Title &amp; Tagline"
-msgstr ""
+msgstr "Anzeigen des Site-Titels &amp; Tagline"
 
 #: includes/classes/customizer/customizer.php:236
 msgid "Reset"
-msgstr ""
+msgstr "Zurücksetzen"
 
 #: includes/classes/customizer/customizer.php:237
 msgid ""
@@ -396,826 +459,891 @@ msgid ""
 "\n"
 "This action is irreversible!"
 msgstr ""
+"Beachtung! Dadurch werden alle Anpassungen, die jemals über den Customizer vorgenommen wurden, entfernt.\n"
+"\n"
+"Diese Aktion ist irreversibel!"
 
-#: includes/classes/nav/breadcrumb.php:46, includes/config/customizer/08-breadcrumbs.php:82, includes/structure/general/template-tags.php:167
+#: includes/classes/nav/breadcrumb.php46,
+#: includes/config/customizer/08-breadcrumbs.php82,
+#: includes/structure/general/template-tags.php:167
 msgid "Home"
-msgstr ""
+msgstr "Zuhause"
 
 #: includes/classes/nav/breadcrumb.php:56
 msgid "You are here: "
-msgstr ""
+msgstr "Du bist da:"
 
 #: includes/config/customizer/01-general.php:24
 msgid "Site layout"
-msgstr ""
+msgstr "Seitenlayout"
 
 #: includes/config/customizer/01-general.php:27
 msgid "Boxed"
-msgstr ""
+msgstr "Verpackt"
 
 #: includes/config/customizer/01-general.php:28
 msgid "Wide"
-msgstr ""
+msgstr "Breit"
 
 #: includes/config/customizer/01-general.php:36
 msgid "Site sidebar Layout"
-msgstr ""
+msgstr "Site-Seitenleiste Layout"
 
 #: includes/config/customizer/01-general.php:44
 msgid "Site container width"
-msgstr ""
+msgstr "Breite des Websitebehälters"
 
 #: includes/config/customizer/01-general.php:52
 msgid "Site sidebar width"
-msgstr ""
+msgstr "Seitenbreite der Site"
 
 #: includes/config/customizer/01-general.php:68
 msgid "Detach containers"
-msgstr ""
+msgstr "Behälter lösen"
 
-#: includes/config/customizer/01-general.php:71, includes/config/customizer/01-general.php:83, includes/config/customizer/02-site-header.php:34, includes/config/customizer/04-site-footer.php:28, includes/config/customizer/04-site-footer.php:40, includes/config/customizer/04-site-footer.php:59, includes/config/customizer/04-site-footer.php:162, includes/config/customizer/04-site-footer.php:182, includes/config/customizer/04-site-footer.php:398, includes/config/customizer/04-site-footer.php:417, includes/config/customizer/07-blog-single.php:56
+#: includes/config/customizer/01-general.php71,
+#: includes/config/customizer/01-general.php83,
+#: includes/config/customizer/02-site-header.php34,
+#: includes/config/customizer/04-site-footer.php28,
+#: includes/config/customizer/04-site-footer.php40,
+#: includes/config/customizer/04-site-footer.php59,
+#: includes/config/customizer/04-site-footer.php162,
+#: includes/config/customizer/04-site-footer.php182,
+#: includes/config/customizer/04-site-footer.php398,
+#: includes/config/customizer/04-site-footer.php417,
+#: includes/config/customizer/07-blog-single.php:56
 msgid "Enable"
-msgstr ""
+msgstr "Aktivieren"
 
-#: includes/config/customizer/01-general.php:72, includes/config/customizer/01-general.php:84, includes/config/customizer/02-site-header.php:35, includes/config/customizer/04-site-footer.php:29, includes/config/customizer/04-site-footer.php:41, includes/config/customizer/04-site-footer.php:60, includes/config/customizer/04-site-footer.php:163, includes/config/customizer/04-site-footer.php:183, includes/config/customizer/04-site-footer.php:399, includes/config/customizer/04-site-footer.php:418, includes/config/customizer/07-blog-single.php:57
+#: includes/config/customizer/01-general.php72,
+#: includes/config/customizer/01-general.php84,
+#: includes/config/customizer/02-site-header.php35,
+#: includes/config/customizer/04-site-footer.php29,
+#: includes/config/customizer/04-site-footer.php41,
+#: includes/config/customizer/04-site-footer.php60,
+#: includes/config/customizer/04-site-footer.php163,
+#: includes/config/customizer/04-site-footer.php183,
+#: includes/config/customizer/04-site-footer.php399,
+#: includes/config/customizer/04-site-footer.php418,
+#: includes/config/customizer/07-blog-single.php:57
 msgid "Disable"
-msgstr ""
+msgstr "Deaktivieren"
 
 #: includes/config/customizer/01-general.php:80
 msgid "Dual containers"
-msgstr ""
+msgstr "Dual-Container"
 
-#: includes/config/customizer/01-general.php:107, includes/config/customizer/02-site-header.php:124, includes/config/customizer/02-site-header.php:226
+#: includes/config/customizer/01-general.php107,
+#: includes/config/customizer/02-site-header.php124,
+#: includes/config/customizer/02-site-header.php:226
 msgid "Background color"
-msgstr ""
+msgstr "Hintergrundfarbe"
 
 #: includes/config/customizer/01-general.php:124
 msgid "Content area background"
-msgstr ""
+msgstr "Hintergrund des Inhaltsbereichs"
 
 #: includes/config/customizer/01-general.php:141
 msgid "Link color"
-msgstr ""
+msgstr "Verknüpfungsfarbe"
 
 #: includes/config/customizer/01-general.php:149
 msgid "Link highlight color"
-msgstr ""
+msgstr "Link-Hervorhebungsfarbe"
 
 #: includes/config/customizer/01-general.php:157
 msgid "Text color"
-msgstr ""
+msgstr "Textfarbe"
 
 #: includes/config/customizer/01-general.php:165
 msgid "Border color"
-msgstr ""
+msgstr "Randfarbe"
 
 #: includes/config/customizer/01-general.php:187
 msgid "Form background color"
-msgstr ""
+msgstr "Form Hintergrundfarbe"
 
 #: includes/config/customizer/01-general.php:204
 msgid "Form highlight background color"
-msgstr ""
+msgstr "Form Highlight Hintergrundfarbe"
 
 #: includes/config/customizer/01-general.php:221
 msgid "Form border color"
-msgstr ""
+msgstr "Formularrahmenfarbe"
 
 #: includes/config/customizer/01-general.php:238
 msgid "Form text color"
-msgstr ""
+msgstr "Form Textfarbe"
 
 #: includes/config/customizer/01-general.php:255
 msgid "Button background color"
-msgstr ""
+msgstr "Schaltfläche Hintergrundfarbe"
 
 #: includes/config/customizer/01-general.php:266
 msgid "Button background highlight color"
-msgstr ""
+msgstr "Schaltfläche Hintergrund Highlight Farbe"
 
 #: includes/config/customizer/01-general.php:277
 msgid "Button text color"
-msgstr ""
+msgstr "Schaltfläche Textfarbe"
 
 #: includes/config/customizer/01-general.php:288
 msgid "Button radius"
-msgstr ""
+msgstr "Tastenradius"
 
 #: includes/config/customizer/01-general.php:296
 msgid "Button highlight color"
-msgstr ""
+msgstr "Schaltfläche Highlight-Farbe"
 
 #: includes/config/customizer/01-general.php:307
 msgid "Button horizontal padding"
-msgstr ""
+msgstr "Schaltfläche horizontale Auffüllung"
 
 #: includes/config/customizer/01-general.php:315
 msgid "Button vertical padding"
-msgstr ""
+msgstr "Schaltfläche vertikale Auffüllung"
 
 #: includes/config/customizer/01-general.php:320
 msgid "Logo typography"
-msgstr ""
+msgstr "Logo Typografie"
 
 #: includes/config/customizer/01-general.php:321
 msgid "Typography applied to the text logo."
-msgstr ""
+msgstr "Typografie auf das Textlogo angewendet."
 
-#: includes/config/customizer/01-general.php:344, includes/config/customizer/04-site-footer.php:616, includes/config/customizer/05-typography.php:308
+#: includes/config/customizer/01-general.php344,
+#: includes/config/customizer/04-site-footer.php616,
+#: includes/config/customizer/05-typography.php:308
 msgid "General"
-msgstr ""
+msgstr "Allgemeines"
 
 #: includes/config/customizer/01-general.php:348
 msgid "General Settings"
-msgstr ""
+msgstr "Allgemeine Einstellungen"
 
 #: includes/config/customizer/01-general.php:354
 msgid "Container Style"
-msgstr ""
+msgstr "Behälterstil"
 
 #: includes/config/customizer/01-general.php:360
 msgid "Form Style"
-msgstr ""
+msgstr "Formstil"
 
 #: includes/config/customizer/01-general.php:366
 msgid "Button Style"
-msgstr ""
+msgstr "Schaltflächenstil"
 
 #: includes/config/customizer/01-general.php:372
 msgid "Logo & Favicon"
-msgstr ""
+msgstr "Logo & Favicon"
 
 #: includes/config/customizer/02-site-header.php:23
 msgid "Enable Header"
-msgstr ""
+msgstr "Aktivieren Sie die Kopfzeile"
 
 #: includes/config/customizer/02-site-header.php:31
 msgid "Header fullwidth"
-msgstr ""
+msgstr "Header volle Breite"
 
 #: includes/config/customizer/02-site-header.php:73
 msgid "Header Overlay"
-msgstr ""
+msgstr "Kopfzeilenüberlagerung"
 
 #: includes/config/customizer/02-site-header.php:88
 msgid "Header Transparent"
-msgstr ""
+msgstr "Kopfzeile transparent"
 
 #: includes/config/customizer/02-site-header.php:101
 msgid "Header padding"
-msgstr ""
+msgstr "Kopfzeilenpolsterung"
 
-#: includes/config/customizer/02-site-header.php:146, includes/config/customizer/02-site-header.php:268, includes/config/customizer/04-site-footer.php:347, includes/config/customizer/08-breadcrumbs.php:25
+#: includes/config/customizer/02-site-header.php146,
+#: includes/config/customizer/02-site-header.php268,
+#: includes/config/customizer/04-site-footer.php347,
+#: includes/config/customizer/08-breadcrumbs.php:25
 msgid "Link Color"
-msgstr ""
+msgstr "Verknüpfungsfarbe"
 
-#: includes/config/customizer/02-site-header.php:168, includes/config/customizer/02-site-header.php:290
+#: includes/config/customizer/02-site-header.php168,
+#: includes/config/customizer/02-site-header.php:290
 msgid "Highlight Link Color"
-msgstr ""
+msgstr "Linkfarbe hervorheben"
 
-#: includes/config/customizer/02-site-header.php:187, includes/config/customizer/04-site-footer.php:212
+#: includes/config/customizer/02-site-header.php187,
+#: includes/config/customizer/04-site-footer.php:212
 msgid "Border"
-msgstr ""
+msgstr "Rand"
 
-#: includes/config/customizer/02-site-header.php:205, includes/config/customizer/04-site-footer.php:230
+#: includes/config/customizer/02-site-header.php205,
+#: includes/config/customizer/04-site-footer.php:230
 msgid "Border Color"
-msgstr ""
+msgstr "Randfarbe"
 
 #: includes/config/customizer/02-site-header.php:247
 msgid "Color"
-msgstr ""
+msgstr "Farbe"
 
 #: includes/config/customizer/02-site-header.php:315
 msgid "Site Header"
-msgstr ""
+msgstr "Website-Kopfzeile"
 
-#: includes/config/customizer/02-site-header.php:320, includes/config/customizer/03-site-hero.php:326
+#: includes/config/customizer/02-site-header.php320,
+#: includes/config/customizer/03-site-hero.php:326
 msgid "Settings"
-msgstr ""
+msgstr "die Einstellungen"
 
 #: includes/config/customizer/02-site-header.php:326
 msgid "Style"
-msgstr ""
+msgstr "Stil"
 
 #: includes/config/customizer/02-site-header.php:332
 msgid "Overlay Styling"
-msgstr ""
+msgstr "Overlay-Styling"
 
 #: includes/config/customizer/03-site-hero.php:21
 msgid "Enable Site Hero"
-msgstr ""
+msgstr "Aktiviere Site Hero"
 
 #: includes/config/customizer/03-site-hero.php:29
 msgid "Enable title"
-msgstr ""
+msgstr "Titel aktivieren"
 
 #: includes/config/customizer/03-site-hero.php:44
 msgid "Enable subtitle"
-msgstr ""
+msgstr "Untertitel aktivieren"
 
 #: includes/config/customizer/03-site-hero.php:59
 msgid "Enable breadcrumbs"
-msgstr ""
+msgstr "Aktivieren Sie Breadcrumbs"
 
 #: includes/config/customizer/03-site-hero.php:77
 msgid "Display page header section on posts"
-msgstr ""
+msgstr "Zeigen Sie den Seitenkopfbereich für Beiträge an"
 
 #: includes/config/customizer/03-site-hero.php:97
 msgid "Display page header on post archives"
-msgstr ""
+msgstr "Kopfzeile der Seiten bei Post-Archiven anzeigen"
 
 #: includes/config/customizer/03-site-hero.php:109
 msgid "Full window height"
-msgstr ""
+msgstr "Volle Fensterhöhe"
 
 #: includes/config/customizer/03-site-hero.php:110
 msgid "Sets full window height for custom header"
-msgstr ""
+msgstr "Legt die volle Fensterhöhe für benutzerdefinierte Header fest"
 
 #: includes/config/customizer/03-site-hero.php:125
 msgid "Custom header height in px"
-msgstr ""
+msgstr "Benutzerdefinierte Kopfhöhe in px"
 
 #: includes/config/customizer/03-site-hero.php:126
 msgid "Allows you to set the custom header height"
-msgstr ""
+msgstr "Ermöglicht Ihnen, die benutzerdefinierte Kopfhöhe festzulegen"
 
 #: includes/config/customizer/03-site-hero.php:153
 msgid "Background color scheme style"
-msgstr ""
+msgstr "Hintergrund Farbschema Stil"
 
 #: includes/config/customizer/03-site-hero.php:154
-msgid "According to the color scheme you choose the text colors will be changed to make it more readable."
+msgid ""
+"According to the color scheme you choose the text colors will be changed to "
+"make it more readable."
 msgstr ""
+"Entsprechend dem Farbschema, das Sie wählen, werden die Textfarben geändert,"
+" um sie lesbarer zu machen."
 
 #: includes/config/customizer/03-site-hero.php:160
 msgid "Light"
-msgstr ""
+msgstr "Licht"
 
 #: includes/config/customizer/03-site-hero.php:161
 msgid "Dark"
-msgstr ""
+msgstr "Dunkel"
 
 #: includes/config/customizer/03-site-hero.php:173
 msgid "Text alignment"
-msgstr ""
+msgstr "Textausrichtung"
 
 #: includes/config/customizer/03-site-hero.php:174
 msgid "Choose the text alignment in the custom header."
-msgstr ""
+msgstr "Wählen Sie die Textausrichtung in der benutzerdefinierten Kopfzeile."
 
-#: includes/config/customizer/03-site-hero.php:181, includes/classes/customizer/controls/dimensions/dimensions.php:167
+#: includes/config/customizer/03-site-hero.php181,
+#: includes/classes/customizer/controls/dimensions/dimensions.php:167
 msgid "Left"
-msgstr ""
+msgstr "Links"
 
 #: includes/config/customizer/03-site-hero.php:182
 msgid "Center"
-msgstr ""
+msgstr "Center"
 
-#: includes/config/customizer/03-site-hero.php:183, includes/classes/customizer/controls/dimensions/dimensions.php:165
+#: includes/config/customizer/03-site-hero.php183,
+#: includes/classes/customizer/controls/dimensions/dimensions.php:165
 msgid "Right"
-msgstr ""
+msgstr "Recht"
 
 #: includes/config/customizer/03-site-hero.php:195
 msgid "Background overlay color"
-msgstr ""
+msgstr "Hintergrundüberlagerungsfarbe"
 
 #: includes/config/customizer/03-site-hero.php:196
 msgid "The background color will be as an overlay."
-msgstr ""
+msgstr "Die Hintergrundfarbe wird als Überlagerung angezeigt."
 
 #: includes/config/customizer/03-site-hero.php:218
 msgid "Header Font"
-msgstr ""
+msgstr "Kopfzeile Schriftart"
 
 #: includes/config/customizer/03-site-hero.php:219
 msgid "The page header for your site."
-msgstr ""
+msgstr "Die Seitenüberschrift für Ihre Website."
 
 #: includes/config/customizer/03-site-hero.php:243
 msgid "Heading padding"
-msgstr ""
+msgstr "Überschrift Polsterung"
 
 #: includes/config/customizer/03-site-hero.php:263
 msgid "Sub header Font"
-msgstr ""
+msgstr "Sub-Header Schriftart"
 
 #: includes/config/customizer/03-site-hero.php:264
 msgid "The page subheader for your site."
-msgstr ""
+msgstr "Der Seiten-Subheader für Ihre Website."
 
 #: includes/config/customizer/03-site-hero.php:288
 msgid "Sub heading padding"
-msgstr ""
+msgstr "Unterüberschrift Padding"
 
 #: includes/config/customizer/03-site-hero.php:322
 msgid "Site Hero"
-msgstr ""
+msgstr "Aufstellungsheld"
 
 #: includes/config/customizer/03-site-hero.php:332
 msgid "Background"
-msgstr ""
+msgstr "Hintergrund"
 
-#: includes/config/customizer/03-site-hero.php:338, includes/config/customizer/05-typography.php:304
+#: includes/config/customizer/03-site-hero.php338,
+#: includes/config/customizer/05-typography.php:304
 msgid "Typography"
-msgstr ""
+msgstr "Typografie"
 
 #: includes/config/customizer/03-site-hero.php:344
 msgid "Mobile"
-msgstr ""
+msgstr "Handy, Mobiltelefon"
 
 #: includes/config/customizer/04-site-footer.php:25
 msgid "Enable Footer"
-msgstr ""
+msgstr "Fußzeile aktivieren"
 
 #: includes/config/customizer/04-site-footer.php:37
 msgid "Enable Footer Widgets"
-msgstr ""
+msgstr "Fußzeilen-Widgets aktivieren"
 
 #: includes/config/customizer/04-site-footer.php:56
 msgid "Footer fullwidth"
-msgstr ""
+msgstr "Footer volle Breite"
 
 #: includes/config/customizer/04-site-footer.php:97
 msgid "Footer Layout"
-msgstr ""
+msgstr "Fußzeilenlayout"
 
 #: includes/config/customizer/04-site-footer.php:98
 msgid "Select a layout for the footer."
-msgstr ""
+msgstr "Wählen Sie ein Layout für die Fußzeile."
 
 #. translators: %1$s: Theme name
 #: includes/config/customizer/04-site-footer.php:151
 msgid "Support %1$s by displaying the %1$s badge on your site."
 msgstr ""
+"Unterstützen Sie %1$s, indem Sie das Logo \"%1$s\" auf Ihrer Website "
+"anzeigen."
 
 #: includes/config/customizer/04-site-footer.php:172
 msgid "Back to Top Button"
-msgstr ""
+msgstr "Zurück zum Seitenanfang Schaltfläche"
 
 #: includes/config/customizer/04-site-footer.php:190
 msgid "Footer padding"
-msgstr ""
+msgstr "Fußzeilenpolsterung"
 
 #: includes/config/customizer/04-site-footer.php:253
 msgid "Text Color"
-msgstr ""
+msgstr "Textfarbe"
 
 #: includes/config/customizer/04-site-footer.php:279
 msgid "Headings Color"
-msgstr ""
+msgstr "Überschriften Farbe"
 
 #: includes/config/customizer/04-site-footer.php:315
 msgid "Accent Color"
-msgstr ""
+msgstr "Akzentfarbe"
 
 #: includes/config/customizer/04-site-footer.php:374
 msgid "Choose a background"
-msgstr ""
+msgstr "Wählen Sie einen Hintergrund"
 
 #: includes/config/customizer/04-site-footer.php:375
 msgid "The background you specify here will apply to the footer area"
 msgstr ""
+"Der Hintergrund, den Sie hier angeben, wird auf den Fußbereich angewendet"
 
 #: includes/config/customizer/04-site-footer.php:395
 msgid "Enable colophon"
-msgstr ""
+msgstr "Aktivieren Sie Kolophon"
 
 #: includes/config/customizer/04-site-footer.php:414
 msgid "Footer colophon fullwidth"
-msgstr ""
+msgstr "Footer Kolophon Fullwidth"
 
 #: includes/config/customizer/04-site-footer.php:454
 msgid "Copyright Text"
-msgstr ""
+msgstr "Copyright-Text"
 
 #: includes/config/customizer/04-site-footer.php:474
 msgid "Colophon Padding"
-msgstr ""
+msgstr "Kolophon Polsterung"
 
 #: includes/config/customizer/04-site-footer.php:496
 msgid "Colophon border"
-msgstr ""
+msgstr "Kolophon Grenze"
 
 #: includes/config/customizer/04-site-footer.php:514
 msgid "Colophon Border Color"
-msgstr ""
+msgstr "Kolophon Randfarbe"
 
 #: includes/config/customizer/04-site-footer.php:537
 msgid "Colophon Color"
-msgstr ""
+msgstr "Kolophon-Farbe"
 
 #: includes/config/customizer/04-site-footer.php:559
 msgid "Colophon Links Color"
-msgstr ""
+msgstr "Kolophon Links Farbe"
 
 #: includes/config/customizer/04-site-footer.php:581
 msgid "Colophon Background Color"
-msgstr ""
+msgstr "Kolophon-Hintergrundfarbe"
 
 #: includes/config/customizer/04-site-footer.php:612
 msgid "Site Footer"
-msgstr ""
+msgstr "Site-Fußzeile"
 
 #: includes/config/customizer/04-site-footer.php:622
 msgid "Colors"
-msgstr ""
+msgstr "Farben"
 
 #: includes/config/customizer/04-site-footer.php:628
 msgid "Copyright"
-msgstr ""
+msgstr "Urheberrechte ©"
 
 #: includes/config/customizer/05-typography.php:25
 msgid "Base Font"
-msgstr ""
+msgstr "Basisschriftart"
 
 #: includes/config/customizer/05-typography.php:26
 msgid "The main font for your site. This is used by paragraphs, divs, etc"
-msgstr ""
+msgstr "Die Hauptschrift für Ihre Website. Dies wird von Absätzen, Divs usw"
 
 #: includes/config/customizer/05-typography.php:49
 msgid "Secondary Font"
-msgstr ""
+msgstr "Sekundärschrift"
 
 #: includes/config/customizer/05-typography.php:50
-msgid "The secondary font for your site. This is used by headings, and large text."
+msgid ""
+"The secondary font for your site. This is used by headings, and large text."
 msgstr ""
+"Die sekundäre Schriftart für Ihre Website. Dies wird von Überschriften und "
+"großem Text verwendet."
 
 #: includes/config/customizer/05-typography.php:72
 msgid "H1 Font"
-msgstr ""
+msgstr "H1 Schriftart"
 
 #: includes/config/customizer/05-typography.php:91
 msgid "H2 Font"
-msgstr ""
+msgstr "H2 Schriftart"
 
 #: includes/config/customizer/05-typography.php:108
 msgid "H3 Font"
-msgstr ""
+msgstr "H3 Schriftart"
 
 #: includes/config/customizer/05-typography.php:123
 msgid "H4 Font"
-msgstr ""
+msgstr "H4 Schriftart"
 
 #: includes/config/customizer/05-typography.php:140
 msgid "H5 Font"
-msgstr ""
+msgstr "H5 Schriftart"
 
 #: includes/config/customizer/05-typography.php:157
 msgid "H6 Font"
-msgstr ""
+msgstr "H6 Schriftart"
 
 #: includes/config/customizer/05-typography.php:174
 msgid "Widget Title Font"
-msgstr ""
+msgstr "Widget Titel Schriftart"
 
 #: includes/config/customizer/05-typography.php:191
 msgid "Emphasis"
-msgstr ""
+msgstr "Betonung"
 
 #: includes/config/customizer/05-typography.php:192
 msgid "The emphasis font for your site."
-msgstr ""
+msgstr "Die Betonungsschrift für Ihre Website."
 
 #: includes/config/customizer/05-typography.php:213
 msgid "Strong"
-msgstr ""
+msgstr "Stark"
 
 #: includes/config/customizer/05-typography.php:214
 msgid "The strong font for your site."
-msgstr ""
+msgstr "Die starke Schriftart für Ihre Website."
 
 #: includes/config/customizer/05-typography.php:235
 msgid "Form Labels"
-msgstr ""
+msgstr "Formularbeschriftungen"
 
 #: includes/config/customizer/05-typography.php:236
 msgid "The font for form labels."
-msgstr ""
+msgstr "Die Schriftart für Formularbeschriftungen."
 
 #: includes/config/customizer/05-typography.php:250
 msgid "Form Legend"
-msgstr ""
+msgstr "Formularlegende"
 
 #: includes/config/customizer/05-typography.php:251
 msgid "The font for form legend."
-msgstr ""
+msgstr "Die Schriftart für die Formularlegende."
 
 #: includes/config/customizer/05-typography.php:265
 msgid "Site credits typography"
-msgstr ""
+msgstr "Site Credits Typografie"
 
 #: includes/config/customizer/05-typography.php:266
 msgid "Typography applied to the footer copyright section of the site."
 msgstr ""
+"Die Typografie wurde auf den Fußzeilen-Copyright-Abschnitt der Site "
+"angewendet."
 
 #: includes/config/customizer/05-typography.php:280
 msgid "Blog heading"
-msgstr ""
+msgstr "Blogüberschrift"
 
 #: includes/config/customizer/05-typography.php:281
 msgid "Typography applied to the blog headings."
-msgstr ""
+msgstr "Typografie für die Blog-Überschriften."
 
 #: includes/config/customizer/05-typography.php:314
 msgid "Forms"
-msgstr ""
+msgstr "Formen"
 
 #: includes/config/customizer/05-typography.php:320
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: includes/config/customizer/05-typography.php:326
 msgid "Footer"
-msgstr ""
+msgstr "Fußzeile"
 
 #: includes/config/customizer/06-blog.php:25
 msgid "Blog post structure"
-msgstr ""
+msgstr "Blogpoststruktur"
 
-#: includes/config/customizer/06-blog.php:29, includes/config/customizer/07-blog-single.php:29
+#: includes/config/customizer/06-blog.php29,
+#: includes/config/customizer/07-blog-single.php:29
 msgid "Featured Image"
-msgstr ""
+msgstr "Ausgewähltes Bild"
 
 #: includes/config/customizer/06-blog.php:30
 msgid "Title & Blog Meta"
-msgstr ""
+msgstr "Titel und Blog Meta"
 
 #: includes/config/customizer/06-blog.php:37
 msgid "Blog post content"
-msgstr ""
+msgstr "Blogpost-Inhalt"
 
 #: includes/config/customizer/06-blog.php:41
 msgid "Full Content"
-msgstr ""
+msgstr "Vollständiger Inhalt"
 
 #: includes/config/customizer/06-blog.php:42
 msgid "Excerpt"
-msgstr ""
+msgstr "Auszug"
 
 #: includes/config/customizer/06-blog.php:49
 msgid "Blog meta"
-msgstr ""
+msgstr "Blog-Meta"
 
-#: includes/config/customizer/06-blog.php:53, includes/config/customizer/07-blog-single.php:41
+#: includes/config/customizer/06-blog.php53,
+#: includes/config/customizer/07-blog-single.php:41
 msgid "Comments"
-msgstr ""
+msgstr "Bemerkungen"
 
-#: includes/config/customizer/06-blog.php:54, includes/config/customizer/07-blog-single.php:42
+#: includes/config/customizer/06-blog.php54,
+#: includes/config/customizer/07-blog-single.php:42
 msgid "Category"
-msgstr ""
+msgstr "Kategorie"
 
-#: includes/config/customizer/06-blog.php:55, includes/config/customizer/07-blog-single.php:43
+#: includes/config/customizer/06-blog.php55,
+#: includes/config/customizer/07-blog-single.php:43
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
-#: includes/config/customizer/06-blog.php:56, includes/config/customizer/07-blog-single.php:44
+#: includes/config/customizer/06-blog.php56,
+#: includes/config/customizer/07-blog-single.php:44
 msgid "Publish Date"
-msgstr ""
+msgstr "Datum der Veröffentlichung"
 
-#: includes/config/customizer/06-blog.php:57, includes/config/customizer/07-blog-single.php:45
+#: includes/config/customizer/06-blog.php57,
+#: includes/config/customizer/07-blog-single.php:45
 msgid "Tag"
-msgstr ""
+msgstr "Etikett"
 
 #: includes/config/customizer/06-blog.php:76
 msgid "Blog Layout"
-msgstr ""
+msgstr "Blog-Layout"
 
 #: includes/config/customizer/06-blog.php:80
 msgid "Post Archive"
-msgstr ""
+msgstr "Postarchiv"
 
 #: includes/config/customizer/06-blog.php:86
 msgid "Single post settings"
-msgstr ""
+msgstr "Einzelne Posteinstellungen"
 
 #: includes/config/customizer/07-blog-single.php:25
 msgid "Single post structure"
-msgstr ""
+msgstr "Einzelpoststruktur"
 
 #: includes/config/customizer/07-blog-single.php:30
 msgid "Title & Single Meta"
-msgstr ""
+msgstr "Titel und einzelne Meta"
 
 #: includes/config/customizer/07-blog-single.php:37
 msgid "Single meta"
-msgstr ""
+msgstr "Einzelner Meta"
 
 #: includes/config/customizer/07-blog-single.php:53
 msgid "Enable Featured Image"
-msgstr ""
+msgstr "Aktiviertes Bild aktivieren"
 
 #: includes/config/customizer/07-blog-single.php:75
 msgid "Single Layout"
-msgstr ""
+msgstr "Einzelnes Layout"
 
 #: includes/config/customizer/07-blog-single.php:79
 msgid "Single Post"
-msgstr ""
+msgstr "Einzelpost"
 
 #: includes/config/customizer/08-breadcrumbs.php:40
 msgid "Active Link Color"
-msgstr ""
+msgstr "Aktive Verbindungsfarbe"
 
 #: includes/config/customizer/08-breadcrumbs.php:55
 msgid "Background Color"
-msgstr ""
+msgstr "Hintergrundfarbe"
 
 #: includes/config/customizer/08-breadcrumbs.php:73
 msgid "Breadcrumb Prefix"
-msgstr ""
+msgstr "Breadcrumb-Präfix"
 
 #: includes/config/customizer/08-breadcrumbs.php:74
 msgid "You Are Here:"
-msgstr ""
+msgstr "Du bist da:"
 
 #: includes/config/customizer/08-breadcrumbs.php:81
 msgid "Breadcrumb Home Title"
-msgstr ""
+msgstr "Breadcrumb Home Titel"
 
 #: includes/config/customizer/08-breadcrumbs.php:89
 msgid "Breadcrumb Seperator"
-msgstr ""
+msgstr "Brotkrumen-Seperator"
 
 #: includes/config/customizer/08-breadcrumbs.php:97
 msgid "Homepage"
-msgstr ""
+msgstr "Startseite"
 
 #: includes/config/customizer/08-breadcrumbs.php:99
 msgid "The homepage for the 'Blog' section"
-msgstr ""
+msgstr "Die Homepage für den Bereich \"Blog\""
 
 #: includes/config/customizer/08-breadcrumbs.php:106
 msgid "Front Page"
-msgstr ""
+msgstr "Titelseite"
 
 #: includes/config/customizer/08-breadcrumbs.php:108
 msgid "The frontpage is be the page set in Settings -> Reading"
 msgstr ""
+"Die Startseite ist die unter Einstellungen -> Lesen eingestellte Seite"
 
 #: includes/config/customizer/08-breadcrumbs.php:115
 msgid "Posts Page"
-msgstr ""
+msgstr "Beiträge"
 
 #: includes/config/customizer/08-breadcrumbs.php:123
 msgid "Single"
-msgstr ""
+msgstr "Single"
 
 #: includes/config/customizer/08-breadcrumbs.php:138
 msgid "Page"
-msgstr ""
+msgstr "Seite"
 
 #: includes/config/customizer/08-breadcrumbs.php:146
 msgid "Archive"
-msgstr ""
+msgstr "Archiv"
 
 #: includes/config/customizer/08-breadcrumbs.php:154
 msgid "404"
-msgstr ""
+msgstr "404"
 
 #: includes/config/customizer/08-breadcrumbs.php:162
 msgid "Attachment/Media"
-msgstr ""
+msgstr "Anlage / Medien"
 
 #: includes/config/customizer/08-breadcrumbs.php:169
 msgid "Breadcrumb Padding"
-msgstr ""
+msgstr "Breadcrumb-Polsterung"
 
 #: includes/config/customizer/08-breadcrumbs.php:197
 msgid "Breadcrumb"
-msgstr ""
+msgstr "Brotkrume"
 
 #: includes/config/customizer/90-utilities.php:40
 msgid "Theme Utilities"
-msgstr ""
+msgstr "Themen Dienstprogramme"
 
 #. translators: %s: page number
 #: includes/structure/general/general-header.php:58
 msgid "Page %s"
-msgstr ""
+msgstr "Seite %s"
 
 #: includes/structure/general/site-comments.php:36
 msgid "Pingback:"
-msgstr ""
+msgstr "Pingback:"
 
 #: includes/structure/general/site-comments.php:36
 msgid "(Edit)"
-msgstr ""
+msgstr "(Bearbeiten)"
 
 #. translators: 1: date, 2: time
 #: includes/structure/general/site-comments.php:67
 msgid "%1$s at %2$s"
-msgstr ""
+msgstr "%1$s bei %2$s"
 
 #: includes/structure/general/site-footer.php:412
 msgid "Back to top"
-msgstr ""
+msgstr "Zurück nach oben"
 
 #: includes/structure/general/site-footer.php:433
 msgid "Powered by"
-msgstr ""
+msgstr "Unterstützt von"
 
 #. translators: %1$s: Search results count, %2$s: Search query
 #: includes/structure/general/site-hero.php:70
 msgid "Found %1$s results for: &ldquo;%2$s&rdquo;"
-msgstr ""
+msgstr "Gefunden %1$s ergebnisse für: &ldquo;%2$s&rdquo;"
 
 #: includes/structure/general/site-hero.php:91
 msgid "Post"
-msgstr ""
+msgstr "Post"
 
 #: includes/structure/general/site-layout.php:60
-msgid "This content is password protected. To view it please enter your password below."
+msgid ""
+"This content is password protected. To view it please enter your password "
+"below."
 msgstr ""
+"Dieser Inhalt ist passwortgeschützt. Um es anzuzeigen, geben Sie bitte Ihr "
+"Passwort ein."
 
 #: includes/structure/general/site-layout.php:61
 msgid "Password:"
-msgstr ""
+msgstr "Passwort:"
 
 #: includes/structure/general/site-layout.php:64
 msgid "Submit"
-msgstr ""
+msgstr "einreichen"
 
 #: includes/structure/general/site-markup.php:172
 msgid "Primary Sidebar"
-msgstr ""
+msgstr "Primäre Seitenleiste"
 
 #: includes/structure/general/site-markup.php:187
 msgid "Secondary Sidebar"
-msgstr ""
+msgstr "Sekundäre Seitenleiste"
 
 #: includes/structure/general/site-sidebar.php:26
 msgid "This is the"
-msgstr ""
+msgstr "Dies ist das"
 
 #: includes/structure/general/site-sidebar.php:26
 msgid "You can add content to this area by visiting your"
 msgstr ""
+"Sie können Inhalte zu diesem Bereich hinzufügen, indem Sie Ihre besuchen"
 
 #: includes/structure/general/site-sidebar.php:26
 msgid "Widgets Panel"
-msgstr ""
+msgstr "Widgets-Fenster"
 
 #: includes/structure/general/site-sidebar.php:26
 msgid "and adding new widgets to this area."
-msgstr ""
+msgstr "und Hinzufügen neuer Widgets zu diesem Bereich."
 
 #: includes/structure/general/template-tags.php:173
 msgid "This page doesn't seem to exist."
-msgstr ""
+msgstr "Diese Seite scheint nicht zu existieren."
 
 #. translators: 1: search string
 #: includes/structure/general/template-tags.php:179
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Suchergebnisse für: %s"
 
-#: includes/structure/archives/blog/actions.php:119, includes/structure/archives/blog/actions.php:147
+#: includes/structure/archives/blog/actions.php119,
+#: includes/structure/archives/blog/actions.php:147
 msgid "Read More &raquo;"
-msgstr ""
+msgstr "Lesen Sie mehr &raquo;"
 
 #. translators: used between list items, there is a space after the comma
 #. translators: used between list items, there is a space after the comma
-#: includes/structure/archives/blog/functions.php:193, includes/structure/archives/blog/functions.php:213
+#: includes/structure/archives/blog/functions.php193,
+#: includes/structure/archives/blog/functions.php:213
 msgid ", "
-msgstr ""
+msgstr ","
 
 #: includes/classes/customizer/controls/dimensions/dimensions.php:79
 msgid "Link values together"
-msgstr ""
+msgstr "Verknüpfen Sie Werte miteinander"
 
 #: includes/classes/customizer/controls/dimensions/dimensions.php:164
 msgid "Top"
-msgstr ""
+msgstr "oben"
 
 #: includes/classes/customizer/controls/dimensions/dimensions.php:166
 msgid "Bottom"
-msgstr ""
+msgstr "Unterseite"
 
 #: includes/classes/customizer/controls/image-gallery/image-gallery.php:48
 msgid "Select Images"
-msgstr ""
+msgstr "Wählen Sie Bilder"
 
 #: includes/classes/customizer/controls/image-gallery/image-gallery.php:49
 msgid "Modify Gallery"
-msgstr ""
+msgstr "Ändern Sie die Galerie"
 
 #: includes/classes/customizer/controls/image-gallery/image-gallery.php:50
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 #: includes/classes/customizer/controls/image-gallery/image-gallery.php:51
 msgid "Remove"
-msgstr ""
+msgstr "Löschen"
 
 #: includes/classes/customizer/controls/image-gallery/image-gallery.php:52
 msgid "No images selected"
-msgstr ""
+msgstr "Keine Bilder ausgewählt"
 
 #: includes/classes/customizer/controls/image-gallery/image-gallery.php:53
 msgid "Select Gallery Images"
-msgstr ""
+msgstr "Wählen Sie Galerie Bilder"
 
 #: includes/classes/customizer/controls/image-gallery/image-gallery.php:54
 msgid "Choose Images"
-msgstr ""
+msgstr "Wählen Sie Bilder"
