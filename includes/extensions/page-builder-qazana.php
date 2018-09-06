@@ -26,10 +26,13 @@ class Qazana {
             return;
         }
         add_filter( 'qazana/widgets/black_list', [ $this, 'wp_widget_black_list'] );
-        add_filter( 'pre_option_qazana_page_title_selector', [ $this, 'page_title_selector'] );
         add_filter( 'analytica_is_builder_page', [ $this, 'is_builder_page'], 10, 2 );
         add_filter( 'analytica_builder_is_active', [ $this, 'is_builder_activated'] );
         add_action( 'customize_save_after', [ $this, 'reset_schemes'], 100 );
+
+		add_filter( 'pre_option_qazana_page_title_selector', [ $this, 'page_title_selector'] );
+
+		add_filter( 'qazana/core/settings/page-settings/selector', [ $this, 'page_selector' ], 10, 2 );
 
         add_filter( 'qazana/schemes/default_color_picker_schemes', [ $this, 'default_color_picker_schemes'] );
         add_filter( 'qazana/schemes/system_color_schemes', [ $this, 'system_color_schemes'] );
@@ -57,6 +60,15 @@ class Qazana {
         $widgets[] = 'WP_Widget_Custom_HTML';
 
         return $widgets;
+	}
+
+	 /**
+     * [analytica_qazana_hero description]
+     * @method analytica_qazana_hero
+     * @return [type]                    [description]
+     */
+    function page_selector( $base_selector, $model ) {
+        return $base_selector . '.site-mono-container .site-container, ' . $base_selector . '.site-dual-containers .site-container, ' . $base_selector . '.site-container-detach .site-container';
     }
 
     /**
