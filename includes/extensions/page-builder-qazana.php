@@ -62,19 +62,19 @@ class Qazana {
         return $widgets;
 	}
 
-	 /**
-     * [analytica_qazana_hero description]
-     * @method analytica_qazana_hero
-     * @return [type]                    [description]
+	/**
+     * Add page selector to qazana
+     * 
+     * @return string css selector
      */
     function page_selector( $base_selector, $model ) {
         return $base_selector . '.site-mono-container .site-container, ' . $base_selector . '.site-dual-containers .site-container, ' . $base_selector . '.site-container-detach .site-container';
     }
 
     /**
-     * [analytica_qazana_hero description]
-     * @method analytica_qazana_hero
-     * @return [type]                    [description]
+     * Add hero title selector to qazana
+     * 
+     * @return string css selector
      */
     function page_title_selector(){
         return ' .site-hero h1.heading';
