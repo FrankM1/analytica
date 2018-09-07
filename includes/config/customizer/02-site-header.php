@@ -144,6 +144,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'type'      => 'color',
         'transport' => 'auto',
         'label'     => esc_html__( 'Link Color' , 'analytica' ),
+        'default'         => $default['site-header-link-color'],
         'output'    => [
             [
                 'property' => 'color',
@@ -166,6 +167,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'type'      => 'color',
         'transport' => 'auto',
         'label'     => esc_html__( 'Highlight Link Color' , 'analytica' ),
+        'default'         => $default['site-header-link-highlight-color'],
         'output'    => [
             [
                 'property' => 'color',
@@ -243,6 +245,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
 	$controls[] = [
         'id'              => 'site-header-overlay-color',
         'section'         => 'site-header-overlay',
+        'default'         => $default['site-header-overlay-color'],
         'type'            => 'color',
         'title'           => esc_html__( 'Color' , 'analytica' ),
         'conditions' => [
@@ -262,6 +265,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
 
 	$controls[] = [
         'id'        => 'site-header-overlay-link-color',
+        'default'   => $default['site-header-overlay-link-color'],
         'section'   => 'site-header-overlay',
         'type'      => 'color',
         'transport' => 'auto',
@@ -284,6 +288,7 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
 
 	$controls[] = [
         'id'        => 'site-header-overlay-highlight-color',
+        'default'   => $default['site-header-overlay-highlight-color'],
         'section'   => 'site-header-overlay',
         'type'      => 'color',
         'transport' => 'auto',

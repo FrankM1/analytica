@@ -131,8 +131,12 @@ class Options {
                 'left'   => '',
                 'right'  => '',
             ],
-
-			'site-header-overlay-background-color' => '#fff',
+            'site-header-overlay-background-color' => '#fff',
+            'site-header-overlay-highlight-color' => '',
+            'site-header-overlay-link-color' => '',
+            'site-header-overlay-color' => '',
+            'site-header-link-highlight-color' => '',
+            'site-header-link-color' => '',
 
             // Hero Section
             'site-hero-background-color-base'    => 'light',
