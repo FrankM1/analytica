@@ -32,7 +32,7 @@ class Gutenberg {
      * @return boolean
      */
     function body_class( $classes ) {
-        if ( gutenberg_post_has_blocks( get_queried_object_id() ) ) {
+        if ( has_blocks( get_queried_object_id() ) ) {
             $classes[] = 'analytica-page-builder-gutenberg';
         }
         return $classes;
@@ -45,7 +45,7 @@ class Gutenberg {
      * @return boolean
      */
     function is_builder_activated( $retval = false ) {
-		if ( analytica_detect_plugin( array( 'functions' => array( 'gutenberg_post_has_blocks' ) ) ) ) {
+		if ( analytica_detect_plugin( array( 'functions' => array( 'has_blocks' ) ) ) ) {
             $retval = true;
         }
         return $retval;
@@ -59,7 +59,7 @@ class Gutenberg {
      * @return boolean
      */
     function is_builder_page( $retval, $post_id ) {
-        if ( gutenberg_post_has_blocks( $post_id ) ) {
+        if ( has_blocks( $post_id ) ) {
             $retval = true;
         }
         return $retval;
