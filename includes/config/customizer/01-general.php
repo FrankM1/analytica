@@ -15,14 +15,11 @@ add_filter( 'analytica_customizer_controls', 'analytica_admin_add_customizer_gen
  */
 function analytica_admin_add_customizer_general_control( array $controls ) {
 
-    $default = Analytica\Options::defaults();
-
     $controls[] = [
         'id'      => 'site-layout',
         'section' => 'general-settings',
         'type'    => 'radio-buttonset',
         'label'   => esc_html__( 'Site layout' , 'analytica' ),
-        'default' => $default['site-layout'],
         'options' => [
             'site-boxed'     => esc_html__( 'Boxed' , 'analytica' ),
             'site-wide'      => esc_html__( 'Wide' , 'analytica' ),
@@ -35,7 +32,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'type'    => 'radio-image',
         'label'   => esc_html__( 'Site sidebar Layout', 'analytica' ),
         'options' => analytica_get_layouts_for_options(),
-        'default' => $default['site-sidebar-layout'],
     ];
 
     $controls[] = [
@@ -43,7 +39,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'general-settings',
         'label'   => esc_html__( 'Site container width', 'analytica' ),
         'type'    => 'number',
-        'default' => $default['site-content-width'],
      ];
 
     $controls[] = [
@@ -51,7 +46,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'general-settings',
         'label'   => esc_html__( 'Site sidebar width', 'analytica' ),
         'type'    => 'number',
-        'default' => $default['site-sidebar-width'],
         'conditions' => [
             [
                 'setting'  => 'site_sidebar_enable',
@@ -66,7 +60,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'container-style',
         'type'    => 'switch',
         'label'   => esc_html__( 'Detach containers' , 'analytica' ),
-        'default' => $default['site-detach-containers'],
         'options' => [
             '1' => esc_attr__( 'Enable', 'analytica' ),
             '0' => esc_attr__( 'Disable', 'analytica' ),
@@ -78,7 +71,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'container-style',
         'type'    => 'switch',
         'label'   => esc_html__( 'Dual containers' , 'analytica' ),
-        'default' => $default['site-dual-containers'],
         'options' => [
             '1' => esc_attr__( 'Enable', 'analytica' ),
             '0' => esc_attr__( 'Disable', 'analytica' ),
@@ -97,7 +89,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'container-style',
         'type'    => 'color',
         'label'   => esc_html__( 'Accent color', 'analytica' ),
-        'default' => $default['site-accent-color'],
     ];
 
     $controls[] = [
@@ -105,7 +96,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'background_image',
         'type'    => 'color',
         'label'   => esc_html__( 'Background color', 'analytica' ),
-        'default' => $default['site-background-color'],
         'choices'     => array(
             'alpha' => true,
         ),
@@ -122,7 +112,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'container-style',
         'type'    => 'color',
         'label'   => esc_html__( 'Content area background', 'analytica' ),
-        'default' => $default['site-content-background-color'],
         'choices'     => array(
             'alpha' => true,
         ),
@@ -139,7 +128,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'container-style',
         'type'    => 'color',
         'label'   => esc_html__( 'Link color', 'analytica' ),
-        'default' => $default['site-link-color'],
     ];
 
     $controls[] = [
@@ -147,7 +135,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'container-style',
         'type'    => 'color',
         'label'   => esc_html__( 'Link highlight color', 'analytica' ),
-        'default' => $default['site-link-highlight-color'],
     ];
 
     $controls[] = [
@@ -155,7 +142,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'container-style',
         'type'    => 'color',
         'label'   => esc_html__( 'Text color', 'analytica' ),
-        'default' => $default['site-text-color'],
     ];
 
     $controls[] = [
@@ -163,7 +149,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'container-style',
         'type'    => 'color',
         'label'   => esc_html__( 'Border color', 'analytica' ),
-        'default' => $default['site-border-color'],
         'choices'     => array(
             'alpha' => true,
         ),
@@ -185,7 +170,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'form-style',
         'type'    => 'color',
         'label'   => esc_html__( 'Form background color', 'analytica' ),
-        'default' => $default['site-form-inputs-background-color'],
         'choices'     => array(
             'alpha' => true,
         ),
@@ -202,7 +186,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'form-style',
         'type'    => 'color',
         'label'   => esc_html__( 'Form highlight background color', 'analytica' ),
-        'default' => $default['site-form-inputs-highlight-background-color'],
         'choices'     => array(
             'alpha' => true,
         ),
@@ -219,7 +202,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'form-style',
         'type'    => 'color',
         'label'   => esc_html__( 'Form border color', 'analytica' ),
-        'default' => $default['site-form-inputs-border-color'],
         'choices'     => array(
             'alpha' => true,
         ),
@@ -236,7 +218,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'form-style',
         'type'    => 'color',
         'label'   => esc_html__( 'Form text color', 'analytica' ),
-        'default' => $default['site-form-inputs-text-color'],
         'choices'     => array(
             'alpha' => true,
         ),
@@ -253,7 +234,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'button-style',
         'type'    => 'color',
         'label'   => esc_html__( 'Button background color', 'analytica' ),
-        'default' => $default['button-background-color'],
         'choices'     => array(
             'alpha' => true,
         ),
@@ -264,7 +244,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'button-style',
         'type'    => 'color',
         'label'   => esc_html__( 'Button background highlight color', 'analytica' ),
-        'default' => $default['button-background-h-color'],
         'choices'     => array(
             'alpha' => true,
         ),
@@ -275,7 +254,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'button-style',
         'type'    => 'color',
         'label'   => esc_html__( 'Button text color', 'analytica' ),
-        'default' => $default['button-text-color'],
         'choices'     => array(
             'alpha' => true,
         ),
@@ -286,7 +264,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'button-style',
         'type'    => 'text',
         'label'   => esc_html__( 'Button radius', 'analytica' ),
-        'default' => $default['button-radius'],
     ];
 
     $controls[] = [
@@ -294,7 +271,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'button-style',
         'type'    => 'color',
         'label'   => esc_html__( 'Button highlight color', 'analytica' ),
-        'default' => $default['button-h-color'],
         'choices'     => array(
             'alpha' => true,
         ),
@@ -305,7 +281,6 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'button-style',
         'type'    => 'text',
         'label'   => esc_html__( 'Button horizontal padding', 'analytica' ),
-        'default' => $default['button-h-padding'],
     ];
 
     $controls[] = [
@@ -313,14 +288,12 @@ function analytica_admin_add_customizer_general_control( array $controls ) {
         'section' => 'button-style',
         'type'    => 'text',
         'label'   => esc_html__( 'Button vertical padding', 'analytica' ),
-        'default' => $default['button-v-padding'],
     ];
 
     $controls[] = [
         'label'     => esc_html__( 'Logo typography', 'analytica' ),
         'desc'      => esc_html__( 'Typography applied to the text logo.', 'analytica' ),
         'id'        => 'logo-favicon-typography',
-        'default'   => $default['logo-favicon-typography'],
         'type'      => 'typography',
         'section'   => 'logo-favicon',
         'transport' => 'postMessage',

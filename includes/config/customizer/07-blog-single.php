@@ -15,8 +15,6 @@ add_filter( 'analytica_customizer_controls', 'analytica_admin_add_customizer_blo
  */
 function analytica_admin_add_customizer_blog_single_controls( $controls) {
 
-    $default = Analytica\Options::defaults();
-
     $new_controls = [
 
         [
@@ -24,7 +22,6 @@ function analytica_admin_add_customizer_blog_single_controls( $controls) {
             'section' => 'single_post_settings',
             'label'   => esc_html__( 'Single post structure', 'analytica' ),
             'type'    => 'sortable',
-            'default' => $default['archive-content-structure'],
             'options'  => array(
                 'single-image'      => __( 'Featured Image', 'analytica' ),
                 'single-title-meta' => __( 'Title & Single Meta', 'analytica' ),
@@ -36,7 +33,6 @@ function analytica_admin_add_customizer_blog_single_controls( $controls) {
             'section' => 'single_post_settings',
             'label'   => esc_html__( 'Single meta', 'analytica' ),
             'type'    => 'sortable',
-            'default' => $default['single-post-meta'],
             'options'  => array(
                 'comments' => __( 'Comments', 'analytica' ),
                 'category' => __( 'Category', 'analytica' ),
@@ -51,7 +47,6 @@ function analytica_admin_add_customizer_blog_single_controls( $controls) {
             'section' => 'single_post_settings',
             'type'    => 'switch',
             'label'   => esc_html__( 'Enable Featured Image' , 'analytica' ),
-            'default'   => $default['single-has-post-thumbnail'],
             'options' => [
                 1 => esc_attr__( 'Enable', 'analytica' ),
                 0 => esc_attr__( 'Disable', 'analytica' ),

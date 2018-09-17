@@ -15,8 +15,6 @@ add_filter( 'analytica_customizer_controls', 'analytica_admin_add_customizer_blo
  */
 function analytica_admin_add_customizer_blog_controls( $controls) {
 
-    $default = Analytica\Options::defaults();
-
     $new_controls = [
 
         [
@@ -24,7 +22,6 @@ function analytica_admin_add_customizer_blog_controls( $controls) {
             'section' => 'archive_settings',
             'label'   => esc_html__( 'Blog post structure', 'analytica' ),
             'type'    => 'sortable',
-            'default' => $default['archive-content-structure'],
             'options'  => array(
                 'image'      => __( 'Featured Image', 'analytica' ),
                 'title-meta' => __( 'Title & Blog Meta', 'analytica' ),
@@ -36,7 +33,6 @@ function analytica_admin_add_customizer_blog_controls( $controls) {
             'section' => 'archive_settings',
             'label'   => esc_html__( 'Blog post content', 'analytica' ),
             'type'    => 'select',
-            'default' => $default['archive-post-content'],
             'options'  => array(
                 'full-content' => __( 'Full Content', 'analytica' ),
                 'excerpt'      => __( 'Excerpt', 'analytica' ),
@@ -48,7 +44,6 @@ function analytica_admin_add_customizer_blog_controls( $controls) {
             'section' => 'archive_settings',
             'label'   => esc_html__( 'Blog meta', 'analytica' ),
             'type'    => 'sortable',
-            'default' => $default['archive-post-meta'],
             'options'  => array(
                 'comments' => __( 'Comments', 'analytica' ),
                 'category' => __( 'Category', 'analytica' ),

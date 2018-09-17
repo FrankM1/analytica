@@ -1,6 +1,6 @@
 # Analytica WordPress Theme
 
-The goal of this Analytica WordPress Theme is to provide a simple yet performant, powerfull WordPress theme. Analytica follows modern desing and development technique to provide a great base for your content.
+The goal of this Analytica WordPress Theme is to provide a simple yet performant, powerful WordPress theme. Analytica follows modern design and development technique to provide a great base for your content. It also provides a very extendable architecture for more complex projects.
 
 <img src="https://github.com/FrankM1/analytica/raw/master/screenshot.jpg">
 

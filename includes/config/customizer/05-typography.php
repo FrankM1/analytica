@@ -19,14 +19,11 @@ function analytica_add_typography_controls( $controls ) {
     $base = analytica_get_option( 'font-base' );
     $secondary = analytica_get_option( 'font-secondary-base' );
 
-    $default    = Analytica\Options::defaults();
-
     $controls[] = [
         'label'     => esc_html__( 'Base Font', 'analytica' ),
         'desc'      => esc_html__( 'The main font for your site. This is used by paragraphs, divs, etc', 'analytica' ),
         'id'        => 'font-base',
         'section'   => 'general_typography',
-        'default'   => $default['font-base'],
         'type'      => 'typography',
         'transport' => 'auto',
         'exclude'   => [
@@ -50,7 +47,6 @@ function analytica_add_typography_controls( $controls ) {
         'desc'      => esc_html__( 'The secondary font for your site. This is used by headings, and large text.', 'analytica' ),
         'id'        => 'font-secondary-base',
         'section'   => 'general_typography',
-        'default'   => $default['font-secondary-base'],
         'type'      => 'typography',
         'transport' => 'auto',
         'exclude'   => [
@@ -72,7 +68,6 @@ function analytica_add_typography_controls( $controls ) {
         'label'     => esc_html__( 'H1 Font', 'analytica' ),
         'id'        => 'font-h1',
         'section'   => 'general_typography',
-        'default'   => $default['font-h1'],
         'type'      => 'typography',
         'transport' => 'auto',
         'exclude'   => [
@@ -89,7 +84,6 @@ function analytica_add_typography_controls( $controls ) {
         'id'        => 'font-h2',
         'section'   => 'general_typography',
         'label'     => esc_html__( 'H2 Font', 'analytica' ),
-        'default'   => $default['font-h2'],
         'type'      => 'typography',
         'transport' => 'auto',
         'exclude'   => [
@@ -106,7 +100,6 @@ function analytica_add_typography_controls( $controls ) {
         'id'        => 'font-h3',
         'section'   => 'general_typography',
         'label'     => esc_html__( 'H3 Font', 'analytica' ),
-        'default'   => $default['font-h3'],
         'type'      => 'typography',
         'transport' => 'auto',
         'exclude'   => [
@@ -123,7 +116,6 @@ function analytica_add_typography_controls( $controls ) {
         'label'     => esc_html__( 'H4 Font', 'analytica' ),
         'id'        => 'font-h4',
         'section'   => 'general_typography',
-        'default'   => $default['font-h4'],
         'type'      => 'typography',
         'transport' => 'auto',
         'exclude'   => [
@@ -140,7 +132,6 @@ function analytica_add_typography_controls( $controls ) {
         'label'     => esc_html__( 'H5 Font', 'analytica' ),
         'id'        => 'font-h5',
         'section'   => 'general_typography',
-        'default'   => $default['font-h5'],
         'type'      => 'typography',
         'transport' => 'auto',
         'exclude'   => [
@@ -157,7 +148,6 @@ function analytica_add_typography_controls( $controls ) {
         'label'   => esc_html__( 'H6 Font', 'analytica' ),
         'id'      => 'font-h6',
         'section' => 'general_typography',
-        'default' => $default['font-h6'],
         'type'    => 'typography',
         'exclude'   => [
             'font-family',
@@ -174,7 +164,6 @@ function analytica_add_typography_controls( $controls ) {
         'label'     => esc_html__( 'Widget Title Font', 'analytica' ),
         'id'        => 'font-widget-title',
         'section'   => 'general_typography',
-        'default'   => $default['font-widget-title'],
         'type'      => 'typography',
         'transport' => 'auto',
         'exclude'   => [
@@ -192,7 +181,6 @@ function analytica_add_typography_controls( $controls ) {
         'desc'      => esc_html__( 'The emphasis font for your site.', 'analytica' ),
         'id'        => 'font-em',
         'section'   => 'general_typography',
-        'default'   => $default['font-em'],
         'type'      => 'typography',
         'transport' => 'auto',
         'exclude'   => [
@@ -214,7 +202,6 @@ function analytica_add_typography_controls( $controls ) {
         'desc'      => esc_html__( 'The strong font for your site.', 'analytica' ),
         'id'        => 'font-strong',
         'section'   => 'general_typography',
-        'default'   => $default['font-strong'],
         'type'      => 'typography',
         'transport' => 'auto',
         'exclude'   => [
@@ -235,7 +222,6 @@ function analytica_add_typography_controls( $controls ) {
         'label'     => esc_html__( 'Form Labels', 'analytica' ),
         'desc'      => esc_html__( 'The font for form labels.', 'analytica' ),
         'id'        => 'font-form-labels',
-        'default'   => $default['font-form-labels'],
         'type'      => 'typography',
         'section'   => 'forms_typography',
         'transport' => 'auto',
@@ -250,7 +236,6 @@ function analytica_add_typography_controls( $controls ) {
         'label'     => esc_html__( 'Form Legend', 'analytica' ),
         'desc'      => esc_html__( 'The font for form legend.', 'analytica' ),
         'id'        => 'font-form-legend',
-        'default'   => $default['font-form-legend'],
         'type'      => 'typography',
         'section'   => 'forms_typography',
         'transport' => 'auto',
@@ -265,7 +250,6 @@ function analytica_add_typography_controls( $controls ) {
         'label'     => esc_html__( 'Site credits typography', 'analytica' ),
         'desc'      => esc_html__( 'Typography applied to the footer copyright section of the site.', 'analytica' ),
         'id'        => 'site-credit-typography',
-        'default'   => $default['site-credit-typography'],
         'type'      => 'typography',
         'section'   => 'site_footer_typography',
         'transport' => 'auto',
@@ -280,7 +264,6 @@ function analytica_add_typography_controls( $controls ) {
         'label'     => esc_html__( 'Blog heading', 'analytica' ),
         'desc'      => esc_html__( 'Typography applied to the blog headings.', 'analytica' ),
         'id'        => 'archive-heading-typography',
-        'default'   => $default['archive-heading-typography'],
         'type'      => 'typography',
         'section'   => 'site_blog_typography',
         'transport' => 'auto',

@@ -169,7 +169,6 @@ class Customizer {
                 $args = array(
                     'type'        => $value['type'],
                     'section'     => ! empty( $value['section'] ) ? $value['section'] : 'general',
-                    'default'     => ! empty( $value['default'] ) ? $value['default'] : '',
                     'label'       => ! empty( $value['title'] ) ? $value['title'] : $value['label'],
                     'description' => ! empty( $value['desc'] ) ? $value['desc'] : '',
                     'priority'    => ! empty( $value['priority'] ) ? $value['priority'] : 10,
@@ -185,6 +184,12 @@ class Customizer {
                     $args['settings'] = $value['settings'];
                 } else {
                     $args['settings'] = $value['id'];
+				}
+
+				if ( ! empty( $value['default'] ) ) {
+                    $args['default'] = $value['default'];
+                } elseif( ! empty( self::$defaults[$args['settings']] ) ) {
+                    $args['default'] = self::$defaults[$args['settings']];
                 }
 
                 if ( ! empty( $value['conditions'] ) ) {

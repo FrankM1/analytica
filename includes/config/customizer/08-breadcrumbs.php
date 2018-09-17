@@ -18,14 +18,11 @@ add_filter( 'analytica_customizer_controls', 'analytica_get_customizer_breadcrum
   * @return array
   */
  function analytica_get_customizer_breadcrumbs( $controls ) {
-    
-    $default = Analytica\Options::defaults();
 
     $controls[] = [
         'label'     => esc_html__( 'Link Color', 'analytica' ),
         'id'        => 'site-breadcrumb-color',
         'type'      => 'color',
-        'default'   => $default['site-breadcrumb-color'],
         'section'   => 'breadcrumb',
         'transport' => 'auto',
         'output'    => [
@@ -40,7 +37,6 @@ add_filter( 'analytica_customizer_controls', 'analytica_get_customizer_breadcrum
         'label'     => esc_html__( 'Active Link Color', 'analytica' ),
         'id'        => 'site-breadcrumb-active-color',
         'type'      => 'color',
-        'default'   => $default['site-breadcrumb-active-color'],
         'section'   => 'breadcrumb',
         'transport' => 'auto',
         'output'    => [
@@ -55,7 +51,6 @@ add_filter( 'analytica_customizer_controls', 'analytica_get_customizer_breadcrum
         'label'     => esc_html__( 'Background Color', 'analytica' ),
         'id'        => 'site-breadcrumb-background-color',
         'type'      => 'color',
-        'default'   => $default['site-breadcrumb-background-color'],
         'section'   => 'breadcrumb',
         'transport' => 'auto',
         'output'    => [

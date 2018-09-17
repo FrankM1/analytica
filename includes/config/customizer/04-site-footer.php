@@ -14,7 +14,6 @@ add_filter( 'analytica_customizer_controls', 'analytica_admin_add_customizer_sit
  */
 function analytica_admin_add_customizer_site_footer_control( $controls ) {
 
-    $default    = Analytica\Options::defaults();
     $core       = analytica();
 
     $new_controls = [
@@ -23,7 +22,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'section' => 'footer_general',
             'type'    => 'switch',
             'label'   => esc_html__( 'Enable Footer' , 'analytica' ),
-            'default'   => $default['site-footer'],
             'options' => [
                 1 => esc_attr__( 'Enable', 'analytica' ),
                 0 => esc_attr__( 'Disable', 'analytica' ),
@@ -35,7 +33,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'section' => 'footer_general',
             'type'    => 'switch',
             'label'   => esc_html__( 'Enable Footer Widgets' , 'analytica' ),
-            'default'   => $default['site-footer-widgets'],
             'options' => [
                 1 => esc_attr__( 'Enable', 'analytica' ),
                 0 => esc_attr__( 'Disable', 'analytica' ),
@@ -54,7 +51,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'section' => 'footer_general',
             'type'    => 'switch',
             'label'   => esc_html__( 'Footer fullwidth' , 'analytica' ),
-            'default'   => $default['site-footer-width'],
             'options' => [
                 1 => esc_attr__( 'Enable', 'analytica' ),
                 0 => esc_attr__( 'Disable', 'analytica' ),
@@ -110,7 +106,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
                 'layout-11' => $core->theme_url . '/assets/admin/images/footer/footer-11.png',
                 'layout-12' => $core->theme_url . '/assets/admin/images/footer/footer-12.png',
             ],
-            'default'   => $default['site-footer-layout'],
             'conditions' => [
                 [
                     'setting'  => 'site-footer',
@@ -150,7 +145,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             /* translators: %1$s: Theme name */
             'desc'            => sprintf( esc_html__( 'Support %1$s by displaying the %1$s badge on your site.', 'analytica' ), analytica()->theme_title ),
             'type'            => 'switch',
-            'default'   => $default['site-theme-badge'],
             'conditions' => [
                 [
                     'setting'  => 'site-footer',
@@ -170,7 +164,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'            => 'switch',
             'transport'       => 'postMessage',
             'label'           => esc_html__( 'Back to Top Button', 'analytica' ),
-            'default'   => $default['site-back-to-top'],
             'conditions' => [
                 [
                     'setting'  => 'site-footer',
@@ -189,7 +182,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'    => 'spacing',
             'label'   => esc_html__( 'Footer padding', 'analytica' ),
             'section' => 'footer_general',
-            'default'   => $default['site-footer-padding'],
             'transport' => 'auto',
             'output'    => [
                 [
@@ -211,7 +203,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'    => 'spacing',
             'label'   => esc_html__( 'Border', 'analytica' ),
             'section' => 'footer_general',
-            'default'   => $default['site-footer-border'],
             'transport' => 'auto',
             'conditions' => [
                 [
@@ -228,7 +219,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'      => 'color',
             'transport' => 'auto',
             'label'     => esc_html__( 'Border Color' , 'analytica' ),
-            'default'   => $default['footer-border-color'],
             'output'    => [
                 [
                     'property' => 'border-color',
@@ -251,7 +241,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'            => 'color',
             'transport'       => 'auto',
             'label'           => esc_html__( 'Text Color' , 'analytica' ),
-            'default'   => $default['footer-text-color'],
             'conditions' => [
                 [
                     'setting'  => 'site-footer',
@@ -277,7 +266,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'            => 'color',
             'transport'       => 'auto',
             'label'           => esc_html__( 'Headings Color' , 'analytica' ),
-            'default'   => $default['footer-headers-color'],
             'conditions' => [
                 [
                     'setting'  => 'site-footer',
@@ -313,7 +301,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'            => 'color',
             'transport'       => 'auto',
             'label'           => esc_html__( 'Accent Color' , 'analytica' ),
-            'default'   => $default['footer-accent-color'],
             'conditions' => [
                 [
                     'setting'  => 'site-footer',
@@ -345,7 +332,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'            => 'color',
             'transport'       => 'auto',
             'label'           => esc_html__( 'Link Color' , 'analytica' ),
-            'default'   => $default['footer-link-color'],
             'conditions' => [
                 [
                     'setting'  => 'site-footer',
@@ -373,7 +359,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'transport'   => 'auto',
             'label'       => esc_html__( 'Choose a background', 'analytica' ),
             'description' => esc_html__( 'The background you specify here will apply to the footer area', 'analytica' ),
-            'default'   => $default['footer-background'],
             'conditions' => [
                 [
                     'setting'  => 'site-footer',
@@ -393,7 +378,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'section' => 'footer_copyright',
             'type'    => 'switch',
             'label'   => esc_html__( 'Enable colophon' , 'analytica' ),
-            'default'   => $default['site-footer-colophon'],
             'options' => [
                 1 => esc_attr__( 'Enable', 'analytica' ),
                 0 => esc_attr__( 'Disable', 'analytica' ),
@@ -412,7 +396,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'section' => 'footer_copyright',
             'type'    => 'switch',
             'label'   => esc_html__( 'Footer colophon fullwidth' , 'analytica' ),
-            'default'   => $default['site-footer-colophon-width'],
             'options' => [
                 1 => esc_attr__( 'Enable', 'analytica' ),
                 0 => esc_attr__( 'Disable', 'analytica' ),
@@ -452,7 +435,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'transport'       => 'postMessage',
             'type'            => 'textarea',
             'label'           => esc_html__( 'Copyright Text' , 'analytica' ),
-            'default'   => $default['site-footer-copyright-text'],
             'conditions' => [
                 [
                     'setting'  => 'site-footer-colophon',
@@ -473,7 +455,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'    => 'spacing',
             'label'   => esc_html__( 'Colophon Padding', 'analytica' ),
             'section' => 'footer_copyright',
-            'default'   => $default['site-footer-colophon-padding'],
             'transport' => 'auto',
             'output'    => [
                 [
@@ -495,7 +476,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'    => 'spacing',
             'label'   => esc_html__( 'Colophon border', 'analytica' ),
             'section' => 'footer_copyright',
-            'default'   => $default['site-footer-colophon-border'],
             'transport' => 'auto',
             'conditions' => [
                 [
@@ -512,7 +492,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'      => 'color',
             'transport' => 'auto',
             'label'     => esc_html__( 'Colophon Border Color' , 'analytica' ),
-            'default'   => $default['site-footer-colophon-border-color'],
             'transport' => 'auto',
             'output'    => [
                 [
@@ -535,7 +514,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'      => 'color',
             'transport' => 'auto',
             'label'     => esc_html__( 'Colophon Color' , 'analytica' ),
-            'default'   => $default['site-footer-colophon-color'],
             'output'    => [
                 [
                     'property' => 'color',
@@ -557,7 +535,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'      => 'color',
             'transport' => 'auto',
             'label'     => esc_html__( 'Colophon Links Color' , 'analytica' ),
-            'default'   => $default['site-footer-colophon-links-color'],
             'output'    => [
                 [
                     'property' => 'color',
@@ -579,7 +556,6 @@ function analytica_admin_add_customizer_site_footer_control( $controls ) {
             'type'      => 'color',
             'transport' => 'auto',
             'label'     => esc_html__( 'Colophon Background Color' , 'analytica' ),
-            'default'   => $default['site-footer-colophon-background-color'],
             'output'    => [
                 [
                     'property' => 'background-color',
