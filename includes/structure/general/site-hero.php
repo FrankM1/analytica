@@ -172,13 +172,13 @@ class Site_Hero {
 
     public function do_title() {
         if ( $this->args['show-title'] && ! empty( $this->page_title ) ) {
-            ?><h1 class = "header"><?php echo wp_kses( $this->page_title, analytica_get_allowed_tags() ); ?></h1><?php
+            ?><h1 class = "site-hero-header"><?php echo wp_kses( $this->page_title, analytica_get_allowed_tags() ); ?></h1><?php
         }
     }
 
     public function do_subtitle() {
         if ( ! empty( $this->page_subtitle ) && $this->args['show-subtitle'] ) {
-            ?><h3 class = "subheader"><?php echo wp_kses( $this->page_subtitle, analytica_get_allowed_tags() ); ?></h3><?php
+            ?><h3 class = "site-hero-subheader"><?php echo wp_kses( $this->page_subtitle, analytica_get_allowed_tags() ); ?></h3><?php
         }
     }
 

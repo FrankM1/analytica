@@ -210,7 +210,7 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
         'transport' => 'auto',
         'output'    => array(
             array(
-                'element' => ' .site-hero  .site-hero-wrapper .header',
+                'element' => '.site-hero .site-hero-wrapper .site-hero-header',
             ),
         ),
         'conditions' => [
@@ -232,7 +232,7 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
         'output'    => [
             [
                 'property' => 'padding',
-                'element'  => ' .site-hero  .site-hero-wrapper .header',
+                'element'  => '.site-hero .site-hero-wrapper .site-hero-header',
             ],
         ],
         'conditions' => [
@@ -254,7 +254,7 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
         'media_query' => '@media only screen and (min-width: 768px)',
         'output'    => array(
             array(
-                'element' => ' .site-hero  .site-hero-wrapper .subheader',
+                'element' => '.site-hero .site-hero-wrapper .site-hero-subheader',
             ),
         ),
         'conditions' => [
@@ -281,7 +281,7 @@ function analytica_admin_add_customizer_site_hero_control( $controls ) {
         'output'    => [
             [
                 'property' => 'padding',
-                'element'  => ' .site-hero  .site-hero-wrapper .subheader',
+                'element'  => '.site-hero .site-hero-wrapper .site-hero-subheader',
             ],
         ],
         'conditions' => [

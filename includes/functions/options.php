@@ -37,12 +37,11 @@ function analytica_get_post_id( $post_id_override = '' ) {
     return apply_filters( __FUNCTION__, \Analytica\Options::$post_id, $post_id_override );
 }
 
- /**
+/**
  * Default color picker palettes
  *
  * @since 1.4.9
  */
-
 function analytica_default_color_palettes() {
 
     $font_base            = analytica_get_option( 'font-base' );
