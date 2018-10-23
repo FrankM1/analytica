@@ -24,7 +24,7 @@ class Header_Composer {
 	 */
 	public function __construct() {
 
-		if ( ! $this->is_builder_activated()) {
+		if ( ! $this->is_builder_activated() ) {
 			return;
 		}
 
