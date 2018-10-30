@@ -17,24 +17,27 @@ namespace Analytica\Extensions\Qazana;
  *
  * @since 1.0.0
  */
-class Headers {
+class Footers {
 
 	/**
 	 * Default actions
 	 */
 	public function __construct() {
+		add_action( 'after_setup_theme', [ $this, 'integrate'], 15 );
+	}
+
+	function integrate() {
 
 		if ( ! $this->is_builder_activated() ) {
 			return;
 		}
 
-		add_filter( 'analytica_site_header_is_active', function ($args) {
-			return false;
-        });
-
-		add_filter( 'qazana/headers/get_injection_hook', function () {
-			return 'analytica_header';
+		add_filter( 'qazana/footers/get_injection_hook', function () {
+			return 'analytica_footer';
 		});
+
+		add_filter( 'analytica_site_footer_is_active', '__return_false' );
+		add_filter( 'analytica_site_colophon_is_active', '__return_false' );
 	}
 
 	/**
@@ -45,7 +48,7 @@ class Headers {
 	 * @return boolean
 	 */
 	function is_builder_activated( $retval = false ) {
-		if ( analytica_detect_plugin( array( 'classes' => array( 'Qazana\Headers\Plugin' ) ) ) ) {
+		if ( analytica_detect_plugin( array( 'classes' => array( 'Qazana\Extensions\Site_Footer' ) ) ) ) {
 			return true;
 		}
 		return $retval;
