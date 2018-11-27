@@ -16,8 +16,7 @@
     'use strict';
 
     // global
-    var Modernizr = window.Modernizr,
-        $body = $( 'body' );
+    var $body = $( 'body' );
 
     $.DLMenu = function( options, element ) {
 
@@ -40,13 +39,13 @@
 
         // callback: click a link that has a sub menu
         // el is the link element (li); name is the level name
-        onLevelClick: function( el, name ) {
+        onLevelClick: function() {
             return false;
         },
 
         // callback: click a link that does not have a sub menu
         // el is the link element (li); ev is the event obj
-        onLinkClick: function( el, ev ) {
+        onLinkClick: function() {
             return false;
         }
     };
@@ -56,20 +55,6 @@
 
             // options
             this.options = $.extend( true, {}, $.DLMenu.defaults, options );
-
-            var animEndEventNames = {
-                    'WebkitAnimation': 'webkitAnimationEnd',
-                    'OAnimation': 'oAnimationEnd',
-                    'msAnimation': 'MSAnimationEnd',
-                    'animation': 'animationend'
-                },
-                transEndEventNames = {
-                    'WebkitTransition': 'webkitTransitionEnd',
-                    'MozTransition': 'transitionend',
-                    'OTransition': 'oTransitionEnd',
-                    'msTransition': 'MSTransitionEnd',
-                    'transition': 'transitionend'
-                };
 
             // animation end event name
             this.animEndEventName = 'animationend.dlmenu';
@@ -116,7 +101,7 @@
 
                 if ( $submenu.length > 0 ) {
 
-                    var $flyin = $submenu.clone().css( 'opacity', 0 ).addClass('submenu-clone').insertAfter( self.$menu ),
+                    var $flyin = $submenu.clone().css( 'opacity', 0 ).addClass( 'submenu-clone' ).insertAfter( self.$menu ),
                         onAnimationEndFn = function() {
                            self.$menu.off( self.animEndEventName ).removeClass( self.options.animationClasses.classout ).addClass( 'dl-subview' );
                            $item.addClass( 'dl-subviewopen' ).parents( '.dl-subviewopen:first' ).removeClass( 'dl-subviewopen' ).addClass( 'dl-subview' );
@@ -144,13 +129,13 @@
 
             });
 
-            this.$back.on( 'click.dlmenu', function( event ) {
+            this.$back.on( 'click.dlmenu', function() {
 
                 var $this = $( this ),
                     $submenu = $this.parents( 'ul.sub-menu:first' ),
                     $item = $submenu.parent();
 
-                var $flyin = $submenu.clone().addClass('submenu-clone back').insertAfter(self.$menu);
+                var $flyin = $submenu.clone().addClass( 'submenu-clone back' ).insertAfter( self.$menu );
 
                 var onAnimationEndFn = function() {
                    	self.$menu.off( self.animEndEventName ).removeClass( self.options.animationClasses.classin );
