@@ -34,7 +34,8 @@ class Qazana {
         add_filter( 'qazana/schemes/default_color_picker_schemes', [ $this, 'default_color_picker_schemes'] );
         add_filter( 'qazana/schemes/system_color_schemes', [ $this, 'system_color_schemes'] );
         add_filter( 'qazana/schemes/default_color_schemes', [ $this, 'default_colors'] );
-        add_filter( 'qazana/schemes/default_fonts', [ $this, 'reset_default_font'] );
+		add_filter( 'qazana/schemes/default_fonts', [ $this, 'reset_default_font'] );
+		add_filter( 'qazana/footers/get_injection_hook', [ $this, 'site_footer_support' ] );
     }
 
     /**
@@ -248,5 +249,16 @@ class Qazana {
         }
 
         return $retval;
-    }
+	}
+
+	/**
+	 * Site Footer
+	 *
+     * @since 1.0.0
+     *
+     * @return boolean
+     */
+	public function site_footer_support( $option ) {
+		return 'analytica_footer';
+	}
 }
