@@ -228,10 +228,10 @@ class Qazana {
                     '3' => $font_base_color,
                     '4' => $accent_color, // Accents color, buttons etc
                 ] );
-
             }
-        }
+		}
 
+        update_option( \Qazana\Scheme_Base::LAST_UPDATED_META, time() );
     }
 
     /**
