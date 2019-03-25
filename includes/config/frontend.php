@@ -97,7 +97,7 @@ class Frontend {
 
         wp_register_script(
             'analytica-frontend',
-            analytica()->theme_url . '/assets/frontend/js/main' . $js_suffix,
+            analytica()->theme_url . '/assets/frontend/js/analytica-frontend' . $js_suffix,
             $dependencies,
             $version,
             true
@@ -136,7 +136,7 @@ class Frontend {
 
 		endif;
 
-        wp_enqueue_style( 'analytica-frontend', analytica()->theme_url . '/assets/frontend/css/main' . $css_suffix, '', $version, 'all' );
+        wp_enqueue_style( 'analytica-frontend', analytica()->theme_url . '/assets/frontend/css/analytica-frontend' . $css_suffix, '', $version, 'all' );
     }
 
     public function enqueue_customizer_styles() {

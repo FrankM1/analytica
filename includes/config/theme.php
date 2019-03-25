@@ -226,7 +226,7 @@ class Theme {
          */
         $dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
         $file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-        add_editor_style( 'assets/frontend/css/' . $dir_name . '/editor-style' . $file_prefix . '.css' );
+        add_editor_style( 'assets/frontend/css/' . $dir_name . '/analytica-editor-style' . $file_prefix . '.css' );
 
         if ( apply_filters( 'analytica_fullwidth_oembed', true ) ) {
             // Filters the oEmbed process to run the responsive_oembed_wrapper() function.
