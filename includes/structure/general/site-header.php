@@ -123,6 +123,7 @@ function analytica_site_header_assets() {
         'analytica-navigation-mobile',
         analytica()->theme_url . '/assets/frontend/js/analytica-navigation.js',
         [
+            'analytica-frontend',
             'analytica-jquery-dlmenu',
         ],
         $version,
