@@ -39,6 +39,8 @@ class Qazana {
         add_filter( 'qazana/schemes/default_color_schemes', [ $this, 'default_colors'] );
 		add_filter( 'qazana/schemes/default_fonts', [ $this, 'reset_default_font'] );
 		add_filter( 'qazana/footers/get_injection_hook', [ $this, 'site_footer_support' ] );
+
+		add_filter( 'analytica_dynamic_css_cached', array( $this, 'add_container_css' ));
     }
 
     /**
@@ -70,7 +72,23 @@ class Qazana {
      */
     function page_selector( $base_selector, $model ) {
         return $base_selector . '.site-mono-container .site-container, ' . $base_selector . '.site-dual-containers .site-container, ' . $base_selector . '.site-container-detach .site-container';
-    }
+	}
+
+	/**
+     * Add container css
+     *
+     * @return string css selector
+     */
+	function add_container_css( $css ) {
+		$site_container_width               = intval( analytica_get_option( 'site-content-width' ) );
+		$site_sidebar_width                 = intval( analytica_get_option( 'site-sidebar-width' ) );
+
+		if ( $site_container_width > 0 ) {
+			$css .= '.qazana-section.qazana-section-boxed > .qazana-container { max-width: ' . esc_attr( $site_container_width + $site_sidebar_width  ) . 'px; }';
+		}
+
+		return $css;
+	}
 
     /**
      * Add hero title selector to qazana
