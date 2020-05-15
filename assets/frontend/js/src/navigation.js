@@ -9,7 +9,7 @@
 
         var mobilemenu_instance = jQuery( '.nav-horizontal' ).data( 'dlmenu' );
 
-        if ( window.matchMedia( 'screen and (max-width: 1023px)' ).matches ) {
+        if ( window.matchMedia( 'screen and (max-width: 1024px)' ).matches ) {
 
             if ( ! mobilemenu_instance ) {
                 jQuery( '.nav-horizontal' ).dlmenu();
