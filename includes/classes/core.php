@@ -141,10 +141,6 @@ class Core {
         $this->dynamic_css                             = new Dynamic_CSS();
         $this->frontend                                = new Frontend();
 		$this->markup                                  = new Markup();
-		if ( is_admin() ) {
-			$this->metaboxes                           = new MetaBoxes();
-		}
-        $this->metabox_actions                         = new Metabox\Actions();
         $this->options_instance                        = new Options();
         $this->schema                                  = new SchemaORG();
 		$this->theme                                   = new Theme();
@@ -199,11 +195,6 @@ class Core {
         require_once get_theme_file_path( '/includes/config/theme.php' );
         require_once get_theme_file_path( '/includes/config/frontend.php' );
         require_once get_theme_file_path( '/includes/config/skin-css.php' );
-
-        if ( is_admin() ) {
-            require_once get_theme_file_path( '/includes/config/metabox/meta-boxes.php' );
-        }
-
         require_once get_theme_file_path( '/includes/config/strings.php' );
     }
 
@@ -212,10 +203,8 @@ class Core {
         require_once get_theme_file_path( '/includes/classes/css/css-base.php' );
         require_once get_theme_file_path( '/includes/classes/css/global-css-file.php' );
         require_once get_theme_file_path( '/includes/classes/css/css-generate.php' );
-
         require_once get_theme_file_path( '/includes/classes/customizer/customizer.php' );
         require_once get_theme_file_path( '/includes/classes/customizer/controls.php' );
-        require_once get_theme_file_path( '/includes/classes/metaboxes/actions.php' );
     }
 
     function _include_function() {
