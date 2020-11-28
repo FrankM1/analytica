@@ -1,7 +1,3 @@
-v1.0.12
-- Fixed broken mobile menu
-- Updated translation file
-
 v1.0.11
 - Improved blog styling
 - Correct title tags in related posts

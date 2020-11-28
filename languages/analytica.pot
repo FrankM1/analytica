@@ -1,4 +1,4 @@
-# Copyright (C) 2020 analytica
+# Copyright (C) 2018 analytica
 # This file is distributed under the same license as the analytica package.
 msgid ""
 msgstr ""
@@ -76,7 +76,7 @@ msgstr ""
 msgid "Useful Plugins"
 msgstr ""
 
-#: includes/admin/about-page.php:46, includes/config/customizer/04-site-footer.php:144
+#: includes/admin/about-page.php:46, includes/config/customizer/04-site-footer.php:149
 msgid "Support"
 msgstr ""
 
@@ -152,11 +152,11 @@ msgstr ""
 msgid "It is highly recommended that you install Kirki so you can access more customizer options."
 msgstr ""
 
-#: includes/config/options.php:322
+#: includes/config/options.php:317
 msgid "Latest posts"
 msgstr ""
 
-#: includes/config/options.php:349
+#: includes/config/options.php:344
 msgid "Copyright &copy; [year] Your Company or website name here. All rights reserved."
 msgstr ""
 
@@ -300,7 +300,7 @@ msgstr ""
 msgid "Secondary text color"
 msgstr ""
 
-#: includes/config/theme.php:138, includes/config/customizer/01-general.php:91
+#: includes/config/theme.php:138, includes/config/customizer/01-general.php:99
 msgid "Accent color"
 msgstr ""
 
@@ -382,26 +382,22 @@ msgstr ""
 msgid "Activating"
 msgstr ""
 
-#: includes/classes/css/css-generate.php:76
-msgid "Cannot delete files cache"
-msgstr ""
-
 #: includes/classes/customizer/customizer.php:104
 msgid "Display Site Title &amp; Tagline"
 msgstr ""
 
-#: includes/classes/customizer/customizer.php:241
+#: includes/classes/customizer/customizer.php:236
 msgid "Reset"
 msgstr ""
 
-#: includes/classes/customizer/customizer.php:242
+#: includes/classes/customizer/customizer.php:237
 msgid ""
 "Attention! This will remove all customizations ever made via customizer to this theme!\n"
 "\n"
 "This action is irreversible!"
 msgstr ""
 
-#: includes/classes/nav/breadcrumb.php:46, includes/config/customizer/08-breadcrumbs.php:77, includes/structure/general/template-tags.php:167
+#: includes/classes/nav/breadcrumb.php:46, includes/config/customizer/08-breadcrumbs.php:82, includes/structure/general/template-tags.php:167
 msgid "Home"
 msgstr ""
 
@@ -409,753 +405,689 @@ msgstr ""
 msgid "You are here: "
 msgstr ""
 
-#: includes/config/customizer/01-general.php:22
+#: includes/config/customizer/01-general.php:24
 msgid "Site layout"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:24, includes/config/metabox/meta-boxes.php:147
+#: includes/config/customizer/01-general.php:27
 msgid "Boxed"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:25
+#: includes/config/customizer/01-general.php:28
 msgid "Wide"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:33
+#: includes/config/customizer/01-general.php:36
 msgid "Site sidebar Layout"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:40
+#: includes/config/customizer/01-general.php:44
 msgid "Site container width"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:47
+#: includes/config/customizer/01-general.php:52
 msgid "Site sidebar width"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:62
+#: includes/config/customizer/01-general.php:68
 msgid "Detach containers"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:64, includes/config/customizer/01-general.php:75, includes/config/customizer/02-site-header.php:30, includes/config/customizer/04-site-footer.php:26, includes/config/customizer/04-site-footer.php:37, includes/config/customizer/04-site-footer.php:55, includes/config/customizer/04-site-footer.php:156, includes/config/customizer/04-site-footer.php:175, includes/config/customizer/04-site-footer.php:382, includes/config/customizer/04-site-footer.php:400, includes/config/customizer/07-blog-single.php:51
+#: includes/config/customizer/01-general.php:71, includes/config/customizer/01-general.php:83, includes/config/customizer/02-site-header.php:34, includes/config/customizer/04-site-footer.php:28, includes/config/customizer/04-site-footer.php:40, includes/config/customizer/04-site-footer.php:59, includes/config/customizer/04-site-footer.php:162, includes/config/customizer/04-site-footer.php:182, includes/config/customizer/04-site-footer.php:398, includes/config/customizer/04-site-footer.php:417, includes/config/customizer/07-blog-single.php:56
 msgid "Enable"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:65, includes/config/customizer/01-general.php:76, includes/config/customizer/02-site-header.php:31, includes/config/customizer/04-site-footer.php:27, includes/config/customizer/04-site-footer.php:38, includes/config/customizer/04-site-footer.php:56, includes/config/customizer/04-site-footer.php:157, includes/config/customizer/04-site-footer.php:176, includes/config/customizer/04-site-footer.php:383, includes/config/customizer/04-site-footer.php:401, includes/config/customizer/07-blog-single.php:52
+#: includes/config/customizer/01-general.php:72, includes/config/customizer/01-general.php:84, includes/config/customizer/02-site-header.php:35, includes/config/customizer/04-site-footer.php:29, includes/config/customizer/04-site-footer.php:41, includes/config/customizer/04-site-footer.php:60, includes/config/customizer/04-site-footer.php:163, includes/config/customizer/04-site-footer.php:183, includes/config/customizer/04-site-footer.php:399, includes/config/customizer/04-site-footer.php:418, includes/config/customizer/07-blog-single.php:57
 msgid "Disable"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:73
+#: includes/config/customizer/01-general.php:80
 msgid "Dual containers"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:98, includes/config/customizer/02-site-header.php:117, includes/config/customizer/02-site-header.php:216
+#: includes/config/customizer/01-general.php:107, includes/config/customizer/02-site-header.php:124, includes/config/customizer/02-site-header.php:226
 msgid "Background color"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:114
+#: includes/config/customizer/01-general.php:124
 msgid "Content area background"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:130
+#: includes/config/customizer/01-general.php:141
 msgid "Link color"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:137
+#: includes/config/customizer/01-general.php:149
 msgid "Link highlight color"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:144
+#: includes/config/customizer/01-general.php:157
 msgid "Text color"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:151
+#: includes/config/customizer/01-general.php:165
 msgid "Border color"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:172
+#: includes/config/customizer/01-general.php:187
 msgid "Form background color"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:188
+#: includes/config/customizer/01-general.php:204
 msgid "Form highlight background color"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:204
+#: includes/config/customizer/01-general.php:221
 msgid "Form border color"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:220
+#: includes/config/customizer/01-general.php:238
 msgid "Form text color"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:236
+#: includes/config/customizer/01-general.php:255
 msgid "Button background color"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:246
+#: includes/config/customizer/01-general.php:266
 msgid "Button background highlight color"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:256
+#: includes/config/customizer/01-general.php:277
 msgid "Button text color"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:266
+#: includes/config/customizer/01-general.php:288
 msgid "Button radius"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:273
+#: includes/config/customizer/01-general.php:296
 msgid "Button highlight color"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:283
+#: includes/config/customizer/01-general.php:307
 msgid "Button horizontal padding"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:290
+#: includes/config/customizer/01-general.php:315
 msgid "Button vertical padding"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:294
+#: includes/config/customizer/01-general.php:320
 msgid "Logo typography"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:295
+#: includes/config/customizer/01-general.php:321
 msgid "Typography applied to the text logo."
 msgstr ""
 
-#: includes/config/customizer/01-general.php:317, includes/config/customizer/04-site-footer.php:592, includes/config/customizer/05-typography.php:291
+#: includes/config/customizer/01-general.php:344, includes/config/customizer/04-site-footer.php:616, includes/config/customizer/05-typography.php:308
 msgid "General"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:321
+#: includes/config/customizer/01-general.php:348
 msgid "General Settings"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:327
+#: includes/config/customizer/01-general.php:354
 msgid "Container Style"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:333
+#: includes/config/customizer/01-general.php:360
 msgid "Form Style"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:339
+#: includes/config/customizer/01-general.php:366
 msgid "Button Style"
 msgstr ""
 
-#: includes/config/customizer/01-general.php:345
+#: includes/config/customizer/01-general.php:372
 msgid "Logo & Favicon"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:21
+#: includes/config/customizer/02-site-header.php:23
 msgid "Enable Header"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:28
+#: includes/config/customizer/02-site-header.php:31
 msgid "Header fullwidth"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:68
+#: includes/config/customizer/02-site-header.php:73
 msgid "Header Overlay"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:82
+#: includes/config/customizer/02-site-header.php:88
 msgid "Header Transparent"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:95
+#: includes/config/customizer/02-site-header.php:101
 msgid "Header padding"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:138, includes/config/customizer/02-site-header.php:257, includes/config/customizer/04-site-footer.php:334, includes/config/customizer/08-breadcrumbs.php:23
+#: includes/config/customizer/02-site-header.php:146, includes/config/customizer/02-site-header.php:268, includes/config/customizer/04-site-footer.php:347, includes/config/customizer/08-breadcrumbs.php:25
 msgid "Link Color"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:160, includes/config/customizer/02-site-header.php:279
+#: includes/config/customizer/02-site-header.php:168, includes/config/customizer/02-site-header.php:290
 msgid "Highlight Link Color"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:179, includes/config/customizer/04-site-footer.php:204
+#: includes/config/customizer/02-site-header.php:187, includes/config/customizer/04-site-footer.php:212
 msgid "Border"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:196, includes/config/customizer/04-site-footer.php:221
+#: includes/config/customizer/02-site-header.php:205, includes/config/customizer/04-site-footer.php:230
 msgid "Border Color"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:236
+#: includes/config/customizer/02-site-header.php:247
 msgid "Color"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:304
+#: includes/config/customizer/02-site-header.php:315
 msgid "Site Header"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:309, includes/config/customizer/03-site-hero.php:310
+#: includes/config/customizer/02-site-header.php:320, includes/config/customizer/03-site-hero.php:326
 msgid "Settings"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:315
+#: includes/config/customizer/02-site-header.php:326
 msgid "Style"
 msgstr ""
 
-#: includes/config/customizer/02-site-header.php:321
+#: includes/config/customizer/02-site-header.php:332
 msgid "Overlay Styling"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:19
+#: includes/config/customizer/03-site-hero.php:21
 msgid "Enable Site Hero"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:26
+#: includes/config/customizer/03-site-hero.php:29
 msgid "Enable title"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:40
+#: includes/config/customizer/03-site-hero.php:44
 msgid "Enable subtitle"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:54
+#: includes/config/customizer/03-site-hero.php:59
 msgid "Enable breadcrumbs"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:71
+#: includes/config/customizer/03-site-hero.php:77
 msgid "Display page header section on posts"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:90
+#: includes/config/customizer/03-site-hero.php:97
 msgid "Display page header on post archives"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:101
+#: includes/config/customizer/03-site-hero.php:109
 msgid "Full window height"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:102
+#: includes/config/customizer/03-site-hero.php:110
 msgid "Sets full window height for custom header"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:116
+#: includes/config/customizer/03-site-hero.php:125
 msgid "Custom header height in px"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:117
+#: includes/config/customizer/03-site-hero.php:126
 msgid "Allows you to set the custom header height"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:143
+#: includes/config/customizer/03-site-hero.php:153
 msgid "Background color scheme style"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:144
+#: includes/config/customizer/03-site-hero.php:154
 msgid "According to the color scheme you choose the text colors will be changed to make it more readable."
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:149
+#: includes/config/customizer/03-site-hero.php:160
 msgid "Light"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:150
+#: includes/config/customizer/03-site-hero.php:161
 msgid "Dark"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:162
+#: includes/config/customizer/03-site-hero.php:173
 msgid "Text alignment"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:163
+#: includes/config/customizer/03-site-hero.php:174
 msgid "Choose the text alignment in the custom header."
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:169, includes/classes/customizer/controls/dimensions/dimensions.php:167
+#: includes/config/customizer/03-site-hero.php:181, includes/classes/customizer/controls/dimensions/dimensions.php:167
 msgid "Left"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:170
+#: includes/config/customizer/03-site-hero.php:182
 msgid "Center"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:171, includes/classes/customizer/controls/dimensions/dimensions.php:165
+#: includes/config/customizer/03-site-hero.php:183, includes/classes/customizer/controls/dimensions/dimensions.php:165
 msgid "Right"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:183
+#: includes/config/customizer/03-site-hero.php:195
 msgid "Background overlay color"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:184
+#: includes/config/customizer/03-site-hero.php:196
 msgid "The background color will be as an overlay."
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:205
+#: includes/config/customizer/03-site-hero.php:218
 msgid "Header Font"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:206
+#: includes/config/customizer/03-site-hero.php:219
 msgid "The page header for your site."
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:229
+#: includes/config/customizer/03-site-hero.php:243
 msgid "Heading padding"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:248
+#: includes/config/customizer/03-site-hero.php:263
 msgid "Sub header Font"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:249
+#: includes/config/customizer/03-site-hero.php:264
 msgid "The page subheader for your site."
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:272
+#: includes/config/customizer/03-site-hero.php:288
 msgid "Sub heading padding"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:306
+#: includes/config/customizer/03-site-hero.php:322
 msgid "Site Hero"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:316
+#: includes/config/customizer/03-site-hero.php:332
 msgid "Background"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:322, includes/config/customizer/05-typography.php:287
+#: includes/config/customizer/03-site-hero.php:338, includes/config/customizer/05-typography.php:304
 msgid "Typography"
 msgstr ""
 
-#: includes/config/customizer/03-site-hero.php:328
+#: includes/config/customizer/03-site-hero.php:344
 msgid "Mobile"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:24
+#: includes/config/customizer/04-site-footer.php:25
 msgid "Enable Footer"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:35
+#: includes/config/customizer/04-site-footer.php:37
 msgid "Enable Footer Widgets"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:53
+#: includes/config/customizer/04-site-footer.php:56
 msgid "Footer fullwidth"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:93
+#: includes/config/customizer/04-site-footer.php:97
 msgid "Footer Layout"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:94
+#: includes/config/customizer/04-site-footer.php:98
 msgid "Select a layout for the footer."
 msgstr ""
 
 #. translators: %1$s: Theme name
-#: includes/config/customizer/04-site-footer.php:146
+#: includes/config/customizer/04-site-footer.php:151
 msgid "Support %1$s by displaying the %1$s badge on your site."
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:166
+#: includes/config/customizer/04-site-footer.php:172
 msgid "Back to Top Button"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:183
+#: includes/config/customizer/04-site-footer.php:190
 msgid "Footer padding"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:243
+#: includes/config/customizer/04-site-footer.php:253
 msgid "Text Color"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:268
+#: includes/config/customizer/04-site-footer.php:279
 msgid "Headings Color"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:303
+#: includes/config/customizer/04-site-footer.php:315
 msgid "Accent Color"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:360
+#: includes/config/customizer/04-site-footer.php:374
 msgid "Choose a background"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:361
+#: includes/config/customizer/04-site-footer.php:375
 msgid "The background you specify here will apply to the footer area"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:380
+#: includes/config/customizer/04-site-footer.php:395
 msgid "Enable colophon"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:398
+#: includes/config/customizer/04-site-footer.php:414
 msgid "Footer colophon fullwidth"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:437
+#: includes/config/customizer/04-site-footer.php:454
 msgid "Copyright Text"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:456
+#: includes/config/customizer/04-site-footer.php:474
 msgid "Colophon Padding"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:477
+#: includes/config/customizer/04-site-footer.php:496
 msgid "Colophon border"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:494
+#: includes/config/customizer/04-site-footer.php:514
 msgid "Colophon Border Color"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:516
+#: includes/config/customizer/04-site-footer.php:537
 msgid "Colophon Color"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:537
+#: includes/config/customizer/04-site-footer.php:559
 msgid "Colophon Links Color"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:558
+#: includes/config/customizer/04-site-footer.php:581
 msgid "Colophon Background Color"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:588
+#: includes/config/customizer/04-site-footer.php:612
 msgid "Site Footer"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:598
+#: includes/config/customizer/04-site-footer.php:622
 msgid "Colors"
 msgstr ""
 
-#: includes/config/customizer/04-site-footer.php:604
+#: includes/config/customizer/04-site-footer.php:628
 msgid "Copyright"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:23
+#: includes/config/customizer/05-typography.php:25
 msgid "Base Font"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:24
+#: includes/config/customizer/05-typography.php:26
 msgid "The main font for your site. This is used by paragraphs, divs, etc"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:46
+#: includes/config/customizer/05-typography.php:49
 msgid "Secondary Font"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:47
+#: includes/config/customizer/05-typography.php:50
 msgid "The secondary font for your site. This is used by headings, and large text."
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:68
+#: includes/config/customizer/05-typography.php:72
 msgid "H1 Font"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:86
+#: includes/config/customizer/05-typography.php:91
 msgid "H2 Font"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:102
+#: includes/config/customizer/05-typography.php:108
 msgid "H3 Font"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:116
+#: includes/config/customizer/05-typography.php:123
 msgid "H4 Font"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:132
+#: includes/config/customizer/05-typography.php:140
 msgid "H5 Font"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:148
+#: includes/config/customizer/05-typography.php:157
 msgid "H6 Font"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:164
+#: includes/config/customizer/05-typography.php:174
 msgid "Widget Title Font"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:180
+#: includes/config/customizer/05-typography.php:191
 msgid "Emphasis"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:181
+#: includes/config/customizer/05-typography.php:192
 msgid "The emphasis font for your site."
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:201
+#: includes/config/customizer/05-typography.php:213
 msgid "Strong"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:202
+#: includes/config/customizer/05-typography.php:214
 msgid "The strong font for your site."
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:222
+#: includes/config/customizer/05-typography.php:235
 msgid "Form Labels"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:223
+#: includes/config/customizer/05-typography.php:236
 msgid "The font for form labels."
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:236
+#: includes/config/customizer/05-typography.php:250
 msgid "Form Legend"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:237
+#: includes/config/customizer/05-typography.php:251
 msgid "The font for form legend."
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:250
+#: includes/config/customizer/05-typography.php:265
 msgid "Site credits typography"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:251
+#: includes/config/customizer/05-typography.php:266
 msgid "Typography applied to the footer copyright section of the site."
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:264
+#: includes/config/customizer/05-typography.php:280
 msgid "Blog heading"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:265
+#: includes/config/customizer/05-typography.php:281
 msgid "Typography applied to the blog headings."
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:297
+#: includes/config/customizer/05-typography.php:314
 msgid "Forms"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:303
+#: includes/config/customizer/05-typography.php:320
 msgid "Blog"
 msgstr ""
 
-#: includes/config/customizer/05-typography.php:309
+#: includes/config/customizer/05-typography.php:326
 msgid "Footer"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:23
+#: includes/config/customizer/06-blog.php:25
 msgid "Blog post structure"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:26, includes/config/customizer/07-blog-single.php:26
+#: includes/config/customizer/06-blog.php:29, includes/config/customizer/07-blog-single.php:29
 msgid "Featured Image"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:27
+#: includes/config/customizer/06-blog.php:30
 msgid "Title & Blog Meta"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:34
+#: includes/config/customizer/06-blog.php:37
 msgid "Blog post content"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:37
+#: includes/config/customizer/06-blog.php:41
 msgid "Full Content"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:38
+#: includes/config/customizer/06-blog.php:42
 msgid "Excerpt"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:45
+#: includes/config/customizer/06-blog.php:49
 msgid "Blog meta"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:48, includes/config/customizer/07-blog-single.php:37
+#: includes/config/customizer/06-blog.php:53, includes/config/customizer/07-blog-single.php:41
 msgid "Comments"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:49, includes/config/customizer/07-blog-single.php:38
+#: includes/config/customizer/06-blog.php:54, includes/config/customizer/07-blog-single.php:42
 msgid "Category"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:50, includes/config/customizer/07-blog-single.php:39
+#: includes/config/customizer/06-blog.php:55, includes/config/customizer/07-blog-single.php:43
 msgid "Author"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:51, includes/config/customizer/07-blog-single.php:40
+#: includes/config/customizer/06-blog.php:56, includes/config/customizer/07-blog-single.php:44
 msgid "Publish Date"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:52, includes/config/customizer/07-blog-single.php:41
+#: includes/config/customizer/06-blog.php:57, includes/config/customizer/07-blog-single.php:45
 msgid "Tag"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:71
+#: includes/config/customizer/06-blog.php:76
 msgid "Blog Layout"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:75
+#: includes/config/customizer/06-blog.php:80
 msgid "Post Archive"
 msgstr ""
 
-#: includes/config/customizer/06-blog.php:81
+#: includes/config/customizer/06-blog.php:86
 msgid "Single post settings"
 msgstr ""
 
-#: includes/config/customizer/07-blog-single.php:23
+#: includes/config/customizer/07-blog-single.php:25
 msgid "Single post structure"
 msgstr ""
 
-#: includes/config/customizer/07-blog-single.php:27
+#: includes/config/customizer/07-blog-single.php:30
 msgid "Title & Single Meta"
 msgstr ""
 
-#: includes/config/customizer/07-blog-single.php:34
+#: includes/config/customizer/07-blog-single.php:37
 msgid "Single meta"
 msgstr ""
 
-#: includes/config/customizer/07-blog-single.php:49
+#: includes/config/customizer/07-blog-single.php:53
 msgid "Enable Featured Image"
 msgstr ""
 
-#: includes/config/customizer/07-blog-single.php:70
+#: includes/config/customizer/07-blog-single.php:75
 msgid "Single Layout"
 msgstr ""
 
-#: includes/config/customizer/07-blog-single.php:74
+#: includes/config/customizer/07-blog-single.php:79
 msgid "Single Post"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:37
+#: includes/config/customizer/08-breadcrumbs.php:40
 msgid "Active Link Color"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:51
+#: includes/config/customizer/08-breadcrumbs.php:55
 msgid "Background Color"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:68
+#: includes/config/customizer/08-breadcrumbs.php:73
 msgid "Breadcrumb Prefix"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:69
+#: includes/config/customizer/08-breadcrumbs.php:74
 msgid "You Are Here:"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:76
+#: includes/config/customizer/08-breadcrumbs.php:81
 msgid "Breadcrumb Home Title"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:84
+#: includes/config/customizer/08-breadcrumbs.php:89
 msgid "Breadcrumb Seperator"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:92
+#: includes/config/customizer/08-breadcrumbs.php:97
 msgid "Homepage"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:94
+#: includes/config/customizer/08-breadcrumbs.php:99
 msgid "The homepage for the 'Blog' section"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:101
+#: includes/config/customizer/08-breadcrumbs.php:106
 msgid "Front Page"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:103
+#: includes/config/customizer/08-breadcrumbs.php:108
 msgid "The frontpage is be the page set in Settings -> Reading"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:110
+#: includes/config/customizer/08-breadcrumbs.php:115
 msgid "Posts Page"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:118
+#: includes/config/customizer/08-breadcrumbs.php:123
 msgid "Single"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:133
+#: includes/config/customizer/08-breadcrumbs.php:138
 msgid "Page"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:141
+#: includes/config/customizer/08-breadcrumbs.php:146
 msgid "Archive"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:149
+#: includes/config/customizer/08-breadcrumbs.php:154
 msgid "404"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:157
+#: includes/config/customizer/08-breadcrumbs.php:162
 msgid "Attachment/Media"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:164
+#: includes/config/customizer/08-breadcrumbs.php:169
 msgid "Breadcrumb Padding"
 msgstr ""
 
-#: includes/config/customizer/08-breadcrumbs.php:192
+#: includes/config/customizer/08-breadcrumbs.php:197
 msgid "Breadcrumb"
 msgstr ""
 
-#: includes/config/customizer/90-utilities.php:27
-msgid "CSS Print Method"
-msgstr ""
-
-#: includes/config/customizer/90-utilities.php:30
-msgid "External File"
-msgstr ""
-
-#: includes/config/customizer/90-utilities.php:31
-msgid "Internal Embedding"
-msgstr ""
-
-#: includes/config/customizer/90-utilities.php:52
+#: includes/config/customizer/90-utilities.php:40
 msgid "Theme Utilities"
-msgstr ""
-
-#: includes/config/metabox/meta-boxes.php:75
-msgid "Theme Settings"
-msgstr ""
-
-#: includes/config/metabox/meta-boxes.php:127
-msgid "Sidebar"
-msgstr ""
-
-#: includes/config/metabox/meta-boxes.php:130, includes/config/metabox/meta-boxes.php:146
-msgid "Customizer Setting"
-msgstr ""
-
-#: includes/config/metabox/meta-boxes.php:131
-msgid "Left Sidebar"
-msgstr ""
-
-#: includes/config/metabox/meta-boxes.php:132
-msgid "Right Sidebar"
-msgstr ""
-
-#: includes/config/metabox/meta-boxes.php:133
-msgid "No Sidebar"
-msgstr ""
-
-#: includes/config/metabox/meta-boxes.php:143
-msgid "Content Layout"
-msgstr ""
-
-#: includes/config/metabox/meta-boxes.php:148
-msgid "Content Boxed"
-msgstr ""
-
-#: includes/config/metabox/meta-boxes.php:149
-msgid "Full Width / Contained"
-msgstr ""
-
-#: includes/config/metabox/meta-boxes.php:150
-msgid "Full Width / Stretched"
-msgstr ""
-
-#: includes/config/metabox/meta-boxes.php:160
-msgid "Disable Sections"
-msgstr ""
-
-#: includes/config/metabox/meta-boxes.php:168
-msgid "Disable Title"
-msgstr ""
-
-#: includes/config/metabox/meta-boxes.php:175
-msgid "Disable Featured Image"
 msgstr ""
 
 #. translators: %s: page number
@@ -1176,7 +1108,11 @@ msgstr ""
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: includes/structure/general/site-footer.php:417
+#: includes/structure/general/site-footer.php:412
+msgid "Back to top"
+msgstr ""
+
+#: includes/structure/general/site-footer.php:433
 msgid "Powered by"
 msgstr ""
 
@@ -1225,13 +1161,13 @@ msgstr ""
 msgid "and adding new widgets to this area."
 msgstr ""
 
+#: includes/structure/general/template-tags.php:173
+msgid "This page doesn't seem to exist."
+msgstr ""
+
 #. translators: 1: search string
 #: includes/structure/general/template-tags.php:179
 msgid "Search Results for: %s"
-msgstr ""
-
-#: includes/structure/general/template-tags.php:173
-msgid "This page doesn't seem to exist."
 msgstr ""
 
 #: includes/structure/archives/blog/actions.php:119, includes/structure/archives/blog/actions.php:147
