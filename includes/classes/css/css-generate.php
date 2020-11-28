@@ -24,6 +24,16 @@ class CSS_Generate {
     public $fonts;
 
     public function __construct() {
+
+        // Create the css directory if it's not exist
+		$wp_upload_dir = wp_upload_dir( null, false );
+
+		$css_path = $wp_upload_dir['basedir'] . CSS_File::FILE_BASE_DIR;
+
+		if ( ! is_dir( $css_path ) ) {
+			wp_mkdir_p( $css_path );
+		}
+
         add_action( 'analytica/global-css-file/parse',      [ $this, 'add_css' ] );
 
         add_action( 'analytica_after_theme_is_activated',   [ $this, 'update_css' ], 90 );
@@ -53,7 +63,20 @@ class CSS_Generate {
 		global $wpdb;
 
 		$wpdb->delete( $wpdb->options, [ 'option_name' => Global_CSS_File::META_KEY ] );
-	
+
+		// Delete files
+		$wp_upload_dir = wp_upload_dir( null, false );
+
+		$path = sprintf( '%s%s%s*', $wp_upload_dir['basedir'], CSS_File::FILE_BASE_DIR, '/' );
+
+		foreach ( glob( $path ) as $file ) {
+			$deleted = unlink( $file );
+
+			if ( ! $deleted ) {
+				$errors['files'] = esc_html__( 'Cannot delete files cache', 'analytica' );
+			}
+		}
+
 		return $errors;
     }
 
