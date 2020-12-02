@@ -82,6 +82,30 @@ If you need to further customize the theme, it is recommended that you first cre
 
 If you’re interested in helping or have any questions, please [let me know](https://qazana.net/contact-us).
 
+## Changelog
+
+v1.0.12
+- Fixed broken mobile menu
+- Updated translation file
+
+v1.0.11
+- Improved blog styling
+- Correct title tags in related posts
+- Fixed spacing fro posts without a thumbnail
+
+v1.0.10
+- Improved blog styling
+- Improved comments styling
+- Customizer detached container conditions
+- Fixed dual container styling
+- Content typography improvements
+- Related styling improvements
+- Moved related posts position to below comments and content
+- Fixed loading of images on relaed posts
+
+v1.0.9
+- Initial release
+
 ## Copyright
 
 Analytica WordPress theme, Copyright 2017 Qazana.net. Analytica is distributed under the terms of the GNU GPL.
