@@ -122,11 +122,12 @@ class Core {
         $this->theme_version    = $this->theme->version;  // Theme version
 
         // Setup some base path, name and URL information
-        $this->theme_title = apply_filters( 'analytica_theme_title',      $this->theme->name );                          // or $this->theme->title
+        $this->theme_title = apply_filters( 'analytica_theme_title',      $this->theme->name ); // or $this->theme->title
         $this->theme_slug  = apply_filters( 'analytica_theme_slug',       get_stylesheet() );
         $this->theme_dir   = apply_filters( 'analytica_theme_dir_path',   strtolower( get_template_directory() ) );
 		$this->theme_url   = apply_filters( 'analytica_theme_dir_url',    strtolower( get_template_directory_uri() ) );
-        $this->hero = new stdClass();  // set up hero holder
+
+        $this->site_hero = new stdClass();  // set up hero holder
     }
 
     /**
@@ -140,6 +141,10 @@ class Core {
         $this->dynamic_css                             = new Dynamic_CSS();
         $this->frontend                                = new Frontend();
 		$this->markup                                  = new Markup();
+		if ( is_admin() ) {
+			$this->metaboxes                           = new MetaBoxes();
+		}
+        $this->metabox_actions                         = new Metabox\Actions();
         $this->options_instance                        = new Options();
         $this->schema                                  = new SchemaORG();
 		$this->theme                                   = new Theme();
@@ -151,7 +156,9 @@ class Core {
         $this->loop_page                               = new Content\Loop\Page();
 
 		$this->extensions_page_builders                = new Extensions\Page_Builder();
-		$this->extensions_header_composer 			   = new Extensions\Header_Composer();
+        $this->extensions_header_composer 			   = new Extensions\Header_Composer();
+		$this->extensions_qazana_headers               = new Extensions\Qazana\Headers();
+        $this->extensions_qazana_footers 			   = new Extensions\Qazana\Footers();
 		$this->extensions_page_builders_beaver_builder = new Extensions\Page_Builder\Beaver_Builder();
 		$this->extensions_page_builders_gutenberg 	 = new Extensions\Page_Builder\Gutenberg();
         $this->extensions_page_builders_qazana       = new Extensions\Page_Builder\Qazana();
@@ -192,6 +199,11 @@ class Core {
         require_once get_theme_file_path( '/includes/config/theme.php' );
         require_once get_theme_file_path( '/includes/config/frontend.php' );
         require_once get_theme_file_path( '/includes/config/skin-css.php' );
+
+        if ( is_admin() ) {
+            require_once get_theme_file_path( '/includes/config/metabox/meta-boxes.php' );
+        }
+
         require_once get_theme_file_path( '/includes/config/strings.php' );
     }
 
@@ -200,8 +212,10 @@ class Core {
         require_once get_theme_file_path( '/includes/classes/css/css-base.php' );
         require_once get_theme_file_path( '/includes/classes/css/global-css-file.php' );
         require_once get_theme_file_path( '/includes/classes/css/css-generate.php' );
+
         require_once get_theme_file_path( '/includes/classes/customizer/customizer.php' );
         require_once get_theme_file_path( '/includes/classes/customizer/controls.php' );
+        require_once get_theme_file_path( '/includes/classes/metaboxes/actions.php' );
     }
 
     function _include_function() {
@@ -276,7 +290,9 @@ class Core {
 
     function _include_extensions() {
 		require_once get_theme_file_path( '/includes/extensions/page-builder.php' );
-		require_once get_theme_file_path('/includes/extensions/header-composer.php');
+        require_once get_theme_file_path('/includes/extensions/header-composer.php');
+		require_once get_theme_file_path('/includes/extensions/qazana-headers.php');
+		require_once get_theme_file_path('/includes/extensions/qazana-footers.php');
 		require_once get_theme_file_path( '/includes/extensions/page-builder-beaver-builder.php' );
         require_once get_theme_file_path( '/includes/extensions/page-builder-gutenberg.php' );
 		require_once get_theme_file_path( '/includes/extensions/page-builder-elementor.php' );

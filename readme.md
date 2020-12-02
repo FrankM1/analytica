@@ -1,6 +1,6 @@
 # Analytica WordPress Theme
 
-The goal of this Analytica WordPress Theme is to provide a simple yet performant, powerfull WordPress theme. Analytica follows modern desing and development technique to provide a great base for your content.
+The goal of this Analytica WordPress Theme is to provide a simple yet performant, powerful WordPress theme. Analytica follows modern design and development technique to provide a great base for your content. It also provides a very extendable architecture for more complex projects.
 
 <img src="https://github.com/FrankM1/analytica/raw/master/screenshot.jpg">
 
@@ -81,6 +81,30 @@ If you need to further customize the theme, it is recommended that you first cre
 ## Documentation, FAQs, and More
 
 If you’re interested in helping or have any questions, please [let me know](https://qazana.net/contact-us).
+
+## Changelog
+
+v1.0.12
+- Fixed broken mobile menu
+- Updated translation file
+
+v1.0.11
+- Improved blog styling
+- Correct title tags in related posts
+- Fixed spacing fro posts without a thumbnail
+
+v1.0.10
+- Improved blog styling
+- Improved comments styling
+- Customizer detached container conditions
+- Fixed dual container styling
+- Content typography improvements
+- Related styling improvements
+- Moved related posts position to below comments and content
+- Fixed loading of images on relaed posts
+
+v1.0.9
+- Initial release
 
 ## Copyright
 

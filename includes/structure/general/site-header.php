@@ -102,7 +102,7 @@ function analytica_site_header_assets() {
 
      wp_enqueue_style(
          'analytica-site-header',
-         analytica()->theme_url . '/assets/frontend/css/site-header' . $css_suffix,
+         analytica()->theme_url . '/assets/frontend/css/analytica-site-header' . $css_suffix,
          false,
          $version,
          'all'
@@ -121,8 +121,9 @@ function analytica_site_header_assets() {
 
     wp_enqueue_script(
         'analytica-navigation-mobile',
-        analytica()->theme_url . '/assets/frontend/js/modules/navigation.js',
+        analytica()->theme_url . '/assets/frontend/js/analytica-navigation.js',
         [
+            'analytica-frontend',
             'analytica-jquery-dlmenu',
         ],
         $version,

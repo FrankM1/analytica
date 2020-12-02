@@ -76,7 +76,7 @@ class Page_Builder {
         if ( analytica_is_builder_page() ) {
             return _analytica_return_full_width_content();
         }
-        return false;
+        return $value;
     }
 
     /**

@@ -61,7 +61,7 @@ class Archives extends Base {
      * @return void
      */
     public function archive_tools() {
-        if ( ! analytica_is_post_archive_page() ) { 
+        if ( ! analytica_is_post_archive_page() ) {
             return;
         }
         do_action( 'analytica_loop_archives_tools' );
@@ -73,7 +73,7 @@ class Archives extends Base {
      * @return void
      */
     public function template_parts() {
-        if ( ! analytica_is_post_archive_page() ) { 
+        if ( ! analytica_is_post_archive_page() ) {
             return;
         }
         get_template_part( 'template-parts/content', $this->get_post_format() );
@@ -85,7 +85,7 @@ class Archives extends Base {
      * @return void
      */
     public function template_parts_none() {
-        if ( ! analytica_is_post_archive_page() ) { 
+        if ( ! analytica_is_post_archive_page() ) {
             return;
         }
         get_template_part( 'template-parts/content', 'none' );
@@ -97,7 +97,7 @@ class Archives extends Base {
      * @return void
      */
     public function template_parts_content_top() {
-        if ( ! analytica_is_post_archive_page() ) { 
+        if ( ! analytica_is_post_archive_page() ) {
             return;
         }
         do_action( 'analytica_loop_archives_while_before' );
@@ -109,7 +109,7 @@ class Archives extends Base {
      * @return void
      */
     public function template_parts_content_bottom() {
-        if ( ! analytica_is_post_archive_page() ) { 
+        if ( ! analytica_is_post_archive_page() ) {
             return;
         }
         do_action( 'analytica_loop_archives_while_after' );
@@ -121,11 +121,11 @@ class Archives extends Base {
      * @return void
      */
     public function templat_part_wrap_open() {
-        if ( ! analytica_is_post_archive_page() ) { 
+        if ( ! analytica_is_post_archive_page() ) {
             return;
         }
         echo '<div class="entry-archives">';
-            
+
             do_action( 'analytica_loop_archives_tools' );
 
             echo '<div class="analytica-content-list analytica-content-list-1 analytica-content-list-container">';
@@ -137,7 +137,7 @@ class Archives extends Base {
      * @return void
      */
     public function templat_part_wrap_close() {
-        if ( ! analytica_is_post_archive_page() ) { 
+        if ( ! analytica_is_post_archive_page() ) {
             return;
         }
             echo '</div>';
@@ -156,7 +156,7 @@ class Archives extends Base {
      * /template-parts/content-search.php
      */
     function entry_content_blog_template() {
-        if ( ! analytica_is_post_archive_page() ) { 
+        if ( ! analytica_is_post_archive_page() ) {
             return;
         }
         get_template_part( 'template-parts/blog/blog-layout' );
@@ -168,19 +168,19 @@ class Archives extends Base {
      * @return void            Generate & echo pagination markup.
      */
     function number_pagination() {
-        
+
         global $numpages;
-        
+
         $enabled = apply_filters( 'analytica_pagination_enabled', true );
 
         if ( ! isset( $numpages ) || ! $enabled || ! analytica_is_post_archive_page() ) {
-            return;
+           return;
         }
 
         ob_start();
-        
+
         echo "<div class='analytica-pagination'>";
-        
+
         the_posts_pagination(
             array(
                 'prev_text'    => analytica_default_strings( 'string-blog-navigation-previous', false ),

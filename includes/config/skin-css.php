@@ -503,8 +503,6 @@ class Dynamic_CSS {
         $text_color       = analytica_get_option( 'site-text-color' );
         $link_color       = analytica_get_option( 'site-link-color' );
 
-        $site_hero_height       = analytica_get_option( 'site-hero-height' );
-
         $css .= 'a, .nav-horizontal ul > li > ul.sub-menu .current_page_item a { color: ' . esc_attr( $link_color ) .'}';
 
         if ( 'site-boxed' === $site_layout ) {

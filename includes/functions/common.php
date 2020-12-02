@@ -14,6 +14,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Helper function for writing to log file.
+ *
+ * @since 1.0.0
+ *
+ * @param log data to log
+ * @param type log or export
+ */
+function analytica_write_log( $log, $type = '1' ) {
+    if ( true === WP_DEBUG ) {
+        if ( is_array( $log ) || is_object( $log ) ) {
+            if ( $type === '1' ) {
+                error_log( print_r( $log, true ) );
+            } else {
+                error_log( var_export( $log, true ) );
+            }
+        } else {
+            error_log( $log );
+        }
+    }
+}
+
+/**
  * Custom callback for custom backgrounds
  *
  * @since 1.0.0

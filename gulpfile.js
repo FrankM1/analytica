@@ -62,7 +62,8 @@ var imagesDestination = "assets/frontend/images/"; // Destination folder of opti
 var FrontendJSWatchFiles = [
 	"assets/frontend/js/modules/**/*.js",
 	"!assets/frontend/js/analytica-editor.js",
-	"!assets/frontend/js/analytica-frontend.js"
+	"!assets/frontend/js/analytica-frontend.js",
+	"!assets/frontend/js/analytica-navigation.js"
 ]; // Path to all vendor JS files.
 var AdminJSWatchFiles = "assets/admin/js/**/*.js"; // Path to all vendor JS files.
 
@@ -340,6 +341,12 @@ gulp.task('standard', function() {
 })
 
 gulp.task("lintJs", function() {
+
+	gulp
+	.src('assets/frontend/js/src/navigation.js')
+	.pipe(jshint())
+	.pipe(jshint.reporter("default"));
+
 	gulp
 		.src(["assets/frontend/js/modules/**/*.js", "assets/admin/js/**/*.js"])
 		.pipe(jshint())
@@ -365,13 +372,27 @@ gulp.task("vendorFiles", function() {});
  * Look at src/js and concatenate those files, send them to assets/js where we then minimize the concatenated file.
  */
 gulp.task("FrontendScriptsJs", function() {
-	return gulp
-		.src("assets/frontend/js/modules/**/*.js")
-		.pipe(concat("main.js").on("error", gutil.log))
+
+	gulp
+		.src("assets/frontend/js/src/navigation.js")
+		.pipe(concat("analytica-navigation.js").on("error", gutil.log))
 		.pipe(gulp.dest("assets/frontend/js"))
 		.pipe(
 			rename({
-				basename: "main",
+				basename: "analytica-navigation",
+				suffix: ".min"
+			})
+		)
+		.pipe(uglify().on("error", gutil.log))
+		.pipe(gulp.dest("assets/frontend/js/"));
+
+	return gulp
+		.src("assets/frontend/js/modules/**/*.js")
+		.pipe(concat("analytica-frontend.js").on("error", gutil.log))
+		.pipe(gulp.dest("assets/frontend/js"))
+		.pipe(
+			rename({
+				basename: "analytica-frontend",
 				suffix: ".min"
 			})
 		)
@@ -387,11 +408,11 @@ gulp.task("FrontendScriptsJs", function() {
 gulp.task("AdminScriptsJs", function() {
 	return gulp
 		.src("assets/admin/js/modules/**/*.js")
-		.pipe(concat("main.js").on("error", gutil.log))
+		.pipe(concat("analytica-admin.js").on("error", gutil.log))
 		.pipe(gulp.dest("assets/admin/js"))
 		.pipe(
 			rename({
-				basename: "main",
+				basename: "analytica-admin",
 				suffix: ".min"
 			})
 		)

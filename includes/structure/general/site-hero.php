@@ -41,10 +41,10 @@ class Site_Hero {
     }
 
     public function add_action() {
-        add_action( 'analytica_do_before_hero_wrapper',     [ $this, 'do_background' ] );
-        add_action( 'analytica_do_hero_content',            [ $this, 'do_title' ] );
-        add_action( 'analytica_do_hero_content',            [ $this, 'do_subtitle' ] );
-        add_action( 'analytica_do_hero_content',            [ $this, 'do_breadcrumbs' ] );
+        add_action( 'analytica_do_before_site_hero_wrapper',     [ $this, 'do_background' ] );
+        add_action( 'analytica_do_site_hero_content',            [ $this, 'do_title' ] );
+        add_action( 'analytica_do_site_hero_content',            [ $this, 'do_subtitle' ] );
+        add_action( 'analytica_do_site_hero_content',            [ $this, 'do_breadcrumbs' ] );
         add_filter( 'analytica_attr_site-hero',             [ $this, 'attributes_hero' ] );
     }
 
@@ -91,10 +91,10 @@ class Site_Hero {
             $header_title = esc_html__( 'Post', 'analytica' );
         }
 
-		$this->page_title = apply_filters( 'analytica_hero_title', $header_title );
+		$this->page_title = apply_filters( 'analytica_site_hero_title', $header_title );
 
 		if ( $this->args['show-subtitle'] ) {
-			$this->page_subtitle = apply_filters( 'analytica_hero_subtitle', analytica_get_option( 'site-hero-subtitle' ) );
+			$this->page_subtitle = apply_filters( 'analytica_site_hero_subtitle', analytica_get_option( 'site-hero-subtitle' ) );
 		}
     }
 
@@ -113,9 +113,9 @@ class Site_Hero {
     }
 
     public function do_header() {
-        echo '<div class="site-hero' . esc_attr( $this->get_hero_classes() ) . '">';
+        echo '<div class="site-hero' . esc_attr( $this->get_site_hero_classes() ) . '">';
 
-            do_action( 'analytica_do_before_hero_wrapper' );
+            do_action( 'analytica_do_before_site_hero_wrapper' );
 
                 analytica_structural_wrap( 'site-hero', 'open' );
 
@@ -126,13 +126,13 @@ class Site_Hero {
 
                         echo '<div class="page-title-inner">';
 
-                            do_action( 'analytica_do_before_hero_content' );
+                            do_action( 'analytica_do_before_site_hero_content' );
 
                             echo '<div class="page-title-inner-wrap">';
-                                do_action( 'analytica_do_hero_content' );
+                                do_action( 'analytica_do_site_hero_content' );
                             echo '</div>';
 
-                            do_action( 'analytica_do_after_hero_content' );
+                            do_action( 'analytica_do_after_site_hero_content' );
 
                         echo '</div>';
 
@@ -142,12 +142,12 @@ class Site_Hero {
 
                 analytica_structural_wrap( 'site-hero', 'close' );
 
-            do_action( 'analytica_do_after_hero_wrapper' );
+            do_action( 'analytica_do_after_site_hero_wrapper' );
 
         echo '</div>';
     }
 
-    public function get_hero_classes() {
+    public function get_site_hero_classes() {
         $classes = null;
 
         if ( $this->args['align'] ) {
@@ -172,13 +172,13 @@ class Site_Hero {
 
     public function do_title() {
         if ( $this->args['show-title'] && ! empty( $this->page_title ) ) {
-            ?><h1 class = "header"><?php echo wp_kses( $this->page_title, analytica_get_allowed_tags() ); ?></h1><?php
+            ?><h1 class = "site-hero-header"><?php echo wp_kses( $this->page_title, analytica_get_allowed_tags() ); ?></h1><?php
         }
     }
 
     public function do_subtitle() {
         if ( ! empty( $this->page_subtitle ) && $this->args['show-subtitle'] ) {
-            ?><h3 class = "subheader"><?php echo wp_kses( $this->page_subtitle, analytica_get_allowed_tags() ); ?></h3><?php
+            ?><h3 class = "site-hero-subheader"><?php echo wp_kses( $this->page_subtitle, analytica_get_allowed_tags() ); ?></h3><?php
         }
     }
 
@@ -188,7 +188,7 @@ class Site_Hero {
     public function do_background() {
         echo '<div class="site-hero-background-container">';
             echo '<div class="site-hero-background"></div>';
-            do_action( 'analytica_do_hero_do_background' );
+            do_action( 'analytica_do_site_hero_do_background' );
         echo '</div>';
     }
 }

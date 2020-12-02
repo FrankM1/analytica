@@ -22,6 +22,48 @@ function analytica_is_bool( $var ) {
     return ( ! $var || in_array( strtolower( $var ), [ 'false', '0', 'no', 'n', 'off' ] ) ) ? false : true;
 }
 
+
+ /**
+  * Detect active plugin by constant, class or function existence.
+  *
+  * @since 1.0.0
+  *
+  * @param array $plugins Array of array for constants, classes and / or functions to check for plugin existence.
+  *
+  * @return bool True if plugin exists or false if plugin constant, class or function not detected.
+  */
+ function analytica_detect_plugin( array $plugins ) {
+     // Check for classes
+     if ( isset( $plugins['classes'] ) ) {
+         foreach ( $plugins['classes'] as $name ) {
+             if ( class_exists( $name ) ) {
+                 return true;
+             }
+         }
+     }
+
+     // Check for functions
+     if ( isset( $plugins['functions'] ) ) {
+         foreach ( $plugins['functions'] as $name ) {
+             if ( function_exists( $name ) ) {
+                 return true;
+             }
+         }
+     }
+
+     // Check for constants
+     if ( isset( $plugins['constants'] ) ) {
+         foreach ( $plugins['constants'] as $name ) {
+             if ( defined( $name ) ) {
+                 return true;
+             }
+         }
+     }
+
+     // No class, function or constant found to exist
+     return false;
+ }
+
 /**
   * Detect if site schema is active
   *
@@ -98,56 +140,8 @@ function analytica_site_header_is_active() {
   * @return boolean
   */
  function analytica_builder_is_active() {
-     $retval = false;
-
-     if ( analytica_detect_plugin( ['classes' => ['Vc_Manager']] ) ) {
-         $retval = true;
-     }
-
-     return apply_filters( __FUNCTION__, $retval );
+     return apply_filters( __FUNCTION__, false );
  }
-
- /**
-  * Detect blog page.
-  *
-  * @since 1.0.0
-  *
-  * @param post_id $post_id pass post id.
-  *
-  * @return bool return true if blog page templates are true
-  */
- function analytica_is_blog_page( $post_id = null ) {
-     $post_id = $post_id ? (int) $post_id : get_the_ID();
-
-     $retval = false;
-
-     if ( is_page_template( 'blog.php' ) || analytica_is_blog_and_builder_page() ) {
-         $retval = true;
-     }
-
-     return $retval;
- }
-
- /**
-  * Detect blog page.
-  *
-  * @since 1.0.0
-  *
-  * @param post_id $post_id pass post id.
-  *
-  * @return bool return true if blog page templates are true
-  */
-  function analytica_is_blog_and_builder_page( $post_id = null ) {
-      $post_id = $post_id ? (int) $post_id : get_the_ID();
-
-      $retval = false;
-
-      if ( is_page_template( 'builder-blog.php' ) ) {
-          $retval = true;
-      }
-
-      return $retval;
-  }
 
  /**
   * Detect qazana page
@@ -162,14 +156,6 @@ function analytica_site_header_is_active() {
      $retval = false;
 
      $post_id = $post_id ? (int) $post_id : get_the_ID();
-
-    if (
-         ( function_exists( 'qazana' ) && ( qazana()->db->has_qazana_in_post( get_the_ID() ) ) && Qazana\Utils::is_post_type_support( $post_id ) ) ||
-         is_page_template( 'builder.php' ) ||
-         analytica_is_blog_and_builder_page()
-    ) {
-         $retval = true;
-     }
 
      if ( is_search() ) {
          $retval = false;
@@ -193,7 +179,6 @@ function analytica_is_post_archive_page( $post_id = null ) {
     $post_id = $post_id ? (int) $post_id : get_the_ID();
 
     if (
-        analytica_is_blog_page() ||
         is_archive() ||
         is_search() ||
         is_home()
@@ -203,47 +188,6 @@ function analytica_is_post_archive_page( $post_id = null ) {
 
     return apply_filters( __FUNCTION__, $retval, $post_id );
 }
-
- /**
-  * Detect active plugin by constant, class or function existence.
-  *
-  * @since 1.0.0
-  *
-  * @param array $plugins Array of array for constants, classes and / or functions to check for plugin existence.
-  *
-  * @return bool True if plugin exists or false if plugin constant, class or function not detected.
-  */
- function analytica_detect_plugin( array $plugins ) {
-     // Check for classes
-     if ( isset( $plugins['classes'] ) ) {
-         foreach ( $plugins['classes'] as $name ) {
-             if ( class_exists( $name ) ) {
-                 return true;
-             }
-         }
-     }
-
-     // Check for functions
-     if ( isset( $plugins['functions'] ) ) {
-         foreach ( $plugins['functions'] as $name ) {
-             if ( function_exists( $name ) ) {
-                 return true;
-             }
-         }
-     }
-
-     // Check for constants
-     if ( isset( $plugins['constants'] ) ) {
-         foreach ( $plugins['constants'] as $name ) {
-             if ( defined( $name ) ) {
-                 return true;
-             }
-         }
-     }
-
-     // No class, function or constant found to exist
-     return false;
- }
 
  /**
   * Check that we're targeting a specific Radium admin page.
@@ -272,20 +216,6 @@ function analytica_is_post_archive_page( $post_id = null ) {
      }
 
      return false;
- }
-
- /**
-  * Check whether we are currently viewing the site via the WordPress Customizer.
-  *
-  * @since 1.0.0
-  *
-  * @global $wp_customize Customizer.
-  *
-  * @return bool Return true if viewing page via Customizer, false otherwise.
-  */
- function analytica_is_customizer() {
-     global $wp_customize;
-     return is_a( $wp_customize, 'WP_Customize_Manager' ) && $wp_customize->is_preview();
  }
 
 /**

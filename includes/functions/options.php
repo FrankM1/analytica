@@ -9,12 +9,39 @@
  * @since       Analytica 1.0.0
  */
 
- /**
+/**
+ * Get post ID.
+ *
+ * @param  string $post_id_override Get override post ID.
+ * @return number                   Post ID.
+ */
+function analytica_get_post_id( $post_id_override = '' ) {
+
+    if ( null == \Analytica\Options::$post_id ) {
+        global $post;
+
+        $post_id = 0;
+
+        if ( is_home() ) {
+            $post_id = get_option( 'page_for_posts' );
+        } elseif ( is_archive() ) {
+            global $wp_query;
+            $post_id = $wp_query->get_queried_object_id();
+        } elseif ( isset( $post->ID ) && ! is_search() && ! is_category() ) {
+            $post_id = $post->ID;
+        }
+
+        \Analytica\Options::$post_id = $post_id;
+    }
+
+    return apply_filters( __FUNCTION__, \Analytica\Options::$post_id, $post_id_override );
+}
+
+/**
  * Default color picker palettes
  *
  * @since 1.4.9
  */
-
 function analytica_default_color_palettes() {
 
     $font_base            = analytica_get_option( 'font-base' );
@@ -139,32 +166,4 @@ function analytica_get_custom_field( $field, $post_id = null ) {
     $value = is_array( $value ) ? stripslashes_deep( $value ) : stripslashes( wp_kses_decode_entities( $value ) );
 
     return apply_filters( __FUNCTION__, $value, $field, $post_id ); // make meta fields filterable
-}
-
-/**
- * Get post ID.
- *
- * @param  string $post_id_override Get override post ID.
- * @return number                   Post ID.
- */
-function analytica_get_post_id( $post_id_override = '' ) {
-
-    if ( null == \Analytica\Options::$post_id ) {
-        global $post;
-
-        $post_id = 0;
-
-        if ( is_home() ) {
-            $post_id = get_option( 'page_for_posts' );
-        } elseif ( is_archive() ) {
-            global $wp_query;
-            $post_id = $wp_query->get_queried_object_id();
-        } elseif ( isset( $post->ID ) && ! is_search() && ! is_category() ) {
-            $post_id = $post->ID;
-        }
-
-        \Analytica\Options::$post_id = $post_id;
-    }
-
-    return apply_filters( __FUNCTION__, \Analytica\Options::$post_id, $post_id_override );
 }

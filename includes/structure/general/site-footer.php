@@ -400,22 +400,6 @@ function analytica_get_dynamic_footer_sidebar( $sidebar, $layout ) {
 
 }
 
-add_action( 'analytica_footer_after', 'analytica_back_to_top', 99 );
-/**
- * Add theme credits
- *
- * @since 1.0.0
- */
-function analytica_back_to_top() {
-
-    // Filter the text strings
-    $backtotop_text = apply_filters( 'analytica_footer_backtotop_text', '<a href="#page" rel="nofollow">'. esc_html__( 'Back to top', 'analytica' ) .'</a>' );
-
-    $backtotop = $backtotop_text && analytica_get_option( 'site-back-to-top' ) ? sprintf( '<div id="gototop"><div class="cross"><span class="bloc-h"></span><span class="bloc-v"></span></div><span class="ricon-arrow-top"></span>%s</div>', $backtotop_text ) : '';
-
-    echo wp_kses( apply_filters( __FUNCTION__, $backtotop ), analytica_get_allowed_tags() );
-}
-
 add_action( 'analytica_do_colophon', 'analytica_colophon_content', 15 );
 /**
  * Get colophon content
@@ -428,11 +412,11 @@ function analytica_colophon_content() {
     if ( analytica_get_option( 'site-footer-copyright-text' ) ) {
         $site_copyright = sprintf( '<div class="site-copyright">%s</div>', str_replace( '[year]', date( 'Y' ), analytica_get_option( 'site-footer-copyright-text' ) ) );
     }
-    
+
     if ( analytica_get_option( 'site-theme-badge' ) ) {
         $theme_credits = '<div class="theme-credits">'. esc_html__( 'Powered by', 'analytica' ) .' <a href="https://qazana.net/" target="_blank">' . analytica()->theme_title .'</a> <span>and</span> WordPress.</div>';
     }
-    
+
     if ( $site_copyright || $theme_credits ) {
         $output = '<div class="site-creds" role="contentinfo">' . $site_copyright . $theme_credits . '</div>';
     }
@@ -445,9 +429,9 @@ add_action( 'analytica_footer', 'analytica_do_colophon', 20 );
 /**
  * Echo the contents of the colophon.
  *
- * Applies 'analytica_footer_backtotop_text', 'analytica_footer_creds_text' and 'analytica_footer_output' filters.
+ * Applies 'analytica_footer_creds_text' and 'analytica_footer_output' filters.
  *
- * For HTML5 themes, only the credits text is used (back-to-top link is dropped).
+ * For HTML5 themes, only the credits text is used.
  *
  * @since 1.0.0
  */

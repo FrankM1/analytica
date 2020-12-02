@@ -210,17 +210,17 @@ function analytica_site_skip_link () {
     ?><a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( analytica_default_strings( 'string-header-skip-link', false ) ); ?></a><?php
 }
 
-add_action( 'template_redirect', 'analytica_hero_support' );
+add_action( 'template_redirect', 'analytica_site_hero_support' );
 /**
  * Page header support.
  *
  * @since 1.0.0
  */
-function analytica_hero_support() {
-    analytica()->hero = new \Analytica\Site_Hero();
+function analytica_site_hero_support() {
+    analytica()->site_hero = new \Analytica\Site_Hero();
 }
 
-add_action( 'analytica_content_top', 'analytica_do_hero', 2 );
+add_action( 'analytica_content_top', 'analytica_do_site_hero', 2 );
 /**
  * Echo the default header, including the #title-area div, along with #title and #description, as well as the .widget-area.
  *
@@ -228,10 +228,10 @@ add_action( 'analytica_content_top', 'analytica_do_hero', 2 );
  *
  * @since 1.0.0
  */
-function analytica_do_hero() {
+function analytica_do_site_hero() {
     if ( ! analytica_is_site_hero_available() ) {
         return;
     }
 
-    analytica()->hero->do_header();
+    analytica()->site_hero->do_header();
 }

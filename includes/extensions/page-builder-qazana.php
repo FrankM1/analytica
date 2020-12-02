@@ -26,16 +26,21 @@ class Qazana {
             return;
         }
         add_filter( 'qazana/widgets/black_list', [ $this, 'wp_widget_black_list'] );
-        add_filter( 'pre_option_qazana_page_title_selector', [ $this, 'page_title_selector'] );
         add_filter( 'analytica_is_builder_page', [ $this, 'is_builder_page'], 10, 2 );
         add_filter( 'analytica_builder_is_active', [ $this, 'is_builder_activated'] );
         add_action( 'customize_save_after', [ $this, 'reset_schemes'], 100 );
+
+		add_filter( 'pre_option_qazana_page_title_selector', [ $this, 'page_title_selector'] );
+
+		add_filter( 'qazana/core/settings/page-settings/selector', [ $this, 'page_selector' ], 10, 2 );
 
         add_filter( 'qazana/schemes/default_color_picker_schemes', [ $this, 'default_color_picker_schemes'] );
         add_filter( 'qazana/schemes/system_color_schemes', [ $this, 'system_color_schemes'] );
         add_filter( 'qazana/schemes/default_color_schemes', [ $this, 'default_colors'] );
 		add_filter( 'qazana/schemes/default_fonts', [ $this, 'reset_default_font'] );
 		add_filter( 'qazana/footers/get_injection_hook', [ $this, 'site_footer_support' ] );
+
+		add_filter( 'analytica_dynamic_css_cached', array( $this, 'add_container_css' ));
     }
 
     /**
@@ -58,12 +63,37 @@ class Qazana {
         $widgets[] = 'WP_Widget_Custom_HTML';
 
         return $widgets;
-    }
+	}
+
+	/**
+     * Add page selector to qazana
+     *
+     * @return string css selector
+     */
+    function page_selector( $base_selector, $model ) {
+        return $base_selector . '.site-mono-container .site-container, ' . $base_selector . '.site-dual-containers .site-container, ' . $base_selector . '.site-container-detach .site-container';
+	}
+
+	/**
+     * Add container css
+     *
+     * @return string css selector
+     */
+	function add_container_css( $css ) {
+		$site_container_width               = intval( analytica_get_option( 'site-content-width' ) );
+		$site_sidebar_width                 = intval( analytica_get_option( 'site-sidebar-width' ) );
+
+		if ( $site_container_width > 0 ) {
+			$css .= '.qazana-section.qazana-section-boxed > .qazana-container { max-width: ' . esc_attr( $site_container_width + $site_sidebar_width  ) . 'px; }';
+		}
+
+		return $css;
+	}
 
     /**
-     * [analytica_qazana_hero description]
-     * @method analytica_qazana_hero
-     * @return [type]                    [description]
+     * Add hero title selector to qazana
+     *
+     * @return string css selector
      */
     function page_title_selector(){
         return ' .site-hero h1.heading';
@@ -216,10 +246,10 @@ class Qazana {
                     '3' => $font_base_color,
                     '4' => $accent_color, // Accents color, buttons etc
                 ] );
-
             }
-        }
+		}
 
+        update_option( \Qazana\Scheme_Base::LAST_UPDATED_META, time() );
     }
 
     /**

@@ -14,14 +14,11 @@ add_filter( 'analytica_customizer_controls', 'analytica_admin_add_customizer_sit
  */
 function analytica_admin_add_customizer_site_header_control( $controls ) {
 
-    $default = Analytica\Options::defaults();
-
     $controls[] = [
         'id'      => 'site-header',
         'section' => 'site-header-settings',
         'type'    => 'switch',
         'label'   => esc_html__( 'Enable Header' , 'analytica' ),
-        'default' => $default['site-header'],
     ];
 
     $controls[] = [
@@ -29,7 +26,6 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'section' => 'site-header-settings',
         'type'    => 'switch',
         'label'   => esc_html__( 'Header fullwidth' , 'analytica' ),
-        'default'   => $default['site-header-width'],
         'options' => [
             1 => esc_attr__( 'Enable', 'analytica' ),
             0 => esc_attr__( 'Disable', 'analytica' ),
@@ -68,7 +64,6 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
     $controls[] = [
         'id'      => 'site-header-overlay',
         'section' => 'site-header-settings',
-        'default' => $default['site-header-overlay'],
         'type'    => 'switch',
         'label'   => esc_html__( 'Header Overlay' , 'analytica' ),
         'conditions' => [
@@ -83,7 +78,6 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
     $controls[] = [
         'id'      => 'site-header-transparent',
         'section' => 'site-header-settings',
-        'default' => $default['site-header-transparent'],
         'type'    => 'switch',
         'label'   => esc_html__( 'Header Transparent' , 'analytica' ),
         'conditions' => [
@@ -100,7 +94,6 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'type'    => 'spacing',
         'label'   => esc_html__( 'Header padding', 'analytica' ),
         'section' => 'site-header-style',
-        'default'   => $default['site-header-padding'],
         'transport' => 'auto',
         'output'    => [
             [
@@ -122,7 +115,6 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'section'         => 'site-header-style',
         'type'            => 'color',
         'title'           => esc_html__( 'Background color' , 'analytica' ),
-        'default'         => $default['site-header-background-color'],
         'conditions' => [
             [
                 'setting'  => 'site-header',
@@ -186,7 +178,6 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'type'    => 'spacing',
         'label'   => esc_html__( 'Border', 'analytica' ),
         'section' => 'site-header-style',
-        'default'   => $default['site-header-border'],
         'transport' => 'auto',
         'conditions' => [
             [
@@ -203,7 +194,6 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'type'      => 'color',
         'transport' => 'auto',
         'label'     => esc_html__( 'Border Color' , 'analytica' ),
-        'default'   => $default['site-header-border-color'],
         'output'    => [
             [
                 'property' => 'border-color',
@@ -224,7 +214,6 @@ function analytica_admin_add_customizer_site_header_control( $controls ) {
         'section'         => 'site-header-overlay',
         'type'            => 'color',
         'title'           => esc_html__( 'Background color' , 'analytica' ),
-        'default'         => $default['site-header-overlay-background-color'],
         'conditions' => [
             [
                 'setting'  => 'site-header-overlay',
